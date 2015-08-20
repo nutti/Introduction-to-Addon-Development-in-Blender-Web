@@ -1,6 +1,5 @@
 # Summary
 
-* [Introduction](README.md)
 * アドオン開発者へようこそ
    * [1. Blenderって何？アドオンって何？](01_What_is_Blender_What_is_Add-on.md)
    * [2. Blenderのアドオンを使ってみよう](02_Use_Blender_Add-on.md)
@@ -15,9 +14,9 @@
    * [10. サンプル6: オブジェクトを複製する3 ショートカットキーを割り当てよう](10_Sample_6_Replicate_object_3.md)
 * より高度なアドオンを作るために
    * [11. サンプル7: マウスの右クリックで面を削除する](11_Sample_7_Delete_face_by_mouse_click.md)
-   * 12. サンプル8: Blenderに読み込まれている画像を表示する
+   * [12. サンプル8: Blenderに読み込まれている画像を表示する](12_Sample_8_Display_images_loaded_by_Blender.md)
 * さらにその先へ
-   * 13. アドオンに公開されているAPIを調べる
-   * 14. デバッグ環境を整えよう
-   * 15. アドオンを公開しよう
+   * [13. アドオンに公開されているAPIを調べる](13_Research_official_Blender_API_for_Add-on.md)
+   * [14. デバッグ環境を整えよう](14_Prepare_Add-on_debugging_environment.md)
+   * [15. アドオンを公開しよう](15_Publish_your_Add-on.md)
 
