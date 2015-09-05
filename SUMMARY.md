@@ -3,7 +3,7 @@
 * アドオン開発者へようこそ
    * [1. Blenderって何？アドオンって何？](01_What_is_Blender_What_is_Add-on.md)
    * [2. Blenderのアドオンを使ってみよう](02_Use_Blender_Add-on.md)
-   * [3. アドオン開発環境を整えよう](03_Parepare_Add-on_development_environment.md)
+   * [3. アドオン開発環境を整えよう](03_Prepare_Add-on_development_environment.md)
    * [4. 自作のアドオンをインストールしてみよう](04_Install_own_Add-on.md)
 * アドオンを作ってみよう
    * [5. サンプル1: アドオンからオブジェクトを生成する](05_Sample_1_Create_object_from_Add-on.md)
@@ -19,4 +19,3 @@
    * [13. アドオンに公開されているAPIを調べる](13_Research_official_Blender_API_for_Add-on.md)
    * [14. デバッグ環境を整えよう](14_Prepare_Add-on_debugging_environment.md)
    * [15. アドオンを公開しよう](15_Publish_your_Add-on.md)
-

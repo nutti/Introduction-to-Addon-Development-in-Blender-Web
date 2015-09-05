@@ -115,3 +115,5 @@ $ /path/blender.app/Contents/MacOS/blender
 3. Blenderが起動します。
 
 ### Linuxの場合
+
+1. **ターミナル** を起動します。
