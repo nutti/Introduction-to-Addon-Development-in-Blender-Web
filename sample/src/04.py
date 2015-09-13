@@ -6,7 +6,7 @@ bl_info = {
 	"version": (1, 0),
 	"blender": (2, 75, 0),
 	"location": "Object > サンプル 0: 何もしないアドオン",
-	"description": "アドオンのインストールとアンインストールを試すためのサンプル",
+	"description": "アドオンの有効化と無効化を試すためのサンプル",
 	"warning": "",
 	"support": "TESTING",
 	"wiki_url": "",
@@ -16,13 +16,12 @@ bl_info = {
 
 
 def register():
-	print("アドオンがインストールされました。")
+	print("アドオンが有効化されました。")
 
 
 def unregister():
-	print("アドオンがアンインストールされました。")
+	print("アドオンが無効化されました。")
 
 
 if __name__ == "__main__":
 	register()
-

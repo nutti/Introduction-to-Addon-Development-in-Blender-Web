@@ -1,3 +1,4 @@
+```py:05.py
 import bpy   # Blenderがアドオン開発者に対して用意しているAPIを利用するために必要
 
 # アドオンに関する情報
@@ -28,11 +29,13 @@ class CreateObject(bpy.types.Operator):
 	def execute(self, context):
         # ICO球を追加
 		bpy.ops.mesh.primitive_ico_sphere_add()
+		# ICO球が生成されたことをコンソール・ウィンドウへ表示
+		print("サンプル1: 3DビューにICO球を生成しました。")
 		# 処理が正常に終了したことを通知する
 		return {'FINISHED'}
 
 
-# メニューに追加
+# メニューを構築する関数
 def menu_fn(self, context):
 	# セパレータを追加
 	self.layout.separator()
@@ -40,22 +43,24 @@ def menu_fn(self, context):
 	self.layout.operator(CreateObject.bl_idname)
 
 
-# アドオンインストール時の処理
+# アドオン有効化時の処理
 def register():
 	bpy.utils.register_module(__name__)
 	bpy.types.INFO_MT_mesh_add.append(menu_fn)
 	# コンソールへ指定した文字列を表示
-	print("アドオン「サンプル 1」がインストールされました。")
+	print("サンプル 1: アドオン「サンプル1」が有効化されました。")
 
 
-# アドオンアンインストール時の処理
+# アドオン無効化時の処理
 def unregister():
 	bpy.types.INFO_MT_mesh_add.remove(menu_fn)
 	bpy.utils.unregister_module(__name__)
 	# コンソールへ指定した文字列を表示
-	print("アドオン「サンプル 1」がアンインストールされました。")
+	print("サンプル 1: アドオン「サンプル 1」が無効化されました。")
 
 
 # メイン関数
 if __name__ == "__main__":
 	register()
+
+```
