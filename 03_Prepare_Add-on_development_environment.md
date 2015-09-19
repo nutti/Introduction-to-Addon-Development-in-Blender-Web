@@ -6,11 +6,17 @@
 
 Blenderは公式で日本語をサポートしています。
 英語では敷居が高いと感じてしまう方もいらっしゃると思いますので、Blenderを日本語化します。
-日本語化を以下の手順で行います。
+
+**Info** ウィンドウの **File** > **User Preferences...** を選択してください。
+
+すると、 **Blender User Preferences** ウィンドウが立ち上がりますので、 **System** タブを選択してください。
+**International Fonts** にチェックを入れると、Blenderの言語を変更することができます。
+
+**Language** を **Japanese（日本語）** に、 **Translate** で日本語化したいものを選択することで日本語化されます。
 
 
 
-以降の説明では、Blenderが日本語化された状態を想定します。
+以降の説明では、Blenderが日本語化されていることを前提に解説します。
 
 ## Blenderの画面設定
 
