@@ -1,0 +1,11 @@
+
+# not allow temporary files
+*~
+.DS_Store
+
+# not allow output files
+*.pdf
+
+# not allow media files
+*.png
+*.jpg
