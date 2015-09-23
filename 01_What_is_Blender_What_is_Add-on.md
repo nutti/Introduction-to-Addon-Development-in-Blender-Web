@@ -44,7 +44,7 @@ Blenderは商用レベルのソフトとは言われますが、商用の3DCG制
 有志によって作成され続けています。  
 アドオンは、時にはプラグイン（plugin）やスクリプト（script）と呼ばれることもあります。
 
-![Blender起動画面](https://dl.dropboxusercontent.com/s/bhq6uusksqsicyb/blender_add-on.png "Blenderアドオン")
+![Blenderアドオン](https://dl.dropboxusercontent.com/s/bhq6uusksqsicyb/blender_add-on.png "Blenderアドオン")
 
 Blenderのアドオンは、Blenderを本体を持ってさえすれば誰でも開発を始めることができます。
 しかしアドオンを開発するためのチュートリアルは英語で書かれていたり、基本的なことから解説している資料があまり
@@ -53,7 +53,7 @@ Blenderのアドオンは、Blenderを本体を持ってさえすれば誰でも
 主にBlenderが公開しているAPIを用いてできることの解説が中心になりますが、より効率良くアドオンを開発するための環境や
 アドオンを公開する方法についても紹介しています。
 
-## 本書を読むのに当たって必要な前提知識
+## 本書を読むに当たって必要な前提知識
 
 本書を読むにあたって必要な知識と推奨知識を示します。
 

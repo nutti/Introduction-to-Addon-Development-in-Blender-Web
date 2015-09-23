@@ -33,7 +33,7 @@ OSごとのアドオンのインストール先を以下に示します。
 |OS|インストール先|
 |---|---|
 |Windows||
-|Mac|```/Users/<ユーザ名>/Library/Application\ Support/Blender/<Blenderのバージョン>/scripts/addons```|
+|Mac|```/Users/<ユーザ名>/Library/Application Support/Blender/<Blenderのバージョン>/scripts/addons```|
 |Linux||
 
 
@@ -46,11 +46,17 @@ OSごとのアドオンのインストール先を以下に示します。
 最初にBlenderを開きます。
 Blenderを開いたら、**情報** ウィンドウの **ファイル** > **ユーザ設定** を選択してください。
 
+![アドオンの有効化 手順1](https://dl.dropboxusercontent.com/s/9it3p8rth2heyqi/enable_add-on_1.png "アドオン有効化 手順1")
 
 ユーザ設定画面が表示されるので、**アドオン** タブを選択しましょう。
+検索窓に *mira tools* と入力しましょう。
+すると右側にインストールした **Mira Tools** が表示されるので、チェックボックスにチェックを入れます。
 
+![アドオンの有効化 手順2](https://dl.dropboxusercontent.com/s/k4xq9zyhk0hbivp/enable_add-on_2.png "アドオン有効化 手順2")
 
+これでアドオン **Mira Tools** が有効化されました。
+実際にアドオンが有効化されているかは、 **3Dビュー** の左側の **ツールシェルフ** のタブに **Mira** が追加されていることで確認できます。
 
-
+![アドオンの有効化 手順3](https://dl.dropboxusercontent.com/s/qqvxodqbs67yy45/enable_add-on_3.png "アドオン有効化 手順3")
 
 ## アドオンの無効化

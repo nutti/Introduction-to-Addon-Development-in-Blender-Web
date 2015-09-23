@@ -9,12 +9,16 @@ Blenderは公式で日本語をサポートしています。
 
 **Info** ウィンドウの **File** > **User Preferences...** を選択してください。
 
+![アドオンの日本語化 手順1](https://dl.dropboxusercontent.com/s/rc7vt93wduuiske/localizing_into_japanese_1.png "アドオン日本語化 手順1")
+
 すると、 **Blender User Preferences** ウィンドウが立ち上がりますので、 **System** タブを選択してください。
 **International Fonts** にチェックを入れると、Blenderの言語を変更することができます。
 
+![アドオンの日本語化 手順2](https://dl.dropboxusercontent.com/s/poku50in2xmf37s/localizing_into_japanese_2.png "アドオン日本語化 手順2")
+
 **Language** を **Japanese（日本語）** に、 **Translate** で日本語化したいものを選択することで日本語化されます。
 
-
+![アドオンの日本語化 手順3](https://dl.dropboxusercontent.com/s/z8p9mzf7z0h8nt0/localizing_into_japanese_3.png "アドオン日本語化 手順3")
 
 以降の説明では、Blenderが日本語化されていることを前提に解説します。
 
