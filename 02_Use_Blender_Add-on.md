@@ -33,9 +33,9 @@ OSごとのアドオンのインストール先を以下に示します。
 
 |OS|インストール先|
 |---|---|
-|Windows||
+|Windows|```C:\Users\<ユーザ名>\AppData\Roaming\Blender Foundation\Blender\<Blenderのバージョン>\scripts\addons```|
 |Mac|```/Users/<ユーザ名>/Library/Application Support/Blender/<Blenderのバージョン>/scripts/addons```|
-|Linux||
+|Linux|```/home/<ユーザ名>/.config/blender/<Blenderのバージョン>/scripts/addons```|
 
 
 ## アドオンの有効化
