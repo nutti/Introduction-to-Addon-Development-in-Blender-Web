@@ -2,7 +2,26 @@
 
 Blenderのアドオンの開発に入る前に、他の人が作成したアドオンを使ってみましょう。
 ここで紹介する手順は今後アドオンを開発する時に頻繁に行うため、ぜひ覚えておきましょう。
-解説はBlenderの言語が日本語になっていることを前提としていますので、Blenderの言語を日本語にしていない方は、[3章](03_Prepare_Add-on_development_environment)を参考に日本語化してください。
+
+## Blenderの日本語化
+
+Blenderは公式で日本語をサポートしています。
+英語では敷居が高いと感じてしまう方もいらっしゃると思いますので、Blenderを日本語化してしまいましょう。
+
+**Info** ウィンドウの **File** > **User Preferences...** を選択してください。
+
+![アドオンの日本語化 手順1](https://dl.dropboxusercontent.com/s/8xx2l59wy2d7c8y/localizing_into_japanese_1.png "アドオン日本語化 手順1")
+
+すると、 **Blender User Preferences** ウィンドウが立ち上がりますので、 **System** タブを選択してください。
+**International Fonts** にチェックを入れると、Blenderの言語を変更することができます。
+
+![アドオンの日本語化 手順2](https://dl.dropboxusercontent.com/s/6uwpij0r5riiqk3/localizing_into_japanese_2.png "アドオン日本語化 手順2")
+
+**Language** を **Japanese（日本語）** に、 **Translate** で日本語化したいものを選択することで日本語化されます。
+
+![アドオンの日本語化 手順3](https://dl.dropboxusercontent.com/s/s5mrd72si2xq910/localizing_into_japanese_3.png "アドオン日本語化 手順3")
+
+以降の説明では、Blenderが日本語化されていることを前提に解説します。
 
 ## アドオンの種類
 
@@ -26,7 +45,7 @@ Blenderのアドオンには、**サポートレベル** により以下の3種�
 1. アドオンのダウンロード
   * https://github.com/mifth/mifthtools/archive/master.zip からmifthさんが作成したアドオン一式をダウンロードします。
 2. ダウンロードした **mifthtools-master.zip** を解凍します
-3. **Mira Tools** は、解凍してできたディレクトリの中から ```mifthtools-master/blender/addons/mira_tools``` にあります。このフォルダ一式を、Blenderが用意しているフォルダ内にコピーします。フォルダのコピー先はOSによって異なります。コピーが完了したら、インストールが完了です。
+3. **Mira Tools** は、解凍してできたディレクトリの中から ```mifthtools-master/blender/addons/mira_tools``` にあります。このフォルダ一式を、Blenderが用意しているフォルダ内にコピーします。コピーが完了したら、インストールが完了です。
 
 OSごとのアドオンのインストール先を以下に示します。
 インストール先のフォルダが無い場合は、新たに作成してください。
@@ -37,6 +56,8 @@ OSごとのアドオンのインストール先を以下に示します。
 |Mac|```/Users/<ユーザ名>/Library/Application Support/Blender/<Blenderのバージョン>/scripts/addons```|
 |Linux|```/home/<ユーザ名>/.config/blender/<Blenderのバージョン>/scripts/addons```|
 
+ここでコピーしたファイルの中に、拡張子が ```.py``` であるファイルがあったと思います。
+このファイルはアドオンの **ソースコード** と呼ばれ、 **Python** というプログラミング言語で書かれています。
 
 ## アドオンの有効化
 
