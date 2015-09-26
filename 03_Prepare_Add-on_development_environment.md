@@ -65,6 +65,32 @@ Blenderにはデバッグ用に **コンソール・ウィンドウ** と呼ば�
 
 ![ウィンドウ表示の変更 手順4](https://dl.dropboxusercontent.com/s/9ws6g0tr3xhpc94/blender_change_window_4.png "ウィンドウ表示の変更 手順4")
 
+### Blenderの初期状態にする
+
+他にも不要なウィンドウを削除したり、ウィンドウの配置を変更したりして各自使いやすいように改造していきましょう。
+これでBlenderのウィンドウ設定は完了しましたが、このままBlenderを閉じてしまうと次にBlenderを起動した時に初期状態に戻ってしまいます。
+そこで、Blenderが起動した時は常にこの状態になるようにしましょう。
+
+Blenderが起動した時に設定した状態にするためには、 **情報** ウィンドウの **ファイル** > **スタートアップファイルを保存** を実行します。
+
+![Blenderの初期状態にする 手順1](https://dl.dropboxusercontent.com/s/kbro7t4evkim2au/blender_save_startup_file_1.png "Blenderの初期状態にする 手順1")
+
+確認メッセージが出るので、 **スタートアップファイルを保存** をクリックします。
+
+![Blenderの初期状態にする 手順2](https://dl.dropboxusercontent.com/s/pm74e5k1atjgu0a/blender_save_startup_file_2.png "Blenderの初期状態にする 手順2")
+
+Blenderの起動直後の状態を設定したい場合は、いつでもこの方法を使えるので覚えておきましょう。
+
+Blenderをダウンロードした直後の初期状態に戻したい場合は、 **情報** ウィンドウの **ファイル** > **初期設定を読み込む** を実行してください。
+
+![初期設定を読み込む 手順1](https://dl.dropboxusercontent.com/s/fzhbvpp60xf76a6/blender_read_factory_setting_1.png "初期状態を読み込む 手順1")
+
+確認メッセージが出るので、 **初期設定を読み込む** をクリックします。
+
+![初期設定を読み込む 手順2](https://dl.dropboxusercontent.com/s/sc2dvqqw19twg12/blender_read_factory_setting_2.png "初期状態を読み込む 手順2")
+
+なお初期設定を読み込んだ後も **スタートアップファイルを保存** しない限り、Blenderの起動直後の状態は更新されないことに注意が必要です。
+
 ## テキストエディタ
 
 アドオンの開発は基本的にテキスト（ソースコード）を編集する作業になるため、テキストを編集する環境が整っていれば良いです。

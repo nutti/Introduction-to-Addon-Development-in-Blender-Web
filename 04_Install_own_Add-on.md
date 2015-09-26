@@ -6,7 +6,7 @@
 
 コンソールからBlenderを起動し、 **テキストエディター** の下のメニューバーにある **新規**
 をクリックし、空のテキストを作成します。
-次に以下全文を入力してください。空白は全て半角スペースにしてください。
+次に以下に示すソースコード全文を入力してください。空白は全て半角スペースにしてください。
 
 ```py3:04.py
 import bpy
@@ -41,13 +41,13 @@ if __name__ == "__main__":
 
 入力が完了したら、メニューバーの **テキスト** > **名前つけて保存** を選択します。
 保存先に **04.py** という名前で保存します。
-以下に示すように、保存先はOSごとに異なりますので注意してください。
+[2章](02_Use_Blender_Add-on.md)のアドオンインストールの解説でも書きましたが、保存先はOSごとに異なりますので注意してください。
 
 |OS|保存先|
 |--|--|
-|Windows||
+|Windows|```C:\Users\<ユーザ名>\AppData\Roaming\Blender Foundation\Blender\<Blenderのバージョン>\scripts\addons```|
 |Mac|```/Users/<ログインユーザ名>/Library/Application Support/Blender/<Blenderのバージョン>/scripts/addons```|
-|Linux||
+|Linux|```/home/<ユーザ名>/.config/blender/<Blenderのバージョン>/scripts/addons```|
 
 ## アドオンを有効化する
 
