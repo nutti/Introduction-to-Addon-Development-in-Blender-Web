@@ -168,3 +168,7 @@ $ /path/blender.app/Contents/MacOS/blender
 $ /path/blender
 ```
 3. Blenderが起動します。
+
+## まとめ
+
+### ポイント

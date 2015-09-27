@@ -5,9 +5,9 @@
 その次にアドオンの開発を快適に行うための開発環境の準備を行い、実際にアドオンを作成しインストールする方法も紹介します。
 この機会に、ぜひアドオンについての基礎知識を深めてください。
 
-## 目次
+## 章の構成
 
-1. [Blenderって何？アドオンって何？](body/chapter_01/01_What_is_Blender_What_is_Add-on.md)
-2. [Blenderのアドオンを使ってみよう](body/chapter_01/02_Use_Blender_Add-on.md)
-3. [アドオン開発環境を整えよう](body/chapter_01/03_Prepare_Add-on_development_environment.md)
-4. [自作のアドオンをインストールしてみよう](body/chapter_01/04_Install_own_Add-on.md)
+1. [Blenderって何？アドオンって何？](01_What_is_Blender_What_is_Add-on.md)
+2. [Blenderのアドオンを使ってみよう](02_Use_Blender_Add-on.md)
+3. [アドオン開発環境を整えよう](03_Prepare_Add-on_development_environment.md)
+4. [自作のアドオンをインストールしてみよう](04_Install_own_Add-on.md)
