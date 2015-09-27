@@ -48,7 +48,7 @@ if __name__ == "__main__":
 ![アドオン作成 手順3](https://dl.dropboxusercontent.com/s/cbwyg0yebb8loww/blender_make_add-on_3.png "アドオン作成 手順3")
 
 保存先に **04.py** という名前で保存します。
-[2章](02_Use_Blender_Add-on.md)のアドオンインストールの解説でも書きましたが、保存先はOSごとに異なりますので注意してください。
+[2節](02_Use_Blender_Add-on.md)のアドオンインストールの解説でも書きましたが、保存先はOSごとに異なりますので注意してください。
 
 |OS|保存先|
 |--|--|

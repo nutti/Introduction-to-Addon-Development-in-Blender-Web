@@ -5,7 +5,7 @@
 ## Blenderの日本語化
 
 Blenderで日本語化が可能なところは日本語化することで、英語が原因で開発が遅くなることを避けることができます。
-[2章](02_Use_Blender_Add-on.md)を参考にBlenderを日本語化しましょう。
+[2節](02_Use_Blender_Add-on.md)を参考にBlenderを日本語化しましょう。
 
 以降の説明ではBlender本体が日本語化されていることを前提に解説します。
 
