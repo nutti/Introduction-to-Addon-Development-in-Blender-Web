@@ -5,7 +5,7 @@
    2. [Blenderのアドオンを使ってみよう](body/chapter_01/02_Use_Blender_Add-on.md)
    3. [アドオン開発環境を整えよう](body/chapter_01/03_Prepare_Add-on_development_environment.md)
    4. [自作のアドオンをインストールしてみよう](body/chapter_01/04_Install_own_Add-on.md)
-2. アドオンを作ってみよう
+2. [アドオンを作ってみよう](body/chapter_02/SUMMARY.md)
    1. [サンプル1: アドオンからオブジェクトを生成する](body/chapter_02/01_Sample_1_Create_object_from_Add-on.md)
    2. [サンプル2: オブジェクトを拡大・縮小する1](body/chapter_02/02_Sample_2_Scaling_object_1.md)
    3. [サンプル3: オブジェクトを拡大・縮小する2 ツールシェルフを使ってみよう](body/chapter_02/03_Sample_3_Scaling_object_2.md)
