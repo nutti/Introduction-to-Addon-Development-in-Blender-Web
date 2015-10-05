@@ -1,4 +1,4 @@
-```py:05.py
+```py:sample_1.py
 import bpy   # アドオン開発者に対して用意しているAPIを利用する
 
 # アドオンに関する情報を保持する、bl_info変数
@@ -28,7 +28,7 @@ class CreateObject(bpy.types.Operator):
     # メニューを実行した時に呼ばれる関数
 	def execute(self, context):
 		bpy.ops.mesh.primitive_ico_sphere_add()
-		print("サンプル1: 3DビューにICO球を生成しました。")
+		print("サンプル 1: 3DビューにICO球を生成しました。")
 
 		return {'FINISHED'}
 
