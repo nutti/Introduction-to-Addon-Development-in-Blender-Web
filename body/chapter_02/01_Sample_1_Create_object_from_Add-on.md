@@ -171,7 +171,7 @@ bl_info = {
 ```blender``` に ```(2, 76, 0)``` を指定してアドオンを有効化してみてください。
 すると、図のように警告メッセージが表示されるはずです。
 
-＠＠＠図を追加＠＠＠
+![bl_info 解説3](https://dl.dropboxusercontent.com/s/qork1jkrh9flakt/blender_bl-info_3.png "bl_info 解説3")
 
 警告が表示されるだけですので、 ```blender``` に指定したバージョンよりも古いバージョンで運よく動作すれば、
 警告を無視してアドオンを使うことができてしまいます。
@@ -193,7 +193,7 @@ bl_info = {
 ```support``` に ```TESTING``` が設定されたもののみに絞り、サンプルアドオンを素早く検索できるようにしました。
 以降のサンプルアドオンでも同様です。
 
-＠＠＠図を追加＠＠＠
+![bl_info 解説4](https://dl.dropboxusercontent.com/s/38x9jafp3vzspyu/blender_bl-info_4.png "bl_info 解説4")
 
 * ```category```
 
@@ -201,18 +201,29 @@ bl_info = {
 以下の図に示している、 **ユーザ設定** のカテゴリにあるものを指定すると良いでしょう。
 日本語化している方は一度英語に戻して、カテゴリの正式名称を確認しましょう。
 
-＠＠＠図を追加＠＠＠
+![bl_info 解説5](https://dl.dropboxusercontent.com/s/kbukte47nas0i5r/blender_bl-info_5.png "bl_info 解説5")
 
 カテゴリの設定は自由に行るため、新たなカテゴリを作ることもできます。
 ```category``` に ```Sample``` を指定してみましょう。
 新たなカテゴリとして、 ```Sample``` が追加されていることがわかると思います。
 
-＠＠＠図を追加＠＠＠
+![bl_info 解説6](https://dl.dropboxusercontent.com/s/7tjnz7m5w4go17d/blender_bl-info_6.png "bl_info 解説6")
 
 ### オペレーション用クラスの作成
 
 アドオンからBlenderに対して操作するためには、オペレーション用のクラスを作成し処理を記述する必要があります。
-オペレーション用のクラスは、 ```bpy.types.Operator``` を継承して作成する必要があります。
+オペレーション用のクラスは、以下のように ```bpy.types.Operator``` を継承して作成します。
+
+```py:sample_1_part3.py
+# オブジェクト（ICO球）を生成するオペレーション
+class CreateObject(bpy.types.Operator):
+
+	bl_idname = "object.create_object"
+	bl_label = "球"
+	bl_description = "ICO球を追加します"
+	bl_options = {'REGISTER', 'UNDO'}
+```
+
 作成したクラスは、以下のようなメンバ変数を含める必要があります。
 
 |メンバー変数|値|
@@ -229,7 +240,19 @@ bl_info = {
 
 ```bl_label``` と ```bl_description``` に指定した内容は、追加したメニュー項目から確認することができます。
 
+＠＠＠図を追加＠＠＠
+
 続いて、オペレーションの処理本体を作成します。
+
+```py:sample_1_part4.py
+  # メニューを実行した時に呼ばれる関数
+	def execute(self, context):
+		bpy.ops.mesh.primitive_ico_sphere_add()
+		print("サンプル 1: 3DビューにICO球を生成しました。")
+
+		return {'FINISHED'}
+```
+
 メニューを実行した時など、オペレーションが実行された時は ```exexute()``` メソッドが呼ばれます。
 ```execute()``` メソッドが呼ばれると、以下の引数がBlender本体から渡されてきます。
 今回はこれらの引数を利用していないため、特に意識する必要はありません。
@@ -237,16 +260,27 @@ bl_info = {
 |引数|値|
 |---|---|
 |```self```|オペレーションクラスのインスタンス|
-|```context```|オペレーションが実行された時の状態|
+|```context```|オペレーションが実行された時のコンテキスト|
 
 ```execute()``` メソッドの中身を見てみましょう。
 最初に、 ```bpy.ops.mesh.primitive_ico_sphere_add()``` という関数を呼んでいます。
 これはBlenderが用意しているAPIの1つで、 **3Dビュー** 上にICO球を作成することができます。
 この関数は複数の引数を取りますが、今回は引数を1つも指定していないので3DカーソルにICO球が生成されます。
 ```bpy.ops.mesh.primitive_ico_sphere_add()``` は引数として例えば以下のようなものを取ります。
+
+＠＠＠引数の説明＠＠＠
+
 先ほど示したソースコードに引数を指定して、実行してみましょう。
 
-＠＠＠＠＠
+＠＠＠ソースコードと実行例＠＠
+
+ここで、 ```bpy.ops.mesh.primitive_ico_sphere_add()``` がICO球を作成する関数と書きましたが、
+どのようにしてこの関数がICO球を作成する関数であることを知ることができたのでしょうか？
+[4-1節](../chapter_04/01_Research_official_Blender_API_for_Add-on.md)で紹介する、
+Blender APIリファレンスから探しても良いです。
+
+＠＠＠＠追記＠＠＠
+
 
 続いて ```print("サンプル1: 3DビューにICO球を生成しました。")``` が呼ばれますが、
 ```print()``` 関数は、引数に指定した文字列を **コンソール・ウィンドウ** に表示する関数です。
@@ -261,7 +295,7 @@ bl_info = {
 |```PASS_THROUGH```|オペレーション発行イベントを無視します。|
 |```RUNNING_MODAL```|オペレーションを実行中の状態にします。|
 
-ここでは、```FINISHED``` とエラーが発生した時に利用する ```CANCELLED``` を覚えておけば良いでしょう。
+ここでは、```FINISHED``` とエラーが発生した時にメソッドで行った処理を取り消す ```CANCELLED``` を覚えておけば良いでしょう。
 
 
 ### メニューを構築する関数
