@@ -226,7 +226,7 @@ class CreateObject(bpy.types.Operator):
 
 作成したクラスは、以下のようなメンバ変数を含める必要があります。
 
-|メンバー変数|値|
+|メンバ変数|値|
 |---|---|
 |```bl_idname```|Blender内部で使用するID|
 |```bl_label```|メニューに登録した時に、メニュー項目に表示される文字列|
@@ -238,9 +238,9 @@ class CreateObject(bpy.types.Operator):
 ```bl_options``` には、オペレーションに対するオプションを、キーのみ指定した辞書で指定します。
 今回は メニューへ登録するための ```REGISTER``` とオペレーションを取り消すことを可能にするための ```UNDO``` を指定しました。
 
-```bl_label``` と ```bl_description``` に指定した内容は、追加したメニュー項目から確認することができます。
+```bl_idname```　、 ```bl_label``` 、 ```bl_description``` に指定した内容は、追加したメニュー項目から確認することができます。
 
-＠＠＠図を追加＠＠＠
+![オペレーション 解説7](https://dl.dropboxusercontent.com/s/nd2gve5namkfn1l/blender_operation_1.png "オペレーション 解説1")
 
 続いて、オペレーションの処理本体を作成します。
 
@@ -268,19 +268,35 @@ class CreateObject(bpy.types.Operator):
 この関数は複数の引数を取りますが、今回は引数を1つも指定していないので3DカーソルにICO球が生成されます。
 ```bpy.ops.mesh.primitive_ico_sphere_add()``` は引数として例えば以下のようなものを取ります。
 
-＠＠＠引数の説明＠＠＠
+|引数|説明|
+|---|---|
+|```size```|生成するICO球のサイズ|
+|```location```|生成時のICO球の座標|
+|```rotation```|生成時のICO球の回転角|
 
 先ほど示したソースコードに引数を指定して、実行してみましょう。
+サイズが ```2.0``` 倍 、生成時の座標が ```(x, y, z) = (5.0, -5.0, 0.0)``` 、生成時の回転角（ラジアン）が ```(x, y, z) = (0.79, 0.0, 1.57)``` のICO球を作成するようにします。
+```execute()``` メソッドを以下のように書き換えてください。
 
-＠＠＠ソースコードと実行例＠＠
+```py:sample_1_part4_alt.py
+  # メニューを実行した時に呼ばれる関数
+	def execute(self, context):
+		bpy.ops.mesh.primitive_ico_sphere_add(size=2.0, location=(5.0, -5.0, 0.0), rotation=(0.79, 0.0, 1.57))
+		print("サンプル 1: 3DビューにICO球を生成しました。")
+
+		return {'FINISHED'}
+```
+
+![オペレーション 解説2](https://dl.dropboxusercontent.com/s/a6qe1qaytr33dri/blender_operation_2.png "オペレーション 解説2")
 
 ここで、 ```bpy.ops.mesh.primitive_ico_sphere_add()``` がICO球を作成する関数と書きましたが、
 どのようにしてこの関数がICO球を作成する関数であることを知ることができたのでしょうか？
 [4-1節](../chapter_04/01_Research_official_Blender_API_for_Add-on.md)で紹介する、
 Blender APIリファレンスから探しても良いです。
+しかし、すでにBlenderが提供する機能がBlender本体にあればもっと簡単な方法に調べる方法があります。
+少し前で解説した ```bl_idname``` の表示箇所と関係があります。
 
-＠＠＠＠追記＠＠＠
-
+![APIの調査](https://dl.dropboxusercontent.com/s/7blrr06i94597uh/blender_find_API.png "APIの調査")
 
 続いて ```print("サンプル1: 3DビューにICO球を生成しました。")``` が呼ばれますが、
 ```print()``` 関数は、引数に指定した文字列を **コンソール・ウィンドウ** に表示する関数です。
