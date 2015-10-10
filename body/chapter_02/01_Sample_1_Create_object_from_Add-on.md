@@ -294,7 +294,7 @@ class CreateObject(bpy.types.Operator):
 [4-1節](../chapter_04/01_Research_official_Blender_API_for_Add-on.md)で紹介する、
 Blender APIリファレンスから探しても良いです。
 しかし、すでにBlenderが提供する機能がBlender本体にあればもっと簡単な方法に調べる方法があります。
-少し前で解説した ```bl_idname``` の表示箇所と関係があります。
+少し前で解説した ```bl_idname``` の表示箇所と関係がありますが、メニューやボタンをマウスオーバーすることで実行される関数を確認することができます。
 
 ![APIの調査](https://dl.dropboxusercontent.com/s/7blrr06i94597uh/blender_find_API.png "APIの調査")
 
@@ -318,8 +318,15 @@ Blender APIリファレンスから探しても良いです。
 
 オペレーションクラスを作成しただけでは、メニュー等のUIには登録されません。
 そこでまずは、メニューに登録するためにメニューを構築する関数 ```menu_fn()``` を作成します。
-```menu_fn()``` は、後で解説するアドオン有効化・無効化時に利用します。
+```menu_fn()``` は、後で解説するアドオン有効化・無効化時に呼ばれる関数内で利用します。
 それでは、 ```menu_fn()``` の中身を見ていきましょう。
+
+```py:sample_1_part5.py
+# メニューを構築する関数
+def menu_fn(self, context):
+	self.layout.separator()
+	self.layout.operator(CreateObject.bl_idname)
+```
 
 メニュー項目の編集は、 ```self.layout``` を用いることで行うことができます。
 ```self.layout.operator()``` の引数に ```CreateObject.bl_idname```を指定することにより、
@@ -329,4 +336,59 @@ Blender APIリファレンスから探しても良いです。
 
 ### アドオン有効化時に呼ばれる関数の作成
 
-アドオン有効化時は、 ```register()``` 関数が呼ばれます。
+アドオン有効化時に ```register()``` 関数が呼ばれます。
+
+```py:sample_1_part6.py
+# アドオン有効化時の処理
+def register():
+	bpy.utils.register_module(__name__)
+	bpy.types.INFO_MT_mesh_add.append(menu_fn)
+	print("サンプル 1: アドオン「サンプル1」が有効化されました。")
+```
+
+```bpy.utils.register_module()``` は、引数に指定したモジュールを登録してBlenderで使えるようにする関数です。
+引数に ```__name__``` を指定することで、ファイル内のモジュール全てを登録することができます。
+
+```bpy.types.INFO_MT_mesh_add.append()``` に、メニューを構築する関数である ```menu_fn()``` を指定することで、
+**3Dビュー** のメニュー **追加** > **メッシュ** にメニューを追加することができます。
+```bpy.types.INFO_MT_mesh_add``` は ```bl_idname``` の確認方法と同様、
+**3Dビュー** のメニュー **追加** > **メッシュ** をマウスオーバーすることで確認することができます。
+ただしもしマウスオーバーした際にサブメニューが開いてしまって確認できない場合は、
+**左キー** を押すことで確認することができるようになります。
+
+最後に ```print()``` 関数で、 **コンソール** へ文字列を出力しています。
+
+### アドオン無効化時に呼ばれる関数の作成
+
+アドオン無効化時には ```unregister()``` 関数が呼ばれます。
+
+```py:sample_1_part7.py
+# アドオン無効化時の処理
+def unregister():
+	bpy.types.INFO_MT_mesh_add.remove(menu_fn)
+	bpy.utils.unregister_module(__name__)
+	print("サンプル 1: アドオン「サンプル 1」が無効化されました。")
+```
+
+``bpy.types.INFO_MT_mesh_add.remove()``` に、メニューを構築する関数である ```menu_fn()``` を指定することで、
+**3Dビュー** のメニュー **追加** > **メッシュ** からメニューを削除することができます。
+
+```bpy.utils.unregister_module()``` は、引数に指定したモジュールを削除してBlenderから使えなくするようにする関数です。
+こちらも引数に ```__name__``` を指定して、ファイル内のモジュール全てを削除しています。
+
+最後に ```print()``` 関数で、 **コンソール** へ文字列を出力しています。
+
+### メイン処理
+
+**テキスト・エディター** のメニューから **テキスト** > **スクリプト実行** を実行した時に呼ばれる処理です。
+
+![スクリプト実行 手順](https://dl.dropboxusercontent.com/s/b4hwarizgr6ikzd/blender_run_script.png "スクリプト実行 手順")
+
+アドオンであればメイン処理は必要ありませんが、慣習として書くことが多いので書いておきました。
+メイン処理ではアドオンが登録される処理を行っています。
+
+```py:sample_1_part8.py
+# メイン処理
+if __name__ == "__main__":
+	register()
+```

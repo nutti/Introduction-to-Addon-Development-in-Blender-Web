@@ -53,7 +53,7 @@ def unregister():
 	print("サンプル 1: アドオン「サンプル 1」が無効化されました。")
 
 
-# メイン関数
+# メイン処理
 if __name__ == "__main__":
 	register()
 
