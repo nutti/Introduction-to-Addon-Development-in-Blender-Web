@@ -1,5 +1,6 @@
-```py:sample_2.py
+```py:sample_3.py
 import bpy
+from bpy.props import FloatProperty
 
 bl_info = {
 	"name": "サンプル3: オブジェクトを拡大・縮小するアドオン（拡大率/縮小率 任意指定版）",
@@ -24,14 +25,26 @@ class EnlargeObject2(bpy.types.Operator):
 	bl_description = "選択中のオブジェクトを拡大します（拡大率任意指定可能）"
 	bl_options = {'REGISTER', 'UNDO'}
 
-	magnification =
+	magnification = FloatProperty(
+		name = "拡大率",
+		description = "拡大率を設定します",
+		default = 2.0,
+		min = 1.0,
+		max = 10.0
+	)
 
-    # メニューを実行した時に呼ばれる関数
+    # 初期のオブジェクトのサイズ
+	ini_scale = None
+
+    # オペレーションクラスのインスタンス化直後に呼ばれる処理
+	def __init__(self):
+		self.ini_scale = bpy.context.active_object.scale.copy()
+
 	def execute(self, context):
 		active_obj = context.active_object
-		active_obj.scale = active_obj.scale * self.magnification
-		self.report({'INFO'}, "サンプル 2: 「" + active_obj.name + "」を" + self.magnification + "倍に拡大しました。")
-		print("サンプル 3: オペレーション「" + self.bl_idname + "」が実行されました。")
+		active_obj.scale = self.ini_scale * self.magnification
+		self.report({'INFO'}, "サンプル 2: 「%s」を%f倍に拡大しました。" % (active_obj.name, self.magnification))
+		print("サンプル 3: オペレーション「%s」が実行されました。" % self.bl_idname)
 
 		return {'FINISHED'}
 
@@ -44,40 +57,48 @@ class ReduceObject2(bpy.types.Operator):
 	bl_description = "選択中のオブジェクトを縮小します（縮小率任意指定可能）"
 	bl_options = {'REGISTER', 'UNDO'}
 
-	reduction =
+	reduction = FloatProperty(
+		name = "縮小率",
+		description = "縮小率を設定します",
+		default = 0.5,
+		min = 0.001,
+		max = 1.0
+	)
 
-    # メニューを実行した時に呼ばれる関数
+    # 初期のサイズを保存
+	ini_scale = None
+
+    # オペレーションクラスのインスタンス化直後に呼ばれる処理
+	def __init__(self):
+		self.ini_scale = bpy.context.active_object.scale.copy()
+
 	def execute(self, context):
 		active_obj = context.active_object
-		active_obj.scale = active_obj.scale * 0.5
-		self.report({'INFO'}, "サンプル 2: 「" + active_obj.name + "」を" + self.reduction + "倍に縮小しました。")
-		print("サンプル 3: オペレーション「" + self.bl_idname + "」が実行されました。")
+		active_obj.scale = self.ini_scale * self.reduction
+		self.report({'INFO'}, "サンプル 2: 「%s」を%f倍に縮小しました。" % (active_obj.name, self.reduction))
+		print("サンプル 3: オペレーション「%s」が実行されました。" % self.bl_idname)
 
 		return {'FINISHED'}
 
 
-# メニューを構築する関数
 def menu_fn(self, context):
 	self.layout.separator()
-	self.layout.operator(EnlargeObject.bl_idname)
-	self.layout.operator(ReduceObject.bl_idname)
+	self.layout.operator(EnlargeObject2.bl_idname)
+	self.layout.operator(ReduceObject2.bl_idname)
 
 
-# アドオン有効化時の処理
 def register():
 	bpy.utils.register_module(__name__)
 	bpy.types.VIEW3D_MT_object.append(menu_fn)
 	print("サンプル 3: アドオン「サンプル3」が有効化されました。")
 
 
-# アドオン無効化時の処理
 def unregister():
 	bpy.types.VIEW3D_MT_object.remove(menu_fn)
 	bpy.utils.unregister_module(__name__)
 	print("サンプル 3: アドオン「サンプル 3」が無効化されました。")
 
 
-# メイン処理
 if __name__ == "__main__":
 	register()
 
