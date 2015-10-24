@@ -33,17 +33,10 @@ class EnlargeObject2(bpy.types.Operator):
 		max = 10.0
 	)
 
-    # 初期のオブジェクトのサイズ
-	ini_scale = None
-
-    # オペレーションクラスのインスタンス化直後に呼ばれる処理
-	def __init__(self):
-		self.ini_scale = bpy.context.active_object.scale.copy()
-
 	def execute(self, context):
 		active_obj = context.active_object
-		active_obj.scale = self.ini_scale * self.magnification
-		self.report({'INFO'}, "サンプル 2: 「%s」を%f倍に拡大しました。" % (active_obj.name, self.magnification))
+		active_obj.scale = = active_obj.scale * self.magnification
+		self.report({'INFO'}, "サンプル 3: 「%s」を%f倍に拡大しました。" % (active_obj.name, self.magnification))
 		print("サンプル 3: オペレーション「%s」が実行されました。" % self.bl_idname)
 
 		return {'FINISHED'}
@@ -65,17 +58,10 @@ class ReduceObject2(bpy.types.Operator):
 		max = 1.0
 	)
 
-    # 初期のサイズを保存
-	ini_scale = None
-
-    # オペレーションクラスのインスタンス化直後に呼ばれる処理
-	def __init__(self):
-		self.ini_scale = bpy.context.active_object.scale.copy()
-
 	def execute(self, context):
 		active_obj = context.active_object
-		active_obj.scale = self.ini_scale * self.reduction
-		self.report({'INFO'}, "サンプル 2: 「%s」を%f倍に縮小しました。" % (active_obj.name, self.reduction))
+		active_obj.scale = = active_obj.scale * self.reduction
+		self.report({'INFO'}, "サンプル 3: 「%s」を%f倍に縮小しました。" % (active_obj.name, self.reduction))
 		print("サンプル 3: オペレーション「%s」が実行されました。" % self.bl_idname)
 
 		return {'FINISHED'}

@@ -150,9 +150,37 @@ def __init__(self):
     self.ini_scale = bpy.context.active_object.scale.copy()
 ```
 
-なぜこのような処理が必要になったのか知るために、上記のコードを一旦削除した状態で **オブジェクト** > **選択オブジェクトの拡大（拡大率任意指定）**
-を実行してみましょう。
-実行した後に **ツール・シェルフ** のオプション **拡大率** を変更してみましょう。
+なぜこのような処理が必要になったのか知るために、以下のように ```EnlargeObject2``` クラスのコードを書き換えてみましょう。
+
+```py:sample_3_part2_alt.py
+# オブジェクトを拡大するオペレーション
+class EnlargeObject2(bpy.types.Operator):
+
+	bl_idname = "object.enlarge_object_2"
+	bl_label = "選択オブジェクトの拡大（拡大率任意指定）"
+	bl_description = "選択中のオブジェクトを拡大します（拡大率任意指定可能）"
+	bl_options = {'REGISTER', 'UNDO'}
+
+	magnification = FloatProperty(
+		name = "拡大率",
+		description = "拡大率を設定します",
+		default = 2.0,
+		min = 1.0,
+		max = 10.0
+	)
+
+	def execute(self, context):
+		active_obj = context.active_object
+		active_obj.scale = active_obj.scale * self.magnification
+		self.report({'INFO'}, "サンプル 2: 「%s」を%f倍に拡大しました。" % (active_obj.name, self.magnification))
+		print("サンプル 3: オペレーション「%s」が実行されました。" % self.bl_idname)
+
+		return {'FINISHED'}
+```
+
+
+コードの書き換えが完了したら **オブジェクト** > **選択オブジェクトの拡大（拡大率任意指定）** を実行し、
+ **ツール・シェルフ** のオプション **拡大率** を変更してみましょう。
 値を変更するたびにオブジェクトが拡大し続け、 **拡大率** を1.0に戻しても元の大きさに戻りません。
 これは、 **拡大率** を変更するたびに ```execute()``` が呼ばれるからです。
 
