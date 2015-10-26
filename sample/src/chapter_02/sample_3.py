@@ -35,7 +35,7 @@ class EnlargeObject2(bpy.types.Operator):
 
 	def execute(self, context):
 		active_obj = context.active_object
-		active_obj.scale = = active_obj.scale * self.magnification
+		active_obj.scale = active_obj.scale * self.magnification
 		self.report({'INFO'}, "サンプル 3: 「%s」を%f倍に拡大しました。" % (active_obj.name, self.magnification))
 		print("サンプル 3: オペレーション「%s」が実行されました。" % self.bl_idname)
 
@@ -60,7 +60,7 @@ class ReduceObject2(bpy.types.Operator):
 
 	def execute(self, context):
 		active_obj = context.active_object
-		active_obj.scale = = active_obj.scale * self.reduction
+		active_obj.scale = active_obj.scale * self.reduction
 		self.report({'INFO'}, "サンプル 3: 「%s」を%f倍に縮小しました。" % (active_obj.name, self.reduction))
 		print("サンプル 3: オペレーション「%s」が実行されました。" % self.bl_idname)
 
