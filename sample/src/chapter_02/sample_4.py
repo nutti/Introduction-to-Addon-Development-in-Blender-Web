@@ -1,6 +1,6 @@
 ```py:sample_4.py
 import bpy
-from bpy.props import FloatProperty
+from bpy.props import FloatVectorProperty, EnumProperty
 
 bl_info = {
 	"name": "サンプル4: オブジェクトを複製するアドオン",
@@ -17,6 +17,14 @@ bl_info = {
 }
 
 
+# EnumPropertyで表示したい項目リストを作成する関数
+def location_list_fn(scene, context):
+    items = []
+    # itemsに項目を追加する処理
+
+    return items
+
+
 # 選択したオブジェクトを複製するアドオン
 class ReplicateObject(bpy.types.Operator):
 
@@ -25,12 +33,34 @@ class ReplicateObject(bpy.types.Operator):
 	bl_description = "選択中のオブジェクトを複製します"
 	bl_options = {'REGISTER', 'UNDO'}
 
-	magnification = FloatProperty(
+	location = EnumProperty(
+		name = "配置位置",
+		description = "複製したオブジェクトの配置位置",
+		items = location_list_fn
+	)
+
+	scaling = FloatPropery(
 		name = "拡大率",
-		description = "拡大率を設定します",
-		default = 2.0,
-		min = 1.0,
-		max = 10.0
+		description = "複製したオブジェクトの拡大率を設定します",
+		default = (0.0, 0.0, 0.0),
+		subtype = 'XYZ',
+		unit = 'LENGTH'
+	)
+
+	rotation = FloatProperty(
+		name = "回転角度",
+		description = "複製したオブジェクトの回転角度を設定します",
+		default = (0.0, 0.0, 0.0),
+		subtype = 'AXISANGLE',
+		unit = 'ROTATION'
+	)
+
+	offset = FloatPropery(
+		name = "オフセット",
+		description = "複製したオブジェクトの配置位置からのオフセットを設定します",
+		default = (0.0, 0.0, 0.0),
+		subtype = 'TRANSLATION',
+		unit = 'LENGTH'
 	)
 
 	def execute(self, context):
