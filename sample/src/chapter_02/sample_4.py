@@ -1,6 +1,7 @@
 ```py:sample_4.py
 import bpy
 from bpy.props import FloatVectorProperty, EnumProperty
+from mathutils import Vector
 
 bl_info = {
 	"name": "サンプル4: オブジェクトを複製するアドオン",
@@ -19,10 +20,12 @@ bl_info = {
 
 # EnumPropertyで表示したい項目リストを作成する関数
 def location_list_fn(scene, context):
-    items = []
-    # itemsに項目を追加する処理
-
-    return items
+    items = [
+		('3D_CURSOR', "3Dカーソル", "3Dカーソル上に配置します"),
+		('ORIGIN', "原点", "原点に配置します")
+	]
+	items.extend([('OBJ_' + o.name, o.name, o.name + "に配置します") for o in bpy.data.objects])
+	return items
 
 
 # 選択したオブジェクトを複製するアドオン
@@ -39,15 +42,15 @@ class ReplicateObject(bpy.types.Operator):
 		items = location_list_fn
 	)
 
-	scaling = FloatPropery(
+	scale = FloatVectorProperty(
 		name = "拡大率",
 		description = "複製したオブジェクトの拡大率を設定します",
-		default = (0.0, 0.0, 0.0),
+		default = (1.0, 1.0, 1.0),
 		subtype = 'XYZ',
 		unit = 'LENGTH'
 	)
 
-	rotation = FloatProperty(
+	rotation = FloatVectorProperty(
 		name = "回転角度",
 		description = "複製したオブジェクトの回転角度を設定します",
 		default = (0.0, 0.0, 0.0),
@@ -55,7 +58,7 @@ class ReplicateObject(bpy.types.Operator):
 		unit = 'ROTATION'
 	)
 
-	offset = FloatPropery(
+	offset = FloatVectorProperty(
 		name = "オフセット",
 		description = "複製したオブジェクトの配置位置からのオフセットを設定します",
 		default = (0.0, 0.0, 0.0),
@@ -64,10 +67,23 @@ class ReplicateObject(bpy.types.Operator):
 	)
 
 	def execute(self, context):
+		bpy.ops.object.duplicate()
 		active_obj = context.active_object
-		active_obj.scale = active_obj.scale * self.magnification
-		self.report({'INFO'}, "サンプル 3: 「%s」を%f倍に拡大しました。" % (active_obj.name, self.magnification))
-		print("サンプル 3: オペレーション「%s」が実行されました。" % self.bl_idname)
+		if self.location == '3D_CURSOR':
+			active_obj.location = context.scene.cursor_location.copy()
+		elif self.location == 'ORIGIN':
+			active_obj.location = Vector((0.0, 0.0, 0.0))
+		else:
+			active_obj.location = bpy.data.objects[self.location[4:]].location.copy()
+		active_obj.scale.x = active_obj.scale.x * self.scale[0]
+		active_obj.scale.y = active_obj.scale.y * self.scale[1]
+		active_obj.scale.z = active_obj.scale.z * self.scale[2]
+		active_obj.rotation_euler.x = active_obj.rotation_euler.x + self.rotation[0]
+		active_obj.rotation_euler.y = active_obj.rotation_euler.y + self.rotation[1]
+		active_obj.rotation_euler.z = active_obj.rotation_euler.z + self.rotation[2]
+		active_obj.location = active_obj.location + Vector(self.offset)
+		self.report({'INFO'}, "サンプル 4: 「%s」を複製しました。" % active_obj.name)
+		print("サンプル 4: オペレーション「%s」が実行されました。" % self.bl_idname)
 
 		return {'FINISHED'}
 
