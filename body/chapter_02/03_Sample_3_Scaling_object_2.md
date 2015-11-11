@@ -94,9 +94,9 @@ Blender起動直後に生成される **Cube** を選択し、 **3Dビュー** �
 |```FloatProperty```|浮動小数点|
 |```FloatVectorProperty```|浮動小数点（グループ）|
 |```StringProperty```|文字列|
-|```BoolProperty```|ブーリアン|
+|```BoolProperty```|ブーリアン <br> Blender上では *セレクトボックス* のUIとなる|
 |```BoolVectorProperty```|ブーリアン（グループ）|
-|```EnumProperty```|列挙|
+|```EnumProperty```|列挙 <br> Blender上では *リストボックス* のUIとなる|
 
 クラス作成時に引数を指定することで、クラスの設定をユーザが決めることができます。
 以下に代表的な引数を示しますが、クラスによって引数に指定できないものもあります。
