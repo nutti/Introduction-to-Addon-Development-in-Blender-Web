@@ -34,7 +34,7 @@ Blender起動直後に生成される *Cube* を選択し、追加されたメ�
 サンプル 4: 「Cube」を複製しました。
 ```
 
-＊＊図を追加＊＊
+![オブジェクトの複製1](https://dl.dropboxusercontent.com/s/p2vi68nprlto5gc/use_add-on_1.png "オブジェクトの複製1")
 
 *3Dビュー* の *ツール・シェルフ* からオプションをいろいろ変更してみましょう。
 今回のサンプルでは、以下に示すオプションを変更可能です。
@@ -46,7 +46,7 @@ Blender起動直後に生成される *Cube* を選択し、追加されたメ�
 |*回転角度*|複製したオブジェクトについて、複製元オブジェクトからの回転角度の差分をオイラー角で設定します|
 |*オフセット*|複製したオブジェクトについて、配置位置からのオフセット位置を指定します|
 
-＊＊図を追加＊＊
+![オブジェクトの複製2](https://dl.dropboxusercontent.com/s/if9ztwmoc09nqt1/use_add-on_2.png "オブジェクトの複製2")
 
 ### アドオンを無効化する
 
@@ -129,25 +129,32 @@ class ReplicateObject(bpy.types.Operator):
 
 サンプルでは、配置位置の他にも拡大率・回転角度・配置位置からのオフセットを、ツール・シェルフから指定できるようになっています。
 ソースコードでは ```FloatVectorProperty``` の ```subtype``` を指定することで、要素数等を指定することなく、目的に沿った浮動小数点型のプロパティグループを作成できます。
-今回は以下のような ```subtype``` を指定しています。
+```subtype``` には、例えば以下のような値を指定可能です。
 
-＊＊＊要確認＊＊＊
+|値|値の説明|UI例|
+|---|---|---|
+|```NONE```|3要素から構成されるプロパティグループ|![オプション SUBTYPE NONE](https://dl.dropboxusercontent.com/s/2zcjq2iq5rrn85g/option_subtype_none.png "オプション SUBTYPE NONE")|
+|```COLOR```|カラーパレット|![オプション SUBTYPE NONE](https://dl.dropboxusercontent.com/s/90sezitg7jsjhy8/option_subtype_color.png "オプション SUBTYPE COLOR")|
+|```TRANSLATION```|X軸、Y軸、Z軸の3要素から構成されるプロパティグループ（単位はcm、mなど）|![オプション SUBTYPE TRANSLATION](https://dl.dropboxusercontent.com/s/a6fqhmw68vn6sqh/option_subtype_translation.png "オプション SUBTYPE TRANSLATION")|
+|```VELOCITY```|X軸、Y軸、Z軸の3要素から構成されるプロパティグループ（単位はm/s）|![オプション SUBTYPE VELOCITY](https://dl.dropboxusercontent.com/s/mbb7er5ubn1no1f/option_subtype_velocity.png "オプション SUBTYPE VELOCITY")|
+|```ACCELERATION```|X軸、Y軸、Z軸の3要素から構成されるプロパティグループ（単位はm/s<sup>2</sup>）|![オプション SUBTYPE ACCELERATION](https://dl.dropboxusercontent.com/s/pg3swy8nbk8p8ih/option_subtype_acceleration.png "オプション SUBTYPE ACCELERATION")|
+|```EULER```|X軸、Y軸、Z軸の3要素から構成されるプロパティグループ（単位は°）|![オプション SUBTYPE EULER](https://dl.dropboxusercontent.com/s/r63sl5mv09v5f3h/option_subtype_euler.png "オプション SUBTYPE EULER")|
+|```QUATERNION```|3要素（W、X、Y）から構成されるプロパティグループ|![オプション SUBTYPE QUATERNION](https://dl.dropboxusercontent.com/s/r82kz22g3eaba7h/option_subtype_quaternion.png "オプション SUBTYPE QUATERNION")|
+|```AXISANGLE```|3要素（W、X、Y）から構成されるプロパティグループ（単位は°）|![オプション SUBTYPE AXISANGLE](https://dl.dropboxusercontent.com/s/5f8jn9423abkp5d/option_subtype_axisangle.png "オプション SUBTYPE AXISANGLE")|
+|```XYZ```|X軸、Y軸、Z軸の3要素から構成されるプロパティグループ|![オプション SUBTYPE XYZ](https://dl.dropboxusercontent.com/s/p7rp8m1wiamr85n/option_subtype_xyz.png "オプション SUBTYPE XYZ")|
 
-|値|値の説明|
-|---|---|
-|```XYZ```|X軸、Y軸、Z軸の3要素から構成されるプロパティグループ|
-|```AXISANGLE```|3要素から構成されるプロパティグループ|
-|```TRANSLATION```|X軸、Y軸、Z軸の3要素から構成されるプロパティグループ|
+また ```unit``` を指定すると、以下のような単位をプロパティに表示させることができます。
 
-また ```unit``` を指定すると、 プロパティに単位を表示させることができます。
-今回は以下のような ```unit``` を指定しています。
-
-＊＊＊要確認＊＊＊
-
-|値|値の説明|
-|---|---|
-|```LENGTH```||
-|```ROTATION```||
+|値|値の説明|UI上での表示単位（表示単位を度数表記・メートル法にした場合）|
+|---|---|---|
+|```NONE```||```subtype```に指定した値に応じて表示される単位が決定|
+|```LENGTH```|長さ|cm|
+|```AREA```|面積|cm<sup>2</sup>、m<sup>2</sup>など|
+|```VOLUME```|長さ|cm<sup>3</sup>、m<sup>3</sup>など|
+|```ROTATION```|角度|°|
+|```TIME```|時間|（単位なし）|
+|```VELOCITY```|速度|m/s|
+|```ACCELERATION```|加速度|m/s<sup>2</sup>|
 
 ## まとめ
 
