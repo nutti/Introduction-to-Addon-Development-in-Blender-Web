@@ -27,6 +27,7 @@ def location_list_fn(scene, context):
 
     return items
 
+
 # 選択したオブジェクトを複製するアドオン
 class ReplicateObject(bpy.types.Operator):
 
@@ -68,8 +69,9 @@ class ReplicateObject(bpy.types.Operator):
     src_obj_name = bpy.props.StringProperty()
 
     def execute(self, context):
-        # bpy.ops.object.duplicate()実行後に複製オブジェクトが選択されるため、選択中のオブジェクトを保存
-        # context.active_object.name：選択中のオブジェクトの名前
+        # bpy.ops.object.duplicate()は選択中のオブジェクトをコピーするため、メニューで選択されたオブジェクトを選択された状態にする
+        # context.scene.objects：オブジェクト一覧
+        # context.scene.objects.active：現在アクティブなオブジェクト
         for o in context.scene.objects:
             if self.src_obj_name == o.name:
                 context.scene.objects.active = o
@@ -77,30 +79,24 @@ class ReplicateObject(bpy.types.Operator):
                 break
             else:
                 o.select = False
-        # bpy.ops.object.duplicate()：オブジェクトの複製
+        # オブジェクトの複製
         bpy.ops.object.duplicate()
         active_obj = context.active_object
 
         # 複製したオブジェクトを配置位置に移動
-        # context.active_object.location：選択中のオブジェクトの位置
         if self.location == '3D_CURSOR':
-            # context.scene.cursor_location：3Dカーソルの位置
-            # Shallow copyを避けるため、copy()によるDeep copyを実行
             active_obj.location = context.scene.cursor_location.copy()
         elif self.location == 'ORIGIN':
             active_obj.location = Vector((0.0, 0.0, 0.0))
         elif self.location[0:4] == 'OBJ_':
-            # bpy.data.objects：配置されているオブジェクトのリスト
             active_obj.location = bpy.data.objects[self.location[4:]].location.copy()
 
         # 複製したオブジェクトの拡大率を設定
-        # context.active_object.scale：選択中のオブジェクトの拡大率
         active_obj.scale.x = active_obj.scale.x * self.scale[0]
         active_obj.scale.y = active_obj.scale.y * self.scale[1]
         active_obj.scale.z = active_obj.scale.z * self.scale[2]
 
         # 複製したオブジェクトの回転角度を設定
-        # context.active_object.rotation_euler：選択中のオブジェクトの回転角度（ラジアン）
         active_obj.rotation_euler.x = active_obj.rotation_euler.x + self.rotation[0]
         active_obj.rotation_euler.y = active_obj.rotation_euler.y + self.rotation[1]
         active_obj.rotation_euler.z = active_obj.rotation_euler.z + self.rotation[2]
@@ -108,8 +104,8 @@ class ReplicateObject(bpy.types.Operator):
         # 複製したオブジェクトの最終位置を設定
         active_obj.location = active_obj.location + Vector(self.offset)
 
-        self.report({'INFO'}, "サンプル 4: 「%s」を複製しました。" % self.src_obj_name)
-        print("サンプル 4: オペレーション「%s」が実行されました。" % self.bl_idname)
+        self.report({'INFO'}, "サンプル 5: 「%s」を複製しました。" % self.src_obj_name)
+        print("サンプル 5: オペレーション「%s」が実行されました。" % self.bl_idname)
 
         return {'FINISHED'}
 
@@ -123,6 +119,7 @@ class ReplicateObjectMenu(bpy.types.Menu):
     def draw(self, context):
         layout = self.layout
         # サブメニューの登録＋出力文字列の登録
+        # bpy.data.objects：オブジェクト一覧
         for o in bpy.data.objects:
             layout.operator(ReplicateObject.bl_idname, text=o.name).src_obj_name = o.name
 

@@ -260,7 +260,7 @@ class CreateObject(bpy.types.Operator):
 |引数|型|値の説明|
 |---|---|---|
 |```self```|呼ばれた ```execute()``` が定義されている型|オペレーションクラスのインスタンス|
-|```context```||オペレーションが実行された時のコンテキスト|
+|```context```|```bpy_types.Context```|オペレーションが実行された時のコンテキスト|
 
 ```execute()``` メソッドの中身を見てみましょう。
 最初に、 ```bpy.ops.mesh.primitive_ico_sphere_add()``` という関数を呼んでいます。
