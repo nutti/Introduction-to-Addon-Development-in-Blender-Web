@@ -9,7 +9,7 @@ bl_info = {
     "version": (1, 0),
     "blender": (2, 75, 0),
     "location": "Object > サンプル5: オブジェクトを複製するアドオン",
-    "description": "選択したオブジェクトを複製するアドオン",
+    "description": "オブジェクトを複製するアドオン",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",

@@ -1,15 +1,15 @@
-```py:sample_5_alt.py
+```py:sample_6.py
 import bpy
-from bpy.props import StringProperty, FloatVectorProperty, EnumProperty
+from bpy.props import FloatVectorProperty, EnumProperty
 from mathutils import Vector
 
 bl_info = {
-    "name": "サンプル5: オブジェクトを複製するアドオン",
+    "name": "サンプル6: オブジェクトを複製するアドオン",
     "author": "Nutti",
     "version": (1, 0),
     "blender": (2, 75, 0),
-    "location": "Object > サンプル5: オブジェクトを複製するアドオン",
-    "description": "オブジェクトを複製するアドオン",
+    "location": "Object > サンプル6: オブジェクトを複製するアドオン",
+    "description": "選択したオブジェクトを複製するアドオン",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
@@ -27,13 +27,12 @@ def location_list_fn(scene, context):
 
     return items
 
-
 # 選択したオブジェクトを複製するアドオン
 class ReplicateObject(bpy.types.Operator):
 
     bl_idname = "object.replicate_object"
-    bl_label = "オブジェクトの複製"
-    bl_description = "オブジェクトを複製します"
+    bl_label = "選択オブジェクトの複製"
+    bl_description = "選択中のオブジェクトを複製します"
     bl_options = {'REGISTER', 'UNDO'}
 
     location = EnumProperty(
@@ -66,25 +65,17 @@ class ReplicateObject(bpy.types.Operator):
         unit = 'LENGTH'
     )
 
-    src_obj_name = bpy.props.StringProperty()
+    src_obj_name = None
 
     def execute(self, context):
-        # bpy.ops.object.duplicate()は選択中のオブジェクトをコピーするため、メニューで選択されたオブジェクトを選択された状態にする
-        # context.scene.objects：オブジェクト一覧
-        # context.scene.objects.active：現在アクティブなオブジェクト
-        for o in context.scene.objects:
-            if self.src_obj_name == o.name:
-                context.scene.objects.active = o
-                o.select = True
-                break
-            else:
-                o.select = False
-        # オブジェクトの複製
+        # bpy.ops.object.duplicate()実行後に複製オブジェクトが選択されるため、選択中のオブジェクトを保存
+        self.src_obj_name = context.active_object.name
         bpy.ops.object.duplicate()
         active_obj = context.active_object
 
         # 複製したオブジェクトを配置位置に移動
         if self.location == '3D_CURSOR':
+            # Shallow copyを避けるため、copy()によるDeep copyを実行
             active_obj.location = context.scene.cursor_location.copy()
         elif self.location == 'ORIGIN':
             active_obj.location = Vector((0.0, 0.0, 0.0))
@@ -104,52 +95,27 @@ class ReplicateObject(bpy.types.Operator):
         # 複製したオブジェクトの最終位置を設定
         active_obj.location = active_obj.location + Vector(self.offset)
 
-        self.report({'INFO'}, "サンプル 5: 「%s」を複製しました。" % self.src_obj_name)
-        print("サンプル 5: オペレーション「%s」が実行されました。" % self.bl_idname)
+        self.report({'INFO'}, "サンプル 6: 「%s」を複製しました。" % self.src_obj_name)
+        print("サンプル 6: オペレーション「%s」が実行されました。" % self.bl_idname)
 
         return {'FINISHED'}
 
 
-# サブメニュー
-class ReplicateObjectSubMenu(bpy.types.Menu):
-    bl_idname = "uv.replicate_object_sub_menu"
-    bl_label = "オブジェクトの複製（サブメニュー）"
-    bl_description = "オブジェクトを複製します（サブメニュー）"
-
-    def draw(self, context):
-        layout = self.layout
-        # サブサブメニューの登録
-        for o in bpy.data.objects:
-            layout.operator(ReplicateObject.bl_idname, text=o.name).src_obj_name = o.name
-
-
-# メインメニュー
-class ReplicateObjectMenu(bpy.types.Menu):
-    bl_idname = "uv.replicate_object_menu"
-    bl_label = "オブジェクトの複製"
-    bl_description = "オブジェクトを複製します"
-
-    def draw(self, context):
-        layout = self.layout
-        # サブメニューの登録
-        layout.menu(ReplicateObjectSubMenu.bl_idname)
-
-
 def menu_fn(self, context):
     self.layout.separator()
-    self.layout.menu(ReplicateObjectMenu.bl_idname)
+    self.layout.operator(ReplicateObject.bl_idname)
 
 
 def register():
     bpy.utils.register_module(__name__)
     bpy.types.VIEW3D_MT_object.append(menu_fn)
-    print("サンプル 5: アドオン「サンプル5」が有効化されました。")
+    print("サンプル 6: アドオン「サンプル4」が有効化されました。")
 
 
 def unregister():
     bpy.types.VIEW3D_MT_object.remove(menu_fn)
     bpy.utils.unregister_module(__name__)
-    print("サンプル 5: アドオン「サンプル 5」が無効化されました。")
+    print("サンプル 6: アドオン「サンプル 4」が無効化されました。")
 
 
 if __name__ == "__main__":
