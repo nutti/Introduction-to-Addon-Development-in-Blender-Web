@@ -82,18 +82,77 @@ class ReplicateObjectMenu(bpy.types.Menu):
 今回は3Dビュー上の全てのオブジェクト名でメニュー項目を追加するため、 ```layout.operator()``` の第1引数にオペレーション用クラスの ```bl_idname``` を指定し、 引数 ```text``` にオブジェクト名を指定しています。
 オペレーション用クラスは複製するオブジェクトをオブジェクト名で判定するようにするため、オペレーション用クラスのメンバ変数 ```src_obj_name``` にもオブジェクト名を代入しています。
 
+オペレーション用クラスでは、メニュー用クラスから代入するための変数 ```src_obj_name``` を ```StringProperty()``` として用意します。
 
+```py:sample_5_part2.py
+    src_obj_name = bpy.props.StringProperty()
+```
+
+オペレーションクラスの ```execute()``` メソッドでは、 ```src_obj_name``` に代入されたオブジェクト名を用いて、オブジェクトを複製するように処理を変更していますので、ソースコードのコメントを参考に確認してみてください。
+
+最後に、3Dビューのメニューのオブジェクトへ項目を追加します。
+
+```py:sample_5_part3.py
+def menu_fn(self, context):
+    self.layout.separator()
+    self.layout.menu(ReplicateObjectMenu.bl_idname)
+```
+
+オペレーション用クラスをメニューに追加した時は ```self.layout.operator()``` 関数を利用していましたが、メニュー用クラスをメニューに登録する場合は ```self.layout.menu()``` 関数を利用します。
+```self.layout.menu()``` 関数にメニュー用クラスの ```bl_idname``` を引数として渡すことで、メニューを項目に追加することができます。
 
 ### 3階層以上のメニュー
 
 サブメニューにさらにサブメニュー（サブサブメニュー）を追加するなど、3階層以上のメニューを作成することもできます。
+以下のサンプルでは、先ほど作成したサンプルのメニューとサブメニューの間に *オブジェクトの複製（サブメニュー）* を追加します。
+
+{% include "../../sample/src/chapter_02/sample_5_alt.py" %}
+
+アドオンを作成して実行してみましょう。
+以下のように3階層のメニューが作成されていることを確認することができます。
+
+![多階層メニュー](https://dl.dropboxusercontent.com/s/rrpepaa9eygx9qt/multilevel_menu.png "多階層メニュー")
+
+サンプルを見てもらえばわかる通り、3階層のメニューを作成する場合は2階層のメニューを作成する場合の応用になります。
+
+```py:sample_5_alt_part1.py
+# サブメニュー
+class ReplicateObjectSubMenu(bpy.types.Menu):
+    bl_idname = "uv.replicate_object_sub_menu"
+    bl_label = "オブジェクトの複製（サブメニュー）"
+    bl_description = "オブジェクトを複製します（サブメニュー）"
+
+    def draw(self, context):
+        layout = self.layout
+        # サブサブメニューの登録
+        for o in bpy.data.objects:
+            layout.operator(ReplicateObject.bl_idname, text=o.name).src_obj_name = o.name
 
 
+# メインメニュー
+class ReplicateObjectMenu(bpy.types.Menu):
+    bl_idname = "uv.replicate_object_menu"
+    bl_label = "オブジェクトの複製"
+    bl_description = "オブジェクトを複製します"
+
+    def draw(self, context):
+        layout = self.layout
+        # サブメニューの登録
+        layout.menu(ReplicateObjectSubMenu.bl_idname)
+```
+
+サブメニューを登録する時に ```self.layout.operator()``` の代わりに ```self.layout.menu()``` を用い、サブメニュー用に作成したメニュー用クラスの ```bl_idname``` を指定します。サブメニュー用に作成したクラスの中で、オペレーション用クラスを登録することで、3階層のメニューを作成することができます。
+このような手順を踏むことで、4階層、5階層、・・・とメニューの階層を増やすことができますので、ぜひ試してみてください。
 
 ## まとめ
 
-
+[2.4節](04_Sample_4_Replicate_object_1.md) を改造し、複製するオブジェクトをメニューから選択できるようにしました。
+この時にサブメニューから複製するオブジェクトを選べるようにしました。
+サブメニューを用いることで、今回のサンプルのように処理対象を選択できるようにしたり、メニュー項目を機能ごとに整理することができるようになります。
+サブメニューの作り方は、これまでの内容が理解できている方であればそこまで難しいと思いますので、ぜひここで作り方を習得してユーザがわかりやすいUI作りに活かしましょう。
 
 ### ポイント
 
-*
+* メニュー用クラスは、 ```bpy.types.Menu``` クラスを継承して作成する
+* メニュー用クラスの ```draw()``` メソッド内で、 オペレーション用クラスの ```bl_idname ``` を ```self.layout.operation()``` 関数の引数に指定し、メニュー用クラスの ```bl_idname``` を引数にして ```self.layout.menu()``` を呼び出すことで、サブメニューを作成できる
+* メニュー用クラスの ```draw()``` メソッド内でサブメニュー用に作成したクラスの ```bl_idname``` を ```self.layout.menu()``` 関数の引数に指定することで、3階層以上のメニューを作成することができる

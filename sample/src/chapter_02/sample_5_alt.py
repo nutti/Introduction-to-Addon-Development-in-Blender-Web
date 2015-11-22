@@ -1,4 +1,4 @@
-```py:sample_5.py
+```py:sample_5_alt.py
 import bpy
 from bpy.props import StringProperty, FloatVectorProperty, EnumProperty
 from mathutils import Vector
@@ -110,6 +110,19 @@ class ReplicateObject(bpy.types.Operator):
         return {'FINISHED'}
 
 
+# サブメニュー
+class ReplicateObjectSubMenu(bpy.types.Menu):
+    bl_idname = "uv.replicate_object_sub_menu"
+    bl_label = "オブジェクトの複製（サブメニュー）"
+    bl_description = "オブジェクトを複製します（サブメニュー）"
+
+    def draw(self, context):
+        layout = self.layout
+        # サブサブメニューの登録
+        for o in bpy.data.objects:
+            layout.operator(ReplicateObject.bl_idname, text=o.name).src_obj_name = o.name
+
+
 # メインメニュー
 class ReplicateObjectMenu(bpy.types.Menu):
     bl_idname = "uv.replicate_object_menu"
@@ -119,9 +132,7 @@ class ReplicateObjectMenu(bpy.types.Menu):
     def draw(self, context):
         layout = self.layout
         # サブメニューの登録
-        # bpy.data.objects：オブジェクト一覧
-        for o in bpy.data.objects:
-            layout.operator(ReplicateObject.bl_idname, text=o.name).src_obj_name = o.name
+        layout.menu(ReplicateObjectSubMenu.bl_idname)
 
 
 def menu_fn(self, context):
