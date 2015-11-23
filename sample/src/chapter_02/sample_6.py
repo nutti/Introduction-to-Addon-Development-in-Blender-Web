@@ -17,6 +17,7 @@ bl_info = {
     "category": "Object"
 }
 
+addon_keymaps = []          # 登録したショートカットキー一覧
 
 # EnumPropertyで表示したい項目リストを作成する関数
 def location_list_fn(scene, context):
@@ -106,13 +107,36 @@ def menu_fn(self, context):
     self.layout.operator(ReplicateObject.bl_idname)
 
 
+def register_shortcut():
+    wm = bpy.context.window_manager
+    kc = wm.keyconfigs.addon
+    if kc:
+        # 3Dビューのショートカットキーとして登録
+        km = kc.keymaps.new(name="3D View", space_type="VIEW_3D")
+        # ショートカットキーの登録
+        kmi = km.keymap_items.new(
+            ReplicateObject.bl_idname, "R", "PRESS", True, False, True)
+        # ショートカットキー一覧に登録
+        addon_keymaps.append((km, kmi))
+
+
+def unregister_shortcut():
+    for km, kmi in addon_keymaps:
+        # ショートカットキーの登録解除
+        km.keymap_items.remove(kmi)
+    # ショートカットキー一覧をクリア
+    addon_keymaps.clear()
+
+
 def register():
     bpy.utils.register_module(__name__)
     bpy.types.VIEW3D_MT_object.append(menu_fn)
+    register_shortcut()
     print("サンプル 6: アドオン「サンプル4」が有効化されました。")
 
 
 def unregister():
+    unregister_shortcut()
     bpy.types.VIEW3D_MT_object.remove(menu_fn)
     bpy.utils.unregister_module(__name__)
     print("サンプル 6: アドオン「サンプル 4」が無効化されました。")
