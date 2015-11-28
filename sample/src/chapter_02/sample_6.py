@@ -115,7 +115,12 @@ def register_shortcut():
         km = kc.keymaps.new(name="3D View", space_type="VIEW_3D")
         # ショートカットキーの登録
         kmi = km.keymap_items.new(
-            ReplicateObject.bl_idname, "R", "PRESS", True, False, True)
+            idname=ReplicateObject.bl_idname,
+            type="R",
+            value="PRESS",
+            shift=False,
+            ctrl=True,
+            alt=True)
         # ショートカットキー一覧に登録
         addon_keymaps.append((km, kmi))
 
