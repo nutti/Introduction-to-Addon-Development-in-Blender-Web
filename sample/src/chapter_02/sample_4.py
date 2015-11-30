@@ -116,7 +116,7 @@ def menu_fn(self, context):
 def register():
     bpy.utils.register_module(__name__)
     bpy.types.VIEW3D_MT_object.append(menu_fn)
-    print("サンプル 4: アドオン「サンプル4」が有効化されました。")
+    print("サンプル 4: アドオン「サンプル 4」が有効化されました。")
 
 
 def unregister():

@@ -12,7 +12,7 @@
    4. [サンプル4: オブジェクトを複製する1](body/chapter_02/04_Sample_4_Replicate_object_1.md)
    5. [サンプル5: オブジェクトを複製する2 サブメニューを登録しよう](body/chapter_02/05_Sample_5_Replicate_object_2.md)
    6. [サンプル6: オブジェクトを複製する3 ショートカットキーを割り当てよう](body/chapter_02/06_Sample_6_Replicate_object_3.md)
-3. より高度なアドオンを作るために
+3. [より高度なアドオンを作るために](body/chapter_03/SUMMARY.md)
    1. [サンプル7: マウスの右クリックで面を削除する](body/chapter_03/01_Sample_7_Delete_face_by_mouse_click.md)
    2. [サンプル8: Blenderに読み込まれている画像を表示する](body/chapter_03/02_Sample_8_Display_images_loaded_by_Blender.md)
 4. さらにその先へ

@@ -137,14 +137,14 @@ def register():
     bpy.utils.register_module(__name__)
     bpy.types.VIEW3D_MT_object.append(menu_fn)
     register_shortcut()
-    print("サンプル 6: アドオン「サンプル4」が有効化されました。")
+    print("サンプル 6: アドオン「サンプル 6」が有効化されました。")
 
 
 def unregister():
     unregister_shortcut()
     bpy.types.VIEW3D_MT_object.remove(menu_fn)
     bpy.utils.unregister_module(__name__)
-    print("サンプル 6: アドオン「サンプル 4」が無効化されました。")
+    print("サンプル 6: アドオン「サンプル 6」が無効化されました。")
 
 
 if __name__ == "__main__":
