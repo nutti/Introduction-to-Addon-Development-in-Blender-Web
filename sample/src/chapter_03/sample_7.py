@@ -1,5 +1,7 @@
 ```py:sample_7.py
 import bpy
+import bmesh
+from bpy.props import IntProperty, BoolProperty, PointerProperty
 
 bl_info = {
     "name": "サンプル7: マウスの右クリックで面を削除する",
@@ -35,21 +37,22 @@ class DFRC_Properties(bpy.types.PropertyGroup):
         description = "削除した面の数",
         default = 0)
 
+
 # マウスの右クリックで面を削除
 class DeleteFaceByRClick(bpy.types.Operator):
-
     bl_idname = "mesh.delete_face_by_rclick"
     bl_label = "マウスの右クリックで面を削除"
     bl_description = "マウスの右クリックで面を削除します"
-    bl_options = {'REGISTER', 'UNDO'}
 
     def modal(self, context, event):
         props = context.scene.dfrc_props
 
+        # 3Dビューの画面を更新
         if context.area:
             context.area.tag_redraw()
 
-        if dfrc_props.running is False:
+        # 起動していない場合は終了
+        if props.running is False:
             return {'PASS_THROUGH'}
 
         # クリック状態を更新
@@ -59,40 +62,59 @@ class DeleteFaceByRClick(bpy.types.Operator):
             elif event.value == 'RELEASE':
                 props.right_mouse_down = False
 
-        # クリックされた面を削除
+        # 右クリックされた面を削除
         if props.right_mouse_down is True and props.deleted is False:
-            # get adjacent vertex
+            # bmeshの構築
             obj = context.edit_object
             me = obj.data
             bm = bmesh.from_edit_mesh(me)
-
-
+            # クリックされた面を選択
+            loc = event.mouse_region_x, event.mouse_region_y
+            ret = bpy.ops.view3d.select(extend=True, location=loc)
+            if ret == {'PASS_THROUGH'}:
+                print("サンプル 7: 選択範囲外です。")
+                return {'PASS_THROUGH'}
+            # 選択面を取得
+            e = bm.select_history[-1]
+            if not isinstance(e, bmesh.types.BMFace):
+                bm.select_history.remove(e)
+                print("サンプル 7: 面以外を選択しました。")
+                return {'PASS_THROUGH'}
+            # 選択面を削除
+            bm.select_history.remove(e)
+            bmesh.ops.delete(bm, geom=[e], context=5)
+            # bmeshの更新
+            bmesh.update_edit_mesh(me, True)
+            # 削除面数をカウントアップ
             props.deleted_count = props.deleted_count + 1
             # マウスクリック中に連続して面が削除されることを防ぐ
-            props.merged = True
+            props.deleted = True
+            print("サンプル 7: 面を削除しました。")
 
         # マウスがクリック状態から解除された時に、削除禁止状態を解除
         if props.right_mouse_down is False:
-            props.merged = False
+            props.deleted = False
 
         return {'PASS_THROUGH'}
 
     def invoke(self, context, event):
-        sc = context.scene
         props = context.scene.dfrc_props
         if context.area.type == 'VIEW_3D':
-            # 起動時の処理
+            # 処理開始
             if props.running is False:
                 props.running = True
                 props.deleted = False
                 props.right_mouse_down = False
                 props.deleted_count = 0
+                # modal処理クラスを追加
                 context.window_manager.modal_handler_add(self)
+                print("サンプル 7: 削除処理を開始しました。")
                 return {'RUNNING_MODAL'}
-            # 停止時の処理
+            # 処理停止
             else:
                 props.running = False
-                self.report({'INFO'}, "サンプル 7: %d個の面を削除しました。" % (props.merged_count))
+                self.report({'INFO'}, "サンプル 7: %d個の面を削除しました。" % (props.deleted_count))
+                print("サンプル 7: %d個の面を削除しました。" % (props.deleted_count))
                 return {'FINISHED'}
         else:
             return {'CANCELLED'}
@@ -108,25 +130,25 @@ class OBJECT_PT_DFRC(bpy.types.Panel):
         sc = context.scene
         layout = self.layout
         props = context.scene.dfrc_props
+        # 開始/停止ボタンを追加
         if props.running is False:
             layout.operator(DeleteFaceByRClick.bl_idname, text="開始", icon="PLAY")
         else:
             layout.operator(DeleteFaceByRClick.bl_idname, text="終了", icon="PAUSE")
 
 
-def menu_fn(self, context):
-    self.layout.separator()
-    self.layout.operator(ReplicateObject.bl_idname)
-
-
 def register():
     bpy.utils.register_module(__name__)
-    bpy.types.VIEW3D_MT_object.append(menu_fn)
+    sc = bpy.types.Scene
+    sc.dfrc_props = PointerProperty(
+        name = "プロパティ",
+        description = "本アドオンで利用するプロパティ一覧",
+        type = DFRC_Properties)
     print("サンプル 7: アドオン「サンプル 7」が有効化されました。")
 
 
 def unregister():
-    bpy.types.VIEW3D_MT_object.remove(menu_fn)
+    del bpy.types.Scene.dfrc_props
     bpy.utils.unregister_module(__name__)
     print("サンプル 7: アドオン「サンプル 7」が無効化されました。")
 
