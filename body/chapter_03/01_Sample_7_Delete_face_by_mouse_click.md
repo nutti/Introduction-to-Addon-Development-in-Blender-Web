@@ -103,13 +103,60 @@ def register():
 これ以降、各プロパティには ```bpy.types.Scene.dfrc_props.running``` 等でアクセスすることができます。
 
 アドオン無効時には、```bpy.types.Scene``` に追加したプロパティグループを削除する必要があります。
-プロパティグループを削除しないと、アドオン無効化時にもプロパティグループのデータが残ることになるため、メモリを圧迫してしまいます。
+ここできちんと削除しておかないと、アドオン無効化時にもプロパティグループのデータが残ることになるため、無駄にメモリを圧迫してしまいます。
 
 ```py:sample_7_part3
 def unregister():
     del bpy.types.Scene.dfrc_props
 # （略）
 ```
+
+
+### UIを作成する
+
+処理を開始/終了するためのUIを作成します。
+これまでのサンプルではメニューに追加するだけでしたが、今回のように処理の開始と終了という排他的な項目をメニューに追加するのは少し煩わしいです。
+そこで今回のサンプルでは、 *プロパティパネル* に開始/終了が切り替わるボタンを作成します。
+
+*プロパティパネル* の追加は、 ```bpy.types.Panel``` クラスを継承し、 ```draw()``` メソッド内でUIを定義することで可能となります。
+
+```py:sample_7_part4
+# UI
+class OBJECT_PT_DFRC(bpy.types.Panel):
+    bl_label = "マウスの右クリックで面を削除"
+    bl_space_type = "VIEW_3D"
+    bl_region_type = "UI"
+
+    def draw(self, context):
+        sc = context.scene
+        layout = self.layout
+        props = context.scene.dfrc_props
+        # 開始/停止ボタンを追加
+        if props.running is False:
+            layout.operator(DeleteFaceByRClick.bl_idname, text="開始", icon="PLAY")
+        else:
+            layout.operator(DeleteFaceByRClick.bl_idname, text="終了", icon="PAUSE")
+```
+
+```bpy.types.Panel``` クラスを継承したクラスのメンバ変数には、以下のメンバ変数を定義する必要があります。
+
+|メンバ変数|値の意味|
+|---|---|
+|```bl_label```|パネルに登録した時に、項目として表示される文字列|
+|```bl_space_type```|パネルを登録するウィンドウ|
+|```bl_region_type```|パネルを登録するリージョン|
+
+```bl_space_type``` はパネルを登録するウィンドウで、今回は *3Dビュー* に登録したいため ```VIEW_3D``` を指定しています。
+```bl_space_type``` には例えば以下のような値を設定することが可能です。
+
+|設定値|値の意味|
+|---|---|
+|```VIEW_3D```|3Dビュー|
+|```IMAGE_EDITOR```|UV/画像エディター|
+|```NLA_EDITOR```|NLAエディター|
+|```NODE_EDITOR```|ノードエディター|
+|```LOGIC_EDITOR```|ロジックエディター|
+|```SEQUENCE_EDITOR``|ビデオシーケンスエディター|
 
 ## まとめ
 
