@@ -11,8 +11,8 @@
 
 ## アドオンを作成する
 
-以下のソースコードを、 [1.4節](../chapter_01/04_Install_own_Add-on.md)を参考にして **テキスト・エディタ** に入力し、
-**sample_7.py** という名前で保存してください。
+以下のソースコードを、 [1.4節](../chapter_01/04_Install_own_Add-on.md)を参考にして *テキスト・エディタ* に入力し、
+```sample_7.py``` という名前で保存してください。
 
 {% include "../../sample/src/chapter_03/sample_7.py" %}
 
@@ -20,7 +20,7 @@
 
 ### アドオンを有効化する
 
-[1.4節](../chapter_01/04_Install_own_Add-on.md)を参考に、作成したアドオンを有効化すると **コンソール** に以下の文字列が出力されます。
+[1.4節](../chapter_01/04_Install_own_Add-on.md)を参考に、作成したアドオンを有効化すると *コンソール* に以下の文字列が出力されます。
 
 ```sh
 サンプル 7: アドオン「サンプル7」が有効化されました。
@@ -50,7 +50,7 @@
 
 ### アドオンを無効化する
 
-[1.4節](../chapter_01/04_Install_own_Add-on.md)を参考に、有効化したアドオンを無効化すると **コンソール** に以下の文字列が出力されます。
+[1.4節](../chapter_01/04_Install_own_Add-on.md)を参考に、有効化したアドオンを無効化すると *コンソール* に以下の文字列が出力されます。
 
 ```sh
 サンプル 7: アドオン「サンプル 7」が無効化されました。
@@ -85,6 +85,15 @@ class DFRC_Properties(bpy.types.PropertyGroup):
         description = "削除した面の数",
         default = 0)
 ```
+
+今回プロパティグループに登録したメンバ変数一覧を以下に示します。
+
+|メンバ変数|変数の意味|
+|---|---|
+|```running```|```True``` の時は、面を右クリックすることで削除する|
+|```right_mouse_down```|```True``` の時は、右クリック中であることを示す|
+|```deleted```|```True``` の時は、 右クリックにより削除された状態であることを示す。右クリックし続けた状態でマウスを動かし、複数の面が削除されないことを示す|
+|```deleted_count```|```running``` が ```True``` から ```False``` になるまでに削除された面の数|
 
 作成したプロパティグループは、 ```PointerProperty``` クラスを利用して登録します。
 
@@ -127,6 +136,45 @@ class OBJECT_PT_DFRC(bpy.types.Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
 
+# ・・・（略）・・・
+```
+
+```bpy.types.Panel``` クラスを継承したクラスのメンバ変数には、以下のメンバ変数を定義する必要があります。
+
+|メンバ変数|値の意味|
+|---|---|
+|```bl_label```|パネルに登録した時に、項目として表示される文字列|
+|```bl_space_type```|パネルを登録するウィンドウ|
+|```bl_region_type```|パネルを登録するリージョン|
+
+```bl_space_type``` はパネルの登録先 *ウィンドウ* で、今回は *3Dビュー* に登録したいため ```VIEW_3D``` を指定しています。
+```bl_space_type``` には例えば以下のような値を設定することが可能です。
+
+|設定値|値の意味|
+|---|---|
+|```VIEW_3D```|*3Dビュー*|
+|```IMAGE_EDITOR```|*UV/画像エディター*|
+|```NLA_EDITOR```|*NLAエディター*|
+|```NODE_EDITOR```|*ノードエディター*|
+|```LOGIC_EDITOR```|*ロジックエディター*|
+|```SEQUENCE_EDITOR```|*ビデオシーケンスエディター*|
+|```GRAPH_EDITOR```|*グラフエディター*|
+
+```bl_region_type``` はパネルの登録先 *リージョン* で、今回は *プロパティパネル* に登録するため、　```UI``` を指定しています。
+```bl_space_type``` には例えば以下のような値を設定することが可能です。
+
+|設定値|値の意味|
+|---|---|
+|```UI```|*プロパティパネル*|
+|```TOOLS```|*ツール・シェルフ*|
+|```TOOL_PROPS```|*ツール・シェルフ* のプロパティ|
+
+
+```py:sample_7_part5
+# UI
+class OBJECT_PT_DFRC(bpy.types.Panel):
+# ・・・（略）・・・
+
     def draw(self, context):
         sc = context.scene
         layout = self.layout
@@ -138,25 +186,57 @@ class OBJECT_PT_DFRC(bpy.types.Panel):
             layout.operator(DeleteFaceByRClick.bl_idname, text="終了", icon="PAUSE")
 ```
 
-```bpy.types.Panel``` クラスを継承したクラスのメンバ変数には、以下のメンバ変数を定義する必要があります。
+続いて、 ```draw()``` メソッドを定義します。
+```draw()``` メソッドに渡されてくる引数 ```context``` は、 ```draw()``` メソッドが呼ばれた時のコンテキスト情報が含まれています。
+```context.scene.dfrc_props``` により、 ```register()``` 関数内で登録したアドオン内のプロパティグループ ```DFRC_Properties``` を取得しています。
+```DFRC_Properties``` のメンバ変数 ```running``` が ```False``` の時は、削除処理が開始していないため、開始ボタンを表示します。
+同様に、 ```running``` が ```True``` の時は、削除処理がすでに開始している状態であるため、終了ボタンを表示します。
+ボタンの表示は ```layout.operator()``` 関数を用いて行います。
+新たに出てきた ```layout.operator()``` 関数の引数を以下に示します。
 
-|メンバ変数|値の意味|
+|引数|値の意味|
 |---|---|
-|```bl_label```|パネルに登録した時に、項目として表示される文字列|
-|```bl_space_type```|パネルを登録するウィンドウ|
-|```bl_region_type```|パネルを登録するリージョン|
+|```text```|ボタンに表示される文字列|
+|```icon```|ボタンに表示されるアイコン|
 
-```bl_space_type``` はパネルを登録するウィンドウで、今回は *3Dビュー* に登録したいため ```VIEW_3D``` を指定しています。
-```bl_space_type``` には例えば以下のような値を設定することが可能です。
 
-|設定値|値の意味|
-|---|---|
-|```VIEW_3D```|3Dビュー|
-|```IMAGE_EDITOR```|UV/画像エディター|
-|```NLA_EDITOR```|NLAエディター|
-|```NODE_EDITOR```|ノードエディター|
-|```LOGIC_EDITOR```|ロジックエディター|
-|```SEQUENCE_EDITOR``|ビデオシーケンスエディター|
+### オペレーション用クラスの作成
+
+最後に、 *オペレーション用クラス* を作成します。
+今回のアドオンでは、これまで紹介してきたサンプルにあった ```execute()``` メソッドが定義されていません。
+その代わり、 ```modal()``` メソッドと ```invoke()``` メソッドが定義されています。
+
+最初に、 ```invoke()``` メソッドを見てみましょう。
+```invoke()``` メソッドは、 *オペレーション用クラス* が実行された時に呼ばれるメソッドです。
+これまで使ってきた ```execute()``` も *オペレーション用クラス* が実行された時に呼ばれますが、 ```execute()``` 関数の前に ```invoke()``` 関数が呼ばれます。
+このため、 ```execute()``` で利用するデータの初期化などを ```invoke()``` 関数で行うのが主な利用法となります。
+
+```py:sample_7_part6.py
+def invoke(self, context, event):
+    props = context.scene.dfrc_props
+    if context.area.type == 'VIEW_3D':
+        # 処理開始
+        if props.running is False:
+            props.running = True
+            props.deleted = False
+            props.right_mouse_down = False
+            props.deleted_count = 0
+            # modal処理クラスを追加
+            context.window_manager.modal_handler_add(self)
+            print("サンプル 7: 削除処理を開始しました。")
+            return {'RUNNING_MODAL'}
+        # 処理停止
+        else:
+            props.running = False
+            self.report({'INFO'}, "サンプル 7: %d個の面を削除しました。" % (props.deleted_count))
+            print("サンプル 7: %d個の面を削除しました。" % (props.deleted_count))
+            return {'FINISHED'}
+    else:
+        return {'CANCELLED'}
+```
+
+今回は、ボタンが押した時に処理を開始/終了する処理を ```invoke()``` メソッドで行っています。
+
 
 ## まとめ
 
