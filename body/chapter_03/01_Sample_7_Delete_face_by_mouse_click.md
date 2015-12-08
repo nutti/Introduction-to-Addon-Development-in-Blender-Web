@@ -11,7 +11,7 @@
 
 ## アドオンを作成する
 
-以下のソースコードを、 [1.4節](../chapter_01/04_Install_own_Add-on.md)を参考にして テキスト・エディタ に入力し、
+以下のソースコードを、 [1.4節](../chapter_01/04_Install_own_Add-on.md)を参考にして *テキスト・エディタ* に入力し、
 ```sample_7.py``` という名前で保存してください。
 
 {% include "../../sample/src/chapter_03/sample_7.py" %}
@@ -243,12 +243,72 @@ def invoke(self, context, event):
 *モーダルモード* とは、 ```{'FINISHED'}``` または ```{'CANCELLED'}``` を返すまで、処理を終えずにイベントを受け取り続けるモードです。
 今回のアドオンでは、 ```invoke()``` メソッドと ```modal()``` メソッドを同一のクラスで定義しているため、 ```context.window_manager.modal_handler_add()``` の引数に ```self``` を指定します。
 
-処理終了時の処理は ```props.running``` が ```True``` の時に行い、```props.running``` を ```False``` に設定後、 *モーダルモード* 中に削除した面の数を出力して終了します。
-
+処理終了時の処理は ```props.running``` が ```True``` の時に行い、```props.running``` を ```False``` に設定後、 *モーダルモード* 中に削除した面の数を出力します。
+その後 ```{'FINISHED'}``` を返すことで、 *モーダルモード* を終了します。
 
 続いて、 *モーダルモード* 中に呼ばれる ```modal()``` メソッドを説明します。
 
+```py:sample_7_part7.py
+def modal(self, context, event):
+    props = context.scene.dfrc_props
 
+    # 3Dビューの画面を更新
+    if context.area:
+        context.area.tag_redraw()
+
+    # 起動していない場合は終了
+    if props.running is False:
+        return {'PASS_THROUGH'}
+
+    # クリック状態を更新
+    if event.type == 'RIGHTMOUSE':
+        if event.value == 'PRESS':
+            props.right_mouse_down = True
+        elif event.value == 'RELEASE':
+            props.right_mouse_down = False
+
+    # 右クリックされた面を削除
+    if props.right_mouse_down is True and props.deleted is False:
+        # bmeshの構築
+        obj = context.edit_object
+        me = obj.data
+        bm = bmesh.from_edit_mesh(me)
+        # クリックされた面を選択
+        loc = event.mouse_region_x, event.mouse_region_y
+        ret = bpy.ops.view3d.select(extend=True, location=loc)
+        if ret == {'PASS_THROUGH'}:
+            print("サンプル 7: 選択範囲外です。")
+            return {'PASS_THROUGH'}
+        # 選択面を取得
+        e = bm.select_history[-1]
+        if not isinstance(e, bmesh.types.BMFace):
+            bm.select_history.remove(e)
+            print("サンプル 7: 面以外を選択しました。")
+            return {'PASS_THROUGH'}
+        # 選択面を削除
+        bm.select_history.remove(e)
+        bmesh.ops.delete(bm, geom=[e], context=5)
+        # bmeshの更新
+        bmesh.update_edit_mesh(me, True)
+        # 削除面数をカウントアップ
+        props.deleted_count = props.deleted_count + 1
+        # マウスクリック中に連続して面が削除されることを防ぐ
+        props.deleted = True
+        print("サンプル 7: 面を削除しました。")
+
+    # マウスがクリック状態から解除された時に、削除禁止状態を解除
+    if props.right_mouse_down is False:
+        props.deleted = False
+
+    return {'PASS_THROUGH'}
+```
+
+最初に、 ```context.area.tag_redraw()``` 関数を実行して *3Dビュー* を更新します。
+次に ```props.running``` を確認し、処理が開始されていない場合は ```{'PASS_THROUGH'}``` を返して ```modal()``` メソッドを終了します。
+```{'PASS_THROUGH'}``` はイベントを別の処理に対しても通知する処理です。
+```{'PASS_THROUGH'}``` が指定されていないと、マウスやキーボードのイベントが発生した時に ```DeleteFaceByRClick``` の処理後にイベントが捨てられてしまい、マウスやキーボードからのイベントに対する処理が発生しなくなってしまいます。
+試しに、 ```modal()``` メソッドの最終行である ```return {'PASS_THROUGH'}``` を ```return {'RUNNING_MODAL'}``` に変更してみてください。
+*プロパティパネル* から処理を開始した後にボタンを押すことができなくなり、処理を終えることができなくなります。
 
 ## まとめ
 
