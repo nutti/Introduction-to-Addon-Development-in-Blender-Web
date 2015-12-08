@@ -19,5 +19,3 @@
    1. [アドオンに公開されているAPIを調べる](body/chapter_04/01_Research_official_Blender_API_for_Add-on.md)
    2. [デバッグ環境を整えよう](body/chapter_04/02_Prepare_Add-on_debugging_environment.md)
    3. [アドオンを公開しよう](body/chapter_04/03_Publish_your_Add-on.md)
-
-[用語一覧](body/glossary.md)

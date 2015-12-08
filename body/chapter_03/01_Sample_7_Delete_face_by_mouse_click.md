@@ -11,7 +11,7 @@
 
 ## アドオンを作成する
 
-以下のソースコードを、 [1.4節](../chapter_01/04_Install_own_Add-on.md)を参考にして *テキスト・エディタ* に入力し、
+以下のソースコードを、 [1.4節](../chapter_01/04_Install_own_Add-on.md)を参考にして テキスト・エディタ に入力し、
 ```sample_7.py``` という名前で保存してください。
 
 {% include "../../sample/src/chapter_03/sample_7.py" %}
@@ -236,6 +236,18 @@ def invoke(self, context, event):
 ```
 
 今回は、ボタンが押した時に処理を開始/終了する処理を ```invoke()``` メソッドで行っています。
+プロパティグループ ```DFRC_Properties``` の取得方法は、UIの作成時に説明した方法と同じです。
+
+処理開始時の処理は ```props.running``` が ```False``` の時に行い、 ```props.running``` を ```True``` に設定した後、 ```DFRC_Properties``` を実行開始時の初期値に設定します。
+最後に、 ```context.window_manager.modal_handler_add()``` を実行して **モーダル処理用クラス** を登録し、 ```{'RUNNING_MODAL'}``` を返して、 **モーダルモード** へ移行します。
+*モーダルモード* とは、 ```{'FINISHED'}``` または ```{'CANCELLED'}``` を返すまで、処理を終えずにイベントを受け取り続けるモードです。
+今回のアドオンでは、 ```invoke()``` メソッドと ```modal()``` メソッドを同一のクラスで定義しているため、 ```context.window_manager.modal_handler_add()``` の引数に ```self``` を指定します。
+
+処理終了時の処理は ```props.running``` が ```True``` の時に行い、```props.running``` を ```False``` に設定後、 *モーダルモード* 中に削除した面の数を出力して終了します。
+
+
+続いて、 *モーダルモード* 中に呼ばれる ```modal()``` メソッドを説明します。
+
 
 
 ## まとめ
