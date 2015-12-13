@@ -70,7 +70,7 @@ class DeleteFaceByRClick(bpy.types.Operator):
             bm = bmesh.from_edit_mesh(me)
             # クリックされた面を選択
             loc = event.mouse_region_x, event.mouse_region_y
-            ret = bpy.ops.view3d.select(extend=True, location=loc)
+            ret = bpy.ops.view3d.select(location=loc)
             if ret == {'PASS_THROUGH'}:
                 print("サンプル 7: 選択範囲外です。")
                 return {'PASS_THROUGH'}

@@ -215,7 +215,15 @@ class OBJECT_PT_DFRC(bpy.types.Panel):
 def invoke(self, context, event):
     props = context.scene.dfrc_props
     if context.area.type == 'VIEW_3D':
-        # 処理開始
+# ・・・（略）・・・
+    else:
+        return {'CANCELLED'}
+```
+
+今回は、ボタンが押した時に処理を開始/終了する処理を ```invoke()``` メソッドで行っています。
+プロパティグループ ```DFRC_Properties``` の取得方法は、UIの作成時に説明した方法と同じです。
+
+```py:sample_7_part7.py
         if props.running is False:
             props.running = True
             props.deleted = False
@@ -225,30 +233,28 @@ def invoke(self, context, event):
             context.window_manager.modal_handler_add(self)
             print("サンプル 7: 削除処理を開始しました。")
             return {'RUNNING_MODAL'}
-        # 処理停止
-        else:
-            props.running = False
-            self.report({'INFO'}, "サンプル 7: %d個の面を削除しました。" % (props.deleted_count))
-            print("サンプル 7: %d個の面を削除しました。" % (props.deleted_count))
-            return {'FINISHED'}
-    else:
-        return {'CANCELLED'}
 ```
-
-今回は、ボタンが押した時に処理を開始/終了する処理を ```invoke()``` メソッドで行っています。
-プロパティグループ ```DFRC_Properties``` の取得方法は、UIの作成時に説明した方法と同じです。
 
 処理開始時の処理は ```props.running``` が ```False``` の時に行い、 ```props.running``` を ```True``` に設定した後、 ```DFRC_Properties``` を実行開始時の初期値に設定します。
 最後に、 ```context.window_manager.modal_handler_add()``` を実行して **モーダル処理用クラス** を登録し、 ```{'RUNNING_MODAL'}``` を返して、 **モーダルモード** へ移行します。
 *モーダルモード* とは、 ```{'FINISHED'}``` または ```{'CANCELLED'}``` を返すまで、処理を終えずにイベントを受け取り続けるモードです。
 今回のアドオンでは、 ```invoke()``` メソッドと ```modal()``` メソッドを同一のクラスで定義しているため、 ```context.window_manager.modal_handler_add()``` の引数に ```self``` を指定します。
 
+```py:sample_7_part8.py
+        # 処理停止
+        else:
+            props.running = False
+            self.report({'INFO'}, "サンプル 7: %d個の面を削除しました。" % (props.deleted_count))
+            print("サンプル 7: %d個の面を削除しました。" % (props.deleted_count))
+            return {'FINISHED'}
+```
+
 処理終了時の処理は ```props.running``` が ```True``` の時に行い、```props.running``` を ```False``` に設定後、 *モーダルモード* 中に削除した面の数を出力します。
 その後 ```{'FINISHED'}``` を返すことで、 *モーダルモード* を終了します。
 
 続いて、 *モーダルモード* 中に呼ばれる ```modal()``` メソッドを説明します。
 
-```py:sample_7_part7.py
+```py:sample_7_part9.py
 def modal(self, context, event):
     props = context.scene.dfrc_props
 
@@ -260,60 +266,174 @@ def modal(self, context, event):
     if props.running is False:
         return {'PASS_THROUGH'}
 
-    # クリック状態を更新
-    if event.type == 'RIGHTMOUSE':
-        if event.value == 'PRESS':
-            props.right_mouse_down = True
-        elif event.value == 'RELEASE':
-            props.right_mouse_down = False
-
-    # 右クリックされた面を削除
-    if props.right_mouse_down is True and props.deleted is False:
-        # bmeshの構築
-        obj = context.edit_object
-        me = obj.data
-        bm = bmesh.from_edit_mesh(me)
-        # クリックされた面を選択
-        loc = event.mouse_region_x, event.mouse_region_y
-        ret = bpy.ops.view3d.select(extend=True, location=loc)
-        if ret == {'PASS_THROUGH'}:
-            print("サンプル 7: 選択範囲外です。")
-            return {'PASS_THROUGH'}
-        # 選択面を取得
-        e = bm.select_history[-1]
-        if not isinstance(e, bmesh.types.BMFace):
-            bm.select_history.remove(e)
-            print("サンプル 7: 面以外を選択しました。")
-            return {'PASS_THROUGH'}
-        # 選択面を削除
-        bm.select_history.remove(e)
-        bmesh.ops.delete(bm, geom=[e], context=5)
-        # bmeshの更新
-        bmesh.update_edit_mesh(me, True)
-        # 削除面数をカウントアップ
-        props.deleted_count = props.deleted_count + 1
-        # マウスクリック中に連続して面が削除されることを防ぐ
-        props.deleted = True
-        print("サンプル 7: 面を削除しました。")
-
-    # マウスがクリック状態から解除された時に、削除禁止状態を解除
-    if props.right_mouse_down is False:
-        props.deleted = False
+# ・・・（略）・・・
 
     return {'PASS_THROUGH'}
 ```
 
 最初に、 ```context.area.tag_redraw()``` 関数を実行して *3Dビュー* を更新します。
 次に ```props.running``` を確認し、処理が開始されていない場合は ```{'PASS_THROUGH'}``` を返して ```modal()``` メソッドを終了します。
-```{'PASS_THROUGH'}``` はイベントを別の処理に対しても通知する処理です。
+```{'PASS_THROUGH'}``` が返されるとイベントを別の処理に対しても通知します。
 ```{'PASS_THROUGH'}``` が指定されていないと、マウスやキーボードのイベントが発生した時に ```DeleteFaceByRClick``` の処理後にイベントが捨てられてしまい、マウスやキーボードからのイベントに対する処理が発生しなくなってしまいます。
+
 試しに、 ```modal()``` メソッドの最終行である ```return {'PASS_THROUGH'}``` を ```return {'RUNNING_MODAL'}``` に変更してみてください。
 *プロパティパネル* から処理を開始した後にボタンを押すことができなくなり、処理を終えることができなくなります。
+これは ```DeleteFaceByRClick``` の ```invoke()``` メソッドでイベントが捨てられたことを示しています。
+
+```py:sample_7_part10.py
+    # クリック状態を更新
+    if event.type == 'RIGHTMOUSE':
+        if event.value == 'PRESS':
+            props.right_mouse_down = True
+        elif event.value == 'RELEASE':
+            props.right_mouse_down = False
+```
+
+次に、```modal()``` メソッドの引数 ```event``` を用いて、クリック状態を更新します。
+引数 ```event``` からは、マウスのクリックやキーボードが押された状態などを取得することができます。
+```event.type``` にはイベントの種類が保存されていて、例えば以下のようなイベントの種類があります。
+
+|値|値の意味|
+|---|---|
+|```RIGHTMOUSE```|マウス右ボタン|
+|```LEFTMOUSE```|マウス左ボタン|
+|```A```|キーボードAキー|
+|```B```|キーボードBキー|
+
+```event.value``` はイベントの種類に対する、イベントの値を示しています。
+例えば以下の値が ```event.value``` に設定されます。
+
+|値|値の意味|
+|---|---|
+|```PRESS```|ボタンやキーが押された|
+|```RELEASE```|ボタンやキーが離された|
+
+
+```py:sample_7_part11.py
+    # 右クリックされた面を削除
+    if props.right_mouse_down is True and props.deleted is False:
+
+# ・・・（略）・・・
+
+    # マウスがクリック状態から解除された時に、削除禁止状態を解除
+    if props.right_mouse_down is False:
+        props.deleted = False
+```
+
+最後に、右クリックされた時の処理を実装します。
+削除処理の前に、 ```if props.right_mouse_down is True and props.deleted is False``` により、削除処理を行うか否かを確認しています。
+この確認処理では少し工夫を行っています。
+右クリックを行ったことの確認は ```props.right_mouse_down``` が ```True``` だけの確認だけでも問題ないように思えます。
+しかし、右クリックが押されたいる間は ```props.right_mouse_down``` が常に ```True``` になるため、クリック中にマウスを移動させると面を削除できてしまいます。
+これは右クリックを行った直後の1回だけ面を削除する、本来期待する動作とは少し異なります。
+そこで ```props.deleted``` が ```True``` であることを確認し、すでに面を一度削除した状態であれば、削除処理を行わないようにします。
+そして ```props.right_mouse_down``` が ```False``` になった時に ```props.deleted``` を ```False``` に戻し、次に右クリックが行われた時に面を削除できるようにします。
+
+面を削除するためには、メッシュのデータにアクセスする必要があります。
+メッシュのデータにアクセスするためには、```bpy.data.meshes``` からアクセスする方法と ```bmesh``` モジュールを用いる方法があります。
+今回のサンプルでは、 ```bmesh``` モジュールを用いて面の削除処理を実装しています。
+```bmesh``` は比較的最近（バージョン2.63より）導入されたモジュールで、メッシュデータを簡単に扱う関数が多く提供されています。
+```bmesh``` を利用するためには、以下のように ```bmesh``` モジュールをインポートします。
+
+```py:sample_7_part12.py
+import bmesh
+```
+
+それでは、面の削除処理本体を見ていきましょう。
+最初にメッシュデータにアクセスするため、 ```bmesh``` 用にメッシュデータを構築します。
+```context.edit_object.data``` で編集中のオブジェクトのデータを取得し、 ```bmesh.from_edit_mesh()``` 関数の引数に渡すことで、 ```bmesh``` 用のメッシュデータを構築できます。
+
+```py:sample_7_part13.py
+        # bmeshの構築
+        obj = context.edit_object
+        me = obj.data
+        bm = bmesh.from_edit_mesh(me)
+```
+
+次に、クリックされた面を削除する処理です。
+クリックされた面の削除処理は、以下のような流れで行います。
+
+1. クリック時にマウスの位置にある面を選択
+2. 選択された面を取得
+3. 面を削除
+
+最初に1.ですが、 ```event``` 変数にマウスの位置情報が保存されています。
+この情報を関数 ```bpy.ops.view3d.select()``` の引数 ```location``` に指定することで、マウスの位置にある面を選択します。
+もしマウスの位置に面がなければ、 ```bpy.ops.view3d.select()``` 関数は ```{'PASS_THROUGH'}``` を返すことを利用して、マウスの位置に面がないことを出力した後に処理を終了します。
+
+```py:sample_7_part14.py
+        # クリックされた面を選択
+        loc = event.mouse_region_x, event.mouse_region_y
+        ret = bpy.ops.view3d.select(location=loc)
+        if ret == {'PASS_THROUGH'}:
+            print("サンプル 7: 選択範囲外です。")
+            return {'PASS_THROUGH'}
+
+```
+
+続いて2.を実装します。
+1.により選択された面は、最後に選択された面であることを利用して取得します。
+```bm.select_history``` には、頂点・辺・面の選択履歴が残っています。
+そこで ```bm.select_history``` の最後の要素が面であるか否かを確認し、面であれば処理を継続し、そうでなければ処理を終了します。
+
+```py:sample_7_part15.py
+        # 選択面を取得
+        e = bm.select_history[-1]
+        if not isinstance(e, bmesh.types.BMFace):
+            bm.select_history.remove(e)
+            print("サンプル 7: 面以外を選択しました。")
+            return {'PASS_THROUGH'}
+```
+
+最後に選択した面を削除します。
+面の削除は、 ```bmesh.ops.delete()``` 関数で行えます。
+引数には以下を指定します。
+
+|引数|値の意味|
+|---|---|
+|第1引数|```bmesh``` 用のメッシュデータ|
+|```geom```|削除するデータ|
+|```context```|削除するデータの種類|
+
+今回は面を削除するため、 ```context``` に ```5``` を指定しています。
+
+```py:sample_7_part16.py
+        # 選択面を削除
+        bm.select_history.remove(e)
+        bmesh.ops.delete(bm, geom=[e], context=5)
+```
+
+面を削除したらメッシュへも反映させるため、 ```bmesh.update_edit_mesh()``` 関数を実行します。
+この関数を実行しないとメッシュの更新が行われませんので、 ```bmesh``` 用のメッシュデータを修正した時は必ず実行するようにしましょう。
+
+```py:sample_7_part17.py
+        # bmeshの更新
+        bmesh.update_edit_mesh(me, True)
+```
+
+面の削除処理がこれで終わりました。
+最後に削除した面数をカウントアップし、 ```props.deleted``` を ```True``` に変更して、マウスの右ボタンが押された状態で面が削除されないようにします。
+
+```py:sample_7_part18.py
+        # 削除面数をカウントアップ
+        props.deleted_count = props.deleted_count + 1
+        # マウスクリック中に連続して面が削除されることを防ぐ
+        props.deleted = True
+        print("サンプル 7: 面を削除しました。")
+```
 
 ## まとめ
 
-
+アドオンでマウスやキーボードからのイベントを扱う方法を紹介しました。
+新しい内容がたくさん出てきましたが、理解できたでしょうか？
+キーボードやマウスのイベントを用いることで、 アドオンで実現出来る機能が広がると思いますので、ぜひ理解して使えるようになっておきましょう。
 
 ### ポイント
 
-*
+* ```bpy.types.PropertyGroup``` を継承したクラスのメンバ変数に *プロパティ用クラス* を指定することで、 *プロパティ用クラス* をグループ化することができる
+* *プロパティパネル* へのメニューの追加は、 ```bpy.types.Panel``` クラスを継承し、 ```draw()``` メソッド内でUIを定義することで可能となる
+* *オペレーション用クラス* に定義する ```invoke()``` メソッドは、 *オペレーション用クラス* が実行された時に呼ばれるメソッドで、 ```execute()``` 関数より前に 呼ばれる
+* 関数で ```{'RUNNING_MODAL'}``` を返すと、```{'FINISHED'}``` または ```{'CANCELLED'}``` を返すまで処理を終えずにイベントを受け取り続ける *モーダルモード* へ移行し、登録された **モーダル処理用クラス** の ```modal()``` メソッドが実行される
+* ```modal()``` メソッドで ```{'PASS_THROUGH'}``` が返されるとイベントを他の処理へも通知する
+* ```invoke()``` メソッドや ```modal()``` メソッドの引数 ```event``` を参照することで、発生したイベントやイベント時の状態を取得できる
+* ```bmesh``` モジュールは、メッシュデータを簡単に扱うための関数を多数用意している
