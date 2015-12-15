@@ -30,7 +30,70 @@ class RenderLoadedTexture(bpy.types.Operator):
     bl_label = "読み込んだ画像を表示"
     bl_description = "読み込んだ画像を表示します"
 
-    def execute(self, context):
+    __handle = None
+
+    # 画像描画関数を登録
+    @staticmethod
+    def handle_add():
+        RenderLoadedTexture.__handle = bpy.types.SpaceView3D.draw_handler_add(
+            RenderLoadedTexture.render,
+            (), 'WINDOW', 'POST_PIXEL')
+
+    # 画像描画関数を登録解除
+    @staticmethod
+    def handle_remove():
+        if RenderLoadedTexture.__handle is not None:
+            bpy.types.SpaceView3D.draw_handler_remove(
+                RenderLoadedTexture.__handle, 'WINDOW')
+            RenderLoadedTexture.__handle = None
+
+    @staticmethod
+    def render(self, context):
+        wm = context.window_manager
+        sc = context.scene
+
+        # no texture is selected
+        if sc.tex_image == "None":
+            return
+
+        # 描画領域の作成
+        positions = [
+            [10.0, 10.0],     # 左下
+            [10.0, 600.0],    # 左上
+            [600.0, 600.0],   # 右上
+            [600.0, 10.0]     # 右下
+            ]
+        tex_coords = [
+            [0.0, 0.0],
+            [0.0, 1.0],
+            [1.0, 1.0],
+            [1.0, 0.0]
+            ]
+
+        # get texture to be renderred
+        img = bpy.data.images[sc.tex_image]
+
+        # OpenGL configuration
+        bgl.glEnable(bgl.GL_BLEND)
+        bgl.glEnable(bgl.GL_TEXTURE_2D)
+        if img.bindcode:
+            bind = img.bindcode
+            bgl.glBindTexture(bgl.GL_TEXTURE_2D, bind)
+            bgl.glTexParameteri(
+                bgl.GL_TEXTURE_2D, bgl.GL_TEXTURE_MIN_FILTER, bgl.GL_LINEAR)
+            bgl.glTexParameteri(
+                bgl.GL_TEXTURE_2D, bgl.GL_TEXTURE_MAG_FILTER, bgl.GL_LINEAR)
+            bgl.glTexEnvi(
+                bgl.GL_TEXTURE_ENV, bgl.GL_TEXTURE_ENV_MODE, bgl.GL_MODULATE)
+
+        # render texture
+        bgl.glBegin(bgl.GL_QUADS)
+        bgl.glColor4f(1.0, 1.0, 1.0, 0.7)
+        for (x, y), (u, v) in zip(positions, tex_coords):
+            bgl.glTexCoord2f(u, v)
+            bgl.glVertex2f(x, y)
+        bgl.glEnd()
+
         return {'FINISHED'}
 
 
