@@ -157,22 +157,22 @@ BlenderPythonのページは現在も更新され続けているので、アド�
 インストール済みのアドオンのソースコードが置かれている場所は、 *ファイル* > *ユーザ設定* の *アドオン* タブから確認することができます。
 また非公式にインストールするアドオンは、アドオンをダウンロード時のファイルを参照することにより、インストールせずに確認することもできます。
 
-＠＠＠図を追加＠＠＠
+![アドオンのソースコードを読む1](https://dl.dropboxusercontent.com/s/0gkzz3ww1gjb955/read_addon_source_code_1.png "アドオンのソースコードを読む1")
 
 Blenderが標準で提供している機能の一部は、Blender内でソースコードを確認したりAPIドキュメントへ移動したりできます。
 例えば、 *3Dビュー* の *オブジェクト* メニューのソースをみたい場合には、メニューにマウスカーソルを置いて右クリックします。
 
-＠＠図追加＠＠
+![アドオンのソースコードを読む2](https://dl.dropboxusercontent.com/s/7gw1t5faq9eyl67/read_addon_source_code_2.png "アドオンのソースコードを読む2")
 
 右クリックで開いたメニューから *ソース編集* を選択すると、 *テキストエディタ* にソースが表示されます。
 
-＠＠図追加＠＠
+![アドオンのソースコードを読む3](https://dl.dropboxusercontent.com/s/bdvh1yevo0m6j5s/read_addon_source_code_3.png "アドオンのソースコードを読む3")
 
 同様にして以下のようにAPIとして提供されている機能であれば、 *Blender PythonAPI リファレンス* のページに移動することができます。
 
-＠＠図を追加
+![アドオンのソースコードを読む4](https://dl.dropboxusercontent.com/s/as7l6gpnylb8qvc/read_addon_source_code_4.png "アドオンのソースコードを読む4")
 
-＠＠図を追加
+![アドオンのソースコードを読む5](https://dl.dropboxusercontent.com/s/15i3rc3jspnoqp3/read_addon_source_code_5.png "アドオンのソースコードを読む5")
 
 
 ### Blenderのコミュニティサイトで質問する
@@ -192,7 +192,8 @@ Blenderを使っている方はすでにご存知のサイトかもしれませ�
 英語で投稿する必要がありますが、高校生程度の英語力があれば困ることはないと思います。
 アドオンに関する質問はユーザ登録した上で、CODING > Python Supportから行ってください。
 
-＠＠＠図を追加＠＠＠
+![Blender Artists Community](https://dl.dropboxusercontent.com/s/0e6nkncctmwl0ak/blender_artists.png "Blender Artists Community")
+
 
 * Blender Stack Exchange - http://blender.stackexchange.com
 
@@ -205,7 +206,8 @@ Blender Artists Communityと同様、英語で投稿する必要があります�
 質問の投稿は、Ask Questionより行います。
 アドオン開発に関する質問の場合、タグにPythonやadd-on、scripting、あとは質問内容に応じて関連するタグ（mathematicsやopenglなど）を入れておくとよいでしょう。
 
-＠＠＠図を追加＠＠＠
+![Blender Stack Exchange](https://dl.dropboxusercontent.com/s/0zrdm4aebb5xm20/blender_stack_exchange.png "Blender Stack Exchange")
+
 
 * Blender.jp - https://blender.jp
 
@@ -213,9 +215,7 @@ Blender Artists Communityと同様、英語で投稿する必要があります�
 コミュニティサイトには質問板があり、アドオン開発について質問することができます。
 ここで紹介する他のコミュニティサイトに比べ、アドオン開発に関しての質問はあまり多くないため期待した回答が得られるかわかりませんが、日本語で質問できる点はメリットでしょう。
 
-＠＠図を追加＠＠
-
-
+![Blender.jp](https://dl.dropboxusercontent.com/s/m74dd41qm8xpw7c/blender_jp.png "Blender.jp")
 
 質問の際には、質問内容をわかりやすく書くのはもちろんですが、ソースコードや実行結果を載せると問題点が相手に伝わりやすくなります。そして、質問に対する回答が返ってきたら、回答により解決したか否かに関わらずお礼を言うようにしましょう。
 
