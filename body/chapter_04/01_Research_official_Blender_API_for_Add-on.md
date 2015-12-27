@@ -23,14 +23,14 @@ Blenderが提供しているAPI一覧は、Blender公式が公開しているド
 
 * API documentation - http://www.blender.org/api/
 
-＠＠＠図を入れる＠＠＠
+![API documentation](https://dl.dropboxusercontent.com/s/3pgs57v7b29ngo8/blender_api_doc.png "API documentation")
 
 過去のBlenderのバージョンのドキュメントも参照できますが、Blenderのバージョンに応じて提供されているAPIは変わるため、開発に利用しているBlenderのバージョンのドキュメントを参照するようにしましょう。
 本書のサンプルはBlenderのバージョンが2.75aであるため、バージョンが2.75aであるドキュメントを見てみましょう。
 
 * API documentation (Blender 2.75a) - http://www.blender.org/api/blender_python_api_2_75a_release/
 
-＠＠＠図を入れる＠＠＠
+![API documentation 2.75a](https://dl.dropboxusercontent.com/s/hmzkcciai4ooigb/blender_api_doc_2_75a.png "API documentation 2.75a")
 
 この中から、 *3Dビュー* ウィンドウのアクティブ状態のオブジェクトを取得するAPIを調べてみましょう。
 右側のページには、提供するAPIに対してモジュールごとにメニュー化されています。
@@ -78,7 +78,7 @@ Blenderが提供しているAPI一覧は、Blender公式が公開しているド
 *Application Modules* > *Property Definitions (bpy.props)* をクリックし、 ```bpy.props.EnumProperty``` を探してみましょう。
 以下のように、APIの説明に加えて引数に指定できる値や各引数の説明を参照することができます。
 
-＠＠＠図を追加する＠＠＠
+![API documentation EnumProperty](https://dl.dropboxusercontent.com/s/xvi335558nxtwhi/blender_api_doc_enum_property.png "API documentation EnumProperty")
 
 
 ### PythonコンソールでAPIを検索・実行する
@@ -87,11 +87,11 @@ Blenderが提供しているAPI一覧は、Blender公式が公開しているド
 
 例えば、Blender内のオブジェクト一覧を保持している ```bpy.data.objects``` を *Pythonコンソール* に入力し、 ```ctrl + space``` をキーを押して（補完して）みましょう。
 
-＠＠＠図を追加＠＠＠
+![Pythonコンソール 手順1](https://dl.dropboxusercontent.com/s/6tqu81bbk6l6qy8/python_console_1.png "Pythonコンソール 手順1")
 
 すると現在 *3Dビュー* 上にあるオブジェクト名が候補として表示されますので、適当なオブジェクト名を選んで再び補完してみましょう。
 
-＠＠＠図を追加＠＠＠
+![Pythonコンソール 手順2](https://dl.dropboxusercontent.com/s/yu890kcedpewpih/python_console_2.png "Pythonコンソール 手順2")
 
 また様々な候補が出てきます。
 これら候補の中にあった ```select``` を入力し、実行してみましょう。
@@ -105,7 +105,7 @@ http://www.blender.org/api/blender_python_api_2_75a_release/bpy.types.Object.htm
 
 また ```select``` に ```True``` を代入することでオブジェクトを選択状態に、  ```False``` を代入することでオブジェクトを非選択状態に変更することもできます。
 
-＠＠＠図を追加＠＠＠
+![Pythonコンソール 手順3](https://dl.dropboxusercontent.com/s/0aph2y0pq6edyxf/python_console_3.png "Pythonコンソール 手順3")
 
 このように、 *Pythonコンソール* を利用することでAPIを動作確認できるため、APIの効果がわかりづらい場合は、実際に動作させてAPIの効果を確認してみましょう。
 
@@ -114,12 +114,13 @@ http://www.blender.org/api/blender_python_api_2_75a_release/bpy.types.Object.htm
 
 Blenderの *テキストエディタ* には、アドオンのテンプレートが用意されています。
 
-＠＠＠図を追加＠＠＠
+![テンプレート 手順1](https://dl.dropboxusercontent.com/s/bvnb1360j99fd1t/template_1.png "テンプレート 手順1")
 
 Blender本体が提供しているサンプルであることから動作が保証されているので、作りたいアドオンに関連するテンプレートがあれば、ぜひ確認してみるとよいでしょう。
 また、Blenderが提供するAPIの概要を一通り学んでおきたい場合にも、参考になるでしょう。
 なお、提供されいる中で最も簡単なテンプレートは ```Operator Simple``` でしょう。
 
+![テンプレート 手順2](https://dl.dropboxusercontent.com/s/8nt0v8zdkhl1egd/template_2.png "テンプレート 手順2")
 
 ### Blenderアドオン開発の参考サイトを読む
 
@@ -133,12 +134,20 @@ Blender Wiki様は海外サイト、blugjpまとめサイト様は国内サイ�
 
 * Blender Wiki - http://wiki.blender.org/index.php/Dev:2.5/Py/Scripts
 
-＠＠＠図を入れる＠＠＠
+Blenderの公式Wikiページです。
+アドオン開発のチュートリアルやベストプラクティスなど、アドオン開発に必要な知識を学ぶことができます。
+特にテーマに応じた簡単なサンプルが紹介されいているCode Snippetsは、アドオン開発者必見です。
+また、アドオン公開方法の手順についても書かれていますので、初心者だけでなくアドオンをこれから公開しようと考えている方も参考になると思います。
+
+![Blender Wiki](https://dl.dropboxusercontent.com/s/wjaloh1eov0ij73/blender_wiki.png "Blender Wiki")
 
 * blugjpまとめサイト - https://sites.google.com/site/blugjp/blenderpython
 
-＠＠＠図を入れる＠＠＠
+BLUG.jpさんによるまとめサイトです。
+BlenderPythonのページは現在も更新され続けているので、アドオンを開発している方はブックマークして時々見に行ってみましょう。
+もしページを更新したい場合は、BLUG.jpさん（@blug_jp）に連絡してみましょう。
 
+![blugjpまとめサイト](https://dl.dropboxusercontent.com/s/7t6ho0xohl45yrv/blugjp.png "blugjpまとめサイト")
 
 ### 他者が作成したアドオンのソースコードを読む
 
