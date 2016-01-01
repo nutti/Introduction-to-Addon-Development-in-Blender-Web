@@ -7,4 +7,4 @@
 ## 章の構成
 
 1. [サンプル7: マウスの右クリックで面を削除する](01_Sample_7_Delete_face_by_mouse_click.md)
-2. [サンプル8: Blenderに読み込まれている画像を表示する](02_Sample_8_Display_images_loaded_by_Blender.md)
+2. [サンプル8: Blenderに読み込まれている画像を表示する](02_Sample_8_Display_figure_by_OpenGL.md)
