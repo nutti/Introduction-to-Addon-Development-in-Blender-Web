@@ -132,7 +132,7 @@ del sc.rf_vert_4
 
 ### 図形を描画する関数を登録する
 
-*3Dビュー* 上で図形を描画するための静的メソッド ```RenderFigure.handle_add()``` を作成します。
+*3Dビュー* 上で図形を描画する関数を登録するための静的メソッド ```RenderFigure.handle_add()``` を作成します。
 ```RenderFigure.handle_add()``` は静的メソッドとして作成する必要があるため、でコレータ ```@staticmethod``` をメソッド定義の前につける必要があります。
 
 ```py:sample_8_part4.py
@@ -146,6 +146,7 @@ def handle_add(self, context):
 ```
 
 描画関数の登録は ```bpy.types.SpaceView3D.draw_handler_add()``` 関数で行います。
+ここで、 ```SpaceView3D``` は描画する *エリア* により変わります。
 関数の引数に指定する値は以下の通りです。
 
 |引数|意味|
@@ -157,6 +158,8 @@ def handle_add(self, context):
 
 今回のサンプルでは描画する静的メソッドを ```RenderFigure.render``` 、描画する *リージョン* を ```WINDOW``` に指定しています。
 描画関数に渡す引数は、自身のクラスインスタンスと実行時コンテキストを渡しています。
+
+戻り値としてハンドルが返ってくるため、登録解除時に利用するために返ってきたハンドルを保存しておきます。
 
 ### 図形を描画する関数を作成する
 
@@ -207,6 +210,69 @@ def render(self, context):
 
 ### 図形を描画する関数を登録解除する
 
+登録した図形を描画する関数はアドオン無効化時に登録解除する必要があります。
+
+```py:sample_8_part6.py
+@staticmethod
+def handle_remove(self, context):
+    if RenderFigure.__handle is not None:
+        bpy.types.SpaceView3D.draw_handler_remove(
+            RenderFigure.__handle, 'WINDOW')
+        RenderFigure.__handle = None
+```
+
+描画関数の登録解除は、 ```bpy.types.SpaceView3D.draw_handler_remove()``` 関数で行います。
+描画関数の登録時に使用した ```bpy.types.SpaceView3D.draw_handler_add()``` 関数と同様、 ```SpaceView3D``` は対象の *エリア* を指定します。
+関数の引数は以下の通りです。
+
+|引数|意味|
+|---|---|
+|第1引数|ハンドル（```draw_handler_add()``` の戻り値）|
+|第2引数|描画する *リージョン*|
+
+### UIを構築する
+
+最後に本アドオンのUIを構築しましょう。
+
+```py:sample_8_part7.py
+class OBJECT_PT_RF(bpy.types.Panel):
+    bl_label = "図形を表示"
+    bl_space_type = "VIEW_3D"
+    bl_region_type = "UI"
+
+    def draw(self, context):
+        sc = context.scene
+        layout = self.layout
+        if context.area:
+            context.area.tag_redraw()
+        if sc.rf_running is True:
+            layout.operator(RenderingButton.bl_idname, text="Stop", icon="PAUSE")
+            layout.prop(sc, "rf_figure", "図形")
+            layout.prop(sc, "rf_vert_1", "頂点1")
+            layout.prop(sc, "rf_vert_2", "頂点2")
+            layout.prop(sc, "rf_vert_3", "頂点3")
+            if sc.rf_figure == 'RECTANGLE':
+                layout.prop(sc, "rf_vert_4", "頂点4")
+        elif sc.rf_running is False:
+            layout.operator(RenderingButton.bl_idname, text="Start", icon="PLAY")
+```
+
+[3.1節](01_Sample_7_Delete_face_by_mouse_click.md)と同様、 ```bpy.types.Panel``` を継承したクラスの中でUIを構築していきます。
+
+最初に描画中か否かの判定を行った後、描画中であればStopボタンを、そうでない場合はStartボタンを配置しています。
+また、描画中であれば描画する図形や頂点の座標を指定できるようにするため、 ```layout.prop()``` 関数を用いてこれらのUIパーツを配置しています。
+```layout.prop()``` の引数を以下に示します。
+
+|引数|意味|
+|---|---|
+|第1引数|プロパティを持つオブジェクト|
+|第2引数|プロパティ変数名|
+|第3引数|表示文字列|
+
+今回は ```bpy.types.Scene``` にプロパティを登録しているため、 ```context.scene``` を第1引数にしています。
+第2引数には、 ```bpy.types.Scene``` に登録したプロパティ変数名を文字列で指定しています。
+
+四角形を描画する場合は4つの頂点を指定可能とするため、描画する図形が四角形である場合に4つ目の頂点を指定するUIパーツを配置するようにします。
 
 
 ## まとめ
