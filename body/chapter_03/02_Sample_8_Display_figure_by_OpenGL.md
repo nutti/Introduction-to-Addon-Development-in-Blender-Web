@@ -274,10 +274,43 @@ class OBJECT_PT_RF(bpy.types.Panel):
 
 四角形を描画する場合は4つの頂点を指定可能とするため、描画する図形が四角形である場合に4つ目の頂点を指定するUIパーツを配置するようにします。
 
+最後に、描画開始/終了を行う *オペレーションクラス* を作成します。
+
+```py:sample_8_part8.py
+class RenderingButton(bpy.types.Operator):
+    bl_idname = "view3d.rendering_button"
+    bl_label = "図形表示/非表示切り替えボタン"
+    bl_description = "図形の表示/非表示を切り替えるボタン"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    def invoke(self, context, event):
+        sc = context.scene
+        if sc.rf_running is True:
+            RenderFigure.handle_remove(self, context)
+            sc.rf_running = False
+        elif sc.rf_running is False:
+            RenderFigure.handle_add(self, context)
+            sc.rf_running = True
+
+        return {'FINISHED'}
+```
+
+描画中にボタンが押された（ ```sc.rf_running``` が ```True``` ）時には、静的メソッド ```RenderFigure.handle_remove()``` を実行して描画関数を登録解除し、描画を中断します。
+描画中でない場合にボタンが押された（ ```sc.rf_running``` が ```False``` ）時には、静的メソッド ```RenderFigure.handle_add()``` を実行して描画関数を登録し、描画を開始します。
 
 ## まとめ
 
+OpenGLへアクセスするAPIである ```bgl``` モジュールを用いて、 *3Dビュー* で図形を描画する方法を紹介しました。
+今回紹介した ```bgl``` モジュールと [3.1節](01_Sample_7_Delete_face_by_mouse_click.md) で紹介したマウス・キーボードのイベントの扱いを組み合わせることで、Blender専用のUIとは全く異なる独自のUIを構築することができます。
+
+ただしOpenGLへアクセスするAPIが用意されているとは言っても、OpenGLの全ての機能に対してAPIが用意されているわけではありません。
+このため ```bgl``` モジュールを利用する際には、 [4.1節](../chapter_04/01_Research_official_Blender_API_for_Add-on.md) を参考に提供されているAPIを確認する必要があります。
 
 ### ポイント
 
 * Blenderが提供している、OpenGLへアクセスするためのAPIをアドオンから利用するためには、 ```bgl``` モジュールをインポートする必要がある
+* ```bgl``` モジュールを用いて、アドオン内でOpenGLを用いて描画するためには、 ```bpy.types.SpaceXXX.draw_handler_add()``` 関数を用いて、描画用の静的メソッドまたは関数を登録する必要がある（XXX：描画するエリア）
+* 登録した描画用の静的メソッドまたは関数は、アドオン無効化時に ```bpy.types.SpaceXXX.draw_handler_remove()``` 関数を用いて、登録解除する必要がある
+* ```bgl``` モジュールの使い方は、基本的にOpenGLの使い方と同様である
+* ```context.scene``` に登録したプロパティは、 ```bpy.types.Panel``` クラスを継承したクラスの ```draw()``` メソッドで ```self.layout.prop()``` 関数を用いることによりUIパーツとして登録できる
+* ```bgl``` モジュールはOpenGLの関数をすべてサポートしていないため、事前にAPIが用意されているか確認が必要である

@@ -14,7 +14,7 @@
    6. [サンプル6: オブジェクトを複製する3 ショートカットキーを割り当てよう](body/chapter_02/06_Sample_6_Replicate_object_3.md)
 3. [より高度なアドオンを作るために](body/chapter_03/SUMMARY.md)
    1. [サンプル7: マウスの右クリックで面を削除する](body/chapter_03/01_Sample_7_Delete_face_by_mouse_click.md)
-   2. [サンプル8: Blenderに読み込まれている画像を表示する](body/chapter_03/02_Sample_8_Display_figure_by_OpenGL.md)
+   2. [サンプル8: OpenGL向けのAPIを利用して図形を表示する](body/chapter_03/02_Sample_8_Display_figure_by_OpenGL.md)
 4. [さらにその先へ](body/chapter_04/SUMMARY.md)
    1. [Blenderが提供するアドオン向けのAPIを調べる](body/chapter_04/01_Research_official_Blender_API_for_Add-on.md)
    2. [デバッグ環境を整えよう](body/chapter_04/02_Prepare_Add-on_debugging_environment.md)
