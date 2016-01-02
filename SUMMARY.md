@@ -17,5 +17,5 @@
    2. [サンプル8: OpenGL向けのAPIを利用して図形を表示する](body/chapter_03/02_Sample_8_Display_figure_by_OpenGL.md)
 4. [さらにその先へ](body/chapter_04/SUMMARY.md)
    1. [Blenderが提供するアドオン向けのAPIを調べる](body/chapter_04/01_Research_official_Blender_API_for_Add-on.md)
-   2. [デバッグ環境を整えよう](body/chapter_04/02_Prepare_Add-on_debugging_environment.md)
+   2. [作成したアドオンをデバッグする](body/chapter_04/02_Debug_Add-on.md)
    3. [アドオンを公開しよう](body/chapter_04/03_Publish_your_Add-on.md)
