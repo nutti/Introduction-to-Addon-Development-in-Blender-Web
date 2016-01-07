@@ -165,15 +165,15 @@ Eclipseプロジェクトを以下の手順に沿って作成します。
 
 1. 作成したプロジェクトを選択した状態で、 ```Project``` > ```Properties``` をクリックします
 
-＠＠＠図を追加＠＠＠
+![パスの設定 手順1](https://dl.dropboxusercontent.com/s/rxpoqtgrmbpr4rl/configure_path_1.png "パスの設定 手順1")
 
 2. 左のメニューから ```PyDev - PYTHONPATH``` を選択します
 
-＠＠＠図を追加＠＠＠
+![パスの設定 手順2](https://dl.dropboxusercontent.com/s/tkaqudo3ougnen2/configure_path_2.png "パスの設定 手順2")
 
 3. ```External Libraries``` を選択します
 
-＠＠＠図を追加＠＠＠
+![パスの設定 手順3](https://dl.dropboxusercontent.com/s/itz2hzqa9q3oq9i/configure_path_3.png "パスの設定 手順3")
 
 4. ```Add source folder``` をクリックし、以下のパスを追加します
   * (BLENDER_BASE_SCRIPT_PATH)/addons
@@ -194,7 +194,7 @@ BLENDER_VERはBlenderのバージョンが入ります。マイナーバージ�
 今回は上記に加えて、3.で保存する ```debug.py``` と ```debuggee.py``` の保存先を指定します。
 保存先は、 [1.4節](../chapter_01/04_Install_own_Add-on.md) を参照してください。
 
-＠＠＠図を追加＠＠＠
+![パスの設定 手順4](https://dl.dropboxusercontent.com/s/uko6g5ltb04yhqo/configure_path_4.png "パスの設定 手順4")
 
 ### 3. デバッグ実行のためのPythonスクリプトの作成
 
@@ -202,6 +202,9 @@ BLENDER_VERはBlenderのバージョンが入ります。マイナーバージ�
 以下のようなスクリプトを、ファイル名 ```debug.py``` として作成してください。
 
 {% include "../../sample/src/chapter_04/debug.py" %}
+
+ここで ```PYDEV_SRC_DIR``` にはPyDevのプラグインディレクトリを指定しますが、環境により異なるため、各自確認してみてください。
+筆者のMacではPyDevの場所は ```~/.p2/pool/plugins/org.python.pydev_XXX/pysrc``` でした。（```XXX```はPyDevのバージョンです。）
 
 次に、デバッグしたいアドオンを用意します。
 今回は以下のようなアドオンをデバッグ対象とします。
@@ -223,11 +226,11 @@ PyDevデバッグサーバをEclipseから起動するために、以下の方�
 
 1. ```Run``` > ```External Tools``` > ```External Tools Configurations...``` をクリックします
 
-＠＠＠図を追加＠＠＠
+![EclipseにBlenderを登録 手順1](https://dl.dropboxusercontent.com/s/yudnrn16tz821op/register_blender_to_eclipse_1.png "EclipseにBlenderを登録 手順1")
 
 2. 表示されたウィンドウで、 ```Program``` をダブルクリックします
 
-＠＠＠図を追加＠＠＠
+![EclipseにBlenderを登録 手順2](https://dl.dropboxusercontent.com/s/cjybhosb2649upd/register_blender_to_eclipse_2.png "EclipseにBlenderを登録 手順2")
 
 3. ```Main``` タブを選択し、 ```Location``` にBlenderの実行ファイルのパス、 ```Working Directory``` にBlenderの実行ファイルが置かれたディレクトリを入力します。
 なお、 ```Name``` には任意の名前を入力します。（ここでは ```New_Configuration``` を入力しています）
@@ -243,8 +246,7 @@ Blenderのトップディレクトリ（Blenderを非インストーラ版でダ
 
 入力後 ```Apply``` をクリックします。
 
-＠＠＠図を追加＠＠＠
-
+![EclipseにBlenderを登録 手順3](https://dl.dropboxusercontent.com/s/305zw5lym8bhoja/register_blender_to_eclipse_3.png "EclipseにBlenderを登録 手順3")
 
 #### デバッグサーバの起動
 
@@ -253,15 +255,17 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 1. ```Window```　> ```Perspective``` > ```Open Perspective``` > ```Other...``` をクリックします
 
-＠＠＠図を追加＠＠＠
+![デバッグサーバの起動 手順1](https://dl.dropboxusercontent.com/s/srlqpa41rwqtcbg/run_debug_server_1.png "デバッグサーバの起動 手順1")
 
 2. ```Debug``` を選択し、Debugパースペクティブを開きます
 
-＠＠＠図を追加＠＠
+![デバッグサーバの起動 手順2](https://dl.dropboxusercontent.com/s/z2aqd3b3i8e1u3c/run_debug_server_2.png "デバッグサーバの起動 手順2")
 
 3. ```Pydev``` > ```Start Debug Server``` をクリックし、デバッグサーバを起動します
 
-＠＠＠図を追加＠＠＠
+![デバッグサーバの起動 手順3](https://dl.dropboxusercontent.com/s/zxrckr9gfrxrkxd/run_debug_server_3.png "デバッグサーバの起動 手順3")
+
+![デバッグサーバの起動 手順4](https://dl.dropboxusercontent.com/s/stxtk3q6glfo925/run_debug_server_4.png "デバッグサーバの起動 手順4")
 
 
 ### 5. デバッグ開始
@@ -269,42 +273,53 @@ PyDevデバッグサーバの起動手順を以下に示します。
 ここまで順調に設定できていれば、以下のような画面になっているはずです。
 先ほど作成した ```debug.py``` と ```debuggee.py``` は ```PyDev Package Explorer``` から参照することができます。
 
-＠＠＠図を追加＠＠＠
-
-＠＠＠図を追加＠＠＠
+![デバッグ開始 手順1](https://dl.dropboxusercontent.com/s/a4ktv1sy6bv7duc/start_debug_1.png "デバッグ開始 手順1")
 
 以下の手順に従って、EclipseからBlenderを起動してアドオンをデバッグしましょう。
 今回はデバッグができたことの確認として、 ```debugee.py``` の28行目にブレークポイントを設定してみました。
 
-＠＠＠図を追加＠＠＠
+![デバッグ開始 手順2](https://dl.dropboxusercontent.com/s/yo1ij0wqrf6fzw5/start_debug_2.png "デバッグ開始 手順2")
 
 1. ```Run``` > ```External Tools``` > ```External Tools Configurations...``` をクリックします
+
+![デバッグ開始 手順3](https://dl.dropboxusercontent.com/s/ma36nv5q2br1hvb/start_debug_3.png "デバッグ開始 手順3")
 
 2. ```New_Configuration``` を選択し、 ```Run``` ボタンをクリックします
 以降は、 ```Run``` > ```External Tools``` > ```New_Configuration``` からBlenderの起動が行えるようになります
 
+![デバッグ開始 手順4](https://dl.dropboxusercontent.com/s/wdphxp2edjuvees/start_debug_4.png "デバッグ開始 手順4")
+
+![デバッグ開始 手順5](https://dl.dropboxusercontent.com/s/wir3l0phuez9v1b/start_debug_5.png "デバッグ開始 手順5")
+
 3. Blenderが起動します
 
-＠＠＠図を追加＠＠＠
+![デバッグ開始 手順6](https://dl.dropboxusercontent.com/s/lcy17hstd76pfe5/start_debug_6.png "デバッグ開始 手順6")
 
 4. 作成したアドオンを有効化すると、デバッガが起動します
 
-＠＠＠図を追加＠＠＠
+![デバッグ開始 手順7](https://dl.dropboxusercontent.com/s/w0en5mwd5fgpmm6/start_debug_7.png "デバッグ開始 手順7")
 
-＠＠＠図を追加＠＠＠
+![デバッグ開始 手順8](https://dl.dropboxusercontent.com/s/876yphkm0qjolcp/start_debug_8.png "デバッグ開始 手順8")
 
 5. Debugパースペクティブで、 ```Resume``` ボタンを押します
 
-＠＠＠図を追加＠＠＠
+![デバッグ開始 手順9](https://dl.dropboxusercontent.com/s/d211w8m59e5tubf/start_debug_9.png "デバッグ開始 手順9")
 
-6. ```追加``` > ```メッシュ``` > ```デバッグのテスト``` を実行します
+6. *3Dビュー* のメニューで ```追加``` > ```メッシュ``` > ```デバッグのテスト``` を実行します
 
-＠＠＠図を追加＠＠＠
+![デバッグ開始 手順10](https://dl.dropboxusercontent.com/s/mg5rywpsvq17s0w/start_debug_10.png "デバッグ開始 手順10")
 
 7. 設定したブレークポイントでプログラムが止まり、 ```Debug``` パースペクティブで変数値などを参照することができます。
 その他基本的なEclipse上でのデバッグの仕方を説明すると長くなってしまいますので、必要に応じてWebページなどを参考にしてください
 
-＠＠＠図を追加＠＠＠
+![デバッグ開始 手順11](https://dl.dropboxusercontent.com/s/b51idbmcjdjyiuz/start_debug_11.png "デバッグ開始 手順11")
+
+![デバッグ開始 手順12](https://dl.dropboxusercontent.com/s/m95irzuut9ngloh/start_debug_12.png "デバッグ開始 手順12")
+
+![デバッグ開始 手順13](https://dl.dropboxusercontent.com/s/3kjwzrvham4yxtd/start_debug_13.png "デバッグ開始 手順13")
+
+![デバッグ開始 手順14](https://dl.dropboxusercontent.com/s/70nztthhb4hm7wo/start_debug_14.png "デバッグ開始 手順14")
+
 
 ## まとめ
 
