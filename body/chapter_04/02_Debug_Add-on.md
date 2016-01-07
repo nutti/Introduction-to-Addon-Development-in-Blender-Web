@@ -213,7 +213,7 @@ BLENDER_VERはBlenderのバージョンが入ります。マイナーバージ�
 今回は本書で紹介してきたサンプルの場所と同様のディレクトリに保存します。
 保存先は、 [1.4節](../chapter_01/04_Install_own_Add-on.md) を参照してください。
 
-{% include "../../sample/src/chapter_04/debugee.py" %}
+{% include "../../sample/src/chapter_04/debuggee.py" %}
 
 デバッグするためには、 ```debug.py``` をインポートし、デバッグを開始する場所に ```debug.start_debug()``` を追加します。
 上記では、アドオン有効化時にデバッグを開始しています。
