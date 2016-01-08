@@ -1,18 +1,18 @@
-# 1-2. Blenderのアドオンを使ってみよう
+# 1-2. Blenderアドオンを使ってみよう
 
-Blenderのアドオンの開発に入る前に、他の人が作成したアドオンを使ってみましょう。
-ここで紹介する手順は今後アドオンを開発する時に頻繁に行うため、ぜひ覚えておきましょう。
+Blenderアドオンの開発の説明に入る前に他の方が開発したアドオンを使い、開発に必要なアドオンのインストール・有効/無効化の手順を習得しましょう。  
+ここで紹介する手順は今後アドオンを開発する際に必ず行うことになるので、覚えておきましょう。
 
 ## Blenderの日本語化
 
-Blenderは公式で日本語をサポートしています。
-英語では敷居が高いと感じてしまう方もいらっしゃると思いますので、Blenderを日本語化してしまいましょう。
+幸いなことにBlenderは公式で日本語をサポートしていますので、英語では敷居が高いと言う人のためにBlenderを日本語化します。
+Blenderの日本語化は以下の手順に沿って行います。
 
-**Info** ウィンドウの **File** > **User Preferences...** を選択してください。
+1. *Info* ウィンドウの *File* > *User Preferences...* を選択してください。
 
 ![アドオンの日本語化 手順1](https://dl.dropboxusercontent.com/s/8xx2l59wy2d7c8y/localizing_into_japanese_1.png "アドオン日本語化 手順1")
 
-すると、 **Blender User Preferences** ウィンドウが立ち上がりますので、 **System** タブを選択してください。
+すると、 *Blender User Preferences* ウィンドウが立ち上がりますので、 **System** タブを選択してください。
 **International Fonts** にチェックを入れると、Blenderの言語を変更することができます。
 
 ![アドオンの日本語化 手順2](https://dl.dropboxusercontent.com/s/6uwpij0r5riiqk3/localizing_into_japanese_2.png "アドオン日本語化 手順2")
