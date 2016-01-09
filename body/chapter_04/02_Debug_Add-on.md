@@ -105,8 +105,7 @@ Eclipseが起動したら、以下の手順に沿ってPyDevをインストー�
 
 2. ```Available Software``` ウィンドウの ```Add...``` をクリックします
 
-＠＠＠図を追加＠＠＠
-
+![PyDevのインストール 手順2](https://dl.dropboxusercontent.com/s/9hwwncn3xeie2si/install_pydev_2.png "PyDevのインストール 手順2")
 
 3. ```Name``` に ```PyDev``` 、 ```Location``` に ```http://pydev.org/updates``` を入力して OK をクリックします
 
@@ -321,8 +320,93 @@ PyDevデバッグサーバの起動手順を以下に示します。
 ![デバッグ開始 手順14](https://dl.dropboxusercontent.com/s/70nztthhb4hm7wo/start_debug_14.png "デバッグ開始 手順14")
 
 
+## デバッガアドオン『BreakPoint』を利用したデバッグ
+
+外部デバッガを用いたデバッグはEclipseのデバッガ機能が使えるため非常に強力ですが、デバッグ実行するまでの準備に非常に手間がかかります。
+手間をかけずにデバッグしたい方は、アドオン **『BreakPoint』** の利用を検討しましょう。
+デバッグ実行するまでの準備はアドオンのインストールとブレークポイントの設定のみで、非常に少ない手間でデバッグすることができます。
+
+アドオン『BreakPoint』を利用したデバッグの手順は以下のようになります。
+
+1. アドオン『BreakPoint』のインストール
+2. アドオン『BreakPoint』の有効化
+3. ブレークポイントをデバッグ対象のスクリプトに設定
+4. デバッグ開始
+
+### 1. アドオン『BreakPoint』のインストール
+
+アドオン『BreakPoint』を以下のWebサイトからダウンロードし、インストールします。
+
+* Blender Wiki (Scripts: BreakPoint) - http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/Development/BreakPoint
+
+![『BreakPoint』のインストール](https://dl.dropboxusercontent.com/s/220ubjo2o4t0t4n/install_breakpoint.png "『BreakPoint』のインストール")
+
+### 2. アドオン『BreakPoint』の有効化
+
+インストールしたアドオンを有効化します。
+
+![『BreakPoint』の有効化](https://dl.dropboxusercontent.com/s/b6ofwmbcsw4qkyj/enable_breakpoint.png "『BreakPoint』の有効化")
+
+### 3. ブレークポイントをデバッグ対象のスクリプトに設定
+
+以下のようなデバッグ対象のアドオンを作成し、 ```debuggee_2.py``` として保存します。
+
+{% include "../../sample/src/chapter_04/debuggee_2.py" %}
+
+ブレークポイントを設定する関数は ```bpy.types.bp.bp()``` ですが、簡単のため ```breakpoint()``` で呼び出せるようしています。
+
+```py:debuggee_2_part_1.py
+# ブレークポイント関数
+breakpoint = bpy.types.bp.bp
+```
+
+ブレークポイントの設定は、ブレークポイントを設定したい場所で ```breakpoint()``` 関数を実行することで行えます。
+第1引数には変数のスコープの辞書（ローカル変数であれば ```locals()``` 、グローバル変数であれば ```globals()```）、第2引数には確認したい変数を指定します。
+
+### 4. デバッグ開始
+
+*テキストエディタ* エリアのメニューで *ビュー* > *プロパティ* を実行し、 *テキストエディタ* エリアのプロパティを表示してください。
+
+![デバッグ 手順1](https://dl.dropboxusercontent.com/s/bu01qdhpcstfb16/start_bp_debug_1.png "デバッグ 手順1")
+
+プロパティを表示すると、BreakPointメニューが追加されていることがわかります。
+BreakPointメニューを確認し、有効化されていることを確認しておきましょう。
+
+![デバッグ 手順2](https://dl.dropboxusercontent.com/s/quxp3yhoj9r9q01/start_bp_debug_2.png "デバッグ 手順2")
+
+続いて、 *3Dビュー* エリアのメニューで *追加* > *メッシュ* > *デバッグのテスト2* を実行します。
+
+![デバッグ 手順3](https://dl.dropboxusercontent.com/s/wmmy34dyq4ktvvj/start_bp_debug_3.png "デバッグ 手順3")
+
+すると、 *テキストエディタ* エリアのプロパティにブレークポイントの関数に指定した変数の値が表示されていることがわかります。
+
+![デバッグ 手順4](https://dl.dropboxusercontent.com/s/fmfykni3dax1vgt/start_bp_debug_4.png "デバッグ 手順4")
+
+[1.3節](../chapter_01/03_Prepare_Add-on_development_environment.md) のように、Blenderを *コンソール* から開いた場合は、 *コンソール* にも表示されているはずです。
+また、 *コンソール* から起動した場合に限り、Blender本体から *コンソール* に制御が渡ってBlenderが操作できなくなります。
+*コンソール* 制御が移っている間はPythonインタープリタを使うことができます。
+Blender本体に制御を戻す（アドオンの実行を再開する）場合は、Windowsでは ```Ctrl+Z```、 Mac/Linuxでは ```Ctrl+D``` キーを押してください。
+
+
 ## まとめ
 
+Blenderをデバッグする方法を紹介しましたが、本節で紹介したそれぞれのデバッグについてまとめてみました。
 
+|デバッグ方法|得られる情報|前準備|
+|---|---|---|
+|self.report|*コンソール・ウィンドウ* に出力可能な処理中の変数値確認|ソースコードの調べたい箇所に ```self.report()``` 関数を追加|
+|print|すべての変数値確認|*コンソール* からBlenderを起動し、ソースコードの調べたい箇所に ```print()``` 関数を追加|
+|外部デバッガ|ブレークポイント設定やコールトレース調査、変数値確認など *Eclipse* が持つデバッガ機能を利用可能|EclipseやPyDevのインストール、EclipseとBlenderの連携、デバッグ実行用スクリプトの作成|
+|デバッガアドオン『BreakPoint』|ブレークポイント設定、変数値確認|アドオン『BreakPoint』のインストール、ブレークポイント設定のためのソースコード編集|
+
+多くの情報を得ることのできるデバッグは、必要な前準備が基本的に多くなります。
+問題解決の難しさと準備時間を見極めて適宜デバッグ方法を変えていきましょう。
 
 ### ポイント
+
+* Blenderをデバッグする手段には以下の4つの方法がある
+  * self.reportデバッグ
+  * printデバッグ
+  * 外部デバッガを利用したデバッグ
+  * デバッガアドオン『BreakPoint』を利用したデバッグ
+* デバッグ実行のための前準備が多いデバッグ方法は、デバッグ時に多くの情報を得ることができる
