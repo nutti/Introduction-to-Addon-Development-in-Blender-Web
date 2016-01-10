@@ -19,3 +19,5 @@
    1. [Blenderが提供するアドオン向けのAPIを調べる](body/chapter_04/01_Research_official_Blender_API_for_Add-on.md)
    2. [作成したアドオンをデバッグする](body/chapter_04/02_Debug_Add-on.md)
    3. [アドオンを公開しよう](body/chapter_04/03_Publish_your_Add-on.md)
+
+[おわりに](Acknowledgment.md)

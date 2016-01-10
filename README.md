@@ -38,3 +38,13 @@ Blenderアドオンをこれから開発しようと考えている方のため�
 * 英語
 
 # 本書の更新について
+
+誤字・脱字など本書を更新される方は、本書のソースコードが置かれている本プロジェクトのGitHubページからPull Requestを出すか、Issueで修正依頼を出してください。
+
+https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender
+
+もし、本書に追加してほしい話題等がありましたら以下からIssueを出してください。
+
+https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/issues
+
+なお、本書の執筆に貢献いただいた方は、謝辞に名前を掲載させていただきます。
