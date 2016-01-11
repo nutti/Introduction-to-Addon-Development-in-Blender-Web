@@ -190,7 +190,8 @@ Blenderで制作したCGの投稿だけでなく、アドオン開発につい�
 Blenderを使っている方はすでにご存知のサイトかもしれませんが、まだ見たことがない方はぜひ1度サイトを覗いてみるとよいでしょう。
 
 英語で投稿する必要がありますが、高校生程度の英語力があれば困ることはないと思います。
-アドオンに関する質問はユーザ登録した上で、CODING > Python Supportから行ってください。
+アドオンに関する質問はアカウント登録した上で、 *CODING* > *Python Support* から行ってください。
+投稿は *POST NEW THREAD* ボタンから行えます。
 
 ![Blender Artists Community](https://dl.dropboxusercontent.com/s/0e6nkncctmwl0ak/blender_artists.png "Blender Artists Community")
 
@@ -202,7 +203,7 @@ Stack Overflow(http://stackoverflow.com)と呼ばれる、海外のプログラ�
 こちらもアドオン開発に関して活発な議論が行われています。
 また、アドオン開発だけでなくBlenderの使い方に関する質問もできるようです。
 
-Blender Artists Communityと同様、英語で投稿する必要があります。
+Blender Artists Communityと同様、アカウント登録した上で英語で投稿する必要があります。
 質問の投稿は、Ask Questionより行います。
 アドオン開発に関する質問の場合、タグにPythonやadd-on、scripting、あとは質問内容に応じて関連するタグ（mathematicsやopenglなど）を入れておくとよいでしょう。
 
@@ -212,7 +213,7 @@ Blender Artists Communityと同様、英語で投稿する必要があります�
 * Blender.jp - https://blender.jp
 
 国内最大のBlenderコミュニティサイトです。
-コミュニティサイトには質問板があり、アドオン開発について質問することができます。
+コミュニティサイトにはフォーラムがあり、フォーラム中の質問板でアドオン開発について質問することができます。
 ここで紹介する他のコミュニティサイトに比べ、アドオン開発に関しての質問はあまり多くないため期待した回答が得られるかわかりませんが、日本語で質問できる点はメリットでしょう。
 
 ![Blender.jp](https://dl.dropboxusercontent.com/s/m74dd41qm8xpw7c/blender_jp.png "Blender.jp")
