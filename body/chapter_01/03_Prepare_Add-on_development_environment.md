@@ -129,7 +129,7 @@ Vimと同様ユーザが多いエディタのため、Emacsを使いやすくす
 
 * Atom *(Windows/Mac/Linux)*
 * 秀丸 *(Windows)*
-* Terapad *(Windows)*
+* TeraPad *(Windows)*
 * nano *(Mac/Linux)*
 * SublimeText *(Windows/Mac/Linux)*
 
