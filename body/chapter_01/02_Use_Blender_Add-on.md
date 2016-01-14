@@ -20,7 +20,7 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 
 ![アドオンの日本語化 手順2](https://dl.dropboxusercontent.com/s/6uwpij0r5riiqk3/localizing_into_japanese_2.png "アドオン日本語化 手順2")
 
-④ *Language* を *Japanese（日本語）* に変更し、 *Translate* で日本語化したい項目を選択すると、洗濯した項目に応じて日本語化されます。
+④ *Language* を *Japanese（日本語）* に変更し、 *Translate* で日本語化したい項目を選択すると、選択した項目に応じて日本語化されます。
 
 ![アドオンの日本語化 手順3](https://dl.dropboxusercontent.com/s/s5mrd72si2xq910/localizing_into_japanese_3.png "アドオン日本語化 手順3")
 
@@ -53,7 +53,7 @@ Mira Toolsの機能は、以下のWebサイトから確認できます。
 
 * Mita Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
-英語しかサポートしていないためで、アドオンを使う敷居がやや高くなってしまっていますが、サポートレベルがExternalのアドオンの中でも非常に高機能なアドオンですので、ぜひ1度使ってみてください。
+英語しかサポートしていないため、アドオンを使う敷居がやや高くなってしまっていますが、サポートレベルがExternalのアドオンの中でも非常に高機能なアドオンですので、ぜひ1度使ってみてください。
 Mira Toolsのインストール方法は前述のURLにも記載されていますが、改めてここでもインストール方法を紹介します。
 
 ① 以下のURLからmifthさんが作成したアドオン一式をダウンロードします。
@@ -103,7 +103,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 *Mira Tools* の使い方をここで紹介するのは本書の範囲を超えてしまうので、ここでは説明しません。
 興味のある方は以下のページから確認してください。
 
-* Mita Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
+* Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 ## アドオンの無効化
 
