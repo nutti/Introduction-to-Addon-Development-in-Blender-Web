@@ -35,7 +35,7 @@ Blenderアドオンの本体はソースコードですので、ソースコー�
 
 * GitHub - https://github.com
 
-＠＠＠図を追加＠＠＠
+![GitHub](https://dl.dropboxusercontent.com/s/flvh023q94ypypa/github.png "GitHub")
 
 ソースコード管理サイトの中で最も注目されているGitベースのソースコード管理サイトです。
 バージョン管理ツールである *Git* の使い方を勉強する必要がありますが、アドオン公開のために必要な機能が揃っています。
@@ -58,7 +58,7 @@ GitHubの中で有用な機能を以下に示します。
 
 * SourceForge - http://sourceforge.net
 
-＠＠＠図の追加＠＠＠
+![SourceForge](https://dl.dropboxusercontent.com/s/0o2vgnjxw4c6qok/sourceforge.png "SourceForge")
 
 GitHubが登場する前は、SourceForgeがソースコード管理サイト（特にフリーソフト）の主流であったように思えます。
 ただ、GitHubが登場してからは徐々に利用されている方が減ってきているようです。
@@ -88,7 +88,7 @@ GitHubが登場する前は、SourceForgeがソースコード管理サイト（
 
 * Blender Artists Community - http://blenderartists.org/forum/
 
-＠＠＠図を追加＠＠＠
+![Blender Artists Community](https://dl.dropboxusercontent.com/s/vhzjvb3gx2rt96a/blender_artists.png "Blender Artists Community")
 
 国外のコミュニティサイトです。
 毎日のようにアドオンの投稿や投稿したアドオンに関する議論が行なわれています。
@@ -103,19 +103,17 @@ GitHubが登場する前は、SourceForgeがソースコード管理サイト（
 
 * Blender.jp - https://blender.jp
 
-＠＠＠図を追加＠＠＠
+![Blender.jp](https://dl.dropboxusercontent.com/s/9zq781cuxyigwf9/blender_jp.png "Blender.jp")
 
 国内最大のBlenderコミュニティサイトです。
 フォーラムのPythonスクリプト・Plug-in板で開発したアドオンを投稿・宣伝することができます。
 投稿するためには、アカウント登録する必要があります。
 
-![Blender.jp](https://dl.dropboxusercontent.com/s/m74dd41qm8xpw7c/blender_jp.png "Blender.jp")
-
 #### Twitter
 
 * Twitter - https://twitter.com
 
-＠＠＠図を追加＠＠＠
+![Twitter](https://dl.dropboxusercontent.com/s/nik99dg0fc0ilif/twitter.png "Twitter")
 
 Twitterでアドオンを宣伝することもできます。
 Twitterは短い文字数で1回のツイートで伝える方が効果的ですので、動画や画像のチュートリアルや公開先のリンクを添えてツイートするなど工夫しましょう。
@@ -127,7 +125,7 @@ Twitterは短い文字数で1回のツイートで伝える方が効果的です
 
 * Google+ - https://plus.google.com/collections/featured
 
-＠＠＠図を追加＠＠＠
+![Google+](https://dl.dropboxusercontent.com/s/9gvbbx1bkvoo04t/google_plus.png "Google+")
 
 Google社が提供するSNSサービスであるGoogle+にはBlenderのコミュニティがあります。
 Blenderで作成したCG作品を公開するコミュニティが多いようですが、一部コミュニティではアドオンの宣伝も行っています。
@@ -143,7 +141,7 @@ Twitterに比べて拡散力は弱いですが、長文で投稿する時には�
 
 * YouTube - https://www.youtube.com
 
-＠＠＠図を追加＠＠＠
+![YouTube](https://dl.dropboxusercontent.com/s/ffbymu6obrvoacv/youtube.png "YouTube")
 
 言わずと知れた大型動画共有サイトです。
 宣伝というよりは、アドオンのチュートリアル動画を公開したい時に活用すると良いでしょう。
