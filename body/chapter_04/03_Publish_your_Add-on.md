@@ -109,6 +109,18 @@ GitHubが登場する前は、SourceForgeがソースコード管理サイト（
 フォーラムのPythonスクリプト・Plug-in板で開発したアドオンを投稿・宣伝することができます。
 投稿するためには、アカウント登録する必要があります。
 
+#### blugjpまとめサイト
+
+* blugjpまとめサイト - https://sites.google.com/site/blugjp/blenderpython
+
+![blugjpまとめサイト](https://dl.dropboxusercontent.com/s/aegu3vcdu4ky9jq/blugjp.png "blugjpまとめサイト")
+
+BlenderPythonのページにて、アドオンを継続して開発されている方をリストアップされています。
+TwitterやBlender Artists Communityなどでアドオンを宣伝している方を中心に登録されているようです。
+
+blugjpまとめサイトさんにアドオン開発者として登録してもらいたい場合は、アドオンの宣伝を積極的に行って管理人さんにアピールして載せてもらいましょう。
+もしどうしてもアドオン開発者として載せてもらいたい方は、Twitterなどで管理人さんにお願いすると載せてもらえるかもしれません。
+
 #### Twitter
 
 * Twitter - https://twitter.com
