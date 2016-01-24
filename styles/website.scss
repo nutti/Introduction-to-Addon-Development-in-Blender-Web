@@ -1,0 +1,18 @@
+.book {
+    .book-body {
+        .page-wrapper {
+            .page-inner {
+                section.normal {
+                    font-size: 1.0em;
+                    h1 {
+                        text-align: center;
+                    }
+                    a {
+                        text-decoration: none;
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    }
+} 

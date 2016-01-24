@@ -1,12 +1,11 @@
 {
-  "gitbook": ">=2.0.0",
+  "gitbook": ">=2.5.0",
   "title": "はじめてのBlenderアドオン開発",
   "description": "これからBlenderのアドオンを開発しようと考えている人向けの技術資料です。",
-  "language": "jp",
+  "language": "ja",
+  "plugins": ["styles-sass", "image-captions"],
   "styles": {
-    "pdf": "styles/pdf.css"
-  },
-  "variables": {
-    "img_dir": "../Introduction-to-Add-on-Development-in-Blender_bin/images"
+    "website": "styles/website.scss",
+    "pdf": "styles/pdf.scss"
   }
 }

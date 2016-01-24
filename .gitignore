@@ -5,7 +5,11 @@
 
 # not allow output files
 *.pdf
+_book/
 
 # not allow media files
 *.png
 *.jpg
+
+# not allow node.js files
+node_modules/
