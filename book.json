@@ -3,9 +3,14 @@
   "title": "はじめてのBlenderアドオン開発",
   "description": "これからBlenderのアドオンを開発しようと考えている人向けの技術資料です。",
   "language": "ja",
-  "plugins": ["styles-sass", "image-captions"],
+  "plugins": ["styles-sass", "image-captions", "include-codeblock"],
   "styles": {
     "website": "styles/website.scss",
     "pdf": "styles/pdf.scss"
+  },
+  "pdf": {
+      "paperSize": "a5",
+      "margin": {
+      }
   }
 }

@@ -18,36 +18,7 @@
 
 ③ 以下に示すソースコード全文を入力します。空白は全て半角スペースで入力し、タブや全角スペースが含まれないように注意してください。
 
-```py3:04.py
-import bpy
-
-bl_info = {
-	"name": "サンプル 0: 何もしないアドオン",
-	"author": "Nutti",
-	"version": (1, 0),
-	"blender": (2, 75, 0),
-	"location": "Object > サンプル 0: 何もしないアドオン",
-	"description": "アドオンのインストールとアンインストールを試すためのサンプル",
-	"warning": "",
-	"support": "TESTING",
-	"wiki_url": "",
-	"tracker_url": "",
-	"category": "Object"
-}
-
-
-def register():
-	print("アドオンがインストールされました。")
-
-
-def unregister():
-	print("アドオンがアンインストールされました。")
-
-
-if __name__ == "__main__":
-	register()
-
-```
+[import](../../sample/src/chapter_01/sample_0.py)
 
 ![アドオン作成 手順2](https://dl.dropboxusercontent.com/s/t6agj2bu859vk1c/blender_make_add-on_2.png "アドオン作成 手順2")
 

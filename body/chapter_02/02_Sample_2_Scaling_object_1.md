@@ -63,7 +63,7 @@ Blender起動直後には **Cube** が生成されているはずなので選択
 **3Dビュー** の **オブジェクト** > **選択オブジェクトの縮小** を実行してみましょう。
 選択したオブジェクト **Cube** のサイズが1/2倍に縮小されたことが確認できます。
 
-![選択オブジェクトの縮小](https://dl.dropboxusercontent.com/s/zinqogsgx4td6jw/blender_use_add-on_3.png "選択オブジェクトの縮小")
+![選択オブジェクトの縮小](https://dl.dropboxusercontent.com/s/zinqogsgx4td6jw/blender_use_add-on_3.png"選択オブジェクトの縮小")
 
 **コンソール・ウィンドウ** には、以下のメッセージが出力されていると思います。
 
