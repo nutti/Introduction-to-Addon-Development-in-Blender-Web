@@ -1,4 +1,32 @@
+@font-face {
+    font-family: "NotoSansCJKjp";
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://dl.dropboxusercontent.com/s/70gw3lbh1qlg1on/NotoSansCJKjp-DemiLight.woff') format('woff');
+}
+
+@font-face {
+    font-family: "MPlus";
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://dl.dropboxusercontent.com/s/tmzaf75eoklqs75/mplus-1c-bold.ttf') format('truetype');
+}
+
+
+
+$font_size_base: 1.3em;
+
 .section {
+    font-family: NotoSansCJKjp;
+    font-size: $font_size_base + 1.0em;
+    h1 {
+        font-family: MPlus;
+        text-align: center;
+        font-size: $font_size_base + 1.0em;
+    }
+    ul {
+        list-style-image: url(https://dl.dropboxusercontent.com/s/er12ivls2159slb/list.png);
+    }
     &.toc {
         >h1 {
             text-align: right;

@@ -2,14 +2,14 @@
     font-family: "NotoSansCJKjp";
     font-style: normal;
     font-weight: normal;
-    src: url('./fonts/NotoSansCJKjp-DemiLight.woff') format('woff');
+    src: url('https://dl.dropboxusercontent.com/s/70gw3lbh1qlg1on/NotoSansCJKjp-DemiLight.woff') format('woff');
 }
 
 @font-face {
     font-family: "MPlus";
     font-style: normal;
     font-weight: normal;
-    src: url('./fonts/mplus-1c-bold.ttf') format('truetype');
+    src: url('https://dl.dropboxusercontent.com/s/tmzaf75eoklqs75/mplus-1c-bold.ttf') format('truetype');
 }
 
 $font_size_base: 1.3em;
@@ -53,6 +53,9 @@ $font_size_base: 1.3em;
                     b {
                         font-weight: bold;
                         font-size: $font_size_base - 0.05em;
+                    }
+                    ul {
+                        list-style-image: url(https://dl.dropboxusercontent.com/s/er12ivls2159slb/list.png);
                     }
                 }
             }
