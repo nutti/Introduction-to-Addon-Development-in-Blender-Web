@@ -2,6 +2,7 @@
 # not allow temporary files
 *~
 .DS_Store
+*.swp
 
 # not allow output files
 *.pdf
