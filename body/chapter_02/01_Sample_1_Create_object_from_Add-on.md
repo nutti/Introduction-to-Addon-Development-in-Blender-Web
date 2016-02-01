@@ -280,7 +280,7 @@ class CreateObject(bpy.types.Operator):
 
 ![オペレーション 解説7](https://dl.dropboxusercontent.com/s/nd2gve5namkfn1l/blender_operation_1.png "オペレーション 解説1")
 
-続いて、オペレーションの処理本体を作成します。
+続いて、オペレーション用クラスの処理本体を作成します。
 
 ```py:sample_1_part4.py
   # メニューを実行した時に呼ばれる関数
@@ -291,20 +291,22 @@ class CreateObject(bpy.types.Operator):
 		return {'FINISHED'}
 ```
 
-メニューを実行した時など、オペレーションが実行された時は ```exexute()``` メソッドが呼ばれます。
+メニューを実行時など、処理が実行された時は ```exexute()``` メソッドが呼ばれます。
+このため、 ```exexute()``` メソッドには実行したい処理を記述します。
+
 ```execute()``` メソッドが呼ばれると、以下の引数がBlender本体から渡されてきます。
 今回はこれらの引数を利用していないため、特に意識する必要はありません。
 
 |引数|型|値の説明|
 |---|---|---|
-|```self```|呼ばれた ```execute()``` が定義されている型|オペレーションクラスのインスタンス|
-|```context```|```bpy_types.Context```|オペレーションが実行された時のコンテキスト|
+|```self```|呼ばれた ```execute()``` を定義しているクラス|オペレーション用クラスのインスタンス|
+|```context```|```bpy_types.Context```|```exexute()``` 実行時のコンテキスト|
 
 ```execute()``` メソッドの中身を見てみましょう。
-最初に、 ```bpy.ops.mesh.primitive_ico_sphere_add()``` という関数を呼んでいます。
-これはBlenderが用意しているAPIの1つで、 **3Dビュー** 上にICO球を作成することができます。
-この関数は複数の引数を取りますが、今回は引数を1つも指定していないので3DカーソルにICO球が生成されます。
-```bpy.ops.mesh.primitive_ico_sphere_add()``` は引数として例えば以下のようなものを取ります。
+最初に、 ```bpy.ops.mesh.primitive_ico_sphere_add()``` 関数を呼んでいます。
+これはBlenderが提供しているAPIの1つで、 *3Dビュー* エリアにICO球を生成します。
+この関数は複数の引数を受け取りますが、今回は引数を1つも指定していないので3Dカーソルの位置にICO球が生成されます。
+```bpy.ops.mesh.primitive_ico_sphere_add()``` は引数として例えば以下のようなものを渡すことができます。
 
 |引数|型|値の説明|
 |---|---|---|
@@ -312,8 +314,8 @@ class CreateObject(bpy.types.Operator):
 |```location```|タプル|生成時のICO球の座標|
 |```rotation```|タプル|生成時のICO球の回転角|
 
-先ほど示したソースコードに引数を指定して、実行してみましょう。
-サイズが ```2.0``` 倍 、生成時の座標が ```(x, y, z) = (5.0, -5.0, 0.0)``` 、生成時の回転角（ラジアン）が ```(x, y, z) = (0.79, 0.0, 1.57)``` のICO球を作成するようにします。
+先ほど示したソースコードを改造し、```bpy.ops.mesh.primitive_ico_sphere_add()``` に引数を指定して実行してみましょう。
+ICO球生成時のサイズが2.0倍、座標が(x, y, z) = (5.0, -5.0, 0.0)、回転角（ラジアン）が(x, y, z) = (0.79, 0.0, 1.57)のICO球を作成するようにします。
 ```execute()``` メソッドを以下のように書き換えてください。
 
 ```py:sample_1_part4_alt.py
@@ -325,14 +327,14 @@ class CreateObject(bpy.types.Operator):
 		return {'FINISHED'}
 ```
 
+この状態でアドオンを有効化して、 *3Dビュー* エリアのメニュから *追加* > *メッシュ* > *球* を実行すると、以下のように指定した引数に応じたICO球を生成します。
+
 ![オペレーション 解説2](https://dl.dropboxusercontent.com/s/a6qe1qaytr33dri/blender_operation_2.png "オペレーション 解説2")
 
-ここで、 ```bpy.ops.mesh.primitive_ico_sphere_add()``` がICO球を作成する関数と書きましたが、
-どのようにしてこの関数がICO球を作成する関数であることを知ることができたのでしょうか？
-[4-1節](../chapter_04/01_Research_official_Blender_API_for_Add-on.md)で紹介する、
-Blender APIリファレンスから探しても良いです。
-しかし、すでにBlenderが提供する機能がBlender本体にあればもっと簡単な方法に調べる方法があります。
-少し前で解説した ```bl_idname``` の表示箇所と関係がありますが、メニューやボタンをマウスオーバーすることで実行される関数を確認することができます。
+ここで ```bpy.ops.mesh.primitive_ico_sphere_add()``` がICO球を作成する関数であると書きましたが、どのようにしてこの関数がICO球を作成する関数であることを知ることができたのでしょうか？
+[4-1節](../chapter_04/01_Research_official_Blender_API_for_Add-on.md)で紹介する、BlenderのAPIリファレンスから探しても良いですが、本APIについてはもっと簡単に調べる方法があります。
+少し前で解説した ```bl_idname``` の表示箇所と関係しますが、メニューやボタンをマウスオーバーすることで実行される関数を表示することができます。
+すべてのAPIをこの方法で確認することはできずメニューなどで提供されている機能に限りますが、非常に手軽に確認することができますので覚えておいて損はないでしょう。
 
 ![APIの調査](https://dl.dropboxusercontent.com/s/7blrr06i94597uh/blender_find_API.png "APIの調査")
 
