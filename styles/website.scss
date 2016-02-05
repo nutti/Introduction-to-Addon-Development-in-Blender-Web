@@ -1,64 +1,13 @@
-@font-face {
-    font-family: "NotoSansCJKjp";
-    font-style: normal;
-    font-weight: normal;
-    src: url('https://dl.dropboxusercontent.com/s/1uagfjphtpb5aaq/NotoSansCJKjp-DemiLight-Subset.woff') format('woff');
-}
-
-@font-face {
-    font-family: "MPlus";
-    font-style: normal;
-    font-weight: normal;
-    src: url('https://dl.dropboxusercontent.com/s/tmzaf75eoklqs75/mplus-1c-bold.ttf') format('truetype');
-}
-
-$font_size_base: 1.3em;
+@import "include/common.scss";
 
 .book {
     .book-body {
         .page-wrapper {
             .page-inner {
                 section.normal {
-                    font-family: NotoSansCJKjp;
-                    font-size: $font_size_base;
-                    h1 {
-                        font-family: MPlus;
-                        text-align: center;
-                        font-size: $font_size_base + 1.0em;
-                    }
-                    h2 {
-                        text-align: left;
-                        font-size: $font_size_base + 0.5em;
-                    }
-                    h3 {
-                        text-align: left;
-                        font-size: $font_size_base + 0.3em;
-                    }
-                    h4 {
-                        text-align: left;
-                        font-size: $font_size_base + 0.15em;
-                    }
-                    a {
-                        text-decoration: none;
-                        border-bottom: none;
-                    }
-                    img {
-                        width: 80%;
-                        height: 80%;
-                        text-align: center;
-                    }
-                    i {
-                        font-style: normal;
-                    }
-                    b {
-                        font-weight: bold;
-                        font-size: $font_size_base - 0.05em;
-                    }
-                    ul {
-                        list-style-image: url(https://dl.dropboxusercontent.com/s/er12ivls2159slb/list.png);
-                    }
+                    @include common(1.1em, 1.3);
                 }
             }
         }
     }
-} 
+}

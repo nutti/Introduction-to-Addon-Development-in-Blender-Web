@@ -1,0 +1,169 @@
+@font-face {
+    font-family: "NotoSansCJKjp";
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://dl.dropboxusercontent.com/s/1uagfjphtpb5aaq/NotoSansCJKjp-DemiLight-Subset.woff') format('woff');
+}
+
+@font-face {
+    font-family: "MPlus";
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://dl.dropboxusercontent.com/s/tmzaf75eoklqs75/mplus-1c-bold.ttf') format('truetype');
+}
+
+@mixin common($font_size_base, $line_height) {
+    font-family: NotoSansCJKjp;
+    line-height: $line_height;
+    font-size: $font_size_base;
+    p {
+        font-size: $font_size_base;
+    }
+    pre {
+        >code {
+            font-size: $font_size_base;
+        }
+    }
+    table {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        thead {
+            tr {
+                th {
+                    font-family: MPlus;
+                    font-size: $font_size_base + 0.05em;
+                    color: #EEEEEE;
+                    background-color: #000000;
+                    font-weight: bold;
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    font-size: $font_size_base;
+                    background-color: #FFFFFF;
+                }
+            }
+        }
+    }
+    h1 {
+        font-family: MPlus;
+        text-align: left;
+        font-size: $font_size_base + 2.0em;
+    }
+    #column + p {
+        text-align: left;
+        font-family: MPlus;
+        font-size: $font_size_base;
+        padding: 20px;
+        background: #ffffff;
+        border: 1px #cccccc solid;
+        box-shadow: 0 2px 3px 0 #ddd;
+        -moz-box-shadow: 0 2px 3px 0 #ddd;
+        -webkit-box-shadow: 0 2px 3px 0 #ddd;
+    }
+    #column + p:before {
+        content: "COLUMN";
+    }
+    #process + table {
+        width: 100%;
+        thead {
+            border: none;
+            tr {
+                border: none;
+                th:nth-of-type(1) {
+                    font-size: $font_size_base;
+                    text-shadow: 5px 5px 1px #999999;
+                    border: none;
+                    width: 5%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                }
+                th:nth-of-type(2) {
+                    font-size: $font_size_base;
+                    border: none;
+                    width: 35%;
+                    text-align: left;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                }
+                th:nth-of-type(3) {
+                    font-size: $font_size_base;
+                    border: none;
+                    width: 60%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                }
+            }
+        }
+        tbody {
+            border: none;
+            tr {
+                border: none;
+                td:nth-of-type(1) {
+                    font-size: $font_size_base;
+                    text-shadow: 5px 5px 1px #999999;
+                    border: none;
+                    width: 5%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                }
+                td:nth-of-type(2) {
+                    font-size: $font_size_base;
+                    border: none;
+                    width: 35%;
+                    text-align: left;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                }
+                td:nth-of-type(3) {
+                    font-size: $font_size_base;
+                    border: none;
+                    width: 60%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                }
+            }
+        }
+    }
+    h2 {
+        text-align: left;
+        font-size: $font_size_base + 1.0em;
+    }
+    h3 {
+        font-family: MPlus;
+        text-align: left;
+        font-size: $font_size_base + 0.7em;
+    }
+    h4 {
+        text-align: left;
+        font-size: $font_size_base + 0.3em;
+        font-weight: bold;
+    }
+    a {
+        text-decoration: none;
+        border-bottom: none;
+        font-style: normal;
+        color: #000000;
+    }
+    img {
+        text-align: center;
+    }
+    b {
+        font-weight: bold;
+        font-size: $font_size_base - 0.05em;
+    }
+    ul {
+        font-size: $font_size_base;
+        list-style-image: url(https://dl.dropboxusercontent.com/s/er12ivls2159slb/list.png);
+    }
+    &.toc {
+        >h1 {
+            text-align: right;
+        }
+    }
+}

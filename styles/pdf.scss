@@ -1,35 +1,7 @@
-@font-face {
-    font-family: "NotoSansCJKjp";
-    font-style: normal;
-    font-weight: normal;
-    src: url('https://dl.dropboxusercontent.com/s/1uagfjphtpb5aaq/NotoSansCJKjp-DemiLight-Subset.woff') format('woff');
-}
+@import "include/common.scss";
 
-@font-face {
-    font-family: "MPlus";
-    font-style: normal;
-    font-weight: normal;
-    src: url('https://dl.dropboxusercontent.com/s/tmzaf75eoklqs75/mplus-1c-bold.ttf') format('truetype');
-}
-
-
-
-$font_size_base: 0.8em;
-
-.section {
-    font-family: NotoSansCJKjp;
-    font-size: $font_size_base + 1.0em;
-    h1 {
-        font-family: MPlus;
-        text-align: center;
-        font-size: $font_size_base + 1.0em;
-    }
-    ul {
-        list-style-image: url(https://dl.dropboxusercontent.com/s/er12ivls2159slb/list.png);
-    }
-    &.toc {
-        >h1 {
-            text-align: right;
-        }
+.page {
+    .section {
+        @include common(0.5em, 0.7);
     }
 }
