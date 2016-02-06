@@ -16,7 +16,7 @@
 以下のソースコードを、 [1.4節](../chapter_01/04_Install_own_Add-on.md)を参考にして **テキスト・エディタ** に入力し、
 **sample_4.py** という名前で保存してください。
 
-{% include "../../sample/src/chapter_02/sample_4.py" %}
+[import](../../sample/src/chapter_02/sample_4.py)
 
 ## アドオンを実行する
 

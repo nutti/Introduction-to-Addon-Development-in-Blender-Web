@@ -1,4 +1,3 @@
-```py:debuggee.py
 import bpy
 from . import debug     # デバッグ実行するクリプトをimport
 
@@ -52,5 +51,3 @@ def unregister():
 
 if __name__ == "__main__":
     register()
-
-```

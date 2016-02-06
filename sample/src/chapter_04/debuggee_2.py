@@ -1,4 +1,3 @@
-```py:debuggee_2.py
 import bpy
 
 bl_info = {
@@ -52,5 +51,3 @@ def unregister():
 
 if __name__ == "__main__":
     register()
-
-```

@@ -1,4 +1,3 @@
-```py:sample_1.py
 import bpy   # アドオン開発者に対して用意しているAPIを利用する
 
 # アドオンに関する情報を保持する、bl_info変数
@@ -56,5 +55,3 @@ def unregister():
 # メイン処理
 if __name__ == "__main__":
 	register()
-
-```

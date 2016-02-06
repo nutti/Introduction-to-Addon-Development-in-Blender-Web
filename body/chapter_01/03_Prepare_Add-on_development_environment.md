@@ -14,7 +14,7 @@ Blenderをダウンロードした直後のBlenderの画面は、以下のよう
 
 ![Blender 初期状態](https://dl.dropboxusercontent.com/s/jj7knj6wpu29mrd/blender_initial.png "Blender 初期状態")
 
-この状態でもアドオンの開発は可能ですが、以下のようにアドオンを開発しやすい環境にすることをお勧めします。
+この状態でもアドオンの開発は可能ですが、アドオンを開発しやすい環境にすることをお勧めします。
 
 ![Blender アドオン開発向け環境](https://dl.dropboxusercontent.com/s/9ws6g0tr3xhpc94/blender_change_window_4.png "Blender アドオン開発向け環境")
 
@@ -24,13 +24,17 @@ Blenderをダウンロードした直後のBlenderの画面は、以下のよう
 
 Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれる機能があります。
 コンソール・ウィンドウはアドオンの実行結果やエラーを表示する機能で、起動直後は表示されていません。
-コンソール・ウィンドウを表示させるためには、 *Info* エリアの上端を下に向かってドラッグ＆ドロップします。
+コンソール・ウィンドウを表示させるための手順を以下に示します。
 
-![コンソール・ウィンドウの表示 手順1](https://dl.dropboxusercontent.com/s/ho9x3vdwrfp1bqr/blender_show_console_window_1.png "コンソール・ウィンドウの表示 手順1")
+<div id="process"></div>
+
+|　|　|　|
+|---|---|---|
+|1|*Info* エリアの上端を下に向かってドラッグ＆ドロップします。|![コンソール・ウィンドウの表示 手順1](https://dl.dropboxusercontent.com/s/ho9x3vdwrfp1bqr/blender_show_console_window_1.png "コンソール・ウィンドウの表示 手順1")|
+|2|コンソールウィンドウが表示されます。|![コンソール・ウィンドウの表示 手順2](https://dl.dropboxusercontent.com/s/49km722w99jxygf/blender_show_console_window_2.png "コンソール・ウィンドウの表示 手順2")|
 
 アドオンを開発時に大変役立つ機能ですので、アドオン開発中は常にコンソール・ウィンドウを表示させておきましょう。
 
-![コンソール・ウィンドウの表示 手順2](https://dl.dropboxusercontent.com/s/49km722w99jxygf/blender_show_console_window_2.png "コンソール・ウィンドウの表示 手順2")
 
 ### エリアの分割
 
@@ -38,13 +42,13 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 エリアを分割することで、作業の度に表示するエリアを変更する必要がなくなります。
 ここではアドオンの開発を行いやすくするため、以下のようにエリアを分割してみましょう。
 
-![ウィンドウの分割 手順1](https://dl.dropboxusercontent.com/s/hnc8c8qfonfnnyp/blender_divide_window_1.png "ウィンドウの分割 手順1")
+<div id="process"></div>
 
-![ウィンドウの分割 手順2](https://dl.dropboxusercontent.com/s/g6ifc1mn5wu120e/blender_divide_window_2.png "ウィンドウの分割 手順2")
-
-![ウィンドウの分割 手順3](https://dl.dropboxusercontent.com/s/i3bbl8f5vbmazhk/blender_divide_window_3.png "ウィンドウの分割 手順3")
-
-分割後のエリアは全て *3Dビュー* になっていると思います。
+|　|　|　|
+|---|---|---|
+|1|左下の三角マークを右側にドラッグ&ドロップしてエリアを縦に2分割します。|![ウィンドウの分割 手順1](https://dl.dropboxusercontent.com/s/hnc8c8qfonfnnyp/blender_divide_window_1.png "ウィンドウの分割 手順1")|
+|2|左側のエリアの左下の三角マークを上側にドラッグ&ドロップして左側のエリアを横に2分割します。|![ウィンドウの分割 手順2](https://dl.dropboxusercontent.com/s/g6ifc1mn5wu120e/blender_divide_window_2.png "ウィンドウの分割 手順2")|
+|3|これでエリア分割は完了です。なお、分割後のエリアは全て *3Dビュー* になっていると思います。|![ウィンドウの分割 手順3](https://dl.dropboxusercontent.com/s/i3bbl8f5vbmazhk/blender_divide_window_3.png "ウィンドウの分割 手順3")|
 
 ### エリアの変更
 
@@ -52,44 +56,39 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 エリアの変更は、各エリアのメニューバーの一番左のボタンから行うことができます。
 エリアの変更の手順を以下に示します。
 
-① 左下のエリアを *3Dビュー* から *テキストエディター* に変更します。
+<div id="process"></div>
 
-![ウィンドウ表示の変更 手順1](https://dl.dropboxusercontent.com/s/v56yihqny5qy83q/blender_change_window_1.png "ウィンドウ表示の変更 手順1")
-
-![ウィンドウ表示の変更 手順2](https://dl.dropboxusercontent.com/s/9edhgrh27ulak4p/blender_change_window_2.png "ウィンドウ表示の変更 手順2")
-
-② 左上のエリアを3Dビューから **Pythonコンソール** に変更します。
-
-![ウィンドウ表示の変更 手順3](https://dl.dropboxusercontent.com/s/owvn6git978ja7i/blender_change_window_3.png "ウィンドウ表示の変更 手順3")
-
-![ウィンドウ表示の変更 手順4](https://dl.dropboxusercontent.com/s/9ws6g0tr3xhpc94/blender_change_window_4.png "ウィンドウ表示の変更 手順4")
+|　|　|　|
+|---|---|---|
+|1|左下のエリアのメニューバーの一番左のボタンから、*テキストエディター* をクリックします。|![ウィンドウ表示の変更 手順1](https://dl.dropboxusercontent.com/s/v56yihqny5qy83q/blender_change_window_1.png "ウィンドウ表示の変更 手順1")|
+|2|左下のエリアが *3Dビュー* から *テキストエディター* に変更されます。|![ウィンドウ表示の変更 手順2](https://dl.dropboxusercontent.com/s/9edhgrh27ulak4p/blender_change_window_2.png "ウィンドウ表示の変更 手順2")|
+|3|左上のエリアのメニューバーの一番左のボタンから、*Pythonコンソール* をクリックします。|![ウィンドウ表示の変更 手順3](https://dl.dropboxusercontent.com/s/owvn6git978ja7i/blender_change_window_3.png "ウィンドウ表示の変更 手順3")|
+|4|左上のエリアが *3Dビュー* から *Pythonコンソール* に変更されます。|![ウィンドウ表示の変更 手順4](https://dl.dropboxusercontent.com/s/9ws6g0tr3xhpc94/blender_change_window_4.png "ウィンドウ表示の変更 手順4")|
 
 ### Blenderの初期状態として設定する
 
 他にも不要なエリアを削除したり、エリアの配置を変更したりして各自使いやすいように変更していきましょう。
 これでBlenderのエリア設定は完了ですが、このままBlenderを閉じてしまうと次にBlenderを起動した時に初期状態に戻ってしまいます。
-そこで以下の手順に従い、Blenderが起動した時は常にエリア設定が完了した状態で起動するようにしましょう。
+そこで以下の手順に従い、Blenderが起動した時にエリア設定が終わっている状態で起動するようにしましょう。
 
-① *情報* エリアのメニューバーから、 *ファイル* > *スタートアップファイルを保存* を実行します。
+<div id="process"></div>
 
-![Blenderの初期状態にする 手順1](https://dl.dropboxusercontent.com/s/kbro7t4evkim2au/blender_save_startup_file_1.png "Blenderの初期状態にする 手順1")
-
-② 確認メッセージが出ますので、 *スタートアップファイルを保存* をクリックします。
-
-![Blenderの初期状態にする 手順2](https://dl.dropboxusercontent.com/s/pm74e5k1atjgu0a/blender_save_startup_file_2.png "Blenderの初期状態にする 手順2")
+|　|　|　|
+|---|---|---|
+|1|*情報* エリアのメニューバーから、 *ファイル* > *スタートアップファイルを保存* を実行します。|![Blenderの初期状態にする 手順1](https://dl.dropboxusercontent.com/s/kbro7t4evkim2au/blender_save_startup_file_1.png "Blenderの初期状態にする 手順1")|
+|2|確認メッセージが出ますので、 *スタートアップファイルを保存* をクリックします。|![Blenderの初期状態にする 手順2](https://dl.dropboxusercontent.com/s/pm74e5k1atjgu0a/blender_save_startup_file_2.png "Blenderの初期状態にする 手順2")|
 
 これで次にBlenderを起動する時には、エリア設定が完了した状態で起動します。
 Blenderの起動直後の状態を設定する場合は、いつでもこの方法を使えるので覚えておきましょう。
 
 なおBlenderをダウンロードした直後の初期状態に戻したい場合は、以下の手順を踏むことで初期状態に戻すことができます。
 
-① *情報* エリアの *ファイル* > *初期設定を読み込む* を実行してください。
+<div id="process"></div>
 
-![初期設定を読み込む 手順1](https://dl.dropboxusercontent.com/s/fzhbvpp60xf76a6/blender_read_factory_setting_1.png "初期状態を読み込む 手順1")
-
-② 確認メッセージが出ますので、 *初期設定を読み込む* をクリックします。
-
-![初期設定を読み込む 手順2](https://dl.dropboxusercontent.com/s/sc2dvqqw19twg12/blender_read_factory_setting_2.png "初期状態を読み込む 手順2")
+|　|　|　|
+|---|---|---|
+|1|*情報* エリアの *ファイル* > *初期設定を読み込む* を実行してください。|![初期設定を読み込む 手順1](https://dl.dropboxusercontent.com/s/fzhbvpp60xf76a6/blender_read_factory_setting_1.png "初期状態を読み込む 手順1")|
+|2|確認メッセージが出ますので、 *初期設定を読み込む* をクリックします。|![初期設定を読み込む 手順2](https://dl.dropboxusercontent.com/s/sc2dvqqw19twg12/blender_read_factory_setting_2.png "初期状態を読み込む 手順2")|
 
 なお初期設定を読み込んだ後に先ほど紹介したスタートアップファイルを保存する手順を行わない限り、Blenderの起動直後の状態は更新されないことに注意が必要です。
 
@@ -103,9 +102,9 @@ Blenderの起動直後の状態を設定する場合は、いつでもこの方�
 
 ### Blender付随のテキストエディタ
 
-Blenderはアドオン開発者や簡単なPythonスクリプトを実行したい人のために、Blender本体にテキストエディタがあります。
-テキストエディタの起動の仕方は非常に簡単で、エリアのメニューバーの一番左のボタンから、 *テキストエディター* を選ぶだけです。
-前述したBlenderのエリア設定を行った方は、左下のウィンドウが *テキストエディター* に対応します。
+Blenderはアドオン開発者や簡単なPythonスクリプトを実行したい人のために、Blender本体にもテキストエディタがあります。
+テキストエディタの起動方法は非常に簡単で、エリアのメニューバーの一番左のボタンから、 *テキストエディター* を選ぶだけです。
+先ほど紹介したBlenderのエリア設定を行った方は、左下のウィンドウが *テキストエディター* になります。
 
 Blender付随のテキストエディタは、テキストエディタで開いているソースコードをそのまま実行できるという、他のテキストエディタにはない利点があります。
 簡単なPythonスクリプトを試したい時などに、非常に重宝するエディタです。
@@ -115,7 +114,7 @@ Blender付随のテキストエディタは、テキストエディタで開い�
 Vimについて詳しく書くとEmacsとのエディタ論争に巻き込まれそうですので、簡単に紹介します。
 VimはEmacsと共にUnix/Linuxでよく利用されるエディタの1つで、コマンドモードと入力モードと呼ばれる2つのモードを備えていることが特徴であるエディタです。
 gVimと呼ばれるWindows版のVimも存在するため、一度Vimの使い方に慣れてしまえばOSを変えてもエディタの使い方を再度勉強する必要がありません。
-なお、有志によってVimを使いやすくするためのプラグインや記事がインターネット上にたくさんありますので、使いにくい部分があったら検索してみると良いかもしれません。
+なお、有志によってVimを使いやすくするためのプラグインや記事がインターネット上にたくさんありますので、使いづらいと感じたら検索してみると良いかもしれません。
 
 ### Emacs
 
@@ -143,36 +142,66 @@ Blenderを起動する時は、アプリケーションのアイコン（Windows
 起動することが多いと思います。
 しかしアドオン開発時は、ソースコードが正常に動作しているか確認（デバッグ）しやすくするために、 **コンソールからBlenderを起動** することをお勧めします。
 ここではWindows/Mac/Linuxについて、コンソールからBlenderを起動する方法を紹介します。
-なおコンソールとは、Windowsで *コマンドプロンプト* 、Mac/Linuxで *ターミナル* を指します。
+なおコンソールとは、Windowsで *コマンドプロンプト* 、Mac/Linuxで *ターミナル* のことを指します。
 
 本書ではコンソールからBlenderを起動することを前提として説明しますので、ここで紹介する手順を覚えてしまいましょう。
 
 ### Windowsの場合
 
-① *コマンドプロンプト* を起動します。
-② 以下のコマンドを実行します。（blender.exeが置かれているパスが ```C:\path\blender.exe``` であると仮定します。）
-```
+<div id="process"></div>
+
+|　|　|　|
+|---|---|---|
+|1|*コマンドプロンプト* を起動します。|　|
+|2|以下のコマンドを実行します。（blender.exeが置かれているパスが ```C:\path\blender.exe``` であると仮定します。）|　|
+
+```shell-session
 $ C:\path\blender.exe
 ```
-③ Blenderが起動します。
+
+<div id="process"></div>
+
+|　|　|　|
+|---|---|---|
+|3|Blenderが起動します。|　|
 
 ### Macの場合
 
-① *ターミナル* を起動します。
-② 以下のコマンドを実行します。（Blender.appが置かれているパスが ```/path/Blender.app``` であると仮定します。）
-```
+<div id="process"></div>
+
+|　|　|　|
+|---|---|---|
+|1|*ターミナル* を起動します。|　|
+|2| 以下のコマンドを実行します。（Blender.appが置かれているパスが ```/path/Blender.app``` であると仮定します。）|　|
+
+```shell-session
 $ /path/blender.app/Contents/MacOS/blender
 ```
-③ Blenderが起動します。
+
+<div id="process"></div>
+
+|　|　|　|
+|---|---|---|
+|3|Blenderが起動します。|　|
 
 ### Linuxの場合
 
-① *ターミナル* を起動します。
-② 以下のコマンドを実行します。（実行ファイルblenderが置かれているパスが ```/path/blender``` であると仮定します。）
-```
+<div id="process"></div>
+
+|　|　|　|
+|---|---|---|
+|1|*ターミナル* を起動します。|　|
+|2| 以下のコマンドを実行します。（実行ファイルblenderが置かれているパスが ```/path/blender``` であると仮定します。）|　|
+
+```shell-session
 $ /path/blender
 ```
-③ Blenderが起動します。
+
+<div id="process"></div>
+
+|　|　|　|
+|---|---|---|
+|3|Blenderが起動します。|　|
 
 ## まとめ
 

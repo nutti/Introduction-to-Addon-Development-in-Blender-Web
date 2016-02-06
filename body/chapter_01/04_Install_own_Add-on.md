@@ -10,24 +10,22 @@
 早速ですが、簡単なアドオンを作成します。
 以下の手順に沿ってアドオンを作成してください。
 
-① コンソールからBlenderを起動します。
+<div id="process"></div>
 
-② *テキストエディター* エリアのメニューバーにある *新規* をクリックして空のテキストを作成します。
-
-![アドオン作成 手順1](https://dl.dropboxusercontent.com/s/6x7jkbaadtehb2e/blender_make_add-on_1.png "アドオン作成 手順1")
-
-③ 以下に示すソースコード全文を入力します。空白は全て半角スペースで入力し、タブや全角スペースが含まれないように注意してください。
+|　|　|　|
+|---|---|---|
+|1|コンソールからBlenderを起動します。|　|
+|2|*テキストエディター* エリアのメニューバーにある *新規* をクリックして空のテキストを作成します。|![アドオン作成 手順1](https://dl.dropboxusercontent.com/s/6x7jkbaadtehb2e/blender_make_add-on_1.png "アドオン作成 手順1")|
+|3| 以下に示すソースコード全文を入力します。空白は全て半角スペースで入力し、タブや全角スペースが含まれないように注意してください。|![アドオン作成 手順2](https://dl.dropboxusercontent.com/s/t6agj2bu859vk1c/blender_make_add-on_2.png "アドオン作成 手順2")|
 
 [import](../../sample/src/chapter_01/sample_0.py)
 
-![アドオン作成 手順2](https://dl.dropboxusercontent.com/s/t6agj2bu859vk1c/blender_make_add-on_2.png "アドオン作成 手順2")
+<div id="process"></div>
 
-④ 入力が完了したら、 *テキストエディタ* エリアのメニューバーから *テキスト* > *名前つけて保存* を実行します。
-
-![アドオン作成 手順3](https://dl.dropboxusercontent.com/s/cbwyg0yebb8loww/blender_make_add-on_3.png "アドオン作成 手順3")
-
-⑤ *04.py* という名前で保存します。
-[1.2節](02_Use_Blender_Add-on.md) でも解説しましたが、保存先はOSごとに異なりますので注意してください。
+|　|　|　|
+|---|---|---|
+|4|入力が完了したら、 *テキストエディタ* エリアのメニューバーから *テキスト* > *名前つけて保存* を実行します。|![アドオン作成 手順3](https://dl.dropboxusercontent.com/s/cbwyg0yebb8loww/blender_make_add-on_3.png "アドオン作成 手順3")|
+|5|*04.py* という名前で保存します。[1.2節](02_Use_Blender_Add-on.md) でも解説しましたが、保存先はOSごとに異なりますので注意してください。|![アドオン作成 手順4](https://dl.dropboxusercontent.com/s/z9ibf7qz2t1jlj7/blender_make_add-on_4.png "アドオン作成 手順4")|
 
 |OS|保存先|
 |---|---|
@@ -35,23 +33,19 @@
 |Mac|```/Users/<ユーザ名>/Library/Application Support/Blender/<Blenderのバージョン>/scripts/addons```|
 |Linux|```/home/<ユーザ名>/.config/blender/<Blenderのバージョン>/scripts/addons```|
 
-![アドオン作成 手順4](https://dl.dropboxusercontent.com/s/z9ibf7qz2t1jlj7/blender_make_add-on_4.png "アドオン作成 手順4")
 
 ## アドオンを有効化する
 
 以下の手順で、作成したアドオンを有効化します。
 
-① *情報* エリアの *ファイル* > *ユーザ設定* を選択してください。
+<div id="process"></div>
 
-② *アドオン* タブを選択し、サポートレベルを *テスト中* に変更すると、今回作成したアドオンが表示されていると思います。
-
-![アドオン有効化 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオン有効化 手順1")
-
-③ チェックボックスをクリックし、アドオンを有効化します。
-
-![アドオン有効化 手順2](https://dl.dropboxusercontent.com/s/ghc3rhh2wf3v9zc/blender_enable_add-on_2.png "アドオン有効化 手順2")
-
-④ アドオンを有効化したら、コンソールに以下の文字列が出力されているはずです。
+|　|　|　|
+|---|---|---|
+|1|*情報* エリアの *ファイル* > *ユーザ設定* を選択してください。|　|
+|2|*アドオン* タブを選択し、サポートレベルを *テスト中* に変更すると、今回作成したアドオンが表示されていると思います。|![アドオン有効化 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオン有効化 手順1")|
+|3|チェックボックスをクリックし、アドオンを有効化します。|![アドオン有効化 手順2](https://dl.dropboxusercontent.com/s/ghc3rhh2wf3v9zc/blender_enable_add-on_2.png "アドオン有効化 手順2")|
+|4| アドオンを有効化したら、コンソールに以下の文字列が出力されているはずです。|　|
 
 ```sh
 アドオンが有効化されました。

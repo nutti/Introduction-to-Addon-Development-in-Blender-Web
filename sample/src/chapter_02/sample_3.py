@@ -1,4 +1,3 @@
-```py:sample_3.py
 import bpy
 from bpy.props import FloatProperty
 
@@ -87,5 +86,3 @@ def unregister():
 
 if __name__ == "__main__":
     register()
-
-```

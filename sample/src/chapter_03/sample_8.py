@@ -1,4 +1,3 @@
-```py:sample_8.py
 import bpy
 import bgl
 from bpy.props import FloatVectorProperty, BoolProperty, EnumProperty
@@ -163,5 +162,3 @@ def unregister():
 
 if __name__ == "__main__":
     register()
-
-```

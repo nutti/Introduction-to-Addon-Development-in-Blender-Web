@@ -13,7 +13,7 @@
 以下のソースコードを、 [1.4節](../chapter_01/04_Install_own_Add-on.md)を参考にして **テキスト・エディタ** に入力し、
 **sample_5.py** という名前で保存してください。
 
-{% include "../../sample/src/chapter_02/sample_5.py" %}
+[import](../../sample/src/chapter_02/sample_5.py)
 
 ## アドオンを実行する
 
@@ -107,7 +107,7 @@ def menu_fn(self, context):
 サブメニューにさらにサブメニュー（サブサブメニュー）を追加するなど、3階層以上のメニューを作成することもできます。
 以下のサンプルでは、先ほど作成したサンプルのメニューとサブメニューの間に *オブジェクトの複製（サブメニュー）* を追加します。
 
-{% include "../../sample/src/chapter_02/sample_5_alt.py" %}
+[import](../../sample/src/chapter_02/sample_5_alt.py)
 
 アドオンを作成して実行してみましょう。
 以下のように3階層のメニューが作成されていることを確認することができます。

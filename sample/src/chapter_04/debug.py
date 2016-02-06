@@ -1,4 +1,3 @@
-```py:debug.py
 import sys
 
 DEBUGGING = True     # デバッグ有効化
@@ -11,4 +10,3 @@ def start_debug():
             import pydevd
             pydevd.settrace()
             print("started blender add-on debugging...")
-```

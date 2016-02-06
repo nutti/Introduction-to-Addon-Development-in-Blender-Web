@@ -42,7 +42,7 @@
         tbody {
             tr {
                 td {
-                    font-size: $font_size_base;
+                    font-size: $font_size_base - 0.3em;
                     background-color: #FFFFFF;
                 }
             }
@@ -65,7 +65,7 @@
         -webkit-box-shadow: 0 2px 3px 0 #ddd;
     }
     #column + p:before {
-        content: "COLUMN";
+        content: "";
     }
     #process + table {
         width: 100%;
@@ -102,9 +102,8 @@
         tbody {
             border: none;
             tr {
-                border: none;
                 td:nth-of-type(1) {
-                    font-size: $font_size_base;
+                    font-size: $font_size_base - 0.3em;
                     text-shadow: 5px 5px 1px #999999;
                     border: none;
                     width: 5%;
@@ -113,7 +112,7 @@
                     vertical-align: top;
                 }
                 td:nth-of-type(2) {
-                    font-size: $font_size_base;
+                    font-size: $font_size_base - 0.3em;
                     border: none;
                     width: 35%;
                     text-align: left;
@@ -121,7 +120,7 @@
                     vertical-align: top;
                 }
                 td:nth-of-type(3) {
-                    font-size: $font_size_base;
+                    font-size: $font_size_base - 0.3em;
                     border: none;
                     width: 60%;
                     text-align: center;

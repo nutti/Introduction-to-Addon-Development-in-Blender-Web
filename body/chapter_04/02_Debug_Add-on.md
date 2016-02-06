@@ -200,7 +200,7 @@ BLENDER_VERはBlenderのバージョンが入ります。マイナーバージ�
 デバッグ実行するためのPythonスクリプトを作成しましょう。
 以下のようなスクリプトを、ファイル名 ```debug.py``` として作成してください。
 
-{% include "../../sample/src/chapter_04/debug.py" %}
+[import](../../sample/src/chapter_04/debug.py)
 
 ここで ```PYDEV_SRC_DIR``` にはPyDevのプラグインディレクトリを指定しますが、環境により異なるため、各自確認してみてください。
 筆者のMacではPyDevの場所は ```~/.p2/pool/plugins/org.python.pydev_XXX/pysrc``` でした。（```XXX```はPyDevのバージョンです。）
@@ -212,7 +212,7 @@ BLENDER_VERはBlenderのバージョンが入ります。マイナーバージ�
 今回は本書で紹介してきたサンプルの場所と同様のディレクトリに保存します。
 保存先は、 [1.4節](../chapter_01/04_Install_own_Add-on.md) を参照してください。
 
-{% include "../../sample/src/chapter_04/debuggee.py" %}
+[import](../../sample/src/chapter_04/debuggee.py)
 
 デバッグするためには、 ```debug.py``` をインポートし、デバッグを開始する場所に ```debug.start_debug()``` を追加します。
 上記では、アドオン有効化時にデバッグを開始しています。
@@ -351,7 +351,7 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 以下のようなデバッグ対象のアドオンを作成し、 ```debuggee_2.py``` として保存します。
 
-{% include "../../sample/src/chapter_04/debuggee_2.py" %}
+[import](../../sample/src/chapter_04/debuggee_2.py)
 
 ブレークポイントを設定する関数は ```bpy.types.bp.bp()``` ですが、簡単のため ```breakpoint()``` で呼び出せるようしています。
 

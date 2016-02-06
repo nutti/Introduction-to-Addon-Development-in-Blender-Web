@@ -1,4 +1,3 @@
-```py:sample_5_alt.py
 import bpy
 from bpy.props import StringProperty, FloatVectorProperty, EnumProperty
 from mathutils import Vector
@@ -154,5 +153,3 @@ def unregister():
 
 if __name__ == "__main__":
     register()
-
-```

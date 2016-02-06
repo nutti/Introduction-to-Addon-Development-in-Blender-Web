@@ -1,4 +1,3 @@
-```py:sample_7.py
 import bpy
 import bmesh
 from bpy.props import IntProperty, BoolProperty, PointerProperty
@@ -155,5 +154,3 @@ def unregister():
 
 if __name__ == "__main__":
     register()
-
-```
