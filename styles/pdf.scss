@@ -2,6 +2,68 @@
 
 .page {
     .section {
-        @include common(0.5em, 0.7);
+        @include common(0.65em, 0.7);
+        ul {
+            li {
+                position: relative;
+            }
+            li::after,
+            li::before {
+                display: block;
+                content: '';
+                position: absolute;
+            }
+            li::after {
+                top: 0.25em;
+                left: -1.5em;
+                width: 11px;
+                height: 11px;
+                background-color: #444444;
+                border-radius: 100%;
+            }
+            li::before {
+                z-index: 2;
+                top: .472em;
+                left: -1.35em;
+                width: 3px;
+                height: 3px;
+                border-right: 2px solid #FFFFFF;
+                border-bottom: 2px solid #FFFFFF;
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+            ul {
+                font-size: 0.9em;
+                li {
+                    font-size: 0.9em;
+                    position: relative;
+                }
+                li::after,
+                li::before {
+                    display: block;
+                    content: '';
+                    position: absolute;
+                }
+                li::after {
+                    top: .25em;
+                    left: -1.5em;
+                    width: 7px;
+                    height: 7px;
+                    background-color: #777777;
+                    border-radius: 100%;
+                }
+                li::before {
+                    z-index: 2;
+                    top: .41em;
+                    left: -1.365em;
+                    width: 2px;
+                    height: 2px;
+                    border-right: 1px solid #FFFFFF;
+                    border-bottom: 1px solid #FFFFFF;
+                    -webkit-transform: rotate(-45deg);
+                    transform: rotate(-45deg);
+                }
+            }
+        }
     }
 }

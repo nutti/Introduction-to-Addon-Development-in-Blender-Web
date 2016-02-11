@@ -6,6 +6,66 @@
             .page-inner {
                 section.normal {
                     @include common(1.2em, 1.4);
+                    ul {
+                        li {
+                            position: relative;
+                        }
+                        li::after,
+                        li::before {
+                            display: block;
+                            content: '';
+                            position: absolute;
+                        }
+                        li::after {
+                            top: .35em;
+                            left: -1.2em;
+                            width: 16px;
+                            height: 16px;
+                            background-color: #444444;
+                            border-radius: 100%;
+                        }
+                        li::before {
+                            z-index: 2;
+                            top: .572em;
+                            left: -1.02em;
+                            width: 5px;
+                            height: 5px;
+                            border-right: 2px solid #FFFFFF;
+                            border-bottom: 2px solid #FFFFFF;
+                            -webkit-transform: rotate(-45deg);
+                            transform: rotate(-45deg);
+                        }
+                        ul {
+                            li {
+                                position: relative;
+                            }
+                            li::after,
+                            li::before {
+                                display: block;
+                                content: '';
+                                position: absolute;
+                            }
+                            li::after {
+                                top: .35em;
+                                left: -1.2em;
+                                width: 14px;
+                                height: 14px;
+                                background-color: #777777;
+                                border-radius: 100%;
+                            }
+                            li::before {
+                                z-index: 2;
+                                top: .530em;
+                                left: -1.065em;
+                                width: 5px;
+                                height: 5px;
+                                border-right: 1px solid #FFFFFF;
+                                border-bottom: 1px solid #FFFFFF;
+                                -webkit-transform: rotate(-45deg);
+                                transform: rotate(-45deg);
+                            }
+                        }
+                    }
                 }
             }
         }
