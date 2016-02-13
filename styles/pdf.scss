@@ -2,7 +2,10 @@
 
 .page {
     .section {
-        @include common(0.65em, 0.7);
+        @include common(0.65em, 0.8);
+        @include table(0.65em);
+        @include process(0.65em);
+        @include point(0.65em);
         ul {
             li {
                 position: relative;

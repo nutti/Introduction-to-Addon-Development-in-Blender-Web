@@ -6,6 +6,9 @@
             .page-inner {
                 section.normal {
                     @include common(1.2em, 1.4);
+                    @include table(1.2em);
+                    @include process(1.2em);
+                    @include point(1.2em);
                     ul {
                         li {
                             position: relative;

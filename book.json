@@ -9,7 +9,7 @@
     "pdf": "styles/pdf.scss"
   },
   "pdf": {
-      "paperSize": "a3",
+      "paperSize": "a4",
       "margin": {
       }
   }
