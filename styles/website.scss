@@ -9,66 +9,13 @@
                     @include table(1.2em);
                     @include process(1.2em);
                     @include point(1.2em);
-                    ul {
-                        li {
-                            position: relative;
-                        }
-                        li::after,
-                        li::before {
-                            display: block;
-                            content: '';
-                            position: absolute;
-                        }
-                        li::after {
-                            top: .35em;
-                            left: -1.2em;
-                            width: 16px;
-                            height: 16px;
-                            background-color: #444444;
-                            border-radius: 100%;
-                        }
-                        li::before {
-                            z-index: 2;
-                            top: .572em;
-                            left: -1.02em;
-                            width: 5px;
-                            height: 5px;
-                            border-right: 2px solid #FFFFFF;
-                            border-bottom: 2px solid #FFFFFF;
-                            -webkit-transform: rotate(-45deg);
-                            transform: rotate(-45deg);
-                        }
-                        ul {
-                            li {
-                                position: relative;
-                            }
-                            li::after,
-                            li::before {
-                                display: block;
-                                content: '';
-                                position: absolute;
-                            }
-                            li::after {
-                                top: .35em;
-                                left: -1.2em;
-                                width: 14px;
-                                height: 14px;
-                                background-color: #777777;
-                                border-radius: 100%;
-                            }
-                            li::before {
-                                z-index: 2;
-                                top: .530em;
-                                left: -1.065em;
-                                width: 5px;
-                                height: 5px;
-                                border-right: 1px solid #FFFFFF;
-                                border-bottom: 1px solid #FFFFFF;
-                                -webkit-transform: rotate(-45deg);
-                                transform: rotate(-45deg);
-                            }
-                        }
-                    }
+                    @include list_1st(1.2em, 1.5, 5px, 0.35em, -1.2em, 16px, 16px, .572em, -1.02em, 5px, 5px);
+                    @include list_2nd(0.8em, 1.0, .35em, -1.2em, 14px, 14px, .530em, -1.065em, 5px, 5px);
+                    @include h3(1.2em);
+                    @include column(1.2em * 0.8, 1.0);
+                    @include em(0.9em);
+                    @include blockquote(1.2em * 0.6, -15px, 20px);
+                    @include code(0.7em);
                 }
             }
         }

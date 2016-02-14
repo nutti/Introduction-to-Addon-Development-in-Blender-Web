@@ -106,6 +106,7 @@
                 }
                 td:nth-of-type(2) {
                     font-size: $font_size_base * 0.9;
+                    line-height: 2.0;
                     border: none;
                     width: 35%;
                     text-align: left;
@@ -164,46 +165,81 @@
     }
 }
 
-@mixin common($font_size_base, $line_height) {
-    font-family: NotoSansCJKjp;
-    line-height: $line_height;
-    p {
+@mixin list_1st($font_size_base, $line_height, $padding, $top_1, $left_1, $width_1, $height_1, $top_2, $left_2, $width_2, $height_2) {
+    ul {
         font-size: $font_size_base;
-        margin-left: 15px;
-    }
-    pre {
-        background: #FBFBFB;
-        padding: 10px;
-        border: #666666 solid 1px;
-        >code {
-            font-family: Hack;
-            font-size: $font_size_base * 0.7;
-            line-height: $line_height * 1.2;
+        li {
+            position: relative;
+            line-height: $line_height;
+            margin-top: $padding;
+            margin-bottom: $padding;
+        }
+        li::after,
+        li::before {
+            display: block;
+            content: '';
+            position: absolute;
+        }
+        li::after {
+            top: $top_1;
+            left: $left_1;
+            width: $width_1;
+            height: $height_1;
+            background-color: #444444;
+            border-radius: 100%;
+        }
+        li::before {
+            z-index: 2;
+            top: $top_2;
+            left: $left_2;
+            width: $width_2;
+            height: $height_2;
+            border-right: 2px solid #FFFFFF;
+            border-bottom: 2px solid #FFFFFF;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
         }
     }
-    code {
-        font-family: Hack;
-        font-size: $font_size_base * 0.7;
-    }
+}
 
-    h1 {
-        font-family: MPlus;
-        text-align: right;
-        font-size: $font_size_base * 3.0;
+@mixin list_2nd($font_size_base, $line_height, $top_1, $left_1, $width_1, $height_1, $top_2, $left_2, $width_2, $height_2) {
+    ul {
+        ul {
+            font-size: $font_size_base;
+            li {
+                font-size: $font_size_base;
+                position: relative;
+            }
+            li::after,
+            li::before {
+                display: block;
+                content: '';
+                position: absolute;
+            }
+            li::after {
+                top: $top_1;
+                left: $left_1;
+                width: $width_1;
+                height: $height_1;
+                background-color: #777777;
+                border-radius: 100%;
+            }
+            li::before {
+                z-index: 2;
+                top: $top_2;
+                left: $left_2;
+                width: $width_2;
+                height: $height_2;
+                border-right: 1px solid #FFFFFF;
+                border-bottom: 1px solid #FFFFFF;
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+        }
     }
-    #section_desc + p {
-        text-align: right;
-        font-size: $font_size_base * 0.9;
-        margin-left: 60%;
-    }
-    h2 {
-        text-align: left;
-        font-size: $font_size_base * 2.0;
-        border-left: 15px
-        solid #555555;
-        padding: 7px;
-        background: #CCCCCC;
-    }
+}
+
+@mixin h3($font_size_base) {
     h3 {
         font-family: MPlus;
         text-align: left;
@@ -233,19 +269,17 @@
         height: 52px;
         width: 52px;
     }
-    h4 {
-        text-align: left;
-        font-size: $font_size_base * 1.1;
-        font-weight: bold;
-    }
+}
+
+@mixin column($font_size, $line_height) {
     #column + p {
         font-family: MPlus;
-        font-size: $font_size_base * 0.8;
+        font-size: $font_size;
+        line-height: $line_height;
         position: relative;
         padding: 50px 15px 15px 30px;
         color: #333333;
         background: #E0E0E0;
-        //border: #222222 dashed 2px;
         padding: 1em;
         border: 2px solid #999999;
         border-radius: 3em .8em 2em .9em/.7em 2em .7em 3em;
@@ -253,27 +287,87 @@
         width: 90%;
         margin-left: auto;
         margin-right: auto;
-        //background-image: url('https://dl.dropboxusercontent.com/s/bx2fqzhe0ty8kop/column.png');
-        //background-position: 15px 10px;
-        //background-repeat: no-repeat;
-        //background-size: 18% auto;
     }
-    #column + p:before {
-    /*    content: " ";
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 0;
-        height: 0;
-        border-width: 16px 16px 0 0;
-        border-style: solid;
-        border-color: #FFFFFF;
-        border-top-color: #444444;
-        box-shadow: 0 1px 1px rgba(0,0,0,0.4);
-        -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.4);
-        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.4);*/
+}
+
+@mixin em($font_size) {
+    em {
+        font-size: $font_size;
+        font-style: normal;
+        background-color: #DDDDDD;
+    }
+}
+
+@mixin blockquote($font_size, $margin_left, $top) {
+    blockquote {
+        border-left: 0px solid #E5E5E5;
+        padding: 0px 0px;
+        margin-left: $margin_left;
+        position: relative;
+        top: $top;
+        color: #FFFFFF;
+        p {
+            background-color: #666666;
+            padding: 2px;
+            a {
+                font-size: $font_size;
+                font-style: normal;
+                color: #FFFFFF;
+            }
+        }
+    }
+}
+
+@mixin code($font_size) {
+    code {
+        font-family: Hack;
+        font-size: $font_size;
+        //line-height: 3.0;
+    }
+}
+
+@mixin common($font_size_base, $line_height) {
+    font-family: NotoSansCJKjp;
+    line-height: $line_height;
+    p {
+        font-size: $font_size_base;
+        margin-left: 15px;
+    }
+    pre {
+        background: #FBFBFB;
+        padding: 10px;
+        border: #666666 solid 1px;
+        >code {
+            font-family: Hack;
+            font-size: $font_size_base * 0.7;
+            line-height: $line_height * 1.2;
+        }
     }
 
+
+    h1 {
+        font-family: MPlus;
+        text-align: right;
+        font-size: $font_size_base * 3.0;
+    }
+    #section_desc + p {
+        text-align: right;
+        font-size: $font_size_base * 0.9;
+        margin-left: 60%;
+    }
+    h2 {
+        text-align: left;
+        font-size: $font_size_base * 2.0;
+        border-left: 15px
+        solid #555555;
+        padding: 7px;
+        background: #CCCCCC;
+    }
+    h4 {
+        text-align: left;
+        font-size: $font_size_base * 1.1;
+        font-weight: bold;
+    }
     a {
         text-decoration: none;
         border-bottom: none;
@@ -281,43 +375,13 @@
         font-size: $font_size_base * 0.85;
         color: #000000;
     }
-    em {
-        font-style: normal;
-        background-color: #DDDDDD;
-    }
+
     img {
         text-align: center;
     }
     b {
         font-weight: bold;
         font-size: $font_size_base * 0.9;
-    }
-    blockquote {
-        border-left: 0px solid #E5E5E5;
-        padding: 0px 0px;
-        position: relative;
-        top: 15px;
-        color: #FFFFFF;
-        p {
-            background-color: #666666;
-            padding: 2px;
-            a {
-                font-size: $font_size_base * 0.6;
-                font-style: normal;
-                color: #FFFFFF;
-            }
-        }
-    }
-    ul {
-        font-size: $font_size_base;
-        line-height: $line_height * 1.1;
-        ul {
-            font-size: $font_size_base * 0.9;
-            li {
-                font-size: $font_size_base * 0.9;
-                line-height: $line_height * 1.1;
-            }
-        }
     }
     &.toc {
         >h1 {
