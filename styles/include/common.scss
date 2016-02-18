@@ -230,8 +230,8 @@
                 left: $left_2;
                 width: $width_2;
                 height: $height_2;
-                border-right: 1px solid #FFFFFF;
-                border-bottom: 1px solid #FFFFFF;
+                border-right: 2px solid #FFFFFF;
+                border-bottom: 2px solid #FFFFFF;
                 -webkit-transform: rotate(-45deg);
                 transform: rotate(-45deg);
             }
@@ -304,6 +304,7 @@
         padding: 0px 0px;
         margin-left: $margin_left;
         position: relative;
+        font-weight: bold;
         top: $top;
         color: #FFFFFF;
         p {
@@ -322,7 +323,7 @@
     code {
         font-family: Hack;
         font-size: $font_size;
-        //line-height: 3.0;
+        line-height: 2.0;
     }
 }
 
