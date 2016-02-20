@@ -5,7 +5,7 @@
         @include common(0.65em, 0.8);
         @include table(0.65em);
         @include process(0.65em);
-        @include point(0.65em);
+        @include point(0.65em * 1.5, 0.6em, 0.55em, 10px, 10px, 1.2em, 0.2em, 6px, 6px);
         @include list_1st(0.65em, 1.5, 2px, 0.25em, -1.4em, 14px, 14px, .51em, -1.25em, 4px, 4px);
         @include list_2nd(0.9em, 1.0, .25em, -1.5em, 11px, 11px, .51em, -1.35em, 3px, 3px);
         @include h3(0.65em);
@@ -13,5 +13,50 @@
         @include em(0.80em);
         @include blockquote(0.55em, -15px, 20px);
         @include code(0.60em);
+        @include a(0.7em);
     }
+
+    .section {
+        &.toc {
+            >h1 {
+                text-align: center;
+            }
+            li {
+                .inner {
+                    a {
+                        font-size: 0.5em;
+                        float: right;
+                        border-bottom: 0px;
+                    }
+                    .page {
+                        font-size: 0.5em;
+                        float: left;
+                        border-bottom: 1px solid #EEEEEE;
+                    }
+                }
+                .inder:after {
+                    display: block;
+                    border-bottom: 1px solid #EEEEEE;
+                }
+            }
+        }
+    }
+}
+
+.pdf-header {
+    border-bottom: 1px solid #333333;
+    font-size: 0.45em;
+    color: #333333;
+    font-family: NotoSansCJKjp;
+    margin-top: 20px;
+    padding-bottom: 0px;
+}
+
+.pdf-footer {
+    border-top: 1px solid #333333;
+    font-size: 0.45em;
+    color: #333333;
+    font-family: NotoSansCJKjp;
+    margin-top: 20px;
+    padding-top: 0px;
 }
