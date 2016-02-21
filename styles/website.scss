@@ -17,6 +17,7 @@
                     @include blockquote(0.82em, -15px, 20px);
                     @include code(0.7em);
                     @include a(1.2em * 0.85);
+                    @include section_title(1.2em);
                 }
             }
         }

@@ -19,12 +19,7 @@
     src: url('https://dl.dropboxusercontent.com/s/vnhqzxqn6kxguqu/Hack-Regular.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: "Goudy";
-    font-style: normal;
-    font-weight: normal;
-    src: url('https://dl.dropboxusercontent.com/s/ul8kqtbiklr6cal/goudy_bookletter_1911.otf') format('opentype');
-}
+
 
 @mixin table($font_size_base) {
     table {
@@ -46,6 +41,7 @@
         tbody {
             tr {
                 td {
+                    font-family: NotoSansCJKjp;
                     font-size: $font_size_base;
                     background-color: #FFFFFF;
                     padding: 5px 10px;
@@ -58,14 +54,17 @@
 @mixin process($font_size_base) {
     #process + table {
         width: 100%;
+        table-layout: fixed;
         thead {
             border: none;
             tr {
                 border: none;
                 th:nth-of-type(1) {
                     font-family: Goudy;
-                    font-size: $font_size_base * 2.0;
-                    text-shadow: 5px 5px 1px #999999;
+                    font-size: $font_size_base * 3.0;
+                    font-weight: bold;
+                    font-style: italic;
+                    color: #BBBBBB;
                     border: none;
                     width: 5%;
                     text-align: center;
@@ -73,19 +72,25 @@
                     vertical-align: top;
                 }
                 th:nth-of-type(2) {
-                    font-size: $font_size_base * 1.0;
+                    font-family: NotoSansCJKjp;
+                    font-size: $font_size_base * 0.9;
+                    line-height: 2.0;
                     border: none;
                     width: 35%;
                     text-align: left;
                     background-color: #FFFFFF;
                     vertical-align: top;
+                    color: #000000;
+                    font-weight: normal;
                 }
                 th:nth-of-type(3) {
+                    font-family: NotoSansCJKjp;
                     font-size: $font_size_base * 0.9;
                     border: none;
                     width: 60%;
                     text-align: center;
                     background-color: #FFFFFF;
+                    color: #000000;
                 }
             }
         }
@@ -105,6 +110,7 @@
                     vertical-align: top;
                 }
                 td:nth-of-type(2) {
+                    font-family: NotoSansCJKjp;
                     font-size: $font_size_base * 0.9;
                     line-height: 2.0;
                     border: none;
@@ -114,6 +120,7 @@
                     vertical-align: top;
                 }
                 td:nth-of-type(3) {
+                    font-family: NotoSansCJKjp;
                     font-size: $font_size_base * 0.9;
                     border: none;
                     width: 60%;
@@ -338,6 +345,36 @@
     }
 }
 
+@mixin section_title($font_size) {
+    h1 {
+        position: relative;
+        font-family: MPlus;
+        margin-left:auto;
+        text-align: right;
+        width: 80%;
+        font-size: $font_size * 3.0;
+        top: -350px;
+    }
+    #title_img {
+        background-image: url('https://dl.dropboxusercontent.com/s/12rwc1ns8bytzuh/background_test.png');
+        background-size: cover;
+        width: 100%;
+        height: 300px;
+        position: relative;
+    }
+    #prefce {
+        position: relative;
+        font-family: NotoSansCJKjp;
+        margin-left: auto;
+        text-align: right;
+        width: 80%;
+        font-size: $font_size;
+        top: -150px;
+    }
+}
+
+
+
 @mixin common($font_size_base, $line_height) {
     font-family: NotoSansCJKjp;
     line-height: $line_height;
@@ -357,11 +394,7 @@
     }
 
 
-    h1 {
-        font-family: MPlus;
-        text-align: right;
-        font-size: $font_size_base * 3.0;
-    }
+
     #section_desc + p {
         text-align: right;
         font-size: $font_size_base * 0.9;
