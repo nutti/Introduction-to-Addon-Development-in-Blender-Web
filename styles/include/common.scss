@@ -345,31 +345,37 @@
     }
 }
 
+$sect_list: '1_1';
+
+$img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1_1.png';
+
 @mixin section_title($font_size) {
     h1 {
         position: relative;
         font-family: MPlus;
         margin-left:auto;
         text-align: right;
-        width: 80%;
+        width: 70%;
         font-size: $font_size * 3.0;
-        top: -350px;
+        top: -310px;
     }
-    #title_img {
-        background-image: url('https://dl.dropboxusercontent.com/s/12rwc1ns8bytzuh/background_test.png');
-        background-size: cover;
-        width: 100%;
-        height: 300px;
-        position: relative;
+    @for $i from 1 through length($sect_list) {
+        #sect_title_img_#{nth($sect_list, $i)} {
+            background-image: url('#{nth($img_list, $i)}');
+            background-size: cover;
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
     }
-    #prefce {
+    #preface + p {
         position: relative;
         font-family: NotoSansCJKjp;
         margin-left: auto;
         text-align: right;
-        width: 80%;
+        width: 60%;
         font-size: $font_size;
-        top: -150px;
+        top: -200px;
     }
 }
 
