@@ -1,4 +1,10 @@
+<div id="sect_title_img_1_1"></div>
+
+<div id="sect_title_text"></div>
+
 # 4-1. Blenderが提供するアドオン向けのAPIを調べる
+
+<div id="preface"></div>
 
 これまで紹介したサンプルでは、Blenderが提供する様々なAPIを使ってきました。
 ここで1つ疑問が生じます。サンプルで用いたAPIはどこで知ることができたのでしょうか？

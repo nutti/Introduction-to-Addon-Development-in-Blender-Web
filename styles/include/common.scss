@@ -350,7 +350,7 @@ $sect_list: '1_1';
 $img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1_1.png';
 
 @mixin section_title($font_size) {
-    h1 {
+    #sect_title_text + h1 {
         position: relative;
         font-family: MPlus;
         margin-left:auto;

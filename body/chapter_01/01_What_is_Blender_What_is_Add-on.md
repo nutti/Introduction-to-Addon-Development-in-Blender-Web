@@ -1,3 +1,7 @@
+<div id="sect_title_img_1_1"></div>
+
+<div id="sect_title_text"></div>
+
 # 1-1. Blenderって何？アドオンって何？
 
 ## Blenderって何？

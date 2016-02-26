@@ -1,4 +1,10 @@
+<div id="sect_title_img_1_1"></div>
+
+<div id="sect_title_text"></div>
+
 # 4.4. アドオンをBlender本体に取り込んでもらうまでの流れ
+
+<div id="preface"></div>
 
 そのような方のために本書最後の節では、作成したアドオンを公開する方法について紹介します。
 
