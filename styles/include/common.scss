@@ -356,7 +356,7 @@ $img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1
         margin-left:auto;
         text-align: right;
         width: 70%;
-        font-size: $font_size * 2.5;
+        font-size: $font_size * 3.0;
         top: -280px;
         margin-bottom: -200px;
     }
@@ -369,17 +369,19 @@ $img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1
             position: relative;
         }
     }
-    #preface + p {
-        //position: relative;
-        font-family: NotoSansCJKjp;
+    #preface + h6 {
+        position: relative;
+        //font-family: NotoSansCJKjp;
+        font-family: MPlus;
         margin-left: auto;
         //margin-right: auto;
         text-align: left;
+        padding-right: 7px;
+        padding-left: 30px;
         width: 50%;
-        font-size: $font_size * 0.7;
-        top: -120px;
-        margin-bottom: -100px;
-        //top: -150px;
+        font-size: $font_size * 0.70;
+        top: -70px;
+        color: #555555;
     }
 }
 
