@@ -21,7 +21,7 @@
 
 
 
-@mixin table($font_size_base) {
+@mixin table($font_size) {
     table {
         width: 90%;
         margin-left: auto;
@@ -30,11 +30,13 @@
             tr {
                 th {
                     font-family: MPlus;
-                    font-size: $font_size_base * 1.1;
+                    font-size: $font_size * 1.1;
                     color: #EEEEEE;
                     background-color: #000000;
                     padding: 5px 10px;
                     white-space: nowrap;
+                    max-width: 30%;
+                    min-width: 20%;
                 }
             }
         }
@@ -42,16 +44,18 @@
             tr {
                 td {
                     font-family: NotoSansCJKjp;
-                    font-size: $font_size_base;
+                    font-size: $font_size;
                     background-color: #FFFFFF;
                     padding: 5px 10px;
+                    max-width: 30%;
+                    min-width: 20%;
                 }
             }
         }
     }
 }
 
-@mixin process($font_size_base) {
+@mixin process($font_size_1, $font_size_2) {
     #process + table {
         width: 100%;
         table-layout: fixed;
@@ -61,7 +65,7 @@
                 border: none;
                 th:nth-of-type(1) {
                     font-family: Goudy;
-                    font-size: $font_size_base * 3.0;
+                    font-size: $font_size_1;
                     font-weight: bold;
                     font-style: italic;
                     color: #BBBBBB;
@@ -73,7 +77,7 @@
                 }
                 th:nth-of-type(2) {
                     font-family: NotoSansCJKjp;
-                    font-size: $font_size_base * 0.9;
+                    font-size: $font_size_2;
                     line-height: 2.0;
                     border: none;
                     width: 35%;
@@ -85,7 +89,7 @@
                 }
                 th:nth-of-type(3) {
                     font-family: NotoSansCJKjp;
-                    font-size: $font_size_base * 0.9;
+                    font-size: $font_size_2;
                     border: none;
                     width: 60%;
                     text-align: center;
@@ -99,7 +103,7 @@
             tr {
                 td:nth-of-type(1) {
                     font-family: Goudy;
-                    font-size: $font_size_base * 3.0;
+                    font-size: $font_size_1;
                     font-weight: bold;
                     font-style: italic;
                     color: #BBBBBB;
@@ -111,7 +115,7 @@
                 }
                 td:nth-of-type(2) {
                     font-family: NotoSansCJKjp;
-                    font-size: $font_size_base * 0.9;
+                    font-size: $font_size_2;
                     line-height: 2.0;
                     border: none;
                     width: 35%;
@@ -121,7 +125,7 @@
                 }
                 td:nth-of-type(3) {
                     font-family: NotoSansCJKjp;
-                    font-size: $font_size_base * 0.9;
+                    font-size: $font_size_2;
                     border: none;
                     width: 60%;
                     text-align: center;
@@ -349,17 +353,20 @@ $sect_list: '1_1';
 
 $img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1_1.png';
 
-@mixin section_title($font_size) {
+@mixin section_title_text($font_size, $top, $margin_bottom) {
     #sect_title_text + h1 {
         position: relative;
         font-family: MPlus;
         margin-left:auto;
         text-align: right;
-        width: 70%;
-        font-size: $font_size * 3.0;
-        top: -280px;
-        margin-bottom: -200px;
+        width: 75%;
+        font-size: $font_size;
+        top: $top;
+        margin-bottom: $margin_bottom;
     }
+}
+
+@mixin section_title_img() {
     @for $i from 1 through length($sect_list) {
         #sect_title_img_#{nth($sect_list, $i)} {
             background-image: url('#{nth($img_list, $i)}');
@@ -369,23 +376,56 @@ $img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1
             position: relative;
         }
     }
+}
+
+@mixin section_title_preface($font_size, $height, $top, $margin_bottom) {
     #preface + h6 {
         position: relative;
-        //font-family: NotoSansCJKjp;
         font-family: MPlus;
         margin-left: auto;
-        //margin-right: auto;
         text-align: left;
         padding-right: 7px;
         padding-left: 30px;
         width: 50%;
-        font-size: $font_size * 0.70;
-        top: -70px;
+        height: $height;
+        background-color: #FFFFFF;
+        overflow: hidden;
+        font-size: $font_size;
+        top: $top;
         color: #555555;
+        margin-bottom: $margin_bottom;
     }
 }
 
-
+@mixin point_item($font_size_base, $line_height, $top, $left, $width, $height) {
+    #point_item + ul {
+        font-size: $font_size_base;
+        li {
+            line-height: $line_height;
+            position: relative;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+        li::before {
+            border-right: none;
+            border-bottom: none;
+        }
+        li::after {
+            position: absolute;
+            z-index: 2;
+            content: '';
+            width: $width;
+            height: $height;
+            background-color: #CCCCCC;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            border-radius: 0%;
+            left: $left;
+            top: $top;
+        }
+    }
+}
 
 @mixin common($font_size_base, $line_height) {
     font-family: NotoSansCJKjp;

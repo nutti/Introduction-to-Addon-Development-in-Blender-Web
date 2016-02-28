@@ -4,7 +4,7 @@
     .section {
         @include common(0.65em, 0.8);
         @include table(0.65em);
-        @include process(0.65em);
+        @include process(0.65em * 3.0, 0.65em * 0.9);
         @include point(0.65em * 1.5, 0.6em, 0.55em, 10px, 10px, 1.2em, 0.2em, 6px, 6px);
         @include list_1st(0.65em, 1.5, 2px, 0.25em, -1.4em, 14px, 14px, .51em, -1.25em, 4px, 4px);
         @include list_2nd(0.9em, 1.0, .25em, -1.5em, 11px, 11px, .51em, -1.35em, 3px, 3px);
@@ -14,7 +14,10 @@
         @include blockquote(0.55em, -15px, 20px);
         @include code(0.60em);
         @include a(0.7em);
-        @include section_title(0.65em);
+        @include section_title_text(0.65em * 3, -280.0px, -210px);
+        @include section_title_img();
+        @include section_title_preface(0.65em * 0.7, 150px, -75px, -100px);
+        @include point_item(0.65em, 1.5, 0.3em, -1.3em, 12px, 12px);
     }
 
     .section {
