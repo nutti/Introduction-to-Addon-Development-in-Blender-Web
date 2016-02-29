@@ -359,7 +359,11 @@ $img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1
         font-family: MPlus;
         margin-left:auto;
         text-align: right;
+        padding-right: 7px;
         width: 75%;
+        overflow: hidden;
+        height: 80px;
+        background-color: #CCCCCC;
         font-size: $font_size;
         top: $top;
         margin-bottom: $margin_bottom;
@@ -388,7 +392,7 @@ $img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1
         padding-left: 30px;
         width: 50%;
         height: $height;
-        background-color: #FFFFFF;
+        background-color: #EEEEEE;
         overflow: hidden;
         font-size: $font_size;
         top: $top;
