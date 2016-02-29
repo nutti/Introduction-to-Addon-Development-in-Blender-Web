@@ -2,11 +2,11 @@
 
 <div id="sect_title_text"></div>
 
-# 1-2. Blenderアドオンを使ってみよう
+# Blenderアドオンを使ってみよう
 
 <div id="preface"></div>
 
-Blenderアドオンの開発の説明に入る前に他の方が開発したアドオンを使い、開発に必要なアドオンのインストール・有効/無効化の手順を説明します。ここで紹介する手順は今後アドオンを開発する際に何度も行うことになるので、必ず覚えておきましょう。
+###### Blenderアドオンの開発の説明に入る前に他の方が開発したアドオンを使い、開発に必要なアドオンのインストール・有効/無効化の手順を説明します。ここで紹介する手順は今後アドオンを開発する際に何度も行うことになるので、必ず覚えておきましょう。
 
 ## Blenderの日本語化
 
@@ -17,9 +17,8 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |1|*Info* エリアのメニューから *File* > *User Preferences...* を実行してください。|![アドオンの日本語化 手順1](https://dl.dropboxusercontent.com/s/8xx2l59wy2d7c8y/localizing_into_japanese_1.png "アドオン日本語化 手順1")|
+|---|---|---|
 |2|*Blender User Preferences* ウィンドウが立ち上がりますので、 *System* タブを選択してください。|　|
 |3|*International Fonts* にチェックを入れると、Blenderの言語を変更することができるようになります。|![アドオンの日本語化 手順2](https://dl.dropboxusercontent.com/s/6uwpij0r5riiqk3/localizing_into_japanese_2.png "アドオン日本語化 手順2")|
 |4|*Language* を *Japanese（日本語）* に変更し、 *Translate* で日本語化したい項目を選択すると、選択した項目に応じて日本語化されます。|![アドオンの日本語化 手順3](https://dl.dropboxusercontent.com/s/s5mrd72si2xq910/localizing_into_japanese_3.png "アドオン日本語化 手順3")|
@@ -58,17 +57,15 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |1|以下のURLからmifthさんが作成したアドオン一式をダウンロードします。|　|
+|---|---|---|
 
 * Mira Tools - https://github.com/mifth/mifthtools/archive/master.zip
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |2|ダウンロードしたファイル *mifthtools-master.zip* を解凍します。|　|
+|---|---|---|
 |3|```mifthtools-master/blender/addons/mira_tools``` がMira Tools本体です。このフォルダ一式を、 **Blenderアドオン用フォルダ** へコピーしたらインストール完了です。|　|
 
 以下に示すように、Blenderアドオン用フォルダはOSごとにパスが異なります。
@@ -94,9 +91,8 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |1|Blenderを起動します|　|
+|---|---|---|
 |2|*情報* エリアのメニューから、 *ファイル* > *ユーザ設定* を選択してください。|![アドオンの有効化 手順1](https://dl.dropboxusercontent.com/s/9it3p8rth2heyqi/enable_add-on_1.png "アドオンの有効化 手順1")|
 |3|*Blenderユーザ設定* ウィンドウが別ウィンドウで開くので、 *アドオン* タブを選択してください。|　|
 |4|検索窓に *mira tools* を入力します。|　|
@@ -116,9 +112,8 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process"></div>
 
-|　|　|　|
+|1|アドオンを有効化した時と同様、 *Blenderユーザ設定* ウィンドウを開いてください。|　|
 |---|---|---|
-|1|アドオンを有効化した時と同様、 *Blenderユーザ設定* ウィンドウを開いてください。||
 |2|*アドオン* タブを選択し、 *Mira Tools* のチェックボックスのチェックを外すことでアドオンが無効化されます。|![アドオンの無効化](https://dl.dropboxusercontent.com/s/t15vvgofl5gs50d/disable_add-on.png "アドオンの無効化")|
 
 
@@ -136,9 +131,8 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |1|アドオンのソースコードの場所が分からない場合は、 *Blenderユーザ設定* ウィンドウの *アドオン* タブから確認します。|　|
+|---|---|---|
 |2|アドオン名の隣にある左の矢印をクリックして *Mira Tools* の詳細情報を表示します。|　|
 |3|詳細情報の *ファイル* がアドオンのソースコードが置かれた場所を示しています。|![アドオンの詳細情報を表示](https://dl.dropboxusercontent.com/s/7onrbdzxctp4uqw/show_add-on_detail.png "アドオンの詳細情報を表示")|
 |4|アドオンのソースコードを削除すると、アンインストールが完了します。|　|
@@ -156,9 +150,8 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |1|*Blenderユーザ設定* ウィンドウの *アドオン* タブを選択し、 *Mira Tools* の左の矢印をクリックして詳細情報を開きます。|　|
+|---|---|---|
 |2|*削除* ボタンをクリックすると、アンインストールが完了します。|![アドオンのアンインストール](https://dl.dropboxusercontent.com/s/0hkgrg49n0kh880/uninstall_add-on.png "アドオンのアンインストール")|
 
 <div id="column"> </div>
@@ -177,6 +170,8 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 <div id="point"></div>
 
 ### ポイント
+
+<div id="point_item"></div>
 
 * Blenderは標準で日本語をサポートしているため、必要に応じてUIを日本語化することができる。
 * Blenderアドオンは、アドオンの品質や将来性を示すサポートレベルで分類できる。

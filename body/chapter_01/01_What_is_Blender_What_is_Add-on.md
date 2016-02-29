@@ -2,7 +2,10 @@
 
 <div id="sect_title_text"></div>
 
-# 1-1. Blenderって何？アドオンって何？
+# Blenderって何？アドオンって何？
+
+<div id="preface"></div>
+######　
 
 ## Blenderって何？
 
@@ -71,8 +74,9 @@ Blenderアドオンは、Blender本体を持っている方なら誰でも開発
 
 ### ポイント
 
+<div id="point_item"></div>
+
 * Blenderはフリーでオープンソースな3DCG制作ソフトである
 * Blenderはマルチプラットフォームで動作することを前提に作られているため、Windows/Mac/Linux上で動作する
-* Blenderは商用レベルの機能を持つ3DCG制作ソフトであるが、他の3DCG制作ソフトとは一風変わったUIを持つ
-  * Blender標準のUIが気に入らなければ、ユーザはUIを適宜変更することができる
+* Blenderは商用レベルの機能を持つ3DCG制作ソフトであるが、他の3DCG制作ソフトとは一風変わったUIを持つが、UIが気に入らなければユーザはUIを適宜変更することができる
 * Blenderが提供するPython向けのAPIを利用することで、Blenderの拡張機能(アドオン)を作成することができる
