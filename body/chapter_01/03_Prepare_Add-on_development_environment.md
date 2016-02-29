@@ -33,9 +33,8 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |1|*Info* エリアの上端を下に向かってドラッグ＆ドロップします。|![コンソール・ウィンドウの表示 手順1](https://dl.dropboxusercontent.com/s/ho9x3vdwrfp1bqr/blender_show_console_window_1.png "コンソール・ウィンドウの表示 手順1")|
+|---|---|---|
 |2|コンソールウィンドウが表示されます。|![コンソール・ウィンドウの表示 手順2](https://dl.dropboxusercontent.com/s/49km722w99jxygf/blender_show_console_window_2.png "コンソール・ウィンドウの表示 手順2")|
 
 アドオンを開発時に大変役立つ機能ですので、アドオン開発中は常にコンソール・ウィンドウを表示させておきましょう。
@@ -49,9 +48,8 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |1|左下の三角マークを右側にドラッグ&ドロップしてエリアを縦に2分割します。|![ウィンドウの分割 手順1](https://dl.dropboxusercontent.com/s/hnc8c8qfonfnnyp/blender_divide_window_1.png "ウィンドウの分割 手順1")|
+|---|---|---|
 |2|左側のエリアの左下の三角マークを上側にドラッグ&ドロップして左側のエリアを横に2分割します。|![ウィンドウの分割 手順2](https://dl.dropboxusercontent.com/s/g6ifc1mn5wu120e/blender_divide_window_2.png "ウィンドウの分割 手順2")|
 |3|これでエリア分割は完了です。なお、分割後のエリアは全て *3Dビュー* になっていると思います。|![ウィンドウの分割 手順3](https://dl.dropboxusercontent.com/s/i3bbl8f5vbmazhk/blender_divide_window_3.png "ウィンドウの分割 手順3")|
 
@@ -63,9 +61,8 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |1|左下のエリアのメニューバーの一番左のボタンから、*テキストエディター* をクリックします。|![ウィンドウ表示の変更 手順1](https://dl.dropboxusercontent.com/s/v56yihqny5qy83q/blender_change_window_1.png "ウィンドウ表示の変更 手順1")|
+|---|---|---|
 |2|左下のエリアが *3Dビュー* から *テキストエディター* に変更されます。|![ウィンドウ表示の変更 手順2](https://dl.dropboxusercontent.com/s/9edhgrh27ulak4p/blender_change_window_2.png "ウィンドウ表示の変更 手順2")|
 |3|左上のエリアのメニューバーの一番左のボタンから、*Pythonコンソール* をクリックします。|![ウィンドウ表示の変更 手順3](https://dl.dropboxusercontent.com/s/owvn6git978ja7i/blender_change_window_3.png "ウィンドウ表示の変更 手順3")|
 |4|左上のエリアが *3Dビュー* から *Pythonコンソール* に変更されます。|![ウィンドウ表示の変更 手順4](https://dl.dropboxusercontent.com/s/9ws6g0tr3xhpc94/blender_change_window_4.png "ウィンドウ表示の変更 手順4")|
@@ -78,9 +75,8 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |1|*情報* エリアのメニューバーから、 *ファイル* > *スタートアップファイルを保存* を実行します。|![Blenderの初期状態にする 手順1](https://dl.dropboxusercontent.com/s/kbro7t4evkim2au/blender_save_startup_file_1.png "Blenderの初期状態にする 手順1")|
+|---|---|---|
 |2|確認メッセージが出ますので、 *スタートアップファイルを保存* をクリックします。|![Blenderの初期状態にする 手順2](https://dl.dropboxusercontent.com/s/pm74e5k1atjgu0a/blender_save_startup_file_2.png "Blenderの初期状態にする 手順2")|
 
 これで次にBlenderを起動する時には、エリア設定が完了した状態で起動します。
@@ -90,9 +86,8 @@ Blenderの起動直後の状態を設定する場合は、いつでもこの方�
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |1|*情報* エリアの *ファイル* > *初期設定を読み込む* を実行してください。|![初期設定を読み込む 手順1](https://dl.dropboxusercontent.com/s/fzhbvpp60xf76a6/blender_read_factory_setting_1.png "初期状態を読み込む 手順1")|
+|---|---|---|
 |2|確認メッセージが出ますので、 *初期設定を読み込む* をクリックします。|![初期設定を読み込む 手順2](https://dl.dropboxusercontent.com/s/sc2dvqqw19twg12/blender_read_factory_setting_2.png "初期状態を読み込む 手順2")|
 
 なお初期設定を読み込んだ後に先ほど紹介したスタートアップファイルを保存する手順を行わない限り、Blenderの起動直後の状態は更新されないことに注意が必要です。
@@ -157,9 +152,8 @@ Blenderを起動する時は、アプリケーションのアイコン（Windows
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |1|*コマンドプロンプト* を起動します。|　|
+|---|---|---|
 |2|以下のコマンドを実行します。（blender.exeが置かれているパスが ```C:\path\blender.exe``` であると仮定します。）|　|
 
 ```shell-session
@@ -168,17 +162,15 @@ $ C:\path\blender.exe
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |3|Blenderが起動します。|　|
+|---|---|---|
 
 ### Macの場合
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |1|*ターミナル* を起動します。|　|
+|---|---|---|
 |2| 以下のコマンドを実行します。（Blender.appが置かれているパスが ```/path/Blender.app``` であると仮定します。）|　|
 
 ```shell-session
@@ -187,17 +179,15 @@ $ /path/blender.app/Contents/MacOS/blender
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |3|Blenderが起動します。|　|
+|---|---|---|
 
 ### Linuxの場合
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |1|*ターミナル* を起動します。|　|
+|---|---|---|
 |2| 以下のコマンドを実行します。（実行ファイルblenderが置かれているパスが ```/path/blender``` であると仮定します。）|　|
 
 ```shell-session
@@ -206,9 +196,8 @@ $ /path/blender
 
 <div id="process"></div>
 
-|　|　|　|
-|---|---|---|
 |3|Blenderが起動します。|　|
+|---|---|---|
 
 ## まとめ
 
@@ -222,9 +211,11 @@ $ /path/blender
 
 ### ポイント
 
+<div id="point_item"></div>
+
 * 自分にあったアドオンの開発環境を整え、効率的にアドオンの開発を進められるようにしよう
 * Blenderのエリア分割機能を利用することで、エリアを変更せずに複数のエリアの状態を確認することができる
 * 開発環境が整った状態をスタートアップファイルとして保存することを忘れないようにしよう
-  * スタートアップファイルを保存した後でも、ダウンロード時の状態に戻すこともできる
+* スタートアップファイルを保存した後でも、ダウンロード時の状態に戻すこともできる
 * 世の中には様々なテキストエディタがある。各自が使いやすいエディタを選ぼう
 * アドオン開発時は動作確認の際に有益な情報を得るため、コンソールから起動しよう
