@@ -312,6 +312,8 @@ OpenGLへアクセスするAPIである ```bgl``` モジュールを用いて、
 
 ### ポイント
 
+<div id="point_item"></div>
+
 * Blenderが提供している、OpenGLへアクセスするためのAPIをアドオンから利用するためには、 ```bgl``` モジュールをインポートする必要がある
 * ```bgl``` モジュールを用いて、アドオン内でOpenGLを用いて描画するためには、 ```bpy.types.SpaceXXX.draw_handler_add()``` 関数を用いて、描画用の静的メソッドまたは関数を登録する必要がある（XXX：描画するエリア）
 * 登録した描画用の静的メソッドまたは関数は、アドオン無効化時に ```bpy.types.SpaceXXX.draw_handler_remove()``` 関数を用いて、登録解除する必要がある

@@ -160,6 +160,8 @@ class ReplicateObjectMenu(bpy.types.Menu):
 
 ### ポイント
 
+<div id="point_item"></div>
+
 * メニュー用クラスは、 ```bpy.types.Menu``` クラスを継承して作成する
 * メニュー用クラスの ```draw()``` メソッド内で、 オペレーション用クラスの ```bl_idname ``` を ```self.layout.operation()``` 関数の引数に指定し、メニュー用クラスの ```bl_idname``` を引数にして ```self.layout.menu()``` を呼び出すことで、サブメニューを作成できる
 * メニュー用クラスの ```draw()``` メソッド内でサブメニュー用に作成したクラスの ```bl_idname``` を ```self.layout.menu()``` 関数の引数に指定することで、3階層以上のメニューを作成することができる

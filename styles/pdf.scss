@@ -16,8 +16,9 @@
         @include a(0.7em);
         @include section_title_text(0.65em * 3, -280.0px, -210px);
         @include section_title_img();
-        @include section_title_preface(0.65em * 0.7, 150px, -75px, -100px);
+        @include section_title_preface(0.65em * 0.7, 150px, -75px, -80px);
         @include point_item(0.65em, 1.5, 0.3em, -1.3em, 12px, 12px);
+        @include space_small(20px);
     }
 
     .section {
