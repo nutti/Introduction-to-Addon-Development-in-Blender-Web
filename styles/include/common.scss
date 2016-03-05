@@ -408,8 +408,8 @@ $img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1
         li {
             line-height: $line_height;
             position: relative;
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 30px;
+            #border-bottom: 1px solid #ccc;
+            margin-top: 30px;
             padding-bottom: 10px;
         }
         li::before {
@@ -472,6 +472,7 @@ $img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1
         background: #CCCCCC;
     }
     h4 {
+        font-family: MPlus;
         text-align: left;
         font-size: $font_size_base * 1.1;
         font-weight: bold;
