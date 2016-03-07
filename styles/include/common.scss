@@ -350,9 +350,94 @@
     }
 }
 
-$sect_list: '1_1';
+$ch_list: '1';
 
-$img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1_1.png';
+$ch_img_list: "https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_1.png";
+
+@mixin chapter_title_text($font_size, $top, $margin_bottom) {
+    #ch_title_text + h1 {
+        position: relative;
+        font-family: MPlus;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        padding-right: 7px;
+        width: 75%;
+        overflow: hidden;
+        height: 80px;
+        font-size: $font_size;
+        top: $top;
+        margin-bottom: $margin_bottom;
+    }
+}
+
+@mixin chapter_title_img() {
+    @for $i from 1 through length($ch_list) {
+        #ch_title_img_#{nth($ch_list, $i)} {
+            background-image: url('#{nth($ch_img_list, $i)}');
+            background-size: cover;
+            width: 600px;
+            height: 600px;
+            position: relative;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+@mixin chapter_body($font_size, $height, $top, $margin_bottom) {
+    #ch_body {
+        position: relative;
+        font-family: MPlus;
+        margin-left: auto;
+        text-align: left;
+        padding-right: 7px;
+        padding-left: 30px;
+        width: 50%;
+        height: $height;
+        overflow: hidden;
+        font-size: $font_size;
+        top: $top;
+        color: #555555;
+        margin-bottom: $margin_bottom;
+    }
+}
+
+
+$sect_list: '1_1',
+'1_2',
+'1_3',
+'1_4',
+'2_1',
+'2_2',
+'2_3',
+'2_4',
+'2_5',
+'2_6',
+'3_1',
+'3_2',
+'4_1',
+'4_2',
+'4_3',
+'4_4';
+
+$sect_img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1_1.png',
+'https://dl.dropboxusercontent.com/s/xeygp0z4c9poxft/sect_title_img_1_2.png',
+'https://dl.dropboxusercontent.com/s/qhf9lsai33bpt23/sect_title_img_1_3.png',
+'https://dl.dropboxusercontent.com/s/dm1n5i0va3ixrcl/sect_title_img_1_4.png',
+'https://dl.dropboxusercontent.com/s/p1b2byo5wezf5nf/sect_title_img_2_1.png',
+'https://dl.dropboxusercontent.com/s/l4psv533defo6tf/sect_title_img_2_2.png',
+'https://dl.dropboxusercontent.com/s/xtngnsqqqkvr1k1/sect_title_img_2_3.png',
+'https://dl.dropboxusercontent.com/s/hfqplabh46ncnak/sect_title_img_2_4.png',
+'https://dl.dropboxusercontent.com/s/qx3ckkys8xcu5t6/sect_title_img_2_5.png',
+'https://dl.dropboxusercontent.com/s/9064tt04em97qkw/sect_title_img_2_6.png',
+'https://dl.dropboxusercontent.com/s/gz6eg4d1yf1aj74/sect_title_img_3_1.png',
+'https://dl.dropboxusercontent.com/s/k87uxsxa6mq99vu/sect_title_img_3_2.png',
+'https://dl.dropboxusercontent.com/s/xp2czcybl5le7nu/sect_title_img_4_1.png',
+'https://dl.dropboxusercontent.com/s/16hlrbm8kpnhu4q/sect_title_img_4_2.png',
+'https://dl.dropboxusercontent.com/s/93ox0py4e8pflfp/sect_title_img_4_3.png',
+'https://dl.dropboxusercontent.com/s/ln0itmf0jrhblt3/sect_title_img_4_4.png';
 
 @mixin section_title_text($font_size, $top, $margin_bottom) {
     #sect_title_text + h1 {
@@ -364,7 +449,6 @@ $img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1
         width: 75%;
         overflow: hidden;
         height: 80px;
-        background-color: #CCCCCC;
         font-size: $font_size;
         top: $top;
         margin-bottom: $margin_bottom;
@@ -374,7 +458,7 @@ $img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1
 @mixin section_title_img() {
     @for $i from 1 through length($sect_list) {
         #sect_title_img_#{nth($sect_list, $i)} {
-            background-image: url('#{nth($img_list, $i)}');
+            background-image: url('#{nth($sect_img_list, $i)}');
             background-size: cover;
             width: 100%;
             height: 250px;
@@ -393,7 +477,6 @@ $img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1
         padding-left: 30px;
         width: 50%;
         height: $height;
-        background-color: #EEEEEE;
         overflow: hidden;
         font-size: $font_size;
         top: $top;
@@ -408,7 +491,6 @@ $img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1
         li {
             line-height: $line_height;
             position: relative;
-            #border-bottom: 1px solid #ccc;
             margin-top: 30px;
             padding-bottom: 10px;
         }

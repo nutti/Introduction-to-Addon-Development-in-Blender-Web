@@ -1,4 +1,4 @@
-<div id="sect_title_img_1_1"></div>
+<div id="sect_title_img_2_3"></div>
 
 <div id="sect_title_text"></div>
 

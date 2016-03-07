@@ -14,6 +14,8 @@
         @include blockquote(0.55em, -15px, 20px);
         @include code(0.80em);
         @include a(0.8em);
+        @include chapter_title_img();
+        @include chapter_title_text(1.95em, -340.0px, -50px)
         @include section_title_text(0.65em * 3, -280.0px, -210px);
         @include section_title_img();
         @include section_title_preface(0.65em * 0.7, 150px, -75px, -80px);
