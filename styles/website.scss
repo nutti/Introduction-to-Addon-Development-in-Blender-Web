@@ -18,6 +18,9 @@
                     @include code(0.7em);
                     @include a(1.2em * 0.85);
                     @include chapter_title_img();
+                    @include chapter_title_text(2.2em, -340.0px, -50px);
+                    @include chapter_body(0.65em, 150px, 0px, 0px);
+                    @include chapter_toc(0.65em, 150px, 0px, 0px);
                     @include section_title_text(2.2em, -285.0px, -200px);
                     @include section_title_img();
                     @include section_title_preface(1.2em * 0.7, 200px, -100px, -100px);

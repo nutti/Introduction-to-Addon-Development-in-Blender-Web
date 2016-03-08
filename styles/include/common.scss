@@ -387,14 +387,13 @@ $ch_img_list: "https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
 }
 
 @mixin chapter_body($font_size, $height, $top, $margin_bottom) {
-    #ch_body {
+    #ch_body + p {
         position: relative;
         font-family: MPlus;
+        text-align: center;
         margin-left: auto;
-        text-align: left;
-        padding-right: 7px;
-        padding-left: 30px;
-        width: 50%;
+        margin-right: auto;
+        width: 80%;
         height: $height;
         overflow: hidden;
         font-size: $font_size;
@@ -404,6 +403,23 @@ $ch_img_list: "https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
     }
 }
 
+@mixin chapter_toc($font_size, $height, $top, $margin_bottom) {
+    #ch_toc + ol {
+        position: relative;
+        font-family: MPlus;
+        text-align: left;
+        height: $height;
+        overflow: hidden;
+        font-size: $font_size;
+        top: $top;
+        color: #AAAAAA;
+        margin-bottom: $margin_bottom;
+        li {
+            padding-top: 3px;
+            padding-bottom: 3px;
+        }
+    }
+}
 
 $sect_list: '1_1',
 '1_2',
