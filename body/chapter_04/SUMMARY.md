@@ -1,10 +1,16 @@
-# 4章 さらにその先へ
+<div id="ch_title_img_1"></div>
+
+<div id="ch_title_text"></div>
+
+# さらにその先へ
+
+<div id="ch_body"></div>
 
 これまでの章では、サンプルを用いてBlenderが用意しているAPIを紹介しました。
 Blenderの内部データの変更に、入力デバイスからのイベント処理やOpenGL利用などBlenderが用意しているAPIは非常に多く、紹介したサンプルはAPIのほんの一部を利用しただけにすぎません。
 そこで最後の章では、Blenderが提供しているAPIの調べ方をはじめとして、Blenderのアドオン開発に役に立つtipsを紹介します。
 
-## 章の構成
+<div id="ch_toc"></div>
 
 1. [Blenderが提供するアドオン向けのAPIを調べる](01_Research_official_Blender_API_for_Add-on.md)
 2. [作成したアドオンをデバッグする](02_Debug_Add-on.md)
