@@ -350,9 +350,12 @@
     }
 }
 
-$ch_list: '1';
+$ch_list: '1', '2', '3', '4';
 
-$ch_img_list: "https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_1.png";
+$ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_1.png',
+'https://dl.dropboxusercontent.com/s/kn7y8riseci4xxw/ch_title_img_2.png',
+'https://dl.dropboxusercontent.com/s/c40c6lrjnuxa4az/ch_title_img_3.png',
+'https://dl.dropboxusercontent.com/s/gqkb3l2no2e39o0/ch_title_img_4.png';
 
 @mixin chapter_title_text($font_size, $top, $margin_bottom) {
     #ch_title_text + h1 {
@@ -390,10 +393,10 @@ $ch_img_list: "https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
     #ch_body + p {
         position: relative;
         font-family: MPlus;
-        text-align: center;
+        //text-align: center;
         margin-left: auto;
         margin-right: auto;
-        width: 80%;
+        //width: 80%;
         height: $height;
         overflow: hidden;
         font-size: $font_size;
@@ -421,7 +424,8 @@ $ch_img_list: "https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
     }
 }
 
-$sect_list: '1_1',
+$sect_list: '0_0',
+'1_1',
 '1_2',
 '1_3',
 '1_4',
@@ -438,7 +442,9 @@ $sect_list: '1_1',
 '4_3',
 '4_4';
 
-$sect_img_list: 'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1_1.png',
+$sect_img_list:
+'https://dl.dropboxusercontent.com/s/o4kgodzmoi21ibn/sect_title_img_0_0.png',
+'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1_1.png',
 'https://dl.dropboxusercontent.com/s/xeygp0z4c9poxft/sect_title_img_1_2.png',
 'https://dl.dropboxusercontent.com/s/qhf9lsai33bpt23/sect_title_img_1_3.png',
 'https://dl.dropboxusercontent.com/s/dm1n5i0va3ixrcl/sect_title_img_1_4.png',

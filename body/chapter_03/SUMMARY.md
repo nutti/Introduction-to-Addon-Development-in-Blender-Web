@@ -1,4 +1,4 @@
-<div id="ch_title_img_1"></div>
+<div id="ch_title_img_3"></div>
 
 <div id="ch_title_text"></div>
 
