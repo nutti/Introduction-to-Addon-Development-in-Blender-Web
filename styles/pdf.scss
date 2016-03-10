@@ -29,6 +29,24 @@
         &.toc {
             >h1 {
                 text-align: center;
+                position: relative;
+                font-family: MPlus;
+                margin-left:auto;
+                text-align: right;
+                padding-right: 7px;
+                width: 75%;
+                overflow: hidden;
+                height: 80px;
+                font-size: 0.65em * 3;
+                top: -280px;
+                margin-bottom: -210px;
+            }
+            #sect_title_img_0_0 {
+                background-image: url('https://dl.dropboxusercontent.com/s/o4kgodzmoi21ibn/sect_title_img_0_0.png');
+                background-size: cover;
+                width: 100%;
+                height: 250px;
+                position: relative;
             }
             li {
                 .inner {

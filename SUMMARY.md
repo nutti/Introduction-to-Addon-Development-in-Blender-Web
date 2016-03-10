@@ -1,3 +1,7 @@
+<div id="sect_title_img_0_0"></div>
+
+<div id="sect_title_text"></div>
+
 # 目次
 
 1. [アドオン開発者へようこそ](body/chapter_01/SUMMARY.md)
