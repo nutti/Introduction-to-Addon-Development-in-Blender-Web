@@ -10,7 +10,13 @@
 
 ## OpenGLとは？
 
-3DCGに何かしら関わっている方にとってはご存知の方も多いと思いますが、**OpenGL (Open Graphic Library)** とは2D/3DCG向けのグラフィックAPIのことを指します。
+3DCGに何かしら関わっている方はご存知と思いますが、2D/3D向けのグラフィックAPIは **OpenGL (Open Graphic Library)** と **DirectX** の2つが主流です。
+DirectXはMicrosoft社が開発したAPIで主にゲームの描画に使われることが多いのに対し、OpenGLは3DCGソフトやCADソフトに使われることが多いです。
+ゲーム用途に使われることの多いDirectXはレンダリングの精密さが欠ける反面、高速な描画が可能です。
+一方、OpenGLは多少性能を犠牲にしてもレンダリングの結果の精度を重視するため、CADソフトなど精密さが求められるソフトでの利用が適しています。
+しかし、iOSやAndroidなどのスマートフォン向けアプリやWebアプリでもOpenGLを利用できるようになってきており、ゲーム作るならDirectXというようなことはなくなってきていると思います。
+またDirectXはWindowsやXBox上でしか動作しないのに対し、OpenGLではMacやLinux、iOSやAndroidなど動作可能な環境が多いのも大きな違いです。
+
 Blender自体OpenGLを利用していることもあり、PythonからOpenGLへアクセスするためのAPIを提供しています。
 
 ## 作成するアドオンの仕様
