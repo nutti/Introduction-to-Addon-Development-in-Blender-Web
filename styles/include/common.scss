@@ -420,6 +420,9 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
         li {
             padding-top: 3px;
             padding-bottom: 3px;
+            a {
+                font-family: MPlus;
+            }
         }
     }
 }
@@ -536,8 +539,37 @@ $sect_img_list:
     }
 }
 
-@mixin space_small($space) {
-    #space {
+@mixin space_xs($space) {
+    #space_xs {
+        display: block;
+        height: $space;
+    }
+}
+
+@mixin space_s($space) {
+    #space_s {
+        display: block;
+        height: $space;
+    }
+}
+
+@mixin space_m($space) {
+    #space_m {
+        display: block;
+        height: $space;
+    }
+}
+
+@mixin space_l($space) {
+    #space_l {
+        display: block;
+        height: $space;
+    }
+}
+
+@mixin space_xl($space) {
+    #space_xl {
+        display: block;
         height: $space;
     }
 }

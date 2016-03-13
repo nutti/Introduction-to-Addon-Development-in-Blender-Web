@@ -20,9 +20,13 @@
         @include chapter_toc(0.8em, 200px, 20px, 20px);
         @include section_title_text(0.65em * 3, -280.0px, -210px);
         @include section_title_img();
-        @include section_title_preface(0.65em * 0.7, 150px, -75px, -80px);
+        @include section_title_preface(0.65em * 0.7, 150px, -75px, -70px);
         @include point_item(0.65em, 1.5, 0.3em, -1.3em, 12px, 12px);
-        @include space_small(20px);
+        @include space_xs(20px);
+        @include space_s(40px);
+        @include space_m(80px);
+        @include space_l(120px);
+        @include space_xl(160px);
     }
 
     .section {
@@ -56,26 +60,14 @@
                 .inner {
                     a {
                         font-size: 0.5em;
-                        //float: right;
-                        //border-bottom: 0px;
                         font-family: MPlus;
-                        //float: right;
-
                     }
                     .page {
                         font-family: MPlus;
                         font-size: 0.5em;
-                        //float: left;
-                        //margin-top: 15px;
-                        //float: none;
                         border-bottom: 1px solid #EEEEEE;
                     }
                 }
-
-                /*.inder:after {
-                    display: block;
-                    border-bottom: 1px solid #EEEEEE;
-                }*/
             }
         }
     }
