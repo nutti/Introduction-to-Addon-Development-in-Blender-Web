@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# サンプル8: OpenGL向けのAPIを利用して図形を表示する
+# OpenGL向けのAPIを利用する
 
 <div id="preface"></div>
 

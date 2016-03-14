@@ -5,6 +5,7 @@
         @include common(0.65em, 0.8);
         @include table(0.65em);
         @include process(0.65em * 3.0, 0.65em * 0.9);
+        @include sidebyside(0.65em * 0.9);
         @include point(0.65em * 1.5, 0.6em, 0.55em, 10px, 10px, 1.2em, 0.2em, 6px, 6px);
         @include list_1st(0.65em, 1.5, 2px, 0.25em, -1.4em, 14px, 14px, .51em, -1.25em, 4px, 4px);
         @include list_2nd(0.9em, 1.0, .25em, -1.5em, 11px, 11px, .51em, -1.35em, 3px, 3px);

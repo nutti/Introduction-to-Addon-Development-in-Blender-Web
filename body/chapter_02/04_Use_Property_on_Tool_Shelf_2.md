@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# サンプル4: オブジェクトを複製する1
+# ツール・シェルフのオプションを活用する②
 
 <div id="preface"></div>
 

@@ -44,11 +44,79 @@
             tr {
                 td {
                     font-family: NotoSansCJKjp;
-                    font-size: $font_size * 0.9;
+                    font-size: $font_size;
                     background-color: #FFFFFF;
                     padding: 5px 10px;
                     max-width: 30%;
                     min-width: 20%;
+                }
+            }
+        }
+    }
+}
+
+@mixin sidebyside($font_size) {
+    #sidebyside + table {
+        width: 100%;
+        table-layout: fixed;
+        thead {
+            border: none;
+            tr {
+                border: none;
+                th:nth-of-type(1) {
+                    font-family: NotoSansCJKjp;
+                    font-size: $font_size;
+                    line-height: 2.0;
+                    border: none;
+                    width: 35%;
+                    text-align: left;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                    color: #000000;
+                    font-weight: normal;
+                    white-space: normal;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                }
+                th:nth-of-type(2) {
+                    font-family: NotoSansCJKjp;
+                    font-size: $font_size;
+                    border: none;
+                    width: 65%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                    color: #000000;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                }
+            }
+        }
+        tbody {
+            border: none;
+            tr {
+                border: none;
+                border-top: 1px #CCCCCC solid;
+                td:nth-of-type(1) {
+                    font-family: NotoSansCJKjp;
+                    font-size: $font_size;
+                    line-height: 2.0;
+                    border: none;
+                    width: 35%;
+                    text-align: left;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                }
+                td:nth-of-type(2) {
+                    font-family: NotoSansCJKjp;
+                    font-size: $font_size;
+                    border: none;
+                    width: 65%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
                 }
             }
         }
@@ -74,8 +142,8 @@
                     text-align: center;
                     background-color: #FFFFFF;
                     vertical-align: top;
-                    padding-top: 10px;
-                    padding-bottom: 10px;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
                 }
                 th:nth-of-type(2) {
                     font-family: NotoSansCJKjp;
@@ -89,8 +157,8 @@
                     color: #000000;
                     font-weight: normal;
                     white-space: normal;
-                    padding-top: 10px;
-                    padding-bottom: 10px;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
                 }
                 th:nth-of-type(3) {
                     font-family: NotoSansCJKjp;
@@ -100,8 +168,8 @@
                     text-align: center;
                     background-color: #FFFFFF;
                     color: #000000;
-                    padding-top: 10px;
-                    padding-bottom: 10px;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
                 }
             }
         }
@@ -109,7 +177,7 @@
             border: none;
             tr {
                 border: none;
-                border-top: 1px #CCCCCC solid;
+                //border-top: 1px #CCCCCC solid;
                 td:nth-of-type(1) {
                     font-family: Goudy;
                     font-size: $font_size_1;
@@ -121,8 +189,8 @@
                     text-align: center;
                     background-color: #FFFFFF;
                     vertical-align: top;
-                    padding-top: 10px;
-                    padding-bottom: 10px;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
                 }
                 td:nth-of-type(2) {
                     font-family: NotoSansCJKjp;
@@ -133,8 +201,8 @@
                     text-align: left;
                     background-color: #FFFFFF;
                     vertical-align: top;
-                    padding-top: 10px;
-                    padding-bottom: 10px;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
                 }
                 td:nth-of-type(3) {
                     font-family: NotoSansCJKjp;
@@ -143,8 +211,8 @@
                     width: 60%;
                     text-align: center;
                     background-color: #FFFFFF;
-                    padding-top: 10px;
-                    padding-bottom: 10px;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
                 }
             }
         }
@@ -160,7 +228,7 @@
         margin: 0 0 0.7em;
         padding: 0.5em 0.5em 0.2em 1.5em;
         border-bottom: 2px solid #222222;
-        margin-top: 20px;
+        margin-top: 30px;
     }
     #point + h3:before {
         content: "";
@@ -276,7 +344,7 @@
         margin: 0 0 0.7em;
         padding: 0.5em 0.5em 0.2em 1.5em;
         border-bottom: 2px solid #222222;
-        margin-top: 20px;
+        margin-top: 30px;
     }
     h3:before {
         content: "□";
@@ -532,7 +600,6 @@ $sect_img_list:
 @mixin point_item($font_size_base, $line_height, $top, $left, $width, $height) {
     #point_item + ul {
         font-size: $font_size_base;
-        margin-top: 20px;
         li {
             line-height: $line_height;
             position: relative;
@@ -600,6 +667,7 @@ $sect_img_list:
     p {
         font-size: $font_size_base;
         margin-left: 15px;
+        padding-left: 5px;
     }
     pre {
         background: #FBFBFB;
@@ -633,7 +701,7 @@ $sect_img_list:
         text-align: left;
         font-size: $font_size_base * 1.1;
         font-weight: bold;
-        margin-top: 10px;
+        margin-top: 20px;
     }
     img {
         text-align: center;

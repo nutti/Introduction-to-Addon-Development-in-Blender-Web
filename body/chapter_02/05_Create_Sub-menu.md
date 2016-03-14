@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# サンプル5: オブジェクトを複製する2
+# サブメニューを作成する
 
 <div id="preface"></div>
 

@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# サンプル6: オブジェクトを複製する3
+# ショートカットキーを割り当てる
 
 <div id="preface"></div>
 

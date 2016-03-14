@@ -19,11 +19,14 @@
 * *3Dビュー* エリアのメニューバーに *追加* > *メッシュ* > *球* を追加
 * 追加したメニューを実行すると、 *3Dビュー* エリアのメニューバーの *追加* > *メッシュ* > *ICO球* を実行した時と同等の効果を得る
 
-なお *3Dビュー* エリアのメニューバーから *追加* > *メッシュ* > *ICO球* を実行すると、以下のように3Dカーソルを中心としたICO球が作成されます。
+### Blender標準機能によるICO球作成
 
-![ICO球作成 手順1](https://dl.dropboxusercontent.com/s/z760a6xqpztgnhb/blender_generate_ico-sphere_1.png "ICO球作成 手順1")
+<div id="process"></div>
 
-![ICO球作成 手順2](https://dl.dropboxusercontent.com/s/4a1k4c68k8eteuv/blender_generate_ico-sphere_2.png "ICO球作成 手順2")
+|1|*3Dビュー* エリアのメニューバーから *追加* > *メッシュ* > *ICO球* を実行します。|![ICO球作成 手順1](https://dl.dropboxusercontent.com/s/z760a6xqpztgnhb/blender_generate_ico-sphere_1.png "ICO球作成 手順1")|
+|---|---|---|
+|2|Dカーソルを中心としたICO球が作成されます。|![ICO球作成 手順2](https://dl.dropboxusercontent.com/s/4a1k4c68k8eteuv/blender_generate_ico-sphere_2.png "ICO球作成 手順2")|
+
 
 <div id="column"></div>
 
@@ -53,14 +56,12 @@
 
 ### アドオンの機能を使ってみる
 
-アドオンを有効化したら、 *3Dビュー* エリアのメニューバーに *追加* > *メッシュ* > *球* が追加されていることを確認しましょう。
+以下の手順に従って、アドオンの機能を使ってみましょう。
 
-![アドオンの実行 手順1](https://dl.dropboxusercontent.com/s/insl725bg08g8j4/blender_use_add-on_1.png "アドオンの実行 手順1")
+<div id="process"></div>
 
-続いて、追加されたメニューを実行してみましょう。
-3Dカーソルを中心として、ICO球が作成されたことが確認できます。
-
-![アドオンの実行 手順2](https://dl.dropboxusercontent.com/s/ek7n05o59hyhlp3/blender_use_add-on_2.png "アドオンの実行 手順2")
+|1|*3Dビュー* エリアのメニューバーに *追加* > *メッシュ* > *球* が追加されていることを確認しましょう。|![アドオンの実行 手順1](https://dl.dropboxusercontent.com/s/insl725bg08g8j4/blender_use_add-on_1.png "アドオンの実行 手順1")|
+|2|追加されたメニュー *追加* > *メッシュ* > *球* を実行してみましょう。3Dカーソルを中心として、ICO球が作成されたことが確認できます。|![アドオンの実行 手順2](https://dl.dropboxusercontent.com/s/ek7n05o59hyhlp3/blender_use_add-on_2.png "アドオンの実行 手順2")|
 
 さらに、コンソールには以下の文字列が出力されます。
 
@@ -413,7 +414,7 @@ def unregister():
 	print("サンプル 1: アドオン「サンプル 1」が無効化されました。")
 ```
 
-``bpy.types.INFO_MT_mesh_add.remove()``` に、メニューを構築する関数である ```menu_fn()``` 関数を指定することで、 *3Dビュー* エリアのメニュー *追加* > *メッシュ* からメニューを削除することができます。
+```bpy.types.INFO_MT_mesh_add.remove()``` に、メニューを構築する関数である ```menu_fn()``` 関数を指定することで、 *3Dビュー* エリアのメニュー *追加* > *メッシュ* からメニューを削除することができます。
 
 ```bpy.utils.unregister_module()``` は、引数に指定したモジュールを削除してBlenderから使えなくするようにする関数です。
 こちらもアドオン有効化時に ```bpy.utils.register_module()``` 関数の引数に指定したものと同様、引数に ```__name__``` を指定してファイル内のモジュール全てを削除しています。

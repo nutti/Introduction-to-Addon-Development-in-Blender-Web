@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# サンプル7: マウスの右クリックで面を削除する
+# マウスクリックのイベントを扱う
 
 <div id="preface"></div>
 

@@ -8,6 +8,7 @@
                     @include common(1.2em, 1.4);
                     @include table(1.2em);
                     @include process(2.5em, 1.2em * 0.9);
+                    @include sidebyside(1.2em * 0.9)
                     @include point(1.2em * 1.5, 0.8em, 0.55em, 13px, 13px, 1.4em, 0.2em, 7px, 7px);
                     @include list_1st(1.2em, 1.5, 5px, 0.4em, -1.2em, 16px, 16px, .67em, -1.02em, 5px, 5px);
                     @include list_2nd(0.9em, 1.0, .45em, -1.3em, 14px, 14px, .75em, -1.1em, 4px, 4px);
