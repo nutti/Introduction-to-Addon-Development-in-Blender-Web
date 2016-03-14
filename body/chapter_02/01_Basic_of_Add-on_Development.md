@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# サンプル1: アドオンからオブジェクトを生成する
+# アドオン開発の基礎
 
 <div id="preface"></div>
 

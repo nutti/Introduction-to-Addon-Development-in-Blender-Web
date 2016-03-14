@@ -10,5 +10,5 @@
 
 <div id="ch_toc"></div>
 
-1. [サンプル7: マウスの右クリックで面を削除する](01_Sample_7_Delete_face_by_mouse_click.md)
-2. [サンプル8: OpenGL向けのAPIを利用して図形を表示する](02_Sample_8_Display_figure_by_OpenGL.md)
+1. [マウスクリックのイベントを扱う](01_Handle_Mouse_Click_Event.md)
+2. [OpenGL向けのAPIを利用する](02_Use_API_for_OpenGL.md)

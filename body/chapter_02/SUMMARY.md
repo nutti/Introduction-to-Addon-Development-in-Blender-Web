@@ -10,9 +10,9 @@
 
 <div id="ch_toc"></div>
 
-1. [サンプル1: アドオンからオブジェクトを生成する](01_Sample_1_Create_object_from_Add-on.md)
-2. [サンプル2: オブジェクトを拡大・縮小する1](02_Sample_2_Scaling_object_1.md)
-3. [サンプル3: オブジェクトを拡大・縮小する2 ツール・シェルフを使ってみよう](03_Sample_3_Scaling_object_2.md)
-4. [サンプル4: オブジェクトを複製する1](04_Sample_4_Replicate_object_1.md)
-5. [サンプル5: オブジェクトを複製する2 サブメニューを登録しよう](05_Sample_5_Replicate_object_2.md)
-6. [サンプル6: オブジェクトを複製する3 ショートカットキーを割り当てよう](06_Sample_6_Replicate_object_3.md)
+1. [アドオン開発の基礎を身につける](01_Basic_of_Add-on_Development.md)
+2. [複数のオペレーション用クラスを登録する](02_Register_Multiple_Operation_Classes.md)
+3. [ツール・シェルフのオプションを活用する①](03_Use_Property_on_Tool_Shelf_1.md)
+4. [ツール・シェルフのオプションを活用する②](04_Use_Property_on_Tool_Shelf_2.md)
+5. [サブメニューを作成する](05_Create_Sub-menu.md)
+6. [ショートカットキーを割り当てる](06_Allocate_Shortcut_Keys.md)
