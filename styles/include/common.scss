@@ -44,7 +44,7 @@
             tr {
                 td {
                     font-family: NotoSansCJKjp;
-                    font-size: $font_size;
+                    font-size: $font_size * 0.9;
                     background-color: #FFFFFF;
                     padding: 5px 10px;
                     max-width: 30%;
@@ -146,6 +146,7 @@
         margin: 0 0 0.7em;
         padding: 0.5em 0.5em 0.2em 1.5em;
         border-bottom: 2px solid #222222;
+        margin-top: 10px;
     }
     #point + h3:before {
         content: "";
@@ -180,6 +181,8 @@
 @mixin list_1st($font_size_base, $line_height, $padding, $top_1, $left_1, $width_1, $height_1, $top_2, $left_2, $width_2, $height_2) {
     ul {
         font-size: $font_size_base;
+        margin-top: 10px;
+        margin-bottom: 10px;
         li {
             position: relative;
             line-height: $line_height;
@@ -259,7 +262,8 @@
         position: relative;
         margin: 0 0 0.7em;
         padding: 0.5em 0.5em 0.2em 1.5em;
-        border-bottom: 2px solid #222222
+        border-bottom: 2px solid #222222;
+        margin-top: 10px;
     }
     h3:before {
         content: "□";
@@ -422,6 +426,8 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
             padding-bottom: 3px;
             a {
                 font-family: MPlus;
+                font-size: $font_size;
+                color: #AAAAAA;
             }
         }
     }
@@ -606,6 +612,7 @@ $sect_img_list:
         solid #555555;
         padding: 7px;
         background: #CCCCCC;
+        margin-top: 20px;
     }
     h4 {
         font-family: MPlus;
