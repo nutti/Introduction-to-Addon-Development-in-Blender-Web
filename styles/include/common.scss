@@ -68,7 +68,7 @@
                     font-size: $font_size;
                     line-height: 2.0;
                     border: none;
-                    width: 35%;
+                    width: 40%;
                     text-align: left;
                     background-color: #FFFFFF;
                     vertical-align: top;
@@ -82,7 +82,7 @@
                     font-family: NotoSansCJKjp;
                     font-size: $font_size;
                     border: none;
-                    width: 65%;
+                    width: 60%;
                     text-align: center;
                     background-color: #FFFFFF;
                     color: #000000;
@@ -177,7 +177,7 @@
             border: none;
             tr {
                 border: none;
-                //border-top: 1px #CCCCCC solid;
+                border-top: 1px #CCCCCC solid;
                 td:nth-of-type(1) {
                     font-family: Goudy;
                     font-size: $font_size_1;
