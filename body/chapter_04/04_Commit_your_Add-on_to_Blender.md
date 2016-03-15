@@ -22,9 +22,10 @@
 作成したアドオンの機能について、Blender本体や *Release* または *Contrib* のサポートレベルであるアドオンの中に同じまたは非常によく似ている機能がないか確認しましょう。
 *Release* または *Contrib* のサポートレベルであるアドオンは以下から参照できます。
 
-* Blender Wiki (Blender Add-ons Catalog) - http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts
+<div id="sidebyside"></div>
 
-![Blender Wiki (Blender Add-ons Catalog)](https://dl.dropboxusercontent.com/s/eqhblsox8zibbh8/blender_add-on_catalog.png "Blender Wiki (Blender Add-ons Catalog)")
+|Blender Wiki (Blender Add-ons Catalog) <br> http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts |![Blender Wiki (Blender Add-ons Catalog)](https://dl.dropboxusercontent.com/s/eqhblsox8zibbh8/blender_add-on_catalog.png "Blender Wiki (Blender Add-ons Catalog)")|
+|---|---|
 
 もし作成したアドオンの機能が存在しない場合は、Blender本体に登録される可能性が高くなります。
 しかし既に同様の機能があるアドオンが存在した場合でも、諦めるのはまだ早いです。
@@ -44,24 +45,26 @@ Blenderアドオンのコーディング規約は、Pythonのコーディング�
 以下のサイトからpep8に沿っているか確認しながら、アドオンを作成しましょう。
 なお、1行の最大文字数が79文字を超えてはならないpep8-80というのもありますが、ここまでは求められていないようです。
 
-* PEP 0008 -- Style Guide for Python Code - https://www.python.org/dev/peps/pep-0008/
+<div id="sidebyside"></div>
 
-![PEP 0008](https://dl.dropboxusercontent.com/s/d3t0sjr0mu9wnrk/pep8.png "PEP 0008")
+|PEP 0008 -- Style Guide for Python Code <br> https://www.python.org/dev/peps/pep-0008/ |![PEP 0008](https://dl.dropboxusercontent.com/s/d3t0sjr0mu9wnrk/pep8.png "PEP 0008")|
+|---|---|
 
 コーティング規約だけでなく、Blender本体に取り込まれるアドオンは処理も効率的でなくてはなりません。
 アドオンを使う人にとっては、少しでも速く処理が終わったほうが良いのは考えてみれば当然です。
 Blenderはアドオン開発について、処理を効率的に処理するために必要なベストプラクティスと呼ばれる記事を用意しています。
 ベストプラクティスを参照し、効率的なコーディングを心がけましょう。
 
-* Best Practice (API documentation - Blender 2.75a) - https://www.blender.org/api/blender_python_api_2_75a_release/info_best_practice.html
+<div id="sidebyside"></div>
 
-![Best Practice](https://dl.dropboxusercontent.com/s/30rrshlzu3jnajy/best_practice.png "Best Practice")
+|Best Practice (API documentation - Blender 2.75a) <br> https://www.blender.org/api/blender_python_api_2_75a_release/info_best_practice.html |![Best Practice](https://dl.dropboxusercontent.com/s/30rrshlzu3jnajy/best_practice.png "Best Practice")|
+|---|---|
 
 効率的なコーディングの実例を1つ紹介します。
 
 リストに格納された値を2倍にしたリストを作成する、以下のソースコードを見てください。
 
-```py: best_practice_before.py
+```py:best_practice_before.py
 l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 double_l = []
 for i in l:
@@ -70,9 +73,10 @@ double_l
 
 [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 ```
+
 これをPythonの機能であるリスト内包表記で書くと、以下のようになります。
 
-```py: best_practice_after.py
+```py:best_practice_after.py
 l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 double_l = [i * 2 for i in l]
 double_l
@@ -89,18 +93,21 @@ double_l
 いきなりアドオンのソースレビューを行うのではなく、作成したアドオンが実用的なものかを判断する機能レビューを最初に行います。
 レビューの申請は、developer.blender.org（通称D.B.O）から行います。
 
-* developer.blender.org - https://developer.blender.org
+<div id="sidebyside"></div>
 
-![developer.blender.org](https://dl.dropboxusercontent.com/s/z9uvc1epwm2wi2e/dbo.png "developer.blender.org")
+|developer.blender.org <br> https://developer.blender.org |![developer.blender.org](https://dl.dropboxusercontent.com/s/z9uvc1epwm2wi2e/dbo.png "developer.blender.org")|
+|---|---|
 
 D.B.Oは会員制のため、ユーザ登録が必要です。
-会員登録したら、右上の＋からManiphest Taskをクリックして新しいタスクを作成します。
+会員登録したら、以下の手順に従ってタスクを作成します。
 
-![Create New Task 手順1](https://dl.dropboxusercontent.com/s/3zzr089rpl1i244/create_new_task_1.png "Create New Task 手順1")
+<div id="process"></div>
 
-![Create New Task 手順2](https://dl.dropboxusercontent.com/s/4m757n2ubrqz4au/create_new_task_2.png "Create New Task 手順2")
+|1|右上の＋からManiphest Taskをクリックします。|![Create New Task 手順1](https://dl.dropboxusercontent.com/s/3zzr089rpl1i244/create_new_task_1.png "Create New Task 手順1")|
+|---|---|---|
+|2|各入力欄に必要事項を記載し、新しいタスクを作成します。|![Create New Task 手順2](https://dl.dropboxusercontent.com/s/4m757n2ubrqz4au/create_new_task_2.png "Create New Task 手順2")|
 
-新しいタスクを作成する時に以下の項目を入力します。
+新しいタスクを作成する時に記載が必要な項目を以下に示します。。
 
 |入力欄|入力するもの|
 |---|---|
@@ -153,9 +160,10 @@ Blender本体へのアドオン登録はもうすぐそこです！
 
 機能レビューが通ったら、Blender公式のWikiページに作成したアドオンのページを作成しましょう。
 
-* Blender Wiki (Blender Add-ons Catalog) - http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts
+<div id="sidebyside"></div>
 
-![Blender Wiki (Blender Add-ons Catalog)](https://dl.dropboxusercontent.com/s/eqhblsox8zibbh8/blender_add-on_catalog.png "Blender Wiki (Blender Add-ons Catalog)")
+|Blender Wiki (Blender Add-ons Catalog) <br> http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts |![Blender Wiki (Blender Add-ons Catalog)](https://dl.dropboxusercontent.com/s/eqhblsox8zibbh8/blender_add-on_catalog.png "Blender Wiki (Blender Add-ons Catalog)")|
+|---|---|
 
 Wikiページに掲載する内容は、他のアドオンのWikiページを見ながら作成していくとよいでしょう。
 なおWikiページのアカウントはD.B.Oのアカウントとは異なりますので、ユーザ登録していない場合は追加してください。
@@ -170,9 +178,10 @@ D.B.Oで作成したタスクの説明文においてBlender Wikiのページを
 ソースコードレビューを受けるまでの流れを以下に示します。
 なお、BlenderのWikiページにもソースコードレビューの手順が書いてありますので、こちらも参考にしてみてください。
 
-* Blender Wiki (Code Review) - http://wiki.blender.org/index.php/Dev:Doc/Tools/Code_Review
+<div id="sidebyside"></div>
 
-![Blender Wiki (Code Review)](https://dl.dropboxusercontent.com/s/ugfs7ecqh0t4fao/code_review.png "Blender Wiki (Code Review)")
+|Blender Wiki (Code Review) <br> http://wiki.blender.org/index.php/Dev:Doc/Tools/Code_Review |![Blender Wiki (Code Review)](https://dl.dropboxusercontent.com/s/ugfs7ecqh0t4fao/code_review.png "Blender Wiki (Code Review)")|
+|---|---|
 
 
 #### 最新のBlenderリポジトリを取得
@@ -187,37 +196,41 @@ Blenderのサポートレベルに応じてリポジトリが異なります。
 |Release|```git://git.blender.org/blender-addons.git```|
 |Contrib|```git://git.blender.org/blender-addons-contrib.git```|
 
-① 以下のコマンドを実行し、最新のBlenderのリポジトリを取得します。
+<div id="process"><div>
+
+|1|以下のコマンドを実行し、最新のBlenderのリポジトリを取得します。|　|
+|---|---|---|
 
 ```sh:source_review_1.sh
 $ cd [作業用ディレクトリ]
 $ git clone git://git.blender.org/blender-addons-contrib.git
 ```
 
-② 以下のコマンドを実行し、リポジトリ取得後に作成したアドオンをリポジトリへ移動します。
+<div id="process"><div>
+
+|2|以下のコマンドを実行し、リポジトリ取得後に作成したアドオンをリポジトリへ移動します。|　|
+|---|---|---|
 
 ```sh:source_review_2.sh
 $ cd blender-addons-contrib
 $ cp [作成したプラグイン] .
 ```
 
-③ 以下のコマンドを実行し、ソースコードの差分を取得した結果をコピーします。
+<div id="process"><div>
+
+|3|以下のコマンドを実行し、ソースコードの差分を取得した結果をコピーします。|　|
+|---|---|---|
 
 ```sh:source_review_3.sh
 $ git diff
 ```
 
-④ レビューを依頼する
+<div id="process"><div>
 
-developer.blender.orgの左側にある *Differential* をクリックした後に表示される、 *Create Diff* をクリックします。
-
-![Create Diff 手順1](https://dl.dropboxusercontent.com/s/2wcu3f3ho59x3ia/create_diff_1.png "Create Diff 手順1")
-
-![Create Diff 手順2](https://dl.dropboxusercontent.com/s/w9rhl9pwcwqjef3/create_diff_2.png "Create Diff 手順2")
-
-先ほどコピーしたソースコードの差分を *Raw Diff* にペーストし、 *Repository* に *rBAC Blender Add-ons Contrib* を入力した後、一番下のCreate Diffのボタンをクリックします。
-
-![Create Diff 手順3](https://dl.dropboxusercontent.com/s/c37hha0316mh124/create_diff_3.png "Create Diff 手順3")
+|4|developer.blender.orgの左側にある *Differential* をクリックします|![Create Diff 手順1](https://dl.dropboxusercontent.com/s/2wcu3f3ho59x3ia/create_diff_1.png "Create Diff 手順1")|
+|---|---|---|
+|5|*Create Diff* をクリックします。|![Create Diff 手順2](https://dl.dropboxusercontent.com/s/w9rhl9pwcwqjef3/create_diff_2.png "Create Diff 手順2")|
+|6|コピーしたソースコードの差分を *Raw Diff* にペーストし、 *Repository* に *rBAC Blender Add-ons Contrib* を入力した後、一番下のCreate Diffのボタンをクリックします。|![Create Diff 手順3](https://dl.dropboxusercontent.com/s/c37hha0316mh124/create_diff_3.png "Create Diff 手順3")|
 
 ソースコードレビューでは、作成したソースコードに対して指摘されることがあります。
 指摘された部分は少なくともソースコードを読んだ人が気になった部分でもあるので、たとえ反映不要な指摘であっても反映するようにしましょう。
@@ -226,31 +239,17 @@ developer.blender.orgの左側にある *Differential* をクリックした後�
 
 ソースコードレビューが完了したら、以下の手順に従ってBlenderのリポジトリに登録しましょう。
 
-① リポジトリに対するcommit権を取得する
+<div id="process"></div>
 
-Blenderのリポジトリへ登録（commit）するためは、リポジトリ管理者からリポジトリへのcommit権をもらう必要があります。
-執筆時点で、リポジトリの管理はIdeasmanさんという方が行っているようです。
-IRC(チャットのようなもの)に入り、Ideasmanさんにリポジトリのcommit権を与えてもらえるようにお願いしましょう。
+|1|Blenderのリポジトリへ登録（commit）するためは、リポジトリ管理者からリポジトリへのcommit権をもらう必要があります。<br>執筆時点で、リポジトリの管理はIdeasmanさんという方が行っているようです。<br>IRC(チャットのようなもの)に入り、Ideasmanさんにリポジトリのcommit権を与えてもらえるようにお願いしましょう。<br> IRCでは英語でのチャットになりますが、わからない単語をWebで調べつつ、こちらが言いたいことをはっきり伝えていけば良いのでなんとかなるでしょう。 <br> http://webchat.freenode.net |![IRC](https://dl.dropboxusercontent.com/s/wnfps2d61f88rqu/irc.png "IRC")|
+|---|---|---|
 
-* IRC - http://webchat.freenode.net
+<div id="column"></div>
 
-![IRC](https://dl.dropboxusercontent.com/s/wnfps2d61f88rqu/irc.png "IRC")
+Blender開発者のチャンネルは *#blendercoders* ですので、 *Channels* に *#blendercoders* を入力し、 *Nickname* に自分のニックネームを入力しましょう。  ・・・ちなみにチャットに入るときには、必ず自分のニックネームを入力しましょう。  筆者はコミット権をもらった当初IRCの使い方がわからず、話したい人の名前を入力するのかと思っていたので、Ideasmanという名前で入ってしまい色々と騒ぎになってしまいました。（私の無知さが面白かったから気にしないでなど、厳しいコメントはありませんでしたがさすがに焦りました。）
 
-Blender開発者のチャンネルは *#blendercoders* ですので、 *Channels* に *#blendercoders* を入力し、 *Nickname* に自分のニックネームを入力しましょう。
-・・・ちなみにチャットに入るときには、必ず自分のニックネームを入力しましょう。
-筆者はコミット権をもらった当初IRCの使い方がわからず、話したい人の名前を入力するのかと思っていたので、Ideasmanという名前で入ってしまい色々と騒ぎになってしまいました。（私の無知さが面白かったから気にしないでなど、厳しいコメントはありませんでしたがさすがに焦りました。）
-
-IRCでは英語でのチャットになりますが、わからない単語をWebで調べつつ、こちらが言いたいことをはっきり伝えていけば良いのでなんとかなるでしょう。
-
-② リポジトリを取得する。
-
-commit権をもらったら、Blenderのリポジトリを取得しましょう。
-リポジトリの取得については、以下の手順で行います。
-BlenderのWikiページも参考になるでしょう。
-
-* Blender Wiki (Git Usage) - http://wiki.blender.org/index.php/Dev:Doc/Tools/Git
-
-![Blender Wiki (Git Usage)](https://dl.dropboxusercontent.com/s/9wbrn6frzxdvzvy/git_usage.png "Blender Wiki (Git Usage)")
+|2|commit権をもらったら、Blenderのリポジトリを取得しましょう。<br>リポジトリの取得については、以下の手順で行います。<br>BlenderのWikiページも参考になるでしょう。<br> http://wiki.blender.org/index.php/Dev:Doc/Tools/Git |![Blender Wiki (Git Usage)](https://dl.dropboxusercontent.com/s/9wbrn6frzxdvzvy/git_usage.png "Blender Wiki (Git Usage)")|
+|---|---|---|
 
 ```sh:source_commit_1.sh
 $ cd [作業用ディレクトリ]

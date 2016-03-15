@@ -195,6 +195,8 @@ Blenderが標準で提供している機能の一部は、Blender内でソース
 ただしアドオン開発は海外の方が積極的に行なわれている傾向のため、海外サイトで質問したほうが期待した回答が得られる可能性が高いです。
 以下にBlenderのアドオン開発について、質問できるコミュニティサイトを紹介します。
 
+---
+
 <div id="sidebyside"></div>
 
 |Blender Artists Community <br> http://blenderartists.org/forum/ |![Blender Artists Community](https://dl.dropboxusercontent.com/s/0e6nkncctmwl0ak/blender_artists.png "Blender Artists Community")|
@@ -209,9 +211,12 @@ Blenderを使っている方はすでにご存知のサイトかもしれませ�
 アドオンに関する質問はアカウント登録した上で、 *CODING* > *Python Support* から行ってください。
 投稿は *POST NEW THREAD* ボタンから行えます。
 
+---
 
+<div id="sidebyside"></div>
 
-* Blender Stack Exchange - http://blender.stackexchange.com
+|Blender Stack Exchange <br> http://blender.stackexchange.com |![Blender Stack Exchange](https://dl.dropboxusercontent.com/s/0zrdm4aebb5xm20/blender_stack_exchange.png "Blender Stack Exchange")|
+|---|---|
 
 Stack Overflow(http://stackoverflow.com)と呼ばれる、海外のプログラマ間の情報共有サイトのBlenderに特化したサイトです。
 コミュニティサイトよりも質問サイトとしての位置付けとなります。
@@ -222,16 +227,18 @@ Blender Artists Communityと同様、アカウント登録した上で英語で�
 質問の投稿は、Ask Questionより行います。
 アドオン開発に関する質問の場合、タグにPythonやadd-on、scripting、あとは質問内容に応じて関連するタグ（mathematicsやopenglなど）を入れておくとよいでしょう。
 
-![Blender Stack Exchange](https://dl.dropboxusercontent.com/s/0zrdm4aebb5xm20/blender_stack_exchange.png "Blender Stack Exchange")
+---
 
+<div id="sidebyside"></div>
 
-* Blender.jp - https://blender.jp
+|Blender.jp <br> https://blender.jp |![Blender.jp](https://dl.dropboxusercontent.com/s/m74dd41qm8xpw7c/blender_jp.png "Blender.jp")|
+|---|---|
 
 国内最大のBlenderコミュニティサイトです。
 コミュニティサイトにはフォーラムがあり、フォーラム中の質問板でアドオン開発について質問することができます。
 ここで紹介する他のコミュニティサイトに比べ、アドオン開発に関しての質問はあまり多くないため期待した回答が得られるかわかりませんが、日本語で質問できる点はメリットでしょう。
 
-![Blender.jp](https://dl.dropboxusercontent.com/s/m74dd41qm8xpw7c/blender_jp.png "Blender.jp")
+---
 
 質問の際には、質問内容をわかりやすく書くのはもちろんですが、ソースコードや実行結果を載せると問題点が相手に伝わりやすくなります。そして、質問に対する回答が返ってきたら、回答により解決したか否かに関わらずお礼を言うようにしましょう。
 
@@ -254,12 +261,6 @@ Blender Artists Communityと同様、アカウント登録した上で英語で�
 
 ### ポイント
 
-* Blenderが提供するAPIを調査する方法
-  * Blender公式のAPIリファレンスを読む
-  * *Pythonコンソール* でAPIを検索・実行する
-  * *テキストエディタ* のテンプレートを読む
-  * Blenderアドオン開発の参考サイトを読む
-  * 他者が作成したアドオンのソースコードを読む
-  * Blenderのコミュニティサイトで質問する
+* Blenderが提供するAPIは公式のリファレンスやサンプルを読む以外にも、他者が作成したソースコードを読んだり実際にAPIを実行して確かめることでも調査できる
 * 他者が作成したアドオンのソースコードを読むことはAPIの使い方の理解にも繋がるため、APIの調査する上で一番効果的である
 * コミュニティに質問する前に、自己解決可能か徹底的に調査する

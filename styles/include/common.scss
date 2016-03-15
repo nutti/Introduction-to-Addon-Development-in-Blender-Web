@@ -260,6 +260,19 @@
     }
 }
 
+@mixin ordered_list_1st($font_size) {
+    ol {
+        font-family: MPlus;
+        font-size: $font_size;
+        li {
+            padding-top: 3px;
+            padding-bottom: 3px;
+            font-family: NotoSansCJKjp;
+            font-size: $font_size;
+        }
+    }
+}
+
 @mixin list_1st($font_size_base, $line_height, $padding, $top_1, $left_1, $width_1, $height_1, $top_2, $left_2, $width_2, $height_2) {
     ul {
         font-size: $font_size_base;

@@ -87,53 +87,33 @@ a=50, b=4.0
 
 Eclipseのホームページから、最新版のEclipseをダウンロードします。
 
-* Eclipse ダウンロードページ - https://www.eclipse.org/downloads/
+<div id="sidebyside"></div>
 
-![Eclipse ダウンロードページ](https://dl.dropboxusercontent.com/s/5jk44fvtrmkat80/eclipse_download.png "Eclipse ダウンロードページ")
+|Eclipse ダウンロードページ <br> https://www.eclipse.org/downloads/ |![Eclipse ダウンロードページ](https://dl.dropboxusercontent.com/s/5jk44fvtrmkat80/eclipse_download.png "Eclipse ダウンロードページ")|
+|---|---|
 
 EclipseはJavaやC/C++、PHPなど様々なプログラミング言語に対応していますが、ここではJava用のEclipseを利用します。
 EclipseはJavaで動作しているため、必要に応じてJava SEをインストールしてください。
 
-* Java SE ダウンロードページ - http://www.oracle.com/technetwork/java/javase/downloads/index.html
-
-![Java SE ダウンロードページ](https://dl.dropboxusercontent.com/s/bc4nbfq66358u5h/javase_download.png "Java SE ダウンロードページ")
+|Java SE ダウンロードページ <br> http://www.oracle.com/technetwork/java/javase/downloads/index.html | ![Java SE ダウンロードページ](https://dl.dropboxusercontent.com/s/bc4nbfq66358u5h/javase_download.png "Java SE ダウンロードページ")|
+|---|---|
 
 #### PyDevのインストール
 
 ダウンロードしたEclipseを起動してください。
 Eclipseが起動したら、以下の手順に沿ってPyDevをインストールしましょう。
 
-1. ```Help``` > ```Install New Software...``` をクリックします
+<div id="process"></div>
 
-![PyDevのインストール 手順1](https://dl.dropboxusercontent.com/s/n41n3g8fa4cytvv/install_pydev_1.png "PyDevのインストール 手順1")
-
-2. ```Available Software``` ウィンドウの ```Add...``` をクリックします
-
-![PyDevのインストール 手順2](https://dl.dropboxusercontent.com/s/9hwwncn3xeie2si/install_pydev_2.png "PyDevのインストール 手順2")
-
-3. ```Name``` に ```PyDev``` 、 ```Location``` に ```http://pydev.org/updates``` を入力して OK をクリックします
-
-![PyDevのインストール 手順3](https://dl.dropboxusercontent.com/s/mcs991y9iucacz6/install_pydev_3.png "PyDevのインストール 手順3")
-
-4. しばらく経つと、```Available Software``` ウィンドウに ```PyDev``` が追加されるので選択した後、 ```Contact all update sites during install to find required software``` のチェックボックスを外し、 ```Next >``` をクリックします
-※ 注意：Contact all update sites during install to find required softwareのチェックを外さないと、本ステップが完了するまでに長い時間がかかってしまいます。
-
-![PyDevのインストール 手順4](https://dl.dropboxusercontent.com/s/xm1f3c7pytrs7j1/install_pydev_4.png "PyDevのインストール 手順4")
-
-5. ```Install Details``` ウィンドウの ```Next >``` をクリックします
-
-![PyDevのインストール 手順5](https://dl.dropboxusercontent.com/s/uogvhp6ltvsdt88/install_pydev_5.png "PyDevのインストール 手順5")
-
-6. ```Review Licenses``` ウィンドウでライセンスに同意した後、 ```Finish``` をクリックします
-
-![PyDevのインストール 手順6](https://dl.dropboxusercontent.com/s/7qldtykqtvktsn3/install_pydev_6.png "PyDevのインストール 手順6")
-
-7. PyDevがインストールされるので、インストール後に Eclipseを再起動します
-
-![PyDevのインストール 手順7](https://dl.dropboxusercontent.com/s/pw6z8p67qk2tr3u/install_pydev_7.png "PyDevのインストール 手順7")
-
-![PyDevのインストール 手順8](https://dl.dropboxusercontent.com/s/onj8yjj4723yl0j/install_pydev_8.png "PyDevのインストール 手順8")
-
+|1|```Help``` > ```Install New Software...``` をクリックします|![PyDevのインストール 手順1](https://dl.dropboxusercontent.com/s/n41n3g8fa4cytvv/install_pydev_1.png "PyDevのインストール 手順1")|
+|---|---|---|
+|2|```Available Software``` ウィンドウの ```Add...``` をクリックします|![PyDevのインストール 手順2](https://dl.dropboxusercontent.com/s/9hwwncn3xeie2si/install_pydev_2.png "PyDevのインストール 手順2")|
+|3|```Name``` に ```PyDev``` 、 ```Location``` に ```http://pydev.org/updates``` を入力して OK をクリックします|![PyDevのインストール 手順3](https://dl.dropboxusercontent.com/s/mcs991y9iucacz6/install_pydev_3.png "PyDevのインストール 手順3")|
+|4|しばらく経つと、```Available Software``` ウィンドウに ```PyDev``` が追加されるので選択した後、 ```Contact all update sites during install to find required software``` のチェックボックスを外し、 ```Next >``` をクリックします<br>※ 注意：Contact all update sites during install to find required softwareのチェックを外さないと、本ステップが完了するまでに長い時間がかかってしまいます。|![PyDevのインストール 手順4](https://dl.dropboxusercontent.com/s/xm1f3c7pytrs7j1/install_pydev_4.png "PyDevのインストール 手順4")|
+|5|```Install Details``` ウィンドウの ```Next >``` をクリックします|![PyDevのインストール 手順5](https://dl.dropboxusercontent.com/s/uogvhp6ltvsdt88/install_pydev_5.png "PyDevのインストール 手順5")|
+|6|```Review Licenses``` ウィンドウでライセンスに同意した後、 ```Finish``` をクリックします|![PyDevのインストール 手順6](https://dl.dropboxusercontent.com/s/7qldtykqtvktsn3/install_pydev_6.png "PyDevのインストール 手順6")|
+|7|PyDevのインストールが完了します|![PyDevのインストール 手順7](https://dl.dropboxusercontent.com/s/pw6z8p67qk2tr3u/install_pydev_7.png "PyDevのインストール 手順7")|
+|8|Eclipseを再起動します|![PyDevのインストール 手順8](https://dl.dropboxusercontent.com/s/onj8yjj4723yl0j/install_pydev_8.png "PyDevのインストール 手順8")|
 
 ### 2. デバッグ用プロジョクトの作成
 
@@ -143,61 +123,40 @@ Eclipseが起動したら、以下の手順に沿ってPyDevをインストー�
 
 Eclipseプロジェクトを以下の手順に沿って作成します。
 
-1. ```File``` - ```New``` - ```Project...``` をクリックします
+<div id="process"></div>
 
-![Eclipseプロジェクトの作成 手順1](https://dl.dropboxusercontent.com/s/htzmf81c1umkg3m/setup_eclipse_project_1.png "Eclipseプロジェクトの作成 手順1")
-
-2. ```Select a wizard``` ウィンドウから、 ```PyDev``` - ```PyDev Project``` を選択し、 ```Next >``` をクリックします
-
-![Eclipseプロジェクトの作成 手順2](https://dl.dropboxusercontent.com/s/xzd20c7dj4oi4m8/setup_eclipse_project_2.png "Eclipseプロジェクトの作成 手順2")
-
-3. ```PyDev Project``` ウィンドウで ```Project name``` に適当な名前をつけ（今回の例では ```Blender-Addon-Debugging``` ）、 ```Grammer Version``` を ```3.0``` 、 ```Interpreter``` を ```python``` に設定し ```Next >``` をクリックします
-
-![Eclipseプロジェクトの作成 手順3](https://dl.dropboxusercontent.com/s/ono341pj3yl1cnf/setup_eclipse_project_3.png "Eclipseプロジェクトの作成 手順3")
-
-4. ```Finish``` をクリックすると、eclipseプロジェクトが作成されます
-
-![Eclipseプロジェクトの作成 手順4](https://dl.dropboxusercontent.com/s/o7vngybzvl4h4c5/setup_eclipse_project_4.png "Eclipseプロジェクトの作成 手順4")
-
-![Eclipseプロジェクトの作成 手順5](https://dl.dropboxusercontent.com/s/1qurjvwmtbmxbkw/setup_eclipse_project_5.png "Eclipseプロジェクトの作成 手順5")
+|1|```File``` - ```New``` - ```Project...``` をクリックします|![Eclipseプロジェクトの作成 手順1](https://dl.dropboxusercontent.com/s/htzmf81c1umkg3m/setup_eclipse_project_1.png "Eclipseプロジェクトの作成 手順1")|
+|---|---|---|
+|2|```Select a wizard``` ウィンドウから、 ```PyDev``` - ```PyDev Project``` を選択し、 ```Next >``` をクリックします|![Eclipseプロジェクトの作成 手順2](https://dl.dropboxusercontent.com/s/xzd20c7dj4oi4m8/setup_eclipse_project_2.png "Eclipseプロジェクトの作成 手順2")|
+|3|```PyDev Project``` ウィンドウで ```Project name``` に適当な名前をつけ（今回の例では ```Blender-Addon-Debugging``` ）、 ```Grammer Version``` を ```3.0``` 、 ```Interpreter``` を ```python``` に設定し ```Next >``` をクリックします|![Eclipseプロジェクトの作成 手順3](https://dl.dropboxusercontent.com/s/ono341pj3yl1cnf/setup_eclipse_project_3.png "Eclipseプロジェクトの作成 手順3")|
+|4|```Finish``` をクリックします|![Eclipseプロジェクトの作成 手順4](https://dl.dropboxusercontent.com/s/o7vngybzvl4h4c5/setup_eclipse_project_4.png "Eclipseプロジェクトの作成 手順4")|
+|5|eclipseプロジェクトが作成されます|![Eclipseプロジェクトの作成 手順5](https://dl.dropboxusercontent.com/s/1qurjvwmtbmxbkw/setup_eclipse_project_5.png "Eclipseプロジェクトの作成 手順5")|
 
 
 #### パスの設定
 
 プロジェクト作成後、Blender標準のPythonスクリプト等が置かれているパスを設定します。
 
-1. 作成したプロジェクトを選択した状態で、 ```Project``` > ```Properties``` をクリックします
+<div id="process"></div>
 
-![パスの設定 手順1](https://dl.dropboxusercontent.com/s/rxpoqtgrmbpr4rl/configure_path_1.png "パスの設定 手順1")
+|1|作成したプロジェクトを選択した状態で、 ```Project``` > ```Properties``` をクリックします|![パスの設定 手順1](https://dl.dropboxusercontent.com/s/rxpoqtgrmbpr4rl/configure_path_1.png "パスの設定 手順1")|
+|---|---|---|
+|2|左のメニューから ```PyDev - PYTHONPATH``` を選択します|![パスの設定 手順2](https://dl.dropboxusercontent.com/s/tkaqudo3ougnen2/configure_path_2.png "パスの設定 手順2")|
+|3|```External Libraries``` を選択します|![パスの設定 手順3](https://dl.dropboxusercontent.com/s/itz2hzqa9q3oq9i/configure_path_3.png "パスの設定 手順3")|
+|4|```Add source folder``` をクリックし、以下のパスを追加します <br> * (BLENDER_BASE_SCRIPT_PATH)/addons <br> * (BLENDER_BASE_SCRIPT_PATH)/addons/modules <br> * (BLENDER_BASE_SCRIPT_PATH)/modules <br> * (BLENDER_BASE_SCRIPT_PATH)/startup <br> * （必要に応じて個人用の作業ディレクトリ）|![パスの設定 手順4](https://dl.dropboxusercontent.com/s/uko6g5ltb04yhqo/configure_path_4.png "パスの設定 手順4")|
 
-2. 左のメニューから ```PyDev - PYTHONPATH``` を選択します
-
-![パスの設定 手順2](https://dl.dropboxusercontent.com/s/tkaqudo3ougnen2/configure_path_2.png "パスの設定 手順2")
-
-3. ```External Libraries``` を選択します
-
-![パスの設定 手順3](https://dl.dropboxusercontent.com/s/itz2hzqa9q3oq9i/configure_path_3.png "パスの設定 手順3")
-
-4. ```Add source folder``` をクリックし、以下のパスを追加します
-  * (BLENDER_BASE_SCRIPT_PATH)/addons
-  * (BLENDER_BASE_SCRIPT_PATH)/addons/modules
-  * (BLENDER_BASE_SCRIPT_PATH)/modules
-  * (BLENDER_BASE_SCRIPT_PATH)/startup
-  * （必要に応じて個人用の作業ディレクトリ）
-ここで、BLNEDER_BASE_SCRIPT_PATHはOS依存で以下のようになります。
+BLNEDER_BASE_SCRIPT_PATHはOS依存で以下のようになります。
 なお、Blenderの実行ファイルのパスは環境に応じて変更になります。
 BLENDER_VERはBlenderのバージョンが入ります。マイナーバージョンまでで、2.75aを利用している場合は、BLENDER_VERは2.75になります。
 
 |OS|Blender実行ファイルのパス例|BLENDER_BASE_SCRIPT_PATH|
 |---|---|---|
-|Windows|```C:\path\blender.exe```|``````|
+|Windows|```C:\path\blender.exe```|　|
 |Mac|```/path/blender.app```|```/path/blender.app/Contents/Resources/(BLENDER_VER)/scripts```|
-|Linux|```/path/blender```||
+|Linux|```/path/blender```|　|
 
 今回は上記に加えて、3.で保存する ```debug.py``` と ```debuggee.py``` の保存先を指定します。
 保存先は、 [1.4節](../chapter_01/04_Install_own_Add-on.md) を参照してください。
-
-![パスの設定 手順4](https://dl.dropboxusercontent.com/s/uko6g5ltb04yhqo/configure_path_4.png "パスの設定 手順4")
 
 ### 3. デバッグ実行のためのPythonスクリプトの作成
 
@@ -227,16 +186,12 @@ BLENDER_VERはBlenderのバージョンが入ります。マイナーバージ�
 
 PyDevデバッグサーバをEclipseから起動するために、以下の方法でBlenderをEclipseの外部ツールとして追加します。
 
-1. ```Run``` > ```External Tools``` > ```External Tools Configurations...``` をクリックします
+<div id="process"></div>
 
-![EclipseにBlenderを登録 手順1](https://dl.dropboxusercontent.com/s/yudnrn16tz821op/register_blender_to_eclipse_1.png "EclipseにBlenderを登録 手順1")
-
-2. 表示されたウィンドウで、 ```Program``` をダブルクリックします
-
-![EclipseにBlenderを登録 手順2](https://dl.dropboxusercontent.com/s/cjybhosb2649upd/register_blender_to_eclipse_2.png "EclipseにBlenderを登録 手順2")
-
-3. ```Main``` タブを選択し、 ```Location``` にBlenderの実行ファイルのパス、 ```Working Directory``` にBlenderの実行ファイルが置かれたディレクトリを入力します。
-なお、 ```Name``` には任意の名前を入力します。（ここでは ```New_Configuration``` を入力しています）
+|1|```Run``` > ```External Tools``` > ```External Tools Configurations...``` をクリックします|![EclipseにBlenderを登録 手順1](https://dl.dropboxusercontent.com/s/yudnrn16tz821op/register_blender_to_eclipse_1.png "EclipseにBlenderを登録 手順1")|
+|---|---|---|
+|2|表示されたウィンドウで、 ```Program``` をダブルクリックします|![EclipseにBlenderを登録 手順2](https://dl.dropboxusercontent.com/s/cjybhosb2649upd/register_blender_to_eclipse_2.png "EclipseにBlenderを登録 手順2")|
+|3|```Main``` タブを選択し、 ```Location``` にBlenderの実行ファイルのパス、 ```Working Directory``` にBlenderの実行ファイルが置かれたディレクトリを入力します。<br> ```Name``` には任意の名前を入力します。（ここでは ```New_Configuration``` を入力しています）|
 
 OSごとのblender実行ファイルのパスを以下に示します。
 Blenderのトップディレクトリ（Blenderを非インストーラ版でダウンロードした時に、ダウンロードしたファイルを解答したディレクトリ）を ```/path``` とします。
@@ -247,28 +202,23 @@ Blenderのトップディレクトリ（Blenderを非インストーラ版でダ
 |Mac|```/path/blender.app/Contents/MacOS/blender```|
 |Linux|```/path/blender```|
 
-入力後 ```Apply``` をクリックします。
+<div id="process"></div>
 
-![EclipseにBlenderを登録 手順3](https://dl.dropboxusercontent.com/s/305zw5lym8bhoja/register_blender_to_eclipse_3.png "EclipseにBlenderを登録 手順3")
+|4|```Apply``` をクリックします。|![EclipseにBlenderを登録 手順3](https://dl.dropboxusercontent.com/s/305zw5lym8bhoja/register_blender_to_eclipse_3.png "EclipseにBlenderを登録 手順3")|
+|---|---|---|
 
 #### デバッグサーバの起動
 
 デバッグの準備もいよいよ最後で、PyDevデバッグサーバを起動します。
 PyDevデバッグサーバの起動手順を以下に示します。
 
-1. ```Window```　> ```Perspective``` > ```Open Perspective``` > ```Other...``` をクリックします
+<div id="process"></div>
 
-![デバッグサーバの起動 手順1](https://dl.dropboxusercontent.com/s/srlqpa41rwqtcbg/run_debug_server_1.png "デバッグサーバの起動 手順1")
-
-2. ```Debug``` を選択し、Debugパースペクティブを開きます
-
-![デバッグサーバの起動 手順2](https://dl.dropboxusercontent.com/s/z2aqd3b3i8e1u3c/run_debug_server_2.png "デバッグサーバの起動 手順2")
-
-3. ```Pydev``` > ```Start Debug Server``` をクリックし、デバッグサーバを起動します
-
-![デバッグサーバの起動 手順3](https://dl.dropboxusercontent.com/s/zxrckr9gfrxrkxd/run_debug_server_3.png "デバッグサーバの起動 手順3")
-
-![デバッグサーバの起動 手順4](https://dl.dropboxusercontent.com/s/stxtk3q6glfo925/run_debug_server_4.png "デバッグサーバの起動 手順4")
+|1|```Window```　> ```Perspective``` > ```Open Perspective``` > ```Other...``` をクリックします|![デバッグサーバの起動 手順1](https://dl.dropboxusercontent.com/s/srlqpa41rwqtcbg/run_debug_server_1.png "デバッグサーバの起動 手順1")|
+|---|---|---|
+|2|```Debug``` を選択し、Debugパースペクティブを開きます|![デバッグサーバの起動 手順2](https://dl.dropboxusercontent.com/s/z2aqd3b3i8e1u3c/run_debug_server_2.png "デバッグサーバの起動 手順2")|
+|3|```Pydev``` > ```Start Debug Server``` をクリックします|![デバッグサーバの起動 手順3](https://dl.dropboxusercontent.com/s/zxrckr9gfrxrkxd/run_debug_server_3.png "デバッグサーバの起動 手順3")|
+|4|デバッグサーバが起動します|![デバッグサーバの起動 手順4](https://dl.dropboxusercontent.com/s/stxtk3q6glfo925/run_debug_server_4.png "デバッグサーバの起動 手順4")|
 
 
 ### 5. デバッグ開始
@@ -283,45 +233,20 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 ![デバッグ開始 手順2](https://dl.dropboxusercontent.com/s/yo1ij0wqrf6fzw5/start_debug_2.png "デバッグ開始 手順2")
 
-1. ```Run``` > ```External Tools``` > ```External Tools Configurations...``` をクリックします
+<div id="process"></div>
 
-![デバッグ開始 手順3](https://dl.dropboxusercontent.com/s/ma36nv5q2br1hvb/start_debug_3.png "デバッグ開始 手順3")
-
-2. ```New_Configuration``` を選択し、 ```Run``` ボタンをクリックします
-以降は、 ```Run``` > ```External Tools``` > ```New_Configuration``` からBlenderの起動が行えるようになります
-
-![デバッグ開始 手順4](https://dl.dropboxusercontent.com/s/wdphxp2edjuvees/start_debug_4.png "デバッグ開始 手順4")
-
-![デバッグ開始 手順5](https://dl.dropboxusercontent.com/s/wir3l0phuez9v1b/start_debug_5.png "デバッグ開始 手順5")
-
-3. Blenderが起動します
-
-![デバッグ開始 手順6](https://dl.dropboxusercontent.com/s/lcy17hstd76pfe5/start_debug_6.png "デバッグ開始 手順6")
-
-4. 作成したアドオンを有効化すると、デバッガが起動します
-
-![デバッグ開始 手順7](https://dl.dropboxusercontent.com/s/w0en5mwd5fgpmm6/start_debug_7.png "デバッグ開始 手順7")
-
-![デバッグ開始 手順8](https://dl.dropboxusercontent.com/s/876yphkm0qjolcp/start_debug_8.png "デバッグ開始 手順8")
-
-5. Debugパースペクティブで、 ```Resume``` ボタンを押します
-
-![デバッグ開始 手順9](https://dl.dropboxusercontent.com/s/d211w8m59e5tubf/start_debug_9.png "デバッグ開始 手順9")
-
-6. *3Dビュー* のメニューで ```追加``` > ```メッシュ``` > ```デバッグのテスト``` を実行します
-
-![デバッグ開始 手順10](https://dl.dropboxusercontent.com/s/mg5rywpsvq17s0w/start_debug_10.png "デバッグ開始 手順10")
-
-7. 設定したブレークポイントでプログラムが止まり、 ```Debug``` パースペクティブで変数値などを参照することができます。
-その他基本的なEclipse上でのデバッグの仕方を説明すると長くなってしまいますので、必要に応じてWebページなどを参考にしてください
-
-![デバッグ開始 手順11](https://dl.dropboxusercontent.com/s/b51idbmcjdjyiuz/start_debug_11.png "デバッグ開始 手順11")
-
-![デバッグ開始 手順12](https://dl.dropboxusercontent.com/s/m95irzuut9ngloh/start_debug_12.png "デバッグ開始 手順12")
-
-![デバッグ開始 手順13](https://dl.dropboxusercontent.com/s/3kjwzrvham4yxtd/start_debug_13.png "デバッグ開始 手順13")
-
-![デバッグ開始 手順14](https://dl.dropboxusercontent.com/s/70nztthhb4hm7wo/start_debug_14.png "デバッグ開始 手順14")
+|1|```Run``` > ```External Tools``` > ```External Tools Configurations...``` をクリックします|![デバッグ開始 手順3](https://dl.dropboxusercontent.com/s/ma36nv5q2br1hvb/start_debug_3.png "デバッグ開始 手順3")|
+|---|---|---|
+|2|```New_Configuration``` を選択し、 ```Run``` ボタンをクリックします。<br>以降は、 ```Run``` > ```External Tools``` > ```New_Configuration``` からBlenderの起動が行えるようになります|![デバッグ開始 手順4](https://dl.dropboxusercontent.com/s/wdphxp2edjuvees/start_debug_4.png "デバッグ開始 手順4")<br>![デバッグ開始 手順5](https://dl.dropboxusercontent.com/s/wir3l0phuez9v1b/start_debug_5.png "デバッグ開始 手順5")|
+|3|Blenderが起動します|![デバッグ開始 手順6](https://dl.dropboxusercontent.com/s/lcy17hstd76pfe5/start_debug_6.png "デバッグ開始 手順6")|
+|4|作成したアドオンを有効化します|![デバッグ開始 手順7](https://dl.dropboxusercontent.com/s/w0en5mwd5fgpmm6/start_debug_7.png "デバッグ開始 手順7")|
+|5|デバッガが起動します|![デバッグ開始 手順8](https://dl.dropboxusercontent.com/s/876yphkm0qjolcp/start_debug_8.png "デバッグ開始 手順8")|
+|6|Debugパースペクティブで、 ```Resume``` ボタンを押します|![デバッグ開始 手順9](https://dl.dropboxusercontent.com/s/d211w8m59e5tubf/start_debug_9.png "デバッグ開始 手順9")|
+|7|*3Dビュー* のメニューで ```追加``` > ```メッシュ``` > ```デバッグのテスト``` を実行します|![デバッグ開始 手順10](https://dl.dropboxusercontent.com/s/mg5rywpsvq17s0w/start_debug_10.png "デバッグ開始 手順10")|
+|8|設定したブレークポイントでプログラムが止まります。|![デバッグ開始 手順11](https://dl.dropboxusercontent.com/s/b51idbmcjdjyiuz/start_debug_11.png "デバッグ開始 手順11")|
+|9|```Debug``` パースペクティブで変数値などを参照することができます。<br>その他基本的なEclipse上でのデバッグの仕方を説明すると長くなってしまいますので、必要に応じてWebページなどを参考にしてください|![デバッグ開始 手順12](https://dl.dropboxusercontent.com/s/m95irzuut9ngloh/start_debug_12.png "デバッグ開始 手順12")|
+|10|　|![デバッグ開始 手順13](https://dl.dropboxusercontent.com/s/3kjwzrvham4yxtd/start_debug_13.png "デバッグ開始 手順13")|
+|11|　|![デバッグ開始 手順14](https://dl.dropboxusercontent.com/s/70nztthhb4hm7wo/start_debug_14.png "デバッグ開始 手順14")|
 
 
 ## デバッガアドオン『BreakPoint』を利用したデバッグ
@@ -341,15 +266,18 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 アドオン『BreakPoint』を以下のWebサイトからダウンロードし、インストールします。
 
-* Blender Wiki (Scripts: BreakPoint) - http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/Development/BreakPoint
+<div id="sidebyside"></div>
 
-![『BreakPoint』のインストール](https://dl.dropboxusercontent.com/s/220ubjo2o4t0t4n/install_breakpoint.png "『BreakPoint』のインストール")
+|Blender Wiki (Scripts: BreakPoint) <br> http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/Development/BreakPoint |![『BreakPoint』のインストール](https://dl.dropboxusercontent.com/s/220ubjo2o4t0t4n/install_breakpoint.png "『BreakPoint』のインストール")|
+|---|---|
 
 ### 2. アドオン『BreakPoint』の有効化
 
-インストールしたアドオンを有効化します。
+<div id="sidebyside"></div>
 
-![『BreakPoint』の有効化](https://dl.dropboxusercontent.com/s/b6ofwmbcsw4qkyj/enable_breakpoint.png "『BreakPoint』の有効化")
+|インストールしたアドオンを有効化します。|![『BreakPoint』の有効化](https://dl.dropboxusercontent.com/s/b6ofwmbcsw4qkyj/enable_breakpoint.png "『BreakPoint』の有効化")|
+|---|---|
+
 
 ### 3. ブレークポイントをデバッグ対象のスクリプトに設定
 
@@ -369,27 +297,19 @@ breakpoint = bpy.types.bp.bp
 
 ### 4. デバッグ開始
 
-*テキストエディタ* エリアのメニューで *ビュー* > *プロパティ* を実行し、 *テキストエディタ* エリアのプロパティを表示してください。
+以下の手順に従って、デバッグを開始します。
 
-![デバッグ 手順1](https://dl.dropboxusercontent.com/s/bu01qdhpcstfb16/start_bp_debug_1.png "デバッグ 手順1")
+<div id="process"></div>
 
-プロパティを表示すると、BreakPointメニューが追加されていることがわかります。
-BreakPointメニューを確認し、有効化されていることを確認しておきましょう。
+|1|*テキストエディタ* エリアのメニューで *ビュー* > *プロパティ* を実行し、 *テキストエディタ* エリアのプロパティを表示してください。|![デバッグ 手順1](https://dl.dropboxusercontent.com/s/bu01qdhpcstfb16/start_bp_debug_1.png "デバッグ 手順1")|
+|---|---|---|
+|2|プロパティを表示すると、BreakPointメニューが追加されていることがわかります。<br>BreakPointメニューを確認し、有効化されていることを確認しておきましょう。|![デバッグ 手順2](https://dl.dropboxusercontent.com/s/quxp3yhoj9r9q01/start_bp_debug_2.png "デバッグ 手順2")|
+|3|*3Dビュー* エリアのメニューで *追加* > *メッシュ* > *デバッグのテスト2* を実行します。|![デバッグ 手順3](https://dl.dropboxusercontent.com/s/wmmy34dyq4ktvvj/start_bp_debug_3.png "デバッグ 手順3")|
+|4|*テキストエディタ* エリアのプロパティにブレークポイントの関数に指定した変数の値が表示されます。|![デバッグ 手順4](https://dl.dropboxusercontent.com/s/fmfykni3dax1vgt/start_bp_debug_4.png "デバッグ 手順4")|
 
-![デバッグ 手順2](https://dl.dropboxusercontent.com/s/quxp3yhoj9r9q01/start_bp_debug_2.png "デバッグ 手順2")
+<div id="column"></div>
 
-続いて、 *3Dビュー* エリアのメニューで *追加* > *メッシュ* > *デバッグのテスト2* を実行します。
-
-![デバッグ 手順3](https://dl.dropboxusercontent.com/s/wmmy34dyq4ktvvj/start_bp_debug_3.png "デバッグ 手順3")
-
-すると、 *テキストエディタ* エリアのプロパティにブレークポイントの関数に指定した変数の値が表示されていることがわかります。
-
-![デバッグ 手順4](https://dl.dropboxusercontent.com/s/fmfykni3dax1vgt/start_bp_debug_4.png "デバッグ 手順4")
-
-[1.3節](../chapter_01/03_Prepare_Add-on_development_environment.md) のように、Blenderを *コンソール* から開いた場合は、 *コンソール* にも表示されているはずです。
-また、 *コンソール* から起動した場合に限り、Blender本体から *コンソール* に制御が渡ってBlenderが操作できなくなります。
-*コンソール* 制御が移っている間はPythonインタープリタを使うことができます。
-Blender本体に制御を戻す（アドオンの実行を再開する）場合は、Windowsでは ```Ctrl+Z```、 Mac/Linuxでは ```Ctrl+D``` キーを押してください。
+[1.3節](../chapter_01/03_Prepare_Add-on_development_environment.md) のように、Blenderを *コンソール* から開いた場合は、 *コンソール* にも表示されているはずです。  また、 *コンソール* から起動した場合に限り、Blender本体から *コンソール* に制御が渡ってBlenderが操作できなくなります。  *コンソール* 制御が移っている間はPythonインタープリタを使うことができます。  Blender本体に制御を戻す（アドオンの実行を再開する）場合は、Windowsでは ```Ctrl+Z```、 Mac/Linuxでは ```Ctrl+D``` キーを押してください。
 
 
 ## まとめ
@@ -408,9 +328,5 @@ Blenderをデバッグする方法を紹介しましたが、本節で紹介し�
 
 ### ポイント
 
-* Blenderをデバッグする手段には以下の4つの方法がある
-  * self.reportデバッグ
-  * printデバッグ
-  * 外部デバッガを利用したデバッグ
-  * デバッガアドオン『BreakPoint』を利用したデバッグ
+* Blenderをデバッグする方法として、確認対象の変数を出力する他に、外部デバッガやデバッグ用アドオンを用いる方法がある
 * デバッグ実行のための前準備が多いデバッグ方法は、デバッグ時に多くの情報を得ることができる
