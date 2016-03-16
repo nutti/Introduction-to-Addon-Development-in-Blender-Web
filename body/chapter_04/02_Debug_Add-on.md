@@ -87,16 +87,20 @@ a=50, b=4.0
 
 Eclipseのホームページから、最新版のEclipseをダウンロードします。
 
-<div id="sidebyside"></div>
+<div id="webpage"></div>
 
-|Eclipse ダウンロードページ <br> https://www.eclipse.org/downloads/ |![Eclipse ダウンロードページ](https://dl.dropboxusercontent.com/s/5jk44fvtrmkat80/eclipse_download.png "Eclipse ダウンロードページ")|
-|---|---|
+|Eclipse ダウンロードページ|
+|---|
+|https://www.eclipse.org/downloads/|
+|![Eclipse ダウンロードページ](https://dl.dropboxusercontent.com/s/5jk44fvtrmkat80/eclipse_download.png "Eclipse ダウンロードページ")|
 
 EclipseはJavaやC/C++、PHPなど様々なプログラミング言語に対応していますが、ここではJava用のEclipseを利用します。
 EclipseはJavaで動作しているため、必要に応じてJava SEをインストールしてください。
 
-|Java SE ダウンロードページ <br> http://www.oracle.com/technetwork/java/javase/downloads/index.html | ![Java SE ダウンロードページ](https://dl.dropboxusercontent.com/s/bc4nbfq66358u5h/javase_download.png "Java SE ダウンロードページ")|
-|---|---|
+|Java SE ダウンロードページ|
+|---|
+|http://www.oracle.com/technetwork/java/javase/downloads/index.html|
+|![Java SE ダウンロードページ](https://dl.dropboxusercontent.com/s/bc4nbfq66358u5h/javase_download.png "Java SE ダウンロードページ")|
 
 #### PyDevのインストール
 

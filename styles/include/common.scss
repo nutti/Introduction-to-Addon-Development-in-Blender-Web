@@ -763,6 +763,11 @@ $sect_img_list:
         font-weight: bold;
         margin-top: 20px;
     }
+    h5 {
+        font-family: NotoSansCJKjp;
+        font-size: $font_size * 0.9;
+        text-decoration: underline;
+    }
     img {
         text-align: center;
     }

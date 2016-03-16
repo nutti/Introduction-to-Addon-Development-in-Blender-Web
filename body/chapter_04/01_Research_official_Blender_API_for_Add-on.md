@@ -25,18 +25,22 @@ Blenderが提供するAPIの情報を収集する方法としては以下のよ�
 
 Blenderが提供しているAPI一覧は、Blender公式が公開しているドキュメントから確認することができます。
 
-<div id="sidebyside"></div>
+<div id="webpage"></div>
 
-|API documentation <br> http://www.blender.org/api/ |![API documentation](https://dl.dropboxusercontent.com/s/3pgs57v7b29ngo8/blender_api_doc.png "API documentation")|
-|---|---|
+|API documentation|
+|---|
+|http://www.blender.org/api/|
+|![API documentation](https://dl.dropboxusercontent.com/s/3pgs57v7b29ngo8/blender_api_doc.png "API documentation")|
 
 過去のBlenderのバージョンのドキュメントも参照できますが、Blenderのバージョンに応じて提供されているAPIは変わるため、開発に利用しているBlenderのバージョンのドキュメントを参照するようにしましょう。
 本書のサンプルはBlenderのバージョンが2.75aであるため、バージョンが2.75aであるドキュメントを前提として解説します。
 
-<div id="sidebyside"></div>
+<div id="webpage"></div>
 
-|API documentation (Blender 2.75a) <br> http://www.blender.org/api/blender_python_api_2_75a_release/ |![API documentation 2.75a](https://dl.dropboxusercontent.com/s/hmzkcciai4ooigb/blender_api_doc_2_75a.png "API documentation 2.75a")|
-|---|---|
+|API documentation (Blender 2.75a)|
+|---|
+|http://www.blender.org/api/blender_python_api_2_75a_release/|
+|![API documentation 2.75a](https://dl.dropboxusercontent.com/s/hmzkcciai4ooigb/blender_api_doc_2_75a.png "API documentation 2.75a")|
 
 *3Dビュー* ウィンドウのアクティブ状態のオブジェクトを取得するAPIを調べてみましょう。
 右側のページには、提供するAPIに対してモジュールごとにメニュー化されています。
@@ -95,14 +99,55 @@ Blenderが提供しているAPI一覧は、Blender公式が公開しているド
 
 [1.2節]("../chapter_02/02_Sample_2_Scaling_object_1.md")においても説明しましたが、 *Pythonコンソール* を用いることでBlenderが提供しているAPIを検索・実行することができます。
 
+<div id="process_start_end"></div>
+
+---
+
 <div id="process"></div>
 
 |1|Blender内のオブジェクト一覧を保持している ```bpy.data.objects``` を *Pythonコンソール* に入力します。|　|
 |---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
 |2|```ctrl + space``` をキーを押して補完します。|![Pythonコンソール 手順1](https://dl.dropboxusercontent.com/s/6tqu81bbk6l6qy8/python_console_1.png "Pythonコンソール 手順1")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
 |3|*3Dビュー* 上にあるオブジェクト名が候補として表示されるので、適当なオブジェクト名を選んで再び補完します。|![Pythonコンソール 手順2](https://dl.dropboxusercontent.com/s/yu890kcedpewpih/python_console_2.png "Pythonコンソール 手順2")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
 |4|候補の中にあった ```select``` を入力し、実行します。<br>選んだオブジェクトが選択状態である場合は ```True``` 、選択状態でない場合は ```False``` が表示されます。|　|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
 |5|```select``` に ```True``` を代入することでオブジェクトを選択状態に、  ```False``` を代入することでオブジェクトを非選択状態に変更することもできます。|![Pythonコンソール 手順3](https://dl.dropboxusercontent.com/s/0aph2y0pq6edyxf/python_console_3.png "Pythonコンソール 手順3")|
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
+
 
 どうやら ```select``` は、オブジェクトが選択状態であるか否かを調べるAPIのようです。
 実際に[Blender公式のAPIドキュメント](http://www.blender.org/api/blender_python_api_2_75a_release/bpy.types.Object.html#bpy.types.Object.select)を調べてみると、以下のように記載されています。
@@ -137,20 +182,23 @@ Blenderが提供するAPIを調べる手段として、Blenderアドオン開発
 アドオン開発で筆者が参考にしているサイトをいくつかピックアップしてみました。
 Blender Wiki様は海外サイト、blugjpまとめサイト様は国内サイトです。
 
-<div id="sidebyside"></div>
+<div id="webpage"></div>
 
-|Blender Wiki <br> http://wiki.blender.org/index.php/Dev:2.5/Py/Scripts |![Blender Wiki](https://dl.dropboxusercontent.com/s/wjaloh1eov0ij73/blender_wiki.png "Blender Wiki")|
-|---|---|
+|Blender Wiki|
+|---|
+|http://wiki.blender.org/index.php/Dev:2.5/Py/Scripts|
+|![Blender Wiki](https://dl.dropboxusercontent.com/s/wjaloh1eov0ij73/blender_wiki.png "Blender Wiki")|
 
 Blenderの公式Wikiページです。
 アドオン開発のチュートリアルやベストプラクティスなど、アドオン開発に必要な知識を学ぶことができます。
 特にテーマに応じた簡単なサンプルが紹介されいているCode Snippetsは、アドオン開発者必見です。
 また、アドオン公開方法の手順についても書かれていますので、初心者だけでなくアドオンをこれから公開しようと考えている方も参考になると思います。
 
-<div id="sidebyside"></div>
+<div id="webpage"></div>
 
-|blugjpまとめサイト <br> https://sites.google.com/site/blugjp/blenderpython |![blugjpまとめサイト](https://dl.dropboxusercontent.com/s/7t6ho0xohl45yrv/blugjp.png "blugjpまとめサイト")|
-|---|---|
+|blugjpまとめサイト|
+|---|
+|https://sites.google.com/site/blugjp/blenderpython| |![blugjpまとめサイト](https://dl.dropboxusercontent.com/s/7t6ho0xohl45yrv/blugjp.png "blugjpまとめサイト")|
 
 BLUG.jpさんによるまとめサイトです。
 BlenderPythonのページは現在も更新され続けているので、アドオンを開発している方はブックマークして時々見に行ってみましょう。
@@ -173,20 +221,51 @@ Blenderが標準で提供している機能の一部は、Blender内でソース
 
 #### Blender内でソースを確認する方法
 
+<div id="process_start_end"></div>
+
+---
+
 <div id="process"></div>
 
 |1|メニューのソースをみたい場合には、メニューにマウスカーソルを置いて右クリックします。|![アドオンのソースコードを読む2](https://dl.dropboxusercontent.com/s/7gw1t5faq9eyl67/read_addon_source_code_2.png "アドオンのソースコードを読む2")|
-|---|---|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
 |2|*ソース編集* を選択すると、 *テキストエディタ* にソースが表示されます。|![アドオンのソースコードを読む3](https://dl.dropboxusercontent.com/s/bdvh1yevo0m6j5s/read_addon_source_code_3.png "アドオンのソースコードを読む3")|
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
 
 #### APIドキュメントへ移動する方法
+
+<div id="process_start_end"></div>
+
+---
 
 <div id="process"></div>
 
 |1|APIとして提供されている機能であれば、 *Blender PythonAPI リファレンス* のページに移動することができます。|![アドオンのソースコードを読む4](https://dl.dropboxusercontent.com/s/as7l6gpnylb8qvc/read_addon_source_code_4.png "アドオンのソースコードを読む4")|
 |---|---|
-|2|　|![アドオンのソースコードを読む5](https://dl.dropboxusercontent.com/s/15i3rc3jspnoqp3/read_addon_source_code_5.png "アドオンのソースコードを読む5")|
 
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|2|　|![アドオンのソースコードを読む5](https://dl.dropboxusercontent.com/s/15i3rc3jspnoqp3/read_addon_source_code_5.png "アドオンのソースコードを読む5")|
+|---|---|
+
+<div id="process_start_end"></div>
+
+---
 
 ### Blenderのコミュニティサイトで質問する
 
@@ -197,10 +276,12 @@ Blenderが標準で提供している機能の一部は、Blender内でソース
 
 ---
 
-<div id="sidebyside"></div>
+<div id="webpage"></div>
 
-|Blender Artists Community <br> http://blenderartists.org/forum/ |![Blender Artists Community](https://dl.dropboxusercontent.com/s/0e6nkncctmwl0ak/blender_artists.png "Blender Artists Community")|
-|---|---|
+|Blender Artists Community|
+|---|
+|http://blenderartists.org/forum/|
+|![Blender Artists Community](https://dl.dropboxusercontent.com/s/0e6nkncctmwl0ak/blender_artists.png "Blender Artists Community")|
 
 海外最大のBlenderコミュニティサイトです。
 Blenderで制作したCGの投稿だけでなく、アドオン開発についても非常に活発な議論が行われています。
@@ -213,10 +294,12 @@ Blenderを使っている方はすでにご存知のサイトかもしれませ�
 
 ---
 
-<div id="sidebyside"></div>
+<div id="webpage"></div>
 
-|Blender Stack Exchange <br> http://blender.stackexchange.com |![Blender Stack Exchange](https://dl.dropboxusercontent.com/s/0zrdm4aebb5xm20/blender_stack_exchange.png "Blender Stack Exchange")|
-|---|---|
+|Blender Stack Exchange|
+|---|
+|http://blender.stackexchange.com|
+|![Blender Stack Exchange](https://dl.dropboxusercontent.com/s/0zrdm4aebb5xm20/blender_stack_exchange.png "Blender Stack Exchange")|
 
 Stack Overflow(http://stackoverflow.com)と呼ばれる、海外のプログラマ間の情報共有サイトのBlenderに特化したサイトです。
 コミュニティサイトよりも質問サイトとしての位置付けとなります。
@@ -227,18 +310,16 @@ Blender Artists Communityと同様、アカウント登録した上で英語で�
 質問の投稿は、Ask Questionより行います。
 アドオン開発に関する質問の場合、タグにPythonやadd-on、scripting、あとは質問内容に応じて関連するタグ（mathematicsやopenglなど）を入れておくとよいでしょう。
 
----
+<div id="webpage"></div>
 
-<div id="sidebyside"></div>
-
-|Blender.jp <br> https://blender.jp |![Blender.jp](https://dl.dropboxusercontent.com/s/m74dd41qm8xpw7c/blender_jp.png "Blender.jp")|
-|---|---|
+|Blender.jp|
+|---|
+|https://blender.jp| |![Blender.jp](https://dl.dropboxusercontent.com/s/m74dd41qm8xpw7c/blender_jp.png "Blender.jp")|
 
 国内最大のBlenderコミュニティサイトです。
 コミュニティサイトにはフォーラムがあり、フォーラム中の質問板でアドオン開発について質問することができます。
 ここで紹介する他のコミュニティサイトに比べ、アドオン開発に関しての質問はあまり多くないため期待した回答が得られるかわかりませんが、日本語で質問できる点はメリットでしょう。
 
----
 
 質問の際には、質問内容をわかりやすく書くのはもちろんですが、ソースコードや実行結果を載せると問題点が相手に伝わりやすくなります。そして、質問に対する回答が返ってきたら、回答により解決したか否かに関わらずお礼を言うようにしましょう。
 

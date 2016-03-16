@@ -8,6 +8,7 @@
 
 ###### 実際にアドオンのソースコードを入力して自作したアドオンをインストール＆アンインストールしましたが、ソースコードの解説を一切行っていないため今の段階ではよくわからない状態であると思います。本節ではより実用的なアドオンのサンプルを紹介しつつ、ソースコードを解説します。
 
+
 ## 作成するアドオンの仕様
 
 [1-4節](../chapter_01/01_Sample_1_Create_object_from_Add-on.md) で紹介したアドオンは、アドオンの有効化・無効化時にコンソールへメッセージを出力する機能だけを持つアドオンでした。
@@ -21,11 +22,25 @@
 
 ### Blender標準機能によるICO球作成
 
+<div id="process_start_end"></div>
+
+---
+
 <div id="process"></div>
 
 |1|*3Dビュー* エリアのメニューバーから *追加* > *メッシュ* > *ICO球* を実行します。|![ICO球作成 手順1](https://dl.dropboxusercontent.com/s/z760a6xqpztgnhb/blender_generate_ico-sphere_1.png "ICO球作成 手順1")|
 |---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
 |2|Dカーソルを中心としたICO球が作成されます。|![ICO球作成 手順2](https://dl.dropboxusercontent.com/s/4a1k4c68k8eteuv/blender_generate_ico-sphere_2.png "ICO球作成 手順2")|
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
 
 
 <div id="column"></div>
@@ -62,6 +77,10 @@
 
 以下の手順に従って、アドオンの機能を使ってみましょう。
 
+<div id="process_start_end"></div>
+
+---
+
 <div id="process"></div>
 
 |1|追加されたメニュー *追加* > *メッシュ* > *球* を実行してみましょう。3Dカーソルを中心として、ICO球が作成されたことが確認できます。|![アドオンの実行 手順2](https://dl.dropboxusercontent.com/s/ek7n05o59hyhlp3/blender_use_add-on_2.png "アドオンの実行 手順2")|
@@ -72,6 +91,11 @@
 ```shell-session
 サンプル 1: 3DビューにICO球を生成しました。
 ```
+
+<div id="process_start_end"></div>
+
+---
+
 
 ### アドオンを無効化する
 
@@ -143,6 +167,7 @@ bl_info = {
 
 #### ユーザ設定ウィンドウ
 
+
 アドオンを有効化/無効化する時に利用する *ユーザ設定* ウィンドウに表示される情報は、以下の ```bl_info``` 変数に指定された値に基づいています。
 
 * ```name```
@@ -196,7 +221,7 @@ bl_info = {
 
 以下の値を設定することにより、アドオンのサポート状態を決めることができます。
 
-* ```blender```
+##### blender
 
 アドオンが動作する最古のバージョンを指定します。
 指定したバージョンよりも古いバージョンのBlenderでアドオンを有効化すると警告メッセージが表示されます。
@@ -211,7 +236,7 @@ bl_info = {
 なので ```blender``` に指定したバージョンよりも古いバージョンでも、アドオンを使える可能性があります。
 つまり開発者が、アドオン開発時に使ったBlenderのバージョンよりも古いバージョンのBlenderで実行されることをサポートしたくない場合に指定するものであると思って良いと思います。
 
-* ```support```
+##### support
 
 アドオンのサポートレベルを以下の3つから設定します。
 [1-2節](../chapter_01/02_Use_Blender_Add-on.md) で説明したアドオンのサポートレベルを参考に設定してください。
@@ -230,7 +255,7 @@ bl_info = {
 
 ![bl_info 解説4](https://dl.dropboxusercontent.com/s/38x9jafp3vzspyu/blender_bl-info_4.png "bl_info 解説4")
 
-* ```category```
+##### category
 
 アドオンが属するカテゴリを指定します。
 アドオンは機能の種類によって、カテゴリとして分類されます。

@@ -43,6 +43,10 @@
 
 以下の手順に従い、作成したアドオンの機能を使ってみます。
 
+<div id="process_start_end"></div>
+
+---
+
 <div id="process"></div>
 
 |1|Blender起動直後に自動的に生成されている *Cube* を選択し、*3Dビュー* エリアのメニュー *オブジェクト* > *選択オブジェクトの拡大* を実行してみましょう。選択したオブジェクト *Cube* のサイズが2倍に拡大されているはずです。|![選択オブジェクトの拡大](https://dl.dropboxusercontent.com/s/ll5jtxlmj5vek96/blender_use_add-on_2.png "選択オブジェクトの拡大")|
@@ -60,6 +64,10 @@
 サンプル 2: オペレーション「OBJECT_OT_enlarge_object」が実行されました。
 ```
 
+<div id="process_sep"></div>
+
+---
+
 <div id="process"></div>
 
 |2|*情報* エリアのメニュー *ファイル* > *新規* を実行し *スタートアップアフィルの再読み込み* を行った後、 *3Dビュー* エリアの *オブジェクト* > *選択オブジェクトの縮小* を実行してみましょう。選択中のオブジェクト *Cube* のサイズが1/2倍に縮小されたことが確認できます。|![選択オブジェクトの縮小](https://dl.dropboxusercontent.com/s/zinqogsgx4td6jw/blender_use_add-on_3.png "選択オブジェクトの縮小")|
@@ -76,6 +84,11 @@
 ```shell-session
 サンプル 2: オペレーション「OBJECT_OT_reduce_object」が実行されました。
 ```
+
+<div id="process_start_end"></div>
+
+---
+
 
 ### アドオンを無効化する
 
@@ -229,14 +242,39 @@ Pythonコンソールでは以下のようなショートカットキーが利�
 
 Macでショートカットを利用するためには、Mission Controlなどに標準で割り当たっているcontrolと⌘キーについて、以下の手順に沿って割り当てを解除する必要があります。
 
+<div id="process_start_end"></div>
+
+---
+
 <div id="process"></div>
 
 |1|*システム環境設定...* をクリック|　|
 |---|---|---|
-|2|*キーボード* をクリック|　|
-|3|*ショートカット* タブをクリック|　|
-|4|Blender Python Consoleで使いたいショートカットの割り当てを解除|　|
 
+<div id="process_sep"></div>
+
+---
+
+|2|*キーボード* をクリック|　|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+|3|*ショートカット* タブをクリック|　|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+|4|Blender Python Consoleで使いたいショートカットの割り当てを解除|　|
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
 
 ## まとめ
 
