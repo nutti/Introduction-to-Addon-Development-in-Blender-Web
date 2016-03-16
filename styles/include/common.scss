@@ -68,7 +68,7 @@
                     font-size: $font_size;
                     line-height: 2.0;
                     border: none;
-                    width: 40%;
+                    width: 50%;
                     text-align: left;
                     background-color: #FFFFFF;
                     vertical-align: top;
@@ -82,7 +82,7 @@
                     font-family: NotoSansCJKjp;
                     font-size: $font_size;
                     border: none;
-                    width: 60%;
+                    width: 50%;
                     text-align: center;
                     background-color: #FFFFFF;
                     color: #000000;
@@ -101,7 +101,7 @@
                     font-size: $font_size;
                     line-height: 2.0;
                     border: none;
-                    width: 35%;
+                    width: 50%;
                     text-align: left;
                     background-color: #FFFFFF;
                     vertical-align: top;
@@ -112,7 +112,7 @@
                     font-family: NotoSansCJKjp;
                     font-size: $font_size;
                     border: none;
-                    width: 65%;
+                    width: 50%;
                     text-align: center;
                     background-color: #FFFFFF;
                     padding-top: 15px;
@@ -142,34 +142,28 @@
                     text-align: center;
                     background-color: #FFFFFF;
                     vertical-align: top;
-                    padding-top: 15px;
-                    padding-bottom: 15px;
                 }
                 th:nth-of-type(2) {
                     font-family: NotoSansCJKjp;
                     font-size: $font_size_2;
                     line-height: 2.0;
                     border: none;
-                    width: 35%;
+                    width: 45%;
                     text-align: left;
                     background-color: #FFFFFF;
                     vertical-align: top;
                     color: #000000;
                     font-weight: normal;
                     white-space: normal;
-                    padding-top: 15px;
-                    padding-bottom: 15px;
                 }
                 th:nth-of-type(3) {
                     font-family: NotoSansCJKjp;
                     font-size: $font_size_2;
                     border: none;
-                    width: 60%;
+                    width: 50%;
                     text-align: center;
                     background-color: #FFFFFF;
                     color: #000000;
-                    padding-top: 15px;
-                    padding-bottom: 15px;
                 }
             }
         }
@@ -177,7 +171,6 @@
             border: none;
             tr {
                 border: none;
-                border-top: 1px #CCCCCC solid;
                 td:nth-of-type(1) {
                     font-family: Goudy;
                     font-size: $font_size_1;
@@ -189,30 +182,24 @@
                     text-align: center;
                     background-color: #FFFFFF;
                     vertical-align: top;
-                    padding-top: 15px;
-                    padding-bottom: 15px;
                 }
                 td:nth-of-type(2) {
                     font-family: NotoSansCJKjp;
                     font-size: $font_size_2;
                     line-height: 2.0;
                     border: none;
-                    width: 35%;
+                    width: 45%;
                     text-align: left;
                     background-color: #FFFFFF;
                     vertical-align: top;
-                    padding-top: 15px;
-                    padding-bottom: 15px;
                 }
                 td:nth-of-type(3) {
                     font-family: NotoSansCJKjp;
                     font-size: $font_size_2;
                     border: none;
-                    width: 60%;
+                    width: 50%;
                     text-align: center;
                     background-color: #FFFFFF;
-                    padding-top: 15px;
-                    padding-bottom: 15px;
                 }
             }
         }
@@ -429,22 +416,82 @@
     }
 }
 
+@mixin webpage($font_size) {
+    #webpage + table {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        thead {
+            tr {
+                th {
+                    font-family: MPlus;
+                    font-size: $font_size * 0.9;
+                    color: #EEEEEE;
+                    background-color: #222222;
+                    font-weight: normal;
+                    white-space: normal;
+                }
+            }
+        }
+        tbody {
+            tr:nth-of-type(1) {
+                td {
+                    font-family: NotoSansCJKjp;
+                    font-size: $font_size * 0.8;
+                    background-color: #FCFCFC;
+                    color: #111111;
+                }
+            }
+            tr:nth-of-type(2) {
+                td {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
 @mixin code($font_size) {
     code {
         font-family: Hack;
         font-size: $font_size;
         line-height: 2.0;
+        background-color: #FFFFFF;
+        vertical-align: 1px;
+        padding: 0px;
     }
 }
 
 @mixin a($font_size) {
     a {
-        font-family: NotoSansCJKjp;
+        font-family: MPlus;
         text-decoration: none;
         border-bottom: none;
-        font-style: italic;
         font-size: $font_size;
         color: #000000;
+        vertical-align: 1px;
+    }
+}
+
+@mixin process_start_end() {
+    #process_start_end + hr {
+        height: 3px;
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        background-color: #333333;
+    }
+}
+
+@mixin process_separator() {
+    #process_sep + hr {
+        height: 1px;
+        width: 80%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #E7E7E7;
     }
 }
 

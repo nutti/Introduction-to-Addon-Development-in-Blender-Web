@@ -8,7 +8,10 @@
                     @include common(1.2em, 1.4);
                     @include table(1.2em);
                     @include process(2.5em, 1.2em * 0.9);
-                    @include sidebyside(1.2em * 0.9)
+                    @include process_start_end();
+                    @include process_separator();
+                    @include sidebyside(1.2em * 0.9);
+                    @include webpage(1.2em);
                     @include point(1.2em * 1.5, 0.8em, 0.55em, 13px, 13px, 1.4em, 0.2em, 7px, 7px);
                     @include ordered_list_1st(1.2em);
                     @include list_1st(1.2em, 1.5, 5px, 0.4em, -1.2em, 16px, 16px, .67em, -1.02em, 5px, 5px);
