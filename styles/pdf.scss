@@ -10,7 +10,7 @@
         @include sidebyside(0.65em);
         @include webpage(0.65em);
         @include point(0.65em * 1.5, 0.6em, 0.55em, 10px, 10px, 1.2em, 0.2em, 6px, 6px);
-        @include ordered_list_1st(0.8em);
+        @include ordered_list_1st(0.65em);
         @include list_1st(0.65em, 1.5, 2px, 0.25em, -1.4em, 14px, 14px, .51em, -1.25em, 4px, 4px);
         @include list_2nd(0.9em, 1.0, .25em, -1.5em, 11px, 11px, .51em, -1.35em, 3px, 3px);
         @include h3(0.65em);
@@ -22,7 +22,7 @@
         @include chapter_title_img();
         @include chapter_title_text(1.95em, -340.0px, -50px);
         @include chapter_body(0.65em, 150px, -50px, -50px);
-        @include chapter_toc(0.8em, 200px, 20px, 20px);
+        @include chapter_toc(0.8em, -100px, -100px);
         @include section_title_text(0.65em * 3, -280.0px, -210px);
         @include section_title_img();
         @include section_title_preface(0.65em * 0.7, 150px, -75px, -70px);
@@ -60,6 +60,10 @@
                 overflow: hidden;
                 font-size: 0.65em * 3;
             }
+/*            ol {
+                font-family: MPlus;
+                font-size: 0.5em;
+            }*/
             li {
                 margin-top: 10px;
                 .inner {

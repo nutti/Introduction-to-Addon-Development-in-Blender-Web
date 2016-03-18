@@ -146,7 +146,7 @@
                 th:nth-of-type(2) {
                     font-family: NotoSansCJKjp;
                     font-size: $font_size_2;
-                    line-height: 2.0;
+                    //line-height: 2.0;
                     border: none;
                     width: 45%;
                     text-align: left;
@@ -248,14 +248,24 @@
 }
 
 @mixin ordered_list_1st($font_size) {
-    ol {
+    #custom_ol + ol {
+        position: relative;
         font-family: MPlus;
+        text-align: left;
+        overflow: hidden;
         font-size: $font_size;
+        color: #444444;
+        padding: 0 0 0 4em;
         li {
-            padding-top: 3px;
-            padding-bottom: 3px;
-            font-family: NotoSansCJKjp;
-            font-size: $font_size;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            font-family: MPlus;
+            color: #444444;
+            a {
+                font-family: MPlus;
+                font-size: $font_size;
+                color: #444444;
+            }
         }
     }
 }
@@ -447,6 +457,12 @@
                     text-align: center;
                 }
             }
+            tr:nth-of-type(3) {
+                td {
+                    font-family: NotoSansCJKjp;
+                    font-size: $font_size * 0.9;
+                }
+            }
         }
     }
 }
@@ -476,10 +492,12 @@
 @mixin process_start_end() {
     #process_start_end + hr {
         height: 3px;
-        width: 100%;
+        width: 95%;
         margin-top: 30px;
         margin-bottom: 30px;
-        background-color: #E7E7E7;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #666666;
     }
 }
 
@@ -491,7 +509,7 @@
         margin-bottom: 15px;
         margin-left: auto;
         margin-right: auto;
-        background-color: #FAFAFA;
+        background-color: #EEEEEE;
     }
 }
 
@@ -551,25 +569,41 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
     }
 }
 
-@mixin chapter_toc($font_size, $height, $top, $margin_bottom) {
-    #ch_toc + ol {
-        position: relative;
-        font-family: MPlus;
+@mixin chapter_toc($font_size, $margin_bottom_1, $margin_bottom_2) {
+    #ch_toc_title + h2 {
         text-align: left;
-        height: $height;
-        overflow: hidden;
-        font-size: $font_size;
-        top: $top;
-        color: #AAAAAA;
-        margin-bottom: $margin_bottom;
+        font-family: MPlus;
+        font-size: $font_size * 2.0;
+        margin-bottom: $margin_bottom_1;
+    }
+    #ch_toc + ol {
+        counter-reset: li;
+        padding: 0;
+        list-style: none;
+        margin-bottom: $margin_bottom_2;
         li {
-            padding-top: 3px;
-            padding-bottom: 3px;
-            a {
-                font-family: MPlus;
-                font-size: $font_size;
-                color: #AAAAAA;
-            }
+            font-family: MPlus;
+            font-size: $font_size;
+
+            position: relative;
+            margin: 0 0 6px 2em;
+            padding: 4px 8px;
+            background: #f6f6f6;
+        }
+        li:before {
+            content: counter(li);
+            counter-increment: li;
+            position: absolute;
+            //top: -1px;
+            top: 0px;
+            left: -2em;
+            width: 2em;
+            padding: 4px 0;
+            //border-top: 2px solid #666;
+            //border-bottom: 1px solid #666;
+            color: #fff;
+            background: #666;
+            text-align: center;
         }
     }
 }
