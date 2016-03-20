@@ -343,6 +343,8 @@ OpenGLへアクセスするAPIである ```bgl``` モジュールを用いて、
 ただしOpenGLへアクセスするAPIが用意されているとは言っても、OpenGLの全ての機能に対してAPIが用意されているわけではありません。
 このため ```bgl``` モジュールを利用する際には、 [4.1節](../chapter_04/01_Research_official_Blender_API_for_Add-on.md) を参考に提供されているAPIを確認する必要があります。
 
+<div id="point"></div>
+
 ### ポイント
 
 <div id="point_item"></div>

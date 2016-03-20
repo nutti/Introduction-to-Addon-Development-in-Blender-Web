@@ -574,7 +574,12 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
         text-align: left;
         font-family: MPlus;
         font-size: $font_size * 2.0;
-        margin-bottom: $margin_bottom_1;
+        margin-bottom: $margin_bottom_1 + 10px;
+
+        border-left: 6px solid #EEEEEE;
+        padding: 0.1em 0 0.15em 0.5em;
+        background: none;
+        border-bottom: 1px solid #EEEEEE;
     }
     #ch_toc + ol {
         counter-reset: li;
@@ -594,13 +599,10 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
             content: counter(li);
             counter-increment: li;
             position: absolute;
-            //top: -1px;
             top: 0px;
             left: -2em;
             width: 2em;
             padding: 4px 0;
-            //border-top: 2px solid #666;
-            //border-bottom: 1px solid #666;
             color: #fff;
             background: #666;
             text-align: center;
