@@ -255,6 +255,8 @@ Macでショートカットを利用するためには、Mission Controlなど�
 
 ---
 
+<div id="process"></div>
+
 |2|*キーボード* をクリック|　|
 |---|---|---|
 
@@ -262,12 +264,16 @@ Macでショートカットを利用するためには、Mission Controlなど�
 
 ---
 
+<div id="process"></div>
+
 |3|*ショートカット* タブをクリック|　|
 |---|---|---|
 
 <div id="process_sep"></div>
 
 ---
+
+<div id="process"></div>
 
 |4|Blender Python Consoleで使いたいショートカットの割り当てを解除|　|
 |---|---|---|

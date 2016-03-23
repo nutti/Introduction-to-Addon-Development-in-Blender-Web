@@ -10,6 +10,10 @@
 Blenderの内部データの変更に、入力デバイスからのイベント処理やOpenGL利用などBlenderが用意しているAPIは非常に多く、紹介したサンプルはAPIのほんの一部を利用しただけにすぎません。
 そこで最後の章では、Blenderが提供しているAPIの調べ方をはじめとして、Blenderのアドオン開発に役に立つtipsを紹介します。
 
+<div id="ch_toc_title"></div>
+
+## 本章の構成
+
 <div id="ch_toc"></div>
 
 1. [Blenderが提供するアドオン向けのAPIを調べる](01_Research_official_Blender_API_for_Add-on.md)

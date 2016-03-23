@@ -35,6 +35,8 @@
 
 ---
 
+<div id="process"></div>
+
 |2|Dカーソルを中心としたICO球が作成されます。|![ICO球作成 手順2](https://dl.dropboxusercontent.com/s/4a1k4c68k8eteuv/blender_generate_ico-sphere_2.png "ICO球作成 手順2")|
 |---|---|---|
 
