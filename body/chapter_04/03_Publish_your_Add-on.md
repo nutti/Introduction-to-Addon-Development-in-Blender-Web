@@ -35,23 +35,22 @@ Blenderアドオンの本体はソースコードですので、ソースコー�
 
 <div id="sidebyside"></div>
 
-|GitHub <br> https://github.com |![GitHub](https://dl.dropboxusercontent.com/s/flvh023q94ypypa/github.png "GitHub")|
-|---|---|
+|GitHub|
+|---|
+|https://github.com|
+|![GitHub](https://dl.dropboxusercontent.com/s/flvh023q94ypypa/github.png "GitHub")|
 
 ソースコード管理サイトの中で最も注目されているGitベースのソースコード管理サイトです。
 バージョン管理ツールである *Git* の使い方を勉強する必要がありますが、アドオン公開のために必要な機能が揃っています。
 GitHubの中で有用な機能を以下に示します。
 
-* GitHub Release
-  * ソフトウェアをGitHub上で配布するための機能です。アドオンはソースコードのため直接ソースコードをダウンロードしても良いのですが、アドオンのバージョン管理している場合は本機能が役に立つでしょう
-* Webページ作成(gh-pages)
-  * GitHubはソースコードを管理するだけでなく、Webページを作成する機能があります。個人でWebページを作成することなく、アドオンの紹介ページを作成することができます
-* Wiki
-  * プロジェクトごとにWikiページを持つことができます。アドオンのチュートリアルなどの情報をまとめる時に役立つと思います
-* Issue
-  * アドオンのバグや課題を管理するための機能です。アドオンに関して議論する場として利用することができます
-* Pull Request
-  * アドオン作成者以外の方がソースコードを修正し、その反映依頼を作成者本人に出す機能です。GitHubではソースコードを公開しているので、アドオンに興味を持ってくれた方が修正してくれるかもしれません
+|機能名|機能概要|
+|---|---|
+|GitHub Release|ソフトウェアをGitHub上で配布するための機能です。アドオンはソースコードのため直接ソースコードをダウンロードしても良いのですが、アドオンのバージョン管理している場合は本機能が役に立つでしょう|
+|gh-pages|GitHubはソースコードを管理するだけでなく、Webページを作成する機能があります。個人でWebページを作成することなく、アドオンの紹介ページを作成することができます|
+|Wiki|プロジェクトごとにWikiページを持つことができます。アドオンのチュートリアルなどの情報をまとめる時に役立つと思います|
+|Issue|アドオンのバグや課題を管理するための機能です。アドオンに関して議論する場として利用することができます
+|Pull Request|アドオン作成者以外の方がソースコードを修正し、その反映依頼を作成者本人に出す機能です。GitHubではソースコードを公開しているので、アドオンに興味を持ってくれた方が修正してくれるかもしれません|
 
 本書執筆時点では、アドオンのソースコード管理やチュートリアルを *GitHub* で行い、アドオン宣伝サイトでアドオンの宣伝を行うのが主流になりつつあるようです。
 
@@ -59,8 +58,10 @@ GitHubの中で有用な機能を以下に示します。
 
 <div id="sidebyside"></div>
 
-|SourceForge <br> http://sourceforge.net |![SourceForge](https://dl.dropboxusercontent.com/s/0o2vgnjxw4c6qok/sourceforge.png "SourceForge")|
-|---|---|
+|SourceForge|
+|---|
+|http://sourceforge.net|
+|![SourceForge](https://dl.dropboxusercontent.com/s/0o2vgnjxw4c6qok/sourceforge.png "SourceForge")|
 
 GitHubが登場する前は、SourceForgeがソースコード管理サイト（特にフリーソフト）の主流であったように思えます。
 ただ、GitHubが登場してからは徐々に利用されている方が減ってきているようです。
@@ -90,8 +91,10 @@ GitHubが登場する前は、SourceForgeがソースコード管理サイト（
 
 <div id="sidebyside"></div>
 
-|Blender Artists Community <br> http://blenderartists.org/forum/ |![Blender Artists Community](https://dl.dropboxusercontent.com/s/vhzjvb3gx2rt96a/blender_artists.png "Blender Artists Community")|
-|---|---|
+|Blender Artists Community|
+|---|
+|http://blenderartists.org/forum/|
+|![Blender Artists Community](https://dl.dropboxusercontent.com/s/vhzjvb3gx2rt96a/blender_artists.png "Blender Artists Community")|
 
 国外のコミュニティサイトです。
 毎日のようにアドオンの投稿や投稿したアドオンに関する議論が行なわれています。
@@ -106,8 +109,10 @@ GitHubが登場する前は、SourceForgeがソースコード管理サイト（
 
 <div id="sidebyside"></div>
 
-|Blender.jp <br> https://blender.jp |![Blender.jp](https://dl.dropboxusercontent.com/s/9zq781cuxyigwf9/blender_jp.png "Blender.jp")|
-|---|---|
+|Blender.jp|
+|---|
+|https://blender.jp|
+|![Blender.jp](https://dl.dropboxusercontent.com/s/9zq781cuxyigwf9/blender_jp.png "Blender.jp")|
 
 国内最大のBlenderコミュニティサイトです。
 フォーラムのPythonスクリプト・Plug-in板で開発したアドオンを投稿・宣伝することができます。
@@ -117,8 +122,10 @@ GitHubが登場する前は、SourceForgeがソースコード管理サイト（
 
 <div id="sidebyside"></div>
 
-|blugjpまとめサイト <br> https://sites.google.com/site/blugjp/blenderpython |![blugjpまとめサイト](https://dl.dropboxusercontent.com/s/aegu3vcdu4ky9jq/blugjp.png "blugjpまとめサイト")|
-|---|---|
+|blugjpまとめサイト|
+|---|
+|https://sites.google.com/site/blugjp/blenderpython|
+|![blugjpまとめサイト](https://dl.dropboxusercontent.com/s/aegu3vcdu4ky9jq/blugjp.png "blugjpまとめサイト")|
 
 BlenderPythonのページにて、アドオンを継続して開発されている方をリストアップされています。
 TwitterやBlender Artists Communityなどでアドオンを宣伝している方を中心に登録されているようです。
@@ -130,8 +137,10 @@ blugjpまとめサイトさんにアドオン開発者として登録しても�
 
 <div id="sidebyside"></div>
 
-|Twitter <br> https://twitter.com |![Twitter](https://dl.dropboxusercontent.com/s/nik99dg0fc0ilif/twitter.png "Twitter")|
-|---|---|
+|Twitter|
+|---|
+|https://twitter.com|
+|![Twitter](https://dl.dropboxusercontent.com/s/nik99dg0fc0ilif/twitter.png "Twitter")|
 
 Twitterでアドオンを宣伝することもできます。
 Twitterは短い文字数で1回のツイートで伝える方が効果的ですので、動画や画像のチュートリアルや公開先のリンクを添えてツイートするなど工夫しましょう。
@@ -143,8 +152,10 @@ Twitterは短い文字数で1回のツイートで伝える方が効果的です
 
 <div id="sidebyside"></div>
 
-|Google+ <br> https://plus.google.com/collections/featured |![Google+](https://dl.dropboxusercontent.com/s/9gvbbx1bkvoo04t/google_plus.png "Google+")|
-|---|---|
+|Google+|
+|---|
+|https://plus.google.com/collections/featured|
+|![Google+](https://dl.dropboxusercontent.com/s/9gvbbx1bkvoo04t/google_plus.png "Google+")|
 
 Google社が提供するSNSサービスであるGoogle+にはBlenderのコミュニティがあります。
 Blenderで作成したCG作品を公開するコミュニティが多いようですが、一部コミュニティではアドオンの宣伝も行っています。
@@ -160,8 +171,10 @@ Twitterに比べて拡散力は弱いですが、長文で投稿する時には�
 
 <div id="sidebyside"></div>
 
-|YouTube <br> https://www.youtube.com |![YouTube](https://dl.dropboxusercontent.com/s/ffbymu6obrvoacv/youtube.png "YouTube")|
-|---|---|
+|YouTube|
+|---|
+|https://www.youtube.com|
+|![YouTube](https://dl.dropboxusercontent.com/s/ffbymu6obrvoacv/youtube.png "YouTube")|
 
 言わずと知れた大型動画共有サイトです。
 宣伝というよりは、アドオンのチュートリアル動画を公開したい時に活用すると良いでしょう。
@@ -201,7 +214,11 @@ Blender本体にアドオンを取り込んでもらうことで、Blenderをイ
 アドオンを公開した場合はユーザの意見を放置せず、必ずメンテナンスしてください。
 メンテナンスすることで、間接的にですがアドオンの利用者は増えてゆきます。
 
+<div id="point"></div>
+
 ### ポイント
+
+<div id="point_item"></div>
 
 * 作成したアドオンは、ホームページやブログ、ソースコード管理サイトで公開する以外にも、アドオン宣伝サイトで宣伝したりBlender本体に取り込んでもらったりすることでも公開できる
 * 本書執筆時点における最も主流なアドオン公開方法は、 *GitHub* でアドオンのソースコードを管理し、アドオン宣伝サイトやソースコード管理サイトで公開する方法である

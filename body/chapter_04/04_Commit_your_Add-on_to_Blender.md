@@ -24,8 +24,10 @@
 
 <div id="sidebyside"></div>
 
-|Blender Wiki (Blender Add-ons Catalog) <br> http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts |![Blender Wiki (Blender Add-ons Catalog)](https://dl.dropboxusercontent.com/s/eqhblsox8zibbh8/blender_add-on_catalog.png "Blender Wiki (Blender Add-ons Catalog)")|
-|---|---|
+|Blender Wiki (Blender Add-ons Catalog)|
+|---|
+|http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts|
+|![Blender Wiki (Blender Add-ons Catalog)](https://dl.dropboxusercontent.com/s/eqhblsox8zibbh8/blender_add-on_catalog.png "Blender Wiki (Blender Add-ons Catalog)")|
 
 もし作成したアドオンの機能が存在しない場合は、Blender本体に登録される可能性が高くなります。
 しかし既に同様の機能があるアドオンが存在した場合でも、諦めるのはまだ早いです。
@@ -47,8 +49,10 @@ Blenderアドオンのコーディング規約は、Pythonのコーディング�
 
 <div id="sidebyside"></div>
 
-|PEP 0008 -- Style Guide for Python Code <br> https://www.python.org/dev/peps/pep-0008/ |![PEP 0008](https://dl.dropboxusercontent.com/s/d3t0sjr0mu9wnrk/pep8.png "PEP 0008")|
-|---|---|
+|PEP 0008 -- Style Guide for Python Code|
+|---|
+|https://www.python.org/dev/peps/pep-0008/
+|![PEP 0008](https://dl.dropboxusercontent.com/s/d3t0sjr0mu9wnrk/pep8.png "PEP 0008")|
 
 コーティング規約だけでなく、Blender本体に取り込まれるアドオンは処理も効率的でなくてはなりません。
 アドオンを使う人にとっては、少しでも速く処理が終わったほうが良いのは考えてみれば当然です。
@@ -57,8 +61,10 @@ Blenderはアドオン開発について、処理を効率的に処理するた�
 
 <div id="sidebyside"></div>
 
-|Best Practice (API documentation - Blender 2.75a) <br> https://www.blender.org/api/blender_python_api_2_75a_release/info_best_practice.html |![Best Practice](https://dl.dropboxusercontent.com/s/30rrshlzu3jnajy/best_practice.png "Best Practice")|
-|---|---|
+|Best Practice (API documentation - Blender 2.75a)|
+|---|
+|https://www.blender.org/api/blender_python_api_2_75a_release/info_best_practice.html|
+|![Best Practice](https://dl.dropboxusercontent.com/s/30rrshlzu3jnajy/best_practice.png "Best Practice")|
 
 効率的なコーディングの実例を1つ紹介します。
 
@@ -95,17 +101,36 @@ double_l
 
 <div id="sidebyside"></div>
 
-|developer.blender.org <br> https://developer.blender.org |![developer.blender.org](https://dl.dropboxusercontent.com/s/z9uvc1epwm2wi2e/dbo.png "developer.blender.org")|
-|---|---|
+|developer.blender.org|
+|---|
+|https://developer.blender.org|
+|![developer.blender.org](https://dl.dropboxusercontent.com/s/z9uvc1epwm2wi2e/dbo.png "developer.blender.org")|
 
 D.B.Oは会員制のため、ユーザ登録が必要です。
 会員登録したら、以下の手順に従ってタスクを作成します。
+
+<div id="process_start_end"></div>
+
+---
 
 <div id="process"></div>
 
 |1|右上の＋からManiphest Taskをクリックします。|![Create New Task 手順1](https://dl.dropboxusercontent.com/s/3zzr089rpl1i244/create_new_task_1.png "Create New Task 手順1")|
 |---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
 |2|各入力欄に必要事項を記載し、新しいタスクを作成します。|![Create New Task 手順2](https://dl.dropboxusercontent.com/s/4m757n2ubrqz4au/create_new_task_2.png "Create New Task 手順2")|
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
+
 
 新しいタスクを作成する時に記載が必要な項目を以下に示します。。
 
@@ -162,8 +187,11 @@ Blender本体へのアドオン登録はもうすぐそこです！
 
 <div id="sidebyside"></div>
 
-|Blender Wiki (Blender Add-ons Catalog) <br> http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts |![Blender Wiki (Blender Add-ons Catalog)](https://dl.dropboxusercontent.com/s/eqhblsox8zibbh8/blender_add-on_catalog.png "Blender Wiki (Blender Add-ons Catalog)")|
-|---|---|
+|Blender Wiki (Blender Add-ons Catalog)|
+|---|
+|http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts|
+|![Blender Wiki (Blender Add-ons Catalog)](https://dl.dropboxusercontent.com/s/eqhblsox8zibbh8/blender_add-on_catalog.png "Blender Wiki (Blender Add-ons Catalog)")|
+
 
 Wikiページに掲載する内容は、他のアドオンのWikiページを見ながら作成していくとよいでしょう。
 なおWikiページのアカウントはD.B.Oのアカウントとは異なりますので、ユーザ登録していない場合は追加してください。
@@ -180,8 +208,10 @@ D.B.Oで作成したタスクの説明文においてBlender Wikiのページを
 
 <div id="sidebyside"></div>
 
-|Blender Wiki (Code Review) <br> http://wiki.blender.org/index.php/Dev:Doc/Tools/Code_Review |![Blender Wiki (Code Review)](https://dl.dropboxusercontent.com/s/ugfs7ecqh0t4fao/code_review.png "Blender Wiki (Code Review)")|
-|---|---|
+|Blender Wiki (Code Review)|
+|---|
+|http://wiki.blender.org/index.php/Dev:Doc/Tools/Code_Review|
+|![Blender Wiki (Code Review)](https://dl.dropboxusercontent.com/s/ugfs7ecqh0t4fao/code_review.png "Blender Wiki (Code Review)")|
 
 
 #### 最新のBlenderリポジトリを取得
@@ -196,6 +226,10 @@ Blenderのサポートレベルに応じてリポジトリが異なります。
 |Release|```git://git.blender.org/blender-addons.git```|
 |Contrib|```git://git.blender.org/blender-addons-contrib.git```|
 
+<div id="process_start_end"></div>
+
+---
+
 <div id="process"><div>
 
 |1|以下のコマンドを実行し、最新のBlenderのリポジトリを取得します。|　|
@@ -205,6 +239,10 @@ Blenderのサポートレベルに応じてリポジトリが異なります。
 $ cd [作業用ディレクトリ]
 $ git clone git://git.blender.org/blender-addons-contrib.git
 ```
+
+<div id="process_sep"></div>
+
+---
 
 <div id="process"><div>
 
@@ -216,6 +254,10 @@ $ cd blender-addons-contrib
 $ cp [作成したプラグイン] .
 ```
 
+<div id="process_sep"></div>
+
+---
+
 <div id="process"><div>
 
 |3|以下のコマンドを実行し、ソースコードの差分を取得した結果をコピーします。|　|
@@ -225,12 +267,37 @@ $ cp [作成したプラグイン] .
 $ git diff
 ```
 
+<div id="process_sep"></div>
+
+---
+
 <div id="process"><div>
 
 |4|developer.blender.orgの左側にある *Differential* をクリックします|![Create Diff 手順1](https://dl.dropboxusercontent.com/s/2wcu3f3ho59x3ia/create_diff_1.png "Create Diff 手順1")|
 |---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"><div>
+
 |5|*Create Diff* をクリックします。|![Create Diff 手順2](https://dl.dropboxusercontent.com/s/w9rhl9pwcwqjef3/create_diff_2.png "Create Diff 手順2")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"><div>
+
 |6|コピーしたソースコードの差分を *Raw Diff* にペーストし、 *Repository* に *rBAC Blender Add-ons Contrib* を入力した後、一番下のCreate Diffのボタンをクリックします。|![Create Diff 手順3](https://dl.dropboxusercontent.com/s/c37hha0316mh124/create_diff_3.png "Create Diff 手順3")|
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
+
 
 ソースコードレビューでは、作成したソースコードに対して指摘されることがあります。
 指摘された部分は少なくともソースコードを読んだ人が気になった部分でもあるので、たとえ反映不要な指摘であっても反映するようにしましょう。
@@ -238,6 +305,10 @@ $ git diff
 ### Blenderリポジトリへの登録
 
 ソースコードレビューが完了したら、以下の手順に従ってBlenderのリポジトリに登録しましょう。
+
+<div id="process_start_end"></div>
+
+---
 
 <div id="process"></div>
 
@@ -247,6 +318,12 @@ $ git diff
 <div id="column"></div>
 
 Blender開発者のチャンネルは *#blendercoders* ですので、 *Channels* に *#blendercoders* を入力し、 *Nickname* に自分のニックネームを入力しましょう。  ・・・ちなみにチャットに入るときには、必ず自分のニックネームを入力しましょう。  筆者はコミット権をもらった当初IRCの使い方がわからず、話したい人の名前を入力するのかと思っていたので、Ideasmanという名前で入ってしまい色々と騒ぎになってしまいました。（私の無知さが面白かったから気にしないでなど、厳しいコメントはありませんでしたがさすがに焦りました。）
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
 
 |2|commit権をもらったら、Blenderのリポジトリを取得しましょう。<br>リポジトリの取得については、以下の手順で行います。<br>BlenderのWikiページも参考になるでしょう。<br> http://wiki.blender.org/index.php/Dev:Doc/Tools/Git |![Blender Wiki (Git Usage)](https://dl.dropboxusercontent.com/s/9wbrn6frzxdvzvy/git_usage.png "Blender Wiki (Git Usage)")|
 |---|---|---|
@@ -262,17 +339,28 @@ $ git pull --rebase
 $ git submodule foreach --recursive git pull --rebase origin master
 ```
 
-③ 著者・連絡先を設定する。
+<div id="process_sep"></div>
 
-リポジトリへcommitする前に以下のコマンドを実行し、commitを行った人物や連絡先を設定します。
-この設定を一度行っておけば、設定を変えたりOSを変えたりしない限り、2度目以降は実施する必要がありません。
+---
+
+<div id="process"></div>
+
+|3|著者・連絡先を設定します。<br>リポジトリへcommitする前に以下のコマンドを実行し、commitを行った人物や連絡先を設定します。<br>この設定を一度行っておけば、設定を変えたりOSを変えたりしない限り、2度目以降は実施する必要がありません。|　|
+|---|---|---|
 
 ```sh:source_commit_2.sh
 git config --global user.name "[名前（ニックネーム可）]"
 git config --global user.email "[連絡先メールアドレス]"
 ```
 
-④ commit先を設定する。
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|4|commit先を設定します。|　|
+|---|---|---|
 
 以下のコマンドを実行し、commit先の設定を行います。
 
@@ -280,7 +368,14 @@ git config --global user.email "[連絡先メールアドレス]"
 $ git remote set-url origin git@git.blender.org:blender-addons-contrib.git
 ```
 
-⑤ ssh鍵を登録する。
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|5|ssh鍵を登録します。|　|
+|---|---|---|
 
 以下のコマンドを実行し、ssh鍵を作成します。
 
@@ -292,9 +387,15 @@ $ ssh-keygen
 D.B.Oの右上の工具マークをクリックし、左メニューの *SSH Public Keys* をクリックします。
 そして、 *Upload Public Key* をクリックし、*Public Key* に ```id_rsa.pub``` の内容をコピー＆ペーストして、*Name* に適当な名前をつけて *Add Key* をクリックすることで、ssh鍵の登録が完了します。
 
-⑥ 登録するアドオンのソースコードをリポジトリ内に配置する。
+<div id="process_sep"></div>
 
-登録するアドオンのソースコードをリポジトリ内に置きましょう。
+---
+
+<div id="process"></div>
+
+|6|登録するアドオンのソースコードをリポジトリ内に配置します。<br>登録するアドオンのソースコードをリポジトリ内に置きましょう。|　|
+|---|---|---|
+
 以下では、 ```blender-addons-contrib``` 直下にアドオンのソースコードを置いています。
 
 ```sh:source_commit_5.sh
@@ -302,7 +403,14 @@ $ cd blender-addons-contrib
 $ cp [作成したアドオンのソースコード] .
 ```
 
-⑦ ローカルリポジトリへcommitする。
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|7|ローカルリポジトリへcommitします。|　|
+|---|---|---|
 
 以下の手順に従って、ローカルのリポジトリへcommitします。
 
@@ -315,11 +423,22 @@ $ git commit
 エディタでは修正内容がわかるように英語で記載します。
 以下のWikiページが参考になると思います。
 
-* Blender Wiki (Commit Logs) - http://wiki.blender.org/index.php/Dev:Doc/New_Committer_Info#Commit_Logs
+<div id="webpage"></div>
 
-![Blender Wiki (Commit Logs)](https://dl.dropboxusercontent.com/s/oycvo2exxzjrgjx/commit_logs.png "Blender Wiki (Commit Logs)")
+|Blender Wiki (Commit Logs)|
+|---|
+|http://wiki.blender.org/index.php/Dev:Doc/New_Committer_Info#Commit_Logs|
+|![Blender Wiki (Commit Logs)](https://dl.dropboxusercontent.com/s/oycvo2exxzjrgjx/commit_logs.png "Blender Wiki (Commit Logs)")|
 
-⑧ リモートリポジトリ（Blender本体のリポジトリ）へpushする
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|8|リモートリポジトリ（Blender本体のリポジトリ）へpushします。|　|
+|---|---|---|
 
 いよいよアドオンの登録も最終段階です。
 アドオンをBlender本体のリポジトリへ登録しましょう。
@@ -363,7 +482,11 @@ Blender本体へアドオンを取り込むまでの道のりは非常に長い�
 これまで本書を通してアドオン開発の解説を行ってきましたが、これで最後となります。
 長くなりましたが、お疲れ様でした！
 
+<div id="point"></div>
+
 ### ポイント
+
+<div id="point_item"></div>
 
 * 作成したアドオンをBlender本体に取り込んでもらうためには、ソースコードレビューやWikiページ作成など数多くの準備が必要である
 * Blender本体へアドオンを取り込んでもらうためには、アドオンが新規性のある機能を持っている必要がある
