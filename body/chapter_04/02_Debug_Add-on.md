@@ -15,7 +15,7 @@
 * self.reportデバッグ
 * printデバッグ
 * 外部デバッガを利用したデバッグ
-* デバッガアドオン『BreakPoint』を利用したデバッグ
+* アドオン『BreakPoint』を利用したデバッグ
 
 ## self.reportデバッグ
 
@@ -98,6 +98,8 @@ Eclipseのホームページから、最新版のEclipseをダウンロードし
 
 EclipseはJavaやC/C++、PHPなど様々なプログラミング言語に対応していますが、ここではJava用のEclipseを利用します。
 EclipseはJavaで動作しているため、必要に応じてJava SEをインストールしてください。
+
+<div id="webpage"></div>
 
 |Java SE ダウンロードページ|
 |---|
@@ -286,7 +288,7 @@ BLNEDER_BASE_SCRIPT_PATHはOS依存で以下のようになります。
 なお、Blenderの実行ファイルのパスは環境に応じて変更になります。
 BLENDER_VERはBlenderのバージョンが入ります。マイナーバージョンまでで、2.75aを利用している場合は、BLENDER_VERは2.75になります。
 
-|OS|Blender実行ファイルのパス例|BLENDER_BASE_SCRIPT_PATH|
+|OS|Blender<br>実行ファイルのパス例|BLENDER_BASE_SCRIPT_PATH|
 |---|---|---|
 |Windows|```C:\path\blender.exe```|　|
 |Mac|```/path/blender.app```|```/path/blender.app/Contents/Resources/(BLENDER_VER)/scripts```|
@@ -532,7 +534,7 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 ---
 
-## デバッガアドオン『BreakPoint』を利用したデバッグ
+## アドオン『BreakPoint』を利用したデバッグ
 
 外部デバッガを用いたデバッグはEclipseのデバッガ機能が使えるため非常に強力ですが、デバッグ実行するまでの準備に非常に手間がかかります。
 手間をかけずにデバッグしたい方は、アドオン **『BreakPoint』** の利用を検討しましょう。

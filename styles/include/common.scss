@@ -399,9 +399,10 @@
 
 @mixin em($font_size) {
     em {
-        font-size: $font_size;
+        //font-size: $font_size;
+        font-size: inherit;
         font-style: normal;
-        background-color: #DDDDDD;
+        //background-color: #DDDDDD;
     }
 }
 
@@ -492,7 +493,7 @@
 @mixin process_start_end() {
     #process_start_end + hr {
         height: 3px;
-        width: 95%;
+        width: 85%;
         margin-top: 30px;
         margin-bottom: 30px;
         margin-left: auto;
@@ -504,7 +505,7 @@
 @mixin process_separator() {
     #process_sep + hr {
         height: 1px;
-        width: 80%;
+        width: 70%;
         margin-top: 15px;
         margin-bottom: 15px;
         margin-left: auto;
@@ -773,6 +774,8 @@ $sect_img_list:
             font-family: Hack;
             font-size: $font_size_base * 0.7;
             line-height: $line_height * 1.2;
+            white-space: inherit;
+            background: 0 0;
         }
     }
 

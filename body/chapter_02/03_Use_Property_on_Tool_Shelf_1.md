@@ -90,6 +90,8 @@
 
 ---
 
+<div id="process"></div>
+
 |5|*縮小率* の数値を変更することで、オブジェクトの縮小率を変えることができます。|![選択オブジェクトの縮小](https://dl.dropboxusercontent.com/s/yiktzp7fbujdumn/use-add-on_4.png "選択オブジェクトの縮小")|
 |---|---|---|
 

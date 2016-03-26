@@ -198,7 +198,8 @@ Blenderの公式Wikiページです。
 
 |blugjpまとめサイト|
 |---|
-|https://sites.google.com/site/blugjp/blenderpython| |![blugjpまとめサイト](https://dl.dropboxusercontent.com/s/7t6ho0xohl45yrv/blugjp.png "blugjpまとめサイト")|
+|https://sites.google.com/site/blugjp/blenderpython|
+|![blugjpまとめサイト](https://dl.dropboxusercontent.com/s/7t6ho0xohl45yrv/blugjp.png "blugjpまとめサイト")|
 
 BLUG.jpさんによるまとめサイトです。
 BlenderPythonのページは現在も更新され続けているので、アドオンを開発している方はブックマークして時々見に行ってみましょう。
@@ -212,8 +213,7 @@ BlenderPythonのページは現在も更新され続けているので、アド�
 
 <div id="sidebyside"></div>
 
-|インストール済みのアドオンのソースコードが置かれている場所は、 *ファイル* > *ユーザ設定* の *アドオン* タブから確認することができます。<br>
-また非公式にインストールするアドオンは、アドオンをダウンロード時のファイルを参照することにより、インストールせずに確認することもできます。|![アドオンのソースコードを読む1](https://dl.dropboxusercontent.com/s/0gkzz3ww1gjb955/read_addon_source_code_1.png "アドオンのソースコードを読む1")|
+|インストール済みのアドオンのソースコードが置かれている場所は、 *ファイル* > *ユーザ設定* の *アドオン* タブから確認することができます。<br>また非公式にインストールするアドオンは、アドオンをダウンロード時のファイルを参照することにより、インストールせずに確認することもできます。|![アドオンのソースコードを読む1](https://dl.dropboxusercontent.com/s/0gkzz3ww1gjb955/read_addon_source_code_1.png "アドオンのソースコードを読む1")|
 |---|---|
 
 Blenderが標準で提供している機能の一部は、Blender内でソースコードを確認したりAPIドキュメントへ移動したりできます。
@@ -274,8 +274,6 @@ Blenderが標準で提供している機能の一部は、Blender内でソース
 ただしアドオン開発は海外の方が積極的に行なわれている傾向のため、海外サイトで質問したほうが期待した回答が得られる可能性が高いです。
 以下にBlenderのアドオン開発について、質問できるコミュニティサイトを紹介します。
 
----
-
 <div id="webpage"></div>
 
 |Blender Artists Community|
@@ -291,8 +289,6 @@ Blenderを使っている方はすでにご存知のサイトかもしれませ�
 英語で投稿する必要がありますが、高校生程度の英語力があれば困ることはないと思います。
 アドオンに関する質問はアカウント登録した上で、 *CODING* > *Python Support* から行ってください。
 投稿は *POST NEW THREAD* ボタンから行えます。
-
----
 
 <div id="webpage"></div>
 
@@ -314,7 +310,8 @@ Blender Artists Communityと同様、アカウント登録した上で英語で�
 
 |Blender.jp|
 |---|
-|https://blender.jp| |![Blender.jp](https://dl.dropboxusercontent.com/s/m74dd41qm8xpw7c/blender_jp.png "Blender.jp")|
+|https://blender.jp|
+|![Blender.jp](https://dl.dropboxusercontent.com/s/m74dd41qm8xpw7c/blender_jp.png "Blender.jp")|
 
 国内最大のBlenderコミュニティサイトです。
 コミュニティサイトにはフォーラムがあり、フォーラム中の質問板でアドオン開発について質問することができます。

@@ -22,7 +22,7 @@
 作成したアドオンの機能について、Blender本体や *Release* または *Contrib* のサポートレベルであるアドオンの中に同じまたは非常によく似ている機能がないか確認しましょう。
 *Release* または *Contrib* のサポートレベルであるアドオンは以下から参照できます。
 
-<div id="sidebyside"></div>
+<div id="website"></div>
 
 |Blender Wiki (Blender Add-ons Catalog)|
 |---|
@@ -47,7 +47,7 @@ Blenderアドオンのコーディング規約は、Pythonのコーディング�
 以下のサイトからpep8に沿っているか確認しながら、アドオンを作成しましょう。
 なお、1行の最大文字数が79文字を超えてはならないpep8-80というのもありますが、ここまでは求められていないようです。
 
-<div id="sidebyside"></div>
+<div id="website"></div>
 
 |PEP 0008 -- Style Guide for Python Code|
 |---|
@@ -59,7 +59,7 @@ Blenderアドオンのコーディング規約は、Pythonのコーディング�
 Blenderはアドオン開発について、処理を効率的に処理するために必要なベストプラクティスと呼ばれる記事を用意しています。
 ベストプラクティスを参照し、効率的なコーディングを心がけましょう。
 
-<div id="sidebyside"></div>
+<div id="website"></div>
 
 |Best Practice (API documentation - Blender 2.75a)|
 |---|
@@ -99,7 +99,7 @@ double_l
 いきなりアドオンのソースレビューを行うのではなく、作成したアドオンが実用的なものかを判断する機能レビューを最初に行います。
 レビューの申請は、developer.blender.org（通称D.B.O）から行います。
 
-<div id="sidebyside"></div>
+<div id="website"></div>
 
 |developer.blender.org|
 |---|
@@ -185,7 +185,7 @@ Blender本体へのアドオン登録はもうすぐそこです！
 
 機能レビューが通ったら、Blender公式のWikiページに作成したアドオンのページを作成しましょう。
 
-<div id="sidebyside"></div>
+<div id="website"></div>
 
 |Blender Wiki (Blender Add-ons Catalog)|
 |---|
@@ -206,7 +206,7 @@ D.B.Oで作成したタスクの説明文においてBlender Wikiのページを
 ソースコードレビューを受けるまでの流れを以下に示します。
 なお、BlenderのWikiページにもソースコードレビューの手順が書いてありますので、こちらも参考にしてみてください。
 
-<div id="sidebyside"></div>
+<div id="website"></div>
 
 |Blender Wiki (Code Review)|
 |---|
@@ -230,7 +230,7 @@ Blenderのサポートレベルに応じてリポジトリが異なります。
 
 ---
 
-<div id="process"><div>
+<div id="process"></div>
 
 |1|以下のコマンドを実行し、最新のBlenderのリポジトリを取得します。|　|
 |---|---|---|
@@ -244,7 +244,7 @@ $ git clone git://git.blender.org/blender-addons-contrib.git
 
 ---
 
-<div id="process"><div>
+<div id="process"></div>
 
 |2|以下のコマンドを実行し、リポジトリ取得後に作成したアドオンをリポジトリへ移動します。|　|
 |---|---|---|
@@ -258,7 +258,7 @@ $ cp [作成したプラグイン] .
 
 ---
 
-<div id="process"><div>
+<div id="process"></div>
 
 |3|以下のコマンドを実行し、ソースコードの差分を取得した結果をコピーします。|　|
 |---|---|---|
@@ -271,7 +271,7 @@ $ git diff
 
 ---
 
-<div id="process"><div>
+<div id="process"></div>
 
 |4|developer.blender.orgの左側にある *Differential* をクリックします|![Create Diff 手順1](https://dl.dropboxusercontent.com/s/2wcu3f3ho59x3ia/create_diff_1.png "Create Diff 手順1")|
 |---|---|---|
@@ -280,7 +280,7 @@ $ git diff
 
 ---
 
-<div id="process"><div>
+<div id="process"></div>
 
 |5|*Create Diff* をクリックします。|![Create Diff 手順2](https://dl.dropboxusercontent.com/s/w9rhl9pwcwqjef3/create_diff_2.png "Create Diff 手順2")|
 |---|---|---|
@@ -289,7 +289,7 @@ $ git diff
 
 ---
 
-<div id="process"><div>
+<div id="process"></div>
 
 |6|コピーしたソースコードの差分を *Raw Diff* にペーストし、 *Repository* に *rBAC Blender Add-ons Contrib* を入力した後、一番下のCreate Diffのボタンをクリックします。|![Create Diff 手順3](https://dl.dropboxusercontent.com/s/c37hha0316mh124/create_diff_3.png "Create Diff 手順3")|
 |---|---|---|
@@ -312,8 +312,14 @@ $ git diff
 
 <div id="process"></div>
 
-|1|Blenderのリポジトリへ登録（commit）するためは、リポジトリ管理者からリポジトリへのcommit権をもらう必要があります。<br>執筆時点で、リポジトリの管理はIdeasmanさんという方が行っているようです。<br>IRC(チャットのようなもの)に入り、Ideasmanさんにリポジトリのcommit権を与えてもらえるようにお願いしましょう。<br> IRCでは英語でのチャットになりますが、わからない単語をWebで調べつつ、こちらが言いたいことをはっきり伝えていけば良いのでなんとかなるでしょう。 <br> http://webchat.freenode.net |![IRC](https://dl.dropboxusercontent.com/s/wnfps2d61f88rqu/irc.png "IRC")|
-|---|---|---|
+|1|Blenderのリポジトリへ登録（commit）するためは、リポジトリ管理者からリポジトリへのcommit権をもらう必要があります。<br>執筆時点で、リポジトリの管理はIdeasmanさんという方が行っているようです。<br>IRC(チャットのようなもの)に入り、Ideasmanさんにリポジトリのcommit権を与えてもらえるようにお願いしましょう。<br> IRCでは英語でのチャットになりますが、わからない単語をWebで調べつつ、こちらが言いたいことをはっきり伝えていけば良いのでなんとかなるでしょう。|　|
+
+<div id="website"></div>
+
+|IRC|
+|---|
+|http://webchat.freenode.net|
+|![IRC](https://dl.dropboxusercontent.com/s/wnfps2d61f88rqu/irc.png "IRC")|
 
 <div id="column"></div>
 
@@ -325,8 +331,15 @@ Blender開発者のチャンネルは *#blendercoders* ですので、 *Channels
 
 <div id="process"></div>
 
-|2|commit権をもらったら、Blenderのリポジトリを取得しましょう。<br>リポジトリの取得については、以下の手順で行います。<br>BlenderのWikiページも参考になるでしょう。<br> http://wiki.blender.org/index.php/Dev:Doc/Tools/Git |![Blender Wiki (Git Usage)](https://dl.dropboxusercontent.com/s/9wbrn6frzxdvzvy/git_usage.png "Blender Wiki (Git Usage)")|
+|2|commit権をもらったら、Blenderのリポジトリを取得しましょう。<br>リポジトリの取得については、以下の手順で行います。<br>BlenderのWikiページも参考になるでしょう。|　|
 |---|---|---|
+
+<div id="website"></div>
+
+|Blender Wiki (Git Usage)|
+|---|
+|http://wiki.blender.org/index.php/Dev:Doc/Tools/Git|
+|![Blender Wiki (Git Usage)](https://dl.dropboxusercontent.com/s/9wbrn6frzxdvzvy/git_usage.png "Blender Wiki (Git Usage)")|
 
 ```sh:source_commit_1.sh
 $ cd [作業用ディレクトリ]
