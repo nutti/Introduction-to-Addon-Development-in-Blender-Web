@@ -182,7 +182,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process"></div>
 
-|5|ウィンドウ右側に *Mira Tools** が表示されるので、チェックボックスにチェックを入れるとアドオンが有効化されます。|![アドオンの有効化 手順2](https://dl.dropboxusercontent.com/s/k4xq9zyhk0hbivp/enable_add-on_2.png "アドオンの有効化 手順2")|
+|5|ウィンドウ右側に *Mira Tools* が表示されるので、チェックボックスにチェックを入れるとアドオンが有効化されます。|![アドオンの有効化 手順2](https://dl.dropboxusercontent.com/s/k4xq9zyhk0hbivp/enable_add-on_2.png "アドオンの有効化 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>

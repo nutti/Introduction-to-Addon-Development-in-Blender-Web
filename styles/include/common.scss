@@ -204,6 +204,70 @@
             }
         }
     }
+
+    #process_noimg + table {
+        width: 100%;
+        table-layout: fixed;
+        thead {
+            border: none;
+            tr {
+                border: none;
+                th:nth-of-type(1) {
+                    font-family: Goudy;
+                    font-size: $font_size_1;
+                    font-weight: bold;
+                    font-style: italic;
+                    color: #BBBBBB;
+                    border: none;
+                    width: 5%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                }
+                th:nth-of-type(2) {
+                    font-family: NotoSansCJKjp;
+                    font-size: $font_size_2;
+                    //line-height: 2.0;
+                    border: none;
+                    width: 95%;
+                    text-align: left;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                    color: #000000;
+                    font-weight: normal;
+                    white-space: normal;
+                }
+            }
+        }
+        tbody {
+            border: none;
+            tr {
+                border: none;
+                td:nth-of-type(1) {
+                    font-family: Goudy;
+                    font-size: $font_size_1;
+                    font-weight: bold;
+                    font-style: italic;
+                    color: #BBBBBB;
+                    border: none;
+                    width: 5%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                }
+                td:nth-of-type(2) {
+                    font-family: NotoSansCJKjp;
+                    font-size: $font_size_2;
+                    line-height: 2.0;
+                    border: none;
+                    width: 95%;
+                    text-align: left;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                }
+            }
+        }
+    }
 }
 
 @mixin point($font_size, $top_1, $left_1, $width_1, $height_1, $top_2, $left_2, $width_2, $height_2) {
@@ -476,6 +540,9 @@
         background-color: #FFFFFF;
         vertical-align: 1px;
         padding: 0px;
+    }
+    code:before {
+        letter-spacing: -2.0em;
     }
 }
 
@@ -774,8 +841,9 @@ $sect_img_list:
             font-family: Hack;
             font-size: $font_size_base * 0.7;
             line-height: $line_height * 1.2;
-            white-space: inherit;
+            white-space: pre-wrap;
             background: 0 0;
+            background: #FBFBFB;
         }
     }
 
@@ -804,7 +872,7 @@ $sect_img_list:
     }
     h5 {
         font-family: NotoSansCJKjp;
-        font-size: $font_size_base * 0.9;
+        font-size: $font_size_base * 1.3;
         text-decoration: underline;
     }
     img {

@@ -272,8 +272,8 @@ Blenderを起動する時は、アプリケーションのアイコン（Windows
 |2|以下のコマンドを実行します。（blender.exeが置かれているパスが ```C:\path\blender.exe``` であると仮定します。）|　|
 |---|---|---|
 
-```shell-session
-$ C:\path\blender.exe
+```dos
+> C:\path\blender.exe
 ```
 
 <div id="process_sep"></div>
@@ -309,7 +309,7 @@ $ C:\path\blender.exe
 |2| 以下のコマンドを実行します。（Blender.appが置かれているパスが ```/path/Blender.app``` であると仮定します。）|　|
 |---|---|---|
 
-```shell-session
+```sh
 $ /path/blender.app/Contents/MacOS/blender
 ```
 
@@ -346,7 +346,7 @@ $ /path/blender.app/Contents/MacOS/blender
 |2| 以下のコマンドを実行します。（実行ファイルblenderが置かれているパスが ```/path/blender``` であると仮定します。）|　|
 |---|---|---|
 
-```shell-session
+```sh
 $ /path/blender
 ```
 
