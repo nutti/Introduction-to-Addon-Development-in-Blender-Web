@@ -96,7 +96,7 @@ Blender自体OpenGLを利用していることもあり、PythonからOpenGLへ�
 今回のサンプルでは、Blenderが提供するOpenGL向けのAPIを利用しています。
 OpenGLへアクセスするAPIをアドオンから利用するためには、 ```bgl``` モジュールをインポートする必要があります。
 
-```py:sample_8_part1.py
+```python
 import bgl
 ```
 
@@ -113,7 +113,7 @@ import bgl
 |```rf_vert_3```|頂点3の座標（2次元）|
 |```rf_vert_4```|頂点4の座標（2次元）、四角形表示時のみに利用|
 
-```py:sample_8_part2.py
+```python
 sc = bpy.types.Scene
 sc.rf_running = BoolProperty(
     name = "実行中",
@@ -155,7 +155,7 @@ sc.rf_vert_4 = FloatVectorProperty(
 
 定義したプロパティは、アドオン無効化時に削除するようにします。
 
-```py:sample_8_part3.py
+```python
 sc = bpy.types.Scene
 del sc.rf_running
 del sc.rf_figure
@@ -170,7 +170,7 @@ del sc.rf_vert_4
 *3Dビュー* 上で図形を描画する関数を登録するための静的メソッド ```RenderFigure.handle_add()``` を作成します。
 ```RenderFigure.handle_add()``` は静的メソッドとして作成する必要があるため、デコレータ ```@staticmethod``` をメソッド定義の前につける必要があります。
 
-```py:sample_8_part4.py
+```python
 # 画像描画関数を登録
 @staticmethod
 def handle_add(self, context):
@@ -200,7 +200,7 @@ def handle_add(self, context):
 
 図形を描画する静的メソッド ```RenderFigure.render``` を作成します。
 
-```py:sample_8_part5.py
+```python
 @staticmethod
 def render(self, context):
     sc = context.scene
@@ -247,7 +247,7 @@ def render(self, context):
 
 登録した図形を描画する関数はアドオン無効化時に登録解除する必要があります。
 
-```py:sample_8_part6.py
+```python
 @staticmethod
 def handle_remove(self, context):
     if RenderFigure.__handle is not None:
@@ -269,7 +269,7 @@ def handle_remove(self, context):
 
 最後に本アドオンのUIを構築しましょう。
 
-```py:sample_8_part7.py
+```python
 class OBJECT_PT_RF(bpy.types.Panel):
     bl_label = "図形を表示"
     bl_space_type = "VIEW_3D"
@@ -311,7 +311,7 @@ class OBJECT_PT_RF(bpy.types.Panel):
 
 最後に、描画開始/終了を行う *オペレーションクラス* を作成します。
 
-```py:sample_8_part8.py
+```python
 class RenderingButton(bpy.types.Operator):
     bl_idname = "view3d.rendering_button"
     bl_label = "図形表示/非表示切り替えボタン"

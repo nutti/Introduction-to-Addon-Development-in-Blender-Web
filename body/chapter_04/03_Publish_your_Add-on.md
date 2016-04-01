@@ -33,7 +33,7 @@ Blenderアドオンの本体はソースコードですので、ソースコー�
 
 ####  GitHub
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |GitHub|
 |---|
@@ -56,7 +56,7 @@ GitHubの中で有用な機能を以下に示します。
 
 #### SourceForge
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |SourceForge|
 |---|
@@ -89,7 +89,7 @@ GitHubが登場する前は、SourceForgeがソースコード管理サイト（
 
 #### Blender Artists Community
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |Blender Artists Community|
 |---|
@@ -107,7 +107,7 @@ GitHubが登場する前は、SourceForgeがソースコード管理サイト（
 
 #### Blender.jp
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |Blender.jp|
 |---|
@@ -120,7 +120,7 @@ GitHubが登場する前は、SourceForgeがソースコード管理サイト（
 
 #### blugjpまとめサイト
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |blugjpまとめサイト|
 |---|
@@ -135,7 +135,7 @@ blugjpまとめサイトさんにアドオン開発者として登録しても�
 
 #### Twitter
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |Twitter|
 |---|
@@ -150,7 +150,7 @@ Twitterは短い文字数で1回のツイートで伝える方が効果的です
 
 #### Google+
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |Google+|
 |---|
@@ -169,7 +169,7 @@ Twitterに比べて拡散力は弱いですが、長文で投稿する時には�
 
 #### YouTube
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |YouTube|
 |---|

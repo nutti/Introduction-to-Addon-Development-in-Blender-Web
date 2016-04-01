@@ -22,7 +22,7 @@
 作成したアドオンの機能について、Blender本体や *Release* または *Contrib* のサポートレベルであるアドオンの中に同じまたは非常によく似ている機能がないか確認しましょう。
 *Release* または *Contrib* のサポートレベルであるアドオンは以下から参照できます。
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |Blender Wiki (Blender Add-ons Catalog)|
 |---|
@@ -47,7 +47,7 @@ Blenderアドオンのコーディング規約は、Pythonのコーディング�
 以下のサイトからpep8に沿っているか確認しながら、アドオンを作成しましょう。
 なお、1行の最大文字数が79文字を超えてはならないpep8-80というのもありますが、ここまでは求められていないようです。
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |PEP 0008 -- Style Guide for Python Code|
 |---|
@@ -59,7 +59,7 @@ Blenderアドオンのコーディング規約は、Pythonのコーディング�
 Blenderはアドオン開発について、処理を効率的に処理するために必要なベストプラクティスと呼ばれる記事を用意しています。
 ベストプラクティスを参照し、効率的なコーディングを心がけましょう。
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |Best Practice (API documentation - Blender 2.75a)|
 |---|
@@ -70,7 +70,7 @@ Blenderはアドオン開発について、処理を効率的に処理するた�
 
 リストに格納された値を2倍にしたリストを作成する、以下のソースコードを見てください。
 
-```py:best_practice_before.py
+```python
 l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 double_l = []
 for i in l:
@@ -82,7 +82,7 @@ double_l
 
 これをPythonの機能であるリスト内包表記で書くと、以下のようになります。
 
-```py:best_practice_after.py
+```python
 l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 double_l = [i * 2 for i in l]
 double_l
@@ -99,7 +99,7 @@ double_l
 いきなりアドオンのソースレビューを行うのではなく、作成したアドオンが実用的なものかを判断する機能レビューを最初に行います。
 レビューの申請は、developer.blender.org（通称D.B.O）から行います。
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |developer.blender.org|
 |---|
@@ -185,7 +185,7 @@ Blender本体へのアドオン登録はもうすぐそこです！
 
 機能レビューが通ったら、Blender公式のWikiページに作成したアドオンのページを作成しましょう。
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |Blender Wiki (Blender Add-ons Catalog)|
 |---|
@@ -206,7 +206,7 @@ D.B.Oで作成したタスクの説明文においてBlender Wikiのページを
 ソースコードレビューを受けるまでの流れを以下に示します。
 なお、BlenderのWikiページにもソースコードレビューの手順が書いてありますので、こちらも参考にしてみてください。
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |Blender Wiki (Code Review)|
 |---|
@@ -230,12 +230,12 @@ Blenderのサポートレベルに応じてリポジトリが異なります。
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|以下のコマンドを実行し、最新のBlenderのリポジトリを取得します。|　|
-|---|---|---|
+|1|以下のコマンドを実行し、最新のBlenderのリポジトリを取得します。|
+|---|---|
 
-```sh:source_review_1.sh
+```sh
 $ cd [作業用ディレクトリ]
 $ git clone git://git.blender.org/blender-addons-contrib.git
 ```
@@ -244,12 +244,12 @@ $ git clone git://git.blender.org/blender-addons-contrib.git
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|2|以下のコマンドを実行し、リポジトリ取得後に作成したアドオンをリポジトリへ移動します。|　|
-|---|---|---|
+|2|以下のコマンドを実行し、リポジトリ取得後に作成したアドオンをリポジトリへ移動します。|
+|---|---|
 
-```sh:source_review_2.sh
+```sh
 $ cd blender-addons-contrib
 $ cp [作成したプラグイン] .
 ```
@@ -258,12 +258,12 @@ $ cp [作成したプラグイン] .
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|3|以下のコマンドを実行し、ソースコードの差分を取得した結果をコピーします。|　|
-|---|---|---|
+|3|以下のコマンドを実行し、ソースコードの差分を取得した結果をコピーします。|
+|---|---|
 
-```sh:source_review_3.sh
+```sh
 $ git diff
 ```
 
@@ -310,12 +310,12 @@ $ git diff
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|Blenderのリポジトリへ登録（commit）するためは、リポジトリ管理者からリポジトリへのcommit権をもらう必要があります。<br>執筆時点で、リポジトリの管理はIdeasmanさんという方が行っているようです。<br>IRC(チャットのようなもの)に入り、Ideasmanさんにリポジトリのcommit権を与えてもらえるようにお願いしましょう。<br> IRCでは英語でのチャットになりますが、わからない単語をWebで調べつつ、こちらが言いたいことをはっきり伝えていけば良いのでなんとかなるでしょう。|　|
-|---|---|---|
+|1|Blenderのリポジトリへ登録（commit）するためは、リポジトリ管理者からリポジトリへのcommit権をもらう必要があります。<br>執筆時点で、リポジトリの管理はIdeasmanさんという方が行っているようです。<br>IRC(チャットのようなもの)に入り、Ideasmanさんにリポジトリのcommit権を与えてもらえるようにお願いしましょう。<br> IRCでは英語でのチャットになりますが、わからない単語をWebで調べつつ、こちらが言いたいことをはっきり伝えていけば良いのでなんとかなるでしょう。|
+|---|---|
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |IRC|
 |---|
@@ -330,19 +330,19 @@ Blender開発者のチャンネルは *#blendercoders* ですので、 *Channels
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|2|commit権をもらったら、Blenderのリポジトリを取得しましょう。<br>リポジトリの取得については、以下の手順で行います。<br>BlenderのWikiページも参考になるでしょう。|　|
-|---|---|---|
+|2|commit権をもらったら、Blenderのリポジトリを取得しましょう。<br>リポジトリの取得については、以下の手順で行います。<br>BlenderのWikiページも参考になるでしょう。|
+|---|---|
 
-<div id="website"></div>
+<div id="webpage"></div>
 
 |Blender Wiki (Git Usage)|
 |---|
 |http://wiki.blender.org/index.php/Dev:Doc/Tools/Git|
 |![Blender Wiki (Git Usage)](https://dl.dropboxusercontent.com/s/9wbrn6frzxdvzvy/git_usage.png "Blender Wiki (Git Usage)")|
 
-```sh:source_commit_1.sh
+```sh
 $ cd [作業用ディレクトリ]
 $ git clone git://git.blender.org/blender-addons-contrib.git
 $ cd blender-addons-contrib
@@ -357,12 +357,12 @@ $ git submodule foreach --recursive git pull --rebase origin master
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|3|著者・連絡先を設定します。<br>リポジトリへcommitする前に以下のコマンドを実行し、commitを行った人物や連絡先を設定します。<br>この設定を一度行っておけば、設定を変えたりOSを変えたりしない限り、2度目以降は実施する必要がありません。|　|
-|---|---|---|
+|3|著者・連絡先を設定します。<br>リポジトリへcommitする前に以下のコマンドを実行し、commitを行った人物や連絡先を設定します。<br>この設定を一度行っておけば、設定を変えたりOSを変えたりしない限り、2度目以降は実施する必要がありません。|
+|---|---|
 
-```sh:source_commit_2.sh
+```sh
 git config --global user.name "[名前（ニックネーム可）]"
 git config --global user.email "[連絡先メールアドレス]"
 ```
@@ -371,14 +371,14 @@ git config --global user.email "[連絡先メールアドレス]"
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|4|commit先を設定します。|　|
-|---|---|---|
+|4|commit先を設定します。|
+|---|---|
 
 以下のコマンドを実行し、commit先の設定を行います。
 
-```sh:source_commit_3.sh
+```sh
 $ git remote set-url origin git@git.blender.org:blender-addons-contrib.git
 ```
 
@@ -386,14 +386,14 @@ $ git remote set-url origin git@git.blender.org:blender-addons-contrib.git
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|5|ssh鍵を登録します。|　|
-|---|---|---|
+|5|ssh鍵を登録します。|
+|---|---|
 
 以下のコマンドを実行し、ssh鍵を作成します。
 
-```sh:source_commit_4.sh
+```sh
 $ ssh-keygen
 ```
 
@@ -405,14 +405,14 @@ D.B.Oの右上の工具マークをクリックし、左メニューの *SSH Pub
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|6|登録するアドオンのソースコードをリポジトリ内に配置します。<br>登録するアドオンのソースコードをリポジトリ内に置きましょう。|　|
-|---|---|---|
+|6|登録するアドオンのソースコードをリポジトリ内に配置します。<br>登録するアドオンのソースコードをリポジトリ内に置きましょう。|
+|---|---|
 
 以下では、 ```blender-addons-contrib``` 直下にアドオンのソースコードを置いています。
 
-```sh:source_commit_5.sh
+```sh
 $ cd blender-addons-contrib
 $ cp [作成したアドオンのソースコード] .
 ```
@@ -421,14 +421,14 @@ $ cp [作成したアドオンのソースコード] .
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|7|ローカルリポジトリへcommitします。|　|
-|---|---|---|
+|7|ローカルリポジトリへcommitします。|
+|---|---|
 
 以下の手順に従って、ローカルのリポジトリへcommitします。
 
-```sh:source_commit_6.sh
+```sh
 $ git add [作成したアドオンのソースコード]
 $ git commit
 ```
@@ -449,16 +449,16 @@ $ git commit
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|8|リモートリポジトリ（Blender本体のリポジトリ）へpushします。|　|
-|---|---|---|
+|8|リモートリポジトリ（Blender本体のリポジトリ）へpushします。|
+|---|---|
 
 いよいよアドオンの登録も最終段階です。
 アドオンをBlender本体のリポジトリへ登録しましょう。
 以下の手順でアドオンをBlender本体のリポジトリで登録します。
 
-```sh:source_commit_7.sh
+```sh
 $ git pull --rebase
 $ git push
 ```

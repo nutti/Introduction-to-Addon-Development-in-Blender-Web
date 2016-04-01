@@ -28,10 +28,10 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|2|*Blender User Preferences* ウィンドウが立ち上がりますので、 *System* タブを選択してください。|　|
-|---|---|---|
+|2|*Blender User Preferences* ウィンドウが立ち上がりますので、 *System* タブを選択してください。|
+|---|---|
 
 <div id="process_sep"></div>
 
@@ -90,10 +90,10 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|以下のURLからmifthさんが作成したアドオン一式をダウンロードします。|　|
-|---|---|---|
+|1|以下のURLからmifthさんが作成したアドオン一式をダウンロードします。|
+|---|---|
 
 * Mira Tools - https://github.com/mifth/mifthtools/archive/master.zip
 
@@ -101,19 +101,19 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|2|ダウンロードしたファイル *mifthtools-master.zip* を解凍します。|　|
-|---|---|---|
+|2|ダウンロードしたファイル *mifthtools-master.zip* を解凍します。|
+|---|---|
 
 <div id="process_sep"></div>
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|3|```mifthtools-master/blender/addons/mira_tools``` がMira Tools本体です。このフォルダ一式を、 **Blenderアドオン用フォルダ** へコピーしたらインストール完了です。|　|
-|---|---|---|
+|3|```mifthtools-master/blender/addons/mira_tools``` がMira Tools本体です。このフォルダ一式を、 **Blenderアドオン用フォルダ** へコピーしたらインストール完了です。|
+|---|---|
 
 以下に示すように、Blenderアドオン用フォルダはOSごとにパスが異なります。
 インストール先のフォルダがない場合は、新たに作成してください。
@@ -144,10 +144,10 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|Blenderを起動します|　|
-|---|---|---|
+|1|Blenderを起動します|
+|---|---|
 
 <div id="process_sep"></div>
 
@@ -162,19 +162,19 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|3|*Blenderユーザ設定* ウィンドウが別ウィンドウで開くので、 *アドオン* タブを選択してください。|　|
-|---|---|---|
+|3|*Blenderユーザ設定* ウィンドウが別ウィンドウで開くので、 *アドオン* タブを選択してください。|
+|---|---|
 
 <div id="process_sep"></div>
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|4|検索窓に *mira tools* を入力します。|　|
-|---|---|---|
+|4|検索窓に *mira tools* を入力します。|
+|---|---|
 
 <div id="process_sep"></div>
 
@@ -213,10 +213,10 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|アドオンを有効化した時と同様、 *Blenderユーザ設定* ウィンドウを開いてください。|　|
-|---|---|---|
+|1|アドオンを有効化した時と同様、 *Blenderユーザ設定* ウィンドウを開いてください。|
+|---|---|
 
 <div id="process_sep"></div>
 
@@ -248,19 +248,19 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|アドオンのソースコードの場所が分からない場合は、 *Blenderユーザ設定* ウィンドウの *アドオン* タブから確認します。|　|
-|---|---|---|
+|1|アドオンのソースコードの場所が分からない場合は、 *Blenderユーザ設定* ウィンドウの *アドオン* タブから確認します。|
+|---|---|
 
 <div id="process_sep"></div>
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|2|アドオン名の隣にある左の矢印をクリックして *Mira Tools* の詳細情報を表示します。|　|
-|---|---|---|
+|2|アドオン名の隣にある左の矢印をクリックして *Mira Tools* の詳細情報を表示します。|
+|---|---|
 
 <div id="process_sep"></div>
 
@@ -275,10 +275,10 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|4|アドオンのソースコードを削除すると、アンインストールが完了します。|　|
-|---|---|---|
+|4|アドオンのソースコードを削除すると、アンインストールが完了します。|
+|---|---|
 
 <div id="process_start_end"></div>
 
@@ -299,10 +299,10 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|*Blenderユーザ設定* ウィンドウの *アドオン* タブを選択し、 *Mira Tools* の左の矢印をクリックして詳細情報を開きます。|　|
-|---|---|---|
+|1|*Blenderユーザ設定* ウィンドウの *アドオン* タブを選択し、 *Mira Tools* の左の矢印をクリックして詳細情報を開きます。|
+|---|---|
 
 <div id="process_sep"></div>
 

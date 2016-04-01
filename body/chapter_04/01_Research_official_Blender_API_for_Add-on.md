@@ -103,10 +103,10 @@ Blenderが提供しているAPI一覧は、Blender公式が公開しているド
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|Blender内のオブジェクト一覧を保持している ```bpy.data.objects``` を *Pythonコンソール* に入力します。|　|
-|---|---|---|
+|1|Blender内のオブジェクト一覧を保持している ```bpy.data.objects``` を *Pythonコンソール* に入力します。|
+|---|---|
 
 <div id="process_sep"></div>
 
@@ -130,10 +130,10 @@ Blenderが提供しているAPI一覧は、Blender公式が公開しているド
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|4|候補の中にあった ```select``` を入力し、実行します。<br>選んだオブジェクトが選択状態である場合は ```True``` 、選択状態でない場合は ```False``` が表示されます。|　|
-|---|---|---|
+|4|候補の中にあった ```select``` を入力し、実行します。<br>選んだオブジェクトが選択状態である場合は ```True``` 、選択状態でない場合は ```False``` が表示されます。|
+|---|---|
 
 <div id="process_sep"></div>
 

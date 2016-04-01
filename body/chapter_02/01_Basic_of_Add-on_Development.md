@@ -37,7 +37,7 @@
 
 <div id="process"></div>
 
-|2|Dカーソルを中心としたICO球が作成されます。|![ICO球作成 手順2](https://dl.dropboxusercontent.com/s/4a1k4c68k8eteuv/blender_generate_ico-sphere_2.png "ICO球作成 手順2")|
+|2|3Dカーソルを中心としたICO球が作成されます。|![ICO球作成 手順2](https://dl.dropboxusercontent.com/s/4a1k4c68k8eteuv/blender_generate_ico-sphere_2.png "ICO球作成 手順2")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -123,7 +123,7 @@
 Blenderのアドオンを開発するためには、 ```bpy``` モジュールと呼ばれるBlenderが提供しているAPIをまとめたモジュールをインポートし、APIを利用できるようにする必要があります。
 以下のコードにより、bpyモジュールをインポートすることができます。
 
-```python:sample_1_part1.py
+```python
 import bpy   # アドオン開発者に対して用意しているAPIを利用する
 ```
 
@@ -132,7 +132,7 @@ import bpy   # アドオン開発者に対して用意しているAPIを利用�
 作成したソースコードがBlenderのアドオンであることをBlender本体に認識させるためには、 ```bl_info``` と呼ばれる変数を作成する必要があります。
 
 
-```python:sample_1_part2.py
+```python
 # アドオンに関する情報を保持する、bl_info変数
 bl_info = {
 	"name": "サンプル 1: オブジェクトを生成するアドオン",
@@ -190,7 +190,7 @@ bl_info = {
 今回のアドオンでは ```warning```, ```wiki_url```, ```tracker_url``` を設定していませんが、もし値を設定した場合に *ユーザ設定* ウィンドウへどのように反映されるか見てみましょう。
 ソースコード中の ```bl_info``` を以下のように書き換えてください。
 
-```py:sample_1_part2_alt.py
+```python
 # アドオンに関する情報を保持する、bl_info変数
 bl_info = {
 	"name": "サンプル 1: オブジェクトを生成するアドオン",
@@ -288,7 +288,7 @@ Blender公式のアドオン開発のガイドラインにも、アドオン開�
 
 以下はオペレーション用クラスのメンバ変数を宣言例です。
 
-```py:sample_1_part3.py
+```python
 # オブジェクト（ICO球）を生成するオペレーション
 class CreateObject(bpy.types.Operator):
 
@@ -319,7 +319,7 @@ class CreateObject(bpy.types.Operator):
 
 続いて、オペレーション用クラスの処理本体を作成します。
 
-```python:sample_1_part4.py
+```python
   # メニューを実行した時に呼ばれる関数
 	def execute(self, context):
 		bpy.ops.mesh.primitive_ico_sphere_add()
@@ -355,7 +355,7 @@ class CreateObject(bpy.types.Operator):
 ICO球生成時のサイズが2.0倍、座標が(x, y, z) = (5.0, -5.0, 0.0)、回転角（ラジアン）が(x, y, z) = (0.79, 0.0, 1.57)のICO球を作成するようにします。
 ```execute()``` メソッドを以下のように書き換えてください。
 
-```py:sample_1_part4_alt.py
+```python
   # メニューを実行した時に呼ばれる関数
 	def execute(self, context):
 		bpy.ops.mesh.primitive_ico_sphere_add(size=2.0, location=(5.0, -5.0, 0.0), rotation=(0.79, 0.0, 1.57))
@@ -397,7 +397,7 @@ Blenderではメニューやボタンをマウスオーバーすることで実�
 そこでまずは、メニューに登録時に呼ばれるメニュー構築関数 ```menu_fn()``` を作成します。
 ```menu_fn()``` は、後で解説するアドオン有効化・無効化時に呼ばれる関数の中で利用します。
 
-```py:sample_1_part5.py
+```python
 # メニューを構築する関数
 def menu_fn(self, context):
 	self.layout.separator()
@@ -413,7 +413,7 @@ def menu_fn(self, context):
 
 アドオン有効化時には ```register()``` 関数が呼ばれます。
 
-```py:sample_1_part6.py
+```python
 # アドオン有効化時の処理
 def register():
 	bpy.utils.register_module(__name__)
@@ -437,7 +437,7 @@ def register():
 
 アドオン無効化時には ```unregister()``` 関数が呼ばれます。
 
-```py:sample_1_part7.py
+```python
 # アドオン無効化時の処理
 def unregister():
 	bpy.types.INFO_MT_mesh_add.remove(menu_fn)
@@ -461,7 +461,7 @@ def unregister():
 アドオンであればメイン処理は必要ありませんが、慣習として書くことが多いので書きました。
 メイン処理では、単純にアドオン登録処理のみを行っています。
 
-```py:sample_1_part8.py
+```python
 # メイン処理
 if __name__ == "__main__":
 	register()

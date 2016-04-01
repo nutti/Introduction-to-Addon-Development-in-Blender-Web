@@ -24,7 +24,7 @@
 self.reportデバッグの例を以下に示します。
 以下の例では、 ```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値を表示しています。
 
-```py:debug_self_report.py
+```python
 def execute(self, context):
     a = 50
     b = 4.0
@@ -33,7 +33,7 @@ def execute(self, context):
 
 この状態で ```execute()``` メソッドが実行されると、 *コンソール・ウィンドウ* に以下のように表示されます。
 
-```py:debug_self_report_result.py
+```python
 a=50, b=4.0
 ```
 
@@ -48,7 +48,7 @@ self.reportデバッグと同じく、確認したい変数の値を表示させ
 
 以下の例では、 ```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値を表示しています。
 
-```py:debug_self_report.py
+```python
 def execute(self, context):
     a = 50
     b = 4.0
@@ -57,7 +57,7 @@ def execute(self, context):
 
 この状態で ```execute()``` メソッドが実行されると、 *コンソール* に以下のように表示されます。
 
-```py:debug_self_report_result.py
+```python
 a=50, b=4.0
 ```
 
@@ -365,6 +365,10 @@ Blenderのトップディレクトリ（Blenderを非インストーラ版でダ
 |Mac|```/path/blender.app/Contents/MacOS/blender```|
 |Linux|```/path/blender```|
 
+<div id="process_sep"></div>
+
+---
+
 <div id="process"></div>
 
 |4|```Apply``` をクリックします。|![EclipseにBlenderを登録 手順3](https://dl.dropboxusercontent.com/s/305zw5lym8bhoja/register_blender_to_eclipse_3.png "EclipseにBlenderを登録 手順3")|
@@ -576,7 +580,7 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 ブレークポイントを設定する関数は ```bpy.types.bp.bp()``` ですが、簡単のため ```breakpoint()``` で呼び出せるようしています。
 
-```py:debuggee_2_part_1.py
+```python
 # ブレークポイント関数
 breakpoint = bpy.types.bp.bp
 ```

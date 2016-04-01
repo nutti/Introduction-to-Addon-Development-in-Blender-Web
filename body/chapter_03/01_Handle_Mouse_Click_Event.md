@@ -41,8 +41,8 @@
 
 <div id="process"></div>
 
-|1|*編集モード* に変更し、選択方法を *面選択* にします。|　|
-|---|---|---|
+|1|*編集モード* に変更し、選択方法を *面選択* にします。|
+|---|---|
 
 <div id="process_sep"></div>
 
@@ -93,7 +93,7 @@
 ```bpy.types.PropertyGroup``` は、 [2-3節](../chapter_02/03_Sample_3_Scaling_object_2.md) で紹介したプロパティ用クラスをグループ化するためのクラスです。
 使い方は簡単で、 ```bpy.types.PropertyGroup``` クラスを継承し、グループ化したいプロパティ用クラスをメンバ変数に追加するだけです。
 
-```py:sample_7_part1.py
+```python
 # プロパティ
 class DFRC_Properties(bpy.types.PropertyGroup):
     running = BoolProperty(
@@ -125,7 +125,7 @@ class DFRC_Properties(bpy.types.PropertyGroup):
 
 作成したグループは、 ```PointerProperty``` クラスを利用して登録します。
 
-```py:sample_7_part2.py
+```python
 def register():
 # （略）
     sc = bpy.types.Scene
@@ -142,7 +142,7 @@ def register():
 アドオン無効時には、```bpy.types.Scene``` に追加したプロパティのグループを削除する必要があります。
 削除しないとアドオン無効化時にもプロパティのデータが残ることになるため、無駄にメモリを使用してしまいます。
 
-```py:sample_7_part3
+```python
 def unregister():
     del bpy.types.Scene.dfrc_props
 # （略）
@@ -157,7 +157,7 @@ def unregister():
 
 *プロパティパネル* にボタンを追加するためには ```bpy.types.Panel``` クラスを継承してパネル用クラスを作成し、 ```draw()``` メソッド内でUIを定義します。
 
-```py:sample_7_part4
+```python
 # UI
 class OBJECT_PT_DFRC(bpy.types.Panel):
     bl_label = "マウスの右クリックで面を削除"
@@ -198,7 +198,7 @@ class OBJECT_PT_DFRC(bpy.types.Panel):
 |```TOOL_PROPS```|*ツール・シェルフ* のプロパティ|
 
 
-```py:sample_7_part5
+```python
 # UI
 class OBJECT_PT_DFRC(bpy.types.Panel):
 # ・・・（略）・・・
@@ -241,7 +241,7 @@ class OBJECT_PT_DFRC(bpy.types.Panel):
 これまで使ってきた ```execute()``` メソッドも処理が実行された時に呼ばれますが、 ```execute()``` メソッドの前に ```invoke()``` メソッドが呼ばれる点が異なります。
 このため、 ```execute()``` メソッドで利用するデータの初期化などを ```invoke()``` メソッドで行うのが習慣となっています。
 
-```py:sample_7_part6.py
+```python
 def invoke(self, context, event):
     props = context.scene.dfrc_props
     if context.area.type == 'VIEW_3D':
@@ -253,7 +253,7 @@ def invoke(self, context, event):
 今回は、ボタンが押した時に処理を開始/終了する処理を ```invoke()``` メソッドに記述します。
 プロパティグループ ```DFRC_Properties``` の取得方法は、UIの作成時に説明した方法と同じです。
 
-```py:sample_7_part7.py
+```python
         if props.running is False:
             props.running = True
             props.deleted = False
@@ -270,7 +270,7 @@ def invoke(self, context, event):
 *モーダルモード* とは、 ```{'FINISHED'}``` または ```{'CANCELLED'}``` を返すまで、処理を終えずにイベントを受け取り続けるモードを指します。
 今回のアドオンでは、 ```invoke()``` メソッドと ```modal()``` メソッドを同一のクラスで定義しているため、 ```context.window_manager.modal_handler_add()``` の引数に ```self``` を指定します。
 
-```py:sample_7_part8.py
+```python
         # 処理停止
         else:
             props.running = False
@@ -286,7 +286,7 @@ def invoke(self, context, event):
 
 続いて、 *モーダルモード* 中に呼ばれる ```modal()``` メソッドについて説明します。
 
-```py:sample_7_part9.py
+```python
 def modal(self, context, event):
     props = context.scene.dfrc_props
 
@@ -312,7 +312,7 @@ def modal(self, context, event):
 *プロパティパネル* から処理を開始空いた後はボタンを押すことができなくなり、処理を終えることができなくなります。
 これは ```DeleteFaceByRClick``` の ```modal()``` メソッドでイベントが捨てられ、他の処理へイベントが通知されていないことを示します。
 
-```py:sample_7_part10.py
+```python
     # クリック状態を更新
     if event.type == 'RIGHTMOUSE':
         if event.value == 'PRESS':
@@ -340,7 +340,7 @@ def modal(self, context, event):
 |```RELEASE```|ボタンやキーが離された|
 
 
-```py:sample_7_part11.py
+```python
     # 右クリックされた面を削除
     if props.right_mouse_down is True and props.deleted is False:
 
@@ -368,7 +368,7 @@ def modal(self, context, event):
 
 ```bmesh``` を利用するためには、以下のように ```bmesh``` モジュールをインポートする必要があります。
 
-```py:sample_7_part12.py
+```python
 import bmesh
 ```
 
@@ -376,7 +376,7 @@ import bmesh
 最初にメッシュデータにアクセスするため、 ```bmesh``` 用のメッシュデータを構築します。
 編集中のオブジェクトデータ ```context.edit_object.data``` を ```bmesh.from_edit_mesh()``` 関数の引数に渡すことで、 ```bmesh``` 用のメッシュデータを構築できます。
 
-```py:sample_7_part13.py
+```python
         # bmeshの構築
         obj = context.edit_object
         me = obj.data
@@ -396,7 +396,7 @@ import bmesh
 関数 ```bpy.ops.view3d.select()``` の引数 ```location``` にマウスの位置を指定することで、マウスの位置にある面を選択することができます。
 もしマウスの位置に面がなければ ```bpy.ops.view3d.select()``` 関数は ```{'PASS_THROUGH'}``` を返すため、関数の戻り値を判定し ```{'PASS_THROUGH'}``` であれば、マウスの位置に面がないことを出力した後に処理を終了します。
 
-```py:sample_7_part14.py
+```python
         # クリックされた面を選択
         loc = event.mouse_region_x, event.mouse_region_y
         ret = bpy.ops.view3d.select(location=loc)
@@ -409,7 +409,7 @@ import bmesh
 続いて2の選択された面は、 ```bmesh``` の履歴情報から最後に選択された面であることを利用することで取得できます。
 頂点・辺・面の選択履歴 ```bm.select_history``` の最後の要素が面であるか否かを確認し、面であれば処理を継続し、そうでなければ処理を終了します。
 
-```py:sample_7_part15.py
+```python
         # 選択面を取得
         e = bm.select_history[-1]
         if not isinstance(e, bmesh.types.BMFace):
@@ -430,7 +430,7 @@ import bmesh
 
 今回は面を削除するため、 ```context``` に ```5``` を指定しています。
 
-```py:sample_7_part16.py
+```python
         # 選択面を削除
         bm.select_history.remove(e)
         bmesh.ops.delete(bm, geom=[e], context=5)
@@ -439,7 +439,7 @@ import bmesh
 面を削除したことをメッシュに反映させるため、 ```bmesh.update_edit_mesh()``` 関数を実行します。
 この関数を実行しないとメッシュの更新が行われませんので、 ```bmesh``` 用のメッシュデータを修正した時は必ず実行するようにしましょう。
 
-```py:sample_7_part17.py
+```python
         # bmeshの更新
         bmesh.update_edit_mesh(me, True)
 ```
@@ -447,7 +447,7 @@ import bmesh
 面の削除処理はこれで終わりです。
 最後に削除した面数をカウントアップし、 ```props.deleted``` を ```True``` に変更して、マウスの右ボタンが押された状態で面が削除されないようにします。
 
-```py:sample_7_part18.py
+```python
         # 削除面数をカウントアップ
         props.deleted_count = props.deleted_count + 1
         # マウスクリック中に連続して面が削除されることを防ぐ

@@ -31,7 +31,7 @@
 [1-4節](../chapter_01/04_Install_own_Add-on.md) を参考に、作成したアドオンを有効化します。
 正常に終了すると、 *コンソール* に以下の文字列が出力されるはずです。
 
-```shell-session
+```sh
 サンプル 2: アドオン「サンプル2」が有効化されました。
 ```
 
@@ -54,13 +54,13 @@
 
 この時 *コンソール・ウィンドウ* を見ると、以下のメッセージが出力されているはずです。
 
-```shell-session
+```sh
 サンプル 2: 「Cube」を2倍に拡大しました。
 ```
 
 また、 *コンソール* にも以下のメッセージが出力されているはずです。
 
-```shell-session
+```sh
 サンプル 2: オペレーション「OBJECT_OT_enlarge_object」が実行されました。
 ```
 
@@ -75,13 +75,13 @@
 
 *コンソール・ウィンドウ* には、以下のメッセージが出力されているはずです。
 
-```shell-session
+```sh
 サンプル 2: 「Cube」を1/2倍に縮小しました。
 ```
 
 また、 *コンソール* には以下のメッセージが出力されます。
 
-```shell-session
+```sh
 サンプル 2: オペレーション「OBJECT_OT_reduce_object」が実行されました。
 ```
 
@@ -95,7 +95,7 @@
 [1-4節](../chapter_01/04_Install_own_Add-on.md) を参考に、有効化したアドオンを無効化してください。
 アドオンが無効化されると、 *コンソール* に以下の文字列が出力されます。
 
-```shell-session
+```sh
 サンプル 2: アドオン「サンプル 2」が無効化されました。
 ```
 
@@ -110,7 +110,7 @@
 1つのファイルに複数のオペレーション用クラスを定義するには、作りたいオペレーションの数だけオペレーションクラスを作成する必要があります。
 今回はオブジェクトの拡大と縮小のために、2つのオペーレーションクラスを以下のように作成しました。
 
-```python:sample_2_part1.py
+```python
 # オブジェクトを拡大するオペレーション
 class EnlargeObject(bpy.types.Operator):
 
@@ -141,7 +141,7 @@ class ReduceObject(bpy.types.Operator):
 オペレーション用クラスの ```execute()``` 関数では、メニューが実行された時にコンソール・ウィンドウへメッセージを出力する処理があります。
 ここでは ```EnlargeObject``` クラスの ```execute()``` 関数を用いて、コンソール・ウィンドウへメッセージを出力する方法を紹介します。
 
-```py:sample_2_part2.py
+```python
     # メニューを実行した時に呼ばれる関数
     def execute(self, context):
         active_obj = context.active_object
@@ -206,7 +206,7 @@ Blenderのエリア構成が [1-3節](../chapter_01/03_Prepare_Add-on_developmen
 続いて、本節で作成したアドオンを有効化してから先ほどの操作を *Pythonコンソール* で行ってみましょう。
 *Pythonコンソール* に以下を打ち込んで、 *Enterキー* を押してください。
 
-```pycon
+```python
 >>> bpy.ops.object.enlarge_object()
 ```
 
@@ -246,37 +246,37 @@ Macでショートカットを利用するためには、Mission Controlなど�
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|*システム環境設定...* をクリック|　|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|2|*キーボード* をクリック|　|
-|---|---|---|
+|1|*システム環境設定...* をクリック|
+|---|---|
 
 <div id="process_sep"></div>
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|3|*ショートカット* タブをクリック|　|
-|---|---|---|
+|2|*キーボード* をクリック|
+|---|---|
 
 <div id="process_sep"></div>
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|4|Blender Python Consoleで使いたいショートカットの割り当てを解除|　|
-|---|---|---|
+|3|*ショートカット* タブをクリック|
+|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process_noimg"></div>
+
+|4|Blender Python Consoleで使いたいショートカットの割り当てを解除|
+|---|---|
 
 <div id="process_start_end"></div>
 

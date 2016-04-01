@@ -50,7 +50,7 @@
 
 ショートカットキーの割り当ては、 ```register_shortcut()``` 関数で行います。
 
-```py:sample_6_part1.py
+```python
 def register_shortcut():
     wm = bpy.context.window_manager
     kc = wm.keyconfigs.addon
@@ -108,7 +108,7 @@ def register_shortcut():
 アドオン内で登録したショートカットキーは、アドオン無効化時に割り当てを解除する必要があります。
 ショートカットキーの割り当て解除は、 ```unregister_shortcut()``` 関数で行います。
 
-```py:sample_6_part2.py
+```python
 def unregister_shortcut():
     for km, kmi in addon_keymaps:
         # ショートカットキーの登録解除

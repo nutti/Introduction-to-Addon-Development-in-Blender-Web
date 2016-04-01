@@ -40,10 +40,10 @@
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|*3Dビュー* エリアのメニュー *オブジェクト* > *オブジェクトの複製* から複製するオブジェクト名を選んで実行すると、選択したオブジェクトが複製されます。|　|
-|---|---|---|
+|1|*3Dビュー* エリアのメニュー *オブジェクト* > *オブジェクトの複製* から複製するオブジェクト名を選んで実行すると、選択したオブジェクトが複製されます。|
+|---|---|
 
 <div id="process_sep"></div>
 
@@ -76,7 +76,7 @@
 
 サブメニューを追加するためには、 ```bpy.types.Menu``` クラスを継承したメニュー用クラスを作成する必要があります。
 
-```py:sample_5_part1.py
+```python
 # メインメニュー
 class ReplicateObjectMenu(bpy.types.Menu):
     bl_idname = "uv.replicate_object_menu"
@@ -108,7 +108,7 @@ class ReplicateObjectMenu(bpy.types.Menu):
 
 オペレーション用クラスでは、メニュー用クラスから複製されたオブジェクト名を代入するための変数 ```src_obj_name``` を ```StringProperty()``` クラスとして用意します。
 
-```py:sample_5_part2.py
+```python
     src_obj_name = bpy.props.StringProperty()
 ```
 
@@ -116,7 +116,7 @@ class ReplicateObjectMenu(bpy.types.Menu):
 
 最後に、 *3Dビュー* エリアのメニュー *オブジェクト* へ項目を追加します。
 
-```py:sample_5_part3.py
+```python
 def menu_fn(self, context):
     self.layout.separator()
     self.layout.menu(ReplicateObjectMenu.bl_idname)
@@ -138,7 +138,7 @@ def menu_fn(self, context):
 
 サンプルを見てもらえばわかると思いますが、3階層のメニューを作成する場合は2階層のメニューを作成した時の応用になります。
 
-```py:sample_5_alt_part1.py
+```python
 # サブメニュー
 class ReplicateObjectSubMenu(bpy.types.Menu):
     bl_idname = "uv.replicate_object_sub_menu"

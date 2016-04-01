@@ -33,7 +33,7 @@
 
 [1-4節](../chapter_01/04_Install_own_Add-on.md) を参考にして作成したアドオンを有効化すると、 *コンソール* に以下の文字列が出力されます。
 
-```shell-session
+```sh
 サンプル 4: アドオン「サンプル4」が有効化されました。
 ```
 
@@ -54,7 +54,7 @@
 
 実行すると、*コンソール・ウィンドウ* に以下のメッセージが表示され、
 
-```shell-session
+```sh
 サンプル 4: 「Cube」を複製しました。
 ```
 
@@ -85,7 +85,7 @@
 
 [1-4節](../chapter_01/04_Install_own_Add-on.md) を参考にしてアドオンを無効化すると、 *コンソール* に以下の文字列が出力されます。
 
-```shell-session
+```sh
 サンプル 4: アドオン「サンプル 4」が無効化されました。
 ```
 
@@ -102,7 +102,7 @@
 
 以下に 選択項目として *3Dカーソル* と *原点* を追加するコードを示します。
 
-```python:sample_4_part1_alt.py
+```python
 location_list = [
     ('3D_CURSOR', "3Dカーソル", "3Dカーソル上に配置します"),
     ('ORIGIN', "原点", "原点に配置します")]
@@ -128,7 +128,7 @@ location = EnumProperty(
 
 この問題に対し、紹介したサンプルでは以下のようにして ```EnumProperty``` クラスにより作られるセレクトボックスの選択項目を動的に追加しています。
 
-```python:sample_4_part1.py
+```python
 # EnumPropertyで表示したい項目リストを作成する関数
 def location_list_fn(scene, context):
     items = [

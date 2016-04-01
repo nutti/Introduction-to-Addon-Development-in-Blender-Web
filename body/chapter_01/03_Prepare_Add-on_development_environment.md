@@ -258,19 +258,19 @@ Blenderを起動する時は、アプリケーションのアイコン（Windows
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|*コマンドプロンプト* を起動します。|　|
-|---|---|---|
+|1|*コマンドプロンプト* を起動します。|
+|---|---|
 
 <div id="process_sep"></div>
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|2|以下のコマンドを実行します。（blender.exeが置かれているパスが ```C:\path\blender.exe``` であると仮定します。）|　|
-|---|---|---|
+|2|以下のコマンドを実行します。（blender.exeが置かれているパスが ```C:\path\blender.exe``` であると仮定します。）|
+|---|---|
 
 ```dos
 > C:\path\blender.exe
@@ -280,10 +280,10 @@ Blenderを起動する時は、アプリケーションのアイコン（Windows
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|3|Blenderが起動します。|　|
-|---|---|---|
+|3|Blenderが起動します。|
+|---|---|
 
 <div id="process_start_end"></div>
 
@@ -295,19 +295,19 @@ Blenderを起動する時は、アプリケーションのアイコン（Windows
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|*ターミナル* を起動します。|　|
-|---|---|---|
+|1|*ターミナル* を起動します。|
+|---|---|
 
 <div id="process_sep"></div>
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|2| 以下のコマンドを実行します。（Blender.appが置かれているパスが ```/path/Blender.app``` であると仮定します。）|　|
-|---|---|---|
+|2| 以下のコマンドを実行します。（Blender.appが置かれているパスが ```/path/Blender.app``` であると仮定します。）|
+|---|---|
 
 ```sh
 $ /path/blender.app/Contents/MacOS/blender
@@ -317,10 +317,10 @@ $ /path/blender.app/Contents/MacOS/blender
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|3|Blenderが起動します。|　|
-|---|---|---|
+|3|Blenderが起動します。|
+|---|---|
 
 <div id="process_start_end"></div>
 
@@ -332,19 +332,19 @@ $ /path/blender.app/Contents/MacOS/blender
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|*ターミナル* を起動します。|　|
-|---|---|---|
+|1|*ターミナル* を起動します。|
+|---|---|
 
 <div id="process_sep"></div>
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|2| 以下のコマンドを実行します。（実行ファイルblenderが置かれているパスが ```/path/blender``` であると仮定します。）|　|
-|---|---|---|
+|2| 以下のコマンドを実行します。（実行ファイルblenderが置かれているパスが ```/path/blender``` であると仮定します。）|
+|---|---|
 
 ```sh
 $ /path/blender
@@ -354,10 +354,10 @@ $ /path/blender
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|3|Blenderが起動します。|　|
-|---|---|---|
+|3|Blenderが起動します。|
+|---|---|
 
 <div id="process_start_end"></div>
 

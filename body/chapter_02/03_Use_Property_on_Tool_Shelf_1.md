@@ -54,10 +54,10 @@
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|1|Blender起動直後に生成される *Cube* を選択します。|　|
-|---|---|---|
+|1|Blender起動直後に生成される *Cube* を選択します。|
+|---|---|
 
 <div id="process_sep"></div>
 
@@ -81,10 +81,10 @@
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|4|*3Dビュー* エリアのメニュー *オブジェクト* > *選択オブジェクトの縮小（縮小率任意指定）* を実行すると、 *ツール・シェルフ* の *選択オブジェクトの縮小（縮小率任意指定）* ラベルの下に、 *縮小率* というオプションが追加されます。|　|
-|---|---|---|
+|4|*3Dビュー* エリアのメニュー *オブジェクト* > *選択オブジェクトの縮小（縮小率任意指定）* を実行すると、 *ツール・シェルフ* の *選択オブジェクトの縮小（縮小率任意指定）* ラベルの下に、 *縮小率* というオプションが追加されます。|
+|---|---|
 
 <div id="process_sep"></div>
 
@@ -142,7 +142,7 @@
 
 今回は以下のように、 ```FloatPropery``` クラスを用いて拡大率と縮小率を指定できるようにしています。
 
-```python:sample_3_part1.py
+```python
 magnification = FloatProperty(
   name = "拡大率",
   description = "拡大率を設定します",
@@ -174,7 +174,7 @@ reduction = FloatProperty(
 ```execute()``` メソッドの処理が重い場合は値の変更だけで時間がかかるので、 ```execute()``` メソッドは可能な限り処理が軽くなるようにしましょう。
 ```execute()``` 関数の中で指定されたオプションの値は、以下のように通常のメンバ変数と同様、 ```self``` 変数からアクセスすることで取得できます。
 
-```py:sample_3_part2.py```
+```python
         active_obj.scale = active_obj.scale * self.reduction
 ```
 
