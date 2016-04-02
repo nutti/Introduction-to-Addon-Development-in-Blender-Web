@@ -534,10 +534,10 @@
 
 @mixin code($font_size) {
     code {
-        font-family: Hack;
+        font-family: Hack, NotoSansCJKjp;
         font-size: $font_size;
         line-height: 2.0;
-        background-color: #999999;
+        background-color: #FBFBFB;
         vertical-align: 1px;
         padding: 0px;
     }
@@ -843,8 +843,7 @@ $sect_img_list:
             font-size: $font_size_base * 0.7;
             line-height: $line_height * 1.2;
             white-space: pre-wrap;
-            //background: #FBFBFB;
-            background: #FFFFBB;
+            background: #FBFBFB;
         }
     }
 

@@ -60,10 +60,6 @@
                 overflow: hidden;
                 font-size: 0.65em * 3;
             }
-/*            ol {
-                font-family: MPlus;
-                font-size: 0.5em;
-            }*/
             li {
                 margin-top: 10px;
                 .inner {
@@ -89,6 +85,8 @@
     font-family: NotoSansCJKjp;
     margin-top: 20px;
     padding-bottom: 0px;
+    //float: none;
+    text-align: center;
 }
 
 .pdf-footer {
@@ -98,4 +96,17 @@
     font-family: NotoSansCJKjp;
     margin-top: 20px;
     padding-top: 0px;
+    text-align: center;
+    .footer-pages-count {
+        text-align: center;
+        color: #FFFFFF;
+        float: none;
+    }
+}
+
+.footer-pages-count:before {
+    content: " いいいおうういおう-";
+}
+.footer-pages-count:after {
+    content: "どfjsぢおふぉいじょ-";
 }
