@@ -537,7 +537,7 @@
         font-family: Hack;
         font-size: $font_size;
         line-height: 2.0;
-        background-color: #FFFFFF;
+        background-color: #999999;
         vertical-align: 1px;
         padding: 0px;
     }
@@ -829,6 +829,7 @@ $sect_img_list:
     font-family: NotoSansCJKjp;
     line-height: $line_height;
     p {
+        font-family: NotoSansCJKjp;
         font-size: $font_size_base;
         margin-left: 15px;
         padding-left: 5px;
@@ -855,6 +856,7 @@ $sect_img_list:
         margin-left: 60%;
     }
     h2 {
+        font-family: NotoSansCJKjp;
         text-align: left;
         font-size: $font_size_base * 2.0;
         border-left: 15px
