@@ -85,7 +85,6 @@
     font-family: NotoSansCJKjp;
     margin-top: 20px;
     padding-bottom: 0px;
-    //float: none;
     text-align: center;
 }
 
@@ -99,14 +98,7 @@
     text-align: center;
     .footer-pages-count {
         text-align: center;
-        color: #FFFFFF;
+        color: #333333;
         float: none;
     }
-}
-
-.footer-pages-count:before {
-    content: " いいいおうういおう-";
-}
-.footer-pages-count:after {
-    content: "どfjsぢおふぉいじょ-";
 }
