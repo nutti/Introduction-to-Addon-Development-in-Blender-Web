@@ -10,19 +10,24 @@
 
 ## OpenGLとは？
 
-3DCGに何かしら関わっている方はご存知と思いますが、2D/3D向けのグラフィックAPIは **OpenGL (Open Graphic Library)** と **DirectX** の2つが主流です。
-DirectXはMicrosoft社が開発したAPIで主にゲームの描画に使われることが多いのに対し、OpenGLは3DCGソフトやCADソフトに使われることが多いです。
-ゲーム用途に使われることの多いDirectXはレンダリングの精密さが欠ける反面、高速な描画が可能です。
-一方、OpenGLは多少性能を犠牲にしてもレンダリングの結果の精度を重視するため、CADソフトなど精密さが求められるソフトでの利用が適しています。
-しかし、iOSやAndroidなどのスマートフォン向けアプリやWebアプリでもOpenGLを利用できるようになってきており、ゲーム作るならDirectXというようなことはなくなってきていると思います。
-またDirectXはWindowsやXBox上でしか動作しないのに対し、OpenGLではMacやLinux、iOSやAndroidなど動作可能な環境が多いのも大きな違いです。
+2D/3D向けのグラフィックAPIは **OpenGL (Open Graphic Library)** と **DirectX** の2つが主流です。
+3DCGに何かしら関わっている方はご存知かもしれませんが、それぞれどのような違いがあるのかわからない方のために、OpenGLとDirectXの違いを以下にまとめました。
 
-Blender自体OpenGLを利用していることもあり、PythonからOpenGLへアクセスするためのAPIを提供しています。
+|　|OpenGL|DirectX|
+|---|---|---|
+|開発元|Microsoft|シリコングラフィクス|
+|主な用途|ゲームの描画|3DCGソフト、CADソフト|
+|レンダリング精度|OpenGLに比べて低精度|精度が求められるCADソフトで利用されるため高精度|
+|レンダリング速度|高い応答性が求められるゲームで利用されるため高速|DirectXに比べて低速|
+|動作環境|Windows, XBox|Windows, Mac, Linux, iOS, Android, Webアプリなど|
+
+上記の比較からもわかるように、3DCGソフトかつ複数のOSでの動作をサポートするBlenderはグラフィックスAPIとしてOpenGLを利用しています。
+そしてBlenderは、PythonからOpenGLへアクセスできるようにAPIも用意しているため、ユーザはPythonスクリプトからOpenGLの機能の一部を扱うことができます。
 
 ## 作成するアドオンの仕様
 
-* *3Dビュー* に図形を表示する
-* 表示する図形は、 *プロパティパネル* から選択できるようにする
+* *3Dビュー* エリアに図形を表示
+* 表示する図形は、 *プロパティパネル* から選択
 
 ## アドオンを作成する
 
@@ -40,7 +45,7 @@ Blender自体OpenGLを利用していることもあり、PythonからOpenGLへ�
 サンプル 8: アドオン「サンプル8」が有効化されました。
 ```
 
-アドオンを有効化すると、 *3Dビュー* の *プロパティパネル* に開始ボタンが表示されます。
+アドオンを有効化すると、 *3Dビュー* エリアの *プロパティパネル* に開始ボタンが表示されます。
 
 ![図の表示 手順1](https://dl.dropboxusercontent.com/s/uf0xneikowb5ozz/use_addon_1.png "図の表示 手順1")
 
@@ -55,7 +60,7 @@ Blender自体OpenGLを利用していることもあり、PythonからOpenGLへ�
 
 <div id="process"></div>
 
-|1|開始ボタンをクリックすると、 *3Dビュー* 上に三角形が表示されます。<br>また *プロパティパネル* には、表示する図形と図形の頂点を変更するためのUIが表示されます。|![図の表示 手順2](https://dl.dropboxusercontent.com/s/056sg7b9x96mdjf/use_addon_2.png "図の表示 手順2")|
+|1|開始ボタンをクリックすると、 *3Dビュー* エリア上に三角形が表示されます。<br>また *プロパティパネル* には、表示する図形と図形の頂点を変更するためのUIが表示されます。|![図の表示 手順2](https://dl.dropboxusercontent.com/s/056sg7b9x96mdjf/use_addon_2.png "図の表示 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -64,7 +69,7 @@ Blender自体OpenGLを利用していることもあり、PythonからOpenGLへ�
 
 <div id="process"></div>
 
-|2|三角形の頂点座標を変更します。*3Dビュー* 上に表示されている三角形が頂点の変更に合わせて変形されます。|![図の表示 手順3](https://dl.dropboxusercontent.com/s/vlua7b5aiptcc4m/use_addon_3.png "図の表示 手順3")|
+|2|三角形の頂点座標を変更します。*3Dビュー* エリア 上に表示されている三角形が頂点の変更に合わせて変形します。|![図の表示 手順3](https://dl.dropboxusercontent.com/s/vlua7b5aiptcc4m/use_addon_3.png "図の表示 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -73,7 +78,7 @@ Blender自体OpenGLを利用していることもあり、PythonからOpenGLへ�
 
 <div id="process"></div>
 
-|3|表示する図形を三角形から四角形へ変更します。<br>表示する図形を四角形へ変更すると4つの頂点を編集できるようになり、変更と同時に *3Dビュー* 上に表示されている図形も変更されます。|![図の表示 手順4](https://dl.dropboxusercontent.com/s/1wr0l6uddp64emk/use_addon_4.png "図の表示 手順4")|
+|3|表示する図形を三角形から四角形へ変更します。<br>表示する図形を四角形へ変更すると4つの頂点を編集できるようになり、変更と同時に *3Dビュー* エリア 上に表示されている図形も変更されます。|![図の表示 手順4](https://dl.dropboxusercontent.com/s/1wr0l6uddp64emk/use_addon_4.png "図の表示 手順4")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -93,7 +98,7 @@ Blender自体OpenGLを利用していることもあり、PythonからOpenGLへ�
 
 ### OpenGLへアクセスするためのAPIを利用する
 
-今回のサンプルでは、Blenderが提供するOpenGL向けのAPIを利用しています。
+今回のサンプルでは図形を描画するために、Blenderが提供するOpenGLへアクセスするためのAPIを利用します。
 OpenGLへアクセスするAPIをアドオンから利用するためには、 ```bgl``` モジュールをインポートする必要があります。
 
 ```python
@@ -102,7 +107,7 @@ import bgl
 
 ### アドオンで利用するプロパティを定義する
 
-[4.1節](01_Sample_7_Delete_face_by_mouse_click.md)でも説明しましたが、今回もクラス間で以下のようなデータを共有します。
+[3.1節](01_Sample_7_Delete_face_by_mouse_click.md)で紹介したサンプルと同様、今回もクラス間で以下のようなデータを共有します。
 
 |変数|意味|
 |---|---|
@@ -112,6 +117,8 @@ import bgl
 |```rf_vert_2```|頂点2の座標（2次元）|
 |```rf_vert_3```|頂点3の座標（2次元）|
 |```rf_vert_4```|頂点4の座標（2次元）、四角形表示時のみに利用|
+
+以下のようにして、上記プロパティを追加します。
 
 ```python
 sc = bpy.types.Scene
@@ -167,8 +174,8 @@ del sc.rf_vert_4
 
 ### 図形を描画する関数を登録する
 
-*3Dビュー* 上で図形を描画する関数を登録するための静的メソッド ```RenderFigure.handle_add()``` を作成します。
-```RenderFigure.handle_add()``` は静的メソッドとして作成する必要があるため、デコレータ ```@staticmethod``` をメソッド定義の前につける必要があります。
+*3Dビュー* エリア上で図形を描画する関数を登録するための静的メソッド ```RenderFigure.handle_add()``` を作成します。
+```RenderFigure.handle_add()``` は静的メソッドとして作成する必要があるため、デコレータ ```@staticmethod``` をメソッド定義の前につけます。
 
 ```python
 # 画像描画関数を登録
@@ -181,7 +188,8 @@ def handle_add(self, context):
 ```
 
 描画関数の登録は ```bpy.types.SpaceView3D.draw_handler_add()``` 関数で行います。
-ここで、 ```SpaceView3D``` は描画する *エリア* により変わります。
+この関数は、 *3Dビュー* エリア上で描画するための関数を登録します。
+ここで ```SpaceView3D``` は *3Dビュー* を指していますが、描画するエリアにより変わります。
 関数の引数に指定する値は以下の通りです。
 
 |引数|意味|
@@ -191,10 +199,11 @@ def handle_add(self, context):
 |第3引数|描画する *リージョン*|
 |第4引数|描画モード（深度バッファの扱いを指定、基本は ```POST_PIXEL```）|
 
-今回のサンプルでは描画する静的メソッドを ```RenderFigure.render``` 、描画する *リージョン* を ```WINDOW``` に指定しています。
+今回のサンプルでは、第1引数に ```RenderFigure.render``` 、第3引数に ```WINDOW``` を指定しています。
 描画関数に渡す引数は、自身のクラスインスタンスと実行時コンテキストを渡しています。
 
-戻り値としてハンドルが返ってくるため、登録解除時に利用するために返ってきたハンドルを保存しておきます。
+なお、 ```bpy.types.SpaceView3D.draw_handler_add()```  は戻り値としてハンドルを返します。
+ハンドルは、描画関数の登録解除時に利用するため変数に保存しておきます。
 
 ### 図形を描画する関数を作成する
 
@@ -226,10 +235,10 @@ def render(self, context):
         bgl.glEnd()
 ```
 
-プロパティを取得した後は、基本的にOpenGLを用いた描画手順に沿うことで図形を表示します。
+プロパティを取得した後は、基本的にOpenGLを用いた描画手順に従うことで図形を表示します。
 
 最初にOpenGLの設定として、 ```bgl.glEnable(bgl.GL_BLEND)``` により半透明処理を有効化します。
-この処理がないと図形描画時に透過が無効になり、期待した結果にならないでしょう。
+この処理がないと図形描画時に透過が無効になり、期待した結果になりません。
 
 続いて表示する図形の判定を行った後、 ```bgl.glBegin()``` 関数により図形描画を開始します。
 引数には描画モードを指定します。
@@ -237,9 +246,9 @@ def render(self, context):
 
 次に ```bgl.glColor4f()``` 関数により図形の色を指定しています。
 引数は順に、赤(R)、緑(G)、青(B)、アルファ値(A)となります。
-今回はやや半透明の白色の設定とした。
+今回はやや半透明の白色の設定にしました。
 
-最後に ```bgl.glVertex2f()``` 関数により、図形の頂点を設定した後に ```bgl.glEnd()``` 関数により描画を完了します。
+最後に ```bgl.glVertex2f()``` 関数を呼んで図形の頂点を設定した後に、 ```bgl.glEnd()``` 関数により描画を完了します。
 ```bgl.glVertex2f()``` 関数の引数には、X座標、Y座標の順で浮動小数点値で指定します。
 三角形の場合は3つの頂点を指定すればよいため3回 ```bgl.glVertex2f()``` を呼び、四角形の場合は4つの頂点を指定するため4回 ```bgl.glVertex2f()``` を呼びます。
 
@@ -257,7 +266,7 @@ def handle_remove(self, context):
 ```
 
 描画関数の登録解除は、 ```bpy.types.SpaceView3D.draw_handler_remove()``` 関数で行います。
-描画関数の登録時に使用した ```bpy.types.SpaceView3D.draw_handler_add()``` 関数と同様、 ```SpaceView3D``` は対象の *エリア* を指定します。
+描画関数の登録時に使用した ```bpy.types.SpaceView3D.draw_handler_add()``` 関数と同様、 ```SpaceView3D``` は描画関数を登録解除する *エリア* により変わります。
 関数の引数は以下の通りです。
 
 |引数|意味|
@@ -267,7 +276,7 @@ def handle_remove(self, context):
 
 ### UIを構築する
 
-最後に本アドオンのUIを構築しましょう。
+最後に本アドオンのUIを構築します。
 
 ```python
 class OBJECT_PT_RF(bpy.types.Panel):
@@ -309,7 +318,7 @@ class OBJECT_PT_RF(bpy.types.Panel):
 
 四角形を描画する場合は4つの頂点を指定可能とするため、描画する図形が四角形である場合に4つ目の頂点を指定するUIパーツを配置するようにします。
 
-最後に、描画開始/終了を行う *オペレーションクラス* を作成します。
+最後に、描画開始/終了を行う *オペレーション用クラス* を作成します。
 
 ```python
 class RenderingButton(bpy.types.Operator):
@@ -335,11 +344,11 @@ class RenderingButton(bpy.types.Operator):
 
 ## まとめ
 
-OpenGLへアクセスするAPIである ```bgl``` モジュールを用いて、 *3Dビュー* で図形を描画する方法を紹介しました。
-今回紹介した ```bgl``` モジュールと [3.1節](01_Sample_7_Delete_face_by_mouse_click.md) で紹介したマウス・キーボードのイベントの扱いを組み合わせることで、Blender専用のUIとは全く異なる独自のUIを構築することができます。
+PythonからOpenGLへアクセスするためのAPIである ```bgl``` モジュールを用いて、 *3Dビュー* エリアで図形を描画する方法を紹介しました。
+今回紹介した ```bgl``` モジュールと [3.1節](01_Sample_7_Delete_face_by_mouse_click.md) で紹介したマウスからのイベントを扱う方法を組み合わせることで、Blender専用のUIとは全く異なる独自のUIを構築することができます。
 
-ただしOpenGLへアクセスするAPIが用意されているとは言っても、OpenGLの全ての機能に対してAPIが用意されているわけではありません。
-このため ```bgl``` モジュールを利用する際には、 [4.1節](../chapter_04/01_Research_official_Blender_API_for_Add-on.md) を参考に提供されているAPIを確認する必要があります。
+ただし、OpenGLの全ての機能に対してAPIが用意されているわけではありません。
+このため ```bgl``` モジュールを利用する際には、 [4.1節](../chapter_04/01_Research_official_Blender_API_for_Add-on.md) を参考にして、Blenderが提供するAPIを確認する必要があります。
 
 <div id="point"></div>
 
@@ -347,9 +356,9 @@ OpenGLへアクセスするAPIである ```bgl``` モジュールを用いて、
 
 <div id="point_item"></div>
 
-* Blenderが提供している、OpenGLへアクセスするためのAPIをアドオンから利用するためには、 ```bgl``` モジュールをインポートする必要がある
-* ```bgl``` モジュールを用いて、アドオン内でOpenGLを用いて描画するためには、 ```bpy.types.SpaceXXX.draw_handler_add()``` 関数を用いて、描画用の静的メソッドまたは関数を登録する必要がある（XXX：描画するエリア）
+* OpenGLへアクセスするためのAPIを利用するためには、 ```bgl``` モジュールをインポートする必要がある
+* ```bgl``` モジュールを用いて、アドオン内でOpenGLを用いて描画するためには、 ```bpy.types.SpaceXXX.draw_handler_add()``` （XXX：描画するエリア）関数を用いて、描画用の静的メソッドまたは関数を登録する必要がある
 * 登録した描画用の静的メソッドまたは関数は、アドオン無効化時に ```bpy.types.SpaceXXX.draw_handler_remove()``` 関数を用いて、登録解除する必要がある
-* ```bgl``` モジュールの使い方は、基本的にOpenGLの使い方と同様である
-* ```context.scene``` に登録したプロパティは、 ```bpy.types.Panel``` クラスを継承したクラスの ```draw()``` メソッドで ```self.layout.prop()``` 関数を用いることによりUIパーツとして登録できる
-* ```bgl``` モジュールはOpenGLの関数をすべてサポートしていないため、事前にAPIが用意されているか確認が必要である
+* ```bgl``` モジュールはオリジナルのOpenGLの使い方と似たような方法で、OpenGLへのアクセス手段を提供する
+* ```context.scene``` に登録したプロパティは、 パネル用クラスを継承したクラスの ```draw()``` メソッドで ```self.layout.prop()``` 関数を用いることによりUIパーツとして登録できる
+* ```bgl``` モジュールはOpenGLの関数をすべてサポートしていないため、事前に使いたいAPIが用意されているか確認が必要である
