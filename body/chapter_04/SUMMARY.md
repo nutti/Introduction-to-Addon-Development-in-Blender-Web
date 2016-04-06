@@ -7,7 +7,7 @@
 <div id="ch_body"></div>
 
 これまでの章では、サンプルを用いてBlenderが用意しているAPIを紹介しました。
-Blenderの内部データの変更に、入力デバイスからのイベント処理やOpenGL利用などBlenderが用意しているAPIは非常に多く、紹介したサンプルはAPIのほんの一部を利用しただけにすぎません。
+Blenderの内部データにアクセスするAPIをはじめとして、入力デバイスからのイベント処理やOpenGLへアクセスするためのAPIなどBlenderが提供するAPIは非常に多く、紹介したサンプルで使用したAPIは提供されているAPIのほんの一部にすぎません。
 そこで最後の章では、Blenderが提供しているAPIの調べ方をはじめとして、Blenderのアドオン開発に役に立つtipsを紹介します。
 
 <div id="ch_toc_title"></div>
