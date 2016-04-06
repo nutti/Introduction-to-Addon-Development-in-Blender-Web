@@ -69,36 +69,37 @@ Blender公式は、過去の全てのBlenderのバージョンで提供するAPI
 |```bpy.ops```|Blender内で利用されているデータに対する操作や、アドオンで登録した操作|
 |```bpy.types```|Blender内のデータを表す型|
 |```bpy.utils```|アドオンのクラス登録など、アドオンへ提供する便利関数群|
-|```bpy.path```|Blender内でパスを簡単に扱うための関数群|
-|```bpy.app```|Blenderのバージョンなど、Blender本体の情報など|
-|```bpy.props```|アドオン内部で扱うプロパティ|
+|```bpy.path```|ファイルパスを簡単に扱うための関数群|
+|```bpy.app```|Blenderのバージョンを含む、Blender本体の情報|
+|```bpy.props```|アドオン内部で扱うプロパティ用クラス|
 
 #### Standalone Modules
 
 *Standalone Modules* は、 ```bpy``` モジュールを拡張するモジュールです。
-*Application Modules* だけでは実装が大変な処理を簡単に行うことができるようなAPIや UIを構築するためのAPIなど、アドオン開発で役立つモジュールばかり揃っていますので、こちらも目を通しておきましょう。
+*Application Modules* のみを使った場合に実装が大変な処理を簡単かつ効率的に行うことができるAPIや UIを構築するためのAPIなど、アドオン開発で役立つモジュールが提供されています。
+こちらも目を通しておきましょう。
 
 |モジュール名|概要|
 |---|---|
-|```mathutils```|行列やベクトルなどのクラスや演算関数群。また、 ```geometry``` や ```kdtree``` サブモジュールを用いることで、図形の交差判定や3D空間内の探索を高速に行うことができます|
-|```bgl```|OpenGLのラッパー関数群|
+|```mathutils```|行列やベクトルなどのクラスや演算関数群。また、 ```geometry``` や ```kdtree``` サブモジュールを用いることで、図形の交差判定や3D空間内の探索を高速に行うことが可能|
+|```bgl```|PythonからOpenGLへアクセスするためのラッパー関数群|
 |```blf```|文字列描画を容易に行うための関数群|
 |```gpu```|GLSLを扱うための関数群|
 |```aud```|サウンドの読み込みや再生を行うための関数群|
 |```bpy_extras```|```bpy``` モジュールに含まれない ```bpy``` 関連の便利関数群|
 |```bmesh```|メッシュデータを容易に扱うための関数群|
 
-ここでは、 *3Dビュー* でアクティブ状態のオブジェクトを取得するためのAPI  ```bpy.props.EnumProperty``` を調べてみましょう。
+ここでは、 *3Dビュー* エリアでアクティブ状態のオブジェクトを取得するためのAPI  ```bpy.props.EnumProperty``` を調べてみます。
 
 <div id="sidebyside"></div>
 
-|*Application Modules* > *Property Definitions (bpy.props)* をクリックし、 ```bpy.props.EnumProperty``` を探してみましょう。<br>右図のように、APIの説明に加えて引数に指定できる値や各引数の説明を参照することができます。|![API documentation EnumProperty](https://dl.dropboxusercontent.com/s/xvi335558nxtwhi/blender_api_doc_enum_property.png "API documentation EnumProperty")|
+|*Application Modules* > *Property Definitions (bpy.props)* をクリックし、 ```bpy.props.EnumProperty``` を探します。<br>右図のように、APIの説明に加えて引数や各引数の説明を参照することができます。|![API documentation EnumProperty](https://dl.dropboxusercontent.com/s/xvi335558nxtwhi/blender_api_doc_enum_property.png "API documentation EnumProperty")|
 |---|---|
 
 
 ### PythonコンソールでAPIを検索・実行する
 
-[1.2節]("../chapter_02/02_Sample_2_Scaling_object_1.md")においても説明しましたが、 *Pythonコンソール* を用いることでBlenderが提供しているAPIを検索・実行することができます。
+[2.2節]("../chapter_02/02_Sample_2_Scaling_object_1.md")においても説明しましたが、 *Pythonコンソール* を用いることでBlenderが提供するAPIを検索し実行することができます。
 
 <div id="process_start_end"></div>
 
@@ -106,7 +107,7 @@ Blender公式は、過去の全てのBlenderのバージョンで提供するAPI
 
 <div id="process_noimg"></div>
 
-|1|Blender内のオブジェクト一覧を保持している ```bpy.data.objects``` を *Pythonコンソール* に入力します。|
+|1|Blender内のオブジェクト一覧である ```bpy.data.objects``` を *Pythonコンソール* に入力します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -124,7 +125,7 @@ Blender公式は、過去の全てのBlenderのバージョンで提供するAPI
 
 <div id="process"></div>
 
-|3|*3Dビュー* 上にあるオブジェクト名が候補として表示されるので、適当なオブジェクト名を選んで再び補完します。|![Pythonコンソール 手順2](https://dl.dropboxusercontent.com/s/yu890kcedpewpih/python_console_2.png "Pythonコンソール 手順2")|
+|3|*3Dビュー* 上にあるオブジェクト名が候補として表示されるため、適当なオブジェクト名を選んで再び補完します。|![Pythonコンソール 手順2](https://dl.dropboxusercontent.com/s/yu890kcedpewpih/python_console_2.png "Pythonコンソール 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -133,7 +134,7 @@ Blender公式は、過去の全てのBlenderのバージョンで提供するAPI
 
 <div id="process_noimg"></div>
 
-|4|候補の中にあった ```select``` を入力し、実行します。<br>選んだオブジェクトが選択状態である場合は ```True``` 、選択状態でない場合は ```False``` が表示されます。|
+|4|候補の中にある ```select``` を入力し、実行します。<br>選んだオブジェクトが選択状態である場合は ```True``` 、選択状態でない場合は ```False``` が表示されます。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -150,37 +151,38 @@ Blender公式は、過去の全てのBlenderのバージョンで提供するAPI
 ---
 
 
-どうやら ```select``` は、オブジェクトが選択状態であるか否かを調べるAPIのようです。
+以上のことから ```select``` は、オブジェクトが選択状態であるか否かを調べるためのAPIであると判断できます。
 実際に[Blender公式のAPIドキュメント](http://www.blender.org/api/blender_python_api_2_75a_release/bpy.types.Object.html#bpy.types.Object.select)を調べてみると、以下のように記載されています。
 
 > Object selection state
 
-このように、 *Pythonコンソール* を利用することでAPIを動作確認できるため、APIの効果がわかりづらい場合は、実際に動作させてAPIの効果を確認してみましょう。
+このように、 *Pythonコンソール* を利用することでAPIを動作確認可能なため、APIの効果が不明瞭な場合は、上記例のように実際に動作させてAPIの効果を確認することをお勧めします。
 
 
 ### テキストエディタのテンプレートを読む
 
 <div id="sidebyside"></div>
 
-|Blenderの *テキストエディタ* には、アドオンのテンプレートが用意されています。|![テンプレート 手順1](https://dl.dropboxusercontent.com/s/bvnb1360j99fd1t/template_1.png "テンプレート 手順1")|
+|Blenderはアドオンのテンプレートを用意しています。|![テンプレート 手順1](https://dl.dropboxusercontent.com/s/bvnb1360j99fd1t/template_1.png "テンプレート 手順1")|
 |---|---|
 
-Blender本体が提供しているサンプルであることから動作が保証されているので、作りたいアドオンに関連するテンプレートがあれば、ぜひ確認してみるとよいでしょう。
-また、Blenderが提供するAPIの概要を一通り学んでおきたい場合にも、参考になるでしょう。
+Blender本体が提供しているサンプルであるため、動作することが保証されています。
+作りたいアドオンに関連するテンプレートがあれば、ぜひ確認してみてください。
+また、Blenderが提供するAPIの概要を一通り学んでおきたい場合にも、本サンプルは参考になると思います。
 
 <div id="sidebyside"></div>
 
-|提供されいる中で最も簡単なテンプレートは ```Operator Simple``` です。|![テンプレート 手順2](https://dl.dropboxusercontent.com/s/8nt0v8zdkhl1egd/template_2.png "テンプレート 手順2")|
+|なお、提供されいる中で最も簡単なテンプレートは ```Operator Simple``` です。```Operator Simple``` は、 *3Dビュー* エリアにあるオブジェクト一覧を *コンソール* に表示するサンプルです。|![テンプレート 手順2](https://dl.dropboxusercontent.com/s/8nt0v8zdkhl1egd/template_2.png "テンプレート 手順2")|
 |---|---|
 
 ### Blenderアドオン開発の参考サイトを読む
 
-Blenderが提供するAPIを調べる手段として、Blenderアドオン開発の参考サイトを読む方法もあります。
-しかしBlenderを利用している人に比べBlenderのアドオンを開発している人は非常に少なく、Blender本体に比べてアドオン開発の解説サイトは格段に少なくなります。
-特に日本語での解説となると、解説サイトの数は本当に限られます。
-必要に応じて、海外サイトを利用することも考えましょう。
+Blenderが提供するAPIを調べる手段として、Blenderアドオン開発の参考サイトを読むというものがあります。
+しかしBlender自体の使い方については、多くのサイトで解説記事がありますが、Blenderを利用している人に比べBlenderのアドオンを開発している方は非常に少ないこともあり、Blender本体に比べてアドオン開発の解説サイトは格段に少なくなります。
+特に日本語での解説となると、解説サイトは数を数えられるくらいに少なくなります。
+必要に応じて、海外サイトの利用も検討してください。
 
-アドオン開発で筆者が参考にしているサイトをいくつかピックアップしてみました。
+ここでは、アドオン開発で筆者が参考にしているサイトをピックアップしてみました。
 Blender Wiki様は海外サイト、blugjpまとめサイト様は国内サイトです。
 
 <div id="webpage"></div>
@@ -192,8 +194,8 @@ Blender Wiki様は海外サイト、blugjpまとめサイト様は国内サイ�
 
 Blenderの公式Wikiページです。
 アドオン開発のチュートリアルやベストプラクティスなど、アドオン開発に必要な知識を学ぶことができます。
-特にテーマに応じた簡単なサンプルが紹介されいているCode Snippetsは、アドオン開発者必見です。
-また、アドオン公開方法の手順についても書かれていますので、初心者だけでなくアドオンをこれから公開しようと考えている方も参考になると思います。
+特にテーマに応じて簡単なサンプルが紹介されいているCode Snippetsは、アドオン開発者必見です。
+また、アドオンを公開する方法の手順についても書かれていますので、初心者だけでなくある程度アドオン開発に慣れた方も参考になると思います。
 
 <div id="webpage"></div>
 
@@ -203,8 +205,8 @@ Blenderの公式Wikiページです。
 |![blugjpまとめサイト](https://dl.dropboxusercontent.com/s/7t6ho0xohl45yrv/blugjp.png "blugjpまとめサイト")|
 
 BLUG.jpさんによるまとめサイトです。
-BlenderPythonのページは現在も更新され続けているので、アドオンを開発している方はブックマークして時々見に行ってみましょう。
-もしページを更新したい場合は、BLUG.jpさん（@blug_jp）に連絡してみましょう。
+BlenderPythonのページは現在も更新され続けていますので、アドオン開発者はブックマークして時々見に行きましょう。
+もしページを更新したい場合は、BLUG.jpさん（@blug_jp）に連絡すれば、編集する権利を与えてもらえるかもしれません。
 
 
 ### 他者が作成したアドオンのソースコードを読む
