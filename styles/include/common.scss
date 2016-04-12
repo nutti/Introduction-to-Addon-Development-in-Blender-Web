@@ -557,6 +557,17 @@
     }
 }
 
+@mixin process_title($font_size) {
+    #process_title + h5 {
+        font-size: $font_size;
+        font-family: MPlus;
+        width: 85%;
+        text-align: center;
+        border-top: 3px double #666666;
+        border-bottom: 3px double #666666;
+    }
+}
+
 @mixin process_start_end() {
     #process_start_end + hr {
         height: 3px;
