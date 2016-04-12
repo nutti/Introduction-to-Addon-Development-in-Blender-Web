@@ -479,6 +479,7 @@
         font-weight: bold;
         top: $top;
         color: #FFFFFF;
+        width: 92%;
         p {
             background-color: #666666;
             padding: 2px;
@@ -561,22 +562,29 @@
     #process_title + h5 {
         font-size: $font_size;
         font-family: MPlus;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 3px;
         width: 85%;
         text-align: center;
         border-top: 3px double #666666;
         border-bottom: 3px double #666666;
+        text-decoration: none;
+        background-color: #FBFBFB;
     }
 }
 
 @mixin process_start_end() {
     #process_start_end + hr {
-        height: 3px;
+        //height: 3px;
+        //height: 1px;
         width: 85%;
         margin-top: 30px;
         margin-bottom: 30px;
         margin-left: auto;
         margin-right: auto;
-        background-color: #666666;
+        //background-color: #666666;
+        border-top: 3px double #666666;
     }
 }
 
@@ -849,6 +857,9 @@ $sect_img_list:
         background: #FBFBFB;
         padding: 10px;
         border: #666666 solid 1px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
         >code {
             font-family: Hack, NotoSansCJKjp;
             font-size: $font_size_base * 0.7;
