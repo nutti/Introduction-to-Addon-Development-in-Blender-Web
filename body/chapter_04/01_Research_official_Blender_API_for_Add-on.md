@@ -101,9 +101,9 @@ Blender公式は、過去の全てのBlenderのバージョンで提供するAPI
 
 [2.2節]("../chapter_02/02_Sample_2_Scaling_object_1.md")においても説明しましたが、 *Pythonコンソール* を用いることでBlenderが提供するAPIを検索し実行することができます。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process_noimg"></div>
 
@@ -225,9 +225,9 @@ Blenderが標準で提供している機能の一部は、Blender内でソース
 
 Blender内でソースコードを確認する例として、 *3Dビュー* エリアの *オブジェクト* メニューのソースコードを確認します。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -252,9 +252,9 @@ Blender内でソースコードを確認する例として、 *3Dビュー* エ�
 確認したいAPIのドキュメントへ移動する例として、 *3Dビュー* エリアの *メッシュ* > *ミラー* > *ローカルX軸* のAPIドキュメントを表示します。
 
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 

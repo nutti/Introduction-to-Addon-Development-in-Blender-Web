@@ -576,14 +576,11 @@
 
 @mixin process_start_end() {
     #process_start_end + hr {
-        //height: 3px;
-        //height: 1px;
         width: 85%;
         margin-top: 30px;
         margin-bottom: 30px;
         margin-left: auto;
         margin-right: auto;
-        //background-color: #666666;
         border-top: 3px double #666666;
     }
 }

@@ -43,9 +43,9 @@
 
 以下の手順に従い、作成したアドオンの機能を使ってみます。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -242,9 +242,9 @@ Pythonコンソールでは以下のようなショートカットキーが利�
 
 Macでショートカットを利用するためには、Mission Controlなどに標準で割り当たっているcontrolと⌘キーについて、以下の手順に沿って割り当てを解除する必要があります。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process_noimg"></div>
 

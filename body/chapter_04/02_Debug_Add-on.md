@@ -112,9 +112,9 @@ Eclipseを利用するためにはJavaが必要になるため、必要に応じ
 ダウンロードしたEclipseを起動します。
 Eclipseが起動したら、以下の手順に沿ってPyDevをインストールします。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -196,9 +196,9 @@ Eclipseが起動したら、以下の手順に沿ってPyDevをインストー�
 
 Eclipseプロジェクトを以下の手順に沿って作成します。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -249,9 +249,9 @@ Eclipseプロジェクトを以下の手順に沿って作成します。
 
 プロジェクト作成後、Blender標準のPythonスクリプト等が置かれているパスを設定します。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -330,9 +330,9 @@ BLENDER_VERはBlenderはバージョンです。バージョンが2.75aのBlende
 
 PyDevデバッグサーバをEclipseから起動するために、以下の方法でBlenderをEclipseのから実行できるようにします。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -384,9 +384,9 @@ Blenderのトップディレクトリ（Blenderを非インストーラ版でダ
 最後に以下の手順で、PyDevデバッグサーバを起動します。
 PyDevデバッグサーバの起動手順を以下に示します。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -435,9 +435,9 @@ PyDevデバッグサーバの起動手順を以下に示します。
 今回は ```debugee.py``` の28行目にブレークポイントを設定します。
 
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -600,9 +600,9 @@ breakpoint = bpy.types.bp.bp
 
 以下の手順に従って、デバッグを開始します。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 

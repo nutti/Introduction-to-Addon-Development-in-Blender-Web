@@ -113,9 +113,9 @@ double_l
 D.B.Oは会員制のため、ユーザ登録が必要です。
 会員登録完了後、以下の手順に従ってタスクを作成します。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -230,9 +230,9 @@ Blenderのサポートレベルに応じてリポジトリが異なります。
 |Release|```git://git.blender.org/blender-addons.git```|
 |Contrib|```git://git.blender.org/blender-addons-contrib.git```|
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process_noimg"></div>
 
@@ -310,9 +310,9 @@ $ git diff
 
 ソースコードレビューが完了したら、以下の手順に従ってBlenderのリポジトリに登録します。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process_noimg"></div>
 

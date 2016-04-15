@@ -13,9 +13,9 @@
 早速ですが、簡単なアドオンを作成します。
 以下の手順に沿ってアドオンを作成してください。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process_noimg"></div>
 
@@ -75,9 +75,9 @@
 
 以下の手順で、作成したアドオンを有効化します。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process_noimg"></div>
 

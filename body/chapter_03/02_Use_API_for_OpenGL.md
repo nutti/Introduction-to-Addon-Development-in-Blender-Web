@@ -54,9 +54,9 @@
 
 以下の手順に従って、作成したアドオンの機能を使ってみます。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 

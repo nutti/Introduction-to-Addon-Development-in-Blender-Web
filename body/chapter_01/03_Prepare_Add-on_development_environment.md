@@ -31,9 +31,9 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 コンソール・ウィンドウはアドオンの実行結果やエラーを表示する機能で、起動直後は表示されていません。
 コンソール・ウィンドウを表示させるための手順を以下に示します。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -62,9 +62,9 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 エリアを分割することで、作業の度に表示するエリアを変更する必要がなくなります。
 ここではアドオンの開発を行いやすくするため、以下のようにエリアを分割してみましょう。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -99,9 +99,9 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 エリアの変更は、各エリアのメニューバーの一番左のボタンから行うことができます。
 エリアの変更の手順を以下に示します。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -145,9 +145,9 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 これでBlenderのエリア設定は完了ですが、このままBlenderを閉じてしまうと次にBlenderを起動した時に初期状態に戻ってしまいます。
 そこで以下の手順に従い、Blenderが起動した時にエリア設定が終わっている状態で起動するようにしましょう。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -172,9 +172,9 @@ Blenderの起動直後の状態を設定する場合は、いつでもこの方�
 
 なおBlenderをダウンロードした直後の初期状態に戻したい場合は、以下の手順を踏むことで初期状態に戻すことができます。
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process"></div>
 
@@ -254,9 +254,9 @@ Blenderを起動する時は、アプリケーションのアイコン（Windows
 
 ### Windowsの場合
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process_noimg"></div>
 
@@ -291,9 +291,9 @@ Blenderを起動する時は、アプリケーションのアイコン（Windows
 
 ### Macの場合
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process_noimg"></div>
 
@@ -328,9 +328,9 @@ $ /path/blender.app/Contents/MacOS/blender
 
 ### Linuxの場合
 
-<div id="process_start_end"></div>
+<div id="process_title"></div>
 
----
+##### Work
 
 <div id="process_noimg"></div>
 
