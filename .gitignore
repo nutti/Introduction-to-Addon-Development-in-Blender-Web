@@ -3,6 +3,7 @@
 *~
 .DS_Store
 *.swp
+.sass-cache/
 
 # not allow output files
 *.pdf

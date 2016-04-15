@@ -27,4 +27,4 @@
   3. [アドオンを公開しよう](body/chapter_04/03_Publish_your_Add-on.md)
   4. [アドオンをBlender本体に取り込んでもらうまでの流れ](body/chapter_04/04_Commit_your_Add-on_to_Blender.md)
 
-[おわりに](Acknowledgment.md)
+* [おわりに](Acknowledgment.md)
