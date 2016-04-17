@@ -640,10 +640,8 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
     #ch_body + p {
         position: relative;
         font-family: MPlus;
-        //text-align: center;
         margin-left: auto;
         margin-right: auto;
-        //width: 80%;
         height: $height;
         overflow: hidden;
         font-size: $font_size;
@@ -673,7 +671,6 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
         li {
             font-family: MPlus;
             font-size: $font_size;
-
             position: relative;
             margin: 0 0 6px 2em;
             padding: 4px 8px;
