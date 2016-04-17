@@ -663,7 +663,7 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
         background: none;
         border-bottom: 1px solid #EEEEEE;
     }
-    #ch_toc + ol {
+    /*#ch_toc + ol {
         counter-reset: li;
         padding: 0;
         list-style: none;
@@ -688,7 +688,7 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
             background: #666;
             text-align: center;
         }
-    }
+    }*/
 }
 
 $sect_list: '0_0',
