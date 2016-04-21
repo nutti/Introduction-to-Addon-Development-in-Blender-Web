@@ -13,12 +13,4 @@
   * conchan-akita
 
 
-<!-- pagebreak -->
-
-<!-- pagewrapper -->
-
-<div class="back_cover">
-  <img src="https://dl.dropboxusercontent.com/s/v6zq4lyp06wo6v7/back_cover.png"></img>
-</div>
-
-<!-- endpagewrapper -->
+![背表紙](https://dl.dropboxusercontent.com/s/v6zq4lyp06wo6v7/back_cover.png)

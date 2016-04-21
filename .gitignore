@@ -13,5 +13,8 @@ _book/
 *.png
 *.jpg
 
+# allow cover
+!cover.jpg
+
 # not allow node.js files
 node_modules/
