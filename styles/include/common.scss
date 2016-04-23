@@ -679,6 +679,8 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
         padding: 0.1em 0 0.15em 0.5em;
         background: none;
         border-bottom: 1px solid #EEEEEE;
+        margin-top: 30px;
+        margin-bottom: 10px;
     }
     #ch_toc + ol {
         counter-reset: li;
@@ -686,7 +688,6 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
         list-style: none;
         margin-bottom: $margin_bottom_2;
         li {
-            //font-family: MPlus;
             font-size: $font_size;
             position: relative;
             margin: 0 0 6px 2em;
