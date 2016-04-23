@@ -26,6 +26,8 @@
         width: 90%;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 25px;
+        margin-bottom: 25px;
         thead {
             tr {
                 th {
@@ -279,7 +281,8 @@
         margin: 0 0 0.7em;
         padding: 0.5em 0.5em 0.2em 1.5em;
         border-bottom: 2px solid #222222;
-        margin-top: 30px;
+        margin-top: 45px;
+        margin-bottom: 30px;
     }
     #point + h3:before {
         content: "";
@@ -409,16 +412,31 @@
     }
 }
 
-@mixin h3($font_size_base) {
+@mixin h2($font_size) {
+    h2 {
+        font-family: NotoSansCJKjp;
+        text-align: left;
+        font-size: $font_size;
+        border-left: 15px
+        solid #555555;
+        padding: 7px;
+        background: #CCCCCC;
+        margin-top: 70px;
+        margin-bottom: 30px;
+    }
+}
+
+@mixin h3($font_size) {
     h3 {
         font-family: MPlus;
         text-align: left;
-        font-size: $font_size_base * 1.5;
+        font-size: $font_size;
         position: relative;
         margin: 0 0 0.7em;
         padding: 0.5em 0.5em 0.2em 1.5em;
         border-bottom: 2px solid #222222;
-        margin-top: 30px;
+        margin-top: 45px;
+        margin-bottom: 30px;
     }
     h3:before {
         content: "□";
@@ -853,6 +871,8 @@ $sect_img_list:
         width: 90%;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 25px;
+        margin-bottom: 25px;
         >code {
             font-family: Hack, NotoSansCJKjp;
             font-size: $font_size_base * 0.7;
@@ -869,16 +889,7 @@ $sect_img_list:
         font-size: $font_size_base * 0.9;
         margin-left: 60%;
     }
-    h2 {
-        font-family: NotoSansCJKjp;
-        text-align: left;
-        font-size: $font_size_base * 2.0;
-        border-left: 15px
-        solid #555555;
-        padding: 7px;
-        background: #CCCCCC;
-        margin-top: 50px;
-    }
+
     h4 {
         font-family: MPlus;
         text-align: left;

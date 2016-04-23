@@ -16,7 +16,8 @@
                     @include ordered_list_1st(1.2em);
                     @include list_1st(1.2em, 1.5, 5px, 0.4em, -1.2em, 16px, 16px, .67em, -1.02em, 5px, 5px);
                     @include list_2nd(0.9em, 1.0, .45em, -1.3em, 14px, 14px, .75em, -1.1em, 4px, 4px);
-                    @include h3(1.2em);
+                    @include h2(2.4em);
+                    @include h3(1.8em);
                     @include column(1.2em * 0.8, 1.0);
                     @include em(0.9em);
                     @include blockquote(0.82em, -15px, 20px);
