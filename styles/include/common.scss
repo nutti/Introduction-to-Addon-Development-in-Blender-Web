@@ -61,6 +61,8 @@
     #sidebyside + table {
         width: 100%;
         table-layout: fixed;
+        margin-top: 10px;
+        margin-bottom: 10px;
         thead {
             border: none;
             tr {
@@ -68,7 +70,7 @@
                 th:nth-of-type(1) {
                     font-family: NotoSansCJKjp;
                     font-size: $font_size;
-                    line-height: 2.0;
+                    //line-height: 2.0;
                     border: none;
                     width: 50%;
                     text-align: left;
@@ -77,8 +79,8 @@
                     color: #000000;
                     font-weight: normal;
                     white-space: normal;
-                    padding-top: 15px;
-                    padding-bottom: 15px;
+                    padding-top: 0px;
+                    padding-bottom: 0px;
                 }
                 th:nth-of-type(2) {
                     font-family: NotoSansCJKjp;
@@ -88,8 +90,8 @@
                     text-align: center;
                     background-color: #FFFFFF;
                     color: #000000;
-                    padding-top: 15px;
-                    padding-bottom: 15px;
+                    padding-top: 0px;
+                    padding-bottom: 0px;
                 }
             }
         }
@@ -97,18 +99,18 @@
             border: none;
             tr {
                 border: none;
-                border-top: 1px #CCCCCC solid;
+                //border-top: 1px #CCCCCC solid;
                 td:nth-of-type(1) {
                     font-family: NotoSansCJKjp;
                     font-size: $font_size;
-                    line-height: 2.0;
+                    //line-height: 2.0;
                     border: none;
                     width: 50%;
                     text-align: left;
                     background-color: #FFFFFF;
                     vertical-align: top;
-                    padding-top: 15px;
-                    padding-bottom: 15px;
+                    padding-top: 0px;
+                    padding-bottom: 0px;
                 }
                 td:nth-of-type(2) {
                     font-family: NotoSansCJKjp;
@@ -117,8 +119,8 @@
                     width: 50%;
                     text-align: center;
                     background-color: #FFFFFF;
-                    padding-top: 15px;
-                    padding-bottom: 15px;
+                    padding-top: 0px;
+                    padding-bottom: 0px;
                 }
             }
         }
@@ -340,7 +342,8 @@
 @mixin list_1st($font_size_base, $line_height, $padding, $top_1, $left_1, $width_1, $height_1, $top_2, $left_2, $width_2, $height_2) {
     ul {
         font-size: $font_size_base;
-        margin-top: 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
         li {
             position: relative;
             line-height: $line_height;
@@ -460,6 +463,17 @@
     }
 }
 
+@mixin h4($font_size) {
+    h4 {
+        font-family: MPlus;
+        text-align: left;
+        font-size: $font_size;
+        font-weight: bold;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+}
+
 @mixin column($font_size, $line_height) {
     #column + p {
         font-family: MPlus;
@@ -515,6 +529,8 @@
         width: 75%;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 25px;
+        margin-bottom: 25px;
         thead {
             tr {
                 th {
@@ -555,8 +571,8 @@
     code {
         font-family: Hack, NotoSansCJKjp;
         font-size: $font_size;
-        line-height: 2.0;
-        background-color: #FBFBFB;
+        //line-height: 2.0;
+        background-color: #FFFFFF;
         vertical-align: 1px;
         padding: 0px;
     }
@@ -582,6 +598,7 @@
         font-family: MPlus;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 50px;
         padding: 3px;
         width: 85%;
         text-align: center;
@@ -595,8 +612,8 @@
 @mixin process_start_end() {
     #process_start_end + hr {
         width: 85%;
-        margin-top: 30px;
-        margin-bottom: 30px;
+        margin-top: 20px;
+        margin-bottom: 40px;
         margin-left: auto;
         margin-right: auto;
         border-top: 3px double #666666;
@@ -611,7 +628,7 @@
         margin-bottom: 15px;
         margin-left: auto;
         margin-right: auto;
-        background-color: #EEEEEE;
+        background-color: #FFFFFF;
     }
 }
 
@@ -679,7 +696,7 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
         padding: 0.1em 0 0.15em 0.5em;
         background: none;
         border-bottom: 1px solid #EEEEEE;
-        margin-top: 30px;
+        margin-top: 40px;
         margin-bottom: 10px;
     }
     #ch_toc + ol {
@@ -889,14 +906,6 @@ $sect_img_list:
         text-align: right;
         font-size: $font_size_base * 0.9;
         margin-left: 60%;
-    }
-
-    h4 {
-        font-family: MPlus;
-        text-align: left;
-        font-size: $font_size_base * 1.1;
-        font-weight: bold;
-        margin-top: 20px;
     }
     h5 {
         font-family: NotoSansCJKjp;
