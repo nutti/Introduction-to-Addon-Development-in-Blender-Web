@@ -81,6 +81,7 @@
                     white-space: normal;
                     padding-top: 0px;
                     padding-bottom: 0px;
+                    padding-left: 10px;
                 }
                 th:nth-of-type(2) {
                     font-family: NotoSansCJKjp;
@@ -131,9 +132,12 @@
     #box {
         color: #FDFDFD;
         background-color: #666666;
-        padding: 3px;
+        padding-left: 3px;
+        padding-right: 3px;
+        padding-top: 3px;
+        padding-bottom: 3px;
         font-size: $font_size_1;
-        margin-top: 6px;
+        margin-top: 9px;
     }
     #process + table {
         width: 100%;
@@ -153,7 +157,6 @@
                     text-align: center;
                     background-color: #FFFFFF;
                     vertical-align: top;
-                    margin-top: -5px;
                     padding: 0px;
                 }
                 th:nth-of-type(2) {
@@ -168,6 +171,8 @@
                     color: #000000;
                     font-weight: normal;
                     white-space: normal;
+                    padding-bottom: 0px;
+                    padding-left: 20px;
                 }
                 th:nth-of-type(3) {
                     font-family: NotoSansCJKjp;
@@ -192,7 +197,7 @@
                     font-style: italic;
                     color: #BBBBBB;
                     border: none;
-                    width: 10%;
+                    width: 5%;
                     text-align: center;
                     background-color: #FFFFFF;
                     vertical-align: top;
@@ -208,12 +213,14 @@
                     text-align: left;
                     background-color: #FFFFFF;
                     vertical-align: top;
+                    padding-bottom: 0px;
+                    padding-left: 20px;
                 }
                 td:nth-of-type(3) {
                     font-family: NotoSansCJKjp;
                     font-size: $font_size_2;
                     border: none;
-                    width: 45%;
+                    width: 50%;
                     text-align: center;
                     background-color: #FFFFFF;
                     padding: 0px;
@@ -254,6 +261,8 @@
                     color: #000000;
                     font-weight: normal;
                     white-space: normal;
+                    padding-bottom: 0px;
+                    padding-left: 20px;
                 }
             }
         }
@@ -283,6 +292,8 @@
                     text-align: left;
                     background-color: #FFFFFF;
                     vertical-align: top;
+                    padding-bottom: 0px;
+                    padding-left: 20px;
                 }
             }
         }
@@ -495,7 +506,7 @@
     h5 {
         font-family: NotoSansCJKjp;
         font-size: $font_size;
-        text-decoration: underline;
+        //text-decoration: underline;
     }
 }
 
