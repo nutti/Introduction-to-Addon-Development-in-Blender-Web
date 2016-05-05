@@ -221,7 +221,7 @@ bl_info = {
 アドオンのバグを報告するサイトをお持ちの方やユーザからのフィードバックを得たい方は、設定しておくと良いかと思います。
 今回は本書のソースコードを公開しているサイトのURLを設定しました。
 
-以下では具体的な設定内容について示します。
+以下では具体的に指定する内容について示します。
 
 ##### name
 
@@ -257,26 +257,50 @@ bl_info = {
 ##### location
 
 アドオンの機能を使うためのUIが存在する場所を指定します。
-例えば、 *3Dビュー* エリアの *追加* > *メッシュ* に追加する場合は以下のように記載します。
+例えば *3Dビュー* エリアの *追加* > *メッシュ* に追加する場合は、以下のように記載します。
 
 ```3Dビュー > 追加 > メッシュ```
 
 
 <div id="column"></div>
 
-もし多くの場所にUIが追加される場合は、 ```"See Add-ons Preferences"``` と記載しAdd-ons Preferencesに記載する方法もありますが、ここでは省略します。
+もし多くの場所にUIが追加される場合は、 ```"See Add-ons Preferences"``` などと記載しAdd-ons Preferencesに記載する方法もありますが、ここでは省略します。
 
 
 ##### description
 
+アドオンがどのような機能を持つかを記載します。
+表示できるスペースが非常に少ないことから簡潔に記載することを目指すべきですが、もしアドオンが多くの機能を持つ場合など、記載内容が長くなりそうなら ```location``` と同様 ```"See Add-ons Preferences"``` などと記載しAdd-ons Preferencesに記載すると良いと思います。
 
 ##### warning
 
+本項目を指定すると、警告アイコンと ```warning``` に指定した文字列が表示されるようになります。
+本項目はアドオンが正式リリース前のテスト中であることを示す場合や、機能の一部に不具合がある場合に指定します。
 
 ##### wiki_url
 
+アドオンのチュートリアルなど、アドオンに関するドキュメントが存在するWebページのURLを指定します。
+Blender公式のWikiページにアドオンのドキュメントを公開しているのであれば、Blender公式のWikiページを指定することができます。
+
+<div id="webpage"></div>
+
+|Blender Wiki (Blender Add-ons Catalog)|
+|---|
+|http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts|
+|![Blender Wiki (Blender Add-ons Catalog)](https://dl.dropboxusercontent.com/s/eqhblsox8zibbh8/blender_add-on_catalog.png "Blender Wiki (Blender Add-ons Catalog)")|
+
 
 ##### tracker_url
+
+アドオンに不具合があった際にユーザが報告するためのWebページのURLを指定します。
+サポートレベルがOfficialまたはContribであればD.B.Oのバグ報告ページを指定することになっていますが、個別にサポートページを持つ場合はそのサポートページを指定しても良いです。
+
+<div id="webpage"></div>
+
+|developer.blender.org (Report a bug)|
+|---|
+|https://developer.blender.org/maniphest/task/create/?project=3&type=Bug|
+|![developer.blender.org (Report a bug)](https://dl.dropboxusercontent.com/s/sr9drckwomr17ew/dbo_report_add-on_bug.png "developer.blender.org (Report a bug)")|
 
 
 #### アドオンのサポート情報
