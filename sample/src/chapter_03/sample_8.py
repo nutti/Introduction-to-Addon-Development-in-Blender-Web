@@ -7,7 +7,7 @@ bl_info = {
     "author": "Nutti",
     "version": (1, 0),
     "blender": (2, 75, 0),
-    "location": "View3D > サンプル8: OpenGL向けのAPIを利用して図形を表示する",
+    "location": "3Dビュー > プロパティパネル > 図形を表示",
     "description": "OpenGL向けのAPIを利用して3Dビューに図形を表示する",
     "warning": "",
     "support": "TESTING",

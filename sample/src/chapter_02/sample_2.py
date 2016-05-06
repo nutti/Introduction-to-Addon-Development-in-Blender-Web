@@ -5,7 +5,7 @@ bl_info = {
 	"author": "Nutti",
 	"version": (1, 0),
 	"blender": (2, 75, 0),
-	"location": "Object > サンプル2: オブジェクトを拡大・縮小するアドオン",
+	"location": "3Dビュー > オブジェクト",
 	"description": "オブジェクトを拡大・縮小するサンプルアドオン",
 	"warning": "",
 	"support": "TESTING",

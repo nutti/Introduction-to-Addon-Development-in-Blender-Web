@@ -7,7 +7,7 @@ bl_info = {
     "author": "Nutti",
     "version": (1, 0),
     "blender": (2, 75, 0),
-    "location": "Mesh > サンプル7: マウスの右クリックで面を削除する",
+    "location": "3Dビュー > プロパティパネル > マウスの右クリックで面を削除",
     "description": "マウスの右クリックで面を削除するアドオン",
     "warning": "",
     "support": "TESTING",

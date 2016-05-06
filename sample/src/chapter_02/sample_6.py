@@ -7,7 +7,7 @@ bl_info = {
     "author": "Nutti",
     "version": (1, 0),
     "blender": (2, 75, 0),
-    "location": "Object > サンプル6: オブジェクトを複製するアドオン",
+    "location": "3Dビュー > オブジェクト, Ctrl + Alt + R",
     "description": "選択したオブジェクトを複製するアドオン",
     "warning": "",
     "support": "TESTING",

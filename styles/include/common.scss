@@ -506,7 +506,6 @@
     h5 {
         font-family: NotoSansCJKjp;
         font-size: $font_size;
-        //text-decoration: underline;
     }
 }
 
@@ -922,6 +921,7 @@ $sect_img_list:
     }
     pre {
         background: #FBFBFB;
+        font-family: Hack, NotoSansCJKjp;
         padding: 10px;
         border: #666666 solid 1px;
         width: 90%;
@@ -929,12 +929,15 @@ $sect_img_list:
         margin-right: auto;
         margin-top: 25px;
         margin-bottom: 25px;
+        background: none;
+        //line-height: 3.5;
         >code {
             font-family: Hack, NotoSansCJKjp;
             font-size: $font_size_base * 0.7;
-            line-height: $line_height * 1.2;
+            //line-height: $line_height;
+            line-height: 2.0;
             white-space: pre-wrap;
-            background: #FBFBFB;
+            background: none;
         }
     }
 

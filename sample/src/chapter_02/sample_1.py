@@ -6,7 +6,7 @@ bl_info = {
 	"author": "Nutti",
 	"version": (1, 0),
 	"blender": (2, 75, 0),
-	"location": "Object > サンプル 1: オブジェクトを生成するアドオン",
+	"location": "3Dビュー > 追加 > メッシュ",
 	"description": "オブジェクトを生成するサンプルアドオン",
 	"warning": "",
 	"support": "TESTING",

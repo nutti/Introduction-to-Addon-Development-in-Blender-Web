@@ -6,7 +6,7 @@ bl_info = {
     "author": "Nutti",
     "version": (1, 0),
     "blender": (2, 75, 0),
-    "location": "Object > デバッグテスト用のアドオン",
+    "location": "3Dビュー > 追加 > メッシュ",
     "description": "アドオンのデバッグテスト用アドオン",
     "warning": "",
     "support": "TESTING",

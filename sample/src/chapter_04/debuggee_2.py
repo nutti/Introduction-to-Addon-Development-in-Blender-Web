@@ -5,7 +5,7 @@ bl_info = {
     "author": "Nutti",
     "version": (1, 0),
     "blender": (2, 75, 0),
-    "location": "Object > デバッグテスト用のアドオン2",
+    "location": "3Dビュー > 追加 > メッシュ",
     "description": "アドオン『BreakPoint』を用いたデバッグテスト用アドオン",
     "warning": "",
     "support": "TESTING",
