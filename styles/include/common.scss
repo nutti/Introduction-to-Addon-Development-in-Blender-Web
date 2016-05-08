@@ -504,7 +504,9 @@
 
 @mixin h5($font_size) {
     h5 {
-        font-family: NotoSansCJKjp;
+        //font-family: NotoSansCJKjp;
+        font-family: MPlus;
+        font-weight: bold;
         font-size: $font_size;
     }
 }
@@ -548,10 +550,12 @@
         font-weight: bold;
         top: $top;
         color: #FFFFFF;
-        width: 92%;
+        //width: 92%;
+        width: 20%;
         p {
             background-color: #666666;
             padding: 2px;
+            text-align: center;
             a {
                 font-size: $font_size;
                 font-style: normal;

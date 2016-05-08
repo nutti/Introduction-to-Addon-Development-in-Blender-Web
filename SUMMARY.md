@@ -13,7 +13,7 @@
   4. [自作のアドオンをインストールしてみよう](body/chapter_01/04_Install_own_Add-on.md)
 2. [アドオンを作ってみよう](body/chapter_02/SUMMARY.md)
   1. [アドオン開発の基礎を身につける](body/chapter_02/01_Basic_of_Add-on_Development.md)
-  2. [複数のオペレーション用クラスを登録する](body/chapter_02/02_Register_Multiple_Operation_Classes.md)
+  2. [複数のオペレータクラスを登録する](body/chapter_02/02_Register_Multiple_Operation_Classes.md)
   3. [ツール・シェルフのオプションを活用する①](body/chapter_02/03_Use_Property_on_Tool_Shelf_1.md)
   4. [ツール・シェルフのオプションを活用する②](body/chapter_02/04_Use_Property_on_Tool_Shelf_2.md)
   5. [サブメニューを作成する](body/chapter_02/05_Create_Sub-menu.md)

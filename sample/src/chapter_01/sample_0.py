@@ -1,7 +1,7 @@
 import bpy
 
 bl_info = {
-	"name": "サンプル 0: 何もしないアドオン",
+	"name": "サンプル0: 何もしないアドオン",
 	"author": "Nutti",
 	"version": (1, 0),
 	"blender": (2, 75, 0),

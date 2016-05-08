@@ -71,7 +71,7 @@ Blender公式は、過去の全てのBlenderのバージョンで提供するAPI
 |```bpy.utils```|アドオンのクラス登録など、アドオンへ提供する便利関数群|
 |```bpy.path```|ファイルパスを簡単に扱うための関数群|
 |```bpy.app```|Blenderのバージョンを含む、Blender本体の情報|
-|```bpy.props```|アドオン内部で扱うプロパティ用クラス|
+|```bpy.props```|アドオン内部で扱うプロパティクラス|
 
 #### Standalone Modules
 
