@@ -103,8 +103,8 @@ class ReplicateObject(bpy.types.Operator):
         # 複製したオブジェクトの最終位置を設定
         active_obj.location = active_obj.location + Vector(self.offset)
 
-        self.report({'INFO'}, "サンプル 5: 「%s」を複製しました。" % self.src_obj_name)
-        print("サンプル 5: オペレーション「%s」が実行されました。" % self.bl_idname)
+        self.report({'INFO'}, "サンプル5: 「%s」を複製しました。" % self.src_obj_name)
+        print("サンプル5: オペレーション「%s」が実行されました。" % self.bl_idname)
 
         return {'FINISHED'}
 
@@ -131,13 +131,13 @@ def menu_fn(self, context):
 def register():
     bpy.utils.register_module(__name__)
     bpy.types.VIEW3D_MT_object.append(menu_fn)
-    print("サンプル 5: アドオン「サンプル 5」が有効化されました。")
+    print("サンプル5: アドオン「サンプル5」が有効化されました。")
 
 
 def unregister():
     bpy.types.VIEW3D_MT_object.remove(menu_fn)
     bpy.utils.unregister_module(__name__)
-    print("サンプル 5: アドオン「サンプル 5」が無効化されました。")
+    print("サンプル5: アドオン「サンプル5」が無効化されました。")
 
 
 if __name__ == "__main__":

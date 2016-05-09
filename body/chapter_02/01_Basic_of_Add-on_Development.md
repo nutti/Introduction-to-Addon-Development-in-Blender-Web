@@ -70,7 +70,7 @@
 アドオンを有効化すると、コンソールに以下の文字列が出力されるはずです。
 
 ```shell-session
-サンプル 1: アドオン「サンプル1」が有効化されました。
+サンプル1: アドオン「サンプル1」が有効化されました。
 ```
 
 アドオン有効化後、 *3Dビュー* エリアのメニューバーに *追加* > *メッシュ* > *球* が追加されていることを確認します。
@@ -93,7 +93,7 @@
 さらに、コンソールには以下の文字列が出力されます。
 
 ```shell-session
-サンプル 1: 3DビューにICO球を生成しました。
+サンプル1: 3DビューにICO球を生成しました。
 ```
 
 <div id="process_start_end"></div>
@@ -107,7 +107,7 @@
 アドオンが無効化されると、コンソールに以下の文字列が出力されます。
 
 ```shell-session
-サンプル 1: アドオン「サンプル 1」が無効化されました。
+サンプル1: アドオン「サンプル1」が無効化されました。
 ```
 
 <div id="column"></div>
@@ -426,7 +426,7 @@ class CreateObject(bpy.types.Operator):
   # メニューを実行した時に呼ばれる関数
 	def execute(self, context):
 		bpy.ops.mesh.primitive_ico_sphere_add()
-		print("サンプル 1: 3DビューにICO球を生成しました。")
+		print("サンプル1: 3DビューにICO球を生成しました。")
 
 		return {'FINISHED'}
 ```
@@ -462,7 +462,7 @@ ICO球生成時のサイズが2.0倍、座標が(x, y, z) = (5.0, -5.0, 0.0)、�
   # メニューを実行した時に呼ばれる関数
 	def execute(self, context):
 		bpy.ops.mesh.primitive_ico_sphere_add(size=2.0, location=(5.0, -5.0, 0.0), rotation=(0.79, 0.0, 1.57))
-		print("サンプル 1: 3DビューにICO球を生成しました。")
+		print("サンプル1: 3DビューにICO球を生成しました。")
 
 		return {'FINISHED'}
 ```
@@ -521,7 +521,7 @@ def menu_fn(self, context):
 def register():
 	bpy.utils.register_module(__name__)
 	bpy.types.INFO_MT_mesh_add.append(menu_fn)
-	print("サンプル 1: アドオン「サンプル1」が有効化されました。")
+	print("サンプル1: アドオン「サンプル1」が有効化されました。")
 ```
 
 ```bpy.utils.register_module()``` は、引数に指定したモジュールを登録してBlender内で使えるようにする関数です。
@@ -545,7 +545,7 @@ def register():
 def unregister():
 	bpy.types.INFO_MT_mesh_add.remove(menu_fn)
 	bpy.utils.unregister_module(__name__)
-	print("サンプル 1: アドオン「サンプル 1」が無効化されました。")
+	print("サンプル1: アドオン「サンプル1」が無効化されました。")
 ```
 
 ```bpy.types.INFO_MT_mesh_add.remove()``` に、メニューを構築する関数である ```menu_fn()``` 関数を指定することで、 *3Dビュー* エリアのメニュー *追加* > *メッシュ* からメニューを削除することができます。

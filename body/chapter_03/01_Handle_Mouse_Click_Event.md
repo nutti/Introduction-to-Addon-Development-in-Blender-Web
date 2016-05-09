@@ -26,7 +26,7 @@
 [1-4節](../chapter_01/04_Install_own_Add-on.md) を参考に、作成したアドオンを有効化すると *コンソール* に以下の文字列が出力されます。
 
 ```sh
-サンプル 7: アドオン「サンプル7」が有効化されました。
+サンプル7: アドオン「サンプル7」が有効化されました。
 ```
 
 *3Dビュー* 上で *N* キーを押して、 *プロパティパネル* を表示し、 *マウスの右クリックで面を削除* という新たな項目が作成されていることを確認します。
@@ -81,7 +81,7 @@
 [1-4節](../chapter_01/04_Install_own_Add-on.md) を参考に有効化したアドオンを無効化すると、 *コンソール* に以下の文字列が出力されます。
 
 ```sh
-サンプル 7: アドオン「サンプル 7」が無効化されました。
+サンプル7: アドオン「サンプル7」が無効化されました。
 ```
 
 ## ソースコードの解説
@@ -261,7 +261,7 @@ def invoke(self, context, event):
             props.deleted_count = 0
             # modal処理クラスを追加
             context.window_manager.modal_handler_add(self)
-            print("サンプル 7: 削除処理を開始しました。")
+            print("サンプル7: 削除処理を開始しました。")
             return {'RUNNING_MODAL'}
 ```
 
@@ -274,8 +274,8 @@ def invoke(self, context, event):
         # 処理停止
         else:
             props.running = False
-            self.report({'INFO'}, "サンプル 7: %d個の面を削除しました。" % (props.deleted_count))
-            print("サンプル 7: %d個の面を削除しました。" % (props.deleted_count))
+            self.report({'INFO'}, "サンプル7: %d個の面を削除しました。" % (props.deleted_count))
+            print("サンプル7: %d個の面を削除しました。" % (props.deleted_count))
             return {'FINISHED'}
 ```
 
@@ -401,7 +401,7 @@ import bmesh
         loc = event.mouse_region_x, event.mouse_region_y
         ret = bpy.ops.view3d.select(location=loc)
         if ret == {'PASS_THROUGH'}:
-            print("サンプル 7: 選択範囲外です。")
+            print("サンプル7: 選択範囲外です。")
             return {'PASS_THROUGH'}
 
 ```
@@ -414,7 +414,7 @@ import bmesh
         e = bm.select_history[-1]
         if not isinstance(e, bmesh.types.BMFace):
             bm.select_history.remove(e)
-            print("サンプル 7: 面以外を選択しました。")
+            print("サンプル7: 面以外を選択しました。")
             return {'PASS_THROUGH'}
 ```
 
@@ -452,7 +452,7 @@ import bmesh
         props.deleted_count = props.deleted_count + 1
         # マウスクリック中に連続して面が削除されることを防ぐ
         props.deleted = True
-        print("サンプル 7: 面を削除しました。")
+        print("サンプル7: 面を削除しました。")
 ```
 
 ## まとめ

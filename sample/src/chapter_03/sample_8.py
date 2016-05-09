@@ -145,7 +145,7 @@ def register():
         size = 2,
         default = (100.0, 50.0)
     )
-    print("サンプル 8: アドオン「サンプル 8」が有効化されました。")
+    print("サンプル8: アドオン「サンプル8」が有効化されました。")
 
 
 def unregister():
@@ -157,7 +157,7 @@ def unregister():
     del sc.rf_vert_3
     del sc.rf_vert_4
     bpy.utils.unregister_module(__name__)
-    print("サンプル 8: アドオン「サンプル 8」が無効化されました。")
+    print("サンプル8: アドオン「サンプル8」が無効化されました。")
 
 
 if __name__ == "__main__":

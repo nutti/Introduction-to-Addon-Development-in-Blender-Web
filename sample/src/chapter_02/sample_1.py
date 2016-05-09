@@ -27,7 +27,7 @@ class CreateObject(bpy.types.Operator):
     # メニューを実行した時に呼ばれる関数
 	def execute(self, context):
 		bpy.ops.mesh.primitive_ico_sphere_add()
-		print("サンプル 1: 3DビューにICO球を生成しました。")
+		print("サンプル1: 3DビューにICO球を生成しました。")
 
 		return {'FINISHED'}
 
@@ -42,14 +42,14 @@ def menu_fn(self, context):
 def register():
 	bpy.utils.register_module(__name__)
 	bpy.types.INFO_MT_mesh_add.append(menu_fn)
-	print("サンプル 1: アドオン「サンプル 1」が有効化されました。")
+	print("サンプル1: アドオン「サンプル1」が有効化されました。")
 
 
 # アドオン無効化時の処理
 def unregister():
 	bpy.types.INFO_MT_mesh_add.remove(menu_fn)
 	bpy.utils.unregister_module(__name__)
-	print("サンプル 1: アドオン「サンプル 1」が無効化されました。")
+	print("サンプル1: アドオン「サンプル1」が無効化されました。")
 
 
 # メイン処理
