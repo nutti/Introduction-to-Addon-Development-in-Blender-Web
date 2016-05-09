@@ -427,7 +427,9 @@ PyDevデバッグサーバの起動手順を以下に示します。
 ### 5. デバッグ開始
 
 ここまで順調に設定できていれば、以下のような画面が表示されているはずです。
-先ほど作成した ```debug.py``` と ```debuggee.py``` は ```PyDev Package Explorer``` から参照することができます。
+先ほど作成した ```debug.py``` と ```debuggee.py``` は ```PyDev Package Explorer``` の ```scripts/addons``` から参照することができます。
+なお、 ```PyDev Package Explorer``` には2つの ```scripts/addons``` が表示されていますが、片方はサポートレベルがOfficialであるアドオン群が格納されています。
+今回は自分が作成したアドオンを参照したいので、 ```debug.py``` と ```debuggee.py``` が格納されている ```scripts/addons``` を参照するようにしてください。
 
 ![デバッグ開始 手順1](https://dl.dropboxusercontent.com/s/a4ktv1sy6bv7duc/start_debug_1.png "デバッグ開始 手順1")
 
