@@ -21,7 +21,7 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 
 <div id="process"></div>
 
-|1|*Info* エリアのメニューから *File* > *User Preferences...* を実行します。|![アドオンの日本語化 手順1](https://dl.dropboxusercontent.com/s/8xx2l59wy2d7c8y/localizing_into_japanese_1.png "アドオン日本語化 手順1")|
+|<div id="box">1</div>|*Info* エリアのメニューから *File* > *User Preferences...* を実行します。|![アドオンの日本語化 手順1](https://dl.dropboxusercontent.com/s/8xx2l59wy2d7c8y/localizing_into_japanese_1.png "アドオン日本語化 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -30,7 +30,7 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 
 <div id="process_noimg"></div>
 
-|2|*Blender User Preferences* ウィンドウが立ち上がりますので、 *System* タブを選択します。|
+|<div id="box">2</div>|*Blender User Preferences* ウィンドウが立ち上がりますので、 *System* タブを選択します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -39,7 +39,7 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 
 <div id="process"></div>
 
-|3|*International Fonts* にチェックを入れると、Blenderの言語を変更することができるようになります。|![アドオンの日本語化 手順2](https://dl.dropboxusercontent.com/s/6uwpij0r5riiqk3/localizing_into_japanese_2.png "アドオン日本語化 手順2")|
+|<div id="box">3</div>|*International Fonts* にチェックを入れると、Blenderの言語を変更することができるようになります。|![アドオンの日本語化 手順2](https://dl.dropboxusercontent.com/s/6uwpij0r5riiqk3/localizing_into_japanese_2.png "アドオン日本語化 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -48,7 +48,7 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 
 <div id="process"></div>
 
-|4|*Language* を *Japanese（日本語）* に変更し、 *Translate* で日本語化する項目を選択すると、選択された項目が日本語化されます。|![アドオンの日本語化 手順3](https://dl.dropboxusercontent.com/s/s5mrd72si2xq910/localizing_into_japanese_3.png "アドオン日本語化 手順3")|
+|<div id="box">4</div>|*Language* を *Japanese（日本語）* に変更し、 *Translate* で日本語化する項目を選択すると、選択された項目が日本語化されます。|![アドオンの日本語化 手順3](https://dl.dropboxusercontent.com/s/s5mrd72si2xq910/localizing_into_japanese_3.png "アドオン日本語化 手順3")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -92,7 +92,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process_noimg"></div>
 
-|1|以下のURLからmifthさんが作成したアドオン一式をダウンロードします。|
+|<div id="box">1</div>|以下のURLからmifthさんが作成したアドオン一式をダウンロードします。|
 |---|---|
 
 * Mira Tools - https://github.com/mifth/mifthtools/archive/master.zip
@@ -103,7 +103,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process_noimg"></div>
 
-|2|ダウンロードしたファイル *mifthtools-master.zip* を解凍します。|
+|<div id="box">2</div>|ダウンロードしたファイル *mifthtools-master.zip* を解凍します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -112,7 +112,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process_noimg"></div>
 
-|3|```mifthtools-master/blender/addons/mira_tools``` がMira Tools本体です。このフォルダ一式を、 **Blenderアドオン用フォルダ** へコピーしたらインストール完了です。|
+|<div id="box">3</div>|```mifthtools-master/blender/addons/mira_tools``` がMira Tools本体です。このフォルダ一式を、 **Blenderアドオン用フォルダ** へコピーしたらインストール完了です。|
 |---|---|
 
 なお以下に示すように、Blenderアドオン用フォルダはOSごとにパスが異なります。
@@ -146,7 +146,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process_noimg"></div>
 
-|1|Blenderを起動します|
+|<div id="box">1</div>|Blenderを起動します|
 |---|---|
 
 <div id="process_sep"></div>
@@ -155,7 +155,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process"></div>
 
-|2|*情報* エリアのメニューから、 *ファイル* > *ユーザ設定* を選択します。|![アドオンの有効化 手順1](https://dl.dropboxusercontent.com/s/9it3p8rth2heyqi/enable_add-on_1.png "アドオンの有効化 手順1")|
+|<div id="box">2</div>|*情報* エリアのメニューから、 *ファイル* > *ユーザ設定* を選択します。|![アドオンの有効化 手順1](https://dl.dropboxusercontent.com/s/9it3p8rth2heyqi/enable_add-on_1.png "アドオンの有効化 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -164,7 +164,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process_noimg"></div>
 
-|3|*Blenderユーザ設定* ウィンドウが別ウィンドウで開きますので、 *アドオン* タブを選択します。|
+|<div id="box">3</div>|*Blenderユーザ設定* ウィンドウが別ウィンドウで開きますので、 *アドオン* タブを選択します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -173,7 +173,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process_noimg"></div>
 
-|4|検索窓に *mira tools* と入力します。|
+|<div id="box">4</div>|検索窓に *mira tools* と入力します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -182,7 +182,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process"></div>
 
-|5|ウィンドウ右側に *Mira Tools* が表示されますので、チェックボックスにチェックを入れるとアドオンを有効化します。|![アドオンの有効化 手順2](https://dl.dropboxusercontent.com/s/k4xq9zyhk0hbivp/enable_add-on_2.png "アドオンの有効化 手順2")|
+|<div id="box">5</div>|ウィンドウ右側に *Mira Tools* が表示されますので、チェックボックスにチェックを入れるとアドオンを有効化します。|![アドオンの有効化 手順2](https://dl.dropboxusercontent.com/s/k4xq9zyhk0hbivp/enable_add-on_2.png "アドオンの有効化 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -191,7 +191,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process"></div>
 
-|6|実際にアドオンが有効化されているかは、 *3Dビュー* エリアの左側の *ツールシェルフ* のタブに *Mira* が追加されていることで確認できます。|![アドオンの有効化 手順3](https://dl.dropboxusercontent.com/s/qqvxodqbs67yy45/enable_add-on_3.png "アドオンの有効化 手順3")|
+|<div id="box">6</div>|実際にアドオンが有効化されているかは、 *3Dビュー* エリアの左側の *ツールシェルフ* のタブに *Mira* が追加されていることで確認できます。|![アドオンの有効化 手順3](https://dl.dropboxusercontent.com/s/qqvxodqbs67yy45/enable_add-on_3.png "アドオンの有効化 手順3")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -215,7 +215,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process_noimg"></div>
 
-|1|アドオンを有効化した時と同様、 *Blenderユーザ設定* ウィンドウを開きます。|
+|<div id="box">1</div>|アドオンを有効化した時と同様、 *Blenderユーザ設定* ウィンドウを開きます。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -224,7 +224,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process"></div>
 
-|2|*アドオン* タブを選択し、 *Mira Tools* のチェックボックスのチェックを外すことでアドオンが無効化されます。|![アドオンの無効化](https://dl.dropboxusercontent.com/s/t15vvgofl5gs50d/disable_add-on.png "アドオンの無効化")|
+|<div id="box">2</div>|*アドオン* タブを選択し、 *Mira Tools* のチェックボックスのチェックを外すことでアドオンが無効化されます。|![アドオンの無効化](https://dl.dropboxusercontent.com/s/t15vvgofl5gs50d/disable_add-on.png "アドオンの無効化")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -250,7 +250,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process_noimg"></div>
 
-|1|アドオンのソースコードの場所が分からない場合は、 *Blenderユーザ設定* ウィンドウの *アドオン* タブから確認します。|
+|<div id="box">1</div>|アドオンのソースコードの場所が分からない場合は、 *Blenderユーザ設定* ウィンドウの *アドオン* タブから確認します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -259,7 +259,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process_noimg"></div>
 
-|2|アドオン名の隣にある左の矢印をクリックして *Mira Tools* の詳細情報を表示します。|
+|<div id="box">2</div>|アドオン名の隣にある左の矢印をクリックして *Mira Tools* の詳細情報を表示します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -268,7 +268,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process"></div>
 
-|3|詳細情報の *ファイル* がアドオンのソースコードが置かれた場所を示しています。|![アドオンの詳細情報を表示](https://dl.dropboxusercontent.com/s/7onrbdzxctp4uqw/show_add-on_detail.png "アドオンの詳細情報を表示")|
+|<div id="box">3</div>|詳細情報の *ファイル* がアドオンのソースコードが置かれた場所を示しています。|![アドオンの詳細情報を表示](https://dl.dropboxusercontent.com/s/7onrbdzxctp4uqw/show_add-on_detail.png "アドオンの詳細情報を表示")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -277,7 +277,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process_noimg"></div>
 
-|4|アドオンのソースコードを削除すると、アンインストールが完了します。|
+|<div id="box">4</div>|アドオンのソースコードを削除すると、アンインストールが完了します。|
 |---|---|
 
 <div id="process_start_end"></div>
@@ -301,7 +301,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process_noimg"></div>
 
-|1|*Blenderユーザ設定* ウィンドウの *アドオン* タブを選択し、 *Mira Tools* の左の矢印をクリックして詳細情報を開きます。|
+|<div id="box">1</div>|*Blenderユーザ設定* ウィンドウの *アドオン* タブを選択し、 *Mira Tools* の左の矢印をクリックして詳細情報を開きます。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -310,7 +310,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process"></div>
 
-|2|*削除* ボタンをクリックすると、アンインストールが完了します。|![アドオンのアンインストール](https://dl.dropboxusercontent.com/s/0hkgrg49n0kh880/uninstall_add-on.png "アドオンのアンインストール")|
+|<div id="box">2</div>|*削除* ボタンをクリックすると、アンインストールが完了します。|![アドオンのアンインストール](https://dl.dropboxusercontent.com/s/0hkgrg49n0kh880/uninstall_add-on.png "アドオンのアンインストール")|
 |---|---|---|
 
 <div id="process_start_end"></div>
