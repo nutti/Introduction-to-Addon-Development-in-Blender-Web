@@ -1,5 +1,5 @@
 import bpy
-from . import debug     # デバッグ実行するクリプトをimport
+import debug     # デバッグ実行するクリプトをimport
 
 bl_info = {
     "name": "デバッグテスト用のアドオン",
