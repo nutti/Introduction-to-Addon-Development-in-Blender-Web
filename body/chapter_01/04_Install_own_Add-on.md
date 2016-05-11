@@ -19,7 +19,7 @@
 
 <div id="process_noimg"></div>
 
-|1|[1-3節](03_Prepare_Add-on_development_environment.md)コンソールからBlenderを起動します。|
+|<div id="box">1</div>|[1-3節](03_Prepare_Add-on_development_environment.md)コンソールからBlenderを起動します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -28,7 +28,7 @@
 
 <div id="process"></div>
 
-|2|*テキストエディター* エリアのメニューバーにある *新規* をクリックして空のテキストを作成します。|![アドオン作成 手順1](https://dl.dropboxusercontent.com/s/6x7jkbaadtehb2e/blender_make_add-on_1.png "アドオン作成 手順1")|
+|<div id="box">2</div>|*テキストエディター* エリアのメニューバーにある *新規* をクリックして空のテキストを作成します。|![アドオン作成 手順1](https://dl.dropboxusercontent.com/s/6x7jkbaadtehb2e/blender_make_add-on_1.png "アドオン作成 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -37,7 +37,7 @@
 
 <div id="process"></div>
 
-|3| 以下に示すソースコード全文を入力します。空白は全て半角スペースで入力し、タブや全角スペースが含まれないように注意してください。|![アドオン作成 手順2](https://dl.dropboxusercontent.com/s/t6agj2bu859vk1c/blender_make_add-on_2.png "アドオン作成 手順2")|
+|<div id="box">3</div>| 以下に示すソースコード全文を入力します。空白は全て半角スペースで入力し、タブや全角スペースが含まれないように注意してください。|![アドオン作成 手順2](https://dl.dropboxusercontent.com/s/t6agj2bu859vk1c/blender_make_add-on_2.png "アドオン作成 手順2")|
 |---|---|---|
 
 [import](../../sample/src/chapter_01/sample_0.py)
@@ -48,7 +48,7 @@
 
 <div id="process"></div>
 
-|4|入力が完了したら、 *テキストエディタ* エリアのメニューバーから *テキスト* > *名前つけて保存* を実行します。|![アドオン作成 手順3](https://dl.dropboxusercontent.com/s/cbwyg0yebb8loww/blender_make_add-on_3.png "アドオン作成 手順3")|
+|<div id="box">4</div>|入力が完了したら、 *テキストエディタ* エリアのメニューバーから *テキスト* > *名前つけて保存* を実行します。|![アドオン作成 手順3](https://dl.dropboxusercontent.com/s/cbwyg0yebb8loww/blender_make_add-on_3.png "アドオン作成 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -57,7 +57,7 @@
 
 <div id="process"></div>
 
-|5|ファイル名 *04.py* という名前で保存します。[1.2節](02_Use_Blender_Add-on.md) でも解説しましたが、保存先はOSごとに異なりますので注意してください。|![アドオン作成 手順4](https://dl.dropboxusercontent.com/s/z9ibf7qz2t1jlj7/blender_make_add-on_4.png "アドオン作成 手順4")|
+|<div id="box">5</div>|ファイル名 *04.py* という名前で保存します。[1.2節](02_Use_Blender_Add-on.md) でも解説しましたが、保存先はOSごとに異なりますので注意してください。|![アドオン作成 手順4](https://dl.dropboxusercontent.com/s/z9ibf7qz2t1jlj7/blender_make_add-on_4.png "アドオン作成 手順4")|
 |---|---|---|
 
 |OS|保存先|
@@ -81,7 +81,7 @@
 
 <div id="process_noimg"></div>
 
-|1|*情報* エリアの *ファイル* > *ユーザ設定* を選択します。|![アドオン有効化 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオン有効化 手順1")|
+|<div id="box">1</div>|*情報* エリアの *ファイル* > *ユーザ設定* を選択します。|![アドオン有効化 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオン有効化 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -90,7 +90,7 @@
 
 <div id="process"></div>
 
-|2|*アドオン* タブを選択し、サポートレベルを *テスト中* に変更すると、今回作成したアドオンが表示されます。|
+|<div id="box">2</div>|*アドオン* タブを選択し、サポートレベルを *テスト中* に変更すると、今回作成したアドオンが表示されます。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -99,7 +99,7 @@
 
 <div id="process"></div>
 
-|3|チェックボックスをクリックし、アドオンを有効化します。|![アドオン有効化 手順2](https://dl.dropboxusercontent.com/s/ghc3rhh2wf3v9zc/blender_enable_add-on_2.png "アドオン有効化 手順2")|
+|<div id="box">3</div>|チェックボックスをクリックし、アドオンを有効化します。|![アドオン有効化 手順2](https://dl.dropboxusercontent.com/s/ghc3rhh2wf3v9zc/blender_enable_add-on_2.png "アドオン有効化 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -108,7 +108,7 @@
 
 <div id="process_noimg"></div>
 
-|4|アドオンを有効化すると、コンソールに以下の文字列が出力されます。|
+|<div id="box">4</div>|アドオンを有効化すると、コンソールに以下の文字列が出力されます。|
 |---|---|
 
 ```sh

@@ -41,7 +41,7 @@
 
 <div id="process"></div>
 
-|1|*編集モード* に変更し、選択方法を *面選択* にします。|
+|<div id="box">1</div>|*編集モード* に変更し、選択方法を *面選択* にします。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -50,7 +50,7 @@
 
 <div id="process"></div>
 
-|2|*プロパティパネル* から、 *マウスの右クリックで面を削除* の *開始* ボタンをクリックします。|![マウスの右クリックで面を削除 手順2](https://dl.dropboxusercontent.com/s/ltuh1pmujq0hbrf/use_add-on_2.png "マウスの右クリックで面を削除 手順2")|
+|<div id="box">2</div>|*プロパティパネル* から、 *マウスの右クリックで面を削除* の *開始* ボタンをクリックします。|![マウスの右クリックで面を削除 手順2](https://dl.dropboxusercontent.com/s/ltuh1pmujq0hbrf/use_add-on_2.png "マウスの右クリックで面を削除 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -59,7 +59,7 @@
 
 <div id="process"></div>
 
-|3|適当な面にマウスカーソルを当てて *右クリック* すると、マウスカーソルを当てた面が削除されます。|![マウスの右クリックで面を削除 手順3](https://dl.dropboxusercontent.com/s/1ntqeqbtx5ni0ym/use_add-on_3.png "マウスの右クリックで面を削除 手順3")|
+|<div id="box">3</div>|適当な面にマウスカーソルを当てて *右クリック* すると、マウスカーソルを当てた面が削除されます。|![マウスの右クリックで面を削除 手順3](https://dl.dropboxusercontent.com/s/1ntqeqbtx5ni0ym/use_add-on_3.png "マウスの右クリックで面を削除 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -68,7 +68,7 @@
 
 <div id="process"></div>
 
-|4| *マウスのクリックで面を削除* の *終了* ボタンをクリックして、処理を終了します。終了時に削除した面の数が *コンソール・ウィンドウ* に表示されます。|![マウスの右クリックで面を削除 手順4](https://dl.dropboxusercontent.com/s/vz6982lhm4ofsyp/use_add-on_4.png "マウスの右クリックで面を削除 手順4")|
+|<div id="box">4</div>| *マウスのクリックで面を削除* の *終了* ボタンをクリックして、処理を終了します。終了時に削除した面の数が *コンソール・ウィンドウ* に表示されます。|![マウスの右クリックで面を削除 手順4](https://dl.dropboxusercontent.com/s/vz6982lhm4ofsyp/use_add-on_4.png "マウスの右クリックで面を削除 手順4")|
 |---|---|---|
 
 <div id="process_start_end"></div>

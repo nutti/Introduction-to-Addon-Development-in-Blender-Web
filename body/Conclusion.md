@@ -16,7 +16,7 @@
 
 ### 本書執筆にご協力いただいた方
 
-* conchan-akita
+conchan-akita, sariew
 
 ※ 敬称略
 

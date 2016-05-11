@@ -37,7 +37,7 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|1|*Info* エリアの上端を下に向かってドラッグ＆ドロップします。|![コンソール・ウィンドウの表示 手順1](https://dl.dropboxusercontent.com/s/ho9x3vdwrfp1bqr/blender_show_console_window_1.png "コンソール・ウィンドウの表示 手順1")|
+|<div id="box">1</div>|*Info* エリアの上端を下に向かってドラッグ＆ドロップします。|![コンソール・ウィンドウの表示 手順1](https://dl.dropboxusercontent.com/s/ho9x3vdwrfp1bqr/blender_show_console_window_1.png "コンソール・ウィンドウの表示 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -46,7 +46,7 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|2|コンソール・ウィンドウが表示されます。|![コンソール・ウィンドウの表示 手順2](https://dl.dropboxusercontent.com/s/49km722w99jxygf/blender_show_console_window_2.png "コンソール・ウィンドウの表示 手順2")|
+|<div id="box">2</div>|コンソール・ウィンドウが表示されます。|![コンソール・ウィンドウの表示 手順2](https://dl.dropboxusercontent.com/s/49km722w99jxygf/blender_show_console_window_2.png "コンソール・ウィンドウの表示 手順2")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -68,7 +68,7 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|1|左下の三角マークを右側にドラッグ&ドロップしてエリアを縦に2分割します。|![ウィンドウの分割 手順1](https://dl.dropboxusercontent.com/s/hnc8c8qfonfnnyp/blender_divide_window_1.png "ウィンドウの分割 手順1")|
+|<div id="box">1</div>|左下の三角マークを右側にドラッグ&ドロップしてエリアを縦に2分割します。|![ウィンドウの分割 手順1](https://dl.dropboxusercontent.com/s/hnc8c8qfonfnnyp/blender_divide_window_1.png "ウィンドウの分割 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -77,7 +77,7 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|2|左側のエリアの左下の三角マークを上側にドラッグ&ドロップして左側のエリアを横に2分割します。|![ウィンドウの分割 手順2](https://dl.dropboxusercontent.com/s/g6ifc1mn5wu120e/blender_divide_window_2.png "ウィンドウの分割 手順2")|
+|<div id="box">2</div>|左側のエリアの左下の三角マークを上側にドラッグ&ドロップして左側のエリアを横に2分割します。|![ウィンドウの分割 手順2](https://dl.dropboxusercontent.com/s/g6ifc1mn5wu120e/blender_divide_window_2.png "ウィンドウの分割 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -86,7 +86,7 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|3|これでエリア分割は完了です。なお、分割後のエリアは全て *3Dビュー* になっていると思います。|![ウィンドウの分割 手順3](https://dl.dropboxusercontent.com/s/i3bbl8f5vbmazhk/blender_divide_window_3.png "ウィンドウの分割 手順3")|
+|<div id="box">3</div>|これでエリア分割は完了です。なお、分割後のエリアは全て *3Dビュー* になっていると思います。|![ウィンドウの分割 手順3](https://dl.dropboxusercontent.com/s/i3bbl8f5vbmazhk/blender_divide_window_3.png "ウィンドウの分割 手順3")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -105,7 +105,7 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|1|左下のエリアのメニューバーの一番左のボタンから、*テキストエディター* をクリックします。|![ウィンドウ表示の変更 手順1](https://dl.dropboxusercontent.com/s/v56yihqny5qy83q/blender_change_window_1.png "ウィンドウ表示の変更 手順1")|
+|<div id="box">1</div>|左下のエリアのメニューバーの一番左のボタンから、*テキストエディター* をクリックします。|![ウィンドウ表示の変更 手順1](https://dl.dropboxusercontent.com/s/v56yihqny5qy83q/blender_change_window_1.png "ウィンドウ表示の変更 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -114,7 +114,7 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|2|左下のエリアが *3Dビュー* から *テキストエディター* に変更されます。|![ウィンドウ表示の変更 手順2](https://dl.dropboxusercontent.com/s/9edhgrh27ulak4p/blender_change_window_2.png "ウィンドウ表示の変更 手順2")|
+|<div id="box">2</div>|左下のエリアが *3Dビュー* から *テキストエディター* に変更されます。|![ウィンドウ表示の変更 手順2](https://dl.dropboxusercontent.com/s/9edhgrh27ulak4p/blender_change_window_2.png "ウィンドウ表示の変更 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -123,7 +123,7 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|3|左上のエリアのメニューバーの一番左のボタンから、*Pythonコンソール* をクリックします。|![ウィンドウ表示の変更 手順3](https://dl.dropboxusercontent.com/s/owvn6git978ja7i/blender_change_window_3.png "ウィンドウ表示の変更 手順3")|
+|<div id="box">3</div>|左上のエリアのメニューバーの一番左のボタンから、*Pythonコンソール* をクリックします。|![ウィンドウ表示の変更 手順3](https://dl.dropboxusercontent.com/s/owvn6git978ja7i/blender_change_window_3.png "ウィンドウ表示の変更 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -132,7 +132,7 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|4|左上のエリアが *3Dビュー* から *Pythonコンソール* に変更されます。|![ウィンドウ表示の変更 手順4](https://dl.dropboxusercontent.com/s/9ws6g0tr3xhpc94/blender_change_window_4.png "ウィンドウ表示の変更 手順4")|
+|<div id="box">4</div>|左上のエリアが *3Dビュー* から *Pythonコンソール* に変更されます。|![ウィンドウ表示の変更 手順4](https://dl.dropboxusercontent.com/s/9ws6g0tr3xhpc94/blender_change_window_4.png "ウィンドウ表示の変更 手順4")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -151,7 +151,7 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|1|*情報* エリアのメニューバーから、 *ファイル* > *スタートアップファイルを保存* を実行します。|![Blenderの初期状態にする 手順1](https://dl.dropboxusercontent.com/s/kbro7t4evkim2au/blender_save_startup_file_1.png "Blenderの初期状態にする 手順1")|
+|<div id="box">1</div>|*情報* エリアのメニューバーから、 *ファイル* > *スタートアップファイルを保存* を実行します。|![Blenderの初期状態にする 手順1](https://dl.dropboxusercontent.com/s/kbro7t4evkim2au/blender_save_startup_file_1.png "Blenderの初期状態にする 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -160,7 +160,7 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 <div id="process"></div>
 
-|2|確認メッセージが出ますので、 *スタートアップファイルを保存* をクリックします。|![Blenderの初期状態にする 手順2](https://dl.dropboxusercontent.com/s/pm74e5k1atjgu0a/blender_save_startup_file_2.png "Blenderの初期状態にする 手順2")|
+|<div id="box">2</div>|確認メッセージが出ますので、 *スタートアップファイルを保存* をクリックします。|![Blenderの初期状態にする 手順2](https://dl.dropboxusercontent.com/s/pm74e5k1atjgu0a/blender_save_startup_file_2.png "Blenderの初期状態にする 手順2")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -178,7 +178,7 @@ Blenderの起動直後の状態を設定する場合は、いつでもこの方�
 
 <div id="process"></div>
 
-|1|*情報* エリアの *ファイル* > *初期設定を読み込む* を実行します。|![初期設定を読み込む 手順1](https://dl.dropboxusercontent.com/s/fzhbvpp60xf76a6/blender_read_factory_setting_1.png "初期状態を読み込む 手順1")|
+|<div id="box">1</div>|*情報* エリアの *ファイル* > *初期設定を読み込む* を実行します。|![初期設定を読み込む 手順1](https://dl.dropboxusercontent.com/s/fzhbvpp60xf76a6/blender_read_factory_setting_1.png "初期状態を読み込む 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -187,7 +187,7 @@ Blenderの起動直後の状態を設定する場合は、いつでもこの方�
 
 <div id="process"></div>
 
-|2|確認メッセージが出ますので、 *初期設定を読み込む* をクリックします。|![初期設定を読み込む 手順2](https://dl.dropboxusercontent.com/s/sc2dvqqw19twg12/blender_read_factory_setting_2.png "初期状態を読み込む 手順2")|
+|<div id="box">2</div>|確認メッセージが出ますので、 *初期設定を読み込む* をクリックします。|![初期設定を読み込む 手順2](https://dl.dropboxusercontent.com/s/sc2dvqqw19twg12/blender_read_factory_setting_2.png "初期状態を読み込む 手順2")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -264,7 +264,7 @@ WindowsのコマンドプロンプトからBlenderを起動する手順を以下
 
 <div id="process_noimg"></div>
 
-|1|*コマンドプロンプト* を起動します。|
+|<div id="box">1</div>|*コマンドプロンプト* を起動します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -273,7 +273,7 @@ WindowsのコマンドプロンプトからBlenderを起動する手順を以下
 
 <div id="process_noimg"></div>
 
-|2|以下のコマンドを実行します。（blender.exeが置かれているパスが ```C:\path\blender.exe``` であると仮定します。）|
+|<div id="box">2</div>|以下のコマンドを実行します。（blender.exeが置かれているパスが ```C:\path\blender.exe``` であると仮定します。）|
 |---|---|
 
 ```dos
@@ -286,7 +286,7 @@ WindowsのコマンドプロンプトからBlenderを起動する手順を以下
 
 <div id="process_noimg"></div>
 
-|3|Blenderが起動します。|
+|<div id="box">3</div>|Blenderが起動します。|
 |---|---|
 
 <div id="process_start_end"></div>
@@ -303,7 +303,7 @@ MacのターミナルからBlenderを起動する手順を以下に示します�
 
 <div id="process_noimg"></div>
 
-|1|*ターミナル* を起動します。|
+|<div id="box">1</div>|*ターミナル* を起動します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -312,7 +312,7 @@ MacのターミナルからBlenderを起動する手順を以下に示します�
 
 <div id="process_noimg"></div>
 
-|2| 以下のコマンドを実行します。（Blender.appが置かれているパスが ```/path/Blender.app``` であると仮定します。）|
+|<div id="box">2</div>| 以下のコマンドを実行します。（Blender.appが置かれているパスが ```/path/Blender.app``` であると仮定します。）|
 |---|---|
 
 ```sh
@@ -325,7 +325,7 @@ $ /path/blender.app/Contents/MacOS/blender
 
 <div id="process_noimg"></div>
 
-|3|Blenderが起動します。|
+|<div id="box">3</div>|Blenderが起動します。|
 |---|---|
 
 <div id="process_start_end"></div>
@@ -342,7 +342,7 @@ LinuxのターミナルからBlenderを起動する手順を以下に示しま�
 
 <div id="process_noimg"></div>
 
-|1|*ターミナル* を起動します。|
+|<div id="box">1</div>|*ターミナル* を起動します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -351,7 +351,7 @@ LinuxのターミナルからBlenderを起動する手順を以下に示しま�
 
 <div id="process_noimg"></div>
 
-|2| 以下のコマンドを実行します。（実行ファイルblenderが置かれているパスが ```/path/blender``` であると仮定します。）|
+|<div id="box">2</div>| 以下のコマンドを実行します。（実行ファイルblenderが置かれているパスが ```/path/blender``` であると仮定します。）|
 |---|---|
 
 ```sh
@@ -364,7 +364,7 @@ $ /path/blender
 
 <div id="process_noimg"></div>
 
-|3|Blenderが起動します。|
+|<div id="box">3</div>|Blenderが起動します。|
 |---|---|
 
 <div id="process_start_end"></div>

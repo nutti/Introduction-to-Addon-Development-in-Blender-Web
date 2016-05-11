@@ -23,7 +23,7 @@ class EnlargeObject(bpy.types.Operator):
 	bl_description = "選択中のオブジェクトを拡大します"
 	bl_options = {'REGISTER', 'UNDO'}
 
-    # メニューを実行した時に呼ばれる関数
+    # メニューを実行した時に呼ばれるメソッド
 	def execute(self, context):
 		active_obj = context.active_object
 		active_obj.scale = active_obj.scale * 2.0

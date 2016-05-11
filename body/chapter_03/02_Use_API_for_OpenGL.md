@@ -60,7 +60,7 @@
 
 <div id="process"></div>
 
-|1|開始ボタンをクリックすると、 *3Dビュー* エリア上に三角形が表示されます。<br>また *プロパティパネル* には、表示する図形と図形の頂点を変更するためのUIが表示されます。|![図の表示 手順2](https://dl.dropboxusercontent.com/s/056sg7b9x96mdjf/use_addon_2.png "図の表示 手順2")|
+|<div id="box">1</div>|開始ボタンをクリックすると、 *3Dビュー* エリア上に三角形が表示されます。<br>また *プロパティパネル* には、表示する図形と図形の頂点を変更するためのUIが表示されます。|![図の表示 手順2](https://dl.dropboxusercontent.com/s/056sg7b9x96mdjf/use_addon_2.png "図の表示 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -69,7 +69,7 @@
 
 <div id="process"></div>
 
-|2|三角形の頂点座標を変更します。*3Dビュー* エリア 上に表示されている三角形が頂点の変更に合わせて変形します。|![図の表示 手順3](https://dl.dropboxusercontent.com/s/vlua7b5aiptcc4m/use_addon_3.png "図の表示 手順3")|
+|<div id="box">2</div>|三角形の頂点座標を変更します。*3Dビュー* エリア 上に表示されている三角形が頂点の変更に合わせて変形します。|![図の表示 手順3](https://dl.dropboxusercontent.com/s/vlua7b5aiptcc4m/use_addon_3.png "図の表示 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -78,7 +78,7 @@
 
 <div id="process"></div>
 
-|3|表示する図形を三角形から四角形へ変更します。<br>表示する図形を四角形へ変更すると4つの頂点を編集できるようになり、変更と同時に *3Dビュー* エリア 上に表示されている図形も変更されます。|![図の表示 手順4](https://dl.dropboxusercontent.com/s/1wr0l6uddp64emk/use_addon_4.png "図の表示 手順4")|
+|<div id="box">3</div>|表示する図形を三角形から四角形へ変更します。<br>表示する図形を四角形へ変更すると4つの頂点を編集できるようになり、変更と同時に *3Dビュー* エリア 上に表示されている図形も変更されます。|![図の表示 手順4](https://dl.dropboxusercontent.com/s/1wr0l6uddp64emk/use_addon_4.png "図の表示 手順4")|
 |---|---|---|
 
 <div id="process_start_end"></div>

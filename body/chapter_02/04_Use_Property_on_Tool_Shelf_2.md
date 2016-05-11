@@ -49,7 +49,7 @@
 
 <div id="process"></div>
 
-|1|Blender起動直後に生成される *Cube* を選択し追加されたメニューを実行すると、選択したCubeが複製されます。|![オブジェクトの複製1](https://dl.dropboxusercontent.com/s/p2vi68nprlto5gc/use_add-on_1.png "オブジェクトの複製1")|
+|<div id="box">1</div>|Blender起動直後に生成される *Cube* を選択し追加されたメニューを実行すると、選択したCubeが複製されます。|![オブジェクトの複製1](https://dl.dropboxusercontent.com/s/p2vi68nprlto5gc/use_add-on_1.png "オブジェクトの複製1")|
 |---|---|---|
 
 実行すると、*コンソール・ウィンドウ* に以下のメッセージが表示され、
@@ -64,7 +64,7 @@
 
 <div id="process"></div>
 
-|2|*3Dビュー* エリアの *ツール・シェルフ* に表示されたオプションをいろいろ変更してみましょう。|![オブジェクトの複製2](https://dl.dropboxusercontent.com/s/if9ztwmoc09nqt1/use_add-on_2.png "オブジェクトの複製2")|
+|<div id="box">2</div>|*3Dビュー* エリアの *ツール・シェルフ* に表示されたオプションをいろいろ変更してみましょう。|![オブジェクトの複製2](https://dl.dropboxusercontent.com/s/if9ztwmoc09nqt1/use_add-on_2.png "オブジェクトの複製2")|
 |---|---|---|
 
 今回のサンプルでは、以下に示すオプションが変更可能となっています。

@@ -119,7 +119,7 @@ D.B.Oは会員制のため、ユーザ登録が必要です。
 
 <div id="process"></div>
 
-|1|右上の＋からManiphest Taskをクリックします。|![Create New Task 手順1](https://dl.dropboxusercontent.com/s/3zzr089rpl1i244/create_new_task_1.png "Create New Task 手順1")|
+|<div id="box">1</div>|右上の＋からManiphest Taskをクリックします。|![Create New Task 手順1](https://dl.dropboxusercontent.com/s/3zzr089rpl1i244/create_new_task_1.png "Create New Task 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -128,7 +128,7 @@ D.B.Oは会員制のため、ユーザ登録が必要です。
 
 <div id="process"></div>
 
-|2|各入力欄に必要事項を記載し、新しいタスクを作成します。|![Create New Task 手順2](https://dl.dropboxusercontent.com/s/4m757n2ubrqz4au/create_new_task_2.png "Create New Task 手順2")|
+|<div id="box">2</div>|各入力欄に必要事項を記載し、新しいタスクを作成します。|![Create New Task 手順2](https://dl.dropboxusercontent.com/s/4m757n2ubrqz4au/create_new_task_2.png "Create New Task 手順2")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -236,7 +236,7 @@ Blenderのサポートレベルに応じてリポジトリが異なります。
 
 <div id="process_noimg"></div>
 
-|1|以下のコマンドを実行し、最新のBlenderのリポジトリを取得します。|
+|<div id="box">1</div>|以下のコマンドを実行し、最新のBlenderのリポジトリを取得します。|
 |---|---|
 
 ```sh
@@ -250,7 +250,7 @@ $ git clone git://git.blender.org/blender-addons-contrib.git
 
 <div id="process_noimg"></div>
 
-|2|以下のコマンドを実行し、リポジトリ取得後に作成したアドオンをリポジトリへ移動します。|
+|<div id="box">2</div>|以下のコマンドを実行し、リポジトリ取得後に作成したアドオンをリポジトリへ移動します。|
 |---|---|
 
 ```sh
@@ -264,7 +264,7 @@ $ cp [作成したプラグイン] .
 
 <div id="process_noimg"></div>
 
-|3|以下のコマンドを実行してソースコードの差分を取得した結果を出力し、出力結果をコピーします。|
+|<div id="box">3</div>|以下のコマンドを実行してソースコードの差分を取得した結果を出力し、出力結果をコピーします。|
 |---|---|
 
 ```sh
@@ -277,7 +277,7 @@ $ git diff
 
 <div id="process"></div>
 
-|4|developer.blender.orgの左側にある *Differential* をクリックします|![Create Diff 手順1](https://dl.dropboxusercontent.com/s/2wcu3f3ho59x3ia/create_diff_1.png "Create Diff 手順1")|
+|<div id="box">4</div>|developer.blender.orgの左側にある *Differential* をクリックします|![Create Diff 手順1](https://dl.dropboxusercontent.com/s/2wcu3f3ho59x3ia/create_diff_1.png "Create Diff 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -286,7 +286,7 @@ $ git diff
 
 <div id="process"></div>
 
-|5|*Create Diff* をクリックします。|![Create Diff 手順2](https://dl.dropboxusercontent.com/s/w9rhl9pwcwqjef3/create_diff_2.png "Create Diff 手順2")|
+|<div id="box">5</div>|*Create Diff* をクリックします。|![Create Diff 手順2](https://dl.dropboxusercontent.com/s/w9rhl9pwcwqjef3/create_diff_2.png "Create Diff 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -295,7 +295,7 @@ $ git diff
 
 <div id="process"></div>
 
-|6|コピーしたソースコードの差分を *Raw Diff* にペーストし、 *Repository* に *rBAC Blender Add-ons Contrib* を入力した後、一番下のCreate Diffのボタンをクリックします。|![Create Diff 手順3](https://dl.dropboxusercontent.com/s/c37hha0316mh124/create_diff_3.png "Create Diff 手順3")|
+|<div id="box">6</div>|コピーしたソースコードの差分を *Raw Diff* にペーストし、 *Repository* に *rBAC Blender Add-ons Contrib* を入力した後、一番下のCreate Diffのボタンをクリックします。|![Create Diff 手順3](https://dl.dropboxusercontent.com/s/c37hha0316mh124/create_diff_3.png "Create Diff 手順3")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -316,7 +316,7 @@ $ git diff
 
 <div id="process_noimg"></div>
 
-|1|Blenderのリポジトリへソースコードを登録（commit）するためは、リポジトリ管理者からリポジトリへのcommit権をもらう必要があります。<br>執筆時点で、リポジトリの管理はIdeasmanさんという方が行っているようです。<br>IRC(チャットのようなもの)に入り、Ideasmanさんからリポジトリのcommit権をもらいましょう。<br> IRCでは英語でのチャットになりますが、わからない単語をWebで調べつつ、こちらが言いたいことをはっきり伝えていけばなんとかなるでしょう。|
+|<div id="box">1</div>|Blenderのリポジトリへソースコードを登録（commit）するためは、リポジトリ管理者からリポジトリへのcommit権をもらう必要があります。<br>執筆時点で、リポジトリの管理はIdeasmanさんという方が行っているようです。<br>IRC(チャットのようなもの)に入り、Ideasmanさんからリポジトリのcommit権をもらいましょう。<br> IRCでは英語でのチャットになりますが、わからない単語をWebで調べつつ、こちらが言いたいことをはっきり伝えていけばなんとかなるでしょう。|
 |---|---|
 
 <div id="webpage"></div>
@@ -336,7 +336,7 @@ Blender開発者専用のチャンネルは *#blendercoders* ですので、 *Ch
 
 <div id="process_noimg"></div>
 
-|2|commit権をもらったら、Blenderのリポジトリを取得しましょう。<br>リポジトリの取得については、以下の手順で行います。<br>BlenderのWikiページも参考になるでしょう。|
+|<div id="box">2</div>|commit権をもらったら、Blenderのリポジトリを取得しましょう。<br>リポジトリの取得については、以下の手順で行います。<br>BlenderのWikiページも参考になるでしょう。|
 |---|---|
 
 <div id="webpage"></div>
@@ -363,7 +363,7 @@ $ git submodule foreach --recursive git pull --rebase origin master
 
 <div id="process_noimg"></div>
 
-|3|著者・連絡先を設定します。<br>リポジトリへcommitする前に以下のコマンドを実行し、commitを行った人の名前や連絡先を設定します。<br>この設定を一度行っておけば、設定を変えたりOSを変えたりしない限り、2度目以降は実施する必要がありません。|
+|<div id="box">3</div>|著者・連絡先を設定します。<br>リポジトリへcommitする前に以下のコマンドを実行し、commitを行った人の名前や連絡先を設定します。<br>この設定を一度行っておけば、設定を変えたりOSを変えたりしない限り、2度目以降は実施する必要がありません。|
 |---|---|
 
 ```sh
@@ -377,7 +377,7 @@ git config --global user.email "[連絡先メールアドレス]"
 
 <div id="process_noimg"></div>
 
-|4|commit先を設定します。|
+|<div id="box">4</div>|commit先を設定します。|
 |---|---|
 
 以下のコマンドを実行し、commit先の設定を行います。
@@ -392,7 +392,7 @@ $ git remote set-url origin git@git.blender.org:blender-addons-contrib.git
 
 <div id="process_noimg"></div>
 
-|5|ssh鍵を登録します。|
+|<div id="box">5</div>|ssh鍵を登録します。|
 |---|---|
 
 以下のコマンドを実行し、ssh鍵を作成します。
@@ -411,7 +411,7 @@ D.B.Oの右上の工具マークをクリックし、左メニューの *SSH Pub
 
 <div id="process_noimg"></div>
 
-|6|登録するアドオンのソースコードをリポジトリ内に配置します。|
+|<div id="box">6</div>|登録するアドオンのソースコードをリポジトリ内に配置します。|
 |---|---|
 
 以下では、 ```blender-addons-contrib``` 直下にアドオンのソースコードを置いています。
@@ -427,7 +427,7 @@ $ cp [作成したアドオンのソースコード] .
 
 <div id="process_noimg"></div>
 
-|7|ローカルリポジトリへcommitします。|
+|<div id="box">7</div>|ローカルリポジトリへcommitします。|
 |---|---|
 
 以下のコマンドを実行し、ローカルのリポジトリへcommitします。
@@ -455,7 +455,7 @@ $ git commit
 
 <div id="process_noimg"></div>
 
-|8|いよいよアドオンの登録も最終段階です。<br>リモートリポジトリ（Blender本体のリポジトリ）へソースコードを登録します。|
+|<div id="box">8</div>|いよいよアドオンの登録も最終段階です。<br>リモートリポジトリ（Blender本体のリポジトリ）へソースコードを登録します。|
 |---|---|
 
 以下のコマンドを実行し、アドオンをBlender本体のリポジトリに登録します。

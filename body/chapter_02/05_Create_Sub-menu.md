@@ -42,7 +42,7 @@
 
 <div id="process_noimg"></div>
 
-|1|*3Dビュー* エリアのメニュー *オブジェクト* > *オブジェクトの複製* から複製するオブジェクト名を選んで実行すると、選択したオブジェクトが複製されます。|
+|<div id="box">1</div>|*3Dビュー* エリアのメニュー *オブジェクト* > *オブジェクトの複製* から複製するオブジェクト名を選んで実行すると、選択したオブジェクトが複製されます。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -51,7 +51,7 @@
 
 <div id="process"></div>
 
-|2|複製されたオブジェクトは [2-4節](04_Sample_4_Replicate_object_1.md) と同様、拡大率・回転角度・配置先を *ツール・シェルフ* の *オプション* から変更することができます。|![オブジェクトの複複2](https://dl.dropboxusercontent.com/s/o0ten4sgfm8jter/use_add-on_2.png "オブジェクトの複製2")|
+|<div id="box">2</div>|複製されたオブジェクトは [2-4節](04_Sample_4_Replicate_object_1.md) と同様、拡大率・回転角度・配置先を *ツール・シェルフ* の *オプション* から変更することができます。|![オブジェクトの複複2](https://dl.dropboxusercontent.com/s/o0ten4sgfm8jter/use_add-on_2.png "オブジェクトの複製2")|
 |---|---|---|
 
 <div id="process_start_end"></div>
