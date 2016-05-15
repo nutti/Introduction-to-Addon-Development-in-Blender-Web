@@ -79,7 +79,7 @@
 
 ##### Work
 
-<div id="process_noimg"></div>
+<div id="process"></div>
 
 |<div id="box">1</div>|*情報* エリアの *ファイル* > *ユーザ設定* を選択します。|![アドオン有効化 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオン有効化 手順1")|
 |---|---|---|
@@ -88,7 +88,7 @@
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
 |<div id="box">2</div>|*アドオン* タブを選択し、サポートレベルを *テスト中* に変更すると、今回作成したアドオンが表示されます。|
 |---|---|

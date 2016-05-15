@@ -99,7 +99,7 @@ Blender公式は、過去の全てのBlenderのバージョンで提供するAPI
 
 ### PythonコンソールでAPIを検索・実行する
 
-[2.2節]("../chapter_02/02_Sample_2_Scaling_object_1.md")においても説明しましたが、 *Pythonコンソール* を用いることでBlenderが提供するAPIを検索し実行することができます。
+[2.2節](../chapter_02/02_Register_Multiple_Operation_Classes.md)においても説明しましたが、 *Pythonコンソール* を用いることでBlenderが提供するAPIを検索し実行することができます。
 
 <div id="process_title"></div>
 
@@ -152,7 +152,9 @@ Blender公式は、過去の全てのBlenderのバージョンで提供するAPI
 
 
 以上のことから ```select``` は、オブジェクトが選択状態であるか否かを調べるためのAPIであると判断できます。
-実際に[Blender公式のAPIドキュメント](http://www.blender.org/api/blender_python_api_2_75a_release/bpy.types.Object.html#bpy.types.Object.select)を調べてみると、以下のように記載されています。
+実際にBlender公式のAPIドキュメント(```http://www.blender.org/api/blender_python_api_2_75a_release/bpy.types.Object.html#bpy.types.Object.select```)を調べてみると、以下のように記載されています。
+
+<div id="quote"></div>
 
 > Object selection state
 

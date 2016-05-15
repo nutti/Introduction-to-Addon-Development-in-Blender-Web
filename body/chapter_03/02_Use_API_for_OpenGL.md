@@ -107,7 +107,7 @@ import bgl
 
 ### アドオンで利用するプロパティを定義する
 
-[3.1節](01_Sample_7_Delete_face_by_mouse_click.md)で紹介したサンプルと同様、今回もクラス間で以下のようなデータを共有します。
+[3.1節](01_Handle_Mouse_Click_Event.md)で紹介したサンプルと同様、今回もクラス間で以下のようなデータを共有します。
 
 |変数|意味|
 |---|---|
@@ -301,7 +301,7 @@ class OBJECT_PT_RF(bpy.types.Panel):
             layout.operator(RenderingButton.bl_idname, text="Start", icon="PLAY")
 ```
 
-[3.1節](01_Sample_7_Delete_face_by_mouse_click.md)と同様、 ```bpy.types.Panel``` を継承したクラスの中でUIを構築していきます。
+[3.1節](01_Handle_Mouse_Click_Event.md)と同様、 ```bpy.types.Panel``` を継承したクラスの中でUIを構築していきます。
 
 最初に描画中か否かの判定を行った後、描画中であればStopボタンを、そうでない場合はStartボタンを配置しています。
 また、描画中であれば描画する図形や頂点の座標を指定できるようにするため、 ```layout.prop()``` 関数を用いてこれらのUIパーツを配置しています。
@@ -345,7 +345,7 @@ class RenderingButton(bpy.types.Operator):
 ## まとめ
 
 PythonからOpenGLへアクセスするためのAPIである ```bgl``` モジュールを用いて、 *3Dビュー* エリアで図形を描画する方法を紹介しました。
-今回紹介した ```bgl``` モジュールと [3.1節](01_Sample_7_Delete_face_by_mouse_click.md) で紹介したマウスからのイベントを扱う方法を組み合わせることで、Blender専用のUIとは全く異なる独自のUIを構築することができます。
+今回紹介した ```bgl``` モジュールと [3.1節](01_Handle_Mouse_Click_Event.md) で紹介したマウスからのイベントを扱う方法を組み合わせることで、Blender専用のUIとは全く異なる独自のUIを構築することができます。
 
 ただし、OpenGLの全ての機能に対してAPIが用意されているわけではありません。
 このため ```bgl``` モジュールを利用する際には、 [4.1節](../chapter_04/01_Research_official_Blender_API_for_Add-on.md) を参考にして、Blenderが提供するAPIを確認する必要があります。

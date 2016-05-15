@@ -36,6 +36,7 @@
         @include space_m(80px);
         @include space_l(120px);
         @include space_xl(160px);
+        @include strong(1.04em);
     }
 
     .section {

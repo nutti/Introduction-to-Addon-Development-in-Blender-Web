@@ -39,7 +39,7 @@
 
 ##### Work
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
 |<div id="box">1</div>|*編集モード* に変更し、選択方法を *面選択* にします。|
 |---|---|
@@ -90,7 +90,7 @@
 
 今回のサンプルは複数のクラス間でデータを共有する必要があります。
 アドオン内で共有するデータを ```bpy.types.PropertyGroup``` を用いて定義することで、複数のクラス間でデータを共有します。
-```bpy.types.PropertyGroup``` は、 [2-3節](../chapter_02/03_Sample_3_Scaling_object_2.md) で紹介したプロパティクラスをグループ化するためのクラスです。
+```bpy.types.PropertyGroup``` は、 [2-3節](../chapter_02/03_Use_Property_on_Tool_Shelf_1.md) で紹介したプロパティクラスをグループ化するためのクラスです。
 使い方は簡単で、 ```bpy.types.PropertyGroup``` クラスを継承し、グループ化したいプロパティクラスをメンバ変数に追加するだけです。
 
 ```python

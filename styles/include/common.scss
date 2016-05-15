@@ -563,6 +563,14 @@
             }
         }
     }
+    #quote + blockquote {
+        p {
+            top: 0px;
+            padding-left: 20px;
+            background-color: #FFFFFF;
+            color: #888888;
+        }
+    }
 }
 
 @mixin webpage($font_size) {
@@ -911,6 +919,15 @@ $sect_img_list:
     #space_xl {
         display: block;
         height: $space;
+    }
+}
+
+@mixin strong($font_size) {
+    strong {
+        text-decoration: underline;
+        font-family: NotoSansCJKjp;
+        font-weight: normal;
+        font-size: $font_size;
     }
 }
 

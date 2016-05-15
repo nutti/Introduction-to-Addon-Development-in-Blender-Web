@@ -282,7 +282,7 @@ Eclipseプロジェクトを以下の手順に沿って作成します。
 
 <div id="process"></div>
 
-|<div id="box">4</div>|```Add source folder``` をクリックし、以下のパスを追加します <br> * (BLENDER_BASE_SCRIPT_PATH)/addons <br> * (BLENDER_BASE_SCRIPT_PATH)/addons/modules <br> * (BLENDER_BASE_SCRIPT_PATH)/modules <br> * (BLENDER_BASE_SCRIPT_PATH)/startup <br> * （必要に応じて個人用の作業ディレクトリ）|![パスの設定 手順4](https://dl.dropboxusercontent.com/s/uko6g5ltb04yhqo/configure_path_4.png "パスの設定 手順4")|
+|<div id="box">4</div>|```Add source folder``` をクリックし、以下のパスを追加します <br> ```(BLENDER_BASE_SCRIPT_PATH)/addons``` <br>  ```(BLENDER_BASE_SCRIPT_PATH)/addons/modules``` <br>  ```(BLENDER_BASE_SCRIPT_PATH)/modules``` <br>  ```(BLENDER_BASE_SCRIPT_PATH)/startup``` <br> （必要に応じて個人用の作業ディレクトリ）|![パスの設定 手順4](https://dl.dropboxusercontent.com/s/uko6g5ltb04yhqo/configure_path_4.png "パスの設定 手順4")|
 |---|---|---|
 
 BLNEDER_BASE_SCRIPT_PATHは、以下に示すようにOS依存です。
@@ -292,7 +292,7 @@ BLENDER_VERはBlenderはバージョンです。バージョンが2.75aのBlende
 |OS|Blender<br>実行ファイルのパス例|BLENDER_BASE_SCRIPT_PATH|
 |---|---|---|
 |Windows|```C:\path\blender.exe```|　|
-|Mac|```/path/blender.app```|```/path/blender.app/Contents/Resources/(BLENDER_VER)/scripts```|
+|Mac|```/path/blender.app```|```/path/blender.app/Contents/Resources/``` <br> ```(BLENDER_VER)/scripts```|
 |Linux|```/path/blender```|　|
 
 今回は上記に加え、3.で保存する ```debug.py``` と ```debuggee.py``` の保存先を指定します。
@@ -352,7 +352,7 @@ PyDevデバッグサーバをEclipseから起動するために、以下の方�
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
 |<div id="box">3</div>|```Main``` タブを選択し、 ```Location``` にBlenderの実行ファイルのパス、 ```Working Directory``` にBlenderの実行ファイルが置かれたディレクトリを入力します。<br> ```Name``` には任意の名前を入力します。（ここでは ```New_Configuration``` を入力しています）|
 |---|---|---|
@@ -533,7 +533,7 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 <div id="process"></div>
 
-|<div id="box">11</div>|　|![デバッグ開始 手順13](https://dl.dropboxusercontent.com/s/3kjwzrvham4yxtd/start_debug_13.png "デバッグ開始 手順13")|
+|<div id="box">11</div>|デバッグを終了するためには、 ```New_Configuration``` を選択した状態で赤い四角のボタンを押します。|![デバッグ開始 手順13](https://dl.dropboxusercontent.com/s/3kjwzrvham4yxtd/start_debug_13.png "デバッグ開始 手順13")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -542,7 +542,7 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 <div id="process"></div>
 
-|<div id="box">12</div>|　|![デバッグ開始 手順14](https://dl.dropboxusercontent.com/s/70nztthhb4hm7wo/start_debug_14.png "デバッグ開始 手順14")|
+|<div id="box">12</div>|デバッグが終了します。この時、Debug Serverは起動したままとなっています。もしDebug Serverも終了する場合は、 ```Debug Server``` を選択した状態で赤い四角のボタンを押します。|![デバッグ開始 手順14](https://dl.dropboxusercontent.com/s/70nztthhb4hm7wo/start_debug_14.png "デバッグ開始 手順14")|
 |---|---|---|
 
 <div id="process_start_end"></div>
