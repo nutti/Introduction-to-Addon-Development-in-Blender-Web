@@ -202,7 +202,7 @@ def handle_add(self, context):
 今回のサンプルでは、第1引数に ```RenderFigure.render``` 、第3引数に ```WINDOW``` を指定しています。
 描画関数に渡す引数は、自身のクラスインスタンスと実行時コンテキストを渡しています。
 
-なお、 ```bpy.types.SpaceView3D.draw_handler_add()```  は戻り値としてハンドルを返します。
+なお、 ```bpy.types.SpaceView3D.draw_handler_add()``` 関数 は戻り値としてハンドルを返します。
 ハンドルは、描画関数の登録解除時に利用するため変数に保存しておきます。
 
 ### 図形を描画する関数を作成する
@@ -250,7 +250,7 @@ def render(self, context):
 
 最後に ```bgl.glVertex2f()``` 関数を呼んで図形の頂点を設定した後に、 ```bgl.glEnd()``` 関数により描画を完了します。
 ```bgl.glVertex2f()``` 関数の引数には、X座標、Y座標の順で浮動小数点値で指定します。
-三角形の場合は3つの頂点を指定すればよいため3回 ```bgl.glVertex2f()``` を呼び、四角形の場合は4つの頂点を指定するため4回 ```bgl.glVertex2f()``` を呼びます。
+三角形の場合は3つの頂点を指定すればよいため3回 ```bgl.glVertex2f()``` 関数を呼び、四角形の場合は4つの頂点を指定するため4回 ```bgl.glVertex2f()``` 関数を呼びます。
 
 ### 図形を描画する関数を登録解除する
 
@@ -271,7 +271,7 @@ def handle_remove(self, context):
 
 |引数|意味|
 |---|---|
-|第1引数|ハンドル（```draw_handler_add()``` の戻り値）|
+|第1引数|ハンドル（```draw_handler_add()``` 関数の戻り値）|
 |第2引数|描画する *リージョン*|
 
 ### UIを構築する
@@ -305,7 +305,7 @@ class OBJECT_PT_RF(bpy.types.Panel):
 
 最初に描画中か否かの判定を行った後、描画中であればStopボタンを、そうでない場合はStartボタンを配置しています。
 また、描画中であれば描画する図形や頂点の座標を指定できるようにするため、 ```layout.prop()``` 関数を用いてこれらのUIパーツを配置しています。
-```layout.prop()``` の引数を以下に示します。
+```layout.prop()``` 関数の引数を以下に示します。
 
 |引数|意味|
 |---|---|
@@ -339,8 +339,8 @@ class RenderingButton(bpy.types.Operator):
         return {'FINISHED'}
 ```
 
-描画中にボタンが押された（ ```sc.rf_running``` が ```True``` ）時には、静的メソッド ```RenderFigure.handle_remove()``` を実行して描画関数を登録解除し、描画を中断します。
-描画中でない場合にボタンが押された（ ```sc.rf_running``` が ```False``` ）時には、静的メソッド ```RenderFigure.handle_add()``` を実行して描画関数を登録し、描画を開始します。
+描画中にボタンが押された（ ```sc.rf_running``` が ```True``` ）時には、静的メソッド ```RenderFigure.handle_remove()``` 関数を実行して描画関数を登録解除し、描画を中断します。
+描画中でない場合にボタンが押された（ ```sc.rf_running``` が ```False``` ）時には、静的メソッド ```RenderFigure.handle_add()``` 関数を実行して描画関数を登録し、描画を開始します。
 
 ## まとめ
 

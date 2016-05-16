@@ -19,8 +19,8 @@
 
 ## self.reportデバッグ
 
-読んで字のごとく、 ```self.report()``` 関数を用いたデバッグ手法です。
-```self.report()``` 関数の第2引数には任意の文字列が入力できることを利用し、確認したい変数の値を *コンソール・ウィンドウ* に表示させることでデバッグを行います。
+読んで字のごとく、 ```self.report()``` メソッドを用いたデバッグ手法です。
+```self.report()``` メソッドの第2引数には任意の文字列が入力できることを利用し、確認したい変数の値を *コンソール・ウィンドウ* に表示させることでデバッグを行います。
 self.reportデバッグの例を以下に示します。
 以下の例では、 ```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値を表示しています。
 
@@ -37,8 +37,8 @@ def execute(self, context):
 a=50, b=4.0
 ```
 
-変数を表示したい箇所に ```self.report()``` 関数を記述するだけで良いため、他のデバッグ方法に比べて最も手軽にデバッグを行える点がメリットになります。
-*modal()* メソッドなどの ```self.report()``` 関数を利用できない処理中ではデバッグができない点がデメリットです。
+変数を表示したい箇所に ```self.report()``` メソッドを記述するだけで良いため、他のデバッグ方法に比べて最も手軽にデバッグを行える点がメリットになります。
+```modal()``` メソッドなどの ```self.report()``` メソッドを利用できない処理中ではデバッグができない点がデメリットです。
 
 ## printデバッグ
 
@@ -282,7 +282,7 @@ Eclipseプロジェクトを以下の手順に沿って作成します。
 
 <div id="process"></div>
 
-|<div id="box">4</div>|```Add source folder``` をクリックし、以下のパスを追加します <br> ```(BLENDER_BASE_SCRIPT_PATH)/addons``` <br>  ```(BLENDER_BASE_SCRIPT_PATH)/addons/modules``` <br>  ```(BLENDER_BASE_SCRIPT_PATH)/modules``` <br>  ```(BLENDER_BASE_SCRIPT_PATH)/startup``` <br> （必要に応じて個人用の作業ディレクトリ）|![パスの設定 手順4](https://dl.dropboxusercontent.com/s/uko6g5ltb04yhqo/configure_path_4.png "パスの設定 手順4")|
+|<div id="box">4</div>|```Add source folder``` をクリックし、以下のパスを追加します <br> ```(BLENDER_BASE_SCRIPT_PATH)/addons``` <br>  ```(BLENDER_BASE_SCRIPT_PATH)/addons/modules``` <br>  ```(BLENDER_BASE_SCRIPT_PATH)/modules``` <br>  ```(BLENDER_BASE_SCRIPT_PATH)/startup```|![パスの設定 手順4](https://dl.dropboxusercontent.com/s/uko6g5ltb04yhqo/configure_path_4.png "パスの設定 手順4")|
 |---|---|---|
 
 BLNEDER_BASE_SCRIPT_PATHは、以下に示すようにOS依存です。
@@ -295,7 +295,9 @@ BLENDER_VERはBlenderはバージョンです。バージョンが2.75aのBlende
 |Mac|```/path/blender.app```|```/path/blender.app/Contents/Resources/``` <br> ```(BLENDER_VER)/scripts```|
 |Linux|```/path/blender```|　|
 
+必要に応じて個人用の作業ディレクトリを追加しても良いです。
 今回は上記に加え、3.で保存する ```debug.py``` と ```debuggee.py``` の保存先を指定します。
+
 保存先は、 [1.4節](../chapter_01/04_Install_own_Add-on.md) を参照してください。
 
 <div id="process_start_end"></div>
@@ -320,8 +322,8 @@ BLENDER_VERはBlenderはバージョンです。バージョンが2.75aのBlende
 
 [import](../../sample/src/chapter_04/debuggee.py)
 
-デバッグの準備を整えるため、 ```debug.py``` をインポートし、デバッグを開始する場所に ```debug.start_debug()``` を追加します。
-プログラム実行中に ```debug.start_debug()``` を通ると、デバッグが開始されます。
+デバッグの準備を整えるため、 ```debug.py``` をインポートし、デバッグを開始する場所に ```debug.start_debug()``` 関数を追加します。
+プログラム実行中に ```debug.start_debug()``` 関数を通ると、デバッグが開始されます。
 上記では、アドオン有効化時にデバッグを開始しています。
 
 ### 4. PyDevデバッグサーバの起動
@@ -653,7 +655,7 @@ Blenderをデバッグする方法を紹介しましたが、本節で紹介し�
 
 |デバッグ方法|できること|前準備|
 |---|---|---|
-|self.report|*コンソール・ウィンドウ* に出力可能な処理中の変数値確認|ソースコードの調べたい箇所に ```self.report()``` 関数を追加|
+|self.report|*コンソール・ウィンドウ* に出力可能な処理中の変数値確認|ソースコードの調べたい箇所に ```self.report()``` メソッドを追加|
 |print|すべての変数値確認|*コンソール* からBlenderを起動し、ソースコードの調べたい箇所に ```print()``` 関数を追加|
 |外部デバッガ|ブレークポイント設定やコールトレース調査、変数値確認など *Eclipse* が持つデバッガ機能を利用可能|EclipseやPyDevのインストール、EclipseとBlenderの連携、デバッグ実行用スクリプトの作成|
 |デバッガアドオン『BreakPoint』|ブレークポイント設定、変数値確認|アドオン『BreakPoint』のインストール、ブレークポイント設定のためのソースコード編集|

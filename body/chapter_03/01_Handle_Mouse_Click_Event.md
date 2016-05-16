@@ -266,9 +266,9 @@ def invoke(self, context, event):
 ```
 
 処理開始時の処理は ```props.running``` が ```False``` の時に行い、 ```props.running``` を ```True``` に設定した後、 ```DFRC_Properties``` の各メンバ変数を初期値に設定します。
-最後に ```context.window_manager.modal_handler_add()``` を実行して *モーダル処理用クラス* を登録し、 ```{'RUNNING_MODAL'}``` を返して *モーダルモード* へ移行します。
+最後に ```context.window_manager.modal_handler_add()``` 関数を実行して *モーダル処理用クラス* を登録し、 ```{'RUNNING_MODAL'}``` を返して *モーダルモード* へ移行します。
 *モーダルモード* とは、 ```{'FINISHED'}``` または ```{'CANCELLED'}``` を返すまで、処理を終えずにイベントを受け取り続けるモードを指します。
-今回のアドオンでは、 ```invoke()``` メソッドと ```modal()``` メソッドを同一のクラスで定義しているため、 ```context.window_manager.modal_handler_add()``` の引数に ```self``` を指定します。
+今回のアドオンでは、 ```invoke()``` メソッドと ```modal()``` メソッドを同一のクラスで定義しているため、 ```context.window_manager.modal_handler_add()``` 関数の引数に ```self``` を指定します。
 
 ```python
         # 処理停止
@@ -393,7 +393,7 @@ import bmesh
 3. 面を削除
 
 最初に1のクリック時のマウス位置にある面選択ですが、 ```event``` 変数からマウスの位置情報を取得します。
-関数 ```bpy.ops.view3d.select()``` の引数 ```location``` にマウスの位置を指定することで、マウスの位置にある面を選択することができます。
+関数 ```bpy.ops.view3d.select()``` 関数の引数 ```location``` にマウスの位置を指定することで、マウスの位置にある面を選択することができます。
 もしマウスの位置に面がなければ ```bpy.ops.view3d.select()``` 関数は ```{'PASS_THROUGH'}``` を返すため、関数の戻り値を判定し ```{'PASS_THROUGH'}``` であれば、マウスの位置に面がないことを出力した後に処理を終了します。
 
 ```python

@@ -71,7 +71,7 @@ def register_shortcut():
 
 ```bpy.context.window_manager.keyconfigs.addon.keymaps``` はアドオンに割り当てられているキーマップです。
 ```keymaps.new()``` 関数を実行することで、新たにキーマップを割り当てることができます。
-今回は ```keymaps.new()``` に以下に示す引数を指定してキーマップを割り当てています。
+今回は ```keymaps.new()``` 関数に以下に示す引数を指定してキーマップを割り当てています。
 
 |引数|値の意味|
 |---|---|
@@ -117,7 +117,7 @@ def unregister_shortcut():
     addon_keymaps.clear()
 ```
 
-変数 ```addon_keymaps``` に保存しておいたキーマップを用いて、 ```keymap_items.remove()``` によりショートカットキーのペアを削除しています。
+変数 ```addon_keymaps``` に保存しておいたキーマップを用いて、 ```keymap_items.remove()``` 関数によりショートカットキーのペアを削除しています。
 最後に、キーマップとショートカットキーのペアを保存しておいた ```addon_keymaps``` をクリアします。
 
 ### 割り当てるショートカットキー
