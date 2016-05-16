@@ -19,7 +19,7 @@
 
 [import](../../sample/src/chapter_03/sample_7.py)
 
-## アドオンを実行する
+## アドオンを使用する
 
 ### アドオンを有効化する
 
@@ -33,7 +33,7 @@
 
 ![マウスの右クリックで面を削除 手順1](https://dl.dropboxusercontent.com/s/6pyxmbf4mak9o8j/use_add-on_1.png "マウスの右クリックで面を削除 手順1")
 
-### アドオンを使ってみる
+### アドオンの機能を使用する
 
 <div id="process_title"></div>
 

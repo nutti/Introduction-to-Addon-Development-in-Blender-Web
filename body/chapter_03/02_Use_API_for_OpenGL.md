@@ -35,7 +35,7 @@
 
 [import](../../sample/src/chapter_03/sample_8.py)
 
-## アドオンを実行する
+## アドオンを使用する
 
 ### アドオンを有効化する
 
@@ -50,7 +50,7 @@
 ![図の表示 手順1](https://dl.dropboxusercontent.com/s/uf0xneikowb5ozz/use_addon_1.png "図の表示 手順1")
 
 
-### アドオンを使ってみる
+### アドオンの機能を使用する
 
 以下の手順に従って、作成したアドオンの機能を使ってみます。
 

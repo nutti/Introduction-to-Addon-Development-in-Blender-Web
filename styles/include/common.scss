@@ -564,11 +564,15 @@
         }
     }
     #quote + blockquote {
+        width: 100%;
+        font-weight: normal;
+        margin-left: 20px;
         p {
             top: 0px;
             padding-left: 20px;
             background-color: #FFFFFF;
             color: #888888;
+            text-align: left;
         }
     }
 }
@@ -925,8 +929,11 @@ $sect_img_list:
 @mixin strong($font_size) {
     strong {
         text-decoration: underline;
+        text-decoration-color: #AAAAAA;
         font-family: NotoSansCJKjp;
         font-weight: normal;
+        //border-bottom: 1px solid #000000;
+        //padding-bottom: 0px;
         font-size: $font_size;
     }
 }
