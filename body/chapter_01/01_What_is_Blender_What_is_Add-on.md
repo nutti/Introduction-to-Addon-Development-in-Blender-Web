@@ -17,11 +17,12 @@
 
 Blenderはフリーソフトとして提供されている、3DCG制作のための総合環境です。  
 Blenderは元々オランダで開発されていたレンダリングソフトでしたが、現在はオープンソース化されて3Dモデリングからマテリアル設定、アニメーション制作など、3DCG制作に必要なほとんどの作業をBlenderだけで行うことができるまでに発展しています。さらに最近ではゲームエンジン機能も強化されるなど、Blenderでインタラクティブなコンテンツ制作もBlenderで可能になってきています。  
-現在もBlenderの開発が非常に活発であることから、今後のBlenderがどのように発展していくのか非常に楽しみです。
+現在もBlenderの開発が非常に活発であることから、今後のBlenderがどのように発展していくのか非常に楽しみです。  
+Blenderはマルチプラットフォームを前提に設計されているため、WindowsだけでなくMacやLinux上でも動作します。つまりOSをWindowsからMacに変えても、Blenderを使う限りは3DCG製作ソフトの使い方を覚え直す必要がありません。
 
 ![Blender起動画面](https://dl.dropboxusercontent.com/s/7qj5tnx9gggcf8r/blender_startup.png "Blender起動画面")
 
-Blenderはマルチプラットフォームを前提に設計されているため、WindowsだけでなくMacやLinux上でも動作します。つまりOSをWindowsからMacに変えても、Blenderを使う限りは3DCG製作ソフトの使い方を覚え直す必要がありません。
+上の画像は、Blender(バージョン2.75a)を起動した直後の画面です。
 
 ### Blenderの特徴
 
@@ -58,6 +59,7 @@ Blenderは商用レベルの機能を持つとは言われることが多いで�
 
 ![Blenderアドオン](https://dl.dropboxusercontent.com/s/bhq6uusksqsicyb/blender_add-on.png "Blenderアドオン")
 
+上の画像は、Blenderのアドオンを有効/無効化するための画面です。  
 Blenderアドオンは、Blender本体を持っている方なら誰でも開発を始めることができます。しかしアドオン開発のチュートリアルは英語で書かれていますし、基本的なことから順を追って解説している資料がほとんどないのでやや敷居が高いのが現状です。
 
 本書ではBlenderのインストールから始め、実際に自らアドオンを作成して使用することでアドオンの開発方法を習得していきます。

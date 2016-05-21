@@ -81,7 +81,12 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 インストール手順を説明するにあたり、筆者がアドオン開発でいつもお世話になっているmifthさんのアドオンMira Tools をサンプルとして取り上げます。
 Mira Toolsの機能は、以下のWebサイトから確認できます。
 
-* Mita Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
+<div id="webpage"></div>
+
+|Mira Tools|
+|---|
+|https://github.com/mifth/mifthtools/wiki/Mira-Tools|
+|![Mira Tools](https://dl.dropboxusercontent.com/s/gsr52gq7xbx37ch/mira_tools.png "Mira Tools")|
 
 Mira Toolsは日本語未サポートのため、アドオンを使う敷居がやや高くなりますが、サポートレベルがExternalのアドオンの中でも非常に高機能なアドオンですので、ぜひ1度使ってみてください。
 Mira Toolsのインストール方法は前述のURLにも記載されていますが、改めてここでもインストール方法を紹介します。

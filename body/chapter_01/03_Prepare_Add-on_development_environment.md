@@ -15,15 +15,19 @@
 
 ## Blenderのエリア設定
 
-Blenderをダウンロードした直後のBlenderの起動画面は、以下のようになっていると思います。
+ここではアドオンを開発しやすくするために、Blenderのエリア設定を行います。
+なおここで示しているエリア設定は筆者の好みがそのまま反映されているため、各自作業しやすい環境に設定していただいて構いません。
 
-![Blender 初期状態](https://dl.dropboxusercontent.com/s/jj7knj6wpu29mrd/blender_initial.png "Blender 初期状態")
+<div id="sidebyside"></div>
 
-この状態でもアドオンの開発は可能ですが、アドオンを開発しやすい環境に整えることをお勧めします。
+|Blenderをダウンロードした直後のBlenderの起動画面は、右図のようになっています。|![Blender 初期状態](https://dl.dropboxusercontent.com/s/jj7knj6wpu29mrd/blender_initial.png "Blender 初期状態")|
+|---|---|
 
-![Blender アドオン開発向け環境](https://dl.dropboxusercontent.com/s/9ws6g0tr3xhpc94/blender_change_window_4.png "Blender アドオン開発向け環境")
+<div id="sidebyside"></div>
 
-なおここで示しているエリア設定は筆者の好みがそのまま反映されているため、各自作業しやすい環境にしていただいて構いません。
+|Blenderをダウンロードした直後の初期状態でもアドオンの開発は可能ですが、右図のようにアドオンを開発しやすい環境に整えることをお勧めします。|![Blender アドオン開発向け環境](https://dl.dropboxusercontent.com/s/9ws6g0tr3xhpc94/blender_change_window_4.png "Blender アドオン開発向け環境")|
+|---|---|
+
 
 ### コンソール・ウィンドウの表示
 

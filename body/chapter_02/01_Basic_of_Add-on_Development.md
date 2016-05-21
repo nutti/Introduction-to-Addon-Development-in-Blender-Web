@@ -73,9 +73,11 @@
 サンプル1: アドオン「サンプル1」が有効化されました。
 ```
 
-アドオン有効化後、 *3Dビュー* エリアのメニューバーに *追加* > *メッシュ* > *球* が追加されていることを確認します。
+<div id="sidebyside"></div>
 
-![アドオンの実行 手順1](https://dl.dropboxusercontent.com/s/insl725bg08g8j4/blender_use_add-on_1.png "アドオンの実行 手順1")
+|右図のように、アドオン有効化後、 *3Dビュー* エリアのメニューバーに *追加* > *メッシュ* > *球* が追加されていることを確認します。|![アドオンの実行 手順1](https://dl.dropboxusercontent.com/s/insl725bg08g8j4/blender_use_add-on_1.png "アドオンの実行 手順1")|
+|---|---|
+
 
 ### アドオンの機能を使用する
 
@@ -352,10 +354,11 @@ Blenderのバージョンが2.70であれば、 ```blender``` に指定する値
 *ユーザ設定* ウィンドウでは、サポートレベルに応じてインストールされたアドオンをフィルタリングして表示することが可能です。
 例えば *テスト中* のボタンのみ選択状態にすることで、 ```support``` に ```TESTING``` が設定されたアドオンのみ表示することができます。
 
-本書で紹介する全てのサンプルのアドオンは ```support``` に ```TESTING``` を設定されています。
-*テスト中* のボタンのみ選択することで、サンプルのアドオンをすぐに見つけることができます。
+<div id="sidebyside"></div>
 
-![bl_info 解説4](https://dl.dropboxusercontent.com/s/38x9jafp3vzspyu/blender_bl-info_4.png "bl_info 解説4")
+|本書で紹介する全てのサンプルのアドオンは ```support``` に ```TESTING``` を設定されています。*テスト中* のボタンのみ選択することで、右図のようにサンプルのアドオンをすぐに見つけることができます。|![bl_info 解説4](https://dl.dropboxusercontent.com/s/38x9jafp3vzspyu/blender_bl-info_4.png "bl_info 解説4")|
+|---|---|
+
 
 ##### category
 
@@ -367,13 +370,18 @@ Blenderのバージョンが2.70であれば、 ```blender``` に指定する値
 ![bl_info 解説5](https://dl.dropboxusercontent.com/s/kbukte47nas0i5r/blender_bl-info_5.png "bl_info 解説5")
 
 既存のカテゴリに分類できない場合は、新たなカテゴリを作ることもできます。
-```category``` に ```Sample``` を指定すると、新たなカテゴリとして ```Sample``` が追加されていることがわかります。
+
+
+<div id="sidebyside"></div>
+
+|```category``` に ```Sample``` を指定すると、右図に示すように新たなカテゴリとして ```Sample``` が追加されていることがわかります。|![bl_info 解説6](https://dl.dropboxusercontent.com/s/7tjnz7m5w4go17d/blender_bl-info_6.png "bl_info 解説6")|
+|---|---|
+
 
 <div id="column"></div>
 
 アドオン開発者は新しいカテゴリを自由に追加することができますが、可能な限り既存のカテゴリに含めるようにし、基本的に新しいカテゴリは作らないようにしましょう。実際、既存のカテゴリだけでも十分カテゴリとしては網羅できているはずですので、新たにカテゴリを作る必要がないと思います。
 
-![bl_info 解説6](https://dl.dropboxusercontent.com/s/7tjnz7m5w4go17d/blender_bl-info_6.png "bl_info 解説6")
 
 <div class="column"></div>
 
@@ -467,9 +475,11 @@ ICO球生成時のサイズが2.0倍、生成時の座標が(x, y, z) = (5.0, -5
 		return {'FINISHED'}
 ```
 
-この状態でアドオンを有効化し、 *3Dビュー* エリアのメニューから *追加* > *メッシュ* > *球* を実行すると、以下のように指定した引数に応じてICO球を生成されます。
+<div id="sidebyside"></div>
 
-![オペレーション 解説2](https://dl.dropboxusercontent.com/s/a6qe1qaytr33dri/blender_operation_2.png "オペレーション 解説2")
+|この状態でアドオンを有効化し、 *3Dビュー* エリアのメニューから *追加* > *メッシュ* > *球* を実行すると、右図のように指定した引数に応じてICO球を生成されます。|![オペレーション 解説2](https://dl.dropboxusercontent.com/s/a6qe1qaytr33dri/blender_operation_2.png "オペレーション 解説2")|
+|---|---|
+
 
 <div id="column"></div>
 
@@ -558,9 +568,12 @@ def unregister():
 
 ### メイン処理
 
-*テキストエディター* のメニューである *テキスト* > *スクリプト実行* を実行した時に呼ばれる処理がメイン処理です。
+最後に、メイン処理について説明します。
 
-![スクリプト実行 手順](https://dl.dropboxusercontent.com/s/b4hwarizgr6ikzd/blender_run_script.png "スクリプト実行 手順")
+<div id="sidebyside"></div>
+
+|右図のように、*テキストエディター* のメニューである *テキスト* > *スクリプト実行* を実行した時に呼ばれる処理がメイン処理です。|![スクリプト実行 手順](https://dl.dropboxusercontent.com/s/b4hwarizgr6ikzd/blender_run_script.png "スクリプト実行 手順")|
+|---|---|
 
 アドオンであればメイン処理は必ずしも必要な処理ではありませんが、慣習として書くことが多いので本サンプルでも記載しています。
 メイン処理では、単純にアドオンの登録処理のみ行っています。
