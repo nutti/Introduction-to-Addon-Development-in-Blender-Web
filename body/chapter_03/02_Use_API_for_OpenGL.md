@@ -45,9 +45,10 @@
 サンプル8: アドオン「サンプル8」が有効化されました。
 ```
 
-アドオンを有効化すると、 *3Dビュー* エリアの *プロパティパネル* に開始ボタンが表示されます。
+<div id="sidebyside"></div>
 
-![図の表示 手順1](https://dl.dropboxusercontent.com/s/uf0xneikowb5ozz/use_addon_1.png "図の表示 手順1")
+|アドオンを有効化すると右図のように、 *3Dビュー* エリアの *プロパティパネル* に開始ボタンが表示されます。|![図の表示 手順1](https://dl.dropboxusercontent.com/s/uf0xneikowb5ozz/use_addon_1.png "図の表示 手順1")|
+|---|---|
 
 
 ### アドオンの機能を使用する

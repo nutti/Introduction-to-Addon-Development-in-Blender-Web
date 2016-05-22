@@ -32,9 +32,12 @@
 
 *3Dビュー* エリア上でオブジェクトを選択し、 *ctrl* + *alt* + *R* キーを押します。
 *3Dビュー* エリアのメニューである *オブジェクト* > *選択オブジェクトの複製* を実行した時と同じく、選択されたオブジェクトが複製されます。
-以下の図は、 *Cube* を選択して上記のキーを押した時の様子を示しています。
 
-![オブジェクトの複複](https://dl.dropboxusercontent.com/s/sqzwdwfgs245mp6/use_add-on_1.png "オブジェクトの複製")
+<div id="sidebyside"></div>
+
+|右図は、 *Cube* を選択して上記のキーを押した時の様子を示しています。|![オブジェクトの複複](https://dl.dropboxusercontent.com/s/sqzwdwfgs245mp6/use_add-on_1.png "オブジェクトの複製")|
+|---|---|
+
 
 ### アドオンを無効化する
 

@@ -151,7 +151,8 @@ D.B.Oは会員制のため、ユーザ登録が必要です。
 ```
 Project: Blender Extensions
 Tracker: Python Scripts Upload
-Blender: X.XX - Y.YY     ★アドオンの動作を保証するBlenderバージョン(bl_infoのblenderと一致させる)
+Blender: X.XX - Y.YY     ★アドオンの動作を保証するBlenderバージョン
+                          (bl_infoのblenderと一致させる)
 Category: UV             ★アドオンのカテゴリ(bl_infoのcategoryと一致させる)
 Python: Z.ZZ - W.WW      ★本アドオンが動作するPythonのバージョン(基本は3.3以上)
 Script name: MyScript    ★アドオン名(bl_infoのnameと一致させる)

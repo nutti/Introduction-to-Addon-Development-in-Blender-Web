@@ -165,12 +165,10 @@ Blender公式は、過去の全てのBlenderのバージョンで提供するAPI
 
 <div id="sidebyside"></div>
 
-|Blenderはアドオンのテンプレートを用意しています。|![テンプレート 手順1](https://dl.dropboxusercontent.com/s/bvnb1360j99fd1t/template_1.png "テンプレート 手順1")|
+|右図のように、Blenderはアドオンのテンプレートを用意しています。Blender本体が提供しているサンプルであるため、動作することが保証されています。作りたいアドオンに関連するテンプレートがあれば、ぜひ確認してみてください。また、Blenderが提供するAPIの概要を一通り学んでおきたい場合にも、本サンプルは参考になると思います。|![テンプレート 手順1](https://dl.dropboxusercontent.com/s/bvnb1360j99fd1t/template_1.png "テンプレート 手順1")|
 |---|---|
 
-Blender本体が提供しているサンプルであるため、動作することが保証されています。
-作りたいアドオンに関連するテンプレートがあれば、ぜひ確認してみてください。
-また、Blenderが提供するAPIの概要を一通り学んでおきたい場合にも、本サンプルは参考になると思います。
+
 
 <div id="sidebyside"></div>
 

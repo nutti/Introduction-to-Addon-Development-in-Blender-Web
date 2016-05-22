@@ -28,10 +28,10 @@
 サンプル5: アドオン「サンプル5」が有効化されました。
 ```
 
-アドオンを有効化後 *3Dビュー* エリアのメニューである *オブジェクト* > *オブジェクトの複製* にサブメニューが追加されていることを確認します。
-サブメニューには、 *3Dビュー* エリアに存在するオブジェクト名が追加されています。
+<div id="sidebyside"></div>
 
-![オブジェクトの複複1](https://dl.dropboxusercontent.com/s/suhwkprgpkrrwqh/use_add-on_1.png "オブジェクトの複製1")
+|アドオンを有効化後 *3Dビュー* エリアのメニューである *オブジェクト* > *オブジェクトの複製* にサブメニューが追加されていることを確認します。サブメニューには、 *3Dビュー* エリアに存在するオブジェクト名が追加されています。|![オブジェクトの複複1](https://dl.dropboxusercontent.com/s/suhwkprgpkrrwqh/use_add-on_1.png "オブジェクトの複製1")|
+|---|---|
 
 
 ### アドオンの機能を使用する
@@ -132,9 +132,11 @@ def menu_fn(self, context):
 
 [import](../../sample/src/chapter_02/sample_5_alt.py)
 
-アドオンを作成し有効化すると、以下のように3階層のメニューが作成されていることを確認できます。
+<div id="sidebyside"></div>
 
-![多階層メニュー](https://dl.dropboxusercontent.com/s/rrpepaa9eygx9qt/multilevel_menu.png "多階層メニュー")
+| アドオンを作成し有効化すると右図のように、以下のように3階層のメニューが作成されていることを確認できます。|![多階層メニュー](https://dl.dropboxusercontent.com/s/rrpepaa9eygx9qt/multilevel_menu.png "多階層メニュー")|
+|---|---|
+
 
 サンプルを見てもらえばわかると思いますが、3階層のメニューは2階層のメニューを作成した時の応用として作成できます。
 

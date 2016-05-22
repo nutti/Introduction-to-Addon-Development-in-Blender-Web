@@ -35,9 +35,11 @@
 サンプル2: アドオン「サンプル2」が有効化されました。
 ```
 
-アドオン有効化後、 *3Dビュー* エリアのメニューに *オブジェクト* > *選択オブジェクトの拡大* と、 *オブジェクト* > *選択オブジェクトの縮小* が追加されていることを確認します。
+<div id="sidebyside"></div>
 
-![メニューの追加確認](https://dl.dropboxusercontent.com/s/udxtkxqkbrbj4hz/blender_use_add-on_1.png "メニューの追加確認")
+|アドオン有効化後、右図のように *3Dビュー* エリアのメニューに *オブジェクト* > *選択オブジェクトの拡大* と、 *オブジェクト* > *選択オブジェクトの縮小* が追加されていることを確認します。|![メニューの追加確認](https://dl.dropboxusercontent.com/s/udxtkxqkbrbj4hz/blender_use_add-on_1.png "メニューの追加確認")|
+|---|---|
+
 
 ### アドオンの機能を使用する
 
@@ -146,7 +148,9 @@ class ReduceObject(bpy.types.Operator):
     def execute(self, context):
         active_obj = context.active_object
         active_obj.scale = active_obj.scale * 2.0
-        self.report({'INFO'}, "サンプル2: 「" + active_obj.name + "」を2倍に拡大しました。")
+        self.report(
+            {'INFO'},
+            "サンプル2: 「" + active_obj.name + "」を2倍に拡大しました。")
         print("サンプル2: オペレーション「" + self.bl_idname + "」が実行されました。")
 ```
 
@@ -197,14 +201,28 @@ class ReduceObject(bpy.types.Operator):
 
 Blenderのエリア構成が [1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介したように設定されていれば、左上のウィンドウが *Pythonコンソール* エリアとなります。
 
-オペレータクラスを登録すると ```bpy.ops.<オペレーションクラスのbl_idname>``` に登録されることを利用し、 *Pythonコンソール* に ```bpy.ops.object.enlarge_obje``` と入力してみます。
-入力が完了したら、WindowsやLinuxであれば *Ctrl + Space* 、Macであれば *control + space* を押します。
-ここで単語が補完されなければ、 ```bl_idname``` として ```bpy.ops.object.enlarge_object``` が利用されていないことになり、 ```bl_idname``` に指定可能であることがわかります。
 
-![Pythonコンソール 使い道1](https://dl.dropboxusercontent.com/s/xazuoclt1k0y4t7/blender_python_console_1.png "Pythonコンソール 使い道1")
+<div id="process_title"></div>
 
-続いて本節で作成したアドオンを有効化した後に、先ほどの操作を *Pythonコンソール* で行ってみます。
-*Pythonコンソール* に以下を打ち込んで、 *Enterキー* を押します。
+##### Work
+
+<div id="process"></div>
+
+|<div id="box">1</div>|オペレータクラスを登録すると ```bpy.ops.<オペレーションクラスのbl_idname>``` に登録されることを利用し、 *Pythonコンソール* に ```bpy.ops.object.enlarge_obje``` と入力してみます。入力が完了したら、WindowsやLinuxであれば *Ctrl + Space* 、Macであれば *control + space* を押します。ここで単語が補完されなければ、 ```bl_idname``` として ```bpy.ops.object.enlarge_object``` が利用されていないことになり、 ```bl_idname``` に指定可能であることがわかります。|![Pythonコンソール 使い道1](https://dl.dropboxusercontent.com/s/xazuoclt1k0y4t7/blender_python_console_1.png "Pythonコンソール 使い道1")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">2</div>|本節で作成したアドオンを有効化した後に、先ほどの操作を *Pythonコンソール* で行ってみます。*Pythonコンソール* に以下を打ち込んで、 *Enterキー* を押します。|![アドオン作成 手順1](https://dl.dropboxusercontent.com/s/6x7jkbaadtehb2e/blender_make_add-on_1.png "アドオン作成 手順1")|
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
 
 ```python
 >>> bpy.ops.object.enlarge_object()
