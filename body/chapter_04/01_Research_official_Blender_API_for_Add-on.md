@@ -6,12 +6,12 @@
 
 <div id="preface"></div>
 
-###### これまで紹介したサンプルでは、Blenderが提供する様々なAPIを使ってきました。サンプルで用いたAPIはどこで知ることができたのでしょうか？そんな疑問に答えるのが本節です。
+###### これまで紹介したサンプルでは、Blenderが提供する様々なAPIを使ってきましたが、サンプルで用いたAPIはどこで知ることができたのでしょうか？本節ではこの疑問に答えるため、Blenderが提供するAPIを調べる方法を紹介します。
 
 
 ## Blenderが提供するAPIの情報源
 
-Blenderが提供するAPIの情報を収集する方法としては以下のようなものがあります。
+Blenderが提供するAPIの情報を収集する方法としては、以下のようなものがあります。
 
 * Blender公式のAPIリファレンスを読む
 * *Pythonコンソール* でAPIを検索・実行する
@@ -32,9 +32,8 @@ Blenderが提供しているAPI一覧は、Blender公式が公開しているド
 |http://www.blender.org/api/|
 |![API documentation](https://dl.dropboxusercontent.com/s/3pgs57v7b29ngo8/blender_api_doc.png "API documentation")|
 
-Blender公式は、過去の全てのBlenderのバージョンで提供するAPIのドキュメントを公開しています。
-しかし、Blenderのバージョンに応じて提供されるAPIは変わるため、開発に利用しているBlenderのバージョンのドキュメントを参照するようにしましょう。
-本書のサンプルはBlenderのバージョンが2.75aをベースとしているため、Blenderのバージョンが2.75aであるドキュメントを前提として解説します。
+Blender公式は過去のBlenderのバージョン含めてすべてのバージョンのAPIがドキュメント化されていますが、Blenderのバージョンに応じて提供されるAPIは変わるため、開発に利用しているBlenderのバージョンのドキュメントを参照するようにしましょう。
+本書のサンプルは2.75aのBlenderをベースとしているため、Blenderのバージョンが2.75aのドキュメントを前提として解説します。
 
 <div id="webpage"></div>
 
@@ -44,23 +43,23 @@ Blender公式は、過去の全てのBlenderのバージョンで提供するAPI
 |![API documentation 2.75a](https://dl.dropboxusercontent.com/s/hmzkcciai4ooigb/blender_api_doc_2_75a.png "API documentation 2.75a")|
 
 ここでは例として、 *3Dビュー* エリアのアクティブ状態のオブジェクトを取得するAPIを調べてみます。
-右側のページには、モジュールごとにメニュー化されて提供されているAPIが表示されています。
+右側のページには、提供されているAPIがモジュールごとにメニュー化されて表示されています。
 モジュールは大きく分けて以下の3つのグループに分けることができます。
 
 |項目|内容|
 |---|---|
 |Application Modules|基本モジュール（bpyモジュール）。Blender本体のデータにアクセスするために最低限必要なモジュール|
-|Standalone Modules|拡張モジュール。Application Modulesを簡単に利用したり、アドオン開発を便利にするためのモジュール|
+|Standalone Modules|拡張モジュール。Application Modulesを簡単に利用できるようにするものなど、アドオン開発の際に便利なモジュール|
 |Game Engine Modules|Blender Game Engine向けモジュール|
 
-*Game Engine Modules* は、Blenderが提供するゲームエンジン *Blender Game Engine(BGE)* を利用するためのモジュールあるため、アドオン開発時は使用しません。
-アドオン開発に限るのであれば、 *Application Modules* と *Standalone Modules* のみを確認すればよいでしょう。
+*Game Engine Modules* は、Blenderが提供するゲームエンジン *Blender Game Engine(BGE)* を利用するためのモジュールであるため、アドオン開発時は使用しません。
+アドオン開発に限るのであれば、 *Application Modules* と *Standalone Modules* のみを確認すればよいと思います。
 
 #### Application Modules
 
 *Application Modules* である ```bpy``` モジュールは非常に大きなモジュールであるため、複数のサブモジュールから構成されています。
-以下にアドオン開発時によく利用するモジュールをまとめました。
-アドオン開発時に必ず必要になるモジュールであるため、どのようなモジュールが提供されているか一度目を通しておきましょう。
+以下に ```bpy``` モジュールのサブモジュールの概要についてまとめました。
+アドオン開発時に必ず必要となるモジュールであるため、どのようなモジュールが提供されているか一度目を通しておきましょう。
 
 |モジュール名|概要|
 |---|---|
@@ -70,7 +69,7 @@ Blender公式は、過去の全てのBlenderのバージョンで提供するAPI
 |```bpy.types```|Blender内のデータを表す型|
 |```bpy.utils```|アドオンのクラス登録など、アドオンへ提供する便利関数群|
 |```bpy.path```|ファイルパスを簡単に扱うための関数群|
-|```bpy.app```|Blenderのバージョンを含む、Blender本体の情報|
+|```bpy.app```|BlenderのバージョンなどのBlender本体の情報|
 |```bpy.props```|アドオン内部で扱うプロパティクラス|
 
 #### Standalone Modules
