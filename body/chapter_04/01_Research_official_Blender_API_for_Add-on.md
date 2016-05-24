@@ -75,20 +75,19 @@ Blender公式は過去のBlenderのバージョン含めてすべてのバージ
 #### Standalone Modules
 
 *Standalone Modules* は、 ```bpy``` モジュールを拡張するモジュールです。
-*Application Modules* のみを使った場合に実装が大変な処理を簡単かつ効率的に行うことができるAPIや UIを構築するためのAPIなど、アドオン開発で役立つモジュールが提供されています。
-こちらも目を通しておきましょう。
+*Application Modules* を使っただけでは実装が大変な処理を簡単かつ効率的に行うことができるAPIが提供されています。
 
 |モジュール名|概要|
 |---|---|
-|```mathutils```|行列やベクトルなどのクラスや演算関数群。また、 ```geometry``` や ```kdtree``` サブモジュールを用いることで、図形の交差判定や3D空間内の探索を高速に行うことが可能|
+|```mathutils```|行列やベクトルなどのクラスや、行列やベクトル演算を簡単に行うことができる関数群。 ```geometry``` や ```kdtree``` サブモジュールを用いることで、図形の交差判定や3D空間内の探索を高速に行うことも可能|
 |```bgl```|PythonからOpenGLへアクセスするためのラッパー関数群|
-|```blf```|文字列描画を容易に行うための関数群|
+|```blf```|文字列描画を簡単に行うための関数群|
 |```gpu```|GLSLを扱うための関数群|
 |```aud```|サウンドの読み込みや再生を行うための関数群|
-|```bpy_extras```|```bpy``` モジュールに含まれない ```bpy``` 関連の便利関数群|
+|```bpy_extras```|```bpy``` モジュールを補助する目的で提供される便利関数群|
 |```bmesh```|メッシュデータを容易に扱うための関数群|
 
-ここでは、 *3Dビュー* エリアでアクティブ状態のオブジェクトを取得するためのAPI  ```bpy.props.EnumProperty``` を調べてみます。
+ここでは、 *3Dビュー* エリアでアクティブ状態のオブジェクトを取得するためのAPI  ```bpy.props.EnumProperty``` を調べます。
 
 <div id="sidebyside"></div>
 
@@ -98,7 +97,7 @@ Blender公式は過去のBlenderのバージョン含めてすべてのバージ
 
 ### PythonコンソールでAPIを検索・実行する
 
-[2.2節](../chapter_02/02_Register_Multiple_Operation_Classes.md)においても説明しましたが、 *Pythonコンソール* を用いることでBlenderが提供するAPIを検索し実行することができます。
+[2.2節](../chapter_02/02_Register_Multiple_Operation_Classes.md)でも説明しましたが、 *Pythonコンソール* を用いることでBlenderが提供するAPIを検索し実行することができます。
 
 <div id="process_title"></div>
 
@@ -106,7 +105,7 @@ Blender公式は過去のBlenderのバージョン含めてすべてのバージ
 
 <div id="process_noimg"></div>
 
-|<div id="box">1</div>|Blender内のオブジェクト一覧である ```bpy.data.objects``` を *Pythonコンソール* に入力します。|
+|<div id="box">1</div>|*3Dビュー* エリア上にあるオブジェクト一覧を参照できる変数 ```bpy.data.objects``` を *Pythonコンソール* に入力します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -124,7 +123,7 @@ Blender公式は過去のBlenderのバージョン含めてすべてのバージ
 
 <div id="process"></div>
 
-|<div id="box">3</div>|*3Dビュー* 上にあるオブジェクト名が候補として表示されるため、適当なオブジェクト名を選んで再び補完します。|![Pythonコンソール 手順2](https://dl.dropboxusercontent.com/s/yu890kcedpewpih/python_console_2.png "Pythonコンソール 手順2")|
+|<div id="box">3</div>|*3Dビュー* エリア上にあるオブジェクト名が候補として表示されるため、適当なオブジェクト名を選んで再び補完します。|![Pythonコンソール 手順2](https://dl.dropboxusercontent.com/s/yu890kcedpewpih/python_console_2.png "Pythonコンソール 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -142,7 +141,7 @@ Blender公式は過去のBlenderのバージョン含めてすべてのバージ
 
 <div id="process"></div>
 
-|<div id="box">5</div>|```select``` に ```True``` を代入することでオブジェクトを選択状態に、  ```False``` を代入することでオブジェクトを非選択状態に変更することもできます。|![Pythonコンソール 手順3](https://dl.dropboxusercontent.com/s/0aph2y0pq6edyxf/python_console_3.png "Pythonコンソール 手順3")|
+|<div id="box">5</div>|```select``` に ```True``` を代入することでオブジェクトを選択状態に、  ```False``` を代入することでオブジェクトを非選択状態に変更することができます。|![Pythonコンソール 手順3](https://dl.dropboxusercontent.com/s/0aph2y0pq6edyxf/python_console_3.png "Pythonコンソール 手順3")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -157,31 +156,31 @@ Blender公式は過去のBlenderのバージョン含めてすべてのバージ
 
 > Object selection state
 
-このように、 *Pythonコンソール* を利用することでAPIを動作確認可能なため、APIの効果が不明瞭な場合は、上記例のように実際に動作させてAPIの効果を確認することをお勧めします。
+このように、 *Pythonコンソール* を利用することでAPIの動作を確認できるため、APIの効果がわからない場合は上記の例のように実際に動作させてAPIの効果を確認すると、よりAPIへの理解が深まると思います。
 
 
 ### テキストエディタのテンプレートを読む
 
 <div id="sidebyside"></div>
 
-|右図のように、Blenderはアドオンのテンプレートを用意しています。Blender本体が提供しているサンプルであるため、動作することが保証されています。作りたいアドオンに関連するテンプレートがあれば、ぜひ確認してみてください。また、Blenderが提供するAPIの概要を一通り学んでおきたい場合にも、本サンプルは参考になると思います。|![テンプレート 手順1](https://dl.dropboxusercontent.com/s/bvnb1360j99fd1t/template_1.png "テンプレート 手順1")|
+|BlenderでPythonスクリプトを書く人のため、右図のようにBlenderはアドオンのテンプレートを用意しています。これらのサンプルはBlender本体が提供しているため、正常に動作することが保証されています。作りたいアドオンに関連するテンプレートがあれば、一度確認することをお勧めします。また、Blenderが提供するAPIの概要を一通り学んでおきたい場合にも、本サンプルは参考になります。|![テンプレート 手順1](https://dl.dropboxusercontent.com/s/bvnb1360j99fd1t/template_1.png "テンプレート 手順1")|
 |---|---|
 
 
 
 <div id="sidebyside"></div>
 
-|なお、提供されいる中で最も簡単なテンプレートは ```Operator Simple``` です。```Operator Simple``` は、 *3Dビュー* エリアにあるオブジェクト一覧を *コンソール* に表示するサンプルです。|![テンプレート 手順2](https://dl.dropboxusercontent.com/s/8nt0v8zdkhl1egd/template_2.png "テンプレート 手順2")|
+|提供されいる中で最も簡単なテンプレートは、右図で示す ```Operator Simple``` です。```Operator Simple``` は、 *3Dビュー* エリアにあるオブジェクト一覧を *コンソール* に表示するサンプルです。|![テンプレート 手順2](https://dl.dropboxusercontent.com/s/8nt0v8zdkhl1egd/template_2.png "テンプレート 手順2")|
 |---|---|
 
 ### Blenderアドオン開発の参考サイトを読む
 
-Blenderが提供するAPIを調べる手段として、Blenderアドオン開発の参考サイトを読むというものがあります。
-しかしBlender自体の使い方については、多くのサイトで解説記事がありますが、Blenderを利用している人に比べBlenderのアドオンを開発している方は非常に少ないこともあり、Blender本体に比べてアドオン開発の解説サイトは格段に少なくなります。
+Blenderが提供するAPIを調べる手段として、Blenderアドオン開発の参考サイトを読む方法もあります。
+しかしBlender自体の使い方を解説しているサイトに比べて、アドオン開発の解説サイトは非常に少ないです。
 特に日本語での解説となると、解説サイトは数を数えられるくらいに少なくなります。
-必要に応じて、海外サイトの利用も検討してください。
+アドオンを開発する場合は必要に応じて、海外サイトの利用も検討する必要があります。
 
-ここでは、アドオン開発で筆者が参考にしているサイトをピックアップしてみました。
+ここでは、アドオン開発で筆者がよく参考にしているサイトをピックアップしてみました。
 Blender Wiki様は海外サイト、blugjpまとめサイト様は国内サイトです。
 
 <div id="webpage"></div>
@@ -193,8 +192,8 @@ Blender Wiki様は海外サイト、blugjpまとめサイト様は国内サイ�
 
 Blenderの公式Wikiページです。
 アドオン開発のチュートリアルやベストプラクティスなど、アドオン開発に必要な知識を学ぶことができます。
-特にテーマに応じて簡単なサンプルが紹介されいているCode Snippetsは、アドオン開発者必見です。
-また、アドオンを公開する方法の手順についても書かれていますので、初心者だけでなくある程度アドオン開発に慣れた方も参考になると思います。
+特にテーマに応じて簡単なサンプルが紹介されいているCode Snippetsは必見です。
+また、アドオンの公開手順についても書かれていますので、初心者のみならずある程度アドオン開発に慣れた方も参考になると思います。
 
 <div id="webpage"></div>
 
@@ -204,6 +203,7 @@ Blenderの公式Wikiページです。
 |![blugjpまとめサイト](https://dl.dropboxusercontent.com/s/7t6ho0xohl45yrv/blugjp.png "blugjpまとめサイト")|
 
 BLUG.jpさんによるまとめサイトです。
+BlenderPythonのページにアドオン開発の情報があります。
 BlenderPythonのページは現在も更新され続けていますので、アドオン開発者はブックマークして時々見に行きましょう。
 もしページを更新したい場合は、BLUG.jpさん（@blug_jp）に連絡すれば、編集する権利を与えてもらえるかもしれません。
 
