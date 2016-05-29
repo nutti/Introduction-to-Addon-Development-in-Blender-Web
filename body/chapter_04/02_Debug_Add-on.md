@@ -6,11 +6,11 @@
 
 <div id="preface"></div>
 
-###### アドオン開発中にバグは必ずと言って良いほど発生します。そして発生したバグの原因究明・修正（デバッグ）は、開発の大半の時間を占めることが少なくありません。本節では、Blenderアドオンを開発する時のデバッグ方法について紹介します。
+###### アドオン開発だけではなく、ソフトウェア開発にバグはつきものです。そして発生したバグの原因究明・修正（デバッグ）は、開発の大半の時間を占めることが少なくありません。本節では、アドオンを開発する時のデバッグ方法について紹介します。
 
 ## アドオンのデバッグ手段
 
-アドオンのデバッグ手段としては、以下の方法があります。
+アドオンのデバッグ手段は色々ありますが、ここでは以下のデバッグ手段について紹介します。
 
 * self.reportデバッグ
 * printデバッグ
@@ -20,9 +20,9 @@
 ## self.reportデバッグ
 
 読んで字のごとく、 ```self.report()``` メソッドを用いたデバッグ手法です。
-```self.report()``` メソッドの第2引数には任意の文字列が入力できることを利用し、確認したい変数の値を *コンソール・ウィンドウ* に表示させることでデバッグを行います。
+```self.report()``` メソッドの第2引数に任意の文字列を入力できることを利用し、確認したい変数の値を *コンソール・ウィンドウ* に表示させることでデバッグを行います。
 self.reportデバッグの例を以下に示します。
-以下の例では、 ```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値を表示しています。
+以下の例では、 ```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値を *コンソール・ウィンドウ* に表示することで、変数に正しい値が代入されていることを確認します。
 
 ```python
 def execute(self, context):
@@ -31,22 +31,22 @@ def execute(self, context):
     self.report({'INFO'}, "a=%d, b=%f" % (a, b))
 ```
 
-この状態で ```execute()``` メソッドが実行されると、 *コンソール・ウィンドウ* に以下のように表示されます。
+```execute()``` メソッドが実行されると、 *コンソール・ウィンドウ* に以下のように表示されます。
 
 ```python
 a=50, b=4.0
 ```
 
-変数を表示したい箇所に ```self.report()``` メソッドを記述するだけで良いため、他のデバッグ方法に比べて最も手軽にデバッグを行える点がメリットになります。
-```modal()``` メソッドなどの ```self.report()``` メソッドを利用できない処理中ではデバッグができない点がデメリットです。
+変数を表示したい箇所に ```self.report()``` メソッドを記述するだけで良いため、他のデバッグ方法に比べて最も手軽にデバッグを行える点がメリットです。
+一方、 ```modal()``` メソッドなどの ```self.report()``` メソッドを利用できない処理中ではデバッグできない点がデメリットです。
 
 ## printデバッグ
 
 読んで字のごとく、 ```print()``` 関数を用いたデバッグ手法です。
-self.reportデバッグと同じく、確認したい変数の値を表示させてデバッグを行う方法ですが、self.reportデバッグでは確認できなかった処理中の変数も確認することができます。
-ただし ```print()``` 関数の出力先は *コンソール* になるため、 [1.3節](../chapter_01/03_Prepare_Add-on_development_environment.md) を参考にして、 *コンソール* からBlenderを起動する必要があります。
+self.reportデバッグと同じように、確認したい変数の値を表示させてデバッグを行う方法ですが、self.reportデバッグでは確認できなかった処理中の変数も確認することができます。
+ただし ```print()``` 関数の出力先は *コンソール* であるため、 [1.3節](../chapter_01/03_Prepare_Add-on_development_environment.md) を参考にして、 *コンソール* からBlenderを起動する必要があります。
 
-以下の例では、 ```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値を表示しています。
+以下の例では、 ```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値を *コンソール* に出力することで、変数に正しい値が代入されているかを確認します。
 
 ```python
 def execute(self, context):
@@ -55,24 +55,24 @@ def execute(self, context):
     print("a=%d, b=%f" % (a, b))
 ```
 
-この状態で ```execute()``` メソッドが実行されると、 *コンソール* に以下のように表示されます。
+```execute()``` メソッドが実行されると、 *コンソール* に以下のように表示されます。
 
 ```python
 a=50, b=4.0
 ```
 
-<div class="column"></div>
+<div id="column"></div>
 
-*Pythonコンソール* から *bpy.ops.XXX* （XXX： *オペレーションクラス* の ```bl_idname``` ）によりアドオンの処理を実行した場合、 ```print()``` 関数の出力先は *Pythonコンソール* になります。
+*Pythonコンソール* から *bpy.ops.XXX* （XXX： *オペレーションクラス* の ```bl_idname``` ）を実行してアドオンの処理を行った場合、 ```print()``` 関数の出力先は *Pythonコンソール* になります。
 
 ## 外部デバッガを利用したデバッグ
 
-これまで紹介した2つのデバッグ手法は、確認したい変数を表示するための処理をソースコード内に記載する必要があるためあまり効率的とはいえません。
-これまで紹介したデバッグ手法でもデバッグは不可能ではありませんが、デバッグ時間を短縮して開発に注力するために外部のデバッガを利用してデバッグすることも検討するべきです。
+これまで紹介した2つのデバッグ手法は、確認したい変数を表示するための処理をソースコード内に記載する必要があるためあまり効率的ではありません。
+これらのデバッグ手法を採用した場合でもデバッグは不可能ではありませんが、デバッグが難航している場合は外部のデバッガを利用してデバッグすることも検討するべきです。
 
-ここでは外部デバッガとして **PyDev** を利用し、統合開発環境(IDE)である **Eclipse** を利用することで、GUIベースでデバッグできるようにします。
+ここでは外部デバッガとしてPyDevを利用し、統合開発環境(IDE)であるEclipse を利用することで、GUIベースでデバッグできるようにします。
 
-外部デバッガを利用したデバッグの手順を要約すると以下のようになります。
+外部デバッガを利用したデバッグの手順を以下に示します。
 
 <div id="custom_ol"></div>
 
@@ -81,6 +81,8 @@ a=50, b=4.0
 3. デバッグ実行のためのPythonスクリプトの作成
 4. PyDevデバッグサーバの起動
 5. デバッグ開始
+
+これから各手順について詳細な手順を説明していきます。
 
 ### 1. EclipseとPyDevのインストール
 
@@ -97,8 +99,8 @@ Eclipseのホームページから、最新版のEclipseをダウンロードし
 |https://www.eclipse.org/downloads/|
 |![Eclipse ダウンロードページ](https://dl.dropboxusercontent.com/s/5jk44fvtrmkat80/eclipse_download.png "Eclipse ダウンロードページ")|
 
-EclipseはJavaやC/C++、PHPなど様々なプログラミング言語に対応していますが、ここではJava用のEclipseを利用します。
-Eclipseを利用するためにはJavaが必要になるため、必要に応じてJava SEをインストールしてください。
+EclipseはJavaやC/C++、PHPなど様々なプログラミング言語に対応したIDEですが、ここではJava用のEclipseを利用します。
+なお、Eclipseを利用するためにはJava SEがインストールされている必要があるため、もしインストールされていない場合はJava SEをインストールしてください。
 
 <div id="webpage"></div>
 
@@ -136,7 +138,7 @@ Eclipseが起動したら、以下の手順に沿ってPyDevをインストー�
 
 <div id="process"></div>
 
-|<div id="box">3</div>|```Name``` に ```PyDev``` 、 ```Location``` に ```http://pydev.org/updates``` を入力して OK をクリックします|![PyDevのインストール 手順3](https://dl.dropboxusercontent.com/s/mcs991y9iucacz6/install_pydev_3.png "PyDevのインストール 手順3")|
+|<div id="box">3</div>|```Name``` に ```PyDev``` を、 ```Location``` に ```http://pydev.org/updates``` を入力して OK をクリックします|![PyDevのインストール 手順3](https://dl.dropboxusercontent.com/s/mcs991y9iucacz6/install_pydev_3.png "PyDevのインストール 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -145,8 +147,12 @@ Eclipseが起動したら、以下の手順に沿ってPyDevをインストー�
 
 <div id="process"></div>
 
-|<div id="box">4</div>|しばらく経つと、```Available Software``` ウィンドウに ```PyDev``` が追加されると思いますので、選択後に ```Contact all update sites during install to find required software``` のチェックボックスを外し、 ```Next >``` をクリックします<br>※ 注意：Contact all update sites during install to find required softwareのチェックを外さないと、本ステップが完了するまでに長い時間がかかってしまいます。|![PyDevのインストール 手順4](https://dl.dropboxusercontent.com/s/xm1f3c7pytrs7j1/install_pydev_4.png "PyDevのインストール 手順4")|
+|<div id="box">4</div>|しばらく経つと、```Available Software``` ウィンドウに ```PyDev``` が追加されると思いますので、選択後に ```Contact all update sites during install to find required software``` のチェックボックスを外し、 ```Next >``` をクリックします|![PyDevのインストール 手順4](https://dl.dropboxusercontent.com/s/xm1f3c7pytrs7j1/install_pydev_4.png "PyDevのインストール 手順4")|
 |---|---|---|
+
+<div id="column"></div>
+
+注意：Contact all update sites during install to find required softwareのチェックを外さないと、本ステップが完了するまでに長い時間がかかってしまいます。
 
 <div id="process_sep"></div>
 
