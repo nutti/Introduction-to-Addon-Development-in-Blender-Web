@@ -196,7 +196,7 @@ Eclipseが起動したら、以下の手順に沿ってPyDevをインストー�
 
 ### 2. デバッグ用プロジョクトの作成
 
-デバッグ用のEclipse用プロジェクトを作成します。
+デバッグ用のEclipseプロジェクトを作成します。
 
 #### Eclipseプロジェクトの作成
 
@@ -226,7 +226,7 @@ Eclipseプロジェクトを以下の手順に沿って作成します。
 
 <div id="process"></div>
 
-|<div id="box">3</div>|```PyDev Project``` ウィンドウで ```Project name``` に適当な名前をつけ（今回の例では ```Blender-Addon-Debugging``` ）、 ```Grammer Version``` を ```3.0``` 、 ```Interpreter``` を ```python``` に設定し ```Next >``` をクリックします|![Eclipseプロジェクトの作成 手順3](https://dl.dropboxusercontent.com/s/ono341pj3yl1cnf/setup_eclipse_project_3.png "Eclipseプロジェクトの作成 手順3")|
+|<div id="box">3</div>|```PyDev Project``` ウィンドウで ```Project name``` にプロジェクト名を入力し（今回の例では ```Blender-Addon-Debugging``` ）、 ```Grammer Version``` を ```3.0``` 、 ```Interpreter``` を ```python``` に設定して ```Next >``` をクリックします|![Eclipseプロジェクトの作成 手順3](https://dl.dropboxusercontent.com/s/ono341pj3yl1cnf/setup_eclipse_project_3.png "Eclipseプロジェクトの作成 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -253,7 +253,7 @@ Eclipseプロジェクトを以下の手順に沿って作成します。
 
 #### パスの設定
 
-プロジェクト作成後、Blender標準のPythonスクリプト等が置かれているパスを設定します。
+プロジェクト作成後、Blenderに標準で備わっているPythonスクリプト等が置かれているパスを設定します。
 
 <div id="process_title"></div>
 
@@ -293,7 +293,7 @@ Eclipseプロジェクトを以下の手順に沿って作成します。
 
 BLNEDER_BASE_SCRIPT_PATHは、以下に示すようにOS依存です。
 なお、Blenderの実行ファイルのパスは環境によって異なります。
-BLENDER_VERはBlenderはバージョンです。バージョンが2.75aのBlenderを利用している場合は、BLENDER_VERは2.75です。
+BLENDER_VERはBlenderのバージョンです。バージョンが2.75aのBlenderを利用している場合は、BLENDER_VERは2.75です。
 
 |OS|Blender<br>実行ファイルのパス例|BLENDER_BASE_SCRIPT_PATH|
 |---|---|---|
@@ -301,8 +301,8 @@ BLENDER_VERはBlenderはバージョンです。バージョンが2.75aのBlende
 |Mac|```/path/blender.app```|```/path/blender.app/Contents/Resources/``` <br> ```(BLENDER_VER)/scripts```|
 |Linux|```/path/blender```|　|
 
-必要に応じて個人用の作業ディレクトリを追加しても良いです。
-今回は上記に加え、3.で保存する ```debug.py``` と ```debuggee.py``` の保存先を指定します。
+必要に応じて個人用の作業ディレクトリのパスを追加しても良いです。
+ここでは上で示したパスに加えて、 ```debug.py``` と ```debuggee.py``` が置かれたディレクトリのパスを指定します。
 
 保存先は、 [1.4節](../chapter_01/04_Install_own_Add-on.md) を参照してください。
 
@@ -317,20 +317,20 @@ BLENDER_VERはBlenderはバージョンです。バージョンが2.75aのBlende
 
 [import](../../sample/src/chapter_04/debug.py)
 
-ここで ```PYDEV_SRC_DIR``` にはPyDevのプラグインディレクトリを指定しますが、環境により異なるため、各自で確認する必要があります。
+ここで ```PYDEV_SRC_DIR``` にはPyDevが置かれたディレクトリを指定しますが、環境によりPyDevが置かれたディレクトリが異なるため、各自で確認する必要があります。
 筆者のMac環境ではPyDevの場所は ```~/.p2/pool/plugins/org.python.pydev_XXX/pysrc``` でした。（```XXX```はPyDevのバージョンです。）
 
 次に、デバッグ対象とするアドオンを用意します。
 今回は以下のデバッグ対象するアドオンを作成し、ファイル名 ```debugee.py``` として作成します。
 なお、```debug.py``` と ```debugee.py``` は同じディレクトリに置く必要があります。
 今回は本書で紹介してきたサンプルの場所と同じディレクトリに保存します。
-保存先は、 [1.4節](../chapter_01/04_Install_own_Add-on.md) を参照してください。
+保存先は、これまで紹介してきたサンプルの保存先（ [1.4節](../chapter_01/04_Install_own_Add-on.md) を参照）と同じです。
 
 [import](../../sample/src/chapter_04/debuggee.py)
 
-デバッグの準備を整えるため、 ```debug.py``` をインポートし、デバッグを開始する場所に ```debug.start_debug()``` 関数を追加します。
-プログラム実行中に ```debug.start_debug()``` 関数を通ると、デバッグが開始されます。
-上記では、アドオン有効化時にデバッグを開始しています。
+アドオン有効化時にデバッグを開始するために、 ```debug.py``` をインポートし、デバッグを開始する場所に ```debug.start_debug()``` 関数を追加します。
+これで ```debug.start_debug()``` 関数を通ると、デバッグが開始されるようになりました。
+アドオン有効化時にデバッグを開始しています。
 
 ### 4. PyDevデバッグサーバの起動
 
