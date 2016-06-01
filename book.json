@@ -1,5 +1,5 @@
 {
-    "gitbook": ">=2.5.0",
+    "gitbook": "2.6.7",
     "title": "はじめてのBlenderアドオン開発",
     "description": "これからBlenderのアドオンを開発しようと考えている人向けの技術資料です。",
     "language": "ja",
