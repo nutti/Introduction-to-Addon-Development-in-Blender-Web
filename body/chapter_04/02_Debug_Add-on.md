@@ -362,11 +362,11 @@ PyDevデバッグサーバをEclipseから起動するために、以下の方�
 
 <div id="process_noimg"></div>
 
-|<div id="box">3</div>|```Main``` タブを選択し、 ```Location``` にBlenderの実行ファイルのパス、 ```Working Directory``` にBlenderの実行ファイルが置かれたディレクトリを入力します。<br> ```Name``` には任意の名前を入力します。（ここでは ```New_Configuration``` を入力しています）|
+|<div id="box">3</div>|```Main``` タブを選択し、 ```Location``` にBlenderの実行ファイルのパス、 ```Working Directory``` にBlenderの実行ファイルが置かれたディレクトリを入力します。<br> ```Name``` には任意の名前を入力します。（ここでは、 ```New_Configuration``` を入力しています）|
 |---|---|---|
 
 OSごとのBlender実行ファイルのパスを以下に示します。
-Blenderのトップディレクトリ（Blenderを非インストーラ版でダウンロードした時に、ダウンロードしたファイルを解凍したディレクトリ）を ```/path``` とした時のBlenderの実行ファイルのパスを示しています。
+Blenderのトップディレクトリ（Blenderを非インストーラ版(zip版)でダウンロードした時に、ダウンロードしたファイルを解凍したディレクトリ）を ```/path``` とした時のBlenderの実行ファイルのパスを示しています。
 
 |OS|パス|
 |---|---|
@@ -407,7 +407,7 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 <div id="process"></div>
 
-|<div id="box">2</div>|```Debug``` を選択し、Debugパースペクティブを開きます|![デバッグサーバの起動 手順2](https://dl.dropboxusercontent.com/s/z2aqd3b3i8e1u3c/run_debug_server_2.png "デバッグサーバの起動 手順2")|
+|<div id="box">2</div>|```Debug``` を選択し、 ```OK``` ボタンをクリックしてDebugパースペクティブを開きます|![デバッグサーバの起動 手順2](https://dl.dropboxusercontent.com/s/z2aqd3b3i8e1u3c/run_debug_server_2.png "デバッグサーバの起動 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -437,12 +437,12 @@ PyDevデバッグサーバの起動手順を以下に示します。
 ここまで順調に設定できていれば、以下のような画面が表示されているはずです。
 先ほど作成した ```debug.py``` と ```debuggee.py``` は ```PyDev Package Explorer``` の ```scripts/addons``` から参照することができます。
 なお、 ```PyDev Package Explorer``` には2つの ```scripts/addons``` が表示されていますが、片方はサポートレベルがOfficialであるアドオン群が格納されています。
-今回は自分が作成したアドオンを参照したいので、 ```debug.py``` と ```debuggee.py``` が格納されている ```scripts/addons``` を参照するようにしてください。
+今回は自分が作成したアドオンを参照する必要があるので、 ```debug.py``` と ```debuggee.py``` が格納されている ```scripts/addons``` を参照するようにしてください。
 
 ![デバッグ開始 手順1](https://dl.dropboxusercontent.com/s/a4ktv1sy6bv7duc/start_debug_1.png "デバッグ開始 手順1")
 
 以下の手順に従って、EclipseからBlenderを起動してアドオンをデバッグします。
-今回は ```debugee.py``` の28行目にブレークポイントを設定します。
+ここでは、 ```debugee.py``` の28行目が実行された時にプログラムを一時的に止めて、デバッグモードになるようにします。
 
 
 <div id="process_title"></div>
@@ -460,7 +460,7 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 <div id="process"></div>
 
-|<div id="box">2</div>|```Run``` > ```External Tools``` > ```External Tools Configurations...``` をクリックします|![デバッグ開始 手順3](https://dl.dropboxusercontent.com/s/ma36nv5q2br1hvb/start_debug_3.png "デバッグ開始 手順3")|
+|<div id="box">2</div>|*Run* > *External Tools* > *External Tools Configurations...* をクリックします|![デバッグ開始 手順3](https://dl.dropboxusercontent.com/s/ma36nv5q2br1hvb/start_debug_3.png "デバッグ開始 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -469,7 +469,7 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 <div id="process"></div>
 
-|<div id="box">3</div>|```New_Configuration``` を選択し、 ```Run``` ボタンをクリックします。<br>以降は、 ```Run``` > ```External Tools``` > ```New_Configuration``` からBlenderの起動が行えるようになります|![デバッグ開始 手順4](https://dl.dropboxusercontent.com/s/wdphxp2edjuvees/start_debug_4.png "デバッグ開始 手順4")<br>![デバッグ開始 手順5](https://dl.dropboxusercontent.com/s/wir3l0phuez9v1b/start_debug_5.png "デバッグ開始 手順5")|
+|<div id="box">3</div>|*New_Configuration* を選択し、 *Run* ボタンをクリックします。<br>以降は、 *Run* > *External Tools* > *New_Configuration* からBlenderの起動できるようになります|![デバッグ開始 手順4](https://dl.dropboxusercontent.com/s/wdphxp2edjuvees/start_debug_4.png "デバッグ開始 手順4")<br>![デバッグ開始 手順5](https://dl.dropboxusercontent.com/s/wir3l0phuez9v1b/start_debug_5.png "デバッグ開始 手順5")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -505,7 +505,7 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 <div id="process"></div>
 
-|<div id="box">7</div>|Debugパースペクティブで、 ```Resume``` ボタンを押します|![デバッグ開始 手順9](https://dl.dropboxusercontent.com/s/d211w8m59e5tubf/start_debug_9.png "デバッグ開始 手順9")|
+|<div id="box">7</div>|Debugパースペクティブで、 *Resume* ボタンを押します|![デバッグ開始 手順9](https://dl.dropboxusercontent.com/s/d211w8m59e5tubf/start_debug_9.png "デバッグ開始 手順9")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -514,7 +514,7 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 <div id="process"></div>
 
-|<div id="box">8</div>|*3Dビュー* のメニューで ```追加``` > ```メッシュ``` > ```デバッグのテスト``` を実行します|![デバッグ開始 手順10](https://dl.dropboxusercontent.com/s/mg5rywpsvq17s0w/start_debug_10.png "デバッグ開始 手順10")|
+|<div id="box">8</div>|*3Dビュー* のメニューで *追加* > *メッシュ* > *デバッグのテスト* を実行します|![デバッグ開始 手順10](https://dl.dropboxusercontent.com/s/mg5rywpsvq17s0w/start_debug_10.png "デバッグ開始 手順10")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -541,7 +541,7 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 <div id="process"></div>
 
-|<div id="box">11</div>|デバッグを終了するためには、 ```New_Configuration``` を選択した状態で赤い四角のボタンを押します。|![デバッグ開始 手順13](https://dl.dropboxusercontent.com/s/3kjwzrvham4yxtd/start_debug_13.png "デバッグ開始 手順13")|
+|<div id="box">11</div>|デバッグを終了するためには、 *Debug* タブの *New_Configuration* を選択した状態で赤い四角のボタンを押します。|![デバッグ開始 手順13](https://dl.dropboxusercontent.com/s/3kjwzrvham4yxtd/start_debug_13.png "デバッグ開始 手順13")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -550,7 +550,7 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 <div id="process"></div>
 
-|<div id="box">12</div>|デバッグが終了します。この時、Debug Serverは起動したままとなっています。もしDebug Serverも終了する場合は、 ```Debug Server``` を選択した状態で赤い四角のボタンを押します。|![デバッグ開始 手順14](https://dl.dropboxusercontent.com/s/70nztthhb4hm7wo/start_debug_14.png "デバッグ開始 手順14")|
+|<div id="box">12</div>|デバッグが終了します。この時、Debug Serverは起動したままになります。もしDebug Serverも終了する場合は、 *Debug* タブの *Debug Server* を選択した状態で赤い四角のボタンを押します。|![デバッグ開始 手順14](https://dl.dropboxusercontent.com/s/70nztthhb4hm7wo/start_debug_14.png "デバッグ開始 手順14")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -559,7 +559,7 @@ PyDevデバッグサーバの起動手順を以下に示します。
 
 ## アドオン『BreakPoint』を利用したデバッグ
 
-Eclipseを用いたでバッグは準備が非常に大変です。
+Eclipseを用いたデバッグは準備が非常に大変です。
 そこで手間をかけずにデバッグしたい方は、アドオン『BreakPoint』の利用を検討しましょう。
 
 アドオン『BreakPoint』を利用したデバッグは、以下の手順で行います。
@@ -596,15 +596,15 @@ Eclipseを用いたでバッグは準備が非常に大変です。
 
 [import](../../sample/src/chapter_04/debuggee_2.py)
 
-ブレークポイントを設定する関数は ```bpy.types.bp.bp()``` ですが、簡単のため ```breakpoint()``` で呼び出せるようにします。
+ブレークポイントを設定する関数は ```bpy.types.bp.bp()``` ですが、毎回関数名を書くのは冗長ですので、以下のように ```breakpoint()``` と書くだけで呼び出せるようにします。
 
 ```python
 # ブレークポイント関数
 breakpoint = bpy.types.bp.bp
 ```
 
-以降のブレークポイントの設定は、ブレークポイントを設定したい場所で ```breakpoint()``` 関数を実行することで行えます。
-第1引数には変数のスコープの辞書（ローカル変数であれば ```locals()``` 、グローバル変数であれば ```globals()```）、第2引数には確認したい変数を指定します。
+以降、ブレークポイントを設定する時は、ブレークポイントを設定したい場所で ```breakpoint()``` 関数を実行すれば良いです。
+```breakpoint()``` 関数の第1引数には変数のスコープの辞書（ローカル変数であれば ```locals()``` 、グローバル変数であれば ```globals()```）、第2引数には確認したい変数を指定します。
 
 ### 4. デバッグ開始
 
@@ -625,7 +625,7 @@ breakpoint = bpy.types.bp.bp
 
 <div id="process"></div>
 
-|<div id="box">2</div>|プロパティを表示すると、BreakPointメニューが追加されていることを確認できます。<br>BreakPointメニューを確認し、有効化されていることを確認します。|![デバッグ 手順2](https://dl.dropboxusercontent.com/s/quxp3yhoj9r9q01/start_bp_debug_2.png "デバッグ 手順2")|
+|<div id="box">2</div>|プロパティを表示すると、BreakPointメニューが追加されていることが確認できます。<br>BreakPointメニューを確認し、有効化されていることを確認します。|![デバッグ 手順2](https://dl.dropboxusercontent.com/s/quxp3yhoj9r9q01/start_bp_debug_2.png "デバッグ 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -652,21 +652,21 @@ breakpoint = bpy.types.bp.bp
 
 <div id="column"></div>
 
-[1.3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介した方法で、Blenderを *コンソール* から開いた場合は、 *コンソール* にもデバッグ情報が表示されているはずです。  また、 *コンソール* から起動した場合に限り、Blender本体から *コンソール* に制御が渡ってBlenderが操作できなくなります。  *コンソール* 制御が移っている間はPythonインタープリタを使うことができます。  Blender本体に制御を戻す（アドオンの実行を再開する）場合は、Windowsでは ```Ctrl+Z```、 Mac/Linuxでは ```Ctrl+D``` キーを押してください。
+[1.3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介した方法で、Blenderを *コンソール* から開いた場合は、 *コンソール* にもデバッグ情報が表示されているはずです。  また、 *コンソール* から起動した場合に限り、Blender本体から *コンソール* に制御が移ります。制御が移っている間は、コンソールでPythonインタープリタを使うことができますが、Blenderでいかなる操作も受け付けなくなります。  *コンソール* 。  Blender本体に制御を戻す（アドオンの実行を再開する）場合は、Windowsでは ```Ctrl+Z```、 Mac/Linuxでは ```Ctrl+D``` キーを押してください。
 
 
 ## まとめ
 
-Blenderをデバッグする方法を紹介しましたが、本節で紹介したそれぞれのデバッグについて簡単にまとめてみました。
+本節ではBlenderをデバッグする方法を紹介しましたが、本節で紹介したそれぞれのデバッグについて簡単にまとめました。
 
 |デバッグ方法|できること|前準備|
 |---|---|---|
-|self.report|*コンソール・ウィンドウ* に出力可能な処理中の変数値確認|ソースコードの調べたい箇所に ```self.report()``` メソッドを追加|
-|print|すべての変数値確認|*コンソール* からBlenderを起動し、ソースコードの調べたい箇所に ```print()``` 関数を追加|
-|外部デバッガ|ブレークポイント設定やコールトレース調査、変数値確認など *Eclipse* が持つデバッガ機能を利用可能|EclipseやPyDevのインストール、EclipseとBlenderの連携、デバッグ実行用スクリプトの作成|
+|self.report|*コンソール・ウィンドウ* に出力可能な処理の中での変数値確認|ソースコードの調べたい箇所に ```self.report()``` メソッドを追加|
+|print|すべての変数値確認|*コンソール* からBlenderを起動、ソースコードの調べたい箇所に ```print()``` 関数を追加|
+|外部デバッガ|ブレークポイント設定やコールトレース調査、変数値確認など *Eclipse* が持つデバッガ機能の利用|EclipseやPyDevのインストール、EclipseとBlenderの連携、デバッグ実行用スクリプトの作成|
 |デバッガアドオン『BreakPoint』|ブレークポイント設定、変数値確認|アドオン『BreakPoint』のインストール、ブレークポイント設定のためのソースコード編集|
 
-多くの情報を得ることのできるデバッグ方法は、必要な前準備が基本的に多くなりなる傾向があります。
+多くの情報を得ることのできるデバッグ方法は、基本的に必要な前準備が基本的に多くなりなる傾向があります。
 問題解決の難しさと準備時間を見極めて適宜デバッグ方法を選択すべきです。
 
 <div id="point"></div>
