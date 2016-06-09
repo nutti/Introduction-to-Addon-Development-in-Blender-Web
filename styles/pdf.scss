@@ -65,6 +65,16 @@
                 overflow: hidden;
                 font-size: 0.65em * 3;
             }
+/*            li {
+                ol {
+                    color: #880088;
+                    counter-reset: sect_item 0;
+                }
+                li:before {
+                    content: counter(sect_item) ". ";
+                    counter-increment: sect_item;
+                }
+            }*/
             li {
                 margin-top: 10px;
                 .inner {
