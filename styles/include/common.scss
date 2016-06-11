@@ -927,6 +927,34 @@ $sect_img_list:
     }
 }
 
+@mixin space_chapter_1($space) {
+    #space_chapter_1 {
+        display: block;
+        height: $space;
+    }
+}
+
+@mixin space_chapter_2($space) {
+    #space_chapter_2 {
+        display: block;
+        height: $space;
+    }
+}
+
+@mixin space_chapter_3($space) {
+    #space_chapter_3 {
+        display: block;
+        height: $space;
+    }
+}
+
+@mixin space_chapter_4($space) {
+    #space_chapter_4 {
+        display: block;
+        height: $space;
+    }
+}
+
 @mixin strong($font_size) {
     strong {
         text-decoration: underline;
