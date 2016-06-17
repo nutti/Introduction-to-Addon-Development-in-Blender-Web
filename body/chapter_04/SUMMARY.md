@@ -6,9 +6,9 @@
 
 <div id="ch_body"></div>
 
-これまでの章では、サンプルを用いてBlenderが用意するAPIを紹介しました。
-Blenderの内部データにアクセスするAPIをはじめとして、入力デバイスからのイベント処理やOpenGLへアクセスするためのAPIなどBlenderが提供するAPIは非常に多いです。紹介したサンプルで使用したAPIは提供されているAPIのほんの一部にすぎません。
-そこで最後の章では、Blenderが提供するAPIの調べ方をはじめとして、Blenderのアドオン開発に役に立つtipsを紹介します。
+これまでの章では、サンプルを用いてBlenderが用意するAPIを紹介しました。  
+Blenderの内部データにアクセスするAPIをはじめとして、入力デバイスからのイベント処理やOpenGLへアクセスするためのAPIなどBlenderが提供するAPIは非常に多いです。しかし、紹介したサンプルで使用したAPIは提供されているAPIのほんの一部にすぎません。  
+最後の章では、Blenderが提供するAPIの調べ方をはじめとして、Blenderのアドオン開発に役に立つtipsを紹介します。
 
 <div id="space_chapter_4"></div>
 
