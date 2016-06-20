@@ -352,9 +352,7 @@ Stack Overflow( http://stackoverflow.com )と呼ばれる、プログラマ間�
 他の人のソースコードを読んで真似して改造しつつ、わからないところは調べながらアドオンの開発に慣れましょう。
 
 
-<div id="point"></div>
 
-### ポイント
 
 <div id="point_item"></div>
 
