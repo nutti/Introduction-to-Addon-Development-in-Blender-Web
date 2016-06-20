@@ -91,3 +91,85 @@ Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュール
 
 |Application Modules > Property Definitions (bpy.props) をクリックし、 ```bpy.props.EnumProperty``` を探します。<br>すると右図のように、APIの説明に加えて引数や各引数の説明を見ることができます。|![API documentation EnumProperty](https://dl.dropboxusercontent.com/s/xvi335558nxtwhi/blender_api_doc_enum_property.png "API documentation EnumProperty")|
 |---|---|
+
+
+### PythonコンソールでAPIを検索・実行する
+
+[2.2節](../chapter_02/02_Register_Multiple_Operation_Classes.md)でも説明しましたが、 Pythonコンソールを用いることでBlenderが提供するAPIを検索し、実行することができます。
+
+ここでは、Pythonコンソールを使ってAPIを調査する例を紹介します。
+
+<div id="process_title"></div>
+
+##### Work
+
+<div id="process_noimg"></div>
+
+|<div id="box">1</div>|3Dビューエリア上にあるオブジェクト一覧を参照できる変数 ```bpy.data.objects``` をPythonコンソールに入力します。|
+|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">2</div>|ctrl+spaceをキーを押して補完します。|![Pythonコンソール 手順1](https://dl.dropboxusercontent.com/s/6tqu81bbk6l6qy8/python_console_1.png "Pythonコンソール 手順1")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">3</div>|3Dビューエリア上にあるオブジェクト名が候補として表示されるため、適当なオブジェクト名を選んで再び補完します。|![Pythonコンソール 手順2](https://dl.dropboxusercontent.com/s/yu890kcedpewpih/python_console_2.png "Pythonコンソール 手順2")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process_noimg"></div>
+
+|<div id="box">4</div>|候補の中にある ```select``` を入力し、実行します。<br>すると、選んだオブジェクトが選択状態である場合は ```True``` 、選択状態でない場合は ```False``` が表示されます。|
+|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">5</div>|```select``` に ```True``` を代入することでオブジェクトを選択状態に、  ```False``` を代入することでオブジェクトを非選択状態に変更することができます。|![Pythonコンソール 手順3](https://dl.dropboxusercontent.com/s/0aph2y0pq6edyxf/python_console_3.png "Pythonコンソール 手順3")|
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
+
+
+以上のことから、 ```select``` はオブジェクトが選択状態であるか否かを調べるためのAPIであると判断できます。
+
+実際にBlender公式のAPIドキュメント(```http://www.blender.org/api/blender_python_api_2_75a_release/bpy.types.Object.html#bpy.types.Object.select```)を調べてみると、以下のように記載されています。
+
+<div id="quote"></div>
+
+> Object selection state
+
+このように、Pythonコンソールを利用することでAPIの動作を確認できます。APIの効果がわからない場合はPythonコンソールを用いて実際に動作させてAPIの効果を確認することで、よりAPIへの理解が深まると思いますので積極的に活用していきましょう。
+
+
+### テキストエディタのテンプレートを読む
+
+<div id="sidebyside"></div>
+
+|BlenderでPythonスクリプトを書く人向けに、Blenderはアドオンのテンプレートを用意しています。これらのサンプルはBlender本体が提供しているため、正常に動作することが保証されています。<br>作りたいアドオンに関連するテンプレートがあれば、一度確認することをお勧めします。また、Blenderが提供するAPIの概要を一通り学んでおきたい場合にも、本サンプルは参考になります。|![テンプレート 手順1](https://dl.dropboxusercontent.com/s/bvnb1360j99fd1t/template_1.png "テンプレート 手順1")|
+|---|---|
+
+
+
+<div id="sidebyside"></div>
+
+|提供されいる中で最も簡単なテンプレートは、右図で示す ```Operator Simple``` です。```Operator Simple``` は、3Dビューエリアにあるオブジェクト一覧をコンソールに表示するサンプルです。|![テンプレート 手順2](https://dl.dropboxusercontent.com/s/8nt0v8zdkhl1egd/template_2.png "テンプレート 手順2")|
+|---|---|
