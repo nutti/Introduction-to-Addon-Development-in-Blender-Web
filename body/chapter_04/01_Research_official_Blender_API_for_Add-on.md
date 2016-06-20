@@ -173,3 +173,75 @@ Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュール
 
 |提供されいる中で最も簡単なテンプレートは、右図で示す ```Operator Simple``` です。```Operator Simple``` は、3Dビューエリアにあるオブジェクト一覧をコンソールに表示するサンプルです。|![テンプレート 手順2](https://dl.dropboxusercontent.com/s/8nt0v8zdkhl1egd/template_2.png "テンプレート 手順2")|
 |---|---|
+
+### Blenderアドオン開発の参考サイトを読む
+
+Blenderが提供するAPIを調べる手段として、Blenderアドオン開発の参考サイトを読む方法もあります。<br>
+
+しかし、この方法はあまり効率が良いとは言えません。なぜなら、Blender自体の使い方を解説しているサイトに比べてアドオン開発の解説サイトは非常に少ないからです(このことが本書を執筆したきっかけになったのですが・・・)。特に日本語での解説となると、解説サイトは数を数えられるくらいに少なくなります。
+
+ここでは、アドオン開発で筆者がよく参考にするサイトをピックアップしてみました。Blender Wiki様は海外サイト、blugjpまとめサイト様は国内サイトです。
+
+<div id="webpage"></div>
+
+|Blender Wiki|
+|---|
+|http://wiki.blender.org/index.php/Dev:2.5/Py/Scripts|
+|![Blender Wiki](https://dl.dropboxusercontent.com/s/wjaloh1eov0ij73/blender_wiki.png "Blender Wiki")|
+
+Blenderの公式Wikiページです。
+
+アドオン開発のチュートリアルやベストプラクティスなど、アドオン開発に必要な知識を学ぶことができます。特にテーマに応じて簡単なサンプルが紹介されいているCode Snippetsは必見です。
+
+アドオンの公開手順についても書かれていますので、初心者のみならずある程度アドオン開発に慣れた方も参考になるサイトです。
+
+<div id="webpage"></div>
+
+|blugjpまとめサイト|
+|---|
+|https://sites.google.com/site/blugjp/blenderpython|
+|![blugjpまとめサイト](https://dl.dropboxusercontent.com/s/7t6ho0xohl45yrv/blugjp.png "blugjpまとめサイト")|
+
+BLUG.jpさんによるまとめサイトです。
+
+BlenderPythonのページにアドオン開発の情報があります。BlenderPythonのページは現在も更新され続けていますので、アドオン開発者はブックマークして時々見に行きましょう。もしページを更新したい場合は、BLUG.jpさん（@blug_jp）に連絡すれば、編集権限を与えてもらえるかもしれません。
+
+
+### 他者が作成したアドオンのソースコードを読む
+
+他者が作成したアドオンのソースコードを読むことでも、Blenderが提供するAPIを調べることができます。
+
+もしアドオン作成時に実現しようとしている処理が他のアドオンでも使われていれば、そのアドオンのソースコードを参照することで、実装方法や使われているAPIを知ることができます。
+
+<div id="sidebyside"></div>
+
+|インストール済みのアドオンのソースコードが置かれている場所は、ファイル > ユーザ設定で開くウィンドウのアドオンタブから確認することができます。<br>非公式にインストールするアドオンの場合は、ダウンロードしたアドオンのソースコードを直接参照することができます。|![アドオンのソースコードを読む1](https://dl.dropboxusercontent.com/s/0gkzz3ww1gjb955/read_addon_source_code_1.png "アドオンのソースコードを読む1")|
+|---|---|
+
+なお、Blenderが標準で提供している機能の一部は、Blender内でソースコードを確認したりAPIドキュメントへ移動したりできます。
+
+#### Blender内でソースコードを確認する方法
+
+Blender内でソースコードを確認する例として、3Dビューエリアのオブジェクトメニューを構築するためのソースコードを確認します。
+
+<div id="process_title"></div>
+
+##### Work
+
+<div id="process"></div>
+
+|<div id="box">1</div>|3Dビューエリアのメニューである、オブジェクトメニューにマウスカーソルを置いて右クリックし、ソース編集をクリックします。|![アドオンのソースコードを読む2](https://dl.dropboxusercontent.com/s/7gw1t5faq9eyl67/read_addon_source_code_2.png "アドオンのソースコードを読む2")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">2</div>|テキストエディタにソースコードが表示されます。|![アドオンのソースコードを読む3](https://dl.dropboxusercontent.com/s/bdvh1yevo0m6j5s/read_addon_source_code_3.png "アドオンのソースコードを読む3")|
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
