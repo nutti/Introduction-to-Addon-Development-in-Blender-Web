@@ -51,14 +51,22 @@ Blenderアドオンをこれから開発しようと考えている方のため�
 
 {% include "LICENSE" %}
 
-## 本書の更新について
+## 誤字・脱字を報告いただける方について
 
-本書内の誤字・脱字を修正または報告いただける方は、本書のソースコードが置かれている本プロジェクトのGitHubページでPull Requestにより修正依頼を出すか、Issueとして報告してください。
+本書内の誤字・脱字を発見された方は、以下のいずれかから報告していただけると助かります。また、メール(nutti.metro@gmail.com)での報告も受け付けております。
+
+https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/issues
+https://www.gitbook.com/book/nutti/introduction-to-add-on-development-in-blender/discussions
+
+また、本書の原本が置かれているGitHubページからPull Requestを出すことにより、各自修正した内容について反映依頼を出すことができます。
 
 https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender
 
-もし、本書に追加してほしい話題等がありましたら以下からIssueとして追加リクエストを出してください。
+なお本書の執筆に貢献いただいた方は、許可を取った上で謝辞に名前(またはニックネーム)を掲載させていただきます。
+
+## 本書へのリクエストについて
+
+本書に追加してほしい話題等がある場合、以下から追加リクエストを出すことができます。また、メール(nutti.metro@gmail.com)でのリクエストも受け付けております。
 
 https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/issues
-
-なお本書の執筆に貢献いただいた方は、許可を取った上で謝辞に名前を掲載させていただきます。
+https://www.gitbook.com/book/nutti/introduction-to-add-on-development-in-blender/discussions
