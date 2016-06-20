@@ -245,3 +245,83 @@ Blender内でソースコードを確認する例として、3Dビューエリ�
 <div id="process_start_end"></div>
 
 ---
+
+#### APIドキュメントへ移動する方法
+
+確認したいAPIのドキュメントへ移動する例として、3Dビューエリアのメニューである、メッシュ > ミラー > ローカルX軸のAPIドキュメントを表示します。
+
+
+<div id="process_title"></div>
+
+##### Work
+
+<div id="process"></div>
+
+|<div id="box">1</div>|3Dビューエリアのメニューである、メッシュ > ミラー > ローカルX軸を右クリックして表示されるメニューから、Blender PythonAPI リファレンスをクリックします。|![アドオンのソースコードを読む4](https://dl.dropboxusercontent.com/s/as7l6gpnylb8qvc/read_addon_source_code_4.png "アドオンのソースコードを読む4")|
+|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">2</div>|BlenderがAPIとして提供している機能であれば、該当するAPIのページが表示されます。　|![アドオンのソースコードを読む5](https://dl.dropboxusercontent.com/s/15i3rc3jspnoqp3/read_addon_source_code_5.png "アドオンのソースコードを読む5")|
+|---|---|
+
+<div id="process_start_end"></div>
+
+---
+
+### Blenderのコミュニティサイトで質問する
+
+ドキュメントを調べたり、他のアドオンを参考にしたりしても実装方法が全く思いつかない場合は、コミュニティサイトで質問することも検討しましょう。
+
+幸いなことにBlenderアドオンの開発に関して質問できるサイトはいくつかあり、国内にもアドオン開発で質問できるコミュニティサイトがあります。ただし母数の違いもありますが、アドオン開発は国内に比べて海外のほうがより積極的に行なわれている傾向があるため、海外サイトで質問したほうが期待した回答が得られる可能性が高いです。
+
+以下に、Blenderのアドオン開発について質問できるコミュニティサイトを紹介します。
+
+<div id="webpage"></div>
+
+|Blender Artists Community|
+|---|
+|http://blenderartists.org/forum/|
+|![Blender Artists Community](https://dl.dropboxusercontent.com/s/0e6nkncctmwl0ak/blender_artists.png "Blender Artists Community")|
+
+海外最大のBlenderコミュニティサイトです。
+
+Blenderで制作した作品を投稿する場だけでなく、アドオン開発についても非常に活発な議論が行われる場でもあります。また、作ったアドオンの投稿や既存のアドオンへの要望を出したり、Pythonスクリプトに関する質問したりすることもできます。
+
+非常に有名なサイトであるため、Blenderを使っている方はすでにご存知かもしれませんが、まだ一度も閲覧したことがない方はぜひ1度サイトを見てみるとよいと思います。なお海外サイトですので英語で投稿する必要がありますが、高校生程度の英語力があれば困ることはないと思います。
+
+アカウント登録後、CODING > Python SupportのPOST NEW THREADボタンからアドオンに関して質問することができます。
+
+<div id="webpage"></div>
+
+|Blender Stack Exchange|
+|---|
+|http://blender.stackexchange.com|
+|![Blender Stack Exchange](https://dl.dropboxusercontent.com/s/0zrdm4aebb5xm20/blender_stack_exchange.png "Blender Stack Exchange")|
+
+Stack Overflow( http://stackoverflow.com )と呼ばれる、プログラマ間では非常に有名な情報共有サイトがありますが、本サイトはその派生サイトでBlenderに特化した質問サイトです。
+
+本サイトでは、アドオン開発に関して活発な議論が行われています。また、アドオン開発だけでなくBlenderの使い方に関する質問もできます。
+
+質問するためにはBlender Artists Communityと同様、アカウントを登録した上で英語で投稿する必要があります。質問の投稿は、Ask Questionより行います。
+
+アドオン開発に関する質問の場合、タグにPythonやadd-on、scripting、あとは質問内容に応じて関連するタグ（mathematicsやopenglなど）を入れると回答されやすくなります。
+
+本サイトでは、質問したり他人の質問に回答したり誤字や脱字などを編集したりすることで各ユーザがポイントを得られる仕組みがあり、各ユーザの貢献度を見ることができます。さらに、ポイントを獲得していくことでPS4のトロフィーやXBoxの実績のようなバッジを獲得することができ、初期の段階で利用制限されていた機能を使えるような仕組みもあります。
+
+<div id="webpage"></div>
+
+|Blender.jp|
+|---|
+|https://blender.jp|
+|![Blender.jp](https://dl.dropboxusercontent.com/s/m74dd41qm8xpw7c/blender_jp.png "Blender.jp")|
+
+国内最大のBlenderコミュニティサイトです。
+
+コミュニティサイトには、アカウント登録したユーザがBlenderについて議論できるフォーラムがあり、フォーラム内の質問板でアドオン開発について質問することができます。
+
+これまで紹介してきた他のコミュニティサイトに比べて、アドオン開発に関しての質問はあまり多くないため期待した回答が得られるかはわかりません。しかし日本語で質問できる点がメリットであるため、英語が苦手な方は活用してみると良いかもしれません。
