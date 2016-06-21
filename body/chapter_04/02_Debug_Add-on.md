@@ -293,9 +293,9 @@ BLNEDER_BASE_SCRIPT_PATHは、以下に示すようにOS依存です。BLENDER_V
 
 |OS|Blender<br>実行ファイルのパス例|BLENDER_BASE_SCRIPT_PATH|
 |---|---|---|
-|Windows|```C:\path\blender.exe```|　|
+|Windows|```C:\path\blender.exe```|```C:\path\(BLENDER_VER)\scripts```|
 |Mac|```/path/blender.app```|```/path/blender.app/Contents/Resources/``` <br> ```(BLENDER_VER)/scripts```|
-|Linux|```/path/blender```|　|
+|Linux|```/path/blender```|```/path/(BLENDER_VER)/scripts```|
 
 必要に応じて個人用の作業ディレクトリのパスを追加しても良いです。ここでは上で示したパスに加えて、 ```debug.py``` と ```debuggee.py``` が置かれたディレクトリのパスを指定します。
 
