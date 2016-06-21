@@ -152,7 +152,7 @@ class ReduceObject(bpy.types.Operator):
         self.report(
             {'INFO'},
             "サンプル2: 「" + active_obj.name + "」を2倍に拡大しました。")
-        print("サンプル2: オペレーション「" + self.bl_idname + "」が実行されました。")
+        print("サンプル2: オペレーション「"+self.bl_idname+"」が実行されました。")
 ```
 
 ```execute()``` メソッドに渡されてくる引数については、 [2-1節](01_Basic_of_Add-on_Development.md)で説明しました。引数 ```context``` を利用することにより、現在のコンテキスト（実行状態）を取得することができます。

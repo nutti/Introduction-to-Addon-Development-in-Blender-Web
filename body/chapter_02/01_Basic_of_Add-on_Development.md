@@ -461,6 +461,7 @@ ICO球生成時のサイズが2.0倍、生成時の座標が(x, y, z) = (5.0, -5
 |アドオンを有効化し、3Dビューエリアのメニューから追加 > メッシュ > 球 を実行すると、右図のように指定した引数に応じてICO球を生成されます。|![オペレーション 解説2](https://dl.dropboxusercontent.com/s/a6qe1qaytr33dri/blender_operation_2.png "オペレーション 解説2")|
 |---|---|
 
+<div id="space_xl"></div>
 
 <div id="column"></div>
 

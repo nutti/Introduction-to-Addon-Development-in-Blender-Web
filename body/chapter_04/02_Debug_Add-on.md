@@ -645,7 +645,7 @@ breakpoint = bpy.types.bp.bp
 
 [1.3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介した方法でBlenderをコンソールから開いた場合は、コンソールにもデバッグ情報が表示されているはずです。  
 またコンソールから起動した場合に限り、Blender本体からコンソールに制御が移ります。制御が移っている間は、コンソールでPythonインタープリタを使うことができますが、Blenderでいかなる操作も受け付けなくなります。  
-Blender本体に制御を戻す（アドオンの実行を再開する）場合は、Windowsでは ```Ctrl+Z``` キーを、 Mac/Linuxでは ```Ctrl+D``` キーを押してください。
+Blender本体に制御を戻す（アドオンの実行を再開する）場合は、WindowsではCtrl+Zキーを、 Mac/LinuxではCtrl+Dキーを押してください。
 
 
 ## まとめ
