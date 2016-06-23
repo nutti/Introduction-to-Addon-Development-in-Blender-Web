@@ -131,7 +131,7 @@
 @mixin process($font_size_1, $font_size_2) {
     #box {
         color: #FDFDFD;
-        background-color: #666666;
+        background-color: #333333;
         padding-left: 3px;
         padding-right: 3px;
         padding-top: 3px;
@@ -315,7 +315,7 @@
     #point + h3:before {
         content: "";
         position: absolute;
-        background: #555555;
+        background: #777777;
         top: $top_1;
         left: $left_1;
         height: $height_1;
@@ -629,6 +629,7 @@
         background-color: #FFFFFF;
         vertical-align: 1px;
         padding: 0px;
+        color: #111111;
     }
     code:before {
         letter-spacing: -2.0em;
@@ -882,7 +883,7 @@ $sect_img_list:
             content: '';
             width: $width;
             height: $height;
-            background-color: #CCCCCC;
+            background-color: #AAAAAA;
             -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
             border-radius: 0%;
