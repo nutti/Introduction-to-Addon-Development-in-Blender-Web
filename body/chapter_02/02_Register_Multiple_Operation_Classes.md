@@ -213,21 +213,20 @@ Blenderのエリア構成が [1-3節](../chapter_01/03_Prepare_Add-on_developmen
 
 <div id="process"></div>
 
-|<div id="box">2</div>|本節で作成したアドオンを有効化した後に、先ほどの操作をPythonコンソールで行います。<br>Pythonコンソールに以下を打ち込んで、Enterキーを押します。|![アドオン作成 手順1](https://dl.dropboxusercontent.com/s/6x7jkbaadtehb2e/blender_make_add-on_1.png "アドオン作成 手順1")|
+|<div id="box">2</div>|本節で作成したアドオンを有効化した後に、先ほどの操作をPythonコンソールで行います。<br>Pythonコンソールに以下を打ち込んで、Enterキーを押します。|![Pythonコンソール 使い道2](https://dl.dropboxusercontent.com/s/rxa9lx8uk12ytoq/blender_python_console_2.png "Pythonコンソール 使い道2")|
 |---|---|---|
-
-<div id="process_start_end"></div>
-
----
 
 ```python
 >>> bpy.ops.object.enlarge_object()
 ```
 
-3Dビューエリアのメニューである、オブジェクト > 選択オブジェクトの拡大を実行した時と同様の効果が得られることがわかります。
-このようにオペレータクラスを登録すると、オペレータクラスの ```bl_idname``` が ```bpy.ops.<オペレーションクラスのbl_idname>``` として登録されます。
+3Dビューエリアのメニューである、オブジェクト > 選択オブジェクトの拡大を実行した時と同様の効果が得られます。
+このようにオペレータクラスを登録すると、オペレータクラスの ```bl_idname``` が ```bpy.ops.<オペレーションクラスのbl_idname>``` として登録されることがわかります。
 
-![Pythonコンソール 使い道2](https://dl.dropboxusercontent.com/s/rxa9lx8uk12ytoq/blender_python_console_2.png "Pythonコンソール 使い道2")
+<div id="process_start_end"></div>
+
+---
+
 
 ### Pythonコンソールのショートカットキー
 

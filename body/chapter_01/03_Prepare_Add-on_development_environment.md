@@ -27,7 +27,7 @@
 
 <div id="sidebyside"></div>
 
-|Blenderをダウンロードした直後の初期状態でもアドオンの開発は可能ですが、右図のようにアドオンを開発しやすい環境に整えることをお勧めします。|![Blender アドオン開発向け環境](https://dl.dropboxusercontent.com/s/9ws6g0tr3xhpc94/blender_change_window_4.png "Blender アドオン開発向け環境")|
+|Blenderをダウンロードした直後の初期状態でもアドオンの開発は可能ですが、右図のようにアドオンを開発しやすい環境に整えることをお勧めします。|![Blender アドオン開発向け環境](https://dl.dropboxusercontent.com/sh/wwqijz25ju0k2z8/AADJH0T8wWjxLypzc20R21FOa "Blender アドオン開発向け環境")|
 |---|---|
 
 
