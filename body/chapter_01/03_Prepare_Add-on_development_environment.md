@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# アドオン開発環境を整えよう
+# アドオン開発環境を整える
 
 <div id="preface"></div>
 

@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# アドオンを公開しよう
+# アドオンを公開する
 
 <div id="preface"></div>
 

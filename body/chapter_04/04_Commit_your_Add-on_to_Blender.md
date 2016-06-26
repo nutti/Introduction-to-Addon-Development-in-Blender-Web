@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# アドオンをBlender本体に<br>取り込んでもらうまでの流れ
+# アドオンをBlender本体に<br>取り込んでもらう
 
 <div id="preface"></div>
 

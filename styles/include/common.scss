@@ -446,8 +446,7 @@
         font-family: NotoSansCJKjp;
         text-align: left;
         font-size: $font_size;
-        border-left: 15px
-        solid #555555;
+        border-left: 15px solid #333333;
         padding: 7px;
         background: #CCCCCC;
         margin-top: 70px;
@@ -629,7 +628,7 @@
         background-color: #FFFFFF;
         vertical-align: 1px;
         padding: 0px;
-        color: #111111;
+        //color: #111111;
     }
     code:before {
         letter-spacing: -2.0em;
@@ -736,7 +735,7 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
         overflow: hidden;
         font-size: $font_size;
         top: $top;
-        color: #555555;
+        color: #333333;
         margin-bottom: $margin_bottom;
     }
 }
@@ -996,6 +995,7 @@ $sect_img_list:
             line-height: 2.0;
             white-space: pre-wrap;
             background: none;
+            color: #111111;
         }
     }
 

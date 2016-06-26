@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# 自作のアドオンを<br>インストールしてみよう
+# 自作のアドオンを<br>インストールする
 
 <div id="preface"></div>
 

@@ -17,7 +17,7 @@ Blenderおよびアドオンの基礎知識を一通り習得したところで�
 
 <div id="ch_toc"></div>
 
-1. [アドオン開発の基礎を身につける](01_Basic_of_Add-on_Development.md)
+1. [アドオン開発の基礎](01_Basic_of_Add-on_Development.md)
 2. [複数のオペレータクラスを登録する](02_Register_Multiple_Operation_Classes.md)
 3. [ツール・シェルフのオプションを活用する①](03_Use_Property_on_Tool_Shelf_1.md)
 4. [ツール・シェルフのオプションを活用する②](04_Use_Property_on_Tool_Shelf_2.md)

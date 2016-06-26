@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# Blenderアドオンを使ってみよう
+# Blenderアドオンを使う
 
 <div id="preface"></div>
 

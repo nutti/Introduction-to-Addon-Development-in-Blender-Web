@@ -19,6 +19,6 @@ Blenderの内部データにアクセスするAPIをはじめとして、入力�
 <div id="ch_toc"></div>
 
 1. [Blenderが提供するアドオン向けのAPIを調べる](01_Research_official_Blender_API_for_Add-on.md)
-2. [作成したアドオンをデバッグする](02_Debug_Add-on.md)
-3. [アドオンを公開しよう](03_Publish_your_Add-on.md)
-4. [アドオンをBlender本体に取り込んでもらうまでの流れ](04_Commit_your_Add-on_to_Blender.md)
+2. [アドオンをデバッグする](02_Debug_Add-on.md)
+3. [アドオンを公開する](03_Publish_your_Add-on.md)
+4. [アドオンをBlender本体に取り込んでもらう](04_Commit_your_Add-on_to_Blender.md)
