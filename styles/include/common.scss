@@ -995,6 +995,20 @@ $sect_img_list:
             line-height: 2.0;
             white-space: pre-wrap;
             background: none;
+        }
+    }
+
+    code {
+        .hljs-keyword {
+            color: #111111;
+        }
+        .hljs-string {
+            color: #111111;
+        }
+        .hljs-number {
+            color: #111111;
+        }
+        .hljs-function {
             color: #111111;
         }
     }
