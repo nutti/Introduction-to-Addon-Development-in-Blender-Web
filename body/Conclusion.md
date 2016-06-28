@@ -34,4 +34,16 @@ conchan-akita, sariew
 
 ※ 敬称略
 
+## 筆者について
+
+### 筆者がこれまで作成したアドオン
+
+|アドオン名|サポートレベル|URL|概要<br>(詳細はWebページ参照)|
+|---|---|---|
+|Magic UV|https://github.com/nutti/Magic-UV |Contrib|もともとはUVのコピー・ペーストする機能のみを持つ機能であったが、ユーザからの要望を受け入れたことで、様々な機能が追加されてより強力なUV編集ツールへと成長したアドオン|
+|Paint Tools|https://github.com/nutti/Paint-Tools |External|UV/Image Editorにおける矩形選択ツール。選択した範囲に対して、簡単な画像処理(塗りつぶしや2値化など)を適用することができるアドオン|
+|Mouse Click Merge|https://github.com/nutti/Mouse-Click-Merge |External|3DCGソフト「メタセコイア」のように、マウスクリックによる隣接頂点結合や面の対角線を反転させることができるアドオン|
+|Index Visualizer|https://github.com/nutti/Index-Visualizer |External|View3Dエリアのオブジェクトの頂点・辺・面のインデックス番号を表示するアドオン|
+|Face To Transform Orientation|https://github.com/nutti/Face-To-Transform-Orientation |External|View3Dエリアのオブジェクトを、Transform Orientationの方向に向かせるアドオン|
+
 ![背表紙](https://dl.dropboxusercontent.com/s/v6zq4lyp06wo6v7/back_cover.png)

@@ -29,16 +29,6 @@ def execute(self, context):
 
 ちなみに最初に作成したアドオンは、Web上で様々な意見を取り入れることで改善が進み、UVのコピー・ペースト機能以上の機能を持つようになりました。アドオンを公開することで、自分で開発したアドオンがより強力な機能を持つようになっていくのは、これまた非常に面白いですね。
 
-#### これまで筆者が作成したアドオン
-
-|アドオン名|サポートレベル|URL|概要<br>(詳細はWebページ参照)|
-|---|---|---|
-|Magic UV|https://github.com/nutti/Magic-UV |Contrib|もともとはUVのコピー・ペーストする機能のみを持つ機能であったが、ユーザからの要望を受け入れたことで、様々な機能が追加されてより強力なUV編集ツールへと成長したアドオン|
-|Paint Tools|https://github.com/nutti/Paint-Tools |External|UV/Image Editorにおける矩形選択ツール。選択した範囲に対して、簡単な画像処理(塗りつぶしや2値化など)を適用することができるアドオン|
-|Mouse Click Merge|https://github.com/nutti/Mouse-Click-Merge |External|3DCGソフト「メタセコイア」のように、マウスクリックによる隣接頂点結合や面の対角線を反転させることができるアドオン|
-|Index Visualizer|https://github.com/nutti/Index-Visualizer |External|View3Dエリアのオブジェクトの頂点・辺・面のインデックス番号を表示するアドオン|
-|Face To Transform Orientation|https://github.com/nutti/Face-To-Transform-Orientation |External|View3Dエリアのオブジェクトを、Transform Orientationの方向に向かせるアドオン|
-
 ### 本書をなぜ執筆したの？
 
 筆者自身、アドオン開発を始めた当時はBlender標準の機能ですら使い慣れていない状態でした(今もですが)ので、初めてアドオンを開発した時はどこから手をつけたら良いかわからず、手探りで開発を進めるしかありませんでした。
