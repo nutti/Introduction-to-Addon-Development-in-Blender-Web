@@ -212,6 +212,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="space_l"></div>
 
+
 ## アドオンの無効化
 
 次にアドオンを無効化する方法を説明します。
@@ -300,6 +301,9 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 詳細情報のファイルに書かれているファイル名が＿＿init＿＿.pyである場合は、アドオンのソースコードが複数のファイルで構成されています。
 この場合は、＿＿init＿＿.pyが置かれているディレクトリごと削除することでアンインストールが完了します。  
 ＿＿init＿＿.py以外であれば単一ファイルで構成されていることを示していますので、詳細情報の ファイルに示されたファイルを削除すれば、アンインストールが完了します。
+
+<div id="space_m"></div>
+
 
 ### Blenderユーザ設定からアンインストールする方法
 

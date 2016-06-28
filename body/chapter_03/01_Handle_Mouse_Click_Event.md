@@ -289,6 +289,7 @@ def invoke(self, context, event):
 
 <div id="space_l"></div>
 
+
 #### modal()メソッド
 
 続いて、 *モーダルモード* 中に呼ばれる ```modal()``` メソッドについて説明します。

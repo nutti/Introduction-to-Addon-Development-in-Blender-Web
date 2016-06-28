@@ -927,6 +927,13 @@ $sect_img_list:
     }
 }
 
+@mixin space_xxl($space) {
+    #space_xxl {
+        display: block;
+        height: $space;
+    }
+}
+
 @mixin space_chapter_1($space) {
     #space_chapter_1 {
         display: block;
@@ -1015,6 +1022,12 @@ $sect_img_list:
             color: #111111;
         }
         .hljs-built_in {
+            color: #111111;
+        }
+        .hljs-title {
+            color: #111111;
+        }
+        .hljs-params {
             color: #111111;
         }
     }

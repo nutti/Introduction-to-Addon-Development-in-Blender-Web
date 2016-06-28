@@ -117,6 +117,7 @@
 
 <div id="space_l"></div>
 
+
 ## ソースコードの解説
 
 作成したアドオンのソースコードを解説します。
@@ -186,6 +187,9 @@ execute()メソッドの中で指定されたオプションの値は、以下�
 ```python
         active_obj.scale = active_obj.scale * self.reduction
 ```
+
+<div id="space_l"></div>
+
 
 ## まとめ
 

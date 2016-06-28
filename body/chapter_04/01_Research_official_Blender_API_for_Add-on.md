@@ -74,6 +74,7 @@ Application Modulesである ```bpy``` モジュールは非常に大きなモ�
 
 <div id="space_s"></div>
 
+
 ### Standalone Modules
 
 Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュールです。Application Modulesを使っただけでは実装が大変な処理を簡単かつ効率的に行うことができるAPIが提供されています。
@@ -176,6 +177,9 @@ Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュール
 
 |提供されいる中で最も簡単なテンプレートは、右図で示す ```Operator Simple``` です。```Operator Simple``` は、3Dビューエリアにあるオブジェクト一覧をコンソールに表示するサンプルです。|![テンプレート 手順2](https://dl.dropboxusercontent.com/s/8nt0v8zdkhl1egd/template_2.png "テンプレート 手順2")|
 |---|---|
+
+<div id="space_m"></div>
+
 
 ## Blenderアドオン開発の参考サイトを読む
 
