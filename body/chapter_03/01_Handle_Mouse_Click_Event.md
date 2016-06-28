@@ -287,6 +287,8 @@ def invoke(self, context, event):
 
 その後 ```{'FINISHED'}``` を返します。
 
+<div id="space_l"></div>
+
 #### modal()メソッド
 
 続いて、 *モーダルモード* 中に呼ばれる ```modal()``` メソッドについて説明します。

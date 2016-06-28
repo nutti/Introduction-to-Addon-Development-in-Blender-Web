@@ -22,6 +22,8 @@
 
 [import](../../sample/src/chapter_02/sample_2.py)
 
+<div id="space_xl"></div>
+
 ## アドオンを使用する
 
 ### アドオンを有効化する

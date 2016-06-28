@@ -72,6 +72,8 @@ Application Modulesである ```bpy``` モジュールは非常に大きなモ�
 |```bpy.app```|BlenderのバージョンなどのBlender本体の情報|
 |```bpy.props```|アドオン内部で扱うプロパティクラス|
 
+<div id="space_s"></div>
+
 ### Standalone Modules
 
 Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュールです。Application Modulesを使っただけでは実装が大変な処理を簡単かつ効率的に行うことができるAPIが提供されています。

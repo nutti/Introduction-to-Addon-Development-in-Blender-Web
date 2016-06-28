@@ -74,6 +74,8 @@
 
 以下の手順で、作成したアドオンを有効化します。
 
+<div id="space_xl"></div>
+
 <div id="process_title"></div>
 
 ##### Work

@@ -38,7 +38,7 @@ conchan-akita, sariew
 
 ### 筆者がこれまで作成したアドオン
 
-|アドオン名|サポートレベル|URL|概要<br>(詳細はWebページ参照)|
+|アドオン名|URL|サポートレベル|概要<br>(詳細はWebページ参照)|
 |---|---|---|
 |Magic UV|https://github.com/nutti/Magic-UV |Contrib|もともとはUVのコピー・ペーストする機能のみを持つ機能であったが、ユーザからの要望を受け入れたことで、様々な機能が追加されてより強力なUV編集ツールへと成長したアドオン|
 |Paint Tools|https://github.com/nutti/Paint-Tools |External|UV/Image Editorにおける矩形選択ツール。選択した範囲に対して、簡単な画像処理(塗りつぶしや2値化など)を適用することができるアドオン|
