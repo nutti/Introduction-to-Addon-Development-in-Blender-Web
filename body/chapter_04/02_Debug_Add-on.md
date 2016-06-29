@@ -337,7 +337,7 @@ BLNEDER_BASE_SCRIPT_PATHは、以下に示すようにOS依存です。BLENDER_V
 
 PyDevデバッグサーバをEclipseから起動するために、以下の方法でBlenderをEclipseから実行できるようにします。
 
-<div id="space_xl"></div>
+<div id="space_m"></div>
 
 
 <div id="process_title"></div>

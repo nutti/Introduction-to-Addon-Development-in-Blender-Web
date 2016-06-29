@@ -31,6 +31,7 @@
         @include section_title_img();
         @include section_title_preface(0.65em * 0.7, 150px, -75px, -70px);
         @include point_item(0.65em, 1.5, 0.3em, -1.3em, 12px, 12px);
+        @include space_xxs(10px);
         @include space_xs(20px);
         @include space_s(40px);
         @include space_m(80px);
@@ -38,6 +39,8 @@
         @include space_xl(160px);
         @include space_xxl(200px);
         @include space_xxxl(240px);
+        @include space_x4l(280px);
+        @include space_x5l(320px);
         @include space_chapter_1(240px);
         @include space_chapter_2(300px);
         @include space_chapter_3(240px);

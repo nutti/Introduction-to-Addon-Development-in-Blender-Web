@@ -892,6 +892,13 @@ $sect_img_list:
     }
 }
 
+@mixin space_xxs($space) {
+    #space_xxs {
+        display: block;
+        height: $space;
+    }
+}
+
 @mixin space_xs($space) {
     #space_xs {
         display: block;
@@ -936,6 +943,20 @@ $sect_img_list:
 
 @mixin space_xxxl($space) {
     #space_xxxl {
+        display: block;
+        height: $space;
+    }
+}
+
+@mixin space_x4l($space) {
+    #space_x4l {
+        display: block;
+        height: $space;
+    }
+}
+
+@mixin space_x5l($space) {
+    #space_x5l {
         display: block;
         height: $space;
     }
