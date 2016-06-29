@@ -892,6 +892,14 @@ $sect_img_list:
     }
 }
 
+
+@mixin space_no($space) {
+    #space_no {
+        display: block;
+        height: $space;
+    }
+}
+
 @mixin space_xxs($space) {
     #space_xxs {
         display: block;

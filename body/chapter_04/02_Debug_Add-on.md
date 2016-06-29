@@ -392,6 +392,9 @@ OSごとのBlender実行ファイルのパスを以下に示します。Blender�
 
 最後に以下の手順で、PyDevデバッグサーバを起動します。
 
+<div id="space_xl"></div>
+
+
 <div id="process_title"></div>
 
 ##### Work
