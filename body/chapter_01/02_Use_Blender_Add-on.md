@@ -351,8 +351,9 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 * Blenderは標準で日本語をサポートするため、必要に応じてUIを日本語化することができる。
 * Blenderアドオンは、アドオンの品質や将来性を示すサポートレベルで分類できる。
 
-<div id="space_m"></div>
+<div id="space_xs"></div>
 
+<div id="point_item"></div>
 
 * Blenderアドオンのソースコードはプログラミング言語Pythonで書かれた、拡張子が.pyのテキストファイルである。
 * Blenderアドオンのインストール/アンインストールは、ソースコードをBlenderアドオン用フォルダに直接置く方法と、Blender内のGUIを使って行う方法がある。
