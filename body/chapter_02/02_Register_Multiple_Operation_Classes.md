@@ -203,6 +203,8 @@ Pythonコンソールを利用することにより、例えば以下のよう�
 
 Blenderのエリア構成が [1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介したように設定されていれば、左上のウィンドウが *Pythonコンソール* エリアとなります。
 
+<div id="space_xxl"></div>
+
 
 <div id="process_title"></div>
 

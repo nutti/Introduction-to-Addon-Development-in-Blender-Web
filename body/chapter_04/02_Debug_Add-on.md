@@ -256,7 +256,7 @@ Eclipseプロジェクトを以下の手順に沿って作成します。
 
 プロジェクト作成後、Blenderに標準で備わっているPythonスクリプト等が置かれているパスを設定します。
 
-<div id="space_l"></div>
+<div id="space_xl"></div>
 
 
 <div id="process_title"></div>

@@ -23,7 +23,7 @@
 
 *3Dビュー* エリアのメニューバーの *追加* > *メッシュ* > *ICO球* を実行した時の動作を確認します。
 
-<div id="space_xl"></div>
+<div id="space_xxl"></div>
 
 
 <div id="process_title"></div>

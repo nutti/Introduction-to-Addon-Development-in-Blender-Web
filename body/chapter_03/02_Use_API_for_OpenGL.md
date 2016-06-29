@@ -24,8 +24,6 @@
 
 BlenderはPythonからOpenGLへアクセスするためのAPIも用意しているため、ユーザはPythonスクリプトからOpenGLの機能の一部を扱うことができます。
 
-<div id="space_m></div>
-
 
 ## 作成するアドオンの仕様
 

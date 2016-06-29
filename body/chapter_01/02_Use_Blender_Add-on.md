@@ -302,12 +302,12 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 この場合は、＿＿init＿＿.pyが置かれているディレクトリごと削除することでアンインストールが完了します。  
 ＿＿init＿＿.py以外であれば単一ファイルで構成されていることを示していますので、詳細情報の ファイルに示されたファイルを削除すれば、アンインストールが完了します。
 
-<div id="space_m"></div>
-
-
 ### Blenderユーザ設定からアンインストールする方法
 
 他のアドオンのアンインストール方法として、 *Blenderユーザ設定* ウィンドウからアンインストールする方法があります。
+
+<div id="space_m"></div>
+
 
 <div id="process_title"></div>
 
@@ -350,6 +350,10 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 * Blenderは標準で日本語をサポートするため、必要に応じてUIを日本語化することができる。
 * Blenderアドオンは、アドオンの品質や将来性を示すサポートレベルで分類できる。
+
+<div id="space_m"></div>
+
+
 * Blenderアドオンのソースコードはプログラミング言語Pythonで書かれた、拡張子が.pyのテキストファイルである。
 * Blenderアドオンのインストール/アンインストールは、ソースコードをBlenderアドオン用フォルダに直接置く方法と、Blender内のGUIを使って行う方法がある。
 * ソースコードが複数ファイルで構成されるアドオンをインストールする場合は、ソースコードをBlenderアドオン用フォルダに直接置く必要がある。

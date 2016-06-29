@@ -148,14 +148,15 @@ Blenderには、デバッグ用にコンソール・ウィンドウと呼ばれ�
 
 ---
 
-<div id="space_xl"></div>
-
 
 ### Blenderの初期状態として設定する
 
 他にも不要なエリアを削除したり、エリアの配置を変更したりして各自使いやすいような環境にします。
 
 これでBlenderのエリア設定は完了ですが、このままBlenderを閉じてしまうと次にBlenderを起動した時に初期状態に戻ってしまいます。そこで以下の手順に従って、Blenderが起動した時にエリア設定がすでに終わっている状態で起動するようにします。
+
+<div id="space_xl"></div>
+
 
 <div id="process_title"></div>
 
@@ -257,6 +258,9 @@ Vimと同様にemacsにもWindows版が用意されているため、一度使�
 |TeraPad|◯|×|×|
 |nano|×|◯|◯|
 |SublimeText|◯|◯|◯|
+
+<div id="space_m"></div>
+
 
 ## アドオン開発時のBlenderの起動方法
 

@@ -934,6 +934,13 @@ $sect_img_list:
     }
 }
 
+@mixin space_xxxl($space) {
+    #space_xxxl {
+        display: block;
+        height: $space;
+    }
+}
+
 @mixin space_chapter_1($space) {
     #space_chapter_1 {
         display: block;

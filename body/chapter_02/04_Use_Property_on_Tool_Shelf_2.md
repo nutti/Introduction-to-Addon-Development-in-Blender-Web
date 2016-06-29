@@ -165,6 +165,9 @@ class ReplicateObject(bpy.types.Operator):
 
 このように、セレクトボックスの選択項目リストを返す関数を ```EnumProperty``` クラスの ```items``` に指定することで、選択項目を動的に追加することができます。
 
+<div id="space_xs"></div>
+
+
 ### FloatVectorPropertyの引数subtypeとunit
 
 本節のサンプルでは、配置位置の他にも拡大率・回転角度・配置位置からのオフセットを、ツール・シェルフから指定できます。
