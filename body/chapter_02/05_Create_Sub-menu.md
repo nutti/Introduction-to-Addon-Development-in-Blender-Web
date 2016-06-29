@@ -173,7 +173,7 @@ class ReplicateObjectMenu(bpy.types.Menu):
 
 サブメニューを用いることで、本節のサンプルのように処理対象を選択できるようにしたり、メニュー項目を機能ごとに整理することができるようになります。ぜひここでサブメニューの作り方を習得し、わかりやすいUI作りに活かしましょう。
 
-<div id="space_xxs"></div>
+<div id="space_no"></div>
 
 
 <div id="point"></div>

@@ -584,7 +584,7 @@ Eclipseを用いたデバッグは準備が非常に大変です。手間をか�
 |http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/Development/BreakPoint|
 |![『BreakPoint』のインストール](https://dl.dropboxusercontent.com/s/220ubjo2o4t0t4n/install_breakpoint.png "『BreakPoint』のインストール")|
 
-<div id="space_xl"></div>
+<div id="space_xxl"></div>
 
 
 ### 2. アドオン『BreakPoint』の有効化

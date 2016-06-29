@@ -494,7 +494,7 @@ Blender本体へアドオンを取り込むまでの道のりは非常に長い�
 
 * 作成したアドオンをBlender本体に取り込んでもらうためには、ソースコードレビューやWikiページ作成など数多くの工程を経る必要がある
 
-<div id="space_no"></div>
+<div id="space_xxs"></div>
 
 
 <div id="point_item"></div>
