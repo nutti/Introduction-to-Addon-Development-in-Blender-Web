@@ -70,8 +70,8 @@ conchan-akita 様, sariew 様
 
 ### 筆者がこれまで作成したアドオン
 
-|アドオン名|URL|サポートレベル|概要<br>(詳細はWebページ参照)|
-|---|---|---|
+|アドオン名|URL|サポート<br>レベル|概要|
+|---|---|---|---|
 |Magic UV|https://github.com/nutti/Magic-UV |Contrib|もともとはUVのコピー・ペーストする機能のみを持つ機能であったが、ユーザからの要望を受け入れたことで、様々な機能が追加されてより強力なUV編集ツールへと成長したアドオン|
 |Paint Tools|https://github.com/nutti/Paint-Tools |External|UV/Image Editorにおける矩形選択ツール。選択した範囲に対して、簡単な画像処理(塗りつぶしや2値化など)を適用することができるアドオン|
 |Mouse Click Merge|https://github.com/nutti/Mouse-Click-Merge |External|3DCGソフト「メタセコイア」のように、マウスクリックによる隣接頂点結合や面の対角線を反転させることができるアドオン|
