@@ -325,3 +325,5 @@ Macでショートカットキーを利用するためには、標準でMacの�
 
 * 登録したオペレータクラスの ```bl_idname``` は ```bpy.ops.<bl_idname>``` に登録される
 * Pythonコンソールを利用して、APIの確認や簡単なテストを行える
+
+<div id="space_page"></div>

@@ -970,6 +970,14 @@ $sect_img_list:
     }
 }
 
+@mixin space_page($space) {
+    #space_page {
+        display: block;
+        height: $space;
+        //background-color: #000000;
+    }
+}
+
 @mixin space_chapter_1($space) {
     #space_chapter_1 {
         display: block;
