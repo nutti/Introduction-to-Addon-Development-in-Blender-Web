@@ -42,6 +42,8 @@ BLUG.jp 様
 
 conchan-akita 様, sariew 様
 
+<div id="space_xxxl"></div>
+
 
 ## 筆者について
 
@@ -53,14 +55,14 @@ conchan-akita 様, sariew 様
 * 音楽制作(DTM)
 * 技術文章を書くこと
 * PC自作
-* 3DCG(制作はしない)
+* 3DCG
 
 ### ホームページや連絡先
 
 |||
 |---|---|
-|Blog|http://colorful-pico.hatenablog.jp |
 |Mail|nutti.metro@gmail.com |
+|Blog|http://colorful-pico.hatenablog.jp |
 |Twitter|https://twitter.com/nutti__ |
 |GitHub|https://github.com/nutti |
 |GitBook|https://www.gitbook.com/@nutti |
