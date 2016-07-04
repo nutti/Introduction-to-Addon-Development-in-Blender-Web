@@ -82,7 +82,6 @@ https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/tree/draf
 <div id="space_l"></div>
 
 
-
 * 数学
   * 三角関数
   * ベクトル演算
