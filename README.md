@@ -79,14 +79,14 @@ https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/tree/draf
 必須知識に加えて以下の知識があると、本書で紹介している以上の高度なアドオンを作成することができると思います。
 なお本書を読むだけであれば、必ずしも必要ではない知識です。
 
+<div id="space_l"></div>
+
+
+
 * 数学
   * 三角関数
   * ベクトル演算
   * 行列演算
-
-<div id="space_s"></div>
-
-
 * 物理
   * 古典力学
   * 流体力学
