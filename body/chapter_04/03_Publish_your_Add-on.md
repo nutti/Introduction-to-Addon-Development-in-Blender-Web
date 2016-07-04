@@ -104,7 +104,7 @@ Blender Artists Communityにアドオンを投稿するとかなり高い確率�
 
 アドオンの投稿は、アカウント登録した上でCODING > Released Scripts and Themesから行ってください。投稿は、POST NEW THREADボタンから行えます。
 
-<div id="space_xxl"></div>
+<div id="space_x4l"></div>
 
 
 #### Blender.jp
