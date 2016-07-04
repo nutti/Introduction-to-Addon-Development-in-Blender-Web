@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# 複数のオペレータクラスを登録する
+# 複数のオペレータクラスを<br>登録する
 
 <div id="preface"></div>
 

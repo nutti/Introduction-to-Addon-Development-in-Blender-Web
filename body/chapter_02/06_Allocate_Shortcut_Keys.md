@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# ショートカットキーを割り当てる
+# ショートカットキーを<br>割り当てる
 
 <div id="preface"></div>
 
