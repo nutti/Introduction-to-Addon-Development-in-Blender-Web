@@ -42,7 +42,7 @@ BLUG.jp 様
 
 conchan-akita 様, sariew 様
 
-<div id="space_xxxl"></div>
+<div id="space_x5l"></div>
 
 
 ## 筆者について
@@ -68,6 +68,9 @@ conchan-akita 様, sariew 様
 |GitBook|https://www.gitbook.com/@nutti |
 |Qiita|http://qiita.com/nutti |
 |Google+|https://plus.google.com/100058529622539760372 |
+
+
+<div id="space_xxxl"></div>
 
 
 ### 筆者がこれまで作成したアドオン
