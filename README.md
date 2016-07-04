@@ -48,6 +48,10 @@ def execute(self, context):
 
 本書で紹介するアドオンのサンプルのソースコードは、以下のURLからダウンロードすることができます。
 
+https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/releases/download/v1/sample_v1.zip
+
+または
+
 https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/tree/draft/sample/src
 
 ## 前提知識
