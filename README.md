@@ -79,7 +79,7 @@ https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/tree/draf
 必須知識に加えて以下の知識があると、本書で紹介している以上の高度なアドオンを作成することができると思います。
 なお本書を読むだけであれば、必ずしも必要ではない知識です。
 
-<div id="space_l"></div>
+<div id="space_s"></div>
 
 
 * 数学
