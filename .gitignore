@@ -1,0 +1,20 @@
+
+# not allow temporary files
+*~
+.DS_Store
+*.swp
+.sass-cache/
+
+# not allow output files
+*.pdf
+_book/
+
+# not allow media files
+*.png
+*.jpg
+
+# allow cover
+!cover.jpg
+
+# not allow node.js files
+node_modules/
