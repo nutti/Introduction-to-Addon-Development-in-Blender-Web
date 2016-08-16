@@ -13,6 +13,7 @@
     "preset-japanese": true,
     "common-misspellings": true,
     "no-start-duplicated-conjunction": true,
-    "no-todo": true
+    "no-todo": true,
+    "preset-ja-technical-writing": true
   }
 }
