@@ -18,6 +18,8 @@
   4. [ツール・シェルフのオプションを活用する②](body/chapter_02/04_Use_Property_on_Tool_Shelf_2.md)
   5. [サブメニューを作成する](body/chapter_02/05_Create_Sub-menu.md)
   6. [ショートカットキーを割り当てる](body/chapter_02/06_Allocate_Shortcut_Keys.md)
+  7. [アドオンのソースコードを複数ファイルへ分割する](body/chapter_02/07_Divide_Add-on_Source_into_Multiple_Files.md)
+  8. [BlenderのUIを制御する](body/chapter_02/08_Control_Blender_UI.md)
 3. [より高度なアドオンを作るために](body/chapter_03/SUMMARY.md)
   1. [マウスクリックのイベントを扱う](body/chapter_03/01_Handle_Mouse_Click_Event.md)
   2. [OpenGL向けのAPIを利用する](body/chapter_03/02_Use_API_for_OpenGL.md)
