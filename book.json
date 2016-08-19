@@ -7,5 +7,5 @@
     "styles": {
     "website": "styles/website.scss",
     "pdf": "styles/pdf.scss"
-    },
+    }
 }
