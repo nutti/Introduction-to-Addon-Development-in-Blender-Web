@@ -46,4 +46,3 @@ def unregister():
 # メイン処理
 if __name__ == "__main__":
 	register()
-
