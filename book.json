@@ -5,7 +5,16 @@
     "language": "ja",
     "plugins": ["styles-sass", "include-codeblock"],
     "styles": {
-    "website": "styles/website.scss",
-    "pdf": "styles/pdf.scss"
+        "website": "styles/website.scss",
+        "pdf": "styles/pdf.scss"
+    },
+    "pdf": {
+        "paperSize": "a3",
+        "margin": {
+        },
+        "headerTemplate":
+        "<html><body></body></html>",
+        "footerTemplate":
+        "<html><body></html>"
     }
 }

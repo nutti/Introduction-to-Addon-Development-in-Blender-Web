@@ -5,11 +5,11 @@
     "language": "ja",
     "plugins": ["styles-sass", "include-codeblock"],
     "styles": {
-    "website": "styles/website.scss",
-    "pdf": "styles/pdf.scss"
+        "website": "styles/website.scss",
+        "pdf": "styles/pdf.scss"
     },
     "pdf": {
-        "paperSize": "a4",
+        "paperSize": "a3",
         "margin": {
         },
         "headerTemplate":

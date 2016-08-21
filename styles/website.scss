@@ -4,7 +4,14 @@
         .page-wrapper {
             .page-inner {
                 section.normal {
-
+                    table {
+                        th {
+                            border: 0px;
+                        }
+                        td {
+                            border: 0px;
+                        }
+                    }
                 }
             }
         }
