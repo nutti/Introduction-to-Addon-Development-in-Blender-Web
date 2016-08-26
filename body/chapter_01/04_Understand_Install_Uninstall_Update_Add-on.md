@@ -15,16 +15,17 @@
 アドオンが複数ソースコードで構成されるかどうかを知るためには、アドオンのソースコードに ```__init__.py``` というファイルが存在するかを確認します。 ```__init__.py``` が存在すれば、アドオンが複数のソースコードで構成されていることになります。
 
 実際に筆者が作成したアドオンを用いて確認してみましょう。
+またここで確認するアドオンは、後の説明でも使用します。
 
 ### 例1: 複数のソースコードで構成されるアドオン
 
-https://github.com/nutti/Magic-UV/archive/develop.zip から、筆者が作成したアドオン『Magic UV』をダウンロードします。
+https://github.com/nutti/Magic-UV/releases/download/v4.0/uv_magic_uv.zip から、筆者が作成したアドオン『Magic UV』をダウンロードします。
 アドオン『Magic UV』のソースコード本体は zip を解凍した後の ```uv_magic_uv``` ディレクトリ以下の一式です。拡張子が ```.py``` であるファイルが複数あり、ファイル ```__init__.py``` が存在しているため、アドオン『Magic UV』は複数のソースコードで構成されるアドオンと判断できます。
 
 ### 例2: 単一のソースコードで構成されるアドオン
 
-https://github.com/nutti/Mouse-Click-Merge/archive/master.zip から、筆者が作成したアドオン『Mouse Click Merge』をダウンロードします。
-アドオン『Mouse Click Merge』のソースコード本体は ```mouse_click_merge.py``` のみです。
+https://github.com/nutti/Mouse-Click-Merge/releases/download/v0.3/Mouse-Click-Merge-0.3.zip から、筆者が作成したアドオン『Mouse Click Merge』をダウンロードします。
+アドオン『Mouse Click Merge』のソースコード本体は zip を解凍した後の ```mouse_click_merge.py``` のみです。
 
 このように、アドオンが複数のソースコードで構成されているか単一のソースコードで構成されているかを見極めるには、 ソースコードにファイル ```__init__.py``` が含まれているかを確認すればよいことになります。
 
@@ -34,6 +35,40 @@ https://github.com/nutti/Mouse-Click-Merge/archive/master.zip から、筆者が
 アドオンをインストールする方法は、2通りがあります。
 
 ### Blender のアドオンインストール機能を用いる
+
+Blender 本体にはアドオンのインストール機能が備わっています。
+アドオンをインストールするための標準的なインストール方法ですが、アドオンのソースコードによってはインストールすることができません。
+ソースコードが単一のファイルで構成されている場合はアドオンを問題なくインストールできると思いますが、ソースコードが複数のファイルで構成されている場合は、 ```__init__.py``` が置かれたディレクトリが .zip 形式で圧縮されている必要があります。
+
+Blender のアドオンインストール機能を用いた場合について、アドオンのインストール方法を説明します。
+
+<div id="process_title"></div>
+
+##### Work
+
+<div id="process"></div>
+
+|<div id="box">1</div>|*情報* エリアの *ファイル* > *ユーザ設定* を実行します。|![アドオンのインストール方法1 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオンのインストール方法1 手順1")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process_noimg"></div>
+
+|<div id="box">2</div>|*アドオン* タブを選択します。|
+|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+
+<div id="process_start_end"></div>
+
+---
+
 
 ### Blender アドオン用フォルダにソースコードを直接配置する
 
