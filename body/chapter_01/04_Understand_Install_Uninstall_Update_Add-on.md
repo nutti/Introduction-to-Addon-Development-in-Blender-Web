@@ -32,7 +32,10 @@ https://github.com/nutti/Mouse-Click-Merge/releases/download/v0.3/Mouse-Click-Me
 
 ## アドオンのインストール方法
 
-アドオンをインストールする方法は、2通りがあります。
+アドオンをインストールする方法は、以下の2通りがあります。
+
+* Blender のアドオンインストール機能を用いる
+* Blender アドオン用フォルダにソースコードを直接配置する
 
 ### Blender のアドオンインストール機能を用いる
 
@@ -55,15 +58,37 @@ Blender のアドオンインストール機能を用いた場合について、
 
 ---
 
-<div id="process_noimg"></div>
+<div id="process"></div>
 
-|<div id="box">2</div>|*アドオン* タブを選択します。|
-|---|---|
+|<div id="box">2</div>|*アドオン* タブを選択します。||
+|---|---|---|
 
 <div id="process_sep"></div>
 
 ---
 
+<div id="process"></div>
+
+|<div id="box">3</div>|*ファイルからインストール* ボタンをクリックします。||
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">4</div>|ファイル選択画面でインストールするアドオンのソースコード（ ```.py``` か、```.zip``` ）を選択し、 **ファイルからインストール** ボタンをクリックします。||
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">5</div>|インストールが完了します。||
+|---|---|---|
 
 <div id="process_start_end"></div>
 
@@ -72,11 +97,53 @@ Blender のアドオンインストール機能を用いた場合について、
 
 ### Blender アドオン用フォルダにソースコードを直接配置する
 
+Blender にインストール済のアドオンが配置されているアドオン用フォルダにソースコードを直接配置する方法です。
+ソースコードを直接配置するため、ソースコード自体に問題がなければ単一のファイルで構成されているか複数のファイルで構成されているかにかかわらず、インストールすることができます。
+
+<div id="process_title"></div>
+
+##### Work
+
+<div id="process"></div>
+
+|<div id="box">1</div>|```.py``` または ```__init__.py``` を含めてソースコードが入ったディレクトリ一式を Blender アドオン用フォルダに配置します。|![アドオンのインストール方法1 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオンのインストール方法1 手順1")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">2</div>|Blender を再起動するか、 *情報* エリアの *ファイル* > *ユーザ設定* 実行時に開くウィンドウから、 *アドオン* タブにある *更新* ボタンをクリックします。||
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">3</div>|インストールが完了します。||
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
+
+
 ## アドオンのアップデート方法
 
 アドオンをアップデートする方法は、3通りあります。
 
+* Blender のアドオンインストール機能を使用する
+* Blender アドオン用フォルダにソースコードを直接配置し、 Blender を再起動する
+* Blender の機能『Reload Scripts』を利用する
+
 ### Blender のアドオンインストール機能を使用する
+
+アドオンのインストールと同じように、 Blender 本体のアドオンインストール機能を用いてアドオンをアップデートすることができます。
+インストール時と同様、ソースコードが複数のファイルで構成されている場合は、 ```__init__.py``` が置かれたディレクトリが .zip 形式で圧縮されている必要があります。
 
 ### Blender アドオン用フォルダにソースコードを直接配置し、 Blender を再起動する
 
