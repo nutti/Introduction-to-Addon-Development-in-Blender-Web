@@ -164,12 +164,117 @@ Blender にインストール済のアドオンが配置されているアドオ
 Reload Scripts 機能を利用することで、 Blender を再起動せずにアドオンをアップデートすることができます。
 Reload Scripts 機能を使った、アドオンのアップデート方法について説明します。
 
+<div id="process_title"></div>
+
+##### Work
+
+<div id="process"></div>
+
+|<div id="box">1</div>|方法2と同様に、ソースコードをアドオン用ディレクトリに配置します。|![アドオンのインストール方法1 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオンのインストール方法1 手順1")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">2</div>|*スペース* キーを押して *検索ボックス* を表示します。||
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">3</div>|*Reload Scripts* （日本語では *スクリプトを再読み込み* ）を検索して実行します。||
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">4</div>|アドオンのアップデートが完了します。||
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
+
+
+<div id="column"></div>
+
+*Reload Scripts* 機能には、デフォルトで *F8* キーが割り当てられています。
+
+このように *Reload Scripts* は非常に便利な機能ですが、複数のファイルで構成されるアドオンではソースコードによって正しくアップデートされない可能性があります。
+詳しくは、 [2-7節](../chapter_02/07_Divide_Add-on_Source_into_Multiple_Files.md) を参照してください。
+
 
 ## アドオンのアンインストール方法
 
 アドオンをアンインストールする方法は、2通りあります。
 
 ### Blender のアドオンアンインストール機能を使用する
+
+アドオンのインストール/アップデートと同様、 Blender 本体のアドオンインストール機能を用いてアドオンをアンインストールすることができます。
+アドオンのソースコードが単一のファイルで構成されているか複数のファイルで構成されているかにかかわらずアンインストールできますが、最初から Blender にインストールされているアドオン（アドオンのサポートレベルが Release または Contrib）は削除することができません。
+
+アドオンのアンインストール方法を説明します。
+
+
+<div id="process_title"></div>
+
+##### Work
+
+<div id="process"></div>
+
+|<div id="box">1</div>|*情報* エリアの *ファイル* > *ユーザ設定* を実行します。|![アドオンのインストール方法1 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオンのインストール方法1 手順1")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">2</div>|*アドオン* タブを選択します。||
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">3</div>|アンインストールしたいアドオンの左側の矢印をクリックし、アドオンの詳細情報を表示します。||
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">4</div>|*削除* ボタンをクリックします。||
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">5</div>|インストールが完了します。||
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
+
+
 
 ### Blender アドオン用フォルダからソースコードを直接削除する
 
