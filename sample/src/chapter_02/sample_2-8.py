@@ -113,6 +113,38 @@ class ShowDialogMenu(bpy.types.Operator):
         return context.window_manager.invoke_props_dialog(self)
 
 
+class ShowAllIcons(bpy.types.Operator):
+    bl_idname = "object.show_all_icons"
+    bl_label = "利用可能なアイコンをすべて表示"
+    bl_description = "利用可能なアイコンをすべて表示"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    num_column = IntProperty(
+        name="一行に表示するアイコン数",
+        description="一行に表示するアイコン数",
+        default=2,
+        min=1,
+        max=5)
+
+    # プロパティのUI
+    def draw(self, context):
+        layout = self.layout
+
+        layout.prop(self, "num_column")
+
+        layout.separator()
+
+        # 利用可能なアイコンをすべて表示
+        layout.label(text="利用可能なアイコン一覧:")
+        for i, key in enumerate(bpy.types.UILayout.bl_rna.functions['prop'].parameters['icon'].enum_items.keys()):
+            if i %self.num_column == 0:
+                row = layout.row()
+            row.label(text=key, icon=key)
+
+    def execute(self, context):
+        return {'FINISHED'}
+
+
 # カスタムメニュー
 class VIEW3D_PT_CustomMenu(bpy.types.Panel):
     bl_label = "カスタムメニュー"       # タブに表示される文字列
@@ -279,6 +311,12 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
         # ダイアログメニューを呼び出す
         layout.label(text="ダイアログメニューを呼び出す:")
         layout.operator(ShowDialogMenu.bl_idname)
+
+        layout.separator()
+
+        # プロパティのUIをカスタマイズする＋アイコン一覧を表示する
+        layout.label(text="プロパティのUIをカスタマイズする")
+        layout.operator(ShowAllIcons.bl_idname)
 
 
 def init_props():
