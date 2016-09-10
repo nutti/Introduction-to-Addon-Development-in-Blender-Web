@@ -436,7 +436,7 @@ class CreateObject(bpy.types.Operator):
 |引数|型|値の説明|
 |---|---|---|
 |```self```|呼ばれた ```execute()``` メソッドを定義しているクラス|オペレータクラスのインスタンス|
-|```context```|```bpy_types.Context```|```exexute()``` メソッド実行時のコンテキスト|
+|```context```|```bpy_types.Context```|```execute()``` メソッド実行時のコンテキスト|
 
 ```execute()``` メソッドの処理を解説します。
 

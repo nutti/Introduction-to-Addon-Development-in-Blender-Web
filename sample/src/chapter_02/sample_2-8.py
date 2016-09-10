@@ -21,9 +21,6 @@ class NullOperation(bpy.types.Operator):
     bl_description = "何もしない"
     bl_options = {'REGISTER', 'UNDO'}
 
-    def draw(self, context):
-        layout = self.layout
-
     def execute(self, context):
         return {'FINISHED'}
 
@@ -36,6 +33,7 @@ class NullOperationMenu(bpy.types.Menu):
     def draw(self, context):
         layout = self.layout
 
+        # メニュー項目の追加
         for i in range(3):
             layout.operator(NullOperation.bl_idname, text=("項目 %d" % (i)))
 
@@ -55,7 +53,7 @@ class ShowPopupMessage(bpy.types.Operator):
         # ポップアップメッセージ表示
         return wm.invoke_popup(self, width=200, height=100)
 
-    # ポップアップメッセージに表示する内容を記載
+    # ポップアップメッセージに表示する内容
     def draw(self, context):
         layout = self.layout
         layout.label("メッセージ")
@@ -145,14 +143,14 @@ class ShowAllIcons(bpy.types.Operator):
         return {'FINISHED'}
 
 
-# カスタムメニュー
+# ツールシェルフに「カスタムメニュー」タブを追加
 class VIEW3D_PT_CustomMenu(bpy.types.Panel):
     bl_label = "カスタムメニュー"       # タブに表示される文字列
     bl_space_type = 'VIEW_3D'           # メニューを表示するエリア
     bl_region_type = 'TOOLS'            # メニューを表示するリージョン
     bl_category = "カスタムメニュー"    # タブを開いたメニューのヘッダーに表示される文字列
 
-    # 本クラスの処理が実行可能かを判定するクラス
+    # 本クラスの処理が実行可能かを判定する
     @classmethod
     def poll(cls, context):
         # オブジェクトモードの時のみメニューを表示させる
@@ -319,6 +317,7 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
         layout.operator(ShowAllIcons.bl_idname)
 
 
+# プロパティの初期化
 def init_props():
     scene = bpy.types.Scene
     scene.cm_prop_int = IntProperty(
@@ -350,6 +349,7 @@ def init_props():
         max=1.0)
 
 
+# プロパティを削除
 def clear_props():
     scene = bpy.types.Scene
     del scene.cm_prop_int
@@ -370,9 +370,9 @@ def menu_fn_2(self, context):
 
 def register():
     bpy.utils.register_module(__name__)
-    # 先頭に追加
+    # 項目をメニューの先頭に追加
     bpy.types.VIEW3D_MT_object.append(menu_fn_1)
-    # 末尾に追加
+    # 項目をメニューの末尾に追加
     bpy.types.VIEW3D_MT_object.prepend(menu_fn_2)
     init_props()
     print("サンプル2-8: アドオン「サンプル2-8」が有効化されました。")
