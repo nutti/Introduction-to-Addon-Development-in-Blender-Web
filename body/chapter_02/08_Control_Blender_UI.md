@@ -332,7 +332,7 @@ def poll(cls, context):
 
 ### ヘッダーの UI を変更する
 
-ヘッダーの UI を変更するためには、パネルクラスの ```draw_header()``` メソッドを定義します。
+タブに追加したメニューのヘッダーの UI を変更するためには、パネルクラスの ```draw_header()``` メソッドを定義します。
 
 ```python
 # ヘッダーのカスタマイズ
@@ -349,18 +349,144 @@ def draw_header(self, context):
 |```context```|```bpy_types.Context```|```draw_header()``` メソッド実行時のコンテキスト|
 
 ```draw_header()``` メソッドでは、メニューのヘッダーに表示される文字列の左にアイコンを追加する処理を行っています。
-```layout.label()``` 関数を使うとラベルを表示させることができますが、今回は文字列を追加したくはないので、引数 ```text``` に空の文字列、引数 ```icon``` に表示したいアイコンの ID （本節のサンプルではプラグインアイコン）を指定しています。
+
+```layout.label()``` の引数を以下に示します。
+
+|引数|値の意味|
+|---|---|
+|```text```|表示する文字列|
+|```icon```|表示するアイコン|
+
+本節のサンプルでは文字列を追加したくはないので、引数 ```text``` に空の文字列、引数 ```icon``` にプラグインのアイコン ID を指定しています。
 
 
 ### メニューを構築する
 
-メニューを構築するためには、 ```draw()``` メソッドを定義する必要があります。
+タブに追加するメニューを構築するためには、 ```draw()``` メソッドを定義する必要があります。
 ```draw()``` メソッドの引数などの詳細については、 [2-5節](05_Create_Sub-menu.md) を参考にしてください。
 本節のサンプルの ```draw()``` メソッドは非常に長いメソッドですので、それぞれの UI ごとに説明していきます。
 
+
 #### ボタンを追加する
 
+本節のサンプルでは以下の処理により、2種類のボタン（標準のボタンと文字列の周りの装飾が消えたボタン）を追加しています。
 
+```python
+# ボタンを追加
+layout.label(text="ボタンを追加する:")
+layout.operator(NullOperation.bl_idname, text="ボタン1")
+layout.operator(NullOperation.bl_idname, text="ボタン2", emboss=False)
+```
+
+ボタンは ```layout.operator()``` 関数で追加することができ、以下の引数を指定します。
+ボタンを押すと、第1引数に指定したオペレータクラスの ```bl_idname``` を持つオペレータクラスの処理が実行されます。
+
+|引数|値の意味|
+|---|---|
+|第1引数|オペレータクラスの ```bl_idname```|
+|```text```|ボタンに表示する文字列|
+|```icon```|ボタンに表示するアイコン|
+|```emboss```|```False``` の場合、文字列の周りの装飾が消える|
+
+
+#### メニューを追加する
+
+メニューを追加する処理の前に ```layout.separator()``` 関数を呼ぶことで、上下のスペースを空けることができます。
+メニュー時の ```layout.separator()``` の動作については、 [2-1節](01_Basic_of_Add-on_Development.md) を参考にしてください。
+
+本節のサンプルでは以下の処理により、メニューを追加しています。
+
+```python
+layout.label(text="メニューを追加する:")
+layout.menu(NullOperationMenu.bl_idname, text="メニュー")
+```
+
+[2-5節](05_Create_Sub-menu.md) で説明したサブメニューを追加するための関数 ```layout.menu()``` により、メニューを追加しています。
+追加されたメニューは、セレクトボックスの UI となります。
+表示されるメニュー名はデフォルトで、第1引数に指定したメニュークラスの ```bl_label``` が表示されますが、 ```text``` 引数により変更することができます。
+
+
+#### プロパティを追加する
+
+処理のパラメータなどをユーザ指定するためのプロパティを追加します。
+
+##### プロパティを定義する
+
+プロパティを追加するためには、プロパティの定義を行う必要があります。
+
+プロパティの定義は、アドオン有効化時に ```register()``` 関数から呼び出される ```init_props()``` 関数で行います。
+プロパティは、 ```bpy.types.Scene``` に変数を追加することで定義できます。
+
+```python
+# プロパティの初期化
+def init_props():
+    scene = bpy.types.Scene
+    scene.cm_prop_int = IntProperty(
+        name="Prop 1",
+        description="Integer Property",
+        default=100,
+        min=0,
+        max=255)
+    scene.cm_prop_float = FloatProperty(
+        name="Prop 2",
+        description="Float Property",
+        default=0.75,
+        min=0.0,
+        max=1.0)
+    scene.cm_prop_enum = EnumProperty(
+        name="Prop 3",
+        description="Enum Property",
+        items=[
+            ('ITEM_1', "項目 1", "項目 1"),
+            ('ITEM_2', "項目 2", "項目 2"),
+            ('ITEM_3', "項目 3", "項目 3")],
+        default='ITEM_1')
+    scene.cm_prop_floatv = FloatVectorProperty(
+        name="Prop 4",
+        description="Float Vector Property",
+        subtype='COLOR_GAMMA',
+        default=(1.0, 1.0, 1.0),
+        min=0.0,
+        max=1.0)
+```
+
+##### プロパティを削除する
+
+アドオン無効時には、```bpy.types.Scene``` に追加したプロパティのグループを削除する必要があります。削除しないとアドオン無効化時にもプロパティのデータが残ることになり無駄にメモリを消費するため、忘れずに削除するようにしましょう。
+本節のサンプルでは、 ```unregister()``` 関数から呼び出される ```clear_props()``` 関数により、定義したプロパティの削除処理を行っています。
+
+```python
+# プロパティを削除
+def clear_props():
+    scene = bpy.types.Scene
+    del scene.cm_prop_int
+    del scene.cm_prop_float
+    del scene.cm_prop_enum
+    del scene.cm_prop_floatv
+```
+
+##### プロパティを変更するための UI を構築する
+
+定義したプロパティをユーザが変更するための UI を表示するためには ```layout.prop()``` 関数を使います。```layout.prop()``` 関数の引数を以下に示します。
+
+|引数|意味|
+|---|---|
+|第1引数|プロパティを持つオブジェクト|
+|第2引数|プロパティ変数名|
+|第3引数(```text```)|表示文字列|
+
+本節のサンプルは ```bpy.types.Scene``` にプロパティを登録したため、 ```context.scene``` を第1引数に指定します。第2引数には、 ```bpy.types.Scene``` に登録したプロパティ変数名を文字列で指定します。
+
+```python
+scene = context.scene
+# ・・・（略）・・・
+# プロパティを追加
+layout.label(text="プロパティを追加する:")
+layout.prop(scene, "cm_prop_int", text="プロパティ 1")
+layout.prop(scene, "cm_prop_float", text="プロパティ 2")
+layout.prop(scene, "cm_prop_enum", text="プロパティ 3")
+layout.prop(scene, "cm_prop_floatv", text="プロパティ 4")
+```
 
 ## まとめ
 
