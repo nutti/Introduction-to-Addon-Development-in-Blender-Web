@@ -488,6 +488,83 @@ layout.prop(scene, "cm_prop_enum", text="プロパティ 3")
 layout.prop(scene, "cm_prop_floatv", text="プロパティ 4")
 ```
 
+##### ボタンを一行に並べる
+
+```layout.operator()``` 関数を用いると、横幅が 100% のボタンが配置されます。
+このため単純に ```layout.operator()``` を複数回実行すると実行した回数分、縦方向にボタンが配置されてしまいます。
+
+ボタンを横に並べるためには ```layout.row()``` 関数を使って行成分を取得し、取得した行成分に対して ```operator()``` 関数を使ってボタンを配置する必要があります。
+本節のサンプルでは、以下のようにして3つのボタンを一行に並べています。
+
+```python
+# 一行に並べる（アライメント無）
+layout.label(text="一行に並べる（アライメント無）:")
+row = layout.row(align=False)
+for i in range(3):
+    row.operator(NullOperation.bl_idname, text=("列 %d" % (i)))
+```
+
+なお、 ```layout.row()``` 関数の引数に ```align=False``` を指定すると、ボタンとボタンの間に隙間が空くようにして配置されるようになります。以下のように、 ```align=True``` を指定すると、この隙間がなくなります。
+
+```python
+# 一行に並べる（アライメント有）
+layout.label(text="一行に並べる（アライメント有）:")
+row = layout.row(align=True)
+for i in range(3):
+    row.operator(NullOperation.bl_idname, text=("列 %d" % (i)))
+```
+
+なお、 ```operator()``` の代わりに ```label()``` 、 ```prop()``` や ```menu()``` 関数を使うことによって、ラベル、プロパティやメニューを一行に並べて配置することができます。
+
+##### ボタンを一列に並べる
+
+```layout.operator()``` 関数を複数回実行することでボタンを一列に配置することができますが、隙間が広いのが難点です。
+隙間を縮めた状態でボタンを縦に並べるためには ```layout.column()``` 関数を使って列成分を取得し、取得した列成分に対して ```operator()``` 関数を使ってボタンを配置します。
+本節のサンプルでは、以下のように3つのボタンを一列に並べています。
+
+```python
+layout.label(text="一列に並べる（アライメント無）:")
+column = layout.column(align=False)
+for i in range(3):
+    column.operator(NullOperation.bl_idname, text=("行 %d" % (i)))
+```
+
+ボタン間の隙間を無くすためには、 ```align=True``` を指定するところは ```layout.row()``` 関数と同様です。
+
+```python
+layout.label(text="一列に並べる（アライメント有）:")
+column = layout.column(align=True)
+for i in range(3):
+    column.operator(NullOperation.bl_idname, text=("行 %d" % (i)))
+```
+
+なお、 ```operator()``` の代わりに ```label()``` 、 ```prop()``` や ```menu()``` 関数を使うことによって、ラベル、プロパティやメニューを一列に並べて配置することができます。
+
+##### ボタンを複数列に配置する
+
+```layout.column()``` 関数や  ```layout.row()``` 関数で取得した行成分や列成分に対してさらに行成分や列成分を取得することで、より複雑なボタンの配置を実現することができます。
+
+本節のサンプルでは、以下のようにして2行2列にボタンを配置しています。
+
+```python
+# 複数列に配置する
+layout.label(text="複数列に配置する:")
+column = layout.column(align=True)
+row = column.row(align=True)
+row.operator(NullOperation.bl_idname, text="列 1, 行 1")
+row.operator(NullOperation.bl_idname, text="列 2, 行 1")
+row = column.row(align=True)
+row.operator(NullOperation.bl_idname, text="列 1, 行 2")
+row.operator(NullOperation.bl_idname, text="列 2, 行 2")
+```
+
+
+##### 領域を分割する
+
+```layout.row()``` 関数を用いて行成分を取得することで一行にボタンを配置することができましたが、ボタンはすべて等幅になっていました。
+ボタンの横幅を変えたいときは、 ```layout.split()``` 関数を用いて領域を分割します。
+
+
 ## まとめ
 
 
