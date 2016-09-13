@@ -564,6 +564,41 @@ row.operator(NullOperation.bl_idname, text="列 2, 行 2")
 ```layout.row()``` 関数を用いて行成分を取得することで一行にボタンを配置することができましたが、ボタンはすべて等幅になっていました。
 ボタンの横幅を変えたいときは、 ```layout.split()``` 関数を用いて領域を分割します。
 
+```layout.split()``` 関数の引数 ```percentage``` に値を指定することで、領域の横幅を決めることができます。
+引数 ```percentage``` の値は浮動小数点数で指定し、 ```1``` で横幅 ```100%``` 、 ```0``` で横幅 ```0%``` となります。
+例えば、ツールシェルフの横幅に対して ```70%``` の横幅を持つ領域を分割する場合、 ```layout.split(percentage=0.7)``` とします。
+
+本節のサンプルでは、以下のような処理で領域を3分割しています。
+
+```python
+# 領域を分割する
+layout.label(text="領域を分割する:")
+split = layout.split(percentage=0.3)
+column = split.column(align=True)
+column.label(text="領域1:")
+column.operator(NullOperation.bl_idname, text="行 1")
+column.operator(NullOperation.bl_idname, text="行 2")
+split = split.split(percentage=0.7)
+column = split.column()
+column.label(text="領域2:")
+column.operator(NullOperation.bl_idname, text="行 1")
+column.operator(NullOperation.bl_idname, text="行 2")
+split = split.split(percentage=1.0)
+column = split.column(align=False)
+column.label(text="領域3:")
+column.operator(NullOperation.bl_idname, text="行 1")
+column.operator(NullOperation.bl_idname, text="行 2")
+```
+
+各領域では、縦並びにボタンを2つ表示しています。
+
+```layout.split()``` により分割した領域の変数 ```split``` に対して ```split.split()``` を実行することで、2つ以上の領域に分割することができます。
+なお、ここで ```split.split()``` 関数に指定する引数 ```percentage``` について注意が必要です。
+最初の領域分割 ```layout.split()``` の場合、 引数に指定した ```percentage``` はツールシェルフの横幅に対する割合を示しますが、2回目の領域分割 ```split.split()``` は ```layout.split()``` で分割した残りの領域、つまり本節のサンプルではツールシェルフの横幅 70% の領域に対する割合を指定します。
+同様に3回目の領域分割では、2回目に分割した残りの領域に対する割合を指定します。
+従って、ツールシェルフに対する横幅はそれぞれ、領域1で 30% 、領域2で 70% × 0.7 = 49% 、領域3で 70% × 0.3 = 21% となります。
+
+
 
 ## まとめ
 
