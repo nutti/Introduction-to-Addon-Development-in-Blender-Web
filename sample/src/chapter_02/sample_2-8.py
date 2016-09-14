@@ -117,6 +117,7 @@ class ShowAllIcons(bpy.types.Operator):
     bl_description = "利用可能なアイコンをすべて表示"
     bl_options = {'REGISTER', 'UNDO'}
 
+
     num_column = IntProperty(
         name="一行に表示するアイコン数",
         description="一行に表示するアイコン数",
@@ -149,6 +150,7 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
     bl_space_type = 'VIEW_3D'           # メニューを表示するエリア
     bl_region_type = 'TOOLS'            # メニューを表示するリージョン
     bl_category = "カスタムメニュー"    # タブを開いたメニューのヘッダーに表示される文字列
+
 
     # 本クラスの処理が実行可能かを判定する
     @classmethod

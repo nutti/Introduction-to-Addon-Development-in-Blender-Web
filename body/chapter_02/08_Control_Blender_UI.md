@@ -599,6 +599,77 @@ column.operator(NullOperation.bl_idname, text="行 2")
 従って、ツールシェルフに対する横幅はそれぞれ、領域1で 30% 、領域2で 70% × 0.7 = 49% 、領域3で 70% × 0.3 = 21% となります。
 
 
+##### ボタンの横幅を自動的に拡大する
+
+```layout.operator()``` ボタンを配置すると、自動的にボタンの横幅が領域全体に拡大されます。
+ボタンの横幅を、明示的に領域全体に拡大する方法もあります。
+
+本節のサンプルでは、以下のように ```row.alignment``` へ ```EXPAND``` を設定してボタンの横幅を自動的に拡大しています。
+
+```python
+# 横幅を自動的に拡大する
+layout.label(text="横幅を自動的に拡大する:")
+row = layout.row()
+row.alignment = 'EXPAND'
+row.operator(NullOperation.bl_idname, text="列 1")
+row.operator(NullOperation.bl_idname, text="列 2")
+```
+
+
+##### ボタンを右寄せ・左寄せ配置にする
+
+ボタンの横幅を自動的に拡大せず、右や左に寄せて配置することもできます。
+
+本節のサンプルでは、以下のように ```row.alignment``` へ ```LEFT``` を設定してボタンを左寄せ配置しています。
+
+```python
+# 左寄せする
+layout.label(text="左寄せする:")
+row = layout.row()
+row.alignment = 'LEFT'
+row.operator(NullOperation.bl_idname, text="列 1")
+row.operator(NullOperation.bl_idname, text="列 2")
+```
+
+また、 ```row.alignment``` へ ```RIGHT``` を設定することで右寄せ配置も可能です。
+
+```python
+# 右寄せする
+layout.label(text="右寄せする:")
+row = layout.row()
+row.alignment = 'RIGHT'
+row.operator(NullOperation.bl_idname, text="列 1")
+row.operator(NullOperation.bl_idname, text="列 2")
+```
+
+
+##### グループ化する
+
+複数の UI パーツをグループ化することもできます。
+```layout.box()``` 関数の戻り値に対して ```operator()``` や ```menu()``` などを実行して作成した UI がグループ化されます。
+
+本節のサンプルでは、以下のように4つのボタンをグループ化しています。
+
+```python
+# グループ化する
+layout.label(text="グループ化する:")
+row = layout.row()
+box = row.box()
+box_row = box.row()
+box_column = box_row.column()
+box_column.operator(NullOperation.bl_idname, text="行 1, 列 1")
+box_column.separator()
+box_column.operator(NullOperation.bl_idname, text="行 2, 列 1")
+box_row.separator()
+box_column = box_row.column()
+box_column.operator(NullOperation.bl_idname, text="行 1, 列 2")
+box_column.separator()
+box_column.operator(NullOperation.bl_idname, text="行 2, 列 2")
+```
+
+上記の例から、グループ化した内部の UI は通常の UI と同じような処理で構築することができます。
+
+
 
 ## まとめ
 
