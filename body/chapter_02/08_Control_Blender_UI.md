@@ -670,6 +670,135 @@ box_column.operator(NullOperation.bl_idname, text="行 2, 列 2")
 上記の例から、グループ化した内部の UI は通常の UI と同じような処理で構築することができます。
 
 
+##### ポップアップメッセージを表示する
+
+アドオンからBlender内で、ポップアップメッセージを表示することもできます。
+
+以下は、ポップアップメッセージを表示するオペレータクラスです。
+
+```python
+class ShowPopupMessage(bpy.types.Operator):
+    bl_idname = "object.show_popup_message"
+    bl_label = "ポップアップメッセージ"
+    bl_description = "ポップアップメッセージ"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    # execute() メソッドがないと、やり直し未対応の文字が出力される
+    def execute(self, context):
+        return {'FINISHED'}
+
+    def invoke(self, context, event):
+        wm = context.window_manager
+        # ポップアップメッセージ表示
+        return wm.invoke_popup(self, width=200, height=100)
+
+    # ポップアップメッセージに表示する内容
+    def draw(self, context):
+        layout = self.layout
+        layout.label("メッセージ")
+```
+
+ポップアップメッセージの表示はボタンを押したときに呼ばれる ```invoke()``` メソッドの ```wm.invoke_popup()``` 関数で行っています。
+
+```invoke()``` メソッドは、処理が実行された時に呼ばれるメソッドです。これまで使ってきた ```execute()``` メソッドも処理が実行された時に呼ばれますが、 ```execute()``` メソッドの前に ```invoke()``` メソッドが呼ばれる点が異なります。このため、 ```execute()``` メソッドの実行前に行いたい処理がある場合は、 ```invoke()``` メソッドを使用します。
+
+```wm.invoke_popup()``` 関数の引数を以下に示します。
+
+|引数|型|意味|
+|---|---|
+|第1引数|オペレータクラスのインスタンス||
+|```width```|整数|ポップアップメッセージの横幅|
+|```height```|整数|ポップアップメッセージの縦幅(UI に応じて自動的に調整されるため効果なし)|
+
+```wm.invoke_popup()``` 関数により表示されるポップアップの UI は、 ```draw()``` メソッドで定義します。
+本節のサンプルでは、 ```メッセージ``` と書かれたラベルを表示しています。
+
+```wm.invoke_popup()``` 関数の戻り値は ```{'RUNNING_MODAL'}``` ですが、ここでは説明を省略します。
+ポップアップメッセージを表示する時には ```wm.invoke_popup()``` 関数を ```invoke()``` メソッドの戻り値に指定すればよいということだけを覚えておきましょう。
+
+ポップアップメッセージを表示するためのボタンの配置は、以下の処理で行います。
+
+```python
+# ポップアップメッセージを表示する
+layout.label(text="ポップアップメッセージを表示する:")
+layout.operator(ShowPopupMessage.bl_idname)
+```
+
+
+##### ダイアログメニューを表示する
+
+ポップアップメッセージの応用として、プロパティをポップアップから入力することのできるダイアログメニューを表示することもできます。
+
+以下は、ダイアログメニューを表示するオペレータクラスです。
+
+```python
+class ShowDialogMenu(bpy.types.Operator):
+    bl_idname = "object.show_dialog_menu"
+    bl_label = "ダイアログメニュー"
+    bl_description = "ダイアログメニュー"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    prop_int = IntProperty(
+        name="ダイアログプロパティ 1",
+        description="ダイアログプロパティ 1",
+        default=100,
+        min=0,
+        max=255)
+    prop_float = FloatProperty(
+        name="ダイアログプロパティ 2",
+        description="ダイアログプロパティ 2",
+        default=0.75,
+        min=0.0,
+        max=1.0)
+    prop_enum = EnumProperty(
+        name="ダイアログプロパティ 3",
+        description="ダイアログプロパティ 3",
+        items=[
+            ('ITEM_1', "項目 1", "項目 1"),
+            ('ITEM_2', "項目 2", "項目 2"),
+            ('ITEM_3', "項目 3", "項目 3")],
+        default='ITEM_1')
+    prop_floatv = FloatVectorProperty(
+        name="ダイアログプロパティ 4",
+        description="ダイアログプロパティ 4",
+        subtype='COLOR_GAMMA',
+        default=(1.0, 1.0, 1.0),
+        min=0.0,
+        max=1.0)
+
+    def execute(self, context):
+        self.report({'INFO'}, "1: %d, 2: %f, 3: %s, 4: (%f, %f, %f)"
+            % (self.prop_int, self.prop_float, self.prop_enum, self.prop_floatv[0], self.prop_floatv[1], self.prop_floatv[2]))
+
+        return {'FINISHED'}
+
+    def invoke(self, context, event):
+        scene = context.scene
+
+        self.prop_int = scene.cm_prop_int
+        self.prop_float = scene.cm_prop_float
+        self.prop_enum = scene.cm_prop_enum
+        self.prop_floatv = scene.cm_prop_floatv
+
+        # ダイアログメニュー呼び出し
+        return context.window_manager.invoke_props_dialog(self)
+```
+
+```ShowDialogMenu``` クラスには4つのプロパティクラスの変数が宣言されていて、ダイアログメニューではこれらのプロパティを表示します。
+ダイアログメニューの表示は ```context.window_manager.invoke_props_dialog()``` 関数で行います。
+引数には、ダイアログメニューに表示するプロパティクラスの変数を持つオペレータクラスのインスタンスを渡します。
+
+```context.window_manager.invoke_props_dialog()``` 関数の引数を以下に示します。
+
+|引数|型|意味|
+|---|---|
+|第1引数|オペレータクラスのインスタンス|OK ボタンを押したときに、引数に指定したインスタンスの ```execute()``` メソッドが実行される。<br>また、ダイアログメニューのプロパティは本引数に指定したインスタンスに定義したプロパティクラスの変数が表示される|
+|```width```|整数|ポップアップメッセージの横幅|
+|```height```|整数|ポップアップメッセージの縦幅(UI に応じて自動的に調整されるため効果なし)|
+
+```context.window_manager.invoke_props_dialog()``` 関数の戻り値は、
+
+
 
 ## まとめ
 
@@ -682,4 +811,4 @@ box_column.operator(NullOperation.bl_idname, text="行 2, 列 2")
 
 <div id="point_item"></div>
 
-*
+* オペレータクラスに定義する ```invoke()``` メソッドは、オペレータクラスが実行された時に呼ばれるメソッドで、 ```execute()``` メソッドより前に呼ばれる
