@@ -117,7 +117,6 @@ class ShowAllIcons(bpy.types.Operator):
     bl_description = "利用可能なアイコンをすべて表示"
     bl_options = {'REGISTER', 'UNDO'}
 
-
     num_column = IntProperty(
         name="一行に表示するアイコン数",
         description="一行に表示するアイコン数",
@@ -125,7 +124,7 @@ class ShowAllIcons(bpy.types.Operator):
         min=1,
         max=5)
 
-    # プロパティのUI
+    # オプションのUI
     def draw(self, context):
         layout = self.layout
 

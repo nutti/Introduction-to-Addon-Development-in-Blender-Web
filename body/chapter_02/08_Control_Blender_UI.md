@@ -190,7 +190,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*ツールシェルフ* のプロパティに、アドオンから利用することのできるアイコン一覧と、それぞれのアイコンを表示するためのアイコンのキーコードが表示されます。|![3Dビューエリアのメニューを修正する2]( "3Dビューエリアのメニューを修正する2")|
+|<div id="box">2</div>|*ツールシェルフ* のオプションに、アドオンから利用することのできるアイコン一覧と、それぞれのアイコンを表示するためのアイコンのキーコードが表示されます。|![3Dビューエリアのメニューを修正する2]( "3Dビューエリアのメニューを修正する2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -796,7 +796,63 @@ class ShowDialogMenu(bpy.types.Operator):
 |```width```|整数|ポップアップメッセージの横幅|
 |```height```|整数|ポップアップメッセージの縦幅(UI に応じて自動的に調整されるため効果なし)|
 
-```context.window_manager.invoke_props_dialog()``` 関数の戻り値は、
+```context.window_manager.invoke_props_dialog()``` 関数の戻り値はポップアップメッセージと同様、```{'RUNNING_MODAL'}``` ですが、ここでは説明を省略します。
+ダイアログメニューを表示する時には ```wm.invoke_popup()``` 関数を ```invoke()``` メソッドの戻り値に指定すればよいということだけを覚えておきましょう。
+
+ダイアログメニューに表示された OK ボタンを押すと、 ```execute()``` メソッドが実行されます。
+```execute()``` メソッドでは、ダイアログメニューのプロパティに指定した値をコンソール・ウィンドウに出力します。
+ダイアログメニューで指定したプロパティの値でアドオンの処理を実行したいときに活用しましょう。
+
+ダイアログメニューを表示するためのボタンの配置は、以下の処理で行います。
+
+```python
+# ダイアログメニューを呼び出す
+layout.label(text="ダイアログメニューを呼び出す:")
+layout.operator(ShowDialogMenu.bl_idname)
+```
+
+##### オプションの UI をカスタマイズする
+
+[2-3節](../chapter_02/03_Use_Property_on_Tool_Shelf_1.md) で説明した、ツールシェルフのオプションの UI もカスタマイズできます。
+
+オプションの UI をカスタマイズするために、本節のサンプルでは ```ShowAllIcons``` というオペレータクラスを作成しています。
+このクラスは、 Python から利用できるすべてのアイコンをツールシェルフのオプションに表示する処理を定義しています。
+
+オプションの UI をカスタマイズする処理を以下に示します。
+
+
+```python
+# オプションのUI
+def draw(self, context):
+    layout = self.layout
+
+    layout.prop(self, "num_column")
+
+    layout.separator()
+
+    # 利用可能なアイコンをすべて表示
+    layout.label(text="利用可能なアイコン一覧:")
+    for i, key in enumerate(bpy.types.UILayout.bl_rna.functions['prop'].parameters['icon'].enum_items.keys()):
+        if i %self.num_column == 0:
+            row = layout.row()
+        row.label(text=key, icon=key)
+```
+
+オプションの UI は、オペレータクラスの ```draw()``` メソッドで行います。
+メソッドで定義している処理は、メニュークラスやパネルクラスで定義する ```draw()``` メソッドと同じように、 ```self.layout``` を通して行います。
+
+利用可能なアイコンの識別子一覧は、 ```bpy.types.UILayout.bl_rna.functions['prop'].parameters['icon'].enum_items.keys()``` により取得することが可能です。
+取得したアイコンの識別子を、 ```row.label()``` 関数の引数 ```icon``` に指定することで、アイコンを表示することができます。
+また本節のサンプルは今後アドオンを作る人のために、アイコンと識別子がどのように対応しているかわかるように、引数 ```text``` に識別子を代入してアイコンと一緒に表示しています。
+見やすさを考慮して、一行に表示可能なアイコンの数をオプションから指定することができるようにしています。ぜひ活用してください。
+
+最後に、 ```ShowAllIcons``` のボタンを配置する処理は、以下のようになります。
+
+```python
+# プロパティのUIをカスタマイズする＋アイコン一覧を表示する
+layout.label(text="プロパティのUIをカスタマイズする")
+layout.operator(ShowAllIcons.bl_idname)
+```
 
 
 
