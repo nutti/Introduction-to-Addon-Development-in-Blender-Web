@@ -1,5 +1,5 @@
 import bpy
-from bpy.props import IntProperty, FloatProperty, EnumProperty, FloatVectorProperty
+from bpy.props import IntProperty, FloatProperty, EnumProperty, FloatVectorProperty, StringProperty
 
 bl_info = {
     "name": "サンプル2-8: BlenderのUIを制御するアドオン",
@@ -109,6 +109,120 @@ class ShowDialogMenu(bpy.types.Operator):
 
         # ダイアログメニュー呼び出し
         return context.window_manager.invoke_props_dialog(self)
+
+
+class ShowFileBrowser(bpy.types.Operator):
+    bl_idname = "object.show_file_browser"
+    bl_label = "ファイルブラウザ"
+    bl_description = "ファイルブラウザ"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    filepath = StringProperty(subtype="FILE_PATH")
+    filename = StringProperty()
+    directory = StringProperty(subtype="FILE_PATH")
+
+    def execute(self, context):
+        self.report({'INFO'}, "FilePath: %s, FileName: %s, Directory: %s" % (self.filepath, self.filename, self.directory))
+        return {'FINISHED'}
+
+    def invoke(self, context, event):
+        wm = context.window_manager
+        # ファイルブラウザ表示
+        wm.fileselect_add(self)
+
+        return {'RUNNING_MODAL'}
+
+
+class ShowConfirmPopup(bpy.types.Operator):
+    bl_idname = "object.show_confirm_popup"
+    bl_label = "確認ポップアップ"
+    bl_description = "確認ポップアップ"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    def execute(self, context):
+        self.report({'INFO'}, "確認ポップアップボタンをクリックしました")
+        return {'FINISHED'}
+
+    def invoke(self, context, event):
+        wm = context.window_manager
+        # 確認メッセージ表示
+        return wm.invoke_confirm(self, event)
+
+
+class ShowPropertyPopup(bpy.types.Operator):
+    bl_idname = "object.show_property_popup"
+    bl_label = "プロパティポップアップ"
+    bl_description = "プロパティポップアップ"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    prop_int = IntProperty(
+        name="プロパティ 1",
+        description="プロパティ 1",
+        default=100,
+        min=0,
+        max=255)
+    prop_float = FloatProperty(
+        name="プロパティ 2",
+        description="プロパティ 2",
+        default=0.75,
+        min=0.0,
+        max=1.0)
+    prop_enum = EnumProperty(
+        name="プロパティ 3",
+        description="プロパティ 3",
+        items=[
+            ('ITEM_1', "項目 1", "項目 1"),
+            ('ITEM_2', "項目 2", "項目 2"),
+            ('ITEM_3', "項目 3", "項目 3")],
+        default='ITEM_1')
+    prop_floatv = FloatVectorProperty(
+        name="プロパティ 4",
+        description="プロパティ 4",
+        subtype='COLOR_GAMMA',
+        default=(1.0, 1.0, 1.0),
+        min=0.0,
+        max=1.0)
+
+    def execute(self, context):
+        self.report({'INFO'}, "1: %d, 2: %f, 3: %s, 4: (%f, %f, %f)"
+            % (self.prop_int, self.prop_float, self.prop_enum, self.prop_floatv[0], self.prop_floatv[1], self.prop_floatv[2]))
+        return {'FINISHED'}
+
+    def invoke(self, context, event):
+        wm = context.window_manager
+        # 確認メッセージ表示
+        return wm.invoke_props_popup(self, event)
+
+
+class ShowSearchPopup(bpy.types.Operator):
+    bl_idname = "object.show_search_popup"
+    bl_label = "検索ポップアップ"
+    bl_description = "検索ポップアップ"
+    bl_options = {'REGISTER', 'UNDO'}
+    bl_property = "item"
+
+    item = EnumProperty(
+        name="配置位置",
+        description="複製したオブジェクトの配置位置",
+        items=[
+            ('ITEM_1', '項目1', '項目1'),
+            ('ITEM_2', '項目2', '項目2'),
+            ('ITEM_3', '項目3', '項目3')
+        ],
+        default='ITEM_1'
+    )
+
+    def execute(self, context):
+        self.report({'INFO'}, "%s を選択しました" % self.item)
+        return {'FINISHED'}
+
+    def invoke(self, context, event):
+        wm = context.window_manager
+        # 確認メッセージ表示
+        wm.invoke_search_popup(self)
+
+        # {'FINISHED'} を返す必要がある
+        return {'FINISHED'}
 
 
 class ShowAllIcons(bpy.types.Operator):
@@ -307,6 +421,30 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
         # ダイアログメニューを呼び出す
         layout.label(text="ダイアログメニューを呼び出す:")
         layout.operator(ShowDialogMenu.bl_idname)
+
+        layout.separator()
+
+        # ファイルブラウザを呼び出す
+        layout.label(text="ファイルブラウザを呼び出す:")
+        layout.operator(ShowFileBrowser.bl_idname)
+
+        layout.separator()
+
+        # 確認ポップアップを呼び出す
+        layout.label(text="確認ポップアップを呼び出す:")
+        layout.operator(ShowConfirmPopup.bl_idname)
+
+        layout.separator()
+
+        # プロパティポップアップを呼び出す
+        layout.label(text="プロパティポップアップを呼び出す:")
+        layout.operator(ShowPropertyPopup.bl_idname)
+
+        layout.separator()
+
+        # 検索ポップアップを呼び出す
+        layout.label(text="検索ポップアップを呼び出す:")
+        layout.operator(ShowSearchPopup.bl_idname)
 
         layout.separator()
 

@@ -811,6 +811,112 @@ layout.label(text="ダイアログメニューを呼び出す:")
 layout.operator(ShowDialogMenu.bl_idname)
 ```
 
+
+#### ファイルブラウザを表示する
+
+ファイルを開いたり保存したりする時などの Blender 標準の機能を使用した場合でも、ファイルを選択するためのファイルブラウザを表示する処理が存在します。
+```context.window_manager.fileselect_add()``` を用いることで、アドオンからファイルブラウザを表示することができます。
+
+本節のサンプルでは、以下のようにしてファイルブラウザを表示しています。
+
+```python
+class ShowFileBrowser(bpy.types.Operator):
+    bl_idname = "object.show_file_browser"
+    bl_label = "ファイルブラウザ"
+    bl_description = "ファイルブラウザ"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    filepath = StringProperty(subtype="FILE_PATH")
+    filename = StringProperty()
+    directory = StringProperty(subtype="FILE_PATH")
+
+    def execute(self, context):
+        self.report({'INFO'}, "FilePath: %s, FileName: %s, Directory: %s" % (self.filepath, self.filename, self.directory))
+        return {'FINISHED'}
+
+    def invoke(self, context, event):
+        wm = context.window_manager
+        # ファイルブラウザ表示
+        wm.fileselect_add(self)
+
+        return {'RUNNING_MODAL'}
+```
+
+ファイルブラウザを表示させるためには、 ```invoke()``` メソッド内で ```wm.fileselect_add()``` 関数を呼ぶ必要があります。
+引数には、ファイルブラウザ内でファイルを確定した時に実行される、 ```execute()``` メソッドが定義されたオペレータクラスのインスタンスを指定します。
+```invoke()``` メソッドの戻り値は、 ```{'RUNNING_MODAL'}``` にする必要があります。
+
+またファイルブラウザで確定したファイルの情報を保存するために、メンバ変数 ```filepath``` ・ ```filename``` ・ ```directory``` を宣言しています。
+ファイルブラウザからファイルの情報を受け取るためには、これらの変数名でなくてはならないことに注意が必要です。
+なお、 ```filepath``` や ```directory``` は、 プロパティクラス ```StringProperty``` の引数 ```subtype``` にファイルパスを格納するプロパティであることを示す ```FILE_PATH``` を指定する必要があります。
+
+ファイルブラウザでファイルを確定すると ```execute()``` メソッドが呼ばれ、確定したファイルパス・ファイル名・ファイルが置かれたディレクトリをコンソール・ウィンドウに表示します。
+
+ファイルブラウザを呼び出すボタンを表示する処理は、以下の通りです。
+
+```python
+# ファイルブラウザを呼び出す
+layout.label(text="ファイルブラウザを呼び出す:")
+layout.operator(ShowFileBrowser.bl_idname)
+
+layout.separator()
+```
+
+
+#### 実行確認のポップアップを表示する
+
+Blender の機能の中には、実行する前に本当にその処理を実行するか確認するためのポップアップを表示するものがあります。
+例えば、 *情報* エリアのメニュー *ファイル* > *スタートアップファイルを保存* が実行確認のポップアップを表示する例です。
+
+実行確認のポップアップは、 ```context.window_manager.invoke_confirm()``` 関数により表示することができます。
+
+本節のサンプルでは、以下のようにして実行確認のポップアップを表示しています。
+
+```python
+class ShowConfirmPopup(bpy.types.Operator):
+    bl_idname = "object.show_confirm_popup"
+    bl_label = "確認ポップアップ"
+    bl_description = "確認ポップアップ"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    def execute(self, context):
+        self.report({'INFO'}, "確認ポップアップボタンをクリックしました")
+        return {'FINISHED'}
+
+    def invoke(self, context, event):
+        wm = context.window_manager
+        # 確認メッセージ表示
+        return wm.invoke_confirm(self, event)
+```
+
+実行確認のポップアップは、 ```invoke()``` メソッド内から ```wm.invoke_confirm()``` 関数を呼び出して表示しています。
+
+```vm.invoke_confirm()``` 関数の引数を以下に示します。
+
+|引数|意味|
+|---|---|
+|第1引数|実行確認ポップアップで実行を決定したときに呼び出される ```execute()``` メソッドが定義されたオペレータクラスのインスタンス|
+|第2引数|```invoke()``` メソッドの引数 ```event``` を指定|
+
+クリック時に実行確認のポップアップを表示するボタンを表示する処理は、以下の通りです。
+
+```python
+# 確認ポップアップを呼び出す
+layout.label(text="確認ポップアップを呼び出す:")
+layout.operator(ShowConfirmPopup.bl_idname)
+
+layout.separator()
+```
+
+
+#### プロパティ付きポップアップを表示する
+
+
+#### 検索ウィンドウ付きポップアップを表示する
+
+
+
+
 #### オプションの UI をカスタマイズする
 
 [2-3節](../chapter_02/03_Use_Property_on_Tool_Shelf_1.md) で説明した、ツールシェルフのオプションの UI もカスタマイズできます。
