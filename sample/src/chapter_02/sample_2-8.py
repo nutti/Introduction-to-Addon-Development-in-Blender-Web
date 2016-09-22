@@ -151,8 +151,8 @@ class ShowConfirmPopup(bpy.types.Operator):
 
 class ShowPropertyPopup(bpy.types.Operator):
     bl_idname = "object.show_property_popup"
-    bl_label = "プロパティポップアップ"
-    bl_description = "プロパティポップアップ"
+    bl_label = "プロパティ付きポップアップ"
+    bl_description = "プロパティ付きポップアップ"
     bl_options = {'REGISTER', 'UNDO'}
 
     prop_int = IntProperty(
@@ -190,14 +190,14 @@ class ShowPropertyPopup(bpy.types.Operator):
 
     def invoke(self, context, event):
         wm = context.window_manager
-        # 確認メッセージ表示
+        # プロパティ付きポップアップ表示
         return wm.invoke_props_popup(self, event)
 
 
 class ShowSearchPopup(bpy.types.Operator):
     bl_idname = "object.show_search_popup"
-    bl_label = "検索ポップアップ"
-    bl_description = "検索ポップアップ"
+    bl_label = "検索ウィンドウ付きポップアップ"
+    bl_description = "検索ウィンドウ付きポップアップ"
     bl_options = {'REGISTER', 'UNDO'}
     bl_property = "item"
 
@@ -218,7 +218,7 @@ class ShowSearchPopup(bpy.types.Operator):
 
     def invoke(self, context, event):
         wm = context.window_manager
-        # 確認メッセージ表示
+        # 検索ウィンドウ付きポップアップ表示
         wm.invoke_search_popup(self)
 
         # {'FINISHED'} を返す必要がある
@@ -436,8 +436,8 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
 
         layout.separator()
 
-        # プロパティポップアップを呼び出す
-        layout.label(text="プロパティポップアップを呼び出す:")
+        # プロパティ付きポップアップを呼び出す
+        layout.label(text="プロパティ付きポップアップを呼び出す:")
         layout.operator(ShowPropertyPopup.bl_idname)
 
         layout.separator()
