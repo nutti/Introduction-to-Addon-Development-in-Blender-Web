@@ -422,32 +422,32 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
 
         layout.separator()
 
-        # ダイアログメニューを呼び出す
-        layout.label(text="ダイアログメニューを呼び出す:")
+        # ダイアログメニューを表示する
+        layout.label(text="ダイアログメニューを表示する:")
         layout.operator(ShowDialogMenu.bl_idname)
 
         layout.separator()
 
-        # ファイルブラウザを呼び出す
-        layout.label(text="ファイルブラウザを呼び出す:")
+        # ファイルブラウザを表示する
+        layout.label(text="ファイルブラウザを表示する:")
         layout.operator(ShowFileBrowser.bl_idname)
 
         layout.separator()
 
-        # 確認ポップアップを呼び出す
-        layout.label(text="確認ポップアップを呼び出す:")
+        # 確認ポップアップを表示する
+        layout.label(text="確認ポップアップを表示する:")
         layout.operator(ShowConfirmPopup.bl_idname)
 
         layout.separator()
 
-        # プロパティ付きポップアップを呼び出す
-        layout.label(text="プロパティ付きポップアップを呼び出す:")
+        # プロパティ付きポップアップを表示する
+        layout.label(text="プロパティ付きポップアップを表示する:")
         layout.operator(ShowPropertyPopup.bl_idname)
 
         layout.separator()
 
-        # 検索ポップアップを呼び出す
-        layout.label(text="検索ポップアップを呼び出す:")
+        # 検索ポップアップを表示する
+        layout.label(text="検索ポップアップを表示する:")
         layout.operator(ShowSearchPopup.bl_idname)
 
         layout.separator()
