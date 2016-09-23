@@ -21,6 +21,9 @@
   6. [ショートカットキーを割り当てる](body/chapter_02/06_Allocate_Shortcut_Keys.md)
   7. [アドオンのソースコードを複数ファイルへ分割する](body/chapter_02/07_Divide_Add-on_Source_into_Multiple_Files.md)
   8. [BlenderのUIを制御する](body/chapter_02/08_Control_Blender_UI.md)
+
+<!--
+
 3. [より高度なアドオンを作るために](body/chapter_03/SUMMARY.md)
   1. [マウスクリックのイベントを扱う](body/chapter_03/01_Handle_Mouse_Click_Event.md)
   2. [キーボードのキーイベントを扱う](body/chapter_03/02_Handle_Keyboard_Key_Event.md)
@@ -37,5 +40,8 @@
   5. [アドオンを自動テストする](body/chapter_04/05_Test_Add-on_Automatically.md)
   6. [アドオンをBlender本体に取り込んでもらう](body/chapter_04/04_Commit_your_Add-on_to_Blender.md)
 
+
 * [用語集](body/Glossary.md)
 * [おわりに](body/Conclusion.md)
+
+-->
