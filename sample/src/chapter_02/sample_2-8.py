@@ -263,13 +263,17 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
     bl_space_type = 'VIEW_3D'           # メニューを表示するエリア
     bl_region_type = 'TOOLS'            # メニューを表示するリージョン
     bl_category = "カスタムメニュー"    # タブを開いたメニューのヘッダーに表示される文字列
+    bl_context = "objectmode"           # パネルを表示するコンテキスト
 
 
     # 本クラスの処理が実行可能かを判定する
     @classmethod
     def poll(cls, context):
-        # オブジェクトモードの時のみメニューを表示させる
-        return (context.mode == 'OBJECT')
+        # オブジェクトが選択されている時のみメニューを表示させる
+        for o in bpy.data.objects:
+            if o.select:
+                return True
+        return False
 
     # ヘッダーのカスタマイズ
     def draw_header(self, context):
