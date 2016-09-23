@@ -57,7 +57,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">5</div>|[1-4節](04_Understand_Install_Uninstall_Update_Add-on.md) で紹介した *Reload Scripts* 機能を用いてアップデートすると、 *3Dビュー* エリアのメニューから *現在の視点を OpenGL レンダリング* ボタンが消えます。]|![3Dビューエリアのメニューを修正する5]( "3Dビューエリアのメニューを修正する5")|
+|<div id="box">5</div>|[1-4節](04_Understand_Install_Uninstall_Update_Add-on.md) で紹介した *Reload Scripts* 機能を用いてアップデートすると、 *3Dビュー* エリアのメニューから *現在の視点を OpenGL レンダリング* ボタンが消えます。|![3Dビューエリアのメニューを修正する5]( "3Dビューエリアのメニューを修正する5")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -207,17 +207,9 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">3</div>|適当なファイルを開きます。|![3Dビューエリアのメニューを修正する2]( "3Dビューエリアのメニューを修正する2")|
+|<div id="box">3</div>|適当にファイルを開くと、*情報* エリアに開いたファイルのファイルパス・ファイル名・ファイルが置かれたディレクトリが表示されます。|![3Dビューエリアのメニューを修正する2]( "3Dビューエリアのメニューを修正する2")|
 |---|---|---|
 
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">4</div>|*情報* エリアに開いたファイルのファイルパス・ファイル名・ファイルが置かれたディレクトリが表示されます。|![3Dビューエリアのメニューを修正する2]( "3Dビューエリアのメニューを修正する2")|
-|---|---|---|
 
 <div id="process_start_end"></div>
 
@@ -253,7 +245,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">4</div>|*情報* エリアに以下のメッセージが表示されます。|![3Dビューエリアのメニューを修正する2]( "3Dビューエリアのメニューを修正する2")|
+|<div id="box">3</div>|*情報* エリアに以下のメッセージが表示されます。|![3Dビューエリアのメニューを修正する2]( "3Dビューエリアのメニューを修正する2")|
 |---|---|---|
 
 ```
@@ -351,14 +343,6 @@ Blender の UI の大半は Python のソースコードで記載されていま
 |<div id="box">3</div>|*一行に表示するアイコン数* から一行に表示するアイコンの数を変更することができます。|![3Dビューエリアのメニューを修正する2]( "3Dビューエリアのメニューを修正する2")|
 |---|---|---|
 
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">4</div>|*OK* ボタンを押すと *情報* エリアにプロパティで指定した値が表示されます。|![3Dビューエリアのメニューを修正する2]( "3Dビューエリアのメニューを修正する2")|
-|---|---|---|
 
 <div id="process_start_end"></div>
 
@@ -970,8 +954,8 @@ class ShowDialogMenu(bpy.types.Operator):
 ダイアログメニューを表示するためのボタンの配置は、以下の処理で行います。
 
 ```python
-# ダイアログメニューを呼び出す
-layout.label(text="ダイアログメニューを呼び出す:")
+# ダイアログメニューを表示する
+layout.label(text="ダイアログメニューを表示する:")
 layout.operator(ShowDialogMenu.bl_idname)
 ```
 
@@ -1016,14 +1000,12 @@ class ShowFileBrowser(bpy.types.Operator):
 
 ファイルブラウザでファイルを確定すると ```execute()``` メソッドが呼ばれ、確定したファイルパス・ファイル名・ファイルが置かれたディレクトリをコンソール・ウィンドウに表示します。
 
-ファイルブラウザを呼び出すボタンを表示する処理は、以下の通りです。
+ファイルブラウザを表示するボタンを表示する処理は、以下の通りです。
 
 ```python
-# ファイルブラウザを呼び出す
-layout.label(text="ファイルブラウザを呼び出す:")
+# ファイルブラウザを表示する
+layout.label(text="ファイルブラウザを表示する:")
 layout.operator(ShowFileBrowser.bl_idname)
-
-layout.separator()
 ```
 
 
@@ -1065,11 +1047,9 @@ class ShowConfirmPopup(bpy.types.Operator):
 クリック時に実行確認のポップアップを表示するボタンを表示する処理は、以下の通りです。
 
 ```python
-# 確認ポップアップを呼び出す
-layout.label(text="確認ポップアップを呼び出す:")
+# 確認ポップアップを表示する
+layout.label(text="確認ポップアップを表示する:")
 layout.operator(ShowConfirmPopup.bl_idname)
-
-layout.separator()
 ```
 
 
@@ -1141,8 +1121,8 @@ class ShowPropertyPopup(bpy.types.Operator):
 クリック時にプロパティ付きポップアップを表示するボタンを表示する処理は、以下に示します。
 
 ```python
-# プロパティ付きポップアップを呼び出す
-layout.label(text="プロパティ付きポップアップを呼び出す:")
+# プロパティ付きポップアップを表示する
+layout.label(text="プロパティ付きポップアップを表示する:")
 layout.operator(ShowPropertyPopup.bl_idname)
 ```
 
@@ -1199,8 +1179,8 @@ class ShowSearchPopup(bpy.types.Operator):
 クリック時に検索ウィンドウ付きポップアップを表示するボタンを表示する処理は、以下に示します。
 
 ```python
-# 検索ポップアップを呼び出す
-layout.label(text="検索ポップアップを呼び出す:")
+# 検索ポップアップを表示する
+layout.label(text="検索ポップアップを表示する:")
 layout.operator(ShowSearchPopup.bl_idname)
 ```
 
