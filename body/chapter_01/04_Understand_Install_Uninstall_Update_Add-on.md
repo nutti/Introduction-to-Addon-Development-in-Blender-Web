@@ -51,7 +51,7 @@ Blender のアドオンインストール機能を用いた場合について、
 
 <div id="process"></div>
 
-|<div id="box">1</div>|*情報* エリアの *ファイル* > *ユーザ設定* を実行します。|![アドオンのインストール方法1 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオンのインストール方法1 手順1")|
+|<div id="box">1</div>|*情報* エリアの *ファイル* > *ユーザ設定* を実行します。|![アドオンのインストール方法1 手順1](https://dl.dropboxusercontent.com/s/oqbezirt4qwlm87/install_1_use_default_add-on_installation_feature_1.png "アドオンのインストール方法1 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -60,7 +60,7 @@ Blender のアドオンインストール機能を用いた場合について、
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*アドオン* タブを選択します。||
+|<div id="box">2</div>|*アドオン* タブを選択します。|![アドオンのインストール方法1 手順2](https://dl.dropboxusercontent.com/s/x4r2551bsbtty06/install_1_use_default_add-on_installation_feature_2.png "アドオンのインストール方法1 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -69,7 +69,7 @@ Blender のアドオンインストール機能を用いた場合について、
 
 <div id="process"></div>
 
-|<div id="box">3</div>|*ファイルからインストール* ボタンをクリックします。||
+|<div id="box">3</div>|*ファイルからインストール* ボタンをクリックします。|![アドオンのインストール方法1 手順3](https://dl.dropboxusercontent.com/s/m3lvp21jn7z029r/install_1_use_default_add-on_installation_feature_3.png "アドオンのインストール方法1 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -78,7 +78,7 @@ Blender のアドオンインストール機能を用いた場合について、
 
 <div id="process"></div>
 
-|<div id="box">4</div>|ファイル選択画面でインストールするアドオンのソースコード（ ```.py``` か、```.zip``` ）を選択し、 **ファイルからインストール** ボタンをクリックします。||
+|<div id="box">4</div>|ファイル選択画面でインストールするアドオンのソースコード（ ```.py``` か、```.zip``` ）を選択し、 **ファイルからインストール** ボタンをクリックします。|![アドオンのインストール方法1 手順4](https://dl.dropboxusercontent.com/s/ptcm64jx4xzbfh9/install_1_use_default_add-on_installation_feature_4.png "アドオンのインストール方法1 手順4")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -87,7 +87,7 @@ Blender のアドオンインストール機能を用いた場合について、
 
 <div id="process"></div>
 
-|<div id="box">5</div>|インストールが完了します。||
+|<div id="box">5</div>|インストールが完了します。|![アドオンのインストール方法1 手順5](https://dl.dropboxusercontent.com/s/h9k2ru59j50rey6/install_1_use_default_add-on_installation_feature_5.png "アドオンのインストール方法1 手順5")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -106,7 +106,7 @@ Blender にインストール済のアドオンが配置されているアドオ
 
 <div id="process"></div>
 
-|<div id="box">1</div>|```.py``` または ```__init__.py``` を含めてソースコードが入ったディレクトリ一式を Blender アドオン用フォルダに配置します。|![アドオンのインストール方法1 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオンのインストール方法1 手順1")|
+|<div id="box">1</div>|```.py``` または ```__init__.py``` を含めてソースコードが入ったディレクトリ一式を Blender アドオン用フォルダに配置します。|![アドオンのインストール方法2 手順1](https://dl.dropboxusercontent.com/s/u9wc9fat2d8mcj9/install_2_deploy_to_blender_add-on_folder_1.png "アドオンのインストール方法2 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -115,7 +115,7 @@ Blender にインストール済のアドオンが配置されているアドオ
 
 <div id="process"></div>
 
-|<div id="box">2</div>|Blender を再起動するか、 *情報* エリアの *ファイル* > *ユーザ設定* 実行時に開くウィンドウから、 *アドオン* タブにある *更新* ボタンをクリックします。||
+|<div id="box">2</div>|Blender を再起動するか、 *情報* エリアの *ファイル* > *ユーザ設定* 実行時に開くウィンドウから、 *アドオン* タブにある *更新* ボタンをクリックします。|![アドオンのインストール方法2 手順2](https://dl.dropboxusercontent.com/s/xcfm8zpp1aq7f4v/install_2_deploy_to_blender_add-on_folder_2.png "アドオンのインストール方法2 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -124,7 +124,7 @@ Blender にインストール済のアドオンが配置されているアドオ
 
 <div id="process"></div>
 
-|<div id="box">3</div>|インストールが完了します。||
+|<div id="box">3</div>|インストールが完了します。|![アドオンのインストール方法2 手順3](https://dl.dropboxusercontent.com/s/majf5bb22cumsbq/install_2_deploy_to_blender_add-on_folder_3.png "アドオンのインストール方法2 手順3")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -179,7 +179,7 @@ Reload Scripts 機能を使った、アドオンのアップデート方法に�
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*スペース* キーを押して *検索ボックス* を表示します。||
+|<div id="box">2</div>|*スペース* キーを押して *検索ボックス* を表示します。|![アドオンのアップデート方法3 手順2](https://dl.dropboxusercontent.com/s/yqhtx4bm0cdih1q/update_3_use_reload_scripts_2.png "アドオンのアップデート方法3 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -188,7 +188,7 @@ Reload Scripts 機能を使った、アドオンのアップデート方法に�
 
 <div id="process"></div>
 
-|<div id="box">3</div>|*Reload Scripts* （日本語では *スクリプトを再読み込み* ）を検索して実行します。||
+|<div id="box">3</div>|*Reload Scripts* （日本語では *スクリプトを再読み込み* ）を検索して実行します。|![アドオンのアップデート方法3 手順3](https://dl.dropboxusercontent.com/s/1de4kze37ruoma5/update_3_use_reload_scripts_3.png "アドオンのアップデート方法3 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -231,7 +231,7 @@ Reload Scripts 機能を使った、アドオンのアップデート方法に�
 
 <div id="process"></div>
 
-|<div id="box">1</div>|*情報* エリアの *ファイル* > *ユーザ設定* を実行します。|![アドオンのインストール方法1 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオンのインストール方法1 手順1")|
+|<div id="box">1</div>|*情報* エリアの *ファイル* > *ユーザ設定* を実行します。|![アドオンのアンインストール方法1 手順1](https://dl.dropboxusercontent.com/s/25fooodw4luzou7/uninstall_1_use_default_add-on_uninstallation_feature_1.png "アドオンのアンインストール方法1 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -240,7 +240,7 @@ Reload Scripts 機能を使った、アドオンのアップデート方法に�
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*アドオン* タブを選択します。||
+|<div id="box">2</div>|*アドオン* タブを選択します。|![アドオンのアンインストール方法1 手順2](https://dl.dropboxusercontent.com/s/vrq1q44n4npw33h/uninstall_1_use_default_add-on_uninstallation_feature_2.png "アドオンのアンインストール方法1 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -249,7 +249,7 @@ Reload Scripts 機能を使った、アドオンのアップデート方法に�
 
 <div id="process"></div>
 
-|<div id="box">3</div>|アンインストールしたいアドオンの左側の矢印をクリックし、アドオンの詳細情報を表示します。||
+|<div id="box">3</div>|アンインストールしたいアドオンの左側の矢印をクリックし、アドオンの詳細情報を表示します。|![アドオンのアンインストール方法1 手順3](https://dl.dropboxusercontent.com/s/qanpsbi7c1brwvz/uninstall_1_use_default_add-on_uninstallation_feature_3.png "アドオンのアンインストール方法1 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -258,7 +258,7 @@ Reload Scripts 機能を使った、アドオンのアップデート方法に�
 
 <div id="process"></div>
 
-|<div id="box">4</div>|*削除* ボタンをクリックします。||
+|<div id="box">4</div>|*削除* ボタンをクリックします。|![アドオンのアンインストール方法1 手順4](https://dl.dropboxusercontent.com/s/eq0c7pfqbk861kd/uninstall_1_use_default_add-on_uninstallation_feature_4.png "アドオンのアンインストール方法1 手順4")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -267,7 +267,7 @@ Reload Scripts 機能を使った、アドオンのアップデート方法に�
 
 <div id="process"></div>
 
-|<div id="box">5</div>|アンインストールが完了します。||
+|<div id="box">5</div>|アンインストールが完了します。|![アドオンのアンインストール方法1 手順5](https://dl.dropboxusercontent.com/s/5xa6z515h6lufi2/uninstall_1_use_default_add-on_uninstallation_feature_5.png "アドオンのアンインストール方法1 手順5")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -289,19 +289,10 @@ Reload Scripts 機能を使った、アドオンのアップデート方法に�
 
 ##### Work
 
-<div id="process_noimg"></div>
+<div id="process"></div>
 
-|<div id="box">1</div>|アドオンのソースコードの場所が分からない場合は、 *Blenderユーザ設定* ウィンドウの *アドオン* タブから確認します。|
-|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process_noimg"></div>
-
-|<div id="box">2</div>|アンインストールしたいアドオンの左側の矢印をクリックし、アドオンの詳細情報を表示します。|
-|---|---|
+|<div id="box">1</div>|アドオンのソースコードの場所が分からない場合は、 *Blenderユーザ設定* ウィンドウの *アドオン* タブから確認します。|![アドオンのアンインストール方法2 手順1](https://dl.dropboxusercontent.com/s/4tonmdusbfvobqv/uninstall_2_delete_sources_on_blender_add-on_folder_1.png "アドオンのアンインストール方法2 手順1")|
+|---|---|---|
 
 <div id="process_sep"></div>
 
@@ -309,7 +300,16 @@ Reload Scripts 機能を使った、アドオンのアップデート方法に�
 
 <div id="process"></div>
 
-|<div id="box">3</div>|詳細情報の *ファイル* がアドオンのソースコードが置かれた場所を示しています。|![アドオンの詳細情報を表示](https://dl.dropboxusercontent.com/s/7onrbdzxctp4uqw/show_add-on_detail.png "アドオンの詳細情報を表示")|
+|<div id="box">2</div>|アンインストールしたいアドオンの左側の矢印をクリックし、アドオンの詳細情報を表示します。|![アドオンのアンインストール方法2 手順2](https://dl.dropboxusercontent.com/s/anpf60e5atb2njz/uninstall_2_delete_sources_on_blender_add-on_folder_2.png "アドオンのアンインストール方法2 手順2")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">3</div>|詳細情報の *ファイル* がアドオンのソースコードが置かれた場所を示しています。|![アドオンのアンインストール方法2 手順3](https://dl.dropboxusercontent.com/s/lhsn6qarkux4bok/uninstall_2_delete_sources_on_blender_add-on_folder_3.png "アドオンのアンインストール方法2 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
