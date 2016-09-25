@@ -11,7 +11,7 @@
   2. [Blenderアドオンを使う](body/chapter_01/02_Use_Blender_Add-on.md)
   3. [アドオン開発環境を整える](body/chapter_01/03_Prepare_Add-on_development_environment.md)
   4. [アドオンのインストール・アンインストール・アップデート方法を理解する](body/chapter_01/04_Understand_Install_Uninstall_Update_Add-on.md)
-  5. [自作のアドオンをインストールする](body/chapter_01/04_Install_own_Add-on.md)
+  5. [自作のアドオンをインストールする](body/chapter_01/05_Install_own_Add-on.md)
 2. [アドオンを作ってみよう](body/chapter_02/SUMMARY.md)
   1. [アドオン開発の基礎](body/chapter_02/01_Basic_of_Add-on_Development.md)
   2. [複数のオペレータクラスを登録する](body/chapter_02/02_Register_Multiple_Operation_Classes.md)
@@ -21,8 +21,6 @@
   6. [ショートカットキーを割り当てる](body/chapter_02/06_Allocate_Shortcut_Keys.md)
   7. [アドオンのソースコードを複数ファイルへ分割する](body/chapter_02/07_Divide_Add-on_Source_into_Multiple_Files.md)
   8. [BlenderのUIを制御する](body/chapter_02/08_Control_Blender_UI.md)
-
-<!--
 
 3. [より高度なアドオンを作るために](body/chapter_03/SUMMARY.md)
   1. [マウスクリックのイベントを扱う](body/chapter_03/01_Handle_Mouse_Click_Event.md)
@@ -43,5 +41,3 @@
 
 * [用語集](body/Glossary.md)
 * [おわりに](body/Conclusion.md)
-
--->
