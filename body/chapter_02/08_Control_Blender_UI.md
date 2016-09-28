@@ -82,6 +82,9 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 * 以下のようなタブを *3Dビュー* エリアの *ツール・シェルフ* に追加する
 
+![アドオンの仕様](https://dl.dropboxusercontent.com/s/ial27tu1ousllmx/specification.png "アドオンの仕様")
+
+
 * 追加したタブは、 *オブジェクトモード* 時かつオブジェクトが選択されている時のみ表示される
 
 ## アドオンを作成する
@@ -125,7 +128,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">1</div>|タブ *カスタムメニュー* の *ポップアップメッセージ* ボタンをクリックします。|![3Dビューエリアのメニューを修正する1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "3Dビューエリアのメニューを修正する1")|
+|<div id="box">1</div>|タブ *カスタムメニュー* の *ポップアップメッセージ* ボタンをクリックします。|![ポップアップメッセージボタン1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "ポップアップメッセージボタン1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -134,7 +137,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">2</div>|クリックした場所にポップメッセージが表示されます。|![3Dビューエリアのメニューを修正する2](https://dl.dropboxusercontent.com/s/uf3j7u0ezi92uqd/popup_message_2.png "3Dビューエリアのメニューを修正する2")|
+|<div id="box">2</div>|クリックした場所にポップメッセージが表示されます。|![ポップアップメッセージボタン2](https://dl.dropboxusercontent.com/s/uf3j7u0ezi92uqd/popup_message_2.png "ポップアップメッセージボタン2")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -152,7 +155,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">1</div>|タブ *カスタムメニュー* の *ダイアログメニュー* ボタンをクリックします。|![3Dビューエリアのメニューを修正する1](https://dl.dropboxusercontent.com/s/p63yfu6yh8ddnrt/dialog_menu_1.png "3Dビューエリアのメニューを修正する1")|
+|<div id="box">1</div>|タブ *カスタムメニュー* の *ダイアログメニュー* ボタンをクリックします。|![ダイアログメニューボタン1](https://dl.dropboxusercontent.com/s/p63yfu6yh8ddnrt/dialog_menu_1.png "ダイアログメニューボタン1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -161,7 +164,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">2</div>|クリックした場所にダイアログメニューが開きます。|![3Dビューエリアのメニューを修正する2](https://dl.dropboxusercontent.com/s/jjf8bfxa4x77dqv/dialog_menu_2.png "3Dビューエリアのメニューを修正する2")|
+|<div id="box">2</div>|クリックした場所にダイアログメニューが開きます。|![ダイアログメニューボタン2](https://dl.dropboxusercontent.com/s/jjf8bfxa4x77dqv/dialog_menu_2.png "ダイアログメニューボタン2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -170,7 +173,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">3</div>|ダイアログメニュー上のプロパティは変更することができます。|![3Dビューエリアのメニューを修正する2](https://dl.dropboxusercontent.com/s/wujq9rb6rp2k0vx/dialog_menu_3.png "3Dビューエリアのメニューを修正する2")|
+|<div id="box">3</div>|ダイアログメニュー上のプロパティは変更することができます。|![ダイアログメニューボタン3](https://dl.dropboxusercontent.com/s/wujq9rb6rp2k0vx/dialog_menu_3.png "ダイアログメニューボタン3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -179,7 +182,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">4</div>|*OK* ボタンを押すと *情報* エリアにプロパティで指定した値が表示されます。|![3Dビューエリアのメニューを修正する2](https://dl.dropboxusercontent.com/s/voqatxxy1ht4coi/dialog_menu_4.png "3Dビューエリアのメニューを修正する2")|
+|<div id="box">4</div>|*OK* ボタンを押すと *情報* エリアにプロパティで指定した値が表示されます。|![ダイアログメニューボタン4](https://dl.dropboxusercontent.com/s/voqatxxy1ht4coi/dialog_menu_4.png "ダイアログメニューボタン4")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -198,7 +201,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">1</div>|タブ *カスタムメニュー* の *ファイルブラウザ* ボタンをクリックします。|![3Dビューエリアのメニューを修正する1](https://dl.dropboxusercontent.com/s/xi29nw88hvy9k6w/file_browser_1.png "3Dビューエリアのメニューを修正する1")|
+|<div id="box">1</div>|タブ *カスタムメニュー* の *ファイルブラウザ* ボタンをクリックします。|![ファイルブラウザボタン1](https://dl.dropboxusercontent.com/s/xi29nw88hvy9k6w/file_browser_1.png "ファイルブラウザボタン1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -207,7 +210,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">2</div>|ファイルブラウザが開きます。|![3Dビューエリアのメニューを修正する2](https://dl.dropboxusercontent.com/s/o2xy1e08aiu6xj8/file_browser_2.png "3Dビューエリアのメニューを修正する2")|
+|<div id="box">2</div>|ファイルブラウザが開きます。|![ファイルブラウザボタン2](https://dl.dropboxusercontent.com/s/o2xy1e08aiu6xj8/file_browser_2.png "ファイルブラウザボタン2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -216,7 +219,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">3</div>|適当にファイルを開くと、*情報* エリアに開いたファイルのファイルパス・ファイル名・ファイルが置かれたディレクトリが表示されます。|![3Dビューエリアのメニューを修正する2](https://dl.dropboxusercontent.com/s/qbtvg81av8jprc0/file_browser_3.png "3Dビューエリアのメニューを修正する2")|
+|<div id="box">3</div>|適当にファイルを開くと、*情報* エリアに開いたファイルのファイルパス・ファイル名・ファイルが置かれたディレクトリが表示されます。|![ファイルブラウザボタン3](https://dl.dropboxusercontent.com/s/qbtvg81av8jprc0/file_browser_3.png "ファイルブラウザボタン3")|
 |---|---|---|
 
 
@@ -236,7 +239,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">1</div>|タブ *カスタムメニュー* の *確認ポップアップ* ボタンをクリックします。|![3Dビューエリアのメニューを修正する1](https://dl.dropboxusercontent.com/s/2apytkkmilgjlpv/confirm_popup_1.png "3Dビューエリアのメニューを修正する1")|
+|<div id="box">1</div>|タブ *カスタムメニュー* の *確認ポップアップ* ボタンをクリックします。|![確認ポップアップボタン1](https://dl.dropboxusercontent.com/s/2apytkkmilgjlpv/confirm_popup_1.png "確認ポップアップボタン1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -245,7 +248,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">2</div>|操作を実行するか否かを問うポップアップが表示されますので、 *確認ポップアップ* をクリックします。|![3Dビューエリアのメニューを修正する2](https://dl.dropboxusercontent.com/s/s5vaxp8zoip01aq/confirm_popup_2.png "3Dビューエリアのメニューを修正する2")|
+|<div id="box">2</div>|操作を実行するか否かを問うポップアップが表示されますので、 *確認ポップアップ* をクリックします。|![確認ポップアップボタン2](https://dl.dropboxusercontent.com/s/s5vaxp8zoip01aq/confirm_popup_2.png "確認ポップアップボタン2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -254,7 +257,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">3</div>|*情報* エリアに以下のメッセージが表示されます。|![3Dビューエリアのメニューを修正する2](https://dl.dropboxusercontent.com/s/w0nwr4rkht11e1t/confirm_popup_3.png "3Dビューエリアのメニューを修正する2")|
+|<div id="box">3</div>|*情報* エリアに以下のメッセージが表示されます。|![確認ポップアップボタン3](https://dl.dropboxusercontent.com/s/w0nwr4rkht11e1t/confirm_popup_3.png "確認ポップアップボタン3")|
 |---|---|---|
 
 ```
@@ -277,7 +280,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">1</div>|タブ *カスタムメニュー* の *プロパティ付きポップアップ* ボタンをクリックします。|![3Dビューエリアのメニューを修正する1](https://dl.dropboxusercontent.com/s/4nh5dtfsg597bwf/prop_popup_1.png "3Dビューエリアのメニューを修正する1")|
+|<div id="box">1</div>|タブ *カスタムメニュー* の *プロパティ付きポップアップ* ボタンをクリックします。|![プロパティ付きポップアップボタン1](https://dl.dropboxusercontent.com/s/4nh5dtfsg597bwf/prop_popup_1.png "プロパティ付きポップアップボタン1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -286,7 +289,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">2</div>|プロパティを変更するたびに、 *情報* エリアに現在のプロパティ値が表示されます。|![3Dビューエリアのメニューを修正する2](https://dl.dropboxusercontent.com/s/lpn7vxq04xyxmna/prop_popup_2.png "3Dビューエリアのメニューを修正する2")|
+|<div id="box">2</div>|プロパティを変更するたびに、 *情報* エリアに現在のプロパティ値が表示されます。|![プロパティ付きポップアップボタン2](https://dl.dropboxusercontent.com/s/lpn7vxq04xyxmna/prop_popup_2.png "プロパティ付きポップアップボタン2")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -306,7 +309,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">1</div>|タブ *カスタムメニュー* の *検索ウィンドウ付きポップアップ* ボタンをクリックします。|![3Dビューエリアのメニューを修正する1](https://dl.dropboxusercontent.com/s/6cx6smtn2gz44qo/search_popup_1.png "3Dビューエリアのメニューを修正する1")|
+|<div id="box">1</div>|タブ *カスタムメニュー* の *検索ウィンドウ付きポップアップ* ボタンをクリックします。|![検索ウィンドウ付きポップアップボタン1](https://dl.dropboxusercontent.com/s/6cx6smtn2gz44qo/search_popup_1.png "検索ウィンドウ付きポップアップボタン1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -315,7 +318,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">2</div>|検索ウィンドウ付きポップアップが表示されます。|![3Dビューエリアのメニューを修正する1](https://dl.dropboxusercontent.com/s/twu5ds60i0ptgi0/search_popup_2.png "3Dビューエリアのメニューを修正する1")|
+|<div id="box">2</div>|検索ウィンドウ付きポップアップが表示されます。|![検索ウィンドウ付きポップアップボタン2](https://dl.dropboxusercontent.com/s/twu5ds60i0ptgi0/search_popup_2.png "検索ウィンドウ付きポップアップボタン2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -324,7 +327,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">3</div>|項目1・項目2・項目3の中から検索することができます。|![3Dビューエリアのメニューを修正する1](https://dl.dropboxusercontent.com/s/jpgbjzre6sodj35/search_popup_3.png "3Dビューエリアのメニューを修正する1")|
+|<div id="box">3</div>|項目1・項目2・項目3の中から検索することができます。|![検索ウィンドウ付きポップアップボタン3](https://dl.dropboxusercontent.com/s/jpgbjzre6sodj35/search_popup_3.png "検索ウィンドウ付きポップアップボタン3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -333,7 +336,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">4</div>|項目を確定すると確定した項目の識別子が、 *情報* エリアに表示されます。|![3Dビューエリアのメニューを修正する2](https://dl.dropboxusercontent.com/s/j0krszjrtsz1r50/search_popup_4.png "3Dビューエリアのメニューを修正する2")|
+|<div id="box">4</div>|項目を確定すると確定した項目の識別子が、 *情報* エリアに表示されます。|![検索ウィンドウ付きポップアップボタン4](https://dl.dropboxusercontent.com/s/j0krszjrtsz1r50/search_popup_4.png "検索ウィンドウ付きポップアップボタン4")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -349,7 +352,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">1</div>|タブ *カスタムメニュー* の *利用可能なアイコンをすべて表示* ボタンをクリックします。|![3Dビューエリアのメニューを修正する1](https://dl.dropboxusercontent.com/s/ru4ckm8y65wyzsz/icon_list_1.png "3Dビューエリアのメニューを修正する1")|
+|<div id="box">1</div>|タブ *カスタムメニュー* の *利用可能なアイコンをすべて表示* ボタンをクリックします。|![利用可能なアイコンをすべて表示ボタン1](https://dl.dropboxusercontent.com/s/ru4ckm8y65wyzsz/icon_list_1.png "利用可能なアイコンをすべて表示ボタン1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -358,7 +361,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*ツール・シェルフ* のオプションに、アドオンから利用することのできるアイコン一覧と、それぞれのアイコンを表示するためのアイコンのキーコードが表示されます。|![3Dビューエリアのメニューを修正する2](https://dl.dropboxusercontent.com/s/8tddbytmq5j8ghr/icon_list_2.png "3Dビューエリアのメニューを修正する2")|
+|<div id="box">2</div>|*ツール・シェルフ* のオプションに、アドオンから利用することのできるアイコン一覧と、それぞれのアイコンを表示するためのアイコンのキーコードが表示されます。|![利用可能なアイコンをすべて表示ボタン2](https://dl.dropboxusercontent.com/s/8tddbytmq5j8ghr/icon_list_2.png "利用可能なアイコンをすべて表示ボタン2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -367,7 +370,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">3</div>|*一行に表示するアイコン数* から一行に表示するアイコンの数を変更することができます。|![3Dビューエリアのメニューを修正する2](https://dl.dropboxusercontent.com/s/fzv6foiqzln3dyg/icon_list_3.png "3Dビューエリアのメニューを修正する2")|
+|<div id="box">3</div>|*一行に表示するアイコン数* から一行に表示するアイコンの数を変更することができます。|![利用可能なアイコンをすべて表示ボタン3](https://dl.dropboxusercontent.com/s/fzv6foiqzln3dyg/icon_list_3.png "利用可能なアイコンをすべて表示ボタン3")|
 |---|---|---|
 
 

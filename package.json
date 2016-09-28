@@ -17,6 +17,8 @@
   "homepage": "https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender#readme",
   "license": "CC BY",
   "devDependencies": {
+    "gitbook": "^3.2.1",
+    "gitbook-cli": "^2.3.0",
     "gitbook-summary-to-path": "^1.0.2",
     "textlint": "^7.1.0",
     "textlint-rule-common-misspellings": "^1.0.1",
