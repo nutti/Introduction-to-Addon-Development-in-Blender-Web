@@ -20,6 +20,8 @@
     "gitbook": "^3.2.1",
     "gitbook-cli": "^2.3.0",
     "gitbook-summary-to-path": "^1.0.2",
+    "node-sass": "^3.10.0",
+    "sass": "^0.5.0",
     "textlint": "^7.1.0",
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-max-ten": "^2.0.1",

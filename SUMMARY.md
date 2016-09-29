@@ -37,6 +37,5 @@
   5. [アドオンを自動テストする](body/chapter_04/05_Test_Add-on_Automatically.md)
   6. [アドオンをBlender本体に取り込んでもらう](body/chapter_04/04_Commit_your_Add-on_to_Blender.md)
 
-
 * [用語集](body/Glossary.md)
 * [おわりに](body/Conclusion.md)
