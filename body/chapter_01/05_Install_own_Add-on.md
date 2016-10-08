@@ -18,7 +18,7 @@
 
 <div id="process_noimg"></div>
 
-|<div id="box">1</div>|[1-3節](03_Prepare_Add-on_development_environment.md)コンソールからBlenderを起動します。|
+|<div id="box">1</div>|[1-3節](03_Prepare_Add-on_development_environment.md) を参考にしてコンソールからBlenderを起動します。|
 |---|---|
 
 <div id="process_sep"></div>

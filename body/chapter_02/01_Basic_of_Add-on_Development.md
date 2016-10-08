@@ -436,7 +436,7 @@ class CreateObject(bpy.types.Operator):
 |引数|型|値の説明|
 |---|---|---|
 |```self```|呼ばれた ```execute()``` メソッドを定義しているクラス|オペレータクラスのインスタンス|
-|```context```|```bpy_types.Context```|```exexute()``` メソッド実行時のコンテキスト|
+|```context```|```bpy_types.Context```|```execute()``` メソッド実行時のコンテキスト|
 
 ```execute()``` メソッドの処理を解説します。
 
@@ -508,7 +508,7 @@ def menu_fn(self, context):
 
 メニューの編集は、 ```self.layout``` を用いて行います。
 
-```self.layout.operator()``` 関数の引数に ```CreateObject.bl_idname```を指定することで、作成したオペーレーション用クラスの処理をメニューに登録することができます。
+```self.layout.operator()``` 関数の引数に ```CreateObject.bl_idname```を指定することで、作成したオペレータクラスの処理をメニューに登録することができます。
 
 本サンプルではさらに、新たに作成するメニュー項目と既存のメニュー項目とを分けるためのセパレータ（メニュー項目を区切る横線）を追加しています。```self.layout.separator()``` 関数により、セパレータを追加することができます。
 

@@ -1,0 +1,37 @@
+{
+  "name": "introduction-to-add-on-development-in-blender",
+  "version": "1.0.0",
+  "description": "<div id=\"sect_title_img_0_0\"></div>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender.git"
+  },
+  "author": "Nutti",
+  "bugs": {
+    "url": "https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/issues"
+  },
+  "homepage": "https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender#readme",
+  "license": "CC BY",
+  "devDependencies": {
+    "gitbook": "^3.2.1",
+    "gitbook-cli": "^2.3.0",
+    "gitbook-summary-to-path": "^1.0.2",
+    "node-sass": "^3.10.0",
+    "sass": "^0.5.0",
+    "textlint": "^7.1.0",
+    "textlint-rule-common-misspellings": "^1.0.1",
+    "textlint-rule-max-ten": "^2.0.1",
+    "textlint-rule-no-mix-dearu-desumasu": "^3.0.2",
+    "textlint-rule-no-start-duplicated-conjunction": "^1.1.2",
+    "textlint-rule-no-todo": "^2.0.0",
+    "textlint-rule-preset-ja-technical-writing": "^0.1.2",
+    "textlint-rule-preset-japanese": "^1.3.3",
+    "textlint-rule-preset-jtf-style": "^2.2.3",
+    "textlint-rule-prh": "^3.1.1",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0"
+  }
+}
