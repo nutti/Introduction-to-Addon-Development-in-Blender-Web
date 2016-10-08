@@ -1,4 +1,4 @@
-<div id="sect_title_img_2_7"></div>
+<div id="sect_title_img_2_6"></div>
 
 <div id="sect_title_text"></div>
 
@@ -26,8 +26,8 @@
 
 ## アドオンを作成する
 
-[1-2節](../chapter_01/02_Use_Blender_What_is_Add-on.md) のBlenderアドオン用フォルダにディレクトリ名 ```sample_2-2``` のディレクトリを作成します。
-[1-4節](../chapter_01/04_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、作成したディレクトリの下にファイル名をそれぞれ ```__init__.py``` , ```enlarge_object.py``` , ```reduce_object.py``` として保存してください。
+[1-2節](../chapter_01/02_Use_Blender_Add-on.md) のBlenderアドオン用フォルダにディレクトリ名 ```sample_2-2``` のディレクトリを作成します。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、作成したディレクトリの下にファイル名をそれぞれ ```__init__.py``` , ```enlarge_object.py``` , ```reduce_object.py``` として保存してください。
 
 [import](../../sample/src/chapter_02/sample_2-7/__init__.py)
 
@@ -39,7 +39,7 @@
 
 ### アドオンを有効化する
 
-[1-4節](../chapter_01/04_Install_own_Add-on.md) を参考に作成したアドオンを有効化すると、コンソールに以下の文字列が出力されます。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考に作成したアドオンを有効化すると、コンソールに以下の文字列が出力されます。
 
 ```sh
 サンプル2-7: アドオン「サンプル2-7」が有効化されました。
@@ -51,7 +51,7 @@
 
 ### アドオンを無効化する
 
-[1.4節](../chapter_01/04_Install_own_Add-on.md) を参考に有効化したアドオンを無効化すると、コンソールに以下の文字列が出力されます。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考に有効化したアドオンを無効化すると、コンソールに以下の文字列が出力されます。
 
 ```sh
 サンプル2-7: アドオン「サンプル2-7」が無効化されました。
@@ -106,7 +106,7 @@ from . import reduce_object
 これで、アドオン有効化時のエラーは出力されなくなりました。
 しかし、もう少しやるべきことがあります。
 
-[1.4節](../chapter_01/04_Install_own_Add-on.md) では、Blenderを再起動せずにBlenderの機能である「Reload Scripts」の機能を用いて、アドオンをアップデートする方法を紹介しました。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) では、Blenderを再起動せずにBlenderの機能である「Reload Scripts」の機能を用いて、アドオンをアップデートする方法を紹介しました。
 実はこの機能を用いても、複数のファイルから構成されるアドオンをアップデートされない場合があります。
 「Reload Scripts」機能を使った時に、 ```__init__.py``` でインポートしているモジュールの再読み込みに失敗していることが原因です。
 ```from  . import ...``` を用いてモジュールの再読み込みができると思うかもしれませんが、既にインポートされているモジュールに対するインポートは無視されます。

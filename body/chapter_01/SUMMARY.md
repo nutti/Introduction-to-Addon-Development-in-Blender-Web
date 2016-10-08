@@ -2,7 +2,7 @@
 
 <div id="ch_title_text"></div>
 
-# Blenderアドオン開発の世界へ<br>ようこそ
+# Blenderアドオン開発の世界へようこそ
 
 <div id="ch_body"></div>
 

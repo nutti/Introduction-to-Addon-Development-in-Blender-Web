@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# Blenderが提供する<br>アドオン向けのAPIを調べる
+# Blenderが提供するアドオン向けのAPIを調べる
 
 <div id="preface"></div>
 

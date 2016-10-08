@@ -24,4 +24,6 @@ Blenderおよびアドオンの基礎知識を一通り習得したところで�
 5. [サブメニューを作成する](05_Create_Sub-menu.md)
 6. [ショートカットキーを割り当てる](06_Allocate_Shortcut_Keys.md)
 7. [アドオンのソースコードを複数ファイルへ分割する](07_Divide_Add-on_Source_into_Multiple_Files.md)
-8. [BlenderのUIを制御する](08_Control_Blender_UI.md)
+8. [BlenderのUIを制御する①](08_Control_Blender_UI_1.md)
+9. [BlenderのUIを制御する②](09_Control_Blender_UI_2.md)
+10. [BlenderのUIを制御する③](10_Control_Blender_UI_3.md)
