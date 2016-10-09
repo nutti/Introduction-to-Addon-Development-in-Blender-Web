@@ -26,7 +26,7 @@
 3. [より高度なアドオンを作るために](body/chapter_03/SUMMARY.md)
   1. [マウスクリックのイベントを扱う](body/chapter_03/01_Handle_Mouse_Click_Event.md)
   2. [キーボードのキーイベントを扱う](body/chapter_03/02_Handle_Keyboard_Key_Event.md)
-  3. [OpenGL向けのAPIを利用する](body/chapter_03/02_Use_API_for_OpenGL.md)
+  3. [OpenGL向けのAPIを利用する](body/chapter_03/03_Use_API_for_OpenGL.md)
   4. [blfモジュールを使って文字列を描画する](body/chapter_03/04_Render_String_with_blf_Module.md)
   5. [アドオンから音を鳴らす](body/chapter_03/05_Play_Sound_from_Add-on.md)
   6. [アドオンを多言語に対応する](body/chapter_03/06_Multilingual_Support.md)
@@ -37,7 +37,7 @@
   3. [アドオンを公開する](body/chapter_04/03_Publish_your_Add-on.md)
   4. [アドオンのライセンスを決める](body/chapter_04/04_Determine_License_of_Add-on.md)
   5. [アドオンを自動テストする](body/chapter_04/05_Test_Add-on_Automatically.md)
-  6. [アドオンをBlender本体に取り込んでもらう](body/chapter_04/04_Commit_your_Add-on_to_Blender.md)
+  6. [アドオンをBlender本体に取り込んでもらう](body/chapter_04/06_Commit_your_Add-on_to_Blender.md)
 
 * [用語集](body/Glossary.md)
 * [おわりに](body/Conclusion.md)

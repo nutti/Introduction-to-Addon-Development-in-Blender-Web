@@ -4,7 +4,7 @@ import bpy   # アドオン開発者に対して用意しているAPIを利用�
 bl_info = {
 	"name": "サンプル2-1: オブジェクトを生成するアドオン",
 	"author": "Nutti",
-	"version": (1, 0),
+	"version": (2, 0),
 	"blender": (2, 75, 0),
 	"location": "3Dビュー > 追加 > メッシュ",
 	"description": "オブジェクトを生成するサンプルアドオン",

@@ -4,7 +4,7 @@ from bpy.props import FloatProperty
 bl_info = {
     "name": "サンプル2-3: オブジェクトを拡大・縮小するアドオン（拡大率/縮小率 任意指定版）",
     "author": "Nutti",
-    "version": (1, 0),
+    "version": (2, 0),
     "blender": (2, 75, 0),
     "location": "3Dビュー > オブジェクト",
     "description": "オブジェクトを拡大・縮小するサンプルアドオン（拡大率/縮小率を任意に指定可能）",

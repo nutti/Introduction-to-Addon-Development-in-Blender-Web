@@ -3,7 +3,7 @@ import bpy
 bl_info = {
 	"name": "サンプル1-5: 何もしないアドオン",
 	"author": "Nutti",
-	"version": (1, 0),
+	"version": (2, 0),
 	"blender": (2, 75, 0),
 	"location": "",
 	"description": "アドオンの有効化と無効化を試すためのサンプル",

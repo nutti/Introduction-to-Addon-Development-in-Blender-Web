@@ -43,7 +43,7 @@ self.reportデバッグは、変数を表示したい箇所に ```self.report()`
 
 読んで字のごとく、 ```print()``` 関数を用いたデバッグ手法です。
 
-self.reportデバッグと同じように、確認したい変数の値を表示させてデバッグを行う方法ですが、self.reportデバッグでは確認できなかった処理中の変数も確認することができます。ただし ```print()``` 関数の出力先はコンソールであるため、 [1.3節](../chapter_01/03_Prepare_Add-on_development_environment.md) を参考にして、コンソールからBlenderを起動する必要があります。
+self.reportデバッグと同じように、確認したい変数の値を表示させてデバッグを行う方法ですが、self.reportデバッグでは確認できなかった処理中の変数も確認することができます。ただし ```print()``` 関数の出力先はコンソールであるため、 [1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) を参考にして、コンソールからBlenderを起動する必要があります。
 
 以下の例では、 ```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値をコンソールに出力することで、変数に正しい値が代入されているかを確認します。
 
@@ -305,7 +305,7 @@ BLNEDER_BASE_SCRIPT_PATHは、以下に示すようにOS依存です。BLENDER_V
 
 必要に応じて個人用の作業ディレクトリのパスを追加しても良いです。ここでは上で示したパスに加えて、 ```debug.py``` と ```debuggee.py``` が置かれたディレクトリのパスを指定します。
 
-保存先は、 [1.4節](../chapter_01/04_Install_own_Add-on.md) を参照してください。
+保存先は、 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参照してください。
 
 <div id="process_start_end"></div>
 
@@ -317,15 +317,15 @@ BLNEDER_BASE_SCRIPT_PATHは、以下に示すようにOS依存です。BLENDER_V
 
 以下のようなスクリプトを、ファイル名 ```debug.py``` として作成してください。
 
-[import](../../sample/src/chapter_04/debug.py)
+[import](../../sample/src/chapter_04/sample_4-2/debug.py)
 
 ここで ```PYDEV_SRC_DIR``` にはPyDevが置かれたディレクトリを指定しますが、環境によりPyDevが置かれたディレクトリが異なるため、各自で確認する必要があります。筆者のMac環境ではPyDevの場所は ```~/.p2/pool/plugins/org.python.pydev_XXX/pysrc``` でした。（```XXX```はPyDevのバージョンです。）
 
 次に、デバッグ対象とするアドオンを用意します。本節のサンプルでは以下のデバッグ対象するアドオンを作成し、ファイル名 ```debugee.py``` として作成します。
 
-なお、```debug.py``` と ```debugee.py``` は同じディレクトリに置く必要があります。本節のサンプルは、本書でこれまで紹介してきたサンプルの場所と同じディレクトリに保存します。保存先は、 [1.4節](../chapter_01/04_Install_own_Add-on.md) を参照してください。
+なお、```debug.py``` と ```debugee.py``` は同じディレクトリに置く必要があります。本節のサンプルは、本書でこれまで紹介してきたサンプルの場所と同じディレクトリに保存します。保存先は、 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参照してください。
 
-[import](../../sample/src/chapter_04/debuggee.py)
+[import](../../sample/src/chapter_04/sample_4-2/debuggee.py)
 
 アドオン有効化時にデバッグを開始するために、 ```debug.py``` をインポートし、デバッグを開始する場所に ```debug.start_debug()``` 関数を追加します。
 
@@ -599,7 +599,7 @@ Eclipseを用いたデバッグは準備が非常に大変です。手間をか�
 
 以下のようなデバッグ対象のアドオンを作成し、 ```debuggee_2.py``` として保存します。
 
-[import](../../sample/src/chapter_04/debuggee_2.py)
+[import](../../sample/src/chapter_04/sample_4-2/debuggee_2.py)
 
 ブレークポイントを設定する関数は ```bpy.types.bp.bp()``` ですが、毎回関数名を書くのは冗長ですので、以下のように ```breakpoint()``` と書くだけで呼び出せるようにします。
 

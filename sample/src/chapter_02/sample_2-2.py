@@ -3,7 +3,7 @@ import bpy
 bl_info = {
 	"name": "サンプル2-2: オブジェクトを拡大・縮小するアドオン",
 	"author": "Nutti",
-	"version": (1, 0),
+	"version": (2, 0),
 	"blender": (2, 75, 0),
 	"location": "3Dビュー > オブジェクト",
 	"description": "オブジェクトを拡大・縮小するサンプルアドオン",

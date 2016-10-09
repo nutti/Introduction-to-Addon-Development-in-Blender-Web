@@ -5,7 +5,7 @@ from mathutils import Vector
 bl_info = {
     "name": "サンプル2-5: オブジェクトを複製するアドオン",
     "author": "Nutti",
-    "version": (1, 0),
+    "version": (2, 0),
     "blender": (2, 75, 0),
     "location": "3Dビュー > オブジェクト",
     "description": "オブジェクトを複製するアドオン",
