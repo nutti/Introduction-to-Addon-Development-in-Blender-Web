@@ -6,7 +6,7 @@
 
 <div id="preface"></div>
 
-###### B
+###### [2-8節](08_Control_Bnder_UI_1.md) から続いてきた Blender の UI 制御の解説の最後として、 Blender が提供する特殊な UI をアドオンから呼び出す方法について説明します。本節では、ファイルブラウザなどの利用頻度の高い UI から、検索ボックスなどあまり使われない UI まで、一通り説明しているため、必ずしも全て理解する必要はありません。また本節のサンプルは、アドオンで利用可能なアイコン一覧を表示する機能もありますので、アドオンでアイコンを使おうと考えている方は、一度確認しておくと良いかもしれません。
 
 
 
@@ -40,6 +40,227 @@
 
 *3Dビュー* エリアの *ツール・シェルフ* にタブ *カスタムメニュー3* をクリックすると、カスタムメニューのメニューが表示されます。
 
+#### ポップアップメッセージボタン
+
+*ポップアップメッセージ* ボタンを押すと、ポップアップメッセージが表示されます。
+
+<div id="process_title"></div>
+
+##### Work
+
+<div id="process"></div>
+
+|<div id="box">1</div>|タブ *カスタムメニュー* の *ポップアップメッセージ* ボタンをクリックします。|![ポップアップメッセージボタン1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "ポップアップメッセージボタン1")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">2</div>|クリックした場所にポップメッセージが表示されます。|![ポップアップメッセージボタン2](https://dl.dropboxusercontent.com/s/uf3j7u0ezi92uqd/popup_message_2.png "ポップアップメッセージボタン2")|
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
+
+
+#### ダイアログメニューボタン
+
+*ダイアログメニュー* ボタンを押すと、4つのプロパティと *OK* ボタン付きのダイアログメニューが表示されます。
+
+<div id="process_title"></div>
+
+##### Work
+
+<div id="process"></div>
+
+|<div id="box">1</div>|タブ *カスタムメニュー* の *ダイアログメニュー* ボタンをクリックします。|![ダイアログメニューボタン1](https://dl.dropboxusercontent.com/s/p63yfu6yh8ddnrt/dialog_menu_1.png "ダイアログメニューボタン1")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">2</div>|クリックした場所にダイアログメニューが開きます。|![ダイアログメニューボタン2](https://dl.dropboxusercontent.com/s/jjf8bfxa4x77dqv/dialog_menu_2.png "ダイアログメニューボタン2")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">3</div>|ダイアログメニュー上のプロパティは変更することができます。|![ダイアログメニューボタン3](https://dl.dropboxusercontent.com/s/wujq9rb6rp2k0vx/dialog_menu_3.png "ダイアログメニューボタン3")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">4</div>|*OK* ボタンを押すと *情報* エリアにプロパティで指定した値が表示されます。|![ダイアログメニューボタン4](https://dl.dropboxusercontent.com/s/voqatxxy1ht4coi/dialog_menu_4.png "ダイアログメニューボタン4")|
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
+
+
+#### ファイルブラウザボタン
+
+*ファイルブラウザ* ボタンを押すと、ファイルブラウザが表示されます。
+
+
+<div id="process_title"></div>
+
+##### Work
+
+<div id="process"></div>
+
+|<div id="box">1</div>|タブ *カスタムメニュー* の *ファイルブラウザ* ボタンをクリックします。|![ファイルブラウザボタン1](https://dl.dropboxusercontent.com/s/xi29nw88hvy9k6w/file_browser_1.png "ファイルブラウザボタン1")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">2</div>|ファイルブラウザが開きます。|![ファイルブラウザボタン2](https://dl.dropboxusercontent.com/s/o2xy1e08aiu6xj8/file_browser_2.png "ファイルブラウザボタン2")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">3</div>|適当にファイルを開くと、*情報* エリアに開いたファイルのファイルパス・ファイル名・ファイルが置かれたディレクトリが表示されます。|![ファイルブラウザボタン3](https://dl.dropboxusercontent.com/s/qbtvg81av8jprc0/file_browser_3.png "ファイルブラウザボタン3")|
+|---|---|---|
+
+
+<div id="process_start_end"></div>
+
+---
+
+
+#### 確認ポップアップボタン
+
+*確認ポップアップ* ボタンを押すと、操作を実行するか否かを問うポップアップが表示されます。
+
+
+<div id="process_title"></div>
+
+##### Work
+
+<div id="process"></div>
+
+|<div id="box">1</div>|タブ *カスタムメニュー* の *確認ポップアップ* ボタンをクリックします。|![確認ポップアップボタン1](https://dl.dropboxusercontent.com/s/2apytkkmilgjlpv/confirm_popup_1.png "確認ポップアップボタン1")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">2</div>|操作を実行するか否かを問うポップアップが表示されますので、 *確認ポップアップ* をクリックします。|![確認ポップアップボタン2](https://dl.dropboxusercontent.com/s/s5vaxp8zoip01aq/confirm_popup_2.png "確認ポップアップボタン2")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">3</div>|*情報* エリアに以下のメッセージが表示されます。|![確認ポップアップボタン3](https://dl.dropboxusercontent.com/s/w0nwr4rkht11e1t/confirm_popup_3.png "確認ポップアップボタン3")|
+|---|---|---|
+
+```
+確認ポップアップボタンをクリックしました
+```
+
+<div id="process_start_end"></div>
+
+---
+
+
+#### プロパティ付きポップアップボタン
+
+*プロパティ付きポップアップ* ボタンを押すと、4つのプロパティがポップアップで表示されます。
+
+
+<div id="process_title"></div>
+
+##### Work
+
+<div id="process"></div>
+
+|<div id="box">1</div>|タブ *カスタムメニュー* の *プロパティ付きポップアップ* ボタンをクリックします。|![プロパティ付きポップアップボタン1](https://dl.dropboxusercontent.com/s/4nh5dtfsg597bwf/prop_popup_1.png "プロパティ付きポップアップボタン1")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">2</div>|プロパティを変更するたびに、 *情報* エリアに現在のプロパティ値が表示されます。|![プロパティ付きポップアップボタン2](https://dl.dropboxusercontent.com/s/lpn7vxq04xyxmna/prop_popup_2.png "プロパティ付きポップアップボタン2")|
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
+
+#### 検索ウィンドウ付きポップアップボタン
+
+*検索ウィンドウ付きポップアップ* ボタンを押すと、検索ウィンドウがポップアップで表示されます。
+
+<div id="process_title"></div>
+
+##### Work
+
+<div id="process"></div>
+
+|<div id="box">1</div>|タブ *カスタムメニュー* の *検索ウィンドウ付きポップアップ* ボタンをクリックします。|![検索ウィンドウ付きポップアップボタン1](https://dl.dropboxusercontent.com/s/6cx6smtn2gz44qo/search_popup_1.png "検索ウィンドウ付きポップアップボタン1")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">2</div>|検索ウィンドウ付きポップアップが表示されます。|![検索ウィンドウ付きポップアップボタン2](https://dl.dropboxusercontent.com/s/twu5ds60i0ptgi0/search_popup_2.png "検索ウィンドウ付きポップアップボタン2")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">3</div>|項目1・項目2・項目3の中から検索することができます。|![検索ウィンドウ付きポップアップボタン3](https://dl.dropboxusercontent.com/s/jpgbjzre6sodj35/search_popup_3.png "検索ウィンドウ付きポップアップボタン3")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">4</div>|項目を確定すると確定した項目の識別子が、 *情報* エリアに表示されます。|![検索ウィンドウ付きポップアップボタン4](https://dl.dropboxusercontent.com/s/j0krszjrtsz1r50/search_popup_4.png "検索ウィンドウ付きポップアップボタン4")|
+|---|---|---|
+
+<div id="process_start_end"></div>
+
+---
 
 
 #### 利用可能なアイコンをすべて表示ボタン
@@ -457,6 +678,9 @@ layout.operator(ShowSearchPopup.bl_idname)
 
 ## まとめ
 
+本節では、Blender が提供する UI をアドオンから呼び出す方法について説明しました。
+
+[2-8節](08_Control_Bnder_UI_1.md) に引き続き、本節のサンプルでも様々な API が登場しましたので、本節で紹介した UI 関連の API をまとめておきます。
 
 |UI|API|
 |---|---|
@@ -466,17 +690,8 @@ layout.operator(ShowSearchPopup.bl_idname)
 |確認ポップアップ|```context.window_manager.invoke_confirm()```|
 |プロパティ付きポップアップ|```context.window_manager.invoke_props_popup()```|
 |検索ウィンドウ付きポップアップ|```context.window_manager.invoke_search_popup()```|
-|メニューへの項目追加(末尾)|```append()```|
-|メニューへの項目追加(先頭)|```prepend()```|
 
-
-
-|UI|API|
-|---|---|
-|メニューへの項目追加(末尾)|```append()```|
-|メニューへの項目追加(先頭)|```prepend()```|
-
-本節では Blender の UI を構築する方法を説明しましたが、わかりやすい UI を構築するためのポイントについては説明していません。
+[2-8節](08_Control_Bnder_UI_1.md) から本節まで、3節にわたり Blender の UI を構築する方法を説明しましたが、わかりやすい UI を構築するためのポイントについては説明していません。
 わかりやすい UI を構築するのはアドオンの開発と異なり、はっきりとした答えがないため非常に難しいです。
 他の Blender の アドオンの UI を参考にするだけでなく、他の人が作成した Web ページやアプリの画面などにもアンテナを常に張り巡らせ、自分で良いと思ったデザインを真似して吸収していくのが、わかりやすい UI を構築する最も早い道であると思います。
 
@@ -491,6 +706,7 @@ layout.operator(ShowSearchPopup.bl_idname)
 
 <div id="point_item"></div>
 
+* ポップアップウィンドウやファイルブラウザなど、Blender が提供する特殊な UI は、実行コンテキストの ```window_manager``` を通して呼び出すことができる
 * オペレータクラスに定義する ```invoke()``` メソッドは、オペレータクラスが実行された時に呼ばれるメソッドで、 ```execute()``` メソッドより前に呼ばれる
 * 本節のサンプルは、アドオンから利用可能なアイコンの一覧を確認できる
 * UI の構築方法を知ることとわかりやすい UI の構築することは別物である。わかりやすい UI を構築するために他人が作成した UI を参考にしよう

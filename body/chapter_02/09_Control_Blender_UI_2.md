@@ -1,4 +1,4 @@
-<div id="sect_title_img_2_6"></div>
+<div id="sect_title_img_2_9"></div>
 
 <div id="sect_title_text"></div>
 
@@ -6,8 +6,7 @@
 
 <div id="preface"></div>
 
-###### B
-
+###### [2-8節](08_Control_Bnder_UI_1.md) に引き続き、 Blender の UI を制御する方法を説明します。本節ではボタンの配置やメニューなどの UI 部品の配置方法についての説明に加え、 UI 部品の整列方法についても説明します。
 
 
 ## 作成するアドオンの仕様
@@ -39,232 +38,6 @@
 ### アドオンの機能を使用する
 
 *3Dビュー* エリアの *ツール・シェルフ* にタブ *カスタムメニュー2* をクリックすると、カスタムメニュー2のメニューが表示されます。
-
-#### ポップアップメッセージボタン
-
-*ポップアップメッセージ* ボタンを押すと、ポップアップメッセージが表示されます。
-
-<div id="process_title"></div>
-
-##### Work
-
-<div id="process"></div>
-
-|<div id="box">1</div>|タブ *カスタムメニュー* の *ポップアップメッセージ* ボタンをクリックします。|![ポップアップメッセージボタン1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "ポップアップメッセージボタン1")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">2</div>|クリックした場所にポップメッセージが表示されます。|![ポップアップメッセージボタン2](https://dl.dropboxusercontent.com/s/uf3j7u0ezi92uqd/popup_message_2.png "ポップアップメッセージボタン2")|
-|---|---|---|
-
-<div id="process_start_end"></div>
-
----
-
-
-#### ダイアログメニューボタン
-
-*ダイアログメニュー* ボタンを押すと、4つのプロパティと *OK* ボタン付きのダイアログメニューが表示されます。
-
-<div id="process_title"></div>
-
-##### Work
-
-<div id="process"></div>
-
-|<div id="box">1</div>|タブ *カスタムメニュー* の *ダイアログメニュー* ボタンをクリックします。|![ダイアログメニューボタン1](https://dl.dropboxusercontent.com/s/p63yfu6yh8ddnrt/dialog_menu_1.png "ダイアログメニューボタン1")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">2</div>|クリックした場所にダイアログメニューが開きます。|![ダイアログメニューボタン2](https://dl.dropboxusercontent.com/s/jjf8bfxa4x77dqv/dialog_menu_2.png "ダイアログメニューボタン2")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">3</div>|ダイアログメニュー上のプロパティは変更することができます。|![ダイアログメニューボタン3](https://dl.dropboxusercontent.com/s/wujq9rb6rp2k0vx/dialog_menu_3.png "ダイアログメニューボタン3")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">4</div>|*OK* ボタンを押すと *情報* エリアにプロパティで指定した値が表示されます。|![ダイアログメニューボタン4](https://dl.dropboxusercontent.com/s/voqatxxy1ht4coi/dialog_menu_4.png "ダイアログメニューボタン4")|
-|---|---|---|
-
-<div id="process_start_end"></div>
-
----
-
-
-#### ファイルブラウザボタン
-
-*ファイルブラウザ* ボタンを押すと、ファイルブラウザが表示されます。
-
-
-<div id="process_title"></div>
-
-##### Work
-
-<div id="process"></div>
-
-|<div id="box">1</div>|タブ *カスタムメニュー* の *ファイルブラウザ* ボタンをクリックします。|![ファイルブラウザボタン1](https://dl.dropboxusercontent.com/s/xi29nw88hvy9k6w/file_browser_1.png "ファイルブラウザボタン1")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">2</div>|ファイルブラウザが開きます。|![ファイルブラウザボタン2](https://dl.dropboxusercontent.com/s/o2xy1e08aiu6xj8/file_browser_2.png "ファイルブラウザボタン2")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">3</div>|適当にファイルを開くと、*情報* エリアに開いたファイルのファイルパス・ファイル名・ファイルが置かれたディレクトリが表示されます。|![ファイルブラウザボタン3](https://dl.dropboxusercontent.com/s/qbtvg81av8jprc0/file_browser_3.png "ファイルブラウザボタン3")|
-|---|---|---|
-
-
-<div id="process_start_end"></div>
-
----
-
-
-#### 確認ポップアップボタン
-
-*確認ポップアップ* ボタンを押すと、操作を実行するか否かを問うポップアップが表示されます。
-
-
-<div id="process_title"></div>
-
-##### Work
-
-<div id="process"></div>
-
-|<div id="box">1</div>|タブ *カスタムメニュー* の *確認ポップアップ* ボタンをクリックします。|![確認ポップアップボタン1](https://dl.dropboxusercontent.com/s/2apytkkmilgjlpv/confirm_popup_1.png "確認ポップアップボタン1")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">2</div>|操作を実行するか否かを問うポップアップが表示されますので、 *確認ポップアップ* をクリックします。|![確認ポップアップボタン2](https://dl.dropboxusercontent.com/s/s5vaxp8zoip01aq/confirm_popup_2.png "確認ポップアップボタン2")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">3</div>|*情報* エリアに以下のメッセージが表示されます。|![確認ポップアップボタン3](https://dl.dropboxusercontent.com/s/w0nwr4rkht11e1t/confirm_popup_3.png "確認ポップアップボタン3")|
-|---|---|---|
-
-```
-確認ポップアップボタンをクリックしました
-```
-
-<div id="process_start_end"></div>
-
----
-
-
-#### プロパティ付きポップアップボタン
-
-*プロパティ付きポップアップ* ボタンを押すと、4つのプロパティがポップアップで表示されます。
-
-
-<div id="process_title"></div>
-
-##### Work
-
-<div id="process"></div>
-
-|<div id="box">1</div>|タブ *カスタムメニュー* の *プロパティ付きポップアップ* ボタンをクリックします。|![プロパティ付きポップアップボタン1](https://dl.dropboxusercontent.com/s/4nh5dtfsg597bwf/prop_popup_1.png "プロパティ付きポップアップボタン1")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">2</div>|プロパティを変更するたびに、 *情報* エリアに現在のプロパティ値が表示されます。|![プロパティ付きポップアップボタン2](https://dl.dropboxusercontent.com/s/lpn7vxq04xyxmna/prop_popup_2.png "プロパティ付きポップアップボタン2")|
-|---|---|---|
-
-<div id="process_start_end"></div>
-
----
-
-
-#### 検索ウィンドウ付きポップアップボタン
-
-
-*検索ウィンドウ付きポップアップ* ボタンを押すと、検索ウィンドウがポップアップで表示されます。
-
-
-<div id="process_title"></div>
-
-##### Work
-
-<div id="process"></div>
-
-|<div id="box">1</div>|タブ *カスタムメニュー* の *検索ウィンドウ付きポップアップ* ボタンをクリックします。|![検索ウィンドウ付きポップアップボタン1](https://dl.dropboxusercontent.com/s/6cx6smtn2gz44qo/search_popup_1.png "検索ウィンドウ付きポップアップボタン1")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">2</div>|検索ウィンドウ付きポップアップが表示されます。|![検索ウィンドウ付きポップアップボタン2](https://dl.dropboxusercontent.com/s/twu5ds60i0ptgi0/search_popup_2.png "検索ウィンドウ付きポップアップボタン2")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">3</div>|項目1・項目2・項目3の中から検索することができます。|![検索ウィンドウ付きポップアップボタン3](https://dl.dropboxusercontent.com/s/jpgbjzre6sodj35/search_popup_3.png "検索ウィンドウ付きポップアップボタン3")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">4</div>|項目を確定すると確定した項目の識別子が、 *情報* エリアに表示されます。|![検索ウィンドウ付きポップアップボタン4](https://dl.dropboxusercontent.com/s/j0krszjrtsz1r50/search_popup_4.png "検索ウィンドウ付きポップアップボタン4")|
-|---|---|---|
-
-<div id="process_start_end"></div>
-
----
-
 
 
 ### アドオンを無効化する
@@ -590,17 +363,15 @@ box_column.operator(NullOperation.bl_idname, text="行 2, 列 2")
 上記の例から、グループ化した内部の UI は通常の UI と同じような処理で構築することができます。
 
 
-
-
-
-
 ## まとめ
 
+本節では、ボタンやメニューなどの UI 部品の配置方法について説明しました。
 
-Blender に限らず UI は、ボタンやメニューなど数多くの部品により構成されるため、説明が長くなってしまいました。
-分量が多いため、本節の内容をすべて理解するというよりも、必要な時に本節を参照すると良いと思います。
-個々の部品を制御するためのソースコードは数行～数十行の規模ですし、ソースコード自体も似たようなパターンのため、ここまで読み進められた方であれば難なく理解できると思います。
-UI の部品と部品を追加するための API の対応関係を以下にまとめておきます。
+Blender に限らず、 UI はボタンやメニューなど数多くの部品により構成されるため、一度にたくさんの API がたくさん出てきて混乱されたかと思います。
+しかし、個々の部品を制御するためのソースコードは数行～数十行の規模で、それぞれのソースコードも似たようなパターンとなっているため、ここまで読み進められた方であれば難なく理解できると思います。
+また、UI の制御に限っては分量が多い代わりに常に知っておくべきことは少ないため、本節の内容をすべて理解するというよりも、必要な時に本節を参照する方法でも問題ありません。
+
+本節で紹介した UI の部品と部品を追加するための API の対応関係を、以下にまとめておきます。
 
 |UI|API|
 |---|---|
@@ -625,3 +396,5 @@ UI の部品と部品を追加するための API の対応関係を以下にま
 ### ポイント
 
 <div id="point_item"></div>
+
+* Blender が提供する UI 部品は、メニュークラスやパネルクラス、オペレーションクラスが持つメンバ変数 ```layout``` を用いて配置することができる
