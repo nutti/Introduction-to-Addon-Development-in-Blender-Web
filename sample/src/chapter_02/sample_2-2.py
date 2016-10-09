@@ -1,9 +1,9 @@
 import bpy
 
 bl_info = {
-	"name": "サンプル2: オブジェクトを拡大・縮小するアドオン",
+	"name": "サンプル2-2: オブジェクトを拡大・縮小するアドオン",
 	"author": "Nutti",
-	"version": (1, 0),
+	"version": (2, 0),
 	"blender": (2, 75, 0),
 	"location": "3Dビュー > オブジェクト",
 	"description": "オブジェクトを拡大・縮小するサンプルアドオン",
@@ -29,8 +29,8 @@ class EnlargeObject(bpy.types.Operator):
 		active_obj.scale = active_obj.scale * 2.0
 		self.report(
             {'INFO'},
-            "サンプル2: 「" + active_obj.name + "」を2倍に拡大しました。")
-		print("サンプル2: オペレーション「"+ self.bl_idname +"」が実行されました。")
+            "サンプル2-2: 「" + active_obj.name + "」を2倍に拡大しました。")
+		print("サンプル2-2: オペレーション「"+ self.bl_idname +"」が実行されました。")
 
 		return {'FINISHED'}
 
@@ -49,8 +49,8 @@ class ReduceObject(bpy.types.Operator):
 		active_obj.scale = active_obj.scale * 0.5
 		self.report(
             {'INFO'},
-            "サンプル2: 「" + active_obj.name + "」を1/2倍に縮小しました。")
-		print("サンプル2: オペレーション「"+self.bl_idname+"」が実行されました。")
+            "サンプル2-2: 「" + active_obj.name + "」を1/2倍に縮小しました。")
+		print("サンプル2-2: オペレーション「"+self.bl_idname+"」が実行されました。")
 
 		return {'FINISHED'}
 
@@ -66,14 +66,14 @@ def menu_fn(self, context):
 def register():
 	bpy.utils.register_module(__name__)
 	bpy.types.VIEW3D_MT_object.append(menu_fn)
-	print("サンプル2: アドオン「サンプル2」が有効化されました。")
+	print("サンプル2-2: アドオン「サンプル2-2」が有効化されました。")
 
 
 # アドオン無効化時の処理
 def unregister():
 	bpy.types.VIEW3D_MT_object.remove(menu_fn)
 	bpy.utils.unregister_module(__name__)
-	print("サンプル2: アドオン「サンプル2」が無効化されました。")
+	print("サンプル2-2: アドオン「サンプル2-2」が無効化されました。")
 
 
 # メイン処理

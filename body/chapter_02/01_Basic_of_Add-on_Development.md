@@ -6,12 +6,12 @@
 
 <div id="preface"></div>
 
-###### [1-4節](../chapter_01/04_Install_own_Add-on.md) ではアドオンのソースコードを作成し、アドオンをインストール＆アンインストールしましたが、ソースコードの解説を一切行っていないため今の段階ではよくわからない状態かと思います。本節ではより実用的なアドオンのサンプルを紹介し、そのソースコードを解説します。
+###### [1-5節](../chapter_01/05_Install_own_Add-on.md) ではアドオンのソースコードを作成し、アドオンをインストール＆アンインストールしましたが、ソースコードの解説を一切行っていないため今の段階ではよくわからない状態かと思います。本節ではより実用的なアドオンのサンプルを紹介し、そのソースコードを解説します。
 
 
 ## 作成するアドオンの仕様
 
-[1-4節](../chapter_01/04_Install_own_Add-on.md) で紹介したアドオンは、アドオンの有効化・無効化時にコンソールへメッセージを出力する機能だけを持つアドオンでした。これではさすがにアドオンと呼ぶのには寂しい気がしますので、本節ではより実用的な機能を持ったアドオンを作ります。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) で紹介したアドオンは、アドオンの有効化・無効化時にコンソールへメッセージを出力する機能だけを持つアドオンでした。これではさすがにアドオンと呼ぶのには寂しい気がしますので、本節ではより実用的な機能を持ったアドオンを作ります。
 
 最初に、本節で作成するアドオンの仕様を決めます。アドオンのソースコードを用いた初めての解説になるので、本書で紹介するサンプルの仕様は以下のようにしました。
 
@@ -59,9 +59,9 @@
 
 先ほど決めた仕様を満たすようにアドオンを作成します。
 
-ソースコードの解説は後ほど行いますので、 [1-4節](../chapter_01/04_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、 ```sample_1.py``` という名前で保存してください。
+ソースコードの解説は後ほど行いますので、 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、 ```sample_2-1.py``` という名前で保存してください。
 
-[import](../../sample/src/chapter_02/sample_1.py)
+[import](../../sample/src/chapter_02/sample_2-1.py)
 
 ## アドオンを使用する
 
@@ -69,12 +69,12 @@
 
 ### アドオンを有効化する
 
-[1-4節](../chapter_01/04_Install_own_Add-on.md) を参考に、作成したアドオンを有効化します。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考に、作成したアドオンを有効化します。
 
 アドオンを有効化すると、コンソールに以下の文字列が出力されるはずです。
 
 ```shell-session
-サンプル1: アドオン「サンプル1」が有効化されました。
+サンプル2-1: アドオン「サンプル1」が有効化されました。
 ```
 
 <div id="sidebyside"></div>
@@ -99,7 +99,7 @@
 さらに、コンソールには以下の文字列が出力されます。
 
 ```shell-session
-サンプル1: 3DビューにICO球を生成しました。
+サンプル2-1: 3DビューにICO球を生成しました。
 ```
 
 <div id="process_start_end"></div>
@@ -109,12 +109,12 @@
 
 ### アドオンを無効化する
 
-[1.4節](../chapter_01/04_Install_own_Add-on.md) を参考に、アドオンを無効化します。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考に、アドオンを無効化します。
 
 アドオンが無効化されると、コンソールに以下の文字列が出力されます。
 
 ```shell-session
-サンプル1: アドオン「サンプル1」が無効化されました。
+サンプル2-1: アドオン「サンプル1」が無効化されました。
 ```
 
 <div id="column"></div>
@@ -147,7 +147,7 @@ import bpy   # アドオン開発者に対して用意しているAPIを利用�
 ```python
 # アドオンに関する情報を保持する、bl_info変数
 bl_info = {
-	"name": "サンプル1: オブジェクトを生成するアドオン",
+	"name": "サンプル2-1: オブジェクトを生成するアドオン",
 	"author": "Nutti",
 	"version": (1, 0),
 	"blender": (2, 75, 0),
@@ -206,7 +206,7 @@ bl_info = {
 ```python
 # アドオンに関する情報を保持する、bl_info変数
 bl_info = {
-	"name": "サンプル1: オブジェクトを生成するアドオン",
+	"name": "サンプル2-1: オブジェクトを生成するアドオン",
 	"author": "Nutti",
 	"version": (1, 0),
 	"blender": (2, 75, 0),
@@ -423,7 +423,7 @@ class CreateObject(bpy.types.Operator):
   # メニューを実行した時に呼ばれる関数
 	def execute(self, context):
 		bpy.ops.mesh.primitive_ico_sphere_add()
-		print("サンプル1: 3DビューにICO球を生成しました。")
+		print("サンプル2-1: 3DビューにICO球を生成しました。")
 
 		return {'FINISHED'}
 ```
@@ -458,7 +458,7 @@ ICO球生成時のサイズが2.0倍、生成時の座標が(x, y, z) = (5.0, -5
   # メニューを実行した時に呼ばれる関数
 	def execute(self, context):
 		bpy.ops.mesh.primitive_ico_sphere_add(size=2.0, location=(5.0, -5.0, 0.0), rotation=(0.79, 0.0, 1.57))
-		print("サンプル1: 3DビューにICO球を生成しました。")
+		print("サンプル2-1: 3DビューにICO球を生成しました。")
 
 		return {'FINISHED'}
 ```
@@ -521,7 +521,7 @@ def menu_fn(self, context):
 def register():
 	bpy.utils.register_module(__name__)
 	bpy.types.INFO_MT_mesh_add.append(menu_fn)
-	print("サンプル1: アドオン「サンプル1」が有効化されました。")
+	print("サンプル2-1: アドオン「サンプル1」が有効化されました。")
 ```
 
 ```bpy.utils.register_module()``` 関数 は、引数に指定したモジュールを登録してBlender内で使えるようにするための関数です。
@@ -545,7 +545,7 @@ bpy.types.INFO_MT_mesh_addは、bpy.types.INFO_MT_mesh_add.append()関数を確�
 def unregister():
 	bpy.types.INFO_MT_mesh_add.remove(menu_fn)
 	bpy.utils.unregister_module(__name__)
-	print("サンプル1: アドオン「サンプル1」が無効化されました。")
+	print("サンプル2-1: アドオン「サンプル1」が無効化されました。")
 ```
 
 ```bpy.types.INFO_MT_mesh_add.remove()``` 関数に、メニューを構築する関数である ```menu_fn()``` 関数を指定することで、3Dビューエリアのメニューである追加 > メッシュからメニューを削除することができます。

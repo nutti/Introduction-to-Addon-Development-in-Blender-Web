@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# 複数のオペレータクラスを<br>登録する
+# 複数のオペレータクラスを登録する
 
 <div id="preface"></div>
 
@@ -18,9 +18,9 @@
 
 ## アドオンを作成する
 
-以下のソースコードを、 [1-4節](../chapter_01/04_Install_own_Add-on.md)を参考にして、テキストエディタエリアに入力し、ファイル名 ```sample_2.py``` として保存します。
+以下のソースコードを、 [1-5節](../chapter_01/05_Install_own_Add-on.md)を参考にして、テキストエディタエリアに入力し、ファイル名 ```sample_2-2.py``` として保存します。
 
-[import](../../sample/src/chapter_02/sample_2.py)
+[import](../../sample/src/chapter_02/sample_2-2.py)
 
 <div id="space_xl"></div>
 
@@ -29,12 +29,12 @@
 
 ### アドオンを有効化する
 
-[1-4節](../chapter_01/04_Install_own_Add-on.md) を参考に、作成したアドオンを有効化します。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考に、作成したアドオンを有効化します。
 
 アドオンが有効化されると、コンソールに以下の文字列が出力されるはずです。
 
 ```sh
-サンプル2: アドオン「サンプル2」が有効化されました。
+サンプル2-2: アドオン「サンプル2-2」が有効化されました。
 ```
 
 <div id="sidebyside"></div>
@@ -62,13 +62,13 @@
 この時コンソール・ウィンドウを見ると、以下のメッセージが出力されます。
 
 ```sh
-サンプル2: 「Cube」を2倍に拡大しました。
+サンプル2-2: 「Cube」を2倍に拡大しました。
 ```
 
 また、コンソールにも以下のメッセージが出力されます。
 
 ```sh
-サンプル2: オペレーション「OBJECT_OT_enlarge_object」が実行されました。
+サンプル2-2: オペレーション「OBJECT_OT_enlarge_object」が実行されました。
 ```
 
 <div id="process_sep"></div>
@@ -83,13 +83,13 @@
 この時コンソール・ウィンドウには、以下のメッセージが出力されます。
 
 ```sh
-サンプル2: 「Cube」を1/2倍に縮小しました。
+サンプル2-2: 「Cube」を1/2倍に縮小しました。
 ```
 
 また、コンソールには以下のメッセージが出力されます。
 
 ```sh
-サンプル2: オペレーション「OBJECT_OT_reduce_object」が実行されました。
+サンプル2-2: オペレーション「OBJECT_OT_reduce_object」が実行されました。
 ```
 
 <div id="process_start_end"></div>
@@ -99,12 +99,12 @@
 
 ### アドオンを無効化する
 
-[1-4節](../chapter_01/04_Install_own_Add-on.md) を参考に、有効化したアドオンを無効化します。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考に、有効化したアドオンを無効化します。
 
 アドオンを無効化すると、コンソールに以下の文字列が出力されます。
 
 ```sh
-サンプル2: アドオン「サンプル2」が無効化されました。
+サンプル2-2: アドオン「サンプル2」が無効化されました。
 ```
 
 ## ソースコードの解説
@@ -157,8 +157,8 @@ class ReduceObject(bpy.types.Operator):
         active_obj.scale = active_obj.scale * 2.0
         self.report(
             {'INFO'},
-            "サンプル2: 「" + active_obj.name + "」を2倍に拡大しました。")
-        print("サンプル2: オペレーション「"+self.bl_idname+"」が実行されました。")
+            "サンプル2-2: 「" + active_obj.name + "」を2倍に拡大しました。")
+        print("サンプル2-2: オペレーション「"+self.bl_idname+"」が実行されました。")
 ```
 
 ```execute()``` メソッドに渡されてくる引数については、 [2-1節](01_Basic_of_Add-on_Development.md)で説明しました。引数 ```context``` を利用することにより、現在のコンテキスト（実行状態）を取得することができます。

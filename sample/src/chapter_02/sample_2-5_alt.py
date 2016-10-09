@@ -1,14 +1,14 @@
 import bpy
-from bpy.props import FloatVectorProperty, EnumProperty
+from bpy.props import StringProperty, FloatVectorProperty, EnumProperty
 from mathutils import Vector
 
 bl_info = {
-    "name": "サンプル6: オブジェクトを複製するアドオン",
+    "name": "サンプル2-5: オブジェクトを複製するアドオン",
     "author": "Nutti",
-    "version": (1, 0),
+    "version": (2, 0),
     "blender": (2, 75, 0),
-    "location": "3Dビュー > オブジェクト, Ctrl + Alt + R",
-    "description": "選択したオブジェクトを複製するアドオン",
+    "location": "3Dビュー > オブジェクト",
+    "description": "オブジェクトを複製するアドオン",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
@@ -16,7 +16,6 @@ bl_info = {
     "category": "Object"
 }
 
-addon_keymaps = []          # 登録したショートカットキー一覧
 
 # EnumPropertyで表示したい項目リストを作成する関数
 def location_list_fn(scene, context):
@@ -27,12 +26,13 @@ def location_list_fn(scene, context):
 
     return items
 
+
 # 選択したオブジェクトを複製するアドオン
 class ReplicateObject(bpy.types.Operator):
 
     bl_idname = "object.replicate_object"
-    bl_label = "選択オブジェクトの複製"
-    bl_description = "選択中のオブジェクトを複製します"
+    bl_label = "オブジェクトの複製"
+    bl_description = "オブジェクトを複製します"
     bl_options = {'REGISTER', 'UNDO'}
 
     location = EnumProperty(
@@ -65,17 +65,25 @@ class ReplicateObject(bpy.types.Operator):
         unit = 'LENGTH'
     )
 
-    src_obj_name = None
+    src_obj_name = bpy.props.StringProperty()
 
     def execute(self, context):
-        # bpy.ops.object.duplicate()実行後に複製オブジェクトが選択されるため、選択中のオブジェクトを保存
-        self.src_obj_name = context.active_object.name
+        # bpy.ops.object.duplicate()は選択中のオブジェクトをコピーするため、メニューで選択されたオブジェクトを選択された状態にする
+        # context.scene.objects：オブジェクト一覧
+        # context.scene.objects.active：現在アクティブなオブジェクト
+        for o in context.scene.objects:
+            if self.src_obj_name == o.name:
+                context.scene.objects.active = o
+                o.select = True
+                break
+            else:
+                o.select = False
+        # オブジェクトの複製
         bpy.ops.object.duplicate()
         active_obj = context.active_object
 
         # 複製したオブジェクトを配置位置に移動
         if self.location == '3D_CURSOR':
-            # Shallow copyを避けるため、copy()によるDeep copyを実行
             active_obj.location = context.scene.cursor_location.copy()
         elif self.location == 'ORIGIN':
             active_obj.location = Vector((0.0, 0.0, 0.0))
@@ -95,55 +103,52 @@ class ReplicateObject(bpy.types.Operator):
         # 複製したオブジェクトの最終位置を設定
         active_obj.location = active_obj.location + Vector(self.offset)
 
-        self.report({'INFO'}, "サンプル6: 「%s」を複製しました。" % self.src_obj_name)
-        print("サンプル6: オペレーション「%s」が実行されました。" % self.bl_idname)
+        self.report({'INFO'}, "サンプル2-5: 「%s」を複製しました。" % self.src_obj_name)
+        print("サンプル2-5: オペレーション「%s」が実行されました。" % self.bl_idname)
 
         return {'FINISHED'}
 
 
+# サブメニュー
+class ReplicateObjectSubMenu(bpy.types.Menu):
+    bl_idname = "uv.replicate_object_sub_menu"
+    bl_label = "オブジェクトの複製（サブメニュー）"
+    bl_description = "オブジェクトを複製します（サブメニュー）"
+
+    def draw(self, context):
+        layout = self.layout
+        # サブサブメニューの登録
+        for o in bpy.data.objects:
+            layout.operator(ReplicateObject.bl_idname, text=o.name).src_obj_name = o.name
+
+
+# メインメニュー
+class ReplicateObjectMenu(bpy.types.Menu):
+    bl_idname = "uv.replicate_object_menu"
+    bl_label = "オブジェクトの複製"
+    bl_description = "オブジェクトを複製します"
+
+    def draw(self, context):
+        layout = self.layout
+        # サブメニューの登録
+        layout.menu(ReplicateObjectSubMenu.bl_idname)
+
+
 def menu_fn(self, context):
     self.layout.separator()
-    self.layout.operator(ReplicateObject.bl_idname)
-
-
-def register_shortcut():
-    wm = bpy.context.window_manager
-    kc = wm.keyconfigs.addon
-    if kc:
-        # 3Dビューのショートカットキーとして登録
-        km = kc.keymaps.new(name="3D View", space_type="VIEW_3D")
-        # ショートカットキーの登録
-        kmi = km.keymap_items.new(
-            idname=ReplicateObject.bl_idname,
-            type="R",
-            value="PRESS",
-            shift=False,
-            ctrl=True,
-            alt=True)
-        # ショートカットキー一覧に登録
-        addon_keymaps.append((km, kmi))
-
-
-def unregister_shortcut():
-    for km, kmi in addon_keymaps:
-        # ショートカットキーの登録解除
-        km.keymap_items.remove(kmi)
-    # ショートカットキー一覧をクリア
-    addon_keymaps.clear()
+    self.layout.menu(ReplicateObjectMenu.bl_idname)
 
 
 def register():
     bpy.utils.register_module(__name__)
     bpy.types.VIEW3D_MT_object.append(menu_fn)
-    register_shortcut()
-    print("サンプル6: アドオン「サンプル6」が有効化されました。")
+    print("サンプル2-5: アドオン「サンプル2-5」が有効化されました。")
 
 
 def unregister():
-    unregister_shortcut()
     bpy.types.VIEW3D_MT_object.remove(menu_fn)
     bpy.utils.unregister_module(__name__)
-    print("サンプル6: アドオン「サンプル6」が無効化されました。")
+    print("サンプル2-5: アドオン「サンプル2-5」が無効化されました。")
 
 
 if __name__ == "__main__":

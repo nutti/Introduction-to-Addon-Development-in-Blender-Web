@@ -1,9 +1,9 @@
 import bpy
 
 bl_info = {
-	"name": "サンプル0: 何もしないアドオン",
+	"name": "サンプル1-5: 何もしないアドオン",
 	"author": "Nutti",
-	"version": (1, 0),
+	"version": (2, 0),
 	"blender": (2, 75, 0),
 	"location": "",
 	"description": "アドオンの有効化と無効化を試すためのサンプル",
@@ -16,11 +16,11 @@ bl_info = {
 
 
 def register():
-	print("アドオンが有効化されました。")
+	print("サンプル1-5: アドオン「サンプル1-5」が有効化されました。")
 
 
 def unregister():
-	print("アドオンが無効化されました。")
+	print("サンプル1-5: アドオン「サンプル1-5」が無効化されました。")
 
 
 if __name__ == "__main__":

@@ -1,8 +1,8 @@
-<div id="sect_title_img_1_4"></div>
+<div id="sect_title_img_1_5"></div>
 
 <div id="sect_title_text"></div>
 
-# 自作のアドオンを<br>インストールする
+# 自作のアドオンをインストールする
 
 <div id="preface"></div>
 
@@ -39,7 +39,7 @@
 |<div id="box">3</div>| 以下に示すソースコード全文を入力します。空白は全て半角スペースで入力し、タブや全角スペースが含まれないように注意してください。|![アドオン作成 手順2](https://dl.dropboxusercontent.com/s/t6agj2bu859vk1c/blender_make_add-on_2.png "アドオン作成 手順2")|
 |---|---|---|
 
-[import](../../sample/src/chapter_01/sample_0.py)
+[import](../../sample/src/chapter_01/sample_1-5.py)
 
 <div id="process_sep"></div>
 
@@ -56,7 +56,7 @@
 
 <div id="process"></div>
 
-|<div id="box">5</div>|ファイル名 *04.py* という名前で保存します。<br>[1.2節](02_Use_Blender_Add-on.md) でも解説しましたが、保存先はOSごとに異なりますので注意してください。|![アドオン作成 手順4](https://dl.dropboxusercontent.com/s/z9ibf7qz2t1jlj7/blender_make_add-on_4.png "アドオン作成 手順4")|
+|<div id="box">5</div>|ファイル名 *sample_1-5.py* という名前で保存します。<br>[1.2節](02_Use_Blender_Add-on.md) でも解説しましたが、保存先はOSごとに異なりますので注意してください。|![アドオン作成 手順4](https://dl.dropboxusercontent.com/s/z9ibf7qz2t1jlj7/blender_make_add-on_4.png "アドオン作成 手順4")|
 |---|---|---|
 
 |OS|保存先|

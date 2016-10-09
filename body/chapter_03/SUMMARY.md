@@ -20,7 +20,7 @@
 
 1. [マウスクリックのイベントを扱う](01_Handle_Mouse_Click_Event.md)
 2. [キーボードのキーイベントを扱う](02_Handle_Keyboard_Key_Event.md)
-3. [OpenGL向けのAPIを利用する](02_Use_API_for_OpenGL.md)
+3. [OpenGL向けのAPIを利用する](03_Use_API_for_OpenGL.md)
 4. [blfモジュールを使って文字列を描画する](04_Render_String_with_blf_Module.md)
 5. [アドオンから音を鳴らす](05_Play_Sound_from_Add-on.md)
 6. [アドオンを多言語に対応する](06_Multilingual_Support.md)
