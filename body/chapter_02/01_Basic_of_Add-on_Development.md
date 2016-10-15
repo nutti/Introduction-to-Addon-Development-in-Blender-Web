@@ -19,6 +19,12 @@
 * 追加したメニューを実行すると、 *3Dビュー* エリアのメニューバーの *追加* > *メッシュ* > *ICO球* を実行した時と同等の効果を得る
 
 
+<div id="column"></div>
+
+実際にアドオンを開発する時も、仕様を最初に明確化しておくことが重要です。  
+アドオンの仕様を最初に決めることにより、アドオンで何を実現すればよいか、実現にあたり何が課題となりそうかを整理することができます。
+
+
 ### Blender標準機能によるICO球作成
 
 *3Dビュー* エリアのメニューバーの *追加* > *メッシュ* > *ICO球* を実行した時の動作を確認します。
@@ -32,13 +38,8 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|*3Dビュー* エリアのメニューバーから *追加* > *メッシュ* > *ICO球* を実行します。|![ICO球作成 手順1](https://dl.dropboxusercontent.com/s/z760a6xqpztgnhb/blender_generate_ico-sphere_1.png "ICO球作成 手順1")|
+|<div id="box">1</div>|*3Dビュー* エリアのメニューバーから *追加* > *メッシュ* > *ICO球* を実行します。|![ICO球作成 手順1](https://dl.dropboxusercontent.com/s/z760a6xqpztgnhb/generate_ico-sphere_1.png "ICO球作成 手順1")|
 |---|---|---|
-
-<div id="column"></div>
-
-実際にアドオンを開発する時も、仕様を最初に明確化しておくことが重要です。  
-アドオンの仕様を最初に決めることにより、アドオンで何を実現すればよいか、実現にあたり何が課題となりそうかを整理することができます。
 
 
 <div id="process_sep"></div>
@@ -47,7 +48,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|3Dカーソルを中心としたICO球が作成されます。|![ICO球作成 手順2](https://dl.dropboxusercontent.com/s/4a1k4c68k8eteuv/blender_generate_ico-sphere_2.png "ICO球作成 手順2")|
+|<div id="box">2</div>|3Dカーソルを中心としたICO球が作成されます。|![ICO球作成 手順2](https://dl.dropboxusercontent.com/s/4a1k4c68k8eteuv/generate_ico-sphere_2.png "ICO球作成 手順2")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -74,12 +75,12 @@
 アドオンを有効化すると、コンソールに以下の文字列が出力されるはずです。
 
 ```shell-session
-サンプル2-1: アドオン「サンプル1」が有効化されました。
+サンプル2-1: アドオン「サンプル2-1」が有効化されました。
 ```
 
 <div id="sidebyside"></div>
 
-|右図のように、アドオン有効化後、 *3Dビュー* エリアのメニューバーに *追加* > *メッシュ* > *球* が追加されていることを確認します。|![アドオンの実行 手順1](https://dl.dropboxusercontent.com/s/insl725bg08g8j4/blender_use_add-on_1.png "アドオンの実行 手順1")|
+|右図のように、アドオン有効化後、 *3Dビュー* エリアのメニューバーに *追加* > *メッシュ* > *球* が追加されていることを確認します。|![アドオンの有効化](https://dl.dropboxusercontent.com/s/insl725bg08g8j4/enable_add-on.png "アドオンの有効化")|
 |---|---|
 
 
@@ -93,7 +94,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|追加されたメニュー *追加* > *メッシュ* > *球* を実行します。すると、3Dカーソルを中心としたICO球が作成されます。|![アドオンの実行 手順2](https://dl.dropboxusercontent.com/s/ek7n05o59hyhlp3/blender_use_add-on_2.png "アドオンの実行 手順2")|
+|<div id="box">1</div>|追加されたメニュー *追加* > *メッシュ* > *球* を実行します。すると、3Dカーソルを中心としたICO球が作成されます。|![アドオンの実行 手順1](https://dl.dropboxusercontent.com/s/ek7n05o59hyhlp3/use_add-on_1.png "アドオンの実行 手順1")|
 |---|---|---|
 
 さらに、コンソールには以下の文字列が出力されます。
@@ -114,13 +115,9 @@
 アドオンが無効化されると、コンソールに以下の文字列が出力されます。
 
 ```shell-session
-サンプル2-1: アドオン「サンプル1」が無効化されました。
+サンプル2-1: アドオン「サンプル2-1」が無効化されました。
 ```
 
-<div id="column"></div>
-
-ここまで期待した動作になっているでしょうか。  
-もし期待した動作にならずエラーが出てしまっている場合は、ソースコードに入力した内容が正しいか確認しましょう。特にPythonではスペースやタブが混ざっていたり、スペースやタブの数が合っていなかったりする場合にエラーになるケースが多いので、空白には特に注意してください。
 
 ## ソースコードの解説
 
@@ -147,17 +144,17 @@ import bpy   # アドオン開発者に対して用意しているAPIを利用�
 ```python
 # アドオンに関する情報を保持する、bl_info変数
 bl_info = {
-	"name": "サンプル2-1: オブジェクトを生成するアドオン",
-	"author": "Nutti",
-	"version": (1, 0),
-	"blender": (2, 75, 0),
-	"location": "3Dビュー > 追加 > メッシュ",
-	"description": "オブジェクトを生成するサンプルアドオン",
-	"warning": "",
-	"support": "TESTING",
-	"wiki_url": "",
-	"tracker_url": "",
-	"category": "Object"
+    "name": "サンプル2-1: オブジェクトを生成するアドオン",
+    "author": "Nutti",
+    "version": (2, 0),
+    "blender": (2, 75, 0),
+    "location": "3Dビュー > 追加 > メッシュ",
+    "description": "オブジェクトを生成するサンプルアドオン",
+    "warning": "",
+    "support": "TESTING",
+    "wiki_url": "",
+    "tracker_url": "",
+    "category": "Object"
 }
 ```
 
@@ -197,7 +194,7 @@ bl_info = {
 
 以下の図では、 ```bl_info``` 変数に指定された値と表示内容の対応関係を示しています。 ```warning```, ```wiki_url```, ```tracker_url``` については、本節のサンプルでは未設定のため表示されていません。
 
-![bl_info 解説1](https://dl.dropboxusercontent.com/s/ko8lslcvcw84ras/blender_bl-info_1.png "bl_info 解説1")
+![bl_info 解説1](https://dl.dropboxusercontent.com/s/ko8lslcvcw84ras/bl-info_1.png "bl_info 解説1")
 
 作成したサンプルは ```warning```, ```wiki_url```, ```tracker_url``` を設定していませんが、もし値を設定した場合にユーザ設定ウィンドウへどのように反映されるか見てみます。
 
@@ -222,7 +219,7 @@ bl_info = {
 
 ソースコードを書き換えてアドオンを有効化すると、ユーザ設定ウィンドウのアドオン情報にボタンと警告マークが表示されます。
 
-![bl_info 解説2](https://dl.dropboxusercontent.com/s/pxe76rmhdanmmpw/blender_bl-info_2.png "bl_info 解説2")
+![bl_info 解説2](https://dl.dropboxusercontent.com/s/pxe76rmhdanmmpw/bl-info_2.png "bl_info 解説2")
 
 ドキュメント編集ボタンをクリックすると、 ```wiki_url``` に指定したURLが開きます。アドオンのドキュメントや本アドオンの最新情報が得られるサイトのURLを ```wiki_url``` に設定するように設定します。本節のサンプルでは、本書のWebページ版が公開されているURLを設定しました。
 
@@ -261,9 +258,9 @@ bl_info = {
 
 ##### location
 
-アドオンの機能を使うためのUIが存在する場所を指定します。例えば *3Dビュー* エリアの *追加* > *メッシュ* に追加する場合は、以下のように記載します。
+アドオンの機能を使うためのUIが存在する場所を指定します。例えば *3Dビュー* エリアの *追加* > *メッシュ* に追加する場合は、 ```3Dビュー > 追加 > メッシュ``` のように記載します。
 
-```3Dビュー > 追加 > メッシュ```
+
 
 
 <div id="column"></div>
@@ -329,7 +326,7 @@ versionに指定するタプル値の最後の要素はBlenderのサブバージ
 実際、どのような警告メッセージが表示されるか確認してみましょう。
 ```blender``` に ```(2, 76, 0)``` を指定してアドオンを有効化すると、図のように警告メッセージが表示されます。
 
-![bl_info 解説3](https://dl.dropboxusercontent.com/s/qork1jkrh9flakt/blender_bl-info_3.png "bl_info 解説3")
+![bl_info 解説3](https://dl.dropboxusercontent.com/s/qork1jkrh9flakt/bl-info_3.png "bl_info 解説3")
 
 <div id="column"></div>
 
@@ -352,7 +349,7 @@ versionに指定するタプル値の最後の要素はBlenderのサブバージ
 
 <div id="sidebyside"></div>
 
-|本書で紹介する全てのサンプルのアドオンは、 ```support``` に ```TESTING``` が設定されています。<br>テスト中のボタンのみ選択することで、右図のようにサンプルのアドオンをすぐに見つけることができるようになっています。|![bl_info 解説4](https://dl.dropboxusercontent.com/s/38x9jafp3vzspyu/blender_bl-info_4.png "bl_info 解説4")|
+|本書で紹介する全てのサンプルのアドオンは、 ```support``` に ```TESTING``` が設定されています。<br>テスト中のボタンのみ選択することで、右図のようにサンプルのアドオンをすぐに見つけることができるようになっています。|![bl_info 解説4](https://dl.dropboxusercontent.com/s/38x9jafp3vzspyu/bl-info_4.png "bl_info 解説4")|
 |---|---|
 
 
@@ -362,14 +359,14 @@ versionに指定するタプル値の最後の要素はBlenderのサブバージ
 
 以下の図に示すように、カテゴリ一覧はユーザ設定ウィンドウのカテゴリーから確認できます。アドオンのカテゴリは英語で指定する必要があるため、Blenderを日本語化している方は一度英語に戻してカテゴリの正式名称を確認しましょう。
 
-![bl_info 解説5](https://dl.dropboxusercontent.com/s/kbukte47nas0i5r/blender_bl-info_5.png "bl_info 解説5")
+![bl_info 解説5](https://dl.dropboxusercontent.com/s/kbukte47nas0i5r/bl-info_5.png "bl_info 解説5")
 
 既存のカテゴリに分類できない場合は、新たなカテゴリを作ることもできます。
 
 
 <div id="sidebyside"></div>
 
-|```category``` に ```Sample``` を指定すると、右図に示すように新たなカテゴリとして ```Sample``` が追加されていることがわかります。|![bl_info 解説6](https://dl.dropboxusercontent.com/s/7tjnz7m5w4go17d/blender_bl-info_6.png "bl_info 解説6")|
+|```category``` に ```Sample``` を指定すると、右図に示すように新たなカテゴリとして ```Sample``` が追加されていることがわかります。|![bl_info 解説6](https://dl.dropboxusercontent.com/s/7tjnz7m5w4go17d/bl-info_6.png "bl_info 解説6")|
 |---|---|
 
 
@@ -413,9 +410,11 @@ class CreateObject(bpy.types.Operator):
 
 ```bl_options``` には、オペレータクラスの処理の属性を、キーのみ指定したディクショナリ型で指定します。今回はメニューへ登録するための ```REGISTER``` と、処理中のエラー発生時に処理実行前の状態へ戻すことを可能にするための ```UNDO``` を指定しました。
 
-```bl_idname```　、 ```bl_label``` 、 ```bl_description``` に指定した内容は、以下のように追加したメニュー項目から確認することができます。
+<div id="sidebyside"></div>
 
-![オペレーション 解説7](https://dl.dropboxusercontent.com/s/nd2gve5namkfn1l/blender_operation_1.png "オペレーション 解説1")
+|```bl_idname```　、 ```bl_label``` 、 ```bl_description``` に指定した内容は、以下のように追加したメニュー項目から確認することができます。|![オペレーション 解説1](https://dl.dropboxusercontent.com/s/nd2gve5namkfn1l/operation_1.png "オペレーション 解説1")|
+|---|---|
+
 
 続いて、メニューを実行した時に呼ばれる関数を作成します。
 
@@ -465,7 +464,7 @@ ICO球生成時のサイズが2.0倍、生成時の座標が(x, y, z) = (5.0, -5
 
 <div id="sidebyside"></div>
 
-|アドオンを有効化し、3Dビューエリアのメニューから追加 > メッシュ > 球 を実行すると、右図のように指定した引数に応じてICO球を生成されます。|![オペレーション 解説2](https://dl.dropboxusercontent.com/s/a6qe1qaytr33dri/blender_operation_2.png "オペレーション 解説2")|
+|アドオンを有効化し、3Dビューエリアのメニューから追加 > メッシュ > 球 を実行すると、右図のように指定した引数に応じてICO球を生成されます。|![オペレーション 解説2](https://dl.dropboxusercontent.com/s/a6qe1qaytr33dri/operation_2.png "オペレーション 解説2")|
 |---|---|
 
 <div id="space_xl"></div>
@@ -476,7 +475,7 @@ ICO球生成時のサイズが2.0倍、生成時の座標が(x, y, z) = (5.0, -5
 bpy.ops.mesh.primitive_ico_sphere_add()関数がICO球を作成する関数であると書きましたが、どのようにしてこの関数がICO球を作成する関数であることを知ることができたのでしょうか？  
 [4-1節](../chapter_04/01_Research_official_Blender_API_for_Add-on.md)で紹介する、BlenderのAPIリファレンスから探しても良いですが、本APIについてはもっと簡単に調べる方法があります。  
 Blenderではメニューやボタンをマウスオーバーすることで、メニュー実行により実行される関数を表示できます。このため、3Dビューエリアのメニューバーの追加 > メッシュ > ICO球にマウスカーソルを置くことで、ICO球を生成する関数を確認することができます。この方法で確認することができるのはメニューなどで提供される機能に限りますが、非常に手軽にAPIを確認できるため覚えておいて損はないでしょう。
-![APIの調査](https://dl.dropboxusercontent.com/s/7blrr06i94597uh/blender_find_API.png "APIの調査")
+![APIの調査](https://dl.dropboxusercontent.com/s/7blrr06i94597uh/find_API.png "APIの調査")
 
 続いて ```print()``` 関数が呼ばれますが、 ```print()``` 関数は引数に指定した文字列を コンソールに表示する関数です。
 
@@ -519,9 +518,9 @@ def menu_fn(self, context):
 ```python
 # アドオン有効化時の処理
 def register():
-	bpy.utils.register_module(__name__)
-	bpy.types.INFO_MT_mesh_add.append(menu_fn)
-	print("サンプル2-1: アドオン「サンプル1」が有効化されました。")
+    bpy.utils.register_module(__name__)
+    bpy.types.INFO_MT_mesh_add.append(menu_fn)
+    print("サンプル2-1: アドオン「サンプル2-1」が有効化されました。")
 ```
 
 ```bpy.utils.register_module()``` 関数 は、引数に指定したモジュールを登録してBlender内で使えるようにするための関数です。
@@ -543,9 +542,9 @@ bpy.types.INFO_MT_mesh_addは、bpy.types.INFO_MT_mesh_add.append()関数を確�
 ```python
 # アドオン無効化時の処理
 def unregister():
-	bpy.types.INFO_MT_mesh_add.remove(menu_fn)
-	bpy.utils.unregister_module(__name__)
-	print("サンプル2-1: アドオン「サンプル1」が無効化されました。")
+    bpy.types.INFO_MT_mesh_add.remove(menu_fn)
+    bpy.utils.unregister_module(__name__)
+    print("サンプル2-1: アドオン「サンプル2-1」が無効化されました。")
 ```
 
 ```bpy.types.INFO_MT_mesh_add.remove()``` 関数に、メニューを構築する関数である ```menu_fn()``` 関数を指定することで、3Dビューエリアのメニューである追加 > メッシュからメニューを削除することができます。
@@ -560,7 +559,7 @@ def unregister():
 
 <div id="sidebyside"></div>
 
-|右図のように、テキストエディターのメニューであるテキスト > スクリプト実行を実行した時に呼ばれる処理がメイン処理です。|![スクリプト実行 手順](https://dl.dropboxusercontent.com/s/b4hwarizgr6ikzd/blender_run_script.png "スクリプト実行 手順")|
+|右図のように、テキストエディターのメニューであるテキスト > スクリプト実行を実行した時に呼ばれる処理がメイン処理です。|![スクリプト実行 手順](https://dl.dropboxusercontent.com/s/b4hwarizgr6ikzd/run_script.png "スクリプト実行 手順")|
 |---|---|
 
 メイン処理では、単純にアドオンの登録処理のみ行っています。

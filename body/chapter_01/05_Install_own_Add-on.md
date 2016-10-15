@@ -27,7 +27,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*テキストエディター* エリアのメニューバーにある *新規* をクリックして空のテキストを作成します。|![アドオン作成 手順1](https://dl.dropboxusercontent.com/s/6x7jkbaadtehb2e/blender_make_add-on_1.png "アドオン作成 手順1")|
+|<div id="box">2</div>|*テキストエディター* エリアのメニューバーにある *新規* をクリックして空のテキストを作成します。|![アドオン作成 手順2](https://dl.dropboxusercontent.com/s/6x7jkbaadtehb2e/blender_make_add-on_2.png "アドオン作成 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -36,7 +36,7 @@
 
 <div id="process"></div>
 
-|<div id="box">3</div>| 以下に示すソースコード全文を入力します。空白は全て半角スペースで入力し、タブや全角スペースが含まれないように注意してください。|![アドオン作成 手順2](https://dl.dropboxusercontent.com/s/t6agj2bu859vk1c/blender_make_add-on_2.png "アドオン作成 手順2")|
+|<div id="box">3</div>| 以下に示すソースコード全文を入力します。空白は全て半角スペースで入力し、タブや全角スペースが含まれないように注意してください。|![アドオン作成 手順3](https://dl.dropboxusercontent.com/s/yv4zxwqlzljnm10/blender_make_add-on_3.png "アドオン作成 手順3")|
 |---|---|---|
 
 [import](../../sample/src/chapter_01/sample_1-5.py)
@@ -47,7 +47,7 @@
 
 <div id="process"></div>
 
-|<div id="box">4</div>|入力が完了したら、 *テキストエディタ* エリアのメニューバーから *テキスト* > *名前つけて保存* を実行します。|![アドオン作成 手順3](https://dl.dropboxusercontent.com/s/cbwyg0yebb8loww/blender_make_add-on_3.png "アドオン作成 手順3")|
+|<div id="box">4</div>|入力が完了したら、 *テキストエディタ* エリアのメニューバーから *テキスト* > *名前つけて保存* を実行します。|![アドオン作成 手順4](https://dl.dropboxusercontent.com/s/cbwyg0yebb8loww/blender_make_add-on_4.png "アドオン作成 手順4")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -56,7 +56,7 @@
 
 <div id="process"></div>
 
-|<div id="box">5</div>|ファイル名 *sample_1-5.py* という名前で保存します。<br>[1.2節](02_Use_Blender_Add-on.md) でも解説しましたが、保存先はOSごとに異なりますので注意してください。|![アドオン作成 手順4](https://dl.dropboxusercontent.com/s/z9ibf7qz2t1jlj7/blender_make_add-on_4.png "アドオン作成 手順4")|
+|<div id="box">5</div>|ファイル名 *sample_1-5.py* という名前で保存します。<br>[1.2節](02_Use_Blender_Add-on.md) でも解説しましたが、保存先はOSごとに異なりますので注意してください。|![アドオン作成 手順5](https://dl.dropboxusercontent.com/s/z9ibf7qz2t1jlj7/blender_make_add-on_5.png "アドオン作成 手順5")|
 |---|---|---|
 
 |OS|保存先|
@@ -101,7 +101,7 @@
 
 <div id="process"></div>
 
-|<div id="box">3</div>|チェックボックスをクリックし、アドオンを有効化します。|![アドオン有効化 手順2](https://dl.dropboxusercontent.com/s/ghc3rhh2wf3v9zc/blender_enable_add-on_2.png "アドオン有効化 手順2")|
+|<div id="box">3</div>|チェックボックスをクリックし、アドオンを有効化します。|![アドオン有効化 手順3](https://dl.dropboxusercontent.com/s/d5wd9q0xfdbpvqd/blender_enable_add-on_3.png "アドオン有効化 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -114,7 +114,7 @@
 |---|---|
 
 ```sh
-アドオンが有効化されました。
+サンプル1-5: アドオン「サンプル1-5」が有効化されました。
 ```
 
 これにより今回作成したアドオンが有効化され、使用する準備が整いました。
@@ -139,8 +139,13 @@
 アドオンを無効化すると、コンソールに以下の文字列が出力されます。
 
 ```sh
-アドオンが無効化されました。
+サンプル1-5: アドオン「サンプル1-5」が無効化されました。
 ```
+
+<div id="column"></div>
+
+ここまで期待した動作になっているでしょうか。  
+もし期待した動作にならずエラーが出てしまっている場合は、ソースコードに入力した内容が正しいか確認しましょう。特にPythonではスペースやタブが混ざっていたり、スペースやタブの数が合っていなかったりする場合にエラーになるケースが多いので、空白には特に注意してください。
 
 ## まとめ
 
