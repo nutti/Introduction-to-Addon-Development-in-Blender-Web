@@ -11,7 +11,7 @@
     "pdf": {
         "paperSize": "a3",
         "margin": {
-            "top": 60,
+            "top": 70,
             "bottom": 45,
             "right": 60,
             "left": 60

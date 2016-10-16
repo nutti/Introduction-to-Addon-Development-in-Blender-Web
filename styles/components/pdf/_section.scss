@@ -112,6 +112,5 @@ $sect_img_list:
         @include section_title_text(1.95em, -330.0px, -210px);
         @include section_title_img();
         @include section_title_preface(0.7em , 220px, -120px, -140px);
-        //@include section_title_preface(0.6em , 220px, -120px, -140px);
     }
 }

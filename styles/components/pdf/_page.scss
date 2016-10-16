@@ -141,7 +141,6 @@
                 th:nth-of-type(2) {
                     font-family: NotoSansCJKjp;
                     font-size: $font_size_2;
-                    //line-height: 2.0;
                     border: none;
                     width: 46%;
                     text-align: left;
@@ -176,7 +175,7 @@
                     font-style: italic;
                     color: #BBBBBB;
                     border: none;
-                    width: 5%;
+                    width: 4%;
                     text-align: center;
                     background-color: #FFFFFF;
                     vertical-align: top;
@@ -188,7 +187,7 @@
                     font-size: $font_size_2;
                     line-height: 2.0;
                     border: none;
-                    width: 45%;
+                    width: 46%;
                     text-align: left;
                     background-color: #FFFFFF;
                     vertical-align: top;
@@ -255,7 +254,7 @@
                     font-style: italic;
                     color: #BBBBBB;
                     border: none;
-                    width: 5%;
+                    width: 4%;
                     text-align: center;
                     background-color: #FFFFFF;
                     vertical-align: top;
@@ -266,7 +265,7 @@
                     font-size: $font_size_2;
                     line-height: 2.0;
                     border: none;
-                    width: 95%;
+                    width: 96%;
                     text-align: left;
                     background-color: #FFFFFF;
                     vertical-align: top;
@@ -511,10 +510,14 @@
 
 @mixin em($font_size) {
     em {
-        //font-size: $font_size;
         font-size: inherit;
         font-style: normal;
-        //background-color: #DDDDDD;
+        &:before {
+            content: "[";
+        }
+        &:after {
+            content: "]";
+        }
     }
 }
 
@@ -527,8 +530,8 @@
         font-weight: bold;
         top: $top;
         color: #FFFFFF;
-        //width: 92%;
-        width: 20%;
+        //width: 20%;
+        width: 100%;
         p {
             background-color: #666666;
             padding: 2px;
@@ -566,7 +569,7 @@
             tr {
                 th {
                     font-family: MPlus;
-                    font-size: $font_size * 0.9;
+                    font-size: $font_size;
                     color: #EEEEEE;
                     background-color: #222222;
                     font-weight: normal;
@@ -578,7 +581,7 @@
             tr:nth-of-type(1) {
                 td {
                     font-family: NotoSansCJKjp;
-                    font-size: $font_size * 0.8;
+                    font-size: $font_size;
                     background-color: #FCFCFC;
                     color: #111111;
                 }
@@ -591,7 +594,7 @@
             tr:nth-of-type(3) {
                 td {
                     font-family: NotoSansCJKjp;
-                    font-size: $font_size * 0.9;
+                    font-size: $font_size;
                 }
             }
         }
@@ -602,11 +605,9 @@
     code {
         font-family: Hack, NotoSansCJKjp;
         font-size: $font_size;
-        //line-height: 2.0;
         background-color: #FFFFFF;
         vertical-align: 1px;
         padding: 0px;
-        //color: #111111;
     }
     code:before {
         letter-spacing: -2.0em;
@@ -779,7 +780,6 @@
     #space_page {
         display: block;
         height: $space;
-        //background-color: #000000;
     }
 }
 
@@ -791,8 +791,6 @@
         text-decoration-color: #AAAAAA;
         font-family: NotoSansCJKjp;
         font-weight: normal;
-        //border-bottom: 1px solid #000000;
-        //padding-bottom: 0px;
         font-size: $font_size;
     }
 }
@@ -817,11 +815,9 @@
         margin-top: 25px;
         margin-bottom: 25px;
         background: none;
-        //line-height: 3.5;
         >code {
             font-family: Hack, NotoSansCJKjp;
             font-size: $font_size_base * 0.7;
-            //line-height: $line_height;
             line-height: 2.0;
             white-space: pre-wrap;
             background: none;
@@ -891,8 +887,10 @@
         @include h5(0.8em);
         @include column(0.65em * 0.8, 1.3);
         @include em(0.80em);
-        @include blockquote(0.55em, 18px, 26px);
-        @include code(0.80em);
+        //@mixin blockquote($font_size, $margin_left, $top)
+        //@include blockquote(0.55em, 18px, 26px);
+        @include blockquote(0.55em, 18px, -30px);
+        @include code(0.9em);
         @include a(0.8em);
         @include point_item(0.65em, 1.5, 0.3em, -1.3em, 12px, 12px);
         @include space_no(0px);
