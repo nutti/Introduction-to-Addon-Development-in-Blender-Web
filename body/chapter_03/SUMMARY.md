@@ -25,3 +25,4 @@
 5. [アドオンから音を鳴らす](05_Play_Sound_from_Add-on.md)
 6. [アドオンを多言語に対応する](06_Multilingual_Support.md)
 7. [座標変換を活用する](07_Use_Coordinate_Transformation.md)
+8. [アドオンの設定を活用する](08_Use_Add-on_Preference.md)

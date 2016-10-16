@@ -42,12 +42,12 @@
 アドオンを有効化すると、コンソールに以下の文字列が出力されます。
 
 ```sh
-サンプル2-3: アドオン「サンプル3」が有効化されました。
+サンプル2-3: アドオン「サンプル2-3」が有効化されました。
 ```
 
 <div id="sidebyside"></div>
 
-|右図のように、3Dビューのエリアのメニューにオブジェクト > 選択オブジェクトの拡大（拡大率任意指定）とオブジェクト > 選択オブジェクトの縮小（縮小率任意指定）が追加されていることを確認します。|![メニューの追加確認](https://dl.dropboxusercontent.com/s/e97r8hbr4kxr8ef/use_add-on_1.png "メニューの追加確認")|
+|右図のように、3Dビューのエリアのメニューにオブジェクト > 選択オブジェクトの拡大（拡大率任意指定）とオブジェクト > 選択オブジェクトの縮小（縮小率任意指定）が追加されていることを確認します。|![メニューの追加確認](https://dl.dropboxusercontent.com/s/e97r8hbr4kxr8ef/enable_add-on.png "メニューの追加確認")|
 |---|---|
 
 
@@ -70,7 +70,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|3Dビューエリアのメニューである、オブジェクト > 選択オブジェクトの拡大（拡大率任意指定）を実行すると、選択したオブジェクトCubeのサイズが2倍に拡大されます。<br>この状態でツール・シェルフの下側を見てみましょう。選択オブジェクトの拡大（拡大率任意指定）のラベルの下に拡大率というオプションが追加され、数値を入力できるようになりました。|![選択オブジェクトの拡大1](https://dl.dropboxusercontent.com/s/q989u68qznr9j10/use_add-on_2.png "選択オブジェクトの拡大1")|
+|<div id="box">2</div>|3Dビューエリアのメニューである、オブジェクト > 選択オブジェクトの拡大（拡大率任意指定）を実行すると、選択したオブジェクトCubeのサイズが2倍に拡大されます。<br>この状態でツール・シェルフの下側を見てみましょう。選択オブジェクトの拡大（拡大率任意指定）のラベルの下に拡大率というオプションが追加され、数値を入力できるようになりました。|![選択オブジェクトの拡大・縮小 手順2](https://dl.dropboxusercontent.com/s/q989u68qznr9j10/use_add-on_2.png "選択オブジェクトの拡大・縮小 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -79,7 +79,7 @@
 
 <div id="process"></div>
 
-|<div id="box">3</div>|拡大率の数値を好きな値に変更します。<br>指定した拡大率の値に応じて、オブジェクトの拡大率が変わります。また、数値変更の度に拡大したことを示すメッセージがコンソール・ウィンドウに表示されます。|![選択オブジェクトの拡大2](https://dl.dropboxusercontent.com/s/nvtlavprah8elk5/use_add-on_3.png "選択オブジェクトの拡大2")|
+|<div id="box">3</div>|拡大率の数値を好きな値に変更します。<br>指定した拡大率の値に応じて、オブジェクトの拡大率が変わります。また、数値変更の度に拡大したことを示すメッセージがコンソール・ウィンドウに表示されます。|![選択オブジェクトの拡大・縮小 手順3](https://dl.dropboxusercontent.com/s/nvtlavprah8elk5/use_add-on_3.png "選択オブジェクトの拡大・縮小 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -97,7 +97,7 @@
 
 <div id="process"></div>
 
-|<div id="box">5</div>|縮小率の数値を変更することで、オブジェクトの縮小率を変えることができます。|![選択オブジェクトの縮小](https://dl.dropboxusercontent.com/s/yiktzp7fbujdumn/use-add-on_4.png "選択オブジェクトの縮小")|
+|<div id="box">5</div>|縮小率の数値を変更することで、オブジェクトの縮小率を変えることができます。|![選択オブジェクトの拡大・縮小 手順5](https://dl.dropboxusercontent.com/s/yiktzp7fbujdumn/use-add-on_5.png "選択オブジェクトの拡大・縮小 手順5")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -112,7 +112,7 @@
 アドオンが無効化されると、コンソールに以下の文字列が出力されます。
 
 ```sh
-サンプル2-3: アドオン「サンプル3」が無効化されました。
+サンプル2-3: アドオン「サンプル2-3」が無効化されました。
 ```
 
 <div id="space_l"></div>
@@ -154,21 +154,21 @@
 
 ```python
 magnification = FloatProperty(
-  name = "拡大率",
-  description = "拡大率を設定します",
-  default = 2.0,
-  min = 1.0,
-  max = 10.0
+    name = "拡大率",
+    description = "拡大率を設定します",
+    default = 2.0,
+    min = 1.0,
+    max = 10.0
 )
 
 # ・・・（略）・・・
 
 reduction = FloatProperty(
-  name = "縮小率",
-  description = "縮小率を設定します",
-  default = 0.5,
-  min = 0.001,
-  max = 1.0
+    name = "縮小率",
+    description = "縮小率を設定します",
+    default = 0.5,
+    min = 0.001,
+    max = 1.0
 )
 ```
 
@@ -185,7 +185,7 @@ execute()メソッドの中で指定されたオプションの値は、以下�
 
 
 ```python
-        active_obj.scale = active_obj.scale * self.reduction
+active_obj.scale = active_obj.scale * self.reduction
 ```
 
 <div id="space_l"></div>

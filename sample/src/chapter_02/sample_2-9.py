@@ -38,6 +38,38 @@ class NullOperationMenu(bpy.types.Menu):
             layout.operator(NullOperation.bl_idname, text=("項目 %d" % (i)))
 
 
+class ShowAllIcons(bpy.types.Operator):
+    bl_idname = "object.show_all_icons"
+    bl_label = "利用可能なアイコンをすべて表示"
+    bl_description = "利用可能なアイコンをすべて表示"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    num_column = IntProperty(
+        name="一行に表示するアイコン数",
+        description="一行に表示するアイコン数",
+        default=2,
+        min=1,
+        max=5)
+
+    # オプションのUI
+    def draw(self, context):
+        layout = self.layout
+
+        layout.prop(self, "num_column")
+
+        layout.separator()
+
+        # 利用可能なアイコンをすべて表示
+        layout.label(text="利用可能なアイコン一覧:")
+        for i, key in enumerate(bpy.types.UILayout.bl_rna.functions['prop'].parameters['icon'].enum_items.keys()):
+            if i % self.num_column == 0:
+                row = layout.row()
+            row.label(text=key, icon=key)
+
+    def execute(self, context):
+        return {'FINISHED'}
+
+
 # ツールシェルフに「カスタムメニュー」タブを追加
 class VIEW3D_PT_CustomMenu(bpy.types.Panel):
     bl_label = "カスタムメニュー"       # タブに表示される文字列
@@ -197,42 +229,6 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
 
         layout.separator()
 
-        # ポップアップメッセージを表示する
-        layout.label(text="ポップアップメッセージを表示する:")
-        layout.operator(ShowPopupMessage.bl_idname)
-
-        layout.separator()
-
-        # ダイアログメニューを表示する
-        layout.label(text="ダイアログメニューを表示する:")
-        layout.operator(ShowDialogMenu.bl_idname)
-
-        layout.separator()
-
-        # ファイルブラウザを表示する
-        layout.label(text="ファイルブラウザを表示する:")
-        layout.operator(ShowFileBrowser.bl_idname)
-
-        layout.separator()
-
-        # 確認ポップアップを表示する
-        layout.label(text="確認ポップアップを表示する:")
-        layout.operator(ShowConfirmPopup.bl_idname)
-
-        layout.separator()
-
-        # プロパティ付きポップアップを表示する
-        layout.label(text="プロパティ付きポップアップを表示する:")
-        layout.operator(ShowPropertyPopup.bl_idname)
-
-        layout.separator()
-
-        # 検索ポップアップを表示する
-        layout.label(text="検索ポップアップを表示する:")
-        layout.operator(ShowSearchPopup.bl_idname)
-
-        layout.separator()
-
         # プロパティのUIをカスタマイズする＋アイコン一覧を表示する
         layout.label(text="プロパティのUIをカスタマイズする")
         layout.operator(ShowAllIcons.bl_idname)
@@ -279,29 +275,13 @@ def clear_props():
     del scene.cm_prop_floatv
 
 
-def menu_fn_1(self, context):
-    self.layout.separator()
-    self.layout.operator(NullOperation.bl_idname, text="項目 1", icon='PLUGIN')
-
-
-def menu_fn_2(self, context):
-    self.layout.operator(NullOperation.bl_idname, text="項目 2", icon='PLUGIN')
-    self.layout.separator()
-
-
 def register():
     bpy.utils.register_module(__name__)
-    # 項目をメニューの先頭に追加
-    bpy.types.VIEW3D_MT_object.append(menu_fn_1)
-    # 項目をメニューの末尾に追加
-    bpy.types.VIEW3D_MT_object.prepend(menu_fn_2)
     init_props()
     print("サンプル2-9: アドオン「サンプル2-9」が有効化されました。")
 
 
 def unregister():
-    bpy.types.VIEW3D_MT_object.remove(menu_fn_2)
-    bpy.types.VIEW3D_MT_object.remove(menu_fn_1)
     bpy.utils.unregister_module(__name__)
     clear_props()
     print("サンプル2-9: アドオン「サンプル2-9」が無効化されました。")

@@ -31,6 +31,7 @@
   5. [アドオンから音を鳴らす](body/chapter_03/05_Play_Sound_from_Add-on.md)
   6. [アドオンを多言語に対応する](body/chapter_03/06_Multilingual_Support.md)
   7. [座標変換を活用する](body/chapter_03/07_Use_Coordinate_Transformation.md)
+  8. [アドオンの設定を活用する](body/chapter_03/08_Use_Add-on_Preference.md)
 4. [さらにその先へ](body/chapter_04/SUMMARY.md)
   1. [Blenderが提供するアドオン向けのAPIを調べる](body/chapter_04/01_Research_official_Blender_API_for_Add-on.md)
   2. [アドオンをデバッグする](body/chapter_04/02_Debug_Add-on.md)

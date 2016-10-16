@@ -139,13 +139,13 @@ import bpy
 ### bl_info 変数の作成
 
 ```__init__.py``` には、 ```bl_info``` 変数を記載する必要があります。
-コードの内容は、 [2.1節](../chapter_02/01_Basic_of_Add-on_Development.md) と同じですので、ここでは説明を省略します。
+コードの内容は、 [2-1節](../chapter_02/01_Basic_of_Add-on_Development.md) と同じですので、ここでは説明を省略します。
 
 ### アドオン有効化・無効化時の処理
 
 アドオンの有効化・無効化時呼ばれる、 ```register()``` 関数・ ```unregister()``` 関数についても ```__init__.py``` に記載する必要があります。
 
-ソースコードの内容は、 [2.1節](../chapter_02/01_Basic_of_Add-on_Development.md) と同様ですので基本的にそちらを参照すれば問題ありませんが、1点異なることがあります。
+ソースコードの内容は、 [2-1節](../chapter_02/01_Basic_of_Add-on_Development.md) と同様ですので基本的にそちらを参照すれば問題ありませんが、1点異なることがあります。
 ```register()``` 関数や ```unregister()``` 関数で ```bpy.types.VIEW3D_MT_object.append()``` 関数に渡す関数 ```menu_fn()``` 関数を見てください。
 ```menu_fn()``` 関数の中で ```self.layout.operator()``` 関数が呼ばれていますが、引数に注目するとクラス名の前にモジュール名が追加されています。
 ```bpy``` モジュールと同様に ```enlarge_object``` もモジュールであるため、モジュール内のクラスや関数などにアクセスする場合は、モジュール名をつける必要があります。
@@ -154,7 +154,7 @@ import bpy
 ### enlarge_object.py と reduce_object.py
 
 ```enlarge_object.py``` には ```EnlargeObject``` クラス、 ```reduce_object.py``` には ```ReduceObject``` クラスが記載されています。
-ソースコードの内容については、 [2.1節](../chapter_02/01_Basic_of_Add-on_Development.md) を参照してください。
+ソースコードの内容については、 [2-1節](../chapter_02/01_Basic_of_Add-on_Development.md) を参照してください。
 
 
 ## まとめ
