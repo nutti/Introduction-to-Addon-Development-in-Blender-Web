@@ -203,17 +203,17 @@ bl_info = {
 ```python
 # アドオンに関する情報を保持する、bl_info変数
 bl_info = {
-	"name": "サンプル2-1: オブジェクトを生成するアドオン",
-	"author": "Nutti",
-	"version": (1, 0),
-	"blender": (2, 75, 0),
-	"location": "3Dビュー > 追加 > メッシュ",
-	"description": "オブジェクトを生成するサンプルアドオン",
-	"warning": "本アドオンはサンプルです",
-	"support": "TESTING",
-	"wiki_url": "https://www.gitbook.com/book/nutti/introduction-to-add-on-development-in-blender/",
-	"tracker_url": "https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender",
-	"category": "Object"
+    "name": "サンプル2-1: オブジェクトを生成するアドオン",
+    "author": "Nutti",
+    "version": (2, 0),
+    "blender": (2, 75, 0),
+    "location": "3Dビュー > 追加 > メッシュ",
+    "description": "オブジェクトを生成するサンプルアドオン",
+    "warning": "本アドオンはサンプルです",
+    "support": "TESTING",
+    "wiki_url": "https://www.gitbook.com/book/nutti/introduction-to-add-on-development-in-blender/",
+    "tracker_url": "https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender",
+    "category": "Object"
 }
 ```
 
@@ -391,10 +391,10 @@ bl_infoは必ずしも必要な情報ではなく、あくまでアドオンの�
 # オブジェクト（ICO球）を生成するオペレーション
 class CreateObject(bpy.types.Operator):
 
-	bl_idname = "object.create_object"
-	bl_label = "球"
-	bl_description = "ICO球を追加します"
-	bl_options = {'REGISTER', 'UNDO'}
+    bl_idname = "object.create_object"
+    bl_label = "球"
+    bl_description = "ICO球を追加します"
+    bl_options = {'REGISTER', 'UNDO'}
 ```
 
 オペレータクラスには、以下のようなメンバ変数を含める必要があります。
@@ -420,11 +420,11 @@ class CreateObject(bpy.types.Operator):
 
 ```python
   # メニューを実行した時に呼ばれる関数
-	def execute(self, context):
-		bpy.ops.mesh.primitive_ico_sphere_add()
-		print("サンプル2-1: 3DビューにICO球を生成しました。")
+    def execute(self, context):
+        bpy.ops.mesh.primitive_ico_sphere_add()
+        print("サンプル2-1: 3DビューにICO球を生成しました。")
 
-		return {'FINISHED'}
+        return {'FINISHED'}
 ```
 
 メニューを実行した時には ```exexute()``` メソッドが呼ばれます。このため、 ```exexute()``` メソッドにはメニューを実行した時の処理を記述します。
@@ -455,11 +455,11 @@ ICO球生成時のサイズが2.0倍、生成時の座標が(x, y, z) = (5.0, -5
 
 ```python
   # メニューを実行した時に呼ばれる関数
-	def execute(self, context):
-		bpy.ops.mesh.primitive_ico_sphere_add(size=2.0, location=(5.0, -5.0, 0.0), rotation=(0.79, 0.0, 1.57))
-		print("サンプル2-1: 3DビューにICO球を生成しました。")
+    def execute(self, context):
+        bpy.ops.mesh.primitive_ico_sphere_add(size=2.0, location=(5.0, -5.0, 0.0), rotation=(0.79, 0.0, 1.57))
+        print("サンプル2-1: 3DビューにICO球を生成しました。")
 
-		return {'FINISHED'}
+        return {'FINISHED'}
 ```
 
 <div id="sidebyside"></div>
@@ -501,8 +501,8 @@ Blenderではメニューやボタンをマウスオーバーすることで、�
 ```python
 # メニューを構築する関数
 def menu_fn(self, context):
-	self.layout.separator()
-	self.layout.operator(CreateObject.bl_idname)
+    self.layout.separator()
+    self.layout.operator(CreateObject.bl_idname)
 ```
 
 メニューの編集は、 ```self.layout``` を用いて行います。
@@ -569,7 +569,7 @@ def unregister():
 ```python
 # メイン処理
 if __name__ == "__main__":
-	register()
+    register()
 ```
 
 ## まとめ

@@ -39,7 +39,7 @@
 
 <div id="sidebyside"></div>
 
-|アドオン有効化後、右図のように *3Dビュー* エリアのメニューに *オブジェクト* > *選択オブジェクトの拡大* と、 *オブジェクト* > *選択オブジェクトの縮小* が追加されていることを確認します。|![メニューの追加確認](https://dl.dropboxusercontent.com/s/udxtkxqkbrbj4hz/blender_use_add-on_1.png "メニューの追加確認")|
+|アドオン有効化後、右図のように *3Dビュー* エリアのメニューに *オブジェクト* > *選択オブジェクトの拡大* と、 *オブジェクト* > *選択オブジェクトの縮小* が追加されていることを確認します。|![メニューの追加確認](https://dl.dropboxusercontent.com/s/udxtkxqkbrbj4hz/enable_add-on.png "メニューの追加確認")|
 |---|---|
 
 
@@ -56,7 +56,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|Blender起動直後に自動的に生成されているCubeを選択し、3Dビューエリアのメニューである、オブジェクト > 選択オブジェクトの拡大を実行します。<br>選択したオブジェクト *Cube* のサイズが2倍に拡大されます。|![選択オブジェクトの拡大](https://dl.dropboxusercontent.com/s/ll5jtxlmj5vek96/blender_use_add-on_2.png "選択オブジェクトの拡大")|
+|<div id="box">1</div>|Blender起動直後に自動的に生成されているCubeを選択し、3Dビューエリアのメニューである、オブジェクト > 選択オブジェクトの拡大を実行します。<br>選択したオブジェクト *Cube* のサイズが2倍に拡大されます。|![選択オブジェクトの拡大](https://dl.dropboxusercontent.com/s/ll5jtxlmj5vek96/use_add-on_1.png "選択オブジェクトの拡大")|
 |---|---|---|
 
 この時コンソール・ウィンドウを見ると、以下のメッセージが出力されます。
@@ -77,7 +77,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|情報エリアのメニューである、ファイル > 新規を実行し、スタートアップファイルの再読み込みを行った後、3Dビューエリアのメニューである、オブジェクト > 選択オブジェクトの縮小を実行します。<br>選択中のオブジェクトCubeのサイズが1/2倍に縮小されます。|![選択オブジェクトの縮小](https://dl.dropboxusercontent.com/s/zinqogsgx4td6jw/blender_use_add-on_3.png "選択オブジェクトの縮小")|
+|<div id="box">2</div>|情報エリアのメニューである、ファイル > 新規を実行し、スタートアップファイルの再読み込みを行った後、3Dビューエリアのメニューである、オブジェクト > 選択オブジェクトの縮小を実行します。<br>選択中のオブジェクトCubeのサイズが1/2倍に縮小されます。|![選択オブジェクトの縮小](https://dl.dropboxusercontent.com/s/zinqogsgx4td6jw/use_add-on_2.png "選択オブジェクトの縮小")|
 |---|---|---|
 
 この時コンソール・ウィンドウには、以下のメッセージが出力されます。
@@ -104,7 +104,7 @@
 アドオンを無効化すると、コンソールに以下の文字列が出力されます。
 
 ```sh
-サンプル2-2: アドオン「サンプル2」が無効化されました。
+サンプル2-2: アドオン「サンプル2-2」が無効化されました。
 ```
 
 ## ソースコードの解説
@@ -123,10 +123,10 @@
 # オブジェクトを拡大するオペレーション
 class EnlargeObject(bpy.types.Operator):
 
-	bl_idname = "object.enlarge_object"
-	bl_label = "選択オブジェクトの拡大"
-	bl_description = "選択中のオブジェクトを拡大します"
-	bl_options = {'REGISTER', 'UNDO'}
+    bl_idname = "object.enlarge_object"
+    bl_label = "選択オブジェクトの拡大"
+    bl_description = "選択中のオブジェクトを拡大します"
+    bl_options = {'REGISTER', 'UNDO'}
 
 # ・・・(略)・・・
 
@@ -134,10 +134,10 @@ class EnlargeObject(bpy.types.Operator):
 # オブジェクトを縮小するオペレーション
 class ReduceObject(bpy.types.Operator):
 
-	bl_idname = "object.reduce_object"
-	bl_label = "選択オブジェクトの縮小"
-	bl_description = "選択中のオブジェクトを縮小します"
-	bl_options = {'REGISTER', 'UNDO'}
+    bl_idname = "object.reduce_object"
+    bl_label = "選択オブジェクトの縮小"
+    bl_description = "選択中のオブジェクトを縮小します"
+    bl_options = {'REGISTER', 'UNDO'}
 
 # ・・・(略)・・・
 ```
@@ -151,14 +151,14 @@ class ReduceObject(bpy.types.Operator):
 ここでは ```EnlargeObject``` クラスの ```execute()``` メソッドを用いて、コンソール・ウィンドウへメッセージを出力する方法を紹介します。
 
 ```python
-    # メニューを実行した時に呼ばれるメソッド
-    def execute(self, context):
-        active_obj = context.active_object
-        active_obj.scale = active_obj.scale * 2.0
-        self.report(
-            {'INFO'},
-            "サンプル2-2: 「" + active_obj.name + "」を2倍に拡大しました。")
-        print("サンプル2-2: オペレーション「"+self.bl_idname+"」が実行されました。")
+# メニューを実行した時に呼ばれるメソッド
+def execute(self, context):
+    active_obj = context.active_object
+    active_obj.scale = active_obj.scale * 2.0
+    self.report({'INFO'}, "サンプル2-2: 「" + active_obj.name + "」を2倍に拡大しました。")
+    print("サンプル2-2: オペレーション「"+ self.bl_idname +"」が実行されました。")
+
+    return {'FINISHED'}
 ```
 
 ```execute()``` メソッドに渡されてくる引数については、 [2-1節](01_Basic_of_Add-on_Development.md)で説明しました。引数 ```context``` を利用することにより、現在のコンテキスト（実行状態）を取得することができます。
@@ -212,7 +212,7 @@ Blenderのエリア構成が [1-3節](../chapter_01/03_Prepare_Add-on_developmen
 
 <div id="process"></div>
 
-|<div id="box">1</div>|登録したオペレータクラスの ```bl_idname``` が ```bpy.ops.<オペレーションクラスのbl_idname>``` に登録されることを利用します。<br>Pythonコンソールに ```bpy.ops.object.enlarge_obje``` と入力してみます。入力が完了したら、WindowsやLinuxであればCtrl+Space、Macであればcontrol+spaceを押します。ここで単語が補完されなければ、 ```bl_idname``` として ```bpy.ops.object.enlarge_object``` が利用されていないことになり、 ```bl_idname``` に指定可能であることがわかります。|![Pythonコンソール 使い道1](https://dl.dropboxusercontent.com/s/xazuoclt1k0y4t7/blender_python_console_1.png "Pythonコンソール 使い道1")|
+|<div id="box">1</div>|登録したオペレータクラスの ```bl_idname``` が ```bpy.ops.<オペレーションクラスのbl_idname>``` に登録されることを利用します。<br>Pythonコンソールに ```bpy.ops.object.enlarge_obje``` と入力してみます。入力が完了したら、WindowsやLinuxであればCtrl+Space、Macであればcontrol+spaceを押します。ここで単語が補完されなければ、 ```bl_idname``` として ```bpy.ops.object.enlarge_object``` が利用されていないことになり、 ```bl_idname``` に指定可能であることがわかります。|![Pythonコンソール 使い道 手順1](https://dl.dropboxusercontent.com/s/xazuoclt1k0y4t7/python_console_1.png "Pythonコンソール 使い道1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -221,7 +221,7 @@ Blenderのエリア構成が [1-3節](../chapter_01/03_Prepare_Add-on_developmen
 
 <div id="process"></div>
 
-|<div id="box">2</div>|本節で作成したアドオンを有効化した後に、先ほどの操作をPythonコンソールで行います。<br>Pythonコンソールに以下を打ち込んで、Enterキーを押します。|![Pythonコンソール 使い道2](https://dl.dropboxusercontent.com/s/rxa9lx8uk12ytoq/blender_python_console_2.png "Pythonコンソール 使い道2")|
+|<div id="box">2</div>|本節で作成したアドオンを有効化した後に、先ほどの操作をPythonコンソールで行います。<br>Pythonコンソールに以下を打ち込んで、Enterキーを押します。|![Pythonコンソール 使い道 手順2](https://dl.dropboxusercontent.com/s/rxa9lx8uk12ytoq/python_console_2.png "Pythonコンソール 使い道 手順2")|
 |---|---|---|
 
 ```python
