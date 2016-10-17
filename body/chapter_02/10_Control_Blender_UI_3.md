@@ -14,7 +14,7 @@
 
 * 以下のようなタブを *3Dビュー* エリアの *ツール・シェルフ* に追加する
 
-![アドオンの仕様](https://dl.dropboxusercontent.com/s/ial27tu1ousllmx/add-on_spec.png "アドオンの仕様")
+![アドオンの仕様](https://dl.dropboxusercontent.com/s/b4pvtpef8rjog0a/add-on_spec.png "アドオンの仕様")
 
 * *ポップアップメッセージ* ボタンをクリックすると、ポップアップメッセージを表示する
 * *ダイアログメニュー* ボタンをクリックすると、プロパティ設定するためのダイアログメニューを表示する

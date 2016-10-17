@@ -13,7 +13,7 @@
 
 * 以下のようなタブを *3Dビュー* エリアの *ツール・シェルフ* に追加する
 
-![アドオンの仕様](https://dl.dropboxusercontent.com/s/ial27tu1ousllmx/add-on_spec.png "アドオンの仕様")
+![アドオンの仕様](https://dl.dropboxusercontent.com/s/dis0skwt2mswuqu/add-on_spec.png "アドオンの仕様")
 
 * *利用可能なアイコンをすべて表示* ボタンをクリックすると、アドオンから利用可能なアイコンを *ツール・シェルフ* のオプションに表示する
 * *利用可能なアイコンをすべて表示* 以外のボタンやメニューなどを操作しても、基本的に何も起こらない
