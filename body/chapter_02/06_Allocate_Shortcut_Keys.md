@@ -125,8 +125,6 @@ def unregister_shortcut():
 
 そして最後に、キーマップとショートカットキーのペアを保存したグローバル変数 ```addon_keymaps``` をクリアします。
 
-<div id="space_m"></div>
-
 
 ### 割り当てるショートカットキー
 

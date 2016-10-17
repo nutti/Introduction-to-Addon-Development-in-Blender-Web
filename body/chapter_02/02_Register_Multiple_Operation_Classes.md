@@ -22,8 +22,6 @@
 
 [import](../../sample/src/chapter_02/sample_2-2.py)
 
-<div id="space_xl"></div>
-
 
 ## アドオンを使用する
 
@@ -46,8 +44,6 @@
 ### アドオンの機能を使用する
 
 以下の手順に従い、作成したアドオンの機能を使ってみます。
-
-<div id="space_l"></div>
 
 
 <div id="process_title"></div>
@@ -203,8 +199,6 @@ Pythonコンソールを利用することにより、例えば以下のよう�
 
 Blenderのエリア構成が [1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介したように設定されていれば、左上のウィンドウが *Pythonコンソール* エリアとなります。
 
-<div id="space_x5l"></div>
-
 
 <div id="process_title"></div>
 
@@ -318,12 +312,8 @@ Macでショートカットキーを利用するためには、標準でMacの�
 * オペレーションを複数作るためには、作りたいオペレーションの数だけオペレータクラスを作成する必要がある
 * ```self.report()``` メソッドを利用することで、コンソール・ウィンドウにメッセージを出力することができる
 
-<div id="space_xxs"></div>
-
 
 <div id="point_item"></div>
 
 * 登録したオペレータクラスの ```bl_idname``` は ```bpy.ops.<bl_idname>``` に登録される
 * Pythonコンソールを利用して、APIの確認や簡単なテストを行える
-
-<div id="space_page"></div>

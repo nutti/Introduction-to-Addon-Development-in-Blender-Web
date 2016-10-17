@@ -212,8 +212,6 @@ Mira Tools の使い方をここで紹介するのは本書の範囲を超えて
 興味のある方は以下のページを参照してください。  
 Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
-<div id="space_l"></div>
-
 
 ## アドオンの無効化
 
