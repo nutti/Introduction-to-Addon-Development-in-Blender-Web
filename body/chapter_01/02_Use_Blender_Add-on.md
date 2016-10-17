@@ -40,7 +40,7 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 
 <div id="process"></div>
 
-|<div id="box">3</div>|*International Fonts* にチェックを入れると、Blenderの言語を変更することができるようになります。|![アドオンの日本語化 手順2](https://dl.dropboxusercontent.com/s/6uwpij0r5riiqk3/localizing_into_japanese_2.png "アドオン日本語化 手順2")|
+|<div id="box">3</div>|*International Fonts* にチェックを入れると、Blenderの言語を変更することができるようになります。|![アドオンの日本語化 手順3](https://dl.dropboxusercontent.com/s/6uwpij0r5riiqk3/localizing_into_japanese_3.png "アドオン日本語化 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -49,7 +49,7 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 
 <div id="process"></div>
 
-|<div id="box">4</div>|*Language* を *Japanese（日本語）* に変更し、 *Translate* で日本語化する項目を選択すると、選択された項目が日本語化されます。|![アドオンの日本語化 手順3](https://dl.dropboxusercontent.com/s/s5mrd72si2xq910/localizing_into_japanese_3.png "アドオン日本語化 手順3")|
+|<div id="box">4</div>|*Language* を *Japanese（日本語）* に変更し、 *Translate* で日本語化する項目を選択すると、選択された項目が日本語化されます。|![アドオンの日本語化 手順4](https://dl.dropboxusercontent.com/s/s5mrd72si2xq910/localizing_into_japanese_4.png "アドオン日本語化 手順4")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -79,6 +79,8 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 サポートレベルがReleaseであるアドオンは、Blender本体と共に提供されるためインストール作業は不要です。また、テストビルドのBlenderを利用されている方は、サポートレベルがContribのアドオンについてもインストールすることなく利用可能です。
 
 ここでは、Blender本体を利用されている方がサポートレベルContribのアドオンをインストールする場合や、サポートレベルExternalのアドオンをインストールする場合について説明します。
+本節では、数あるうちの1つのインストール方法について紹介しています。
+詳しくは、 [1-4節](04_Understand_Install_Uninstall_Update_Add-on.md) を参照ください。
 
 インストール手順を説明するにあたり、筆者がアドオン開発でいつもお世話になっているmifthさんのアドオンMira Tools をサンプルとして取り上げます。Mira Toolsの機能は、以下のWebサイトから確認できます。
 
@@ -89,7 +91,7 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 |https://github.com/mifth/mifthtools/wiki/Mira-Tools|
 |![Mira Tools](https://dl.dropboxusercontent.com/s/gsr52gq7xbx37ch/mira_tools.png "Mira Tools")|
 
-Mira Toolsは日本語未サポートのため、アドオンを使う敷居がやや高くなりますが、サポートレベルがExternalのアドオンの中でも非常に高機能なアドオンですので、ぜひ1度使ってみてください。
+Mira Toolsは日本語をサポートしていないため、アドオンを使う敷居がやや高くなりますが、サポートレベルがExternalのアドオンの中でも非常に高機能なアドオンですので、ぜひ1度使ってみてください。
 
 Mira Toolsのインストール方法は前述のURLにも記載されていますが、改めてここでもインストール方法を紹介します。
 
@@ -117,7 +119,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process_noimg"></div>
 
-|<div id="box">3</div>|```mifthtools-master/blender/addons/mira_tools``` がMira Tools本体です。このフォルダ一式を、 **Blenderアドオン用フォルダ** へコピーしたらインストール完了です。|
+|<div id="box">3</div>|```mifthtools-master/blender/addons/mira_tools``` がMira Tools本体です。このフォルダ一式を、 Blender アドオン用フォルダへコピーしたらインストール完了です。|
 |---|---|
 
 なお以下に示すように、Blenderアドオン用フォルダはOSごとにパスが異なります。
@@ -135,7 +137,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="column"></div>
 
-コピーしたファイルの中に拡張子が.pyであるファイルがあると思います。  
+コピーしたファイルの中に拡張子が .py であるファイルがあります。  
 このファイルは アドオンのソースコードと呼ばれ、プログラミング言語Pythonによりアドオンの動作が記述されたテキストファイルです。
 
 
@@ -161,7 +163,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*情報* エリアのメニューから、 *ファイル* > *ユーザ設定* を選択します。|![アドオンの有効化 手順1](https://dl.dropboxusercontent.com/s/9it3p8rth2heyqi/enable_add-on_1.png "アドオンの有効化 手順1")|
+|<div id="box">2</div>|*情報* エリアのメニューから、 *ファイル* > *ユーザ設定* を選択します。|![アドオンの有効化 手順2](https://dl.dropboxusercontent.com/s/9it3p8rth2heyqi/enable_add-on_2.png "アドオンの有効化 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -188,7 +190,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process"></div>
 
-|<div id="box">5</div>|ウィンドウ右側に *Mira Tools* が表示されますので、チェックボックスにチェックを入れるとアドオンが有効化されます。|![アドオンの有効化 手順2](https://dl.dropboxusercontent.com/s/k4xq9zyhk0hbivp/enable_add-on_2.png "アドオンの有効化 手順2")|
+|<div id="box">5</div>|ウィンドウ右側に *Mira Tools* が表示されますので、チェックボックスにチェックを入れるとアドオンが有効化されます。|![アドオンの有効化 手順5](https://dl.dropboxusercontent.com/s/k4xq9zyhk0hbivp/enable_add-on_5.png "アドオンの有効化 手順5")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -197,7 +199,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process"></div>
 
-|<div id="box">6</div>|実際にアドオンが有効化されているかは、 *3Dビュー* エリアの左側の *ツールシェルフ* のタブに *Mira* が追加されていることで確認できます。|![アドオンの有効化 手順3](https://dl.dropboxusercontent.com/s/qqvxodqbs67yy45/enable_add-on_3.png "アドオンの有効化 手順3")|
+|<div id="box">6</div>|実際にアドオンが有効化されているかは、 *エディットモード* 時に *3Dビュー* エリアの左側の *ツールシェルフ* のタブに *Mira* が追加されていることで確認できます。|![アドオンの有効化 手順6](https://dl.dropboxusercontent.com/s/qqvxodqbs67yy45/enable_add-on_6.png "アドオンの有効化 手順6")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -219,6 +221,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 以下に紹介する手順により、 サポートレベルがRelease・Contrib・Externalのいずれについても共通の方法で無効化することができます。
 
+
 <div id="process_title"></div>
 
 ##### Work
@@ -234,7 +237,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*アドオン* タブを選択し、 *Mira Tools* のチェックボックスのチェックを外すことでアドオンが無効化されます。|![アドオンの無効化](https://dl.dropboxusercontent.com/s/t15vvgofl5gs50d/disable_add-on.png "アドオンの無効化")|
+|<div id="box">2</div>|*アドオン* タブを選択し、 *Mira Tools* のチェックボックスのチェックを外すことでアドオンが無効化されます。|![アドオンの無効化 手順2](https://dl.dropboxusercontent.com/s/t15vvgofl5gs50d/disable_add-on_2.png "アドオンの無効化 手順2")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -246,68 +249,8 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 インストール済みのMira Toolsをアンインストールします。
 
-インストールしたアドオンをアンインストールする方法は、以下の2通りがあります。
-
-* アドオンのソースコードを直接削除
-* *Blenderユーザ設定* ウィンドウからアンインストール
-
-### アドオンのソースコードを直接削除する方法
-
-アドオンのインストール先からアドオンのソースコードを直接削除して、アドオンをアンインストールする手順を説明します。
-
-<div id="process_title"></div>
-
-##### Work
-
-<div id="process_noimg"></div>
-
-|<div id="box">1</div>|アドオンのソースコードの場所が分からない場合は、 *Blenderユーザ設定* ウィンドウの *アドオン* タブから確認します。|
-|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process_noimg"></div>
-
-|<div id="box">2</div>|アドオン名の隣にある左の矢印をクリックして *Mira Tools* の詳細情報を表示します。|
-|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">3</div>|詳細情報の *ファイル* がアドオンのソースコードが置かれた場所を示しています。|![アドオンの詳細情報を表示](https://dl.dropboxusercontent.com/s/7onrbdzxctp4uqw/show_add-on_detail.png "アドオンの詳細情報を表示")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process_noimg"></div>
-
-|<div id="box">4</div>|アドオンのソースコードを削除すると、アンインストールが完了します。|
-|---|---|
-
-<div id="process_start_end"></div>
-
----
-
-<div id="column"></div>
-
-アドオンのソースコードが複数のファイルで構成される場合と、単一のファイルで構成される場合とで削除するファイルが異なります。  
-詳細情報のファイルに書かれているファイル名が \_\_init\_\_.py である場合は、アドオンのソースコードが複数のファイルで構成されています。
-この場合は、 \_\_init\_\_.py が置かれているディレクトリごと削除することでアンインストールが完了します。  
-\_\_init\_\_.py 以外であれば単一ファイルで構成されていることを示していますので、詳細情報の ファイルに示されたファイルを削除すれば、アンインストールが完了します。詳しくは、 [1-4節](04_Understand_Install_Uninstall_Update_Add-on.md) を参照ください。
-
-### Blenderユーザ設定からアンインストールする方法
-
-他のアドオンのアンインストール方法として、 *Blenderユーザ設定* ウィンドウからアンインストールする方法があります。
-
-<div id="space_m"></div>
-
+インストール同様、本節では数あるうちの1つのインストール方法について紹介しています。
+詳しくは、 [1-4節](04_Understand_Install_Uninstall_Update_Add-on.md) を参照ください。
 
 <div id="process_title"></div>
 
@@ -324,7 +267,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*削除* ボタンをクリックすると、アンインストールが完了します。|![アドオンのアンインストール](https://dl.dropboxusercontent.com/s/0hkgrg49n0kh880/uninstall_add-on.png "アドオンのアンインストール")|
+|<div id="box">2</div>|*削除* ボタンをクリックすると、アンインストールが完了します。|![アドオンのアンインストール 手順2](https://dl.dropboxusercontent.com/s/0hkgrg49n0kh880/uninstall_add-on_2.png "アドオンのアンインストール 手順2")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -332,13 +275,10 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 ---
 
 
-<div id="column"> </div>
-
-アドオンのソースコードを直接削除する場合とは異なり、アドオンのソースコードが複数のファイルで構成されている場合でも単一のファイルで構成されている場合でも、同じ方法で削除することができます。
 
 ## まとめ
 
-アドオンのサポートレベルについて解説し、アドオンのサポートレベルがExternalであるアドオンをインストール/アンインストールする手順を紹介しました。さらに、インストールしたアドオンが動作していることも確認しました。ここで紹介した手順はアドオン開発時に何度も行う操作であるため、必ず覚えておきましょう。
+アドオンのサポートレベルについて解説し、アドオンのサポートレベルがExternalであるアドオンをインストール/アンインストールする方法を紹介しました。さらに、インストールしたアドオンが動作していることも確認しました。ここで紹介した手順はアドオン開発時に何度も行う操作であるため、必ず覚えておきましょう。
 
 また、本節ではBlenderを日本語化する方法を紹介しました。本節以降は、Blenderが日本語化されていることを前提に解説していきますので、必要に応じて日本語化してください。
 
@@ -350,11 +290,4 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 * Blenderは標準で日本語をサポートするため、必要に応じてUIを日本語化することができる。
 * Blenderアドオンは、アドオンの品質や将来性を示すサポートレベルで分類できる。
-
-<div id="space_xs"></div>
-
-<div id="point_item"></div>
-
 * Blenderアドオンのソースコードはプログラミング言語Pythonで書かれた、拡張子が.pyのテキストファイルである。
-* Blenderアドオンのインストール/アンインストールは、ソースコードをBlenderアドオン用フォルダに直接置く方法と、Blender内のGUIを使って行う方法がある。
-* ソースコードが複数ファイルで構成されるアドオンをインストールする場合は、ソースコードをBlenderアドオン用フォルダに直接置く必要がある。

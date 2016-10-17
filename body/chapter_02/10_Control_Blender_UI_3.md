@@ -6,7 +6,7 @@
 
 <div id="preface"></div>
 
-###### [2-8節](08_Control_Bnder_UI_1.md) から続いてきた Blender の UI 制御の解説の最後として、 Blender が提供する特殊な UI をアドオンから呼び出す方法について説明します。本節では、ファイルブラウザなどの利用頻度の高い UI から、検索ボックスなどあまり使われない UI まで、一通り説明しているため、必ずしも全て理解する必要はありません。また本節のサンプルは、アドオンで利用可能なアイコン一覧を表示する機能もありますので、アドオンでアイコンを使おうと考えている方は、一度確認しておくと良いかもしれません。
+###### [2-8節](08_Control_Blender_UI_1.md) から続いてきた Blender の UI 制御の解説の最後として、 Blender が提供する特殊な UI をアドオンから呼び出す方法について説明します。本節では、ファイルブラウザなどの利用頻度の高い UI から、検索ボックスなどあまり使われない UI まで、一通り説明しているため、必ずしも全て理解する必要はありません。
 
 
 
@@ -14,7 +14,14 @@
 
 * 以下のようなタブを *3Dビュー* エリアの *ツール・シェルフ* に追加する
 
-![アドオンの仕様](https://dl.dropboxusercontent.com/s/ial27tu1ousllmx/specification.png "アドオンの仕様")
+![アドオンの仕様](https://dl.dropboxusercontent.com/s/b4pvtpef8rjog0a/add-on_spec.png "アドオンの仕様")
+
+* *ポップアップメッセージ* ボタンをクリックすると、ポップアップメッセージを表示する
+* *ダイアログメニュー* ボタンをクリックすると、プロパティ設定するためのダイアログメニューを表示する
+* *ファイルブラウザ* ボタンをクリックすると、 Blender が提供するファイルブラウザを表示する
+* *確認ポップアップ* ボタンをクリックすると、処理の実行を確定するか否かを確認するポップアップを表示する
+* *プロパティ付きポップアップ* ボタンをクリックすると、プロパティを変更するためのポップアップを表示する
+* *検索ウィンドウ付きポップアップ* ボタンをクリックすると、検索ウィンドウの付いたポップアップを表示する
 
 
 ## アドオンを作成する
@@ -34,11 +41,13 @@
 サンプル2-10: アドオン「サンプル2-10」が有効化されました。
 ```
 
-また、 *3Dビュー* エリアのメニュー *オブジェクト* に *項目 1* と *項目2* が追加されます。
+そして、 *3Dビュー* エリアの *ツール・シェルフ* にタブ *カスタムメニュー* が追加されます。
 
 ### アドオンの機能を使用する
 
-*3Dビュー* エリアの *ツール・シェルフ* にタブ *カスタムメニュー3* をクリックすると、カスタムメニューのメニューが表示されます。
+*3Dビュー* エリアの *ツール・シェルフ* のタブ *カスタムメニュー* をクリックすると、カスタムメニューのメニューが表示されます。
+
+*カスタムメニュー* タブに設置されたボタンをクリックし、動作を確認します。
 
 #### ポップアップメッセージボタン
 
@@ -50,7 +59,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|タブ *カスタムメニュー* の *ポップアップメッセージ* ボタンをクリックします。|![ポップアップメッセージボタン1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "ポップアップメッセージボタン1")|
+|<div id="box">1</div>|タブ *カスタムメニュー* の *ポップアップメッセージ* ボタンをクリックします。|![ポップアップメッセージボタン 手順1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "ポップアップメッセージボタン 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -59,7 +68,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|クリックした場所にポップメッセージが表示されます。|![ポップアップメッセージボタン2](https://dl.dropboxusercontent.com/s/uf3j7u0ezi92uqd/popup_message_2.png "ポップアップメッセージボタン2")|
+|<div id="box">2</div>|クリックした場所にポップメッセージが表示されます。|![ポップアップメッセージボタン 手順2](https://dl.dropboxusercontent.com/s/uf3j7u0ezi92uqd/popup_message_2.png "ポップアップメッセージボタン 手順2")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -77,7 +86,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|タブ *カスタムメニュー* の *ダイアログメニュー* ボタンをクリックします。|![ダイアログメニューボタン1](https://dl.dropboxusercontent.com/s/p63yfu6yh8ddnrt/dialog_menu_1.png "ダイアログメニューボタン1")|
+|<div id="box">1</div>|タブ *カスタムメニュー* の *ダイアログメニュー* ボタンをクリックします。|![ダイアログメニューボタン 手順1](https://dl.dropboxusercontent.com/s/p63yfu6yh8ddnrt/dialog_menu_1.png "ダイアログメニューボタン 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -86,7 +95,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|クリックした場所にダイアログメニューが開きます。|![ダイアログメニューボタン2](https://dl.dropboxusercontent.com/s/jjf8bfxa4x77dqv/dialog_menu_2.png "ダイアログメニューボタン2")|
+|<div id="box">2</div>|クリックした場所にダイアログメニューが開きます。|![ダイアログメニューボタン 手順2](https://dl.dropboxusercontent.com/s/jjf8bfxa4x77dqv/dialog_menu_2.png "ダイアログメニューボタン 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -95,7 +104,7 @@
 
 <div id="process"></div>
 
-|<div id="box">3</div>|ダイアログメニュー上のプロパティは変更することができます。|![ダイアログメニューボタン3](https://dl.dropboxusercontent.com/s/wujq9rb6rp2k0vx/dialog_menu_3.png "ダイアログメニューボタン3")|
+|<div id="box">3</div>|ダイアログメニュー上のプロパティは変更することができます。|![ダイアログメニューボタン 手順3](https://dl.dropboxusercontent.com/s/wujq9rb6rp2k0vx/dialog_menu_3.png "ダイアログメニューボタン 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -104,8 +113,13 @@
 
 <div id="process"></div>
 
-|<div id="box">4</div>|*OK* ボタンを押すと *情報* エリアにプロパティで指定した値が表示されます。|![ダイアログメニューボタン4](https://dl.dropboxusercontent.com/s/voqatxxy1ht4coi/dialog_menu_4.png "ダイアログメニューボタン4")|
+|<div id="box">4</div>|*OK* ボタンを押すと *コンソール・ウィンドウ* に以下のメッセージが表示されます。|![ダイアログメニューボタン 手順4](https://dl.dropboxusercontent.com/s/voqatxxy1ht4coi/dialog_menu_4.png "ダイアログメニューボタン 手順4")|
 |---|---|---|
+
+```sh
+サンプル2-10: [1] (ダイアログプロパティ 1 の値), [2] (ダイアログプロパティ 2 の値), [3] (ダイアログプロパティ 3 の識別子), [4] (ダイアログプロパティ 4 の値)
+```
+
 
 <div id="process_start_end"></div>
 
@@ -123,7 +137,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|タブ *カスタムメニュー* の *ファイルブラウザ* ボタンをクリックします。|![ファイルブラウザボタン1](https://dl.dropboxusercontent.com/s/xi29nw88hvy9k6w/file_browser_1.png "ファイルブラウザボタン1")|
+|<div id="box">1</div>|タブ *カスタムメニュー* の *ファイルブラウザ* ボタンをクリックします。|![ファイルブラウザボタン 手順1](https://dl.dropboxusercontent.com/s/xi29nw88hvy9k6w/file_browser_1.png "ファイルブラウザボタン 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -132,7 +146,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|ファイルブラウザが開きます。|![ファイルブラウザボタン2](https://dl.dropboxusercontent.com/s/o2xy1e08aiu6xj8/file_browser_2.png "ファイルブラウザボタン2")|
+|<div id="box">2</div>|ファイルブラウザが開きます。|![ファイルブラウザボタン 手順2](https://dl.dropboxusercontent.com/s/o2xy1e08aiu6xj8/file_browser_2.png "ファイルブラウザボタン 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -141,8 +155,13 @@
 
 <div id="process"></div>
 
-|<div id="box">3</div>|適当にファイルを開くと、*情報* エリアに開いたファイルのファイルパス・ファイル名・ファイルが置かれたディレクトリが表示されます。|![ファイルブラウザボタン3](https://dl.dropboxusercontent.com/s/qbtvg81av8jprc0/file_browser_3.png "ファイルブラウザボタン3")|
-|---|---|---|
+|<div id="box">3</div>|適当にファイルを開くと、*コンソール・ウィンドウ* に以下のメッセージが表示されます。|
+|---|---|
+
+
+```sh
+サンプル2-10: [FilePath] (開いたファイルのファイルパス), [FileName] (開いたファイルのファイル名), [Directory] (開いたファイルが置かれたディレクトリ)
+```
 
 
 <div id="process_start_end"></div>
@@ -161,7 +180,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|タブ *カスタムメニュー* の *確認ポップアップ* ボタンをクリックします。|![確認ポップアップボタン1](https://dl.dropboxusercontent.com/s/2apytkkmilgjlpv/confirm_popup_1.png "確認ポップアップボタン1")|
+|<div id="box">1</div>|タブ *カスタムメニュー* の *確認ポップアップ* ボタンをクリックします。|![確認ポップアップボタン 手順1](https://dl.dropboxusercontent.com/s/2apytkkmilgjlpv/confirm_popup_1.png "確認ポップアップボタン 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -170,7 +189,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|操作を実行するか否かを問うポップアップが表示されますので、 *確認ポップアップ* をクリックします。|![確認ポップアップボタン2](https://dl.dropboxusercontent.com/s/s5vaxp8zoip01aq/confirm_popup_2.png "確認ポップアップボタン2")|
+|<div id="box">2</div>|操作を実行するか否かを問うポップアップが表示されますので、 *確認ポップアップ* をクリックします。|![確認ポップアップボタン 手順2](https://dl.dropboxusercontent.com/s/s5vaxp8zoip01aq/confirm_popup_2.png "確認ポップアップボタン 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -179,11 +198,11 @@
 
 <div id="process"></div>
 
-|<div id="box">3</div>|*情報* エリアに以下のメッセージが表示されます。|![確認ポップアップボタン3](https://dl.dropboxusercontent.com/s/w0nwr4rkht11e1t/confirm_popup_3.png "確認ポップアップボタン3")|
-|---|---|---|
+|<div id="box">3</div>|*コンソール・ウィンドウ* に以下のメッセージが表示されます。|
+|---|---|
 
 ```
-確認ポップアップボタンをクリックしました
+サンプル2-10: 確認ポップアップボタンをクリックしました
 ```
 
 <div id="process_start_end"></div>
@@ -202,7 +221,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|タブ *カスタムメニュー* の *プロパティ付きポップアップ* ボタンをクリックします。|![プロパティ付きポップアップボタン1](https://dl.dropboxusercontent.com/s/4nh5dtfsg597bwf/prop_popup_1.png "プロパティ付きポップアップボタン1")|
+|<div id="box">1</div>|タブ *カスタムメニュー* の *プロパティ付きポップアップ* ボタンをクリックします。|![プロパティ付きポップアップボタン 手順1](https://dl.dropboxusercontent.com/s/4nh5dtfsg597bwf/prop_popup_1.png "プロパティ付きポップアップボタン 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -211,8 +230,12 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|プロパティを変更するたびに、 *情報* エリアに現在のプロパティ値が表示されます。|![プロパティ付きポップアップボタン2](https://dl.dropboxusercontent.com/s/lpn7vxq04xyxmna/prop_popup_2.png "プロパティ付きポップアップボタン2")|
+|<div id="box">2</div>|プロパティを変更するたびに、 *コンソール・ウィンドウ* に以下のメッセージが表示されます。|![プロパティ付きポップアップボタン 手順2](https://dl.dropboxusercontent.com/s/lpn7vxq04xyxmna/prop_popup_2.png "プロパティ付きポップアップボタン 手順2")|
 |---|---|---|
+
+```sh
+サンプル2-10: [1] (プロパティ 1 の値), [2] (プロパティ 2 の値), [3] (プロパティ 3 の識別子), [4] (プロパティ 4 の値)
+```
 
 <div id="process_start_end"></div>
 
@@ -228,7 +251,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|タブ *カスタムメニュー* の *検索ウィンドウ付きポップアップ* ボタンをクリックします。|![検索ウィンドウ付きポップアップボタン1](https://dl.dropboxusercontent.com/s/6cx6smtn2gz44qo/search_popup_1.png "検索ウィンドウ付きポップアップボタン1")|
+|<div id="box">1</div>|タブ *カスタムメニュー* の *検索ウィンドウ付きポップアップ* ボタンをクリックします。|![検索ウィンドウ付きポップアップボタン 手順1](https://dl.dropboxusercontent.com/s/6cx6smtn2gz44qo/search_popup_1.png "検索ウィンドウ付きポップアップボタン 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -237,7 +260,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|検索ウィンドウ付きポップアップが表示されます。|![検索ウィンドウ付きポップアップボタン2](https://dl.dropboxusercontent.com/s/twu5ds60i0ptgi0/search_popup_2.png "検索ウィンドウ付きポップアップボタン2")|
+|<div id="box">2</div>|検索ウィンドウ付きポップアップが表示されます。|![検索ウィンドウ付きポップアップボタン 手順2](https://dl.dropboxusercontent.com/s/twu5ds60i0ptgi0/search_popup_2.png "検索ウィンドウ付きポップアップボタン 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -246,7 +269,7 @@
 
 <div id="process"></div>
 
-|<div id="box">3</div>|項目1・項目2・項目3の中から検索することができます。|![検索ウィンドウ付きポップアップボタン3](https://dl.dropboxusercontent.com/s/jpgbjzre6sodj35/search_popup_3.png "検索ウィンドウ付きポップアップボタン3")|
+|<div id="box">3</div>|項目1・項目2・項目3の中から検索することができます。|![検索ウィンドウ付きポップアップボタン 手順3](https://dl.dropboxusercontent.com/s/jpgbjzre6sodj35/search_popup_3.png "検索ウィンドウ付きポップアップボタン 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -255,43 +278,12 @@
 
 <div id="process"></div>
 
-|<div id="box">4</div>|項目を確定すると確定した項目の識別子が、 *情報* エリアに表示されます。|![検索ウィンドウ付きポップアップボタン4](https://dl.dropboxusercontent.com/s/j0krszjrtsz1r50/search_popup_4.png "検索ウィンドウ付きポップアップボタン4")|
-|---|---|---|
+|<div id="box">4</div>|項目を確定すると*コンソール・ウィンドウ* に以下のメッセージが表示されます。|
+|---|---|
 
-<div id="process_start_end"></div>
-
----
-
-
-#### 利用可能なアイコンをすべて表示ボタン
-
-<div id="process_title"></div>
-
-##### Work
-
-<div id="process"></div>
-
-|<div id="box">1</div>|タブ *カスタムメニュー* の *利用可能なアイコンをすべて表示* ボタンをクリックします。|![利用可能なアイコンをすべて表示ボタン1](https://dl.dropboxusercontent.com/s/ru4ckm8y65wyzsz/icon_list_1.png "利用可能なアイコンをすべて表示ボタン1")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">2</div>|*ツール・シェルフ* のオプションに、アドオンから利用することのできるアイコン一覧と、それぞれのアイコンを表示するためのアイコンのキーコードが表示されます。|![利用可能なアイコンをすべて表示ボタン2](https://dl.dropboxusercontent.com/s/8tddbytmq5j8ghr/icon_list_2.png "利用可能なアイコンをすべて表示ボタン2")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">3</div>|*一行に表示するアイコン数* から一行に表示するアイコンの数を変更することができます。|![利用可能なアイコンをすべて表示ボタン3](https://dl.dropboxusercontent.com/s/fzv6foiqzln3dyg/icon_list_3.png "利用可能なアイコンをすべて表示ボタン3")|
-|---|---|---|
-
+```sh
+サンプル2-10: (確定した項目の識別子) を選択しました
+```
 
 <div id="process_start_end"></div>
 
@@ -708,5 +700,4 @@ layout.operator(ShowSearchPopup.bl_idname)
 
 * ポップアップウィンドウやファイルブラウザなど、Blender が提供する特殊な UI は、実行コンテキストの ```window_manager``` を通して呼び出すことができる
 * オペレータクラスに定義する ```invoke()``` メソッドは、オペレータクラスが実行された時に呼ばれるメソッドで、 ```execute()``` メソッドより前に呼ばれる
-* 本節のサンプルは、アドオンから利用可能なアイコンの一覧を確認できる
 * UI の構築方法を知ることとわかりやすい UI の構築することは別物である。わかりやすい UI を構築するために他人が作成した UI を参考にしよう

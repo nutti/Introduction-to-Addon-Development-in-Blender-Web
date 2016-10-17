@@ -6,7 +6,7 @@
 
 <div id="preface"></div>
 
-###### Blender の UI を個人の好みに合わせて修正したいと思ったことはありませんか？ Blender の UI の大半は Python で記載されているため、 Python を理解し修正できるのであれば、個人の好みで Blender の UI を変更することができます。<br>本節はアドオンを開発しないけど自分の好みで UI を変更したい、という方にも参考になると思います。
+###### Blender の UI を個人の好みに合わせて修正したいと思ったことはありませんか？ Blender の UI の大半は Python で記載されています。 Python を理解し修正できるのであれば、個人の好みで Blender の UI を変更することができます。<br>本節はアドオンを開発しないけど自分の好みで UI を変更したい、という方にも参考になると思います。
 
 ## Blender の UI は Python で制御できる
 
@@ -21,7 +21,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">1</div>|*3Dビュー* エリアのメニューにある、*現在の視点を OpenGL レンダリング* ボタンにマウスカーソルを置いて右クリックします。|![3Dビューエリアのメニューを修正する1](https://dl.dropboxusercontent.com/s/aas9w46b84us2oi/control_UI_on_View3D_1.png "3Dビューエリアのメニューを修正する1")|
+|<div id="box">1</div>|*3Dビュー* エリアのメニューにある、*現在の視点を OpenGL レンダリング* ボタンにマウスカーソルを置いて右クリックします。|![3Dビューエリアのメニューを修正する 手順1](https://dl.dropboxusercontent.com/s/aas9w46b84us2oi/control_UI_on_View3D_1.png "3Dビューエリアのメニューを修正する 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -29,7 +29,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 ---
 <div id="process"></div>
 
-|<div id="box">2</div>|*ソース編集* をクリックします。|![3Dビューエリアのメニューを修正する2](https://dl.dropboxusercontent.com/s/jcn6stvh67cg2bx/control_UI_on_View3D_2.png "3Dビューエリアのメニューを修正する2")|
+|<div id="box">2</div>|*ソース編集* をクリックします。|![3Dビューエリアのメニューを修正する 手順2](https://dl.dropboxusercontent.com/s/jcn6stvh67cg2bx/control_UI_on_View3D_2.png "3Dビューエリアのメニューを修正する 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -39,16 +39,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">3</div>|*テキストエディタ* エリアにソースコードが表示されます。また、 *現在の視点を OpenGL レンダリング* ボタンを表示するための処理にマウスカーソルが自動的に移動しています。|![3Dビューエリアのメニューを修正する3](https://dl.dropboxusercontent.com/s/f4j1ny6sxio3hmm/control_UI_on_View3D_3.png "3Dビューエリアのメニューを修正する3")|
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">4</div>|マウスカーソルの行をコメントアウトしましょう。|![3Dビューエリアのメニューを修正する4](https://dl.dropboxusercontent.com/s/h9l4jjzpqm2uu0t/control_UI_on_View3D_4.png "3Dビューエリアのメニューを修正する4")|
+|<div id="box">3</div>|*テキストエディタ* エリアにソースコードが表示されます。また、 *現在の視点を OpenGL レンダリング* ボタンを表示するための処理にマウスカーソルが自動的に移動しています。|![3Dビューエリアのメニューを修正する 手順3](https://dl.dropboxusercontent.com/s/f4j1ny6sxio3hmm/control_UI_on_View3D_3.png "3Dビューエリアのメニューを修正する 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -57,7 +48,7 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">5</div>|*テキストエディタ* エリアのメニュー *テキスト* から *保存* を実行し、上書き保存します。|![3Dビューエリアのメニューを修正する5](https://dl.dropboxusercontent.com/s/8ubgqqmhlunz3oh/control_UI_on_View3D_5.png "3Dビューエリアのメニューを修正する5")|
+|<div id="box">4</div>|マウスカーソルの行をコメントアウトしましょう。|![3Dビューエリアのメニューを修正する 手順4](https://dl.dropboxusercontent.com/s/h9l4jjzpqm2uu0t/control_UI_on_View3D_4.png "3Dビューエリアのメニューを修正する 手順4")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -66,7 +57,16 @@ Blender の UI の大半は Python のソースコードで記載されていま
 
 <div id="process"></div>
 
-|<div id="box">6</div>|[1-4節](../chapter_01/04_Understand_Install_Uninstall_Update_Add-on.md) で紹介した *Reload Scripts* 機能を用いてアップデートすると、 *3Dビュー* エリアのメニューから *現在の視点を OpenGL レンダリング* ボタンが消えます。|![3Dビューエリアのメニューを修正する6](https://dl.dropboxusercontent.com/s/tuq7juvk8ya4xbh/control_UI_on_View3D_6.png "3Dビューエリアのメニューを修正する6")|
+|<div id="box">5</div>|*テキストエディタ* エリアのメニュー *テキスト* から *保存* を実行し、上書き保存します。|![3Dビューエリアのメニューを修正する 手順5](https://dl.dropboxusercontent.com/s/8ubgqqmhlunz3oh/control_UI_on_View3D_5.png "3Dビューエリアのメニューを修正する 手順5")|
+|---|---|---|
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">6</div>|[1-4節](../chapter_01/04_Understand_Install_Uninstall_Update_Add-on.md) で紹介した *Reload Scripts* 機能を用いてアップデートすると、 *3Dビュー* エリアのメニューから *現在の視点を OpenGL レンダリング* ボタンが消えます。|![3Dビューエリアのメニューを修正する 手順6](https://dl.dropboxusercontent.com/s/tuq7juvk8ya4xbh/control_UI_on_View3D_6.png "3Dビューエリアのメニューを修正する 手順6")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -81,11 +81,12 @@ Blender の UI の大半は Python のソースコードで記載されていま
 ## 作成するアドオンの仕様
 
 * 以下のようなタブを *3Dビュー* エリアの *ツール・シェルフ* に追加する
+  * 追加したタブは、 *オブジェクトモード* 時かつ、最低1つでもオブジェクトが選択されている時のみ表示される
 
-![アドオンの仕様](https://dl.dropboxusercontent.com/s/ial27tu1ousllmx/specification.png "アドオンの仕様")
+![アドオンの仕様](https://dl.dropboxusercontent.com/s/ial27tu1ousllmx/add-on_spec.png "アドオンの仕様")
 
+* *3Dビュー* エリアのメニューである *オブジェクト* の先頭に *項目1* 、末尾に *項目2* を追加する
 
-* 追加したタブは、 *オブジェクトモード* 時かつオブジェクトが選択されている時のみ表示される
 
 ## アドオンを作成する
 
@@ -108,13 +109,11 @@ Blender の UI の大半は Python のソースコードで記載されていま
 タブは *オブジェクトモード* 時かつオブジェクトが 1 つでも選択されている時のみ表示されます。
 *エディットモード* または、*オブジェクトモード* でもオブジェクトが 1 つも選択されていない場合は表示されません。
 
-また、 *3Dビュー* エリアのメニュー *オブジェクト* に *項目 1* と *項目2* が追加されます。
+また、 *3Dビュー* エリアのメニュー *オブジェクト* の先頭に *項目1* 、末尾に *項目2* が追加されます。
 
 ### アドオンの機能を使用する
 
-*3Dビュー* エリアの *ツール・シェルフ* にタブ *カスタムメニュー* をクリックすると、カスタムメニューのメニューが表示されます。
-
-カスタムメニューに表示されたボタンやメニューなどをクリックしたり選択したりできますが、基本的に何も起こりません。
+*3Dビュー* エリアの *ツール・シェルフ* のタブ *カスタムメニュー* をクリックすると、カスタムメニューのメニューが表示されます。
 
 
 ### アドオンを無効化する
@@ -140,12 +139,13 @@ Blender の UI の大半は Python のソースコードで記載されていま
 ツール・シェルフのタブに追加するためには、以下に示すような ```bpy.types.Panel``` クラスを継承したパネルクラスを作成する必要があります。
 
 ```python
-# ツール・シェルフに「カスタムメニュー」タブを追加
+# ツールシェルフに「カスタムメニュー」タブを追加
 class VIEW3D_PT_CustomMenu(bpy.types.Panel):
-    bl_label = "カスタムメニュー"       # タブに表示される文字列
+    bl_label = "カスタムメニュー"           # タブに表示される文字列
     bl_space_type = 'VIEW_3D'           # メニューを表示するエリア
     bl_region_type = 'TOOLS'            # メニューを表示するリージョン
-    bl_category = "カスタムメニュー"    # タブを開いたメニューのヘッダーに表示される文字列
+    bl_category = "カスタムメニュー"        # タブを開いたメニューのヘッダーに表示される文字列
+    bl_context = "objectmode"           # パネルを表示するコンテキスト
 ```
 
 本節のサンプルでは、 ```bpy.types.Panel``` クラスを継承した ```VIEW3D_PT_CustomMenu``` クラスを作成しています。
@@ -276,49 +276,6 @@ def draw_header(self, context):
 本節のサンプルでは文字列を追加したくはないので、引数 ```text``` に空の文字列、引数 ```icon``` にプラグインのアイコン ID を指定しています。
 
 
-#### オプションの UI をカスタマイズする
-
-[2-3節](../chapter_02/03_Use_Property_on_Tool_Shelf_1.md) で説明した、ツール・シェルフのオプションの UI もカスタマイズできます。
-
-オプションの UI をカスタマイズするために、本節のサンプルでは ```ShowAllIcons``` というオペレータクラスを作成しています。
-このクラスは、 Python から利用できるすべてのアイコンをツール・シェルフのオプションに表示する処理を定義しています。
-
-オプションの UI をカスタマイズする処理を以下に示します。
-
-
-```python
-# オプションのUI
-def draw(self, context):
-    layout = self.layout
-
-    layout.prop(self, "num_column")
-
-    layout.separator()
-
-    # 利用可能なアイコンをすべて表示
-    layout.label(text="利用可能なアイコン一覧:")
-    for i, key in enumerate(bpy.types.UILayout.bl_rna.functions['prop'].parameters['icon'].enum_items.keys()):
-        if i %self.num_column == 0:
-            row = layout.row()
-        row.label(text=key, icon=key)
-```
-
-オプションの UI は、オペレータクラスの ```draw()``` メソッドで行います。
-メソッドで定義している処理は、メニュークラスやパネルクラスで定義する ```draw()``` メソッドと同じように、 ```self.layout``` を通して行います。
-
-利用可能なアイコンの識別子一覧は、 ```bpy.types.UILayout.bl_rna.functions['prop'].parameters['icon'].enum_items.keys()``` により取得することが可能です。
-取得したアイコンの識別子を、 ```row.label()``` 関数の引数 ```icon``` に指定することで、アイコンを表示することができます。
-また本節のサンプルは今後アドオンを作る人のために、アイコンと識別子がどのように対応しているかわかるように、引数 ```text``` に識別子を代入してアイコンと一緒に表示しています。
-見やすさを考慮して、一行に表示可能なアイコンの数をオプションから指定することができるようにしています。ぜひ活用してください。
-
-最後に、 ```ShowAllIcons``` のボタンを配置する処理は、以下のようになります。
-
-```python
-# プロパティのUIをカスタマイズする＋アイコン一覧を表示する
-layout.label(text="プロパティのUIをカスタマイズする")
-layout.operator(ShowAllIcons.bl_idname)
-```
-
 ### メニューへ項目を追加する順番を制御する
 
 [2-1節](01_Basic_of_Add-on_Development.md) では、 ```bpy.types.INFO_MT_mesh_add.append()``` 関数を用いてメニューの末尾へ項目を追加していました。
@@ -335,7 +292,13 @@ bpy.types.VIEW3D_MT_object.prepend(menu_fn_2)
 
 ## まとめ
 
+本節では、Blender の UI を Python から制御できることを確認しました。
+また、 *3Dビュー* エリアの *ツール・シェルフ* へのタブ追加方法について説明し、メニューへの項目追加方法を説明しました。
 
+デフォルトの UI を変更するとなると一見難しそうに見えますが、ここまでの説明で Python さえ理解できていればなんとかなる気がしてきたのではないでしょうか？
+ちなみに、 [2-9節](09_Control_Blneder_UI_2.md) と [2-10節](10_Control_Blender_UI_3.md) も合わせて理解すれば、 Blender で実現可能な UI の大半を理解できたと言って良いと思います。
+
+次節では、タブに追加するボタンやメニューなどの UI 部品を制御する方法について解説します。
 
 
 <div id="point"></div>
