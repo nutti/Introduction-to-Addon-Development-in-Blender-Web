@@ -24,6 +24,7 @@ class EnlargeObject2(bpy.types.Operator):
     bl_description = "選択中のオブジェクトを拡大します（拡大率任意指定可能）"
     bl_options = {'REGISTER', 'UNDO'}
 
+//! [prop_enlarge_object_2]
     magnification = FloatProperty(
         name = "拡大率",
         description = "拡大率を設定します",
@@ -31,6 +32,7 @@ class EnlargeObject2(bpy.types.Operator):
         min = 1.0,
         max = 10.0
     )
+//! [prop_enlarge_object_2]
 
     def execute(self, context):
         active_obj = context.active_object
@@ -49,6 +51,7 @@ class ReduceObject2(bpy.types.Operator):
     bl_description = "選択中のオブジェクトを縮小します（縮小率任意指定可能）"
     bl_options = {'REGISTER', 'UNDO'}
 
+//! [prop_reduce_object_2]
     reduction = FloatProperty(
         name = "縮小率",
         description = "縮小率を設定します",
@@ -56,10 +59,13 @@ class ReduceObject2(bpy.types.Operator):
         min = 0.001,
         max = 1.0
     )
+//! [prop_reduce_object_2]
 
     def execute(self, context):
         active_obj = context.active_object
+//! [access_to_prop]
         active_obj.scale = active_obj.scale * self.reduction
+//! [access_to_prop]
         self.report({'INFO'}, "サンプル2-3: 「%s」を%f倍に縮小しました。" % (active_obj.name, self.reduction))
         print("サンプル2-3: オペレーション「%s」が実行されました。" % self.bl_idname)
 

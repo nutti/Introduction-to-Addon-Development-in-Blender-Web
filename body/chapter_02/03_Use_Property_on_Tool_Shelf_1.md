@@ -150,25 +150,10 @@
 
 今回は以下のように、 ```FloatPropery``` クラスを用いて拡大率と縮小率を指定できるようにします。
 
-```python
-magnification = FloatProperty(
-    name = "拡大率",
-    description = "拡大率を設定します",
-    default = 2.0,
-    min = 1.0,
-    max = 10.0
-)
+[import:"prop_enlarge_object_2"](../../sample_raw/src/chapter_02/sample_2-3.py)
 
-# ・・・（略）・・・
+[import:"prop_reduce_object_2"](../../sample_raw/src/chapter_02/sample_2-3.py)
 
-reduction = FloatProperty(
-    name = "縮小率",
-    description = "縮小率を設定します",
-    default = 0.5,
-    min = 0.001,
-    max = 1.0
-)
-```
 
 次に、オブジェクト > 選択オブジェクトの拡大（拡大率任意指定）実行時の処理について解説します。
 
@@ -181,10 +166,7 @@ reduction = FloatProperty(
 今回のように値を連続的に変更可能なオプションを作成した場合、値が変更される度にexecute()メソッドが呼ばれてしまいます。execute()メソッドの処理が重い場合は値の変更だけで時間がかかってしまうため、オプションによるパラメータ調整ができるようにするためには、execute()メソッドの処理を可能な限り処理が軽くなるようにしましょう。  
 execute()メソッドの中で指定されたオプションの値は、以下のように通常のメンバ変数と同様、self変数からアクセスすることで取得できます。
 
-
-```python
-active_obj.scale = active_obj.scale * self.reduction
-```
+[import:"access_to_prop"](../../sample_raw/src/chapter_02/sample_2-3.py)
 
 
 ## まとめ

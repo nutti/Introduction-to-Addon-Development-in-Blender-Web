@@ -15,6 +15,7 @@ bl_info = {
 }
 
 
+//! [op_enlarge_object]
 # オブジェクトを拡大するオペレーション
 class EnlargeObject(bpy.types.Operator):
 
@@ -22,7 +23,9 @@ class EnlargeObject(bpy.types.Operator):
     bl_label = "選択オブジェクトの拡大"
     bl_description = "選択中のオブジェクトを拡大します"
     bl_options = {'REGISTER', 'UNDO'}
+//! [op_enlarge_object]
 
+//! [execute_enlarge_object]
     # メニューを実行した時に呼ばれるメソッド
     def execute(self, context):
         active_obj = context.active_object
@@ -31,8 +34,10 @@ class EnlargeObject(bpy.types.Operator):
         print("サンプル2-2: オペレーション「"+ self.bl_idname +"」が実行されました。")
 
         return {'FINISHED'}
+//! [execute_enlarge_object]
 
 
+//! [op_reduce_object]
 # オブジェクトを縮小するオペレーション
 class ReduceObject(bpy.types.Operator):
 
@@ -40,7 +45,9 @@ class ReduceObject(bpy.types.Operator):
     bl_label = "選択オブジェクトの縮小"
     bl_description = "選択中のオブジェクトを縮小します"
     bl_options = {'REGISTER', 'UNDO'}
+//! [op_reduce_object]
 
+//! [execute_reduce_object]
     # メニューを実行した時に呼ばれる関数
     def execute(self, context):
         active_obj = context.active_object
@@ -49,6 +56,7 @@ class ReduceObject(bpy.types.Operator):
         print("サンプル2-2: オペレーション「"+self.bl_idname+"」が実行されました。")
 
         return {'FINISHED'}
+//! [execute_reduce_object]
 
 
 # メニューを構築する関数

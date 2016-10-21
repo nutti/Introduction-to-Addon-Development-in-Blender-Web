@@ -17,6 +17,7 @@ bl_info = {
 }
 
 
+//! [enum_list_fn]
 # EnumPropertyで表示したい項目リストを作成する関数
 def location_list_fn(scene, context):
     items = [
@@ -25,6 +26,7 @@ def location_list_fn(scene, context):
     items.extend([('OBJ_' + o.name, o.name, "オブジェクトに配置します") for o in bpy.data.objects])
 
     return items
+//! [enum_list_fn]
 
 # 選択したオブジェクトを複製するアドオン
 class ReplicateObject(bpy.types.Operator):
@@ -34,11 +36,13 @@ class ReplicateObject(bpy.types.Operator):
     bl_description = "選択中のオブジェクトを複製します"
     bl_options = {'REGISTER', 'UNDO'}
 
+//! [enum_prop]
     location = EnumProperty(
         name = "配置位置",
         description = "複製したオブジェクトの配置位置",
         items = location_list_fn
     )
+//! [enum_prop]
 
     scale = FloatVectorProperty(
         name = "拡大率",

@@ -105,6 +105,7 @@
 
 以下に 選択項目として *3Dカーソル* と *原点* を追加するコードを示します。
 
+
 ```python
 location_list = [
     ('3D_CURSOR', "3Dカーソル", "3Dカーソル上に配置します"),
@@ -132,30 +133,10 @@ location = EnumProperty(
 
 この課題に対し、紹介したサンプルでは以下のようにして ```EnumProperty``` クラスにより作られるセレクトボックスの選択項目を動的に追加する処理を記載しています。
 
-```python
-# EnumPropertyで表示したい項目リストを作成する関数
-def location_list_fn(scene, context):
-    items = [
-        ('3D_CURSOR', "3Dカーソル", "3Dカーソル上に配置します"),
-        ('ORIGIN', "原点", "原点に配置します")]
-    items.extend([('OBJ_' + o.name, o.name, "オブジェクトに配置します") for o in bpy.data.objects])
+[import:"enum_list_fn"](../../sample_raw/src/chapter_02/sample_2-4.py)
 
-    return items
+[import:"enum_prop"](../../sample_raw/src/chapter_02/sample_2-4.py)
 
-# 選択したオブジェクトを複製するアドオン
-class ReplicateObject(bpy.types.Operator):
-
-    bl_idname = "object.replicate_object"
-    bl_label = "選択オブジェクトの複製"
-    bl_description = "選択中のオブジェクトを複製します"
-    bl_options = {'REGISTER', 'UNDO'}
-
-    location = EnumProperty(
-        name = "配置位置",
-        description = "複製したオブジェクトの配置位置",
-        items = location_list_fn
-    )
-```
 
 本節のサンプルでは、 ```EnumProperty``` クラスの ```items``` に項目リストを渡す代わりに、項目リストを返す```location_list_fn()``` 関数を渡しています。
 

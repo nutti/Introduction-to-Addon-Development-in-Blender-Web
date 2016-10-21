@@ -128,31 +128,15 @@ Blenderのアドオンを開発するためには、 ```bpy``` モジュール�
 
 以下のソースコードにより、bpyモジュールをインポートすることができます。
 
-```python
-import bpy   # アドオン開発者に対して用意しているAPIを利用する
-```
+[import:"import_bpy"](../../sample_raw/src/chapter_02/sample_2-1.py)
 
 ### bl_info変数の作成
 
 作成したソースコードがBlenderのアドオンであることをBlender本体に認識させるためには、 ```bl_info``` と呼ばれる変数を作成する必要があります。
 
 
-```python
-# アドオンに関する情報を保持する、bl_info変数
-bl_info = {
-    "name": "サンプル2-1: オブジェクトを生成するアドオン",
-    "author": "Nutti",
-    "version": (2, 0),
-    "blender": (2, 75, 0),
-    "location": "3Dビュー > 追加 > メッシュ",
-    "description": "オブジェクトを生成するサンプルアドオン",
-    "warning": "",
-    "support": "TESTING",
-    "wiki_url": "",
-    "tracker_url": "",
-    "category": "Object"
-}
-```
+[import:"bl_info"](../../sample_raw/src/chapter_02/sample_2-1.py)
+
 
 ```bl_info``` はディクショナリ型の変数で以下のようなキーと値を設定する必要があります。
 
@@ -255,8 +239,6 @@ bl_info = {
 ##### location
 
 アドオンの機能を使うためのUIが存在する場所を指定します。例えば *3Dビュー* エリアの *追加* > *メッシュ* に追加する場合は、 ```3Dビュー > 追加 > メッシュ``` のように記載します。
-
-
 
 
 <div id="column"></div>
@@ -383,15 +365,7 @@ bl_infoは必ずしも必要な情報ではなく、あくまでアドオンの�
 
 ここではオペレータクラスの作成方法を紹介します。最初に、オペレータクラスのメンバ変数の宣言例を以下に示します。
 
-```python
-# オブジェクト（ICO球）を生成するオペレーション
-class CreateObject(bpy.types.Operator):
-
-    bl_idname = "object.create_object"
-    bl_label = "球"
-    bl_description = "ICO球を追加します"
-    bl_options = {'REGISTER', 'UNDO'}
-```
+[import:"mem_var"](../../sample_raw/src/chapter_02/sample_2-1.py)
 
 オペレータクラスには、以下のようなメンバ変数を含める必要があります。
 
@@ -414,14 +388,7 @@ class CreateObject(bpy.types.Operator):
 
 続いて、メニューを実行した時に呼ばれる関数を作成します。
 
-```python
-  # メニューを実行した時に呼ばれる関数
-    def execute(self, context):
-        bpy.ops.mesh.primitive_ico_sphere_add()
-        print("サンプル2-1: 3DビューにICO球を生成しました。")
-
-        return {'FINISHED'}
-```
+[import:"execute"](../../sample_raw/src/chapter_02/sample_2-1.py)
 
 メニューを実行した時には ```exexute()``` メソッドが呼ばれます。このため、 ```exexute()``` メソッドにはメニューを実行した時の処理を記述します。
 
@@ -492,12 +459,7 @@ Blenderではメニューやボタンをマウスオーバーすることで、�
 
 最初に、メニューに登録時に呼ばれるメニュー構築関数 ```menu_fn()``` を作成します。```menu_fn()``` 関数は、後で解説するアドオン有効化・無効化時に呼ばれる関数の中で利用します。
 
-```python
-# メニューを構築する関数
-def menu_fn(self, context):
-    self.layout.separator()
-    self.layout.operator(CreateObject.bl_idname)
-```
+[import:"build_menu"](../../sample_raw/src/chapter_02/sample_2-1.py)
 
 メニューの編集は、 ```self.layout``` を用いて行います。
 
@@ -509,13 +471,7 @@ def menu_fn(self, context):
 
 アドオン有効化時には ```register()``` 関数が呼ばれます。
 
-```python
-# アドオン有効化時の処理
-def register():
-    bpy.utils.register_module(__name__)
-    bpy.types.INFO_MT_mesh_add.append(menu_fn)
-    print("サンプル2-1: アドオン「サンプル2-1」が有効化されました。")
-```
+[import:"register"](../../sample_raw/src/chapter_02/sample_2-1.py)
 
 ```bpy.utils.register_module()``` 関数 は、引数に指定したモジュールを登録してBlender内で使えるようにするための関数です。
 引数に ```__name__``` を指定することで、ファイル内のモジュール全てを登録することができます。
@@ -533,13 +489,7 @@ bpy.types.INFO_MT_mesh_addは、bpy.types.INFO_MT_mesh_add.append()関数を確�
 
 アドオン無効化時には ```unregister()``` 関数が呼ばれます。
 
-```python
-# アドオン無効化時の処理
-def unregister():
-    bpy.types.INFO_MT_mesh_add.remove(menu_fn)
-    bpy.utils.unregister_module(__name__)
-    print("サンプル2-1: アドオン「サンプル2-1」が無効化されました。")
-```
+[import:"unregister"](../../sample_raw/src/chapter_02/sample_2-1.py)
 
 ```bpy.types.INFO_MT_mesh_add.remove()``` 関数に、メニューを構築する関数である ```menu_fn()``` 関数を指定することで、3Dビューエリアのメニューである追加 > メッシュからメニューを削除することができます。
 
@@ -560,11 +510,7 @@ def unregister():
 
 アドオンであればメイン処理は必ずしも必要な処理ではありませんが、慣習として書くことが多いので本サンプルでも記載しています。
 
-```python
-# メイン処理
-if __name__ == "__main__":
-    register()
-```
+[import:"main"](../../sample_raw/src/chapter_02/sample_2-1.py)
 
 ## まとめ
 
