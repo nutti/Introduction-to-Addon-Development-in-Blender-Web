@@ -113,17 +113,8 @@ from . import reduce_object
 
 この問題に対処するため、以下のようにインポート処理を書き換える必要があります。
 
-```python
-if "bpy" in locals():
-    import imp
-    imp.reload(enlarge_object)
-    imp.reload(reduce_object)
-else:
-    from . import enlarge_object
-    from . import reduce_object
+[import:"import_moudle"](../../sample_raw/src/chapter_02/sample_2-7/__init__.py)
 
-import bpy
-```
 
 上記のコードを簡単に説明します。
 最初のif文では、 ```bpy``` モジュールが既にインポートされているかを判定します。

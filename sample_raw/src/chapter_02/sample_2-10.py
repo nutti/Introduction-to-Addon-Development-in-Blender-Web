@@ -16,6 +16,7 @@ bl_info = {
 }
 
 
+//! [ops_show_popup_message]
 class ShowPopupMessage(bpy.types.Operator):
     bl_idname = "object.show_popup_message"
     bl_label = "ポップアップメッセージ"
@@ -35,8 +36,10 @@ class ShowPopupMessage(bpy.types.Operator):
     def draw(self, context):
         layout = self.layout
         layout.label("メッセージ")
+//! [ops_show_popup_message]
 
 
+//! [ops_show_dialog_menu]
 class ShowDialogMenu(bpy.types.Operator):
     bl_idname = "object.show_dialog_menu"
     bl_label = "ダイアログメニュー"
@@ -87,8 +90,10 @@ class ShowDialogMenu(bpy.types.Operator):
 
         # ダイアログメニュー呼び出し
         return context.window_manager.invoke_props_dialog(self)
+//! [ops_show_dialog_menu]
 
 
+//! [ops_show_file_browser]
 class ShowFileBrowser(bpy.types.Operator):
     bl_idname = "object.show_file_browser"
     bl_label = "ファイルブラウザ"
@@ -109,8 +114,10 @@ class ShowFileBrowser(bpy.types.Operator):
         wm.fileselect_add(self)
 
         return {'RUNNING_MODAL'}
+//! [ops_show_file_browser]
 
 
+//! [ops_show_confirm_popup]
 class ShowConfirmPopup(bpy.types.Operator):
     bl_idname = "object.show_confirm_popup"
     bl_label = "確認ポップアップ"
@@ -125,8 +132,10 @@ class ShowConfirmPopup(bpy.types.Operator):
         wm = context.window_manager
         # 確認メッセージ表示
         return wm.invoke_confirm(self, event)
+//! [ops_show_confirm_popup]
 
 
+//! [ops_show_property_popup]
 class ShowPropertyPopup(bpy.types.Operator):
     bl_idname = "object.show_property_popup"
     bl_label = "プロパティ付きポップアップ"
@@ -170,8 +179,10 @@ class ShowPropertyPopup(bpy.types.Operator):
         wm = context.window_manager
         # プロパティ付きポップアップ表示
         return wm.invoke_props_popup(self, event)
+//! [ops_show_property_popup]
 
 
+//! [ops_show_search_popup]
 class ShowSearchPopup(bpy.types.Operator):
     bl_idname = "object.show_search_popup"
     bl_label = "検索ウィンドウ付きポップアップ"
@@ -201,6 +212,7 @@ class ShowSearchPopup(bpy.types.Operator):
 
         # {'FINISHED'} を返す必要がある
         return {'FINISHED'}
+//! [ops_show_search_popup]
 
 
 # ツールシェルフに「カスタムメニュー」タブを追加
@@ -231,39 +243,51 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
         layout = self.layout
         scene = context.scene
 
+//! [show_popup_message]
         # ポップアップメッセージを表示する
         layout.label(text="ポップアップメッセージを表示する:")
         layout.operator(ShowPopupMessage.bl_idname)
+//! [show_popup_message]
 
         layout.separator()
 
+//! [show_dialog_menu]
         # ダイアログメニューを表示する
         layout.label(text="ダイアログメニューを表示する:")
         layout.operator(ShowDialogMenu.bl_idname)
+//! [show_dialog_menu]
 
         layout.separator()
 
+//! [show_file_browser]
         # ファイルブラウザを表示する
         layout.label(text="ファイルブラウザを表示する:")
         layout.operator(ShowFileBrowser.bl_idname)
+//! [show_file_browser]
 
         layout.separator()
 
+//! [show_confirm_popup]
         # 確認ポップアップを表示する
         layout.label(text="確認ポップアップを表示する:")
         layout.operator(ShowConfirmPopup.bl_idname)
+//! [show_confirm_popup]
 
         layout.separator()
 
+//! [show_property_popup]
         # プロパティ付きポップアップを表示する
         layout.label(text="プロパティ付きポップアップを表示する:")
         layout.operator(ShowPropertyPopup.bl_idname)
+//! [show_property_popup]
 
         layout.separator()
 
+//! [show_search_popup]
         # 検索ポップアップを表示する
         layout.label(text="検索ポップアップを表示する:")
         layout.operator(ShowSearchPopup.bl_idname)
+//! [show_search_popup]
 
 
 # プロパティの初期化

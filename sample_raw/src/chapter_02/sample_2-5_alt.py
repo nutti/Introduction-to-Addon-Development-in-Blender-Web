@@ -109,6 +109,7 @@ class ReplicateObject(bpy.types.Operator):
         return {'FINISHED'}
 
 
+//! [sub_menu_cls]
 # サブメニュー
 class ReplicateObjectSubMenu(bpy.types.Menu):
     bl_idname = "uv.replicate_object_sub_menu"
@@ -120,8 +121,10 @@ class ReplicateObjectSubMenu(bpy.types.Menu):
         # サブサブメニューの登録
         for o in bpy.data.objects:
             layout.operator(ReplicateObject.bl_idname, text=o.name).src_obj_name = o.name
+//! [sub_menu_cls]
 
 
+//! [main_menu_cls]
 # メインメニュー
 class ReplicateObjectMenu(bpy.types.Menu):
     bl_idname = "uv.replicate_object_menu"
@@ -132,6 +135,7 @@ class ReplicateObjectMenu(bpy.types.Menu):
         layout = self.layout
         # サブメニューの登録
         layout.menu(ReplicateObjectSubMenu.bl_idname)
+//! [main_menu_cls]
 
 
 def menu_fn(self, context):

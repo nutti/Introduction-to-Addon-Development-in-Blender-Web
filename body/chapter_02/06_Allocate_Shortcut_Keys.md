@@ -52,24 +52,8 @@
 
 ショートカットキーの割り当ては、 ```register_shortcut()``` 関数で行います。
 
-```python
-def register_shortcut():
-    wm = bpy.context.window_manager
-    kc = wm.keyconfigs.addon
-    if kc:
-        # 3Dビューのショートカットキーとして登録
-        km = kc.keymaps.new(name="3D View", space_type="VIEW_3D")
-        # ショートカットキーの登録
-        kmi = km.keymap_items.new(
-            idname=ReplicateObject.bl_idname,
-            type="R",
-            value="PRESS",
-            shift=False,
-            ctrl=True,
-            alt=True)
-        # ショートカットキー一覧に登録
-        addon_keymaps.append((km, kmi))
-```
+[import:"register_shortcut"](../../sample_raw/src/chapter_02/sample_2-6.py)
+
 
 ```bpy.context.window_manager.keyconfigs.addon.keymaps``` はアドオンに割り当てられているキーマップです。
 
@@ -112,14 +96,8 @@ def register_shortcut():
 
 ショートカットキーの割り当て解除は、 ```unregister_shortcut()``` 関数で行います。
 
-```python
-def unregister_shortcut():
-    for km, kmi in addon_keymaps:
-        # ショートカットキーの登録解除
-        km.keymap_items.remove(kmi)
-    # ショートカットキー一覧をクリア
-    addon_keymaps.clear()
-```
+[import:"unregister_shortcut"](../../sample_raw/src/chapter_02/sample_2-6.py)
+
 
 アドオン有効化時にグローバル変数 ```addon_keymaps``` に保存したキーマップを用いて ```keymap_items.remove()``` 関数を実行することで、ショートカットキーのペアを削除します。
 

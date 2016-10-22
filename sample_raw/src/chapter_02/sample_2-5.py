@@ -65,7 +65,9 @@ class ReplicateObject(bpy.types.Operator):
         unit = 'LENGTH'
     )
 
+//! [string_prop]
     src_obj_name = bpy.props.StringProperty()
+//! [string_prop]
 
     def execute(self, context):
         # bpy.ops.object.duplicate()は選択中のオブジェクトをコピーするため、メニューで選択されたオブジェクトを選択された状態にする
@@ -109,6 +111,7 @@ class ReplicateObject(bpy.types.Operator):
         return {'FINISHED'}
 
 
+//! [menu_cls]
 # メインメニュー
 class ReplicateObjectMenu(bpy.types.Menu):
     bl_idname = "uv.replicate_object_menu"
@@ -121,11 +124,14 @@ class ReplicateObjectMenu(bpy.types.Menu):
         # bpy.data.objects：オブジェクト一覧
         for o in bpy.data.objects:
             layout.operator(ReplicateObject.bl_idname, text=o.name).src_obj_name = o.name
+//! [menu_cls]
 
 
+//! [build_menu]
 def menu_fn(self, context):
     self.layout.separator()
     self.layout.menu(ReplicateObjectMenu.bl_idname)
+//! [build_menu]
 
 
 def register():

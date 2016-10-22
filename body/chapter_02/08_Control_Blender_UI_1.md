@@ -138,15 +138,8 @@ BlenderのUIの大半は、Pythonのソースコードで記載されていま�
 
 ツール・シェルフのタブに追加するためには、以下に示すような ```bpy.types.Panel``` クラスを継承したパネルクラスを作成する必要があります。
 
-```python
-# ツールシェルフに「カスタムメニュー」タブを追加
-class VIEW3D_PT_CustomMenu(bpy.types.Panel):
-    bl_label = "カスタムメニュー"           # タブに表示される文字列
-    bl_space_type = 'VIEW_3D'           # メニューを表示するエリア
-    bl_region_type = 'TOOLS'            # メニューを表示するリージョン
-    bl_category = "カスタムメニュー"        # タブを開いたメニューのヘッダーに表示される文字列
-    bl_context = "objectmode"           # パネルを表示するコンテキスト
-```
+[import:"panel_cls"](../../sample_raw/src/chapter_02/sample_2-8.py)
+
 
 本節のサンプルでは、 ```bpy.types.Panel``` クラスを継承した ```VIEW3D_PT_CustomMenu``` クラスを作成しています。
 基本的に自由にクラス名をつけることができますが、Blenderでは ```<エリア名>_<タイプ>_<クラスを表す適切な名前>``` のように命名されていることが多いようなので、本節のサンプルではそれに合わせてみました。
@@ -222,16 +215,7 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
 
 また、```poll()``` メソッドではオブジェクトが選択されている時に描画する処理を追加しています。
 
-```python
-# 本クラスの処理が実行可能かを判定する
-@classmethod
-def poll(cls, context):
-    # オブジェクトが選択されている時のみメニューを表示させる
-    for o in bpy.data.objects:
-        if o.select:
-            return True
-    return False
-```
+[import:"poll"](../../sample_raw/src/chapter_02/sample_2-8.py)
 
 ```poll()``` メソッドはクラス単位の処理となるため、クラスメソッドとして定義する必要があります。
 このため、メソッドの前にデコレータ ```@classmethod``` をつける必要があります。
@@ -250,12 +234,8 @@ def poll(cls, context):
 
 タブに追加したメニューのヘッダーのUIを変更するためには、パネルクラスの ```draw_header()``` メソッドを定義します。
 
-```python
-# ヘッダーのカスタマイズ
-def draw_header(self, context):
-    layout = self.layout
-    layout.label(text="", icon='PLUGIN')
-```
+[import:"draw_header"](../../sample_raw/src/chapter_02/sample_2-8.py)
+
 
 ```draw_header()``` メソッドの引数は、以下の通りです。
 
@@ -282,12 +262,8 @@ def draw_header(self, context):
 
 本節のサンプルでは、 ```bpy.types.VIEW3D_MT_object.prepend()``` 関数を用いてメニューの先頭へ項目を追加しています。
 
-```python
-# 項目をメニューの先頭に追加
-bpy.types.VIEW3D_MT_object.append(menu_fn_1)
-# 項目をメニューの末尾に追加
-bpy.types.VIEW3D_MT_object.prepend(menu_fn_2)
-```
+[import:"append_item_to_menu"](../../sample_raw/src/chapter_02/sample_2-8.py)
+
 
 
 ## まとめ

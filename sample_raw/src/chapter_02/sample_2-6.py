@@ -106,6 +106,7 @@ def menu_fn(self, context):
     self.layout.operator(ReplicateObject.bl_idname)
 
 
+//! [register_shortcut]
 def register_shortcut():
     wm = bpy.context.window_manager
     kc = wm.keyconfigs.addon
@@ -122,14 +123,17 @@ def register_shortcut():
             alt=True)
         # ショートカットキー一覧に登録
         addon_keymaps.append((km, kmi))
+//! [register_shortcut]
 
 
+//! [unregister_shortcut]
 def unregister_shortcut():
     for km, kmi in addon_keymaps:
         # ショートカットキーの登録解除
         km.keymap_items.remove(kmi)
     # ショートカットキー一覧をクリア
     addon_keymaps.clear()
+//! [unregister_shortcut]
 
 
 def register():

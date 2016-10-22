@@ -51,6 +51,7 @@ class ShowAllIcons(bpy.types.Operator):
         min=1,
         max=5)
 
+//! [customize_option_UI]
     # オプションのUI
     def draw(self, context):
         layout = self.layout
@@ -65,6 +66,7 @@ class ShowAllIcons(bpy.types.Operator):
             if i % self.num_column == 0:
                 row = layout.row()
             row.label(text=key, icon=key)
+//! [customize_option_UI]
 
     def execute(self, context):
         return {'FINISHED'}
@@ -98,61 +100,76 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
         layout = self.layout
         scene = context.scene
 
+//! [add_button]
         # ボタンを追加
         layout.label(text="ボタンを追加する:")
         layout.operator(NullOperation.bl_idname, text="ボタン1")
         layout.operator(NullOperation.bl_idname, text="ボタン2", emboss=False)
+//! [add_button]
 
         # 上下の間隔を空ける
         layout.separator()
 
+//! [add_menu]
         # メニューを追加
         layout.label(text="メニューを追加する:")
         layout.menu(NullOperationMenu.bl_idname, text="メニュー")
+//! [add_menu]
 
         layout.separator()
 
+//! [add_prop]
         # プロパティを追加
         layout.label(text="プロパティを追加する:")
         layout.prop(scene, "cm_prop_int", text="プロパティ 1")
         layout.prop(scene, "cm_prop_float", text="プロパティ 2")
         layout.prop(scene, "cm_prop_enum", text="プロパティ 3")
         layout.prop(scene, "cm_prop_floatv", text="プロパティ 4")
+//! [add_prop]
 
         layout.separator()
 
+//! [arrange_column]
         # 一行に並べる（アライメント無）
         layout.label(text="一行に並べる（アライメント無）:")
         row = layout.row(align=False)
         for i in range(3):
             row.operator(NullOperation.bl_idname, text=("列 %d" % (i)))
+//! [arrange_column]
 
         layout.separator()
 
+//! [arrange_column_align]
         # 一行に並べる（アライメント有）
         layout.label(text="一行に並べる（アライメント有）:")
         row = layout.row(align=True)
         for i in range(3):
             row.operator(NullOperation.bl_idname, text=("列 %d" % (i)))
+//! [arrange_column_align]
 
         layout.separator()
 
+//! [arrange_row]
         # 一列に並べる（アライメント無）
         layout.label(text="一列に並べる（アライメント無）:")
         column = layout.column(align=False)
         for i in range(3):
             column.operator(NullOperation.bl_idname, text=("行 %d" % (i)))
+//! [arrange_row]
 
         layout.separator()
 
+//! [arrange_row_align]
         # 一列に並べる（アライメント有）
         layout.label(text="一列に並べる（アライメント有）:")
         column = layout.column(align=True)
         for i in range(3):
             column.operator(NullOperation.bl_idname, text=("行 %d" % (i)))
+//! [arrange_row_align]
 
         layout.separator()
 
+//! [arrange_row_multi]
         # 複数列に配置する
         layout.label(text="複数列に配置する:")
         column = layout.column(align=True)
@@ -162,9 +179,11 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
         row = column.row(align=True)
         row.operator(NullOperation.bl_idname, text="列 1, 行 2")
         row.operator(NullOperation.bl_idname, text="列 2, 行 2")
+//! [arrange_row_multi]
 
         layout.separator()
 
+//! [divide_region]
         # 領域を分割する
         layout.label(text="領域を分割する:")
         split = layout.split(percentage=0.3)
@@ -182,36 +201,44 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
         column.label(text="領域3:")
         column.operator(NullOperation.bl_idname, text="行 1")
         column.operator(NullOperation.bl_idname, text="行 2")
+//! [divide_region]
 
         layout.separator()
 
+//! [align_expand]
         # 横幅を自動的に拡大する
         layout.label(text="横幅を自動的に拡大する:")
         row = layout.row()
         row.alignment = 'EXPAND'
         row.operator(NullOperation.bl_idname, text="列 1")
         row.operator(NullOperation.bl_idname, text="列 2")
+//! [align_expand]
 
         layout.separator()
 
+//! [align_left]
         # 左寄せする
         layout.label(text="左寄せする:")
         row = layout.row()
         row.alignment = 'LEFT'
         row.operator(NullOperation.bl_idname, text="列 1")
         row.operator(NullOperation.bl_idname, text="列 2")
+//! [align_left]
 
         layout.separator()
 
+//! [align_right]
         # 右寄せする
         layout.label(text="右寄せする:")
         row = layout.row()
         row.alignment = 'RIGHT'
         row.operator(NullOperation.bl_idname, text="列 1")
         row.operator(NullOperation.bl_idname, text="列 2")
+//! [align_right]
 
         layout.separator()
 
+//! [group]
         # グループ化する
         layout.label(text="グループ化する:")
         row = layout.row()
@@ -226,14 +253,18 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
         box_column.operator(NullOperation.bl_idname, text="行 1, 列 2")
         box_column.separator()
         box_column.operator(NullOperation.bl_idname, text="行 2, 列 2")
+//! [group]
 
         layout.separator()
 
+//! [show_all_icons]
         # プロパティのUIをカスタマイズする＋アイコン一覧を表示する
         layout.label(text="プロパティのUIをカスタマイズする")
         layout.operator(ShowAllIcons.bl_idname)
+//! [show_all_icons]
 
 
+//! [init_props]
 # プロパティの初期化
 def init_props():
     scene = bpy.types.Scene
@@ -264,8 +295,10 @@ def init_props():
         default=(1.0, 1.0, 1.0),
         min=0.0,
         max=1.0)
+//! [init_props]
 
 
+//! [clear_props]
 # プロパティを削除
 def clear_props():
     scene = bpy.types.Scene
@@ -273,6 +306,7 @@ def clear_props():
     del scene.cm_prop_float
     del scene.cm_prop_enum
     del scene.cm_prop_floatv
+//! [clear_props]
 
 
 def register():

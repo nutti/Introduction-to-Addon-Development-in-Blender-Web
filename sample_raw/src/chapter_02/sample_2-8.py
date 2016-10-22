@@ -25,6 +25,7 @@ class NullOperation(bpy.types.Operator):
         return {'FINISHED'}
 
 
+//! [panel_cls]
 # ツールシェルフに「カスタムメニュー」タブを追加
 class VIEW3D_PT_CustomMenu(bpy.types.Panel):
     bl_label = "カスタムメニュー"           # タブに表示される文字列
@@ -32,8 +33,10 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
     bl_region_type = 'TOOLS'            # メニューを表示するリージョン
     bl_category = "カスタムメニュー"        # タブを開いたメニューのヘッダーに表示される文字列
     bl_context = "objectmode"           # パネルを表示するコンテキスト
+//! [panel_cls]
 
 
+//! [poll]
     # 本クラスの処理が実行可能かを判定する
     @classmethod
     def poll(cls, context):
@@ -42,7 +45,9 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
             if o.select:
                 return True
         return False
+//! [poll]
 
+//! [draw_header]
     # ヘッダーのカスタマイズ
     def draw_header(self, context):
         layout = self.layout
@@ -52,6 +57,7 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
     def draw(self, context):
         layout = self.layout
         scene = context.scene
+//! [draw_header]
 
 
 def menu_fn_1(self, context):
@@ -66,10 +72,12 @@ def menu_fn_2(self, context):
 
 def register():
     bpy.utils.register_module(__name__)
+//! [append_item_to_menu]
     # 項目をメニューの先頭に追加
     bpy.types.VIEW3D_MT_object.append(menu_fn_1)
     # 項目をメニューの末尾に追加
     bpy.types.VIEW3D_MT_object.prepend(menu_fn_2)
+//! [append_item_to_menu]
     print("サンプル2-8: アドオン「サンプル2-8」が有効化されました。")
 
 

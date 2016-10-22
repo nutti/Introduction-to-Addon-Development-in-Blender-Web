@@ -307,27 +307,8 @@
 
 以下は、ポップアップメッセージを表示するオペレータクラスです。
 
-```python
-class ShowPopupMessage(bpy.types.Operator):
-    bl_idname = "object.show_popup_message"
-    bl_label = "ポップアップメッセージ"
-    bl_description = "ポップアップメッセージ"
-    bl_options = {'REGISTER', 'UNDO'}
+[import:"ops_show_popup_message"](../../sample_raw/src/chapter_02/sample_2-10.py)
 
-    # execute() メソッドがないと、やり直し未対応の文字が出力される
-    def execute(self, context):
-        return {'FINISHED'}
-
-    def invoke(self, context, event):
-        wm = context.window_manager
-        # ポップアップメッセージ表示
-        return wm.invoke_popup(self, width=200, height=100)
-
-    # ポップアップメッセージに表示する内容
-    def draw(self, context):
-        layout = self.layout
-        layout.label("メッセージ")
-```
 
 ポップアップメッセージの表示はボタンを押したときに呼ばれる ```invoke()``` メソッドの ```wm.invoke_popup()``` 関数で行っています。
 
@@ -349,11 +330,7 @@ class ShowPopupMessage(bpy.types.Operator):
 
 ポップアップメッセージを表示するためのボタンの配置は、以下の処理で行います。
 
-```python
-# ポップアップメッセージを表示する
-layout.label(text="ポップアップメッセージを表示する:")
-layout.operator(ShowPopupMessage.bl_idname)
-```
+[import:"show_popup_message"](../../sample_raw/src/chapter_02/sample_2-10.py)
 
 
 #### ダイアログメニューを表示する
@@ -362,58 +339,7 @@ layout.operator(ShowPopupMessage.bl_idname)
 
 以下は、ダイアログメニューを表示するオペレータクラスです。
 
-```python
-class ShowDialogMenu(bpy.types.Operator):
-    bl_idname = "object.show_dialog_menu"
-    bl_label = "ダイアログメニュー"
-    bl_description = "ダイアログメニュー"
-    bl_options = {'REGISTER', 'UNDO'}
-
-    prop_int = IntProperty(
-        name="ダイアログプロパティ 1",
-        description="ダイアログプロパティ 1",
-        default=100,
-        min=0,
-        max=255)
-    prop_float = FloatProperty(
-        name="ダイアログプロパティ 2",
-        description="ダイアログプロパティ 2",
-        default=0.75,
-        min=0.0,
-        max=1.0)
-    prop_enum = EnumProperty(
-        name="ダイアログプロパティ 3",
-        description="ダイアログプロパティ 3",
-        items=[
-            ('ITEM_1', "項目 1", "項目 1"),
-            ('ITEM_2', "項目 2", "項目 2"),
-            ('ITEM_3', "項目 3", "項目 3")],
-        default='ITEM_1')
-    prop_floatv = FloatVectorProperty(
-        name="ダイアログプロパティ 4",
-        description="ダイアログプロパティ 4",
-        subtype='COLOR_GAMMA',
-        default=(1.0, 1.0, 1.0),
-        min=0.0,
-        max=1.0)
-
-    def execute(self, context):
-        self.report({'INFO'}, "1: %d, 2: %f, 3: %s, 4: (%f, %f, %f)"
-            % (self.prop_int, self.prop_float, self.prop_enum, self.prop_floatv[0], self.prop_floatv[1], self.prop_floatv[2]))
-
-        return {'FINISHED'}
-
-    def invoke(self, context, event):
-        scene = context.scene
-
-        self.prop_int = scene.cm_prop_int
-        self.prop_float = scene.cm_prop_float
-        self.prop_enum = scene.cm_prop_enum
-        self.prop_floatv = scene.cm_prop_floatv
-
-        # ダイアログメニュー呼び出し
-        return context.window_manager.invoke_props_dialog(self)
-```
+[import:"ops_show_dialog_menu"](../../sample_raw/src/chapter_02/sample_2-10.py)
 
 ```ShowDialogMenu``` クラスには4つのプロパティクラスの変数が宣言されていて、ダイアログメニューではこれらのプロパティを表示します。
 ダイアログメニューの表示は ```context.window_manager.invoke_props_dialog()``` 関数で行います。
@@ -436,11 +362,7 @@ class ShowDialogMenu(bpy.types.Operator):
 
 ダイアログメニューを表示するためのボタンの配置は、以下の処理で行います。
 
-```python
-# ダイアログメニューを表示する
-layout.label(text="ダイアログメニューを表示する:")
-layout.operator(ShowDialogMenu.bl_idname)
-```
+[import:"show_dialog_menu"](../../sample_raw/src/chapter_02/sample_2-10.py)
 
 
 #### ファイルブラウザを表示する
@@ -450,28 +372,7 @@ layout.operator(ShowDialogMenu.bl_idname)
 
 本節のサンプルでは、以下のようにしてファイルブラウザを表示しています。
 
-```python
-class ShowFileBrowser(bpy.types.Operator):
-    bl_idname = "object.show_file_browser"
-    bl_label = "ファイルブラウザ"
-    bl_description = "ファイルブラウザ"
-    bl_options = {'REGISTER', 'UNDO'}
-
-    filepath = StringProperty(subtype="FILE_PATH")
-    filename = StringProperty()
-    directory = StringProperty(subtype="FILE_PATH")
-
-    def execute(self, context):
-        self.report({'INFO'}, "FilePath: %s, FileName: %s, Directory: %s" % (self.filepath, self.filename, self.directory))
-        return {'FINISHED'}
-
-    def invoke(self, context, event):
-        wm = context.window_manager
-        # ファイルブラウザ表示
-        wm.fileselect_add(self)
-
-        return {'RUNNING_MODAL'}
-```
+[import:"ops_show_file_browser"](../../sample_raw/src/chapter_02/sample_2-10.py)
 
 ファイルブラウザを表示させるためには、 ```invoke()``` メソッド内で ```wm.fileselect_add()``` 関数を呼ぶ必要があります。
 引数には、ファイルブラウザ内でファイルを確定した時に実行される、 ```execute()``` メソッドが定義されたオペレータクラスのインスタンスを指定します。
@@ -485,11 +386,7 @@ class ShowFileBrowser(bpy.types.Operator):
 
 ファイルブラウザを表示するボタンを表示する処理は、以下の通りです。
 
-```python
-# ファイルブラウザを表示する
-layout.label(text="ファイルブラウザを表示する:")
-layout.operator(ShowFileBrowser.bl_idname)
-```
+[import:"show_file_browser"](../../sample_raw/src/chapter_02/sample_2-10.py)
 
 
 #### 実行確認のポップアップを表示する
@@ -501,22 +398,8 @@ Blenderの機能の中には、実行する前に本当にその処理を実行�
 
 本節のサンプルでは、以下のようにして実行確認のポップアップを表示しています。
 
-```python
-class ShowConfirmPopup(bpy.types.Operator):
-    bl_idname = "object.show_confirm_popup"
-    bl_label = "確認ポップアップ"
-    bl_description = "確認ポップアップ"
-    bl_options = {'REGISTER', 'UNDO'}
+[import:"ops_show_confirm_popup"](../../sample_raw/src/chapter_02/sample_2-10.py)
 
-    def execute(self, context):
-        self.report({'INFO'}, "確認ポップアップボタンをクリックしました")
-        return {'FINISHED'}
-
-    def invoke(self, context, event):
-        wm = context.window_manager
-        # 確認メッセージ表示
-        return wm.invoke_confirm(self, event)
-```
 
 実行確認のポップアップは、 ```invoke()``` メソッド内から ```wm.invoke_confirm()``` 関数を呼び出して表示しています。
 
@@ -529,11 +412,7 @@ class ShowConfirmPopup(bpy.types.Operator):
 
 クリック時に実行確認のポップアップを表示するボタンを表示する処理は、以下の通りです。
 
-```python
-# 確認ポップアップを表示する
-layout.label(text="確認ポップアップを表示する:")
-layout.operator(ShowConfirmPopup.bl_idname)
-```
+[import:"show_confirm_popup"](../../sample_raw/src/chapter_02/sample_2-10.py)
 
 
 #### プロパティ付きポップアップを表示する
@@ -543,51 +422,8 @@ layout.operator(ShowConfirmPopup.bl_idname)
 
 本節のサンプルでは、以下のようにしてプロパティ付きポップアップを表示しています。
 
-```python
-class ShowPropertyPopup(bpy.types.Operator):
-    bl_idname = "object.show_property_popup"
-    bl_label = "プロパティ付きポップアップ"
-    bl_description = "プロパティ付きポップアップ"
-    bl_options = {'REGISTER', 'UNDO'}
+[import:"ops_show_property_popup"](../../sample_raw/src/chapter_02/sample_2-10.py)
 
-    prop_int = IntProperty(
-        name="プロパティ 1",
-        description="プロパティ 1",
-        default=100,
-        min=0,
-        max=255)
-    prop_float = FloatProperty(
-        name="プロパティ 2",
-        description="プロパティ 2",
-        default=0.75,
-        min=0.0,
-        max=1.0)
-    prop_enum = EnumProperty(
-        name="プロパティ 3",
-        description="プロパティ 3",
-        items=[
-            ('ITEM_1', "項目 1", "項目 1"),
-            ('ITEM_2', "項目 2", "項目 2"),
-            ('ITEM_3', "項目 3", "項目 3")],
-        default='ITEM_1')
-    prop_floatv = FloatVectorProperty(
-        name="プロパティ 4",
-        description="プロパティ 4",
-        subtype='COLOR_GAMMA',
-        default=(1.0, 1.0, 1.0),
-        min=0.0,
-        max=1.0)
-
-    def execute(self, context):
-        self.report({'INFO'}, "1: %d, 2: %f, 3: %s, 4: (%f, %f, %f)"
-            % (self.prop_int, self.prop_float, self.prop_enum, self.prop_floatv[0], self.prop_floatv[1], self.prop_floatv[2]))
-        return {'FINISHED'}
-
-    def invoke(self, context, event):
-        wm = context.window_manager
-        # プロパティ付きポップアップ表示
-        return wm.invoke_props_popup(self, event)
-```
 
 プロパティ付きポップアップは、```invoke()``` メソッド内から ```wm.invoke_props_popup()``` 関数を実行することで表示することができます。
 プロパティを変更すると ```execute()``` メソッドが実行され、 現在のプロパティの値が *コンソール・ウィンドウ* に表示されます。
@@ -603,11 +439,7 @@ class ShowPropertyPopup(bpy.types.Operator):
 
 クリック時にプロパティ付きポップアップを表示するボタンを表示する処理は、以下に示します。
 
-```python
-# プロパティ付きポップアップを表示する
-layout.label(text="プロパティ付きポップアップを表示する:")
-layout.operator(ShowPropertyPopup.bl_idname)
-```
+[import:"show_property_popup"](../../sample_raw/src/chapter_02/sample_2-10.py)
 
 
 #### 検索ウィンドウ付きポップアップを表示する
@@ -617,37 +449,8 @@ layout.operator(ShowPropertyPopup.bl_idname)
 
 本節のサンプルでは、検索ウィンドウ付きポップアップを以下のようにして表示しています。
 
-```python
-class ShowSearchPopup(bpy.types.Operator):
-    bl_idname = "object.show_search_popup"
-    bl_label = "検索ウィンドウ付きポップアップ"
-    bl_description = "検索ウィンドウ付きポップアップ"
-    bl_options = {'REGISTER', 'UNDO'}
-    bl_property = "item"
+[import:"ops_show_search_popup"](../../sample_raw/src/chapter_02/sample_2-10.py)
 
-    item = EnumProperty(
-        name="配置位置",
-        description="複製したオブジェクトの配置位置",
-        items=[
-            ('ITEM_1', '項目1', '項目1'),
-            ('ITEM_2', '項目2', '項目2'),
-            ('ITEM_3', '項目3', '項目3')
-        ],
-        default='ITEM_1'
-    )
-
-    def execute(self, context):
-        self.report({'INFO'}, "%s を選択しました" % self.item)
-        return {'FINISHED'}
-
-    def invoke(self, context, event):
-        wm = context.window_manager
-        # 検索ウィンドウ付きポップアップ表示
-        wm.invoke_search_popup(self)
-
-        # {'FINISHED'} を返す必要がある
-        return {'FINISHED'}
-```
 
 検索ウィンドウ付きのポップアップを表示するためには、 ```invoke()``` メソッド内で ```wm.invoke_search_popup()``` 関数を使います。
 引数には、項目確定時に呼び出される ```execute()``` メソッドが定義されたクラスのインスタンスを指定します。
@@ -661,11 +464,7 @@ class ShowSearchPopup(bpy.types.Operator):
 
 クリック時に検索ウィンドウ付きポップアップを表示するボタンを表示する処理は、以下に示します。
 
-```python
-# 検索ポップアップを表示する
-layout.label(text="検索ポップアップを表示する:")
-layout.operator(ShowSearchPopup.bl_idname)
-```
+[import:"show_search_popup"](../../sample_raw/src/chapter_02/sample_2-10.py)
 
 ## まとめ
 

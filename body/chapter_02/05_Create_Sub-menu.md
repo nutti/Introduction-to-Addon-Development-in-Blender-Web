@@ -77,20 +77,8 @@
 
 サブメニューを追加するためには、 ```bpy.types.Menu``` クラスを継承したメニュークラスを作成する必要があります。
 
-```python
-# メインメニュー
-class ReplicateObjectMenu(bpy.types.Menu):
-    bl_idname = "uv.replicate_object_menu"
-    bl_label = "オブジェクトの複製"
-    bl_description = "オブジェクトを複製します"
+[import:"menu_cls"](../../sample_raw/src/chapter_02/sample_2-5.py)
 
-    def draw(self, context):
-        layout = self.layout
-        # サブメニューの登録＋出力文字列の登録
-        # bpy.data.objects：オブジェクト一覧
-        for o in bpy.data.objects:
-            layout.operator(ReplicateObject.bl_idname, text=o.name).src_obj_name = o.name
-```
 
 オペレータクラスと同様、メニュークラスにはメンバ変数 ```bl_idname``` 、 ```bl_label``` 、 ```bl_description``` を指定する必要がありますが、 ```bl_options``` を指定する必要はありません。
 
@@ -105,19 +93,13 @@ class ReplicateObjectMenu(bpy.types.Menu):
 
 オペレータクラスは、複製するオブジェクトをオブジェクト名で判定するため、オペレータクラスのメンバ変数 ```src_obj_name``` にオブジェクト名を代入します。```src_obj_name``` は ```StringProperty``` クラスとして用意します。
 
-```python
-src_obj_name = bpy.props.StringProperty()
-```
+[import:"string_prop"](../../sample_raw/src/chapter_02/sample_2-5.py)
 
 オペレータクラスの ```execute()``` メソッドでは、メンバ変数 ```src_obj_name``` に代入されたオブジェクト名を用いてオブジェクトを複製するように処理を変更しています。ソースコードのコメントを参考に確認してください。
 
 最後に、 3Dビューエリアのメニューであるオブジェクトへ項目を追加します。
 
-```python
-def menu_fn(self, context):
-    self.layout.separator()
-    self.layout.menu(ReplicateObjectMenu.bl_idname)
-```
+[import:"build_menu"](../../sample_raw/src/chapter_02/sample_2-5.py)
 
 これまでオペレータクラスをメニューに追加する時は ```self.layout.operator()``` 関数を利用していましたが、メニュークラスをメニューに追加する場合は ```self.layout.menu()``` 関数を利用します。```self.layout.menu()``` 関数にメニュークラスのメンバ変数 ```bl_idname``` を引数として渡すことで、メニューをメニュー項目に追加することができます。
 
@@ -137,31 +119,10 @@ def menu_fn(self, context):
 
 サンプルを見てもらえばわかると思いますが、3階層のメニューは2階層のメニューを作成した時の応用であることがわかります。
 
-```python
-# サブメニュー
-class ReplicateObjectSubMenu(bpy.types.Menu):
-    bl_idname = "uv.replicate_object_sub_menu"
-    bl_label = "オブジェクトの複製（サブメニュー）"
-    bl_description = "オブジェクトを複製します（サブメニュー）"
+[import:"sub_menu_cls"](../../sample_raw/src/chapter_02/sample_2-5_alt.py)
 
-    def draw(self, context):
-        layout = self.layout
-        # サブサブメニューの登録
-        for o in bpy.data.objects:
-            layout.operator(ReplicateObject.bl_idname, text=o.name).src_obj_name = o.name
+[import:"main_menu_cls"](../../sample_raw/src/chapter_02/sample_2-5_alt.py)
 
-
-# メインメニュー
-class ReplicateObjectMenu(bpy.types.Menu):
-    bl_idname = "uv.replicate_object_menu"
-    bl_label = "オブジェクトの複製"
-    bl_description = "オブジェクトを複製します"
-
-    def draw(self, context):
-        layout = self.layout
-        # サブメニューの登録
-        layout.menu(ReplicateObjectSubMenu.bl_idname)
-```
 
 サブメニュー登録時に ```self.layout.operator()``` 関数の代わりに ```self.layout.menu()``` 関数を用い、サブメニュー用に作成したメニュークラスのメンバ変数 ```bl_idname``` を指定します。そしてサブメニュー用に作成したクラスの中で、オペレータクラスを登録することで、3階層のメニューを作成することができます。
 
