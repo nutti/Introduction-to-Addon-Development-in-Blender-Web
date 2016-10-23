@@ -152,7 +152,7 @@
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
 |<div id="box">3</div>|適当にファイルを開くと、*コンソール・ウィンドウ* に以下のメッセージが表示されます。|
 |---|---|
@@ -195,7 +195,7 @@
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
 |<div id="box">3</div>|*コンソール・ウィンドウ* に以下のメッセージが表示されます。|
 |---|---|
@@ -275,7 +275,7 @@
 
 ---
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
 |<div id="box">4</div>|項目を確定すると *コンソール・ウィンドウ* に以下のメッセージが表示されます。|
 |---|---|

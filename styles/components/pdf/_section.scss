@@ -67,7 +67,7 @@ $sect_img_list:
         font-family: MPlus;
         margin-left:auto;
         text-align: right;
-        padding-right: 20px;
+        padding-right: 15px;
         width: 75%;
         overflow: hidden;
         height: 80px;
@@ -95,9 +95,9 @@ $sect_img_list:
         font-family: MPlus;
         margin-left: auto;
         text-align: left;
-        padding-right: 20px;
+        padding-right: 15px;
         padding-left: 30px;
-        width: 50%;
+        width: 48%;
         height: $height;
         overflow: hidden;
         font-size: $font_size;
@@ -109,8 +109,8 @@ $sect_img_list:
 
 .page {
     .section {
-        @include section_title_text(1.95em, -330.0px, -210px);
+        @include section_title_text(1.95em, -345.0px, -210px);
         @include section_title_img();
-        @include section_title_preface(0.7em , 220px, -120px, -140px);
+        @include section_title_preface(0.7em , 220px, -135px, -140px);
     }
 }
