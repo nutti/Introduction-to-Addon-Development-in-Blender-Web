@@ -9,6 +9,30 @@
 
 ###### 　
 
+{% if book.edition >= 2.0 %}
+{% if book.format == "pdf" %}
+
+## 第2版執筆にあたって
+
+初版執筆時には初心者向けの本として十分な内容になったと思っていましたが、執筆後に読み返すとここはこうしておけばよかったとか、本当に欲しい情報が抜けているなと思うようになりました。その中でも特にUIの制御は、UIを個人向けにカスタマイズするなど比較的初心者でも触れる機会が多く、本書に足りない部分でした。
+
+第2版では誤字の修正をはじめとして、初版で足りなかった説明を加えています。また第2版では、基本的な内容である1章と2章で構成される前編と、多少応用的な内容が含まれる3章と4章で構成される後編に分けました。本来であれば分けずに1冊でまとめたほうが良いのですが、ページ数の関係上仕方がありませんでした。
+
+{% if book.volume == "1" %}
+
+第2版の前編に追加した内容を以下にまとめておきますので、参考にしてください。
+なお、初版と同じようにサンプルを用いて実際に手を動かしながら理解していくスタンスで説明しています。
+
+* より詳細なアドオンのインストール方法・アンインストール方法・アップデート方法（[1-4節](body/chapter_01/04_Understand_Install_Uninstall_Update_Add-on.md)）
+* アドオンのソースコードを複数のファイルに分割する方法（[2-7節](body/chapter_02/07_Divide_Add-on_Source_into_Multiple_Files.md)）
+* BlenderのUI制御方法（[2-8節](body/chapter_02/08_Control_Blender_UI_1.md)、[2-9節](body/chapter_02/09_Control_Blender_UI_2.md)、[2-10節](body/chapter_02/10_Control_Blender_UI_3.md)）
+
+{% elif book.volume == "2" %}
+
+{% endif %}
+
+{% endif %}
+{% endif %}
 
 ## 本書について
 
@@ -80,9 +104,6 @@ https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/tree/draf
 必須知識に加えて以下の知識があると、本書で紹介している以上の高度なアドオンを作成することができると思います。
 なお本書を読むだけであれば、必ずしも必要ではない知識です。
 
-<div id="space_s"></div>
-
-
 * 数学
   * 三角関数
   * ベクトル演算
@@ -115,5 +136,3 @@ https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender
 
 https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/issues
 https://www.gitbook.com/book/nutti/introduction-to-add-on-development-in-blender/discussions
-
-<div id="space_page"></div>
