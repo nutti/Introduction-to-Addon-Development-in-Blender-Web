@@ -2,11 +2,12 @@
 
 @mixin table($font_size) {
     table {
-        width: 90%;
         margin-left: auto;
         margin-right: auto;
         margin-top: 25px;
         margin-bottom: 25px;
+        max-width: 90%;
+        width: auto;
         thead {
             tr {
                 th {

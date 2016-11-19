@@ -70,7 +70,8 @@ class ReplicateObject(bpy.types.Operator):
 //! [string_prop]
 
     def execute(self, context):
-        # bpy.ops.object.duplicate()は選択中のオブジェクトをコピーするため、メニューで選択されたオブジェクトを選択された状態にする
+        # bpy.ops.object.duplicate()は選択中のオブジェクトをコピーするため、
+        # メニューで選択されたオブジェクトを選択された状態にする
         # context.scene.objects：オブジェクト一覧
         # context.scene.objects.active：現在アクティブなオブジェクト
         for o in context.scene.objects:
