@@ -47,7 +47,7 @@
 
 <div id="process"></div>
 
-|<div id="box">4</div>|入力が完了したら、 *テキストエディタ* エリアのメニューバーから *テキスト* > *名前つけて保存* を実行します。|![アドオン作成 手順4](https://dl.dropboxusercontent.com/s/cbwyg0yebb8loww/blender_make_add-on_4.png "アドオン作成 手順4")|
+|<div id="box">4</div>|入力が完了したら、 *テキストエディタ* エリアのメニューバーから *テキスト* > *名前をつけて保存* を実行します。|![アドオン作成 手順4](https://dl.dropboxusercontent.com/s/cbwyg0yebb8loww/blender_make_add-on_4.png "アドオン作成 手順4")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -81,7 +81,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|*情報* エリアの *ファイル* > *ユーザ設定* を選択します。|![アドオン有効化 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオン有効化 手順1")|
+|<div id="box">1</div>|*情報* エリアの *ファイル* > *ユーザー設定...* を選択します。|![アドオン有効化 手順1](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_1.png "アドオン有効化 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>

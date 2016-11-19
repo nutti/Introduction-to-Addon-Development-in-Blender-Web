@@ -72,7 +72,7 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 |---|---|
 |Release|Blenderが公式にサポートするアドオンで、Blender本体と共に提供されます。<br>アドオンの公開や更新の度に厳密にレビュー（審査）されるため、 **不具合が少ない安定したアドオン** です。|
 |Contrib|Blender本体には含まれませんが、テストビルドされたBlender本体と共に提供されます。<br>サポートは各アドオン開発者が行うため、サポートレベルがReleaseであるアドオンに比べて品質が落ちます。<br>Contribとして登録されるためには、Blender開発者のレビューで一定の評価を得る必要があるために **一定の品質が保証され、新規性のある有用な機能を持ったアドオン** が集まっています。|
-|External|サポートレベルがReleaseおよびContrib以外のアドオンで、ユーザ自らアドオンをインストールする必要があります。<br>Blender開発者によるアドオンのレビューが行われていないため、**本サポートレベルのアドオンの利用は基本的に自己責任となります。**<br> 作業効率化など、Blender本体の機能を補助するアドオンが多く含まれるようですが、中にはサポートレベルがReleaseやContrib以上の機能を持つアドオンも存在します。|
+|External|サポートレベルがReleaseおよびContrib以外のアドオンで、ユーザ自らアドオンをインストールする必要があります。<br>Blender開発者によるアドオンのレビューが行われていないため、 **本サポートレベルのアドオンの利用は基本的に自己責任となります。** <br>作業効率化など、Blender本体の機能を補助するアドオンが多く含まれるようですが、中にはサポートレベルがReleaseやContrib以上の機能を持つアドオンも存在します。|
 
 ## アドオンのインストール
 
@@ -154,7 +154,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process_noimg"></div>
 
-|<div id="box">1</div>|Blenderを起動します|
+|<div id="box">1</div>|Blenderを起動します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -163,7 +163,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*情報* エリアのメニューから、 *ファイル* > *ユーザ設定* を選択します。|![アドオンの有効化 手順2](https://dl.dropboxusercontent.com/s/9it3p8rth2heyqi/enable_add-on_2.png "アドオンの有効化 手順2")|
+|<div id="box">2</div>|*情報* エリアのメニューから、 *ファイル* > *ユーザー設定...* を選択します。|![アドオンの有効化 手順2](https://dl.dropboxusercontent.com/s/9it3p8rth2heyqi/enable_add-on_2.png "アドオンの有効化 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -172,7 +172,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 
 <div id="process_noimg"></div>
 
-|<div id="box">3</div>|*Blenderユーザ設定* ウィンドウが別ウィンドウで開きますので、 *アドオン* タブを選択します。|
+|<div id="box">3</div>|*Blenderユーザー設定* ウィンドウが別ウィンドウで開きますので、 *アドオン* タブを選択します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -226,7 +226,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process_noimg"></div>
 
-|<div id="box">1</div>|アドオンを有効化した時と同様、 *Blenderユーザ設定* ウィンドウを開きます。|
+|<div id="box">1</div>|アドオンを有効化した時と同様、 *Blenderユーザー設定* ウィンドウを開きます。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -256,7 +256,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process_noimg"></div>
 
-|<div id="box">1</div>|*Blenderユーザ設定* ウィンドウの *アドオン* タブを選択し、 *Mira Tools* の左の矢印をクリックして詳細情報を開きます。|
+|<div id="box">1</div>|*Blenderユーザー設定* ウィンドウの *アドオン* タブを選択し、 *Mira Tools* の左の矢印をクリックして詳細情報を開きます。|
 |---|---|
 
 <div id="process_sep"></div>
