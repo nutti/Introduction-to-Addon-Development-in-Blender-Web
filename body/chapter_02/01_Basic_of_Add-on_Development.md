@@ -199,7 +199,7 @@ bl_info = {
 
 ![bl_info 解説2](https://dl.dropboxusercontent.com/s/pxe76rmhdanmmpw/bl-info_2.png "bl_info 解説2")
 
-*ドキュメント編集* ボタンをクリックすると、 ```wiki_url``` に指定したURLが開きます。アドオンのドキュメントや本アドオンの最新情報が得られるサイトのURLを ```wiki_url``` に設定するように設定します。本節のサンプルでは、本書のWebページ版が公開されているURLを設定しました。
+*ドキュメント編集* ボタンをクリックすると、 ```wiki_url``` に指定したURLが開きます。アドオンのドキュメントや本アドオンの最新情報が得られるサイトのURLを ```wiki_url``` に設定します。本節のサンプルでは、本書のWebページ版が公開されているURLを設定しました。
 
 *バグを報告* ボタンをクリックすると、 ```tracker_url``` に指定したURLが開きます。アドオンのバグを報告するサイトを持つ方が、ユーザからのフィードバックを得たい場合に設定しておくと良いかと思います。今回は本書のソースコードを公開しているサイトのURLを設定しました。
 
@@ -209,7 +209,8 @@ bl_info = {
 
 アドオン名を指定します。
 
-基本的にアドオン名は自由に決めても良いですが、アドオンの機能に関連した名前をつけるようにします。また、ユーザがアドオン名とアドオンのソースコードを対応付けやすくするため、アドオン名とユーザに提供するソースコードのファイル名は互いに連想できるものにしましょう。
+基本的にアドオン名は自由に決めて良いですが、アドオンの機能に関連した名前をつけるようにします。また、ユーザがアドオン名とアドオンのソースコードを対応付けやすくするため、アドオン名とユーザに提供するソースコードのファイル名は互いに連想できるものにしましょう。
+
 
 ##### author
 
@@ -262,7 +263,7 @@ bl_info = {
 
 |Blender Wiki (Blender Add-ons Catalog)|
 |---|
-|http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts|
+|https://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts|
 |![Blender Wiki (Blender Add-ons Catalog)](https://dl.dropboxusercontent.com/s/eqhblsox8zibbh8/blender_add-on_catalog.png "Blender Wiki (Blender Add-ons Catalog)")|
 
 
@@ -330,7 +331,7 @@ Blenderのバージョンが2.70であれば、 ```blender``` に指定する値
 
 ##### category
 
-機能の種類によって、アドオンをカテゴリとして分類できます。 ```category`` には、アドオンが属するカテゴリを指定します。
+機能の種類によって、アドオンをカテゴリとして分類できます。 ```category``` には、アドオンが属するカテゴリを指定します。
 
 
 <div id="sidebyside"></div>
@@ -423,7 +424,7 @@ ICO球生成時のサイズが2.0倍、生成時の座標が(x, y, z) = (5.0, -5
 
 <div id="sidebyside"></div>
 
-|アドオンを有効化し、3Dビューエリアのメニューから追加 > メッシュ > 球 を実行すると、右図のように指定した引数に応じてICO球を生成されます。|![オペレーション 解説2](https://dl.dropboxusercontent.com/s/a6qe1qaytr33dri/operation_2.png "オペレーション 解説2")|
+|アドオンを有効化し、3Dビューエリアのメニューから追加 > メッシュ > 球 を実行すると、右図のように指定した引数に応じてICO球が生成されます。|![オペレーション 解説2](https://dl.dropboxusercontent.com/s/a6qe1qaytr33dri/operation_2.png "オペレーション 解説2")|
 |---|---|
 
 
