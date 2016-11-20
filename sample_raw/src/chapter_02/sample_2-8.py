@@ -28,10 +28,10 @@ class NullOperation(bpy.types.Operator):
 //! [panel_cls]
 # ツールシェルフに「カスタムメニュー」タブを追加
 class VIEW3D_PT_CustomMenu(bpy.types.Panel):
-    bl_label = "カスタムメニュー"           # タブに表示される文字列
+    bl_label = "カスタムメニュー"          # タブに表示される文字列
     bl_space_type = 'VIEW_3D'           # メニューを表示するエリア
     bl_region_type = 'TOOLS'            # メニューを表示するリージョン
-    bl_category = "カスタムメニュー"        # タブを開いたメニューのヘッダーに表示される文字列
+    bl_category = "カスタムメニュー"       # タブを開いたメニューのヘッダーに表示される文字列
     bl_context = "objectmode"           # パネルを表示するコンテキスト
 //! [panel_cls]
 

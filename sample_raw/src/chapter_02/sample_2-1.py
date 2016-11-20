@@ -1,4 +1,4 @@
-//! 一行目の指示は無視されるため、ダミー指示を配置
+//! [_dummy] 一行目の指示は無視されるため、ダミー指示を配置
 //! [import_bpy]
 import bpy   # アドオン開発者に対して用意しているAPIを利用する
 //! [import_bpy]
@@ -72,3 +72,4 @@ def unregister():
 if __name__ == "__main__":
     register()
 //! [main]
+//! [_dummy]

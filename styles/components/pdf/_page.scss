@@ -40,6 +40,7 @@
 @mixin sidebyside($font_size) {
     #sidebyside + table {
         width: 100%;
+        max-width: 100%;
         table-layout: fixed;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -777,6 +778,27 @@
     }
 }
 
+@mixin space_x6l($space) {
+    #space_x6l {
+        display: block;
+        height: $space;
+    }
+}
+
+@mixin space_x7l($space) {
+    #space_x7l {
+        display: block;
+        height: $space;
+    }
+}
+
+@mixin space_x8l($space) {
+    #space_x8l {
+        display: block;
+        height: $space;
+    }
+}
+
 @mixin space_page($space) {
     #space_page {
         display: block;
@@ -868,6 +890,16 @@
 }
 
 
+@mixin centerize_img () {
+    #centerize_img + p {
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
 .page {
     .section {
         @include common(0.65em, 0.8);
@@ -888,8 +920,6 @@
         @include h5(0.8em);
         @include column(0.65em * 0.8, 1.3);
         @include em(0.80em);
-        //@mixin blockquote($font_size, $margin_left, $top)
-        //@include blockquote(0.55em, 18px, 26px);
         @include blockquote(0.55em, 18px, -30px);
         @include code(0.9em);
         @include a(0.8em);
@@ -905,8 +935,11 @@
         @include space_xxxl(240px);
         @include space_x4l(280px);
         @include space_x5l(320px);
-        @include space_page(930px);
+        @include space_x6l(370px);
+        @include space_x7l(400px);
+        @include space_x8l(600px)
+        @include space_page(1500px);
         @include strong(1.04em);
+        @include centerize_img();
     }
-
 }

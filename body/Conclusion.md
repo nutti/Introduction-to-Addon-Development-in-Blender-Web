@@ -70,7 +70,7 @@ conchan-akita 様, sariew 様
 
 ## 筆者について
 
-2014年より同人サークル『COLORFUL PICO』の代表として活動中。『COLORFUL PICO』はゲームやアプリの開発を行うサークルであったが、開発で得たノウハウをWeb上で公開する活動も行っている。最近はBlenderのアドオン開発に集中していたため、本来のサークルの目的であるゲームやアプリ開発が滞っている。
+2014年より同人サークル『COLORFUL PICO』の代表として活動中。『COLORFUL PICO』はゲームやアプリの開発を行うサークルであるが、開発で得たノウハウをWeb上で公開する活動も行っている。最近はBlenderのアドオン開発に集中していたため、本来のサークルの目的であるゲームやアプリ開発が滞っている。
 
 ### 趣味
 
@@ -101,6 +101,9 @@ conchan-akita 様, sariew 様
 |Mouse Click Merge|https://github.com/nutti/Mouse-Click-Merge |External|3DCGソフト「メタセコイア」のように、マウスクリックによる隣接頂点結合や面の対角線を反転させることができるアドオン|
 |Index Visualizer|https://github.com/nutti/Index-Visualizer |External|View3Dエリアのオブジェクトの頂点・辺・面のインデックス番号を表示するアドオン|
 |Face To Transform Orientation|https://github.com/nutti/Face-To-Transform-Orientation |External|View3Dエリアのオブジェクトを、Transform Orientationの方向に向かせるアドオン|
+
+
+<div id="space_page"></div>
 
 
 ![背表紙](https://dl.dropboxusercontent.com/s/v6zq4lyp06wo6v7/back_cover.png)

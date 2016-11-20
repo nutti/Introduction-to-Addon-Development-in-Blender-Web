@@ -18,7 +18,7 @@
 
 <div id="process_noimg"></div>
 
-|<div id="box">1<　/div>|[1-3節](03_Prepare_Add-on_development_environment.md) を参考にしてコンソールウィンドウからBlenderを起動します。|
+|<div id="box">1</div>|[1-3節](03_Prepare_Add-on_development_environment.md) を参考にしてコンソールウィンドウからBlenderを起動します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -27,7 +27,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*テキストエディター* エリアのメニューバーから*新規* をクリックして空のテキストを作成します。|![アドオン作成 手順2](https://dl.dropboxusercontent.com/s/6x7jkbaadtehb2e/blender_make_add-on_2.png "アドオン作成 手順2")|
+|<div id="box">2</div>|*テキストエディター* エリアのメニューから*新規* をクリックして空のテキストを作成します。|![アドオン作成 手順2](https://dl.dropboxusercontent.com/s/6x7jkbaadtehb2e/blender_make_add-on_2.png "アドオン作成 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -36,7 +36,7 @@
 
 <div id="process"></div>
 
-|<div id="box">3</div>| 以下に示すソースコード全文を入力します。空白は全て半角スペースで入力し、タブや全角スペースが含まれないように注意してください。|![アドオン作成 手順3](https://dl.dropboxusercontent.com/s/yv4zxwqlzljnm10/blender_make_add-on_3.png "アドオン作成 手順3")|
+|<div id="box">3</div>| 以下に示すソースコード全文を入力します。**空白は全て半角スペースで入力し、タブや全角スペースが含まれない** ように注意してください。|![アドオン作成 手順3](https://dl.dropboxusercontent.com/s/yv4zxwqlzljnm10/blender_make_add-on_3.png "アドオン作成 手順3")|
 |---|---|---|
 
 [import](../../sample/src/chapter_01/sample_1-5.py)
@@ -47,7 +47,7 @@
 
 <div id="process"></div>
 
-|<div id="box">4</div>|入力が完了したら、 *テキストエディター* エリアのメニューバーから *テキスト* > *名前をつけて保存* を実行します。|![アドオン作成 手順4](https://dl.dropboxusercontent.com/s/cbwyg0yebb8loww/blender_make_add-on_4.png "アドオン作成 手順4")|
+|<div id="box">4</div>|入力が完了したら、 *テキストエディター* エリアのメニューから *テキスト* > *名前をつけて保存* を実行します。|![アドオン作成 手順4](https://dl.dropboxusercontent.com/s/cbwyg0yebb8loww/blender_make_add-on_4.png "アドオン作成 手順4")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -56,7 +56,7 @@
 
 <div id="process"></div>
 
-|<div id="box">5</div>|ファイル名 *sample_1-5.py* という名前で保存します。<br>保存先はOSごとに異なりますので注意してください。|![アドオン作成 手順5](https://dl.dropboxusercontent.com/s/z9ibf7qz2t1jlj7/blender_make_add-on_5.png "アドオン作成 手順5")|
+|<div id="box">5</div>|ファイル名 *sample_1-5.py* として保存します。保存先はOSごとに異なりますので注意してください。|![アドオン作成 手順5](https://dl.dropboxusercontent.com/s/z9ibf7qz2t1jlj7/blender_make_add-on_5.png "アドオン作成 手順5")|
 |---|---|---|
 
 |OS|保存先|
@@ -69,6 +69,7 @@
 
 ---
 
+<div id="space_s"></div>
 
 ## アドオンを有効化する
 
@@ -79,7 +80,7 @@
 
 ##### Work
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
 |<div id="box">1</div>|*情報* エリアの *ファイル* > *ユーザー設定...* を選択します。|
 |---|---|
@@ -89,7 +90,7 @@
 
 ---
 
-<div id="process_noimg"></div>
+<div id="process"></div>
 
 |<div id="box">2</div>|*アドオン* タブを選択し、サポートレベルを *テスト中* に変更すると、今回作成したアドオンが表示されます。|![アドオン有効化 手順2](https://dl.dropboxusercontent.com/s/7p3apgnyvjj8dl0/blender_enable_add-on_2.png "アドオン有効化 手順2")|
 |---|---|---|
@@ -142,7 +143,7 @@
 
 <div id="column"></div>
 
-ここまで期待した動作になっているでしょうか。  もし期待した動作にならずエラーが出てしまっている場合は、ソースコードに入力した内容が正しいかを再度確認してください。特にPythonではスペースやタブが混ざっていたり、スペースやタブの数が合っていなかったりする場合にエラーになることが多いので、特に空白には注意してください。
+ここまで期待した動作をしているでしょうか。もし期待した動作にならずにエラーが出る場合は、ソースコードに入力した内容が正しいかを再度確認してください。Pythonではスペースやタブが混ざっていたり、スペースやタブの数が合っていなかったりする場合にエラーになることが多いので、特に空白には注意してください。
 
 ## まとめ
 
@@ -157,4 +158,4 @@
 <div id="point_item"></div>
 
 * アドオンのソースコードは、Blender本体に備わっている *テキストエディター* を用いて作成・編集できる
-* アドオンの有効化/無効化は、 *情報* エリアのメニューバーから *ファイル* > *ユーザ設定* で表示される *Blenderユーザ設定* ウィンドウの *アドオン* タブから行う
+* アドオンの有効化/無効化は、*情報* エリアのメニューから *ファイル* > *ユーザ設定* で表示される *Blenderユーザ設定* ウィンドウの *アドオン* タブから行う

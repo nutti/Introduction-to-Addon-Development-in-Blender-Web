@@ -100,17 +100,24 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
 @mixin space_chapter() {
     #space_chapter_1 {
         display: block;
-        height: 140px;
+        height: 1500px;
     }
     #space_chapter_2 {
         display: block;
-        height: 140px;
+        height: 1500px;
     }
     #space_chapter_3 {
         display: block;
-        height: 140px;
+        height: 1500px;
     }
     #space_chapter_4 {
+        display: block;
+        height: 1500px;
+    }
+}
+
+@mixin space_chapter_before_toc () {
+    #space_chapter_before_toc {
         display: block;
         height: 140px;
     }
@@ -123,5 +130,6 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
         @include chapter_body(0.8em, 190px, -30px, -110px);
         @include chapter_toc(0.8em, 0px, 0px);
         @include space_chapter();
+        @include space_chapter_before_toc();
     }
 }

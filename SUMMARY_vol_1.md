@@ -5,7 +5,7 @@
   4. [1-4. アドオンのインストール・アンインストール・アップデート方法を理解する](body/chapter_01/04_Understand_Install_Uninstall_Update_Add-on.md)
   5. [1-5. 自作のアドオンをインストールする](body/chapter_01/05_Install_own_Add-on.md)
 2. [2. アドオンを作ってみよう](body/chapter_02/SUMMARY.md)
-  1. [2-1. アドオン開発の基礎](body/chapter_02/01_Basic_of_Add-on_Development.md)
+  1. [2-1. アドオン開発の基礎を身につける](body/chapter_02/01_Basic_of_Add-on_Development.md)
   2. [2-2. 複数のオペレータクラスを登録する](body/chapter_02/02_Register_Multiple_Operation_Classes.md)
   3. [2-3. ツール・シェルフのオプションを活用する①](body/chapter_02/03_Use_Property_on_Tool_Shelf_1.md)
   4. [2-4. ツール・シェルフのオプションを活用する②](body/chapter_02/04_Use_Property_on_Tool_Shelf_2.md)

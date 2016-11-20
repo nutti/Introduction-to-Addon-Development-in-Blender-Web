@@ -18,7 +18,7 @@
 
 ## アドオンを作成する
 
-以下のソースコードを、 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名 ```sample_2-2.py``` で保存します。
+以下のソースコードを、[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名 ```sample_2-2.py``` で保存します。
 
 [import](../../sample/src/chapter_02/sample_2-2.py)
 
@@ -37,7 +37,7 @@
 
 <div id="sidebyside"></div>
 
-|アドオン有効化後、右図のように *3Dビュー* エリアのメニューに *オブジェクト* > *選択オブジェクトの拡大* と、 *オブジェクト* > *選択オブジェクトの縮小* が追加されていることを確認します。|![メニューの追加確認](https://dl.dropboxusercontent.com/s/udxtkxqkbrbj4hz/enable_add-on.png "メニューの追加確認")|
+|アドオン有効化後、右図のように *3Dビュー* エリアのメニューに *オブジェクト* > *選択オブジェクトの拡大* と、*オブジェクト* > *選択オブジェクトの縮小* が追加されていることを確認します。|![メニューの追加確認](https://dl.dropboxusercontent.com/s/udxtkxqkbrbj4hz/enable_add-on.png "メニューの追加確認")|
 |---|---|
 
 
@@ -111,7 +111,7 @@
 
 本節で新たに加わった処理の1つとして、複数のオペレータクラスを定義する処理があります。
 
-1つのファイルに複数のオペレータクラスを定義するためには、作りたい機能の数だけオペレーションクラスを定義する必要があります。本節のサンプルでは、オブジェクトの拡大とオブジェクトの縮小の2つの機能のために、2つのオペーレーションクラスを以下のように作成しました。
+1つのファイルに複数のオペレータクラスを定義するためには、**作りたい機能の数だけオペレーションクラスを定義する** 必要があります。本節のサンプルでは、オブジェクトの拡大とオブジェクトの縮小の2つの機能のために、2つのオペーレーションクラスを以下のように作成しました。
 
 [import:"op_enlarge_object"](../../sample_raw/src/chapter_02/sample_2-2.py)
 
@@ -124,17 +124,17 @@
 
 オペレータクラスの ```execute()``` メソッドの処理の中には、メニューが実行された時にスクリプト実行ログへメッセージを出力する処理が含まれています。
 
-ここでは、 ```EnlargeObject``` クラスの ```execute()``` メソッド内に定義されてる、スクリプト実行ログへメッセージを出力する処理について説明します。
+ここでは、```EnlargeObject``` クラスの ```execute()``` メソッド内に定義されている、スクリプト実行ログへメッセージを出力する処理について説明します。
 
-[import:"execute_enlarge_object"](../../sample_raw/src/chapter_02/sample_2-2.py)
+[import:"execute_enlarge_object", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-2.py)
 
-```execute()``` メソッドに渡されてくる引数については、 [2-1節](01_Basic_of_Add-on_Development.md) で説明しました。引数 ```context``` から、現在のコンテキスト（実行状態）を取得することができます。
+```execute()``` メソッドに渡されてくる引数については、[2-1節](01_Basic_of_Add-on_Development.md) で説明しましたので、引数の詳細についての説明はここでは省略します。引数 ```context``` から、現在のコンテキスト（実行状態）を取得することができます。
 
 現在選択されているオブジェクトである ```context.active_object``` を ```active_obj``` に一度保存し、 ```active_obj.scale``` を2倍にすることで取得したオブジェクトのサイズを2倍に拡大することができます。
 
-その後 ```self.report()``` メソッドを用いて、ユーザに対してオペレーションを実行した後に、オブジェクトを拡大・縮小したことがわかるようなメッセージをスクリプト実行ログに出力しています。ここで ```execute()``` メソッドの引数である ```self``` は、オブジェクトのインスタンスです。
+その後 ```self.report()``` メソッドを用いて、ユーザに対してオペレーションを実行した後に、オブジェクトを拡大・縮小したことがわかるようなメッセージをスクリプト実行ログに出力します。ここで、```execute()``` メソッドの引数である ```self``` は、オブジェクトのインスタンスです。
 
-```self.report()``` メソッドに指定する必要がある引数は以下の通りです。
+```self.report()``` メソッドに指定する必要のある引数を以下に示します。
 
 |引数|型|値の説明|
 |---|---|---|
@@ -152,22 +152,22 @@
 
 本節のサンプルでは、オブジェクトが拡大・縮小されたことをユーザへ知らせるために ```{'INFO'}``` を指定し、拡大・縮小したオブジェクト名（ ```active_obj.name``` ）も表示しています。
 
-## Pythonコンソールウィンドウを活用しよう
+## Pythonコンソールを活用しよう
 
 ### bl_idname が重複していないかを確認する
 
-```bl_idname``` が重複してはならないと説明しましたが、 ```bl_idname``` が重複していないかを確認するためにはどのようにしたら良いのでしょうか？この時役に立つのが、Pythonコンソールウィンドウです。
+```bl_idname``` が重複してはならないと説明しましたが、```bl_idname``` が重複していないかを確認するためにはどのようにしたら良いのでしょうか？すでに存在する ```bl_idname``` を確認したい時に役に立つのが、Pythonコンソールです。
 
-Pythonコンソールウィンドウを利用することにより、例えば以下のようなことができます。
+Pythonコンソールを利用することにより、例えば以下のようなことができます。
 
 * 補完機能を使って、APIの正確な名称を調べることができる
 * APIを実行することで、APIの効果を確認出来る
 * 短いPythonのソースコードを実行し、簡単なテストができる
 * アドオン作成時に命名した関数などが、APIや他のアドオンと重複していないかを確認出来る
 
-ここではPythonコンソールウィンドウを使って、本節のサンプルで追加したオペレータクラスの ```bl_idname``` が既存のAPIと重複していないかを実際に確認してみます。確認対象とする ```bl_idname``` は ```object.enlarge_object``` とします。
+ここではPythonコンソールを使って、本節のサンプルで追加したオペレータクラスの ```bl_idname``` が既存のAPIと重複していないかを実際に確認してみます。確認対象とする ```bl_idname``` は ```object.enlarge_object``` とします。
 
-Blenderのエリア構成が [1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介したような設定となっていれば、左上のウィンドウが *Pythonコンソールウィンドウ* エリアとなります。
+Blenderのエリア構成が [1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介したような設定となっていれば、左上のウィンドウが *Pythonコンソール* エリアとなります。
 
 
 <div id="process_title"></div>
@@ -176,7 +176,7 @@ Blenderのエリア構成が [1-3節](../chapter_01/03_Prepare_Add-on_developmen
 
 <div id="process"></div>
 
-|<div id="box">1</div>|設定したオペレータクラスの ```bl_idname``` が ```bpy.ops.<オペレーションクラスのbl_idname>``` に登録されることを利用します。<br>Pythonコンソールウィンドウに ```bpy.ops.object.enlarge_obje``` と入力してみます。入力が完了したら、WindowsやLinuxであれば *Ctrl* + *Space* 、Macであれば *control* + *space* を押します。ここで単語が補完されなければ、 ```bl_idname``` として ```bpy.ops.object.enlarge_object``` が利用されていないことになり、 ```bl_idname``` への指定が可能であることがわかります。|![Pythonコンソールウィンドウ 使い道 手順1](https://dl.dropboxusercontent.com/s/xazuoclt1k0y4t7/python_console_1.png "Pythonコンソールウィンドウ 使い道1")|
+|<div id="box">1</div>|設定したオペレータクラスの ```bl_idname``` が ```bpy.ops.<オペレーションクラスのbl_idname>``` に登録されることを利用します。<br>*Pythonコンソール* エリアに ```bpy.ops.object.enlarge_obje``` と入力してみます。入力が完了したら、WindowsやLinuxであれば *Ctrl* + *Space* 、Macであれば *control* + *space* を押します。ここで単語が補完されなければ、```bl_idname``` として ```bpy.ops.object.enlarge_object``` が利用されていないことになり、```bl_idname``` への指定が可能であることがわかります。|![Pythonコンソール 使い道 手順1](https://dl.dropboxusercontent.com/s/xazuoclt1k0y4t7/python_console_1.png "Pythonコンソール 使い道1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -185,7 +185,7 @@ Blenderのエリア構成が [1-3節](../chapter_01/03_Prepare_Add-on_developmen
 
 <div id="process"></div>
 
-|<div id="box">2</div>|本節で作成したアドオンを有効化した後に、Pythonコンソールウィンドウに以下を打ち込んで *Enter* キーを押します。|![Pythonコンソールウィンドウ 使い道 手順2](https://dl.dropboxusercontent.com/s/rxa9lx8uk12ytoq/python_console_2.png "Pythonコンソールウィンドウ 使い道 手順2")|
+|<div id="box">2</div>|本節で作成したアドオンを有効化した後に、Pythonコンソールに以下を打ち込んで *Enter* キーを押します。|![Pythonコンソール 使い道 手順2](https://dl.dropboxusercontent.com/s/rxa9lx8uk12ytoq/python_console_2.png "Pythonコンソール 使い道 手順2")|
 |---|---|---|
 
 ```python
@@ -199,9 +199,9 @@ Blenderのエリア構成が [1-3節](../chapter_01/03_Prepare_Add-on_developmen
 ---
 
 
-### Pythonコンソールウィンドウのショートカットキー
+### Pythonコンソールのショートカットキー
 
-Pythonコンソールウィンドウでは以下のようなショートカットキーが利用できますので、作業効率化のためにぜひ活用してください。
+*Pythonコンソール* エリアではショートカットキーが利用できますので、作業効率化のためにぜひ活用してください。
 
 |Windows|Mac|Linux|動作|
 |----|----|----|----|
@@ -259,7 +259,7 @@ Macでショートカットキーを利用するためには、Macのショー�
 
 <div id="process_noimg"></div>
 
-|<div id="box">4</div>|Blender Python Consoleで使いたいショートカットキーの割り当てを解除|
+|<div id="box">4</div>|*Pythonコンソール* で使いたいショートカットキーの割り当てを解除|
 |---|---|
 
 <div id="process_start_end"></div>
@@ -268,7 +268,9 @@ Macでショートカットキーを利用するためには、Macのショー�
 
 ## まとめ
 
-本節では、複数のオペレータクラスを作る方法やスクリプト実行ログにメッセージを出力する方法を紹介しました。さらに、Pythonコンソールウィンドウの利用方法を紹介しました。Pythonコンソールウィンドウを利用することでAPIやテストしたい処理を直接実行して動作確認できるため、アドオン開発の効率化のために積極的に活用していきましょう。
+本節では、複数のオペレータクラスを作る方法やスクリプト実行ログにメッセージを出力する方法を紹介しました。さらに、Pythonコンソールの利用方法を紹介しました。Pythonコンソールを利用することでAPIやテストしたい処理を直接実行して動作確認できることから、アドオン開発の効率化のために積極的に活用していきましょう。
+
+<div id="space_s"></div>
 
 <div id="point"></div>
 
@@ -279,4 +281,4 @@ Macでショートカットキーを利用するためには、Macのショー�
 * オペレーションを複数作るためには、作りたいオペレーションの数だけオペレータクラスを定義する必要がある
 * ```self.report()``` メソッドを利用することで、スクリプト実行ログにメッセージを出力することができる
 * 登録したオペレータクラスの ```bl_idname``` は ```bpy.ops.<bl_idname>``` に登録される
-* Pythonコンソールウィンドウを利用して、APIの確認や簡単なテストを行うことができる
+* Pythonコンソールを利用して、APIの確認や簡単なテストを行うことができる

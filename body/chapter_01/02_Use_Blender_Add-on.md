@@ -49,7 +49,7 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 
 <div id="process"></div>
 
-|<div id="box">4</div>|*Language* を *Japanese（日本語）* に変更し、 *Translate* で日本語化する項目を選択すると、選択した項目のUIに関して日本語化されます。|![アドオンの日本語化 手順4](https://dl.dropboxusercontent.com/s/s5mrd72si2xq910/localizing_into_japanese_4.png "アドオン日本語化 手順4")|
+|<div id="box">4</div>|*Language* を *Japanese（日本語）* に変更し、*Translate* で日本語化する項目を選択すると、選択した項目のUIに関して日本語化されます。|![アドオンの日本語化 手順4](https://dl.dropboxusercontent.com/s/s5mrd72si2xq910/localizing_into_japanese_4.png "アドオン日本語化 手順4")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -60,7 +60,7 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 
 アドオンを使用する前に、アドオンのサポートレベルについて理解しましょう。
 
-**アドオンのサポートレベルはアドオンの品質やメンテナンスなどの将来性を示しています。** サポートレベルが高ければよくメンテナンスされていて品質が高い傾向があります。一方、サポートレベルが低いアドオンではメンテナンスがおろそかな傾向があり、正しく動作しないまま放置されているアドオンも少なからずあります。
+**アドオンのサポートレベルはアドオンの品質やメンテナンスなどの将来性を示しす。** サポートレベルが高ければよくメンテナンスされていて品質が高い傾向があります。一方、サポートレベルが低いアドオンではメンテナンスがおろそかな傾向があり、正しく動作しないまま放置されているアドオンも少なからずあります。
 
 サポートレベルが低くても非常に有用なアドオンはたくさんあります。問題が起きても気にせず様々なアドオンを使いたい方はサポートレベルを気にせず使えばよく、安定した動作をするアドオンのみを使いたい方であればサポートレベルが高いアドオンだけを使用するのがよいと思います。
 
@@ -156,7 +156,7 @@ Blenderアドオン用フォルダは以下に示すように、OSごとにパ�
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*情報* エリアのメニューから、 *ファイル* > *ユーザー設定...* を選択します。|![アドオンの有効化 手順2](https://dl.dropboxusercontent.com/s/9it3p8rth2heyqi/enable_add-on_2.png "アドオンの有効化 手順2")|
+|<div id="box">2</div>|*情報* エリアのメニューから、*ファイル* > *ユーザー設定...* を選択します。|![アドオンの有効化 手順2](https://dl.dropboxusercontent.com/s/9it3p8rth2heyqi/enable_add-on_2.png "アドオンの有効化 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -165,7 +165,7 @@ Blenderアドオン用フォルダは以下に示すように、OSごとにパ�
 
 <div id="process_noimg"></div>
 
-|<div id="box">3</div>|*Blenderユーザー設定* ウィンドウが別ウィンドウで開きますので、 *アドオン* タブを選択します。|
+|<div id="box">3</div>|*Blenderユーザー設定* ウィンドウが別ウィンドウで開きますので、*アドオン* タブを選択します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -192,7 +192,7 @@ Blenderアドオン用フォルダは以下に示すように、OSごとにパ�
 
 <div id="process"></div>
 
-|<div id="box">6</div>|実際にアドオンが有効化されているかは、 *エディットモード* 時に *3Dビュー* エリアの左側の *ツールシェルフ* のタブに *Mira* が追加されていることで確認できます。|![アドオンの有効化 手順6](https://dl.dropboxusercontent.com/s/qqvxodqbs67yy45/enable_add-on_6.png "アドオンの有効化 手順6")|
+|<div id="box">6</div>|実際にアドオンが有効化されているかは、*エディットモード* 時に *3Dビュー* エリアの左側の *ツールシェルフ* のタブに *Mira* が追加されていることで確認できます。|![アドオンの有効化 手順6](https://dl.dropboxusercontent.com/s/qqvxodqbs67yy45/enable_add-on_6.png "アドオンの有効化 手順6")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -228,7 +228,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*アドオン* タブを選択し、 *Mira Tools* のチェックボックスのチェックを外すことでアドオンが無効化されます。|![アドオンの無効化 手順2](https://dl.dropboxusercontent.com/s/t15vvgofl5gs50d/disable_add-on_2.png "アドオンの無効化 手順2")|
+|<div id="box">2</div>|*アドオン* タブを選択し、*Mira Tools* のチェックボックスのチェックを外すことでアドオンが無効化されます。|![アドオンの無効化 手順2](https://dl.dropboxusercontent.com/s/t15vvgofl5gs50d/disable_add-on_2.png "アドオンの無効化 手順2")|
 |---|---|---|
 
 <div id="process_start_end"></div>
