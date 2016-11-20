@@ -183,6 +183,8 @@ Blenderのアドオンを開発するためには、```bpy``` モジュールと
 
 以下の図では、 ```bl_info``` 変数に指定された値と表示内容の対応関係を示しています。 ```warning```, ```wiki_url```, ```tracker_url``` については、本節のサンプルでは未設定のため表示されていません。
 
+<div id="centerize_img"></div>
+
 ![bl_info 解説1](https://dl.dropboxusercontent.com/s/ko8lslcvcw84ras/bl-info_1.png "bl_info 解説1")
 
 本節で作成したサンプルは ```warning```, ```wiki_url```, ```tracker_url``` を設定していませんが、もしこれらのキーについて値を設定した場合に *ユーザ設定* ウィンドウへどのように反映されるかを確認するため、ソースコードの ```bl_info``` を以下のように書き換えます。
