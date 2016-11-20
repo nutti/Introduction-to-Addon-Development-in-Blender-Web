@@ -79,6 +79,7 @@ class ShowDialogMenu(bpy.types.Operator):
 
     def invoke(self, context, event):
         scene = context.scene
+        wm = context.window_manager
 
         self.prop_int = scene.cm_prop_int
         self.prop_float = scene.cm_prop_float
@@ -86,7 +87,7 @@ class ShowDialogMenu(bpy.types.Operator):
         self.prop_floatv = scene.cm_prop_floatv
 
         # ダイアログメニュー呼び出し
-        return context.window_manager.invoke_props_dialog(self)
+        return wm.invoke_props_dialog(self)
 
 
 class ShowFileBrowser(bpy.types.Operator):
@@ -100,7 +101,8 @@ class ShowFileBrowser(bpy.types.Operator):
     directory = StringProperty(subtype="FILE_PATH")
 
     def execute(self, context):
-        self.report({'INFO'}, "サンプル2-10: [FilePath] %s, [FileName] %s, [Directory] %s" % (self.filepath, self.filename, self.directory))
+        self.report({'INFO'}, "サンプル2-10: [FilePath] %s, [FileName] %s, [Directory] %s
+            % (self.filepath, self.filename, self.directory))
         return {'FINISHED'}
 
     def invoke(self, context, event):
@@ -163,7 +165,8 @@ class ShowPropertyPopup(bpy.types.Operator):
 
     def execute(self, context):
         self.report({'INFO'}, "サンプル2-10: [1] %d, [2] %f, [3] %s, [4] (%f, %f, %f)"
-            % (self.prop_int, self.prop_float, self.prop_enum, self.prop_floatv[0], self.prop_floatv[1], self.prop_floatv[2]))
+            % (self.prop_int, self.prop_float, self.prop_enum, self.prop_floatv[0],
+            self.prop_floatv[1], self.prop_floatv[2]))
         return {'FINISHED'}
 
     def invoke(self, context, event):
@@ -205,10 +208,10 @@ class ShowSearchPopup(bpy.types.Operator):
 
 # ツールシェルフに「カスタムメニュー」タブを追加
 class VIEW3D_PT_CustomMenu(bpy.types.Panel):
-    bl_label = "カスタムメニュー"       # タブに表示される文字列
+    bl_label = "カスタムメニュー"          # タブに表示される文字列
     bl_space_type = 'VIEW_3D'           # メニューを表示するエリア
     bl_region_type = 'TOOLS'            # メニューを表示するリージョン
-    bl_category = "カスタムメニュー"    # タブを開いたメニューのヘッダーに表示される文字列
+    bl_category = "カスタムメニュー"       # タブを開いたメニューのヘッダーに表示される文字列
     bl_context = "objectmode"           # パネルを表示するコンテキスト
 
 
