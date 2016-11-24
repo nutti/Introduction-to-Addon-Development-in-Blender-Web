@@ -65,11 +65,9 @@ class ReplicateObject(bpy.types.Operator):
         unit = 'LENGTH'
     )
 
-    src_obj_name = None
-
     def execute(self, context):
         # bpy.ops.object.duplicate()実行後に複製オブジェクトが選択されるため、選択中のオブジェクトを保存
-        self.src_obj_name = context.active_object.name
+        src_obj_name = context.active_object.name
         bpy.ops.object.duplicate()
         active_obj = context.active_object
 
@@ -95,7 +93,7 @@ class ReplicateObject(bpy.types.Operator):
         # 複製したオブジェクトの最終位置を設定
         active_obj.location = active_obj.location + Vector(self.offset)
 
-        self.report({'INFO'}, "サンプル2-6: 「%s」を複製しました。" % self.src_obj_name)
+        self.report({'INFO'}, "サンプル2-6: 「%s」を複製しました。" % src_obj_name)
         print("サンプル2-6: オペレーション「%s」が実行されました。" % self.bl_idname)
 
         return {'FINISHED'}

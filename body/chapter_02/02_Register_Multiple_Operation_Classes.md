@@ -18,7 +18,7 @@
 
 ## アドオンを作成する
 
-以下のソースコードを、[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名 ```sample_2-2.py``` で保存します。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名 ```sample_2-2.py``` で保存します。
 
 [import](../../sample/src/chapter_02/sample_2-2.py)
 

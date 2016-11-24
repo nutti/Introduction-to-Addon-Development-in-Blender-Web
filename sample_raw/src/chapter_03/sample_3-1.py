@@ -3,7 +3,7 @@ import bmesh
 from bpy.props import IntProperty, BoolProperty, PointerProperty
 
 bl_info = {
-    "name": "サンプル7: マウスの右クリックで面を削除する",
+    "name": "サンプル3-1: マウスの右クリックで面を削除する",
     "author": "Nutti",
     "version": (1, 0),
     "blender": (2, 75, 0),
@@ -71,13 +71,13 @@ class DeleteFaceByRClick(bpy.types.Operator):
             loc = event.mouse_region_x, event.mouse_region_y
             ret = bpy.ops.view3d.select(location=loc)
             if ret == {'PASS_THROUGH'}:
-                print("サンプル7: 選択範囲外です。")
+                print("サンプル3-1: 選択範囲外です。")
                 return {'PASS_THROUGH'}
             # 選択面を取得
             e = bm.select_history[-1]
             if not isinstance(e, bmesh.types.BMFace):
                 bm.select_history.remove(e)
-                print("サンプル7: 面以外を選択しました。")
+                print("サンプル3-1: 面以外を選択しました。")
                 return {'PASS_THROUGH'}
             # 選択面を削除
             bm.select_history.remove(e)
@@ -88,7 +88,7 @@ class DeleteFaceByRClick(bpy.types.Operator):
             props.deleted_count = props.deleted_count + 1
             # マウスクリック中に連続して面が削除されることを防ぐ
             props.deleted = True
-            print("サンプル7: 面を削除しました。")
+            print("サンプル3-1: 面を削除しました。")
 
         # マウスがクリック状態から解除された時に、削除禁止状態を解除
         if props.right_mouse_down is False:
@@ -107,13 +107,13 @@ class DeleteFaceByRClick(bpy.types.Operator):
                 props.deleted_count = 0
                 # modal処理クラスを追加
                 context.window_manager.modal_handler_add(self)
-                print("サンプル7: 削除処理を開始しました。")
+                print("サンプル3-1: 削除処理を開始しました。")
                 return {'RUNNING_MODAL'}
             # 処理停止
             else:
                 props.running = False
-                self.report({'INFO'}, "サンプル7: %d個の面を削除しました。" % (props.deleted_count))
-                print("サンプル7: %d個の面を削除しました。" % (props.deleted_count))
+                self.report({'INFO'}, "サンプル3-1: %d個の面を削除しました。" % (props.deleted_count))
+                print("サンプル3-1: %d個の面を削除しました。" % (props.deleted_count))
                 return {'FINISHED'}
         else:
             return {'CANCELLED'}
@@ -143,13 +143,13 @@ def register():
         name = "プロパティ",
         description = "本アドオンで利用するプロパティ一覧",
         type = DFRC_Properties)
-    print("サンプル7: アドオン「サンプル7」が有効化されました。")
+    print("サンプル3-1: アドオン「サンプル3-1」が有効化されました。")
 
 
 def unregister():
     del bpy.types.Scene.dfrc_props
     bpy.utils.unregister_module(__name__)
-    print("サンプル7: アドオン「サンプル7」が無効化されました。")
+    print("サンプル3-1: アドオン「サンプル3-1」が無効化されました。")
 
 
 if __name__ == "__main__":
