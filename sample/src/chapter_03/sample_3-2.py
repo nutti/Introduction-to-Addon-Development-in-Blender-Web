@@ -18,7 +18,7 @@ bl_info = {
     "category": "Object"
 }
 
-
+# Enumクラスを用いた列挙値の定義
 EditType = enum.Enum('EditType', 'NONE TRANSLATE SCALE ROTATE')
 EditAxis = enum.Enum('EditAxis', 'NONE X Y Z')
 EditOption = enum.Enum('EditOption', 'NONE + -')
@@ -92,7 +92,8 @@ class SpecialObjectEditMode(bpy.types.Operator):
         for ev_key in ev_key_list:
             if event.type == ev_key[0]:
                 # self.__dict__には、クラスのインスタンス変数の一覧が、ディクショナリ型
-                # （キー：値）＝（インスタンス変数名：値）として保存されている
+                # （キー：値）＝（インスタンス変数名：インスタンス変数への参照）として
+                # 保存されている
                 self.__dict__[ev_key[1]] = self.__change_state(
                     event.value, ev_key[2], ev_key[3])
 
@@ -110,8 +111,10 @@ class SpecialObjectEditMode(bpy.types.Operator):
             value = Vector((0.0, 0.0, 0.0))
             for i, axis in enumerate(['X', 'Y', 'Z']):
                 if self.edit_axis == EditAxis[axis]:
+                    # オブジェクトを正方向に1.0だけ移動
                     if self.edit_opt == EditOption['+']:
                         value[i] = 1.0
+                    # オブジェクトを負方向に-1.0だけ移動
                     elif self.edit_opt == EditOption['-']:
                         value[i] = -1.0
             # bpy.ops.transform.translate()：選択中のオブジェクトを並進移動する
@@ -122,8 +125,10 @@ class SpecialObjectEditMode(bpy.types.Operator):
             value = Vector((1.0, 1.0, 1.0))
             for i, axis in enumerate(['X', 'Y', 'Z']):
                 if self.edit_axis == EditAxis[axis]:
+                    # オブジェクトのサイズを1.1倍に拡大
                     if self.edit_opt == EditOption['+']:
                         value[i] = 1.1
+                    # オブジェクトのサイズを0.9倍に縮小
                     elif self.edit_opt == EditOption['-']:
                         value[i] = 0.9
             # bpy.ops.transform.resize()：選択中のオブジェクトを拡大・縮小する
@@ -131,12 +136,16 @@ class SpecialObjectEditMode(bpy.types.Operator):
             bpy.ops.transform.resize(value=value)
         # 回転
         elif self.edit_type == EditType['ROTATE']:
+            # 回転軸を設定
             rot_axis = Vector((0.0, 0.0, 0.0))
             for i, axis in enumerate(['X', 'Y', 'Z']):
                 if self.edit_axis == EditAxis[axis]:
                     rot_axis[i] = 1.0
+            # 回転方向を設定
+            # 正方向に0.1（ラジアン）回転
             if self.edit_opt == EditOption['+']:
                 value = 0.1
+            # 負方向に-0.1（ラジアン）回転
             elif self.edit_opt == EditOption['-']:
                 value = -0.1
             # bpy.ops.transform.rotate()：選択中のオブジェクトを回転する
