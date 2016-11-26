@@ -208,9 +208,7 @@ Mira Tools - https://github.com/mifth/mifthtools/wiki/Mira-Tools
 
 ## アドオンの無効化
 
-次にアドオンを無効化する方法を説明します。
-
-以下に紹介する手順により、 サポートレベルがRelease/Contrib/Externalのいずれについても共通の方法で無効化することができます。
+Release/Contrib/Externalいずれのサポートレベルについても共通で、次に紹介する手順でアドオンを無効化できます。
 
 
 <div id="process_title"></div>

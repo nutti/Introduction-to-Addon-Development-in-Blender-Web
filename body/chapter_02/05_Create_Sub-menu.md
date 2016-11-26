@@ -21,8 +21,6 @@
 ## アドオンを使用する
 
 
-<div id="space_m"></div>
-
 
 ### アドオンを有効化する
 
@@ -84,7 +82,7 @@
 [import:"menu_cls"](../../sample_raw/src/chapter_02/sample_2-5.py)
 
 
-オペレータクラスと同様、メニュークラスにはクラス変数 ```bl_idname``` 、 ```bl_label``` 、 ```bl_description``` を定義する必要がありますが、 ```bl_options``` を指定する必要はありません。
+オペレータクラスと同様、メニュークラスにはクラス変数 ```bl_idname``` , ```bl_label``` , ```bl_description``` を定義する必要がありますが、 ```bl_options``` を指定する必要はありません。
 
 メニュークラスでは、メニューの描画に必要な ```draw()``` メソッドを実装する必要があります。メニューが表示される度に ```draw()``` メソッドが呼ばれ、以下の引数が渡されてきます。
 
@@ -106,6 +104,8 @@
 [import:"build_menu"](../../sample_raw/src/chapter_02/sample_2-5.py)
 
 これまでオペレータクラスをメニューに追加する時は ```self.layout.operator()``` 関数を利用していましたが、メニュークラスをメニューに追加する場合は ```self.layout.menu()``` 関数を利用します。```self.layout.menu()``` 関数にメニュークラスのクラス変数 ```bl_idname``` を引数として渡すことで、メニューをメニューの項目に追加することができます。
+
+<div id="space_s"></div>
 
 ### 3階層以上のメニュー
 
@@ -146,7 +146,7 @@
 <div id="point_item"></div>
 
 * メニュークラスは、```bpy.types.Menu``` クラスを継承して作成する
-* メニュークラスの ```draw()``` メソッド内で、 オペレータクラスのクラス変数 ```bl_idname ``` を ```self.layout.operation()``` 関数の引数に指定し、メニュークラスのクラス変数 ```bl_idname``` を引数にして ```self.layout.menu()``` 関数 を呼び出すことで、サブメニューを作成できる
+* メニュークラスの ```draw()``` メソッド内でオペレータクラスのクラス変数 ```bl_idname ``` を ```self.layout.operation()``` 関数の引数に指定し、メニュークラスのクラス変数 ```bl_idname``` を引数にして ```self.layout.menu()``` 関数を呼び出すことで、サブメニューを作成できる
 * メニュークラスの ```draw()``` メソッド内でサブメニュー用に作成したクラスのクラス変数 ```bl_idname``` を ```self.layout.menu()``` 関数の引数に指定することで、3階層以上のメニューを作成することができる
 
 <div id="space_page"></div>

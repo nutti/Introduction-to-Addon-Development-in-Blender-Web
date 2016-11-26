@@ -38,9 +38,9 @@
 def execute(self, context):
 
 本書は、3DCGソフト「Blender」のアドオンを初めて開発する方を対象とした、アドオン開発の入門書です。
-本書を最後まで読むことで、アドオンとは何かを理解できるだけでなく、アドオンを開発する際に最低限必要な知識を身につけ、各自で独自のアドオンを開発することができるようになります。
+本書を最後まで読むことでアドオンとは何かを理解できるだけでなく、アドオンを開発する際に最低限必要な知識を身につけ、各自で独自のアドオンを開発することができるようになります。
 
-本書はアドオン開発の経験がない方を対象とすると書きましたが、すでにアドオンの開発を経験されている方でも参考になる情報があると考えています。特に最終章では、アドオンの公開方法やデバッグ方法、作ったアドオンをBlender本体に取り込んでもらう方法など、アドオンに関連した話題も取り上げています。アドオンの開発には直接役立たないかもしれませんが、知っておくと後々役立つと思われる情報であると思いますので、余力があればぜひ一読ください。
+本書はアドオン開発の経験がない方を対象とすると書きましたが、すでにアドオンの開発を経験されている方でも参考になる情報があると考えています。特に最終章では、アドオンの公開方法やデバッグ方法、作ったアドオンをBlender本体に取り込んでもらう方法などのアドオンに関連した話題も取り上げています。アドオンの開発には直接役立たないかもしれませんが、知っておくと後々役立つと思われる情報であると思いますので、余力があればぜひ一読ください。
 
 ### Blenderのアドオン開発って面白いの？
 
@@ -110,7 +110,6 @@ https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/tree/v2/s
 * 3DCGの知識
   * 基本用語（メッシュ、UV座標、面、法線など）
 
-<div id="space_l"></div>
 
 ### 推奨知識
 
@@ -150,14 +149,10 @@ https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender
 https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/issues
 https://www.gitbook.com/book/nutti/introduction-to-add-on-development-in-blender/discussions
 
-<div id="space_s"></div>
 
-
-## 本書の内容に関する問い合わせについて
+## 本書の内容に関するお問い合わせについて
 
 本書の内容に関する問い合わせについては、以下のサポートページや [おわりに](body/Conclusion.md) に記載している連絡先から問い合わせください。
 
 https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender/issues
 https://www.gitbook.com/book/nutti/introduction-to-add-on-development-in-blender/discussions
-
-<div id="space_page"></div>
