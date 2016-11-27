@@ -81,7 +81,7 @@ conchan-akita 様, sariew 様
 |---|---|
 |Mail|nutti.metro@gmail.com |
 |Blog|http://colorful-pico.hatenablog.jp |
-|Twitter|@nutti__（https://twitter.com/nutti__） |
+|Twitter|@nutti\_\_（https://twitter.com/nutti__） |
 |Google+|https://plus.google.com/100058529622539760372 |
 |GitHub|https://github.com/nutti |
 |GitBook|https://www.gitbook.com/@nutti |
@@ -98,6 +98,7 @@ conchan-akita 様, sariew 様
 |Face To Transform Orientation|https://github.com/nutti/Face-To-Transform-Orientation |External|View3Dエリアのオブジェクトを、Transform Orientationの方向に向かせるアドオン|
 
 
+<div id="space_page"></div>
 
 
 ![背表紙](https://dl.dropboxusercontent.com/s/v6zq4lyp06wo6v7/back_cover.png)
