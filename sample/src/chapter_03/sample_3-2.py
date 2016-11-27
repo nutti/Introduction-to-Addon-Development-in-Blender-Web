@@ -1,11 +1,10 @@
 import bpy
-import bmesh
-from bpy.props import IntProperty, BoolProperty, PointerProperty
+from bpy.props import BoolProperty, PointerProperty
 import enum
 from mathutils import Vector
 
 bl_info = {
-    "name": "サンプル3-2: マウスの右クリックで面を削除する",
+    "name": "サンプル3-2: キーボードのキー入力に応じてオブジェクトを変形する",
     "author": "Nutti",
     "version": (2, 0),
     "blender": (2, 75, 0),
