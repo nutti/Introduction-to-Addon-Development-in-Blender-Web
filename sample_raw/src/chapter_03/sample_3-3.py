@@ -43,22 +43,26 @@ class CalculateWorkingHours(bpy.types.Operator):
         self.prev_mode = None   # __calc_delta()メソッドを呼び出した時のモード
 
 
+//! [add_timer]
     @staticmethod
     def handle_add(self, context):
         if CalculateWorkingHours.timer is None:
-            # タイマを追加
+            # タイマを登録
             CalculateWorkingHours.timer = context.window_manager.event_timer_add(
                 0.10, context.window)
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
+//! [add_timer]
 
 
+//! [remove_timer]
     @staticmethod
     def handle_remove(self, context):
         if CalculateWorkingHours.timer is not None:
-            # タイマを削除
+            # タイマの登録を解除
             context.window_manager.event_timer_remove(CalculateWorkingHours.timer)
             CalculateWorkingHours.timer = None
+//! [remove_timer]
 
 
     # 前回の呼び出しからの時間差分を計算
@@ -103,6 +107,10 @@ class CalculateWorkingHours(bpy.types.Operator):
     def modal(self, context, event):
         props = context.scene.cwh_props
 
+        # タイマイベント以外の場合は無視
+        if event.type == 'TIMER':
+            return {'PASS_THROUGH'}
+
         # 3Dビューの画面を更新
         if context.area:
             context.area.tag_redraw()
@@ -120,13 +128,13 @@ class CalculateWorkingHours(bpy.types.Operator):
     def invoke(self, context, event):
         props = context.scene.cwh_props
         if context.area.type == 'VIEW_3D':
-            # 処理開始
+            # 開始ボタンが押された時の処理
             if props.is_calc_mode is False:
                 props.is_calc_mode = True
                 CalculateWorkingHours.handle_add(self, context)
                 print("サンプル3-3: 作業時間の計測を開始しました。")
                 return {'RUNNING_MODAL'}
-            # 処理停止
+            # 終了ボタンが押された時の処理
             else:
                 CalculateWorkingHours.handle_remove(self, context)
                 props.is_calc_mode = False
@@ -145,10 +153,10 @@ class OBJECT_PT_CWH(bpy.types.Panel):
 
     # 作業時間を表示用にフォーマット化
     def __make_time_fmt(self, time):
-        msec = math.floor(time * 1000) % 1000
-        sec = math.floor(time) % 60
-        minute = math.floor(time / 60) % 60
-        hour = math.floor(time / (60 * 60))
+        msec = math.floor(time * 1000) % 1000   # ミリ秒
+        sec = math.floor(time) % 60                     # 秒
+        minute = math.floor(time / 60) % 60         # 分
+        hour = math.floor(time / (60 * 60))           # 時
 
         return "%d:%02d:%02d.%d" % (hour, minute, sec, math.floor(msec / 100))
 

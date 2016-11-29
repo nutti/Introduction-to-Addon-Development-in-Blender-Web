@@ -99,7 +99,7 @@ class DeleteFaceByRClick(bpy.types.Operator):
     def invoke(self, context, event):
         props = context.scene.dfrc_props
         if context.area.type == 'VIEW_3D':
-            # 処理開始
+            # 開始ボタンが押された時の処理
             if props.running is False:
                 props.running = True
                 props.deleted = False
@@ -109,7 +109,7 @@ class DeleteFaceByRClick(bpy.types.Operator):
                 context.window_manager.modal_handler_add(self)
                 print("サンプル3-1: 削除処理を開始しました。")
                 return {'RUNNING_MODAL'}
-            # 処理停止
+            # 終了ボタンが押された時の処理
             else:
                 props.running = False
                 self.report({'INFO'}, "サンプル3-1: %d個の面を削除しました。" % (props.deleted_count))

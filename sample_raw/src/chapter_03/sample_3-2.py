@@ -169,14 +169,14 @@ class SpecialObjectEditMode(bpy.types.Operator):
     def invoke(self, context, event):
         props = context.scene.soem_props
         if context.area.type == 'VIEW_3D':
-            # 処理開始
+            # 開始ボタンが押された時の処理
             if props.is_special_mode is False:
                 props.is_special_mode = True
                 # modal処理クラスを追加
                 context.window_manager.modal_handler_add(self)
                 print("サンプル3-2: 特殊オブジェクト編集モードへ移行しました。")
                 return {'RUNNING_MODAL'}
-            # 処理停止
+            # 終了ボタンが押された時の処理
             else:
                 props.is_special_mode = False
                 print("サンプル3-2: 通常モードへ移行しました。")
