@@ -65,6 +65,7 @@ class CalculateWorkingHours(bpy.types.Operator):
 //! [remove_timer]
 
 
+//! [calc_delta]
     # 前回の呼び出しからの時間差分を計算
     def __calc_delta(self, obj):
         # 現在時刻を取得
@@ -82,13 +83,15 @@ class CalculateWorkingHours(bpy.types.Operator):
         self.prev_mode = obj.mode
 
         return delta
+//! [calc_delta]
 
 
+//! [update_db]
     # データベースを更新
     def __update_db(self, context):
         props = context.scene.cwh_props
 
-        # 全メッシュ型オブジェクトの取得
+        # 全てのメッシュ型オブジェクトの取得
         obj_list = [obj.name for obj in bpy.data.objects if obj.type == 'MESH']
         # データベースに存在しないオブジェクトをデータベースに追加
         for o in obj_list:
@@ -102,14 +105,17 @@ class CalculateWorkingHours(bpy.types.Operator):
         delta = self.__calc_delta(active_obj)
         if active_obj.mode in ['OBJECT', 'EDIT']:
             props.working_hour_db[active_obj.name][active_obj.mode] += delta
+//! [update_db]
 
 
     def modal(self, context, event):
         props = context.scene.cwh_props
 
+//! [handle_timer_event]
         # タイマイベント以外の場合は無視
-        if event.type == 'TIMER':
+        if event.type != 'TIMER':
             return {'PASS_THROUGH'}
+//! [handle_timer_event]
 
         # 3Dビューの画面を更新
         if context.area:
