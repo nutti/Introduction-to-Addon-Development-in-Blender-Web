@@ -1,6 +1,6 @@
 {
   "name": "introduction-to-add-on-development-in-blender",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "<div id=\"sect_title_img_0_0\"></div>",
   "main": "index.js",
   "scripts": {

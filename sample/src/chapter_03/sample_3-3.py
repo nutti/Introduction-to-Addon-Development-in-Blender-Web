@@ -1,163 +1,137 @@
 import bpy
-import bgl
-from bpy.props import FloatVectorProperty, BoolProperty, EnumProperty
+from bpy.props import BoolProperty, PointerProperty
 
 bl_info = {
-    "name": "サンプル8: OpenGL向けのAPIを利用して図形を表示する",
+    "name": "サンプル3-3: オブジェクトモードとエディットモードでの作業時間を計測する",
     "author": "Nutti",
-    "version": (1, 0),
+    "version": (2, 0),
     "blender": (2, 75, 0),
-    "location": "3Dビュー > プロパティパネル > 図形を表示",
-    "description": "OpenGL向けのAPIを利用して3Dビューに図形を表示する",
+    "location": "3Dビュー > プロパティパネル > 作業時間計測",
+    "description": "各オブジェクトについて、オブジェクトモードとエディットモードでの作業時間を計測するアドオン",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
     "tracker_url": "",
-    "category": "View3D"
+    "category": "UI"
 }
 
 
-# 図形を表示
-class RenderFigure(bpy.types.Operator):
-    bl_idname = "view_3d.render_figure"
-    bl_label = "図形を表示"
-    bl_description = "図形を表示します"
+working_hour = {}
 
-    __handle = None
-
-    # 画像描画関数を登録
-    @staticmethod
-    def handle_add(self, context):
-        if RenderFigure.__handle is None:
-            RenderFigure.__handle = bpy.types.SpaceView3D.draw_handler_add(
-                RenderFigure.render,
-                (self, context), 'WINDOW', 'POST_PIXEL')
-
-    # 画像描画関数を登録解除
-    @staticmethod
-    def handle_remove(self, context):
-        if RenderFigure.__handle is not None:
-            bpy.types.SpaceView3D.draw_handler_remove(
-                RenderFigure.__handle, 'WINDOW')
-            RenderFigure.__handle = None
-
-    @staticmethod
-    def render(self, context):
-        sc = context.scene
-
-        # OpenGLの設定
-        bgl.glEnable(bgl.GL_BLEND)
-
-        # 図形を表示
-        if sc.rf_figure == 'TRIANGLE':
-            bgl.glBegin(bgl.GL_TRIANGLES)
-            bgl.glColor4f(1.0, 1.0, 1.0, 0.7)
-            bgl.glVertex2f(sc.rf_vert_1[0], sc.rf_vert_1[1])
-            bgl.glVertex2f(sc.rf_vert_2[0], sc.rf_vert_2[1])
-            bgl.glVertex2f(sc.rf_vert_3[0], sc.rf_vert_3[1])
-            bgl.glEnd()
-        elif sc.rf_figure == 'RECTANGLE':
-            bgl.glBegin(bgl.GL_QUADS)
-            bgl.glColor4f(1.0, 1.0, 1.0, 0.7)
-            bgl.glVertex2f(sc.rf_vert_1[0], sc.rf_vert_1[1])
-            bgl.glVertex2f(sc.rf_vert_2[0], sc.rf_vert_2[1])
-            bgl.glVertex2f(sc.rf_vert_3[0], sc.rf_vert_3[1])
-            bgl.glVertex2f(sc.rf_vert_4[0], sc.rf_vert_4[1])
-            bgl.glEnd()
+# プロパティ
+class CWH_Properties(bpy.types.PropertyGroup):
+    is_calc_mode = BoolProperty(
+        name = "作業時間計測中",
+        description = "作業時間計測中か？",
+        default = False)
 
 
-class RenderingButton(bpy.types.Operator):
-    bl_idname = "view3d.rendering_button"
-    bl_label = "図形表示/非表示切り替えボタン"
-    bl_description = "図形の表示/非表示を切り替えるボタン"
-    bl_options = {'REGISTER', 'UNDO'}
+# 作業時間計測時の処理
+class CalculateWorkingHours(bpy.types.Operator):
+    bl_idname = "ui.calculate_working_hours"
+    bl_label = "作業時間計測"
+    bl_description = "作業時間を計測します"
+
+    def __init__(self):
+        self.prev_time = 0
+        self.prev_obj =
+        self.prev_mode =
+
+    def __calc_delta(self, obj):
+        cur_time =
+        delta = cur_time - self._prev_time
+
+        if (self.prev_obj != obj):
+            delta = 0
+        if (self.prev_mode != obj.mode):
+            delta = 0
+
+        self.prev_time = cur_time
+        self.prev_obj = obj
+        self.prev_mode = obj.mode
+
+        return delta
+
+    def __update_db(self):
+        # 全メッシュ型オブジェクトの取得
+        obj_list = [obj for obj in bpy.data.object if obj.type == 'MESH']
+        # データベースアップデート
+        for o in obj_list:
+            if not o.name in keys(working_hour.keys):
+                working_hour[o.name] = {}
+                working_hour[o.name]['OBJECT'] = 0
+                working_hour[o.name]['MESH'] = 0
+
+    def modal(self, context, event):
+        props = context.scene.cwh_props
+
+        # 3Dビューの画面を更新
+        if context.area:
+            context.area.tag_redraw()
+
+        # 作業時間計測を停止
+        if props.is_calc_mode = False:
+            return {'FINISHED'}
+
+        self.__update_db()
+
+        active_obj = context.active_object
+        delta = self.__calc_delta(active_obj)
+        if active_obj.mode in ['OBJECT', 'EDIT']:
+            working_hour[active_obj.name][active_obj.mode] += delta
+
+        return {'PASS_THROUGH'}
 
     def invoke(self, context, event):
-        sc = context.scene
-        if sc.rf_running is True:
-            RenderFigure.handle_remove(self, context)
-            sc.rf_running = False
-        elif sc.rf_running is False:
-            RenderFigure.handle_add(self, context)
-            sc.rf_running = True
+        props = context.scene.cwh_props
+        if context.area.type == 'VIEW_3D':
+            # 処理開始
+            if props.is_calc_mode is False:
+                props.is_calc_mode = True
+                # modal処理クラスを追加
+                context.window_manager.modal_handler_add(self)
+                print("サンプル3-3: 作業時間の計測を開始しました。")
+                return {'RUNNING_MODAL'}
+            # 処理停止
+            else:
+                props.is_calc_mode = False
+                print("サンプル3-3: 作業時間の計測を終了しました。")
+                return {'FINISHED'}
+        else:
+            return {'CANCELLED'}
 
-        return {'FINISHED'}
 
-
-class OBJECT_PT_RF(bpy.types.Panel):
-    bl_label = "図形を表示"
+# UI
+class OBJECT_PT_CWH(bpy.types.Panel):
+    bl_label = "作業時間計測"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
 
     def draw(self, context):
         sc = context.scene
         layout = self.layout
-        if context.area:
-            context.area.tag_redraw()
-        if sc.rf_running is True:
-            layout.operator(RenderingButton.bl_idname, text="Stop", icon="PAUSE")
-            layout.prop(sc, "rf_figure", "図形")
-            layout.prop(sc, "rf_vert_1", "頂点1")
-            layout.prop(sc, "rf_vert_2", "頂点2")
-            layout.prop(sc, "rf_vert_3", "頂点3")
-            if sc.rf_figure == 'RECTANGLE':
-                layout.prop(sc, "rf_vert_4", "頂点4")
-        elif sc.rf_running is False:
-            layout.operator(RenderingButton.bl_idname, text="Start", icon="PLAY")
+        props = context.scene.cwh_props
+        # 開始/停止ボタンを追加
+        if props.is_calc_mode is False:
+            layout.operator(CalculateWorkingHours.bl_idname, text="開始", icon="PLAY")
+        else:
+            layout.operator(CalculateWorkingHours.bl_idname, text="終了", icon="PAUSE")
 
 
 def register():
     bpy.utils.register_module(__name__)
     sc = bpy.types.Scene
-    sc.rf_running = BoolProperty(
-        name = "実行中",
-        description = "実行中か？",
-        default = False
-    )
-    sc.rf_figure = EnumProperty(
-        name = "図形",
-        description = "表示する図形",
-        items = [
-            ('TRIANGLE', "三角形", "三角形を表示します"),
-            ('RECTANGLE', "四角形", "四角形を表示します")]
-    )
-    sc.rf_vert_1 = FloatVectorProperty(
-        name = "頂点1",
-        description = "図形の頂点",
-        size = 2,
-        default = (50.0, 50.0)
-    )
-    sc.rf_vert_2 = FloatVectorProperty(
-        name = "頂点2",
-        description = "図形の頂点",
-        size = 2,
-        default = (50.0, 100.0)
-    )
-    sc.rf_vert_3 = FloatVectorProperty(
-        name = "頂点3",
-        description = "図形の頂点",
-        size = 2,
-        default = (100.0, 100.0)
-    )
-    sc.rf_vert_4 = FloatVectorProperty(
-        name = "頂点4",
-        description = "図形の頂点",
-        size = 2,
-        default = (100.0, 50.0)
-    )
-    print("サンプル8: アドオン「サンプル8」が有効化されました。")
+    sc.cwh_props = PointerProperty(
+        name = "プロパティ",
+        description = "本アドオンで利用するプロパティ一覧",
+        type = CWH_Properties)
+    print("サンプル3-3: アドオン「サンプル3-3」が有効化されました。")
 
 
 def unregister():
-    sc = bpy.types.Scene
-    del sc.rf_running
-    del sc.rf_figure
-    del sc.rf_vert_1
-    del sc.rf_vert_2
-    del sc.rf_vert_3
-    del sc.rf_vert_4
+    del bpy.types.Scene.cwh_props
     bpy.utils.unregister_module(__name__)
-    print("サンプル8: アドオン「サンプル8」が無効化されました。")
+    print("サンプル3-3: アドオン「サンプル3-3」が無効化されました。")
 
 
 if __name__ == "__main__":

@@ -25,14 +25,13 @@
 [1-2節](../chapter_01/02_Use_Blender_Add-on.md) のBlenderアドオン用フォルダに、ディレクトリ名 ```sample_2-2``` のディレクトリを作成します。
 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、作成したディレクトリの下にファイル名をそれぞれ ```__init__.py``` , ```enlarge_object.py``` , ```reduce_object.py``` として保存してください。
 
-<div id="space_x7l"></div>
+<div id="space_x6l"></div>
 
 ### \_\_init\_\_.py
 
 [import](../../sample/src/chapter_02/sample_2-7/__init__.py)
 
-
-<div id="space_xxxl"></div>
+<div id="space_xl"></div>
 
 ### enlarge_object.py
 
@@ -52,7 +51,6 @@
 サンプル2-7: アドオン「サンプル2-7」が有効化されました。
 ```
 
-<div id="space_s"></div>
 
 
 ### アドオンの機能を使用する
@@ -138,14 +136,13 @@ from . import reduce_object
 
 ```enlarge_object.py``` には ```EnlargeObject``` クラス、 ```reduce_object.py``` には ```ReduceObject``` クラスが記載されています。コードの内容は、 [2-1節](../chapter_02/01_Basic_of_Add-on_Development.md) と同じであるため、ここでは説明を省略します。
 
+<div id="space_s"></div>
 
 ## まとめ
 
 アドオンのソースコードを複数ファイルに分割する方法を紹介しました。
 
 ソースコードは規模が大きくなるにつれ管理しにくくなる傾向があるため、ある程度ソースコードの規模が大きくなってきたら複数のファイルに分割することを検討すべきです。ソースコードを分割する目安は行数や機能数など様々ですが、筆者はアドオンを機能単位に分割するように心がけています。これにより、機能に因んだファイル名をつけることができるようになります。また、機能ごとにモジュールが分かれるため、特定の機能を修正したいときに目的のソースコードを素早く見つけることができます。
-
-<div id="space_xs"></div>
 
 
 <div id="point"></div>
