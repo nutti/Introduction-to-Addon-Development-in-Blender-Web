@@ -1,0 +1,135 @@
+@import "../common/_fonts.scss";
+
+$ch_list: '1', '2', '3', '4';
+
+$ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_1.png',
+'https://dl.dropboxusercontent.com/s/kn7y8riseci4xxw/ch_title_img_2.png',
+'https://dl.dropboxusercontent.com/s/c40c6lrjnuxa4az/ch_title_img_3.png',
+'https://dl.dropboxusercontent.com/s/gqkb3l2no2e39o0/ch_title_img_4.png';
+
+
+
+@mixin chapter_title_text($font_size, $top, $margin_bottom) {
+    #ch_title_text + h1 {
+        position: relative;
+        font-family: MPlus;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        padding-right: 7px;
+        width: 75%;
+        overflow: hidden;
+        height: 80px;
+        font-size: $font_size;
+        top: $top;
+        margin-bottom: $margin_bottom;
+    }
+}
+
+@mixin chapter_title_img() {
+    @for $i from 1 through length($ch_list) {
+        #ch_title_img_#{nth($ch_list, $i)} {
+            background-image: url('#{nth($ch_img_list, $i)}');
+            background-size: cover;
+            width: 600px;
+            height: 600px;
+            position: relative;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+@mixin chapter_body($font_size, $height, $top, $margin_bottom) {
+    #ch_body + p {
+        position: relative;
+        font-family: MPlus;
+        margin-left: auto;
+        margin-right: auto;
+        height: $height;
+        overflow: hidden;
+        font-size: $font_size;
+        top: $top;
+        color: #333333;
+        margin-bottom: $margin_bottom;
+    }
+}
+
+@mixin chapter_toc($font_size, $margin_bottom_1, $margin_bottom_2) {
+    #ch_toc_title + h2 {
+        text-align: left;
+        font-family: MPlus;
+        font-size: $font_size * 2.0;
+        margin-bottom: $margin_bottom_1 + 10px;
+        border-left: 6px solid #222222;
+        padding: 0.1em 0 0.15em 0.5em;
+        background: none;
+        border-bottom: 1px solid #222222;
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+    #ch_toc + ol {
+        counter-reset: li;
+        padding: 0;
+        list-style: none;
+        margin-bottom: $margin_bottom_2;
+        li {
+            font-size: $font_size;
+            position: relative;
+            margin: 0 0 6px 2em;
+            padding: 4px 8px;
+            background: #eeeeee;
+        }
+        li:before {
+            content: counter(li);
+            counter-increment: li;
+            position: absolute;
+            top: 0px;
+            left: -2em;
+            width: 2em;
+            padding: 4px 0;
+            color: #FFFFFF;
+            background: #222222;
+            text-align: center;
+        }
+    }
+}
+
+
+@mixin space_chapter() {
+    #space_chapter_1 {
+        display: block;
+        height: 1500px;
+    }
+    #space_chapter_2 {
+        display: block;
+        height: 1500px;
+    }
+    #space_chapter_3 {
+        display: block;
+        height: 1500px;
+    }
+    #space_chapter_4 {
+        display: block;
+        height: 1500px;
+    }
+}
+
+@mixin space_chapter_before_toc () {
+    #space_chapter_before_toc {
+        display: block;
+        height: 140px;
+    }
+}
+
+.page {
+    .section {
+        @include chapter_title_img();
+        @include chapter_title_text(1.95em, -340.0px, -50px);
+        @include chapter_body(0.8em, 190px, -30px, -110px);
+        @include chapter_toc(0.8em, 0px, 0px);
+        @include space_chapter();
+        @include space_chapter_before_toc();
+    }
+}

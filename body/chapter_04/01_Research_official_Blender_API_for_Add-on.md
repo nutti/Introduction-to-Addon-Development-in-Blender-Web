@@ -2,7 +2,7 @@
 
 <div id="sect_title_text"></div>
 
-# Blenderが提供する<br>アドオン向けのAPIを調べる
+# Blenderが提供するアドオン向けのAPIを調べる
 
 <div id="preface"></div>
 
@@ -14,8 +14,8 @@
 Blenderが提供するAPIの情報を収集する方法としては、以下のようなものがあります。
 
 * Blender公式のAPIリファレンスを読む
-* PythonコンソールでAPIを検索・実行する
-* テキストエディタのテンプレートを読む
+* PythonコンソールウィンドウでAPIを検索・実行する
+* *テキストエディター* のテンプレートを読む
 * Blenderアドオン開発の参考サイトを読む
 * 他者が作成したアドオンのソースコードを読む
 * Blenderのコミュニティサイトで質問する
@@ -97,11 +97,11 @@ Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュール
 |---|---|
 
 
-## PythonコンソールでAPIを検索・実行する
+## PythonコンソールウィンドウでAPIを検索・実行する
 
-[2.2節](../chapter_02/02_Register_Multiple_Operation_Classes.md)でも説明しましたが、 Pythonコンソールを用いることでBlenderが提供するAPIを検索し、実行することができます。
+[2.2節](../chapter_02/02_Register_Multiple_Operation_Classes.md)でも説明しましたが、 Pythonコンソールウィンドウを用いることでBlenderが提供するAPIを検索し、実行することができます。
 
-ここでは、Pythonコンソールを使ってAPIを調査する例を紹介します。
+ここでは、Pythonコンソールウィンドウを使ってAPIを調査する例を紹介します。
 
 <div id="process_title"></div>
 
@@ -109,7 +109,7 @@ Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュール
 
 <div id="process_noimg"></div>
 
-|<div id="box">1</div>|3Dビューエリア上にあるオブジェクト一覧を参照できる変数 ```bpy.data.objects``` をPythonコンソールに入力します。|
+|<div id="box">1</div>|3Dビューエリア上にあるオブジェクト一覧を参照できる変数 ```bpy.data.objects``` をPythonコンソールウィンドウに入力します。|
 |---|---|
 
 <div id="process_sep"></div>
@@ -118,7 +118,7 @@ Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュール
 
 <div id="process"></div>
 
-|<div id="box">2</div>|ctrl+spaceをキーを押して補完します。|![Pythonコンソール 手順1](https://dl.dropboxusercontent.com/s/6tqu81bbk6l6qy8/python_console_1.png "Pythonコンソール 手順1")|
+|<div id="box">2</div>|ctrl+spaceをキーを押して補完します。|![Pythonコンソールウィンドウ 手順1](https://dl.dropboxusercontent.com/s/6tqu81bbk6l6qy8/python_console_1.png "Pythonコンソールウィンドウ 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -127,7 +127,7 @@ Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュール
 
 <div id="process"></div>
 
-|<div id="box">3</div>|3Dビューエリア上にあるオブジェクト名が候補として表示されるため、適当なオブジェクト名を選んで再び補完します。|![Pythonコンソール 手順2](https://dl.dropboxusercontent.com/s/yu890kcedpewpih/python_console_2.png "Pythonコンソール 手順2")|
+|<div id="box">3</div>|3Dビューエリア上にあるオブジェクト名が候補として表示されるため、適当なオブジェクト名を選んで再び補完します。|![Pythonコンソールウィンドウ 手順2](https://dl.dropboxusercontent.com/s/yu890kcedpewpih/python_console_2.png "Pythonコンソールウィンドウ 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -145,7 +145,7 @@ Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュール
 
 <div id="process"></div>
 
-|<div id="box">5</div>|```select``` に ```True``` を代入することでオブジェクトを選択状態に、  ```False``` を代入することでオブジェクトを非選択状態に変更することができます。|![Pythonコンソール 手順3](https://dl.dropboxusercontent.com/s/0aph2y0pq6edyxf/python_console_3.png "Pythonコンソール 手順3")|
+|<div id="box">5</div>|```select``` に ```True``` を代入することでオブジェクトを選択状態に、  ```False``` を代入することでオブジェクトを非選択状態に変更することができます。|![Pythonコンソールウィンドウ 手順3](https://dl.dropboxusercontent.com/s/0aph2y0pq6edyxf/python_console_3.png "Pythonコンソールウィンドウ 手順3")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -161,10 +161,10 @@ Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュール
 
 > Object selection state
 
-このように、Pythonコンソールを利用することでAPIの動作を確認できます。APIの効果がわからない場合はPythonコンソールを用いて実際に動作させてAPIの効果を確認することで、よりAPIへの理解が深まると思いますので積極的に活用していきましょう。
+このように、Pythonコンソールウィンドウを利用することでAPIの動作を確認できます。APIの効果がわからない場合はPythonコンソールウィンドウを用いて実際に動作させてAPIの効果を確認することで、よりAPIへの理解が深まると思いますので積極的に活用していきましょう。
 
 
-## テキストエディタのテンプレートを読む
+## テキストエディターのテンプレートを読む
 
 <div id="sidebyside"></div>
 
@@ -175,7 +175,7 @@ Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュール
 
 <div id="sidebyside"></div>
 
-|提供されいる中で最も簡単なテンプレートは、右図で示す ```Operator Simple``` です。```Operator Simple``` は、3Dビューエリアにあるオブジェクト一覧をコンソールに表示するサンプルです。|![テンプレート 手順2](https://dl.dropboxusercontent.com/s/8nt0v8zdkhl1egd/template_2.png "テンプレート 手順2")|
+|提供されいる中で最も簡単なテンプレートは、右図で示す ```Operator Simple``` です。```Operator Simple``` は、3Dビューエリアにあるオブジェクト一覧をコンソールウィンドウに表示するサンプルです。|![テンプレート 手順2](https://dl.dropboxusercontent.com/s/8nt0v8zdkhl1egd/template_2.png "テンプレート 手順2")|
 |---|---|
 
 <div id="space_m"></div>
@@ -246,7 +246,7 @@ Blender内でソースコードを確認する例として、3Dビューエリ�
 
 <div id="process"></div>
 
-|<div id="box">2</div>|テキストエディタにソースコードが表示されます。|![アドオンのソースコードを読む3](https://dl.dropboxusercontent.com/s/bdvh1yevo0m6j5s/read_addon_source_code_3.png "アドオンのソースコードを読む3")|
+|<div id="box">2</div>|*テキストエディター* にソースコードが表示されます。|![アドオンのソースコードを読む3](https://dl.dropboxusercontent.com/s/bdvh1yevo0m6j5s/read_addon_source_code_3.png "アドオンのソースコードを読む3")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -347,7 +347,7 @@ Stack Overflow( http://stackoverflow.com )と呼ばれる、プログラマ間�
 
 ## まとめ
 
-筆者は、似たような処理を行っているアドオンを参考にしつつ、わからない部分を公式のAPIドキュメントで使用を確認したり、Pythonコンソールを使って動作確認したりしてアドオンの開発を進めます。それでも欲しい情報が得られない場合は、コミュニティサイトで質問します。
+筆者は、似たような処理を行っているアドオンを参考にしつつ、わからない部分を公式のAPIドキュメントで使用を確認したり、Pythonコンソールウィンドウを使って動作確認したりしてアドオンの開発を進めます。それでも欲しい情報が得られない場合は、コミュニティサイトで質問します。
 
 アドオン開発に限らずプログラミング全般に言えることですが、やはり他者が作成したプログラムのソースコードを参考にするのが、アドオン開発に慣れる近道であると思います。
 他の人のソースコードを読んで真似して改造しつつ、わからないところは調べながらアドオンの開発に慣れましょう。

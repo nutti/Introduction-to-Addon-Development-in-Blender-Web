@@ -1,0 +1,116 @@
+@import "../common/_fonts.scss";
+
+$sect_list: '0_0',
+'1_1',
+'1_2',
+'1_3',
+'1_4',
+'1_5',
+'2_1',
+'2_2',
+'2_3',
+'2_4',
+'2_5',
+'2_6',
+'2_7',
+'2_8',
+'2_9',
+'2_10',
+'3_1',
+'3_2',
+'3_3',
+'3_4',
+'3_5',
+'3_6',
+'3_7',
+'4_1',
+'4_2',
+'4_3',
+'4_4',
+'4_5',
+'4_6';
+
+$sect_img_list:
+'https://dl.dropboxusercontent.com/s/o4kgodzmoi21ibn/sect_title_img_0_0.png',
+'https://dl.dropboxusercontent.com/s/oezvkog8ceid6lt/sect_title_img_1_1.png',
+'https://dl.dropboxusercontent.com/s/xeygp0z4c9poxft/sect_title_img_1_2.png',
+'https://dl.dropboxusercontent.com/s/qhf9lsai33bpt23/sect_title_img_1_3.png',
+'https://dl.dropboxusercontent.com/s/dm1n5i0va3ixrcl/sect_title_img_1_4.png',
+'https://dl.dropboxusercontent.com/s/tkfenqv2jc1rt1z/sect_title_img_1_5.png',
+'https://dl.dropboxusercontent.com/s/p1b2byo5wezf5nf/sect_title_img_2_1.png',
+'https://dl.dropboxusercontent.com/s/l4psv533defo6tf/sect_title_img_2_2.png',
+'https://dl.dropboxusercontent.com/s/xtngnsqqqkvr1k1/sect_title_img_2_3.png',
+'https://dl.dropboxusercontent.com/s/hfqplabh46ncnak/sect_title_img_2_4.png',
+'https://dl.dropboxusercontent.com/s/qx3ckkys8xcu5t6/sect_title_img_2_5.png',
+'https://dl.dropboxusercontent.com/s/9064tt04em97qkw/sect_title_img_2_6.png',
+'https://dl.dropboxusercontent.com/s/2tqm8m8hmt904up/sect_title_img_2_7.png',
+'https://dl.dropboxusercontent.com/s/ay2dn7qvy07kzpx/sect_title_img_2_8.png',
+'https://dl.dropboxusercontent.com/s/jh5ixdsu3y5f8xm/sect_title_img_2_9.png',
+'https://dl.dropboxusercontent.com/s/0n420wkl8s8rldb/sect_title_img_2_10.png',
+'https://dl.dropboxusercontent.com/s/gz6eg4d1yf1aj74/sect_title_img_3_1.png',
+'https://dl.dropboxusercontent.com/s/k87uxsxa6mq99vu/sect_title_img_3_2.png',
+'https://dl.dropboxusercontent.com/s/jxs6v5mbx3i5fkn/sect_title_img_3_3.png',
+'https://dl.dropboxusercontent.com/s/0x3we39ouv7bq2d/sect_title_img_3_4.png',
+'https://dl.dropboxusercontent.com/s/qvk9bj6ohu98k6a/sect_title_img_3_5.png',
+'https://dl.dropboxusercontent.com/s/c6xs3xvg9xuenga/sect_title_img_3_6.png',
+'https://dl.dropboxusercontent.com/s/i3if7aromu9082g/sect_title_img_3_7.png',
+'https://dl.dropboxusercontent.com/s/xp2czcybl5le7nu/sect_title_img_4_1.png',
+'https://dl.dropboxusercontent.com/s/16hlrbm8kpnhu4q/sect_title_img_4_2.png',
+'https://dl.dropboxusercontent.com/s/93ox0py4e8pflfp/sect_title_img_4_3.png',
+'https://dl.dropboxusercontent.com/s/ln0itmf0jrhblt3/sect_title_img_4_4.png',
+'https://dl.dropboxusercontent.com/s/wkhnupyyxkd7wdm/sect_title_img_4_5.png',
+'https://dl.dropboxusercontent.com/s/b5mwln1onpzqnvx/sect_title_img_4_6.png';
+
+@mixin section_title_text($font_size, $top, $margin_bottom) {
+    #sect_title_text + h1 {
+        position: relative;
+        font-family: MPlus;
+        margin-left:auto;
+        text-align: right;
+        padding-right: 15px;
+        width: 75%;
+        overflow: hidden;
+        height: 80px;
+        font-size: $font_size;
+        top: $top;
+        margin-bottom: $margin_bottom;
+    }
+}
+
+@mixin section_title_img() {
+    @for $i from 1 through length($sect_list) {
+        #sect_title_img_#{nth($sect_list, $i)} {
+            background-image: url('#{nth($sect_img_list, $i)}');
+            background-size: cover;
+            width: 100%;
+            height: 320px;
+            position: relative;
+        }
+    }
+}
+
+@mixin section_title_preface($font_size, $height, $top, $margin_bottom) {
+    #preface + h6 {
+        position: relative;
+        font-family: MPlus;
+        margin-left: auto;
+        text-align: left;
+        padding-right: 15px;
+        padding-left: 30px;
+        width: 48%;
+        height: $height;
+        overflow: hidden;
+        font-size: $font_size;
+        top: $top;
+        color: #222222;
+        margin-bottom: $margin_bottom;
+    }
+}
+
+.page {
+    .section {
+        @include section_title_text(1.95em, -345.0px, -210px);
+        @include section_title_img();
+        @include section_title_preface(0.7em , 220px, -135px, -140px);
+    }
+}

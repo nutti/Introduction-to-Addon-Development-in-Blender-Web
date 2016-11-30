@@ -3,9 +3,9 @@ from bpy.props import StringProperty, FloatVectorProperty, EnumProperty
 from mathutils import Vector
 
 bl_info = {
-    "name": "サンプル5: オブジェクトを複製するアドオン",
+    "name": "サンプル2-5: オブジェクトを複製するアドオン",
     "author": "Nutti",
-    "version": (1, 0),
+    "version": (2, 0),
     "blender": (2, 75, 0),
     "location": "3Dビュー > オブジェクト",
     "description": "オブジェクトを複製するアドオン",
@@ -68,7 +68,8 @@ class ReplicateObject(bpy.types.Operator):
     src_obj_name = bpy.props.StringProperty()
 
     def execute(self, context):
-        # bpy.ops.object.duplicate()は選択中のオブジェクトをコピーするため、メニューで選択されたオブジェクトを選択された状態にする
+        # bpy.ops.object.duplicate()は選択中のオブジェクトをコピーするため、
+        # メニューで選択されたオブジェクトを選択された状態にする
         # context.scene.objects：オブジェクト一覧
         # context.scene.objects.active：現在アクティブなオブジェクト
         for o in context.scene.objects:
@@ -103,8 +104,8 @@ class ReplicateObject(bpy.types.Operator):
         # 複製したオブジェクトの最終位置を設定
         active_obj.location = active_obj.location + Vector(self.offset)
 
-        self.report({'INFO'}, "サンプル5: 「%s」を複製しました。" % self.src_obj_name)
-        print("サンプル5: オペレーション「%s」が実行されました。" % self.bl_idname)
+        self.report({'INFO'}, "サンプル2-5: 「%s」を複製しました。" % self.src_obj_name)
+        print("サンプル2-5: オペレーション「%s」が実行されました。" % self.bl_idname)
 
         return {'FINISHED'}
 
@@ -131,13 +132,13 @@ def menu_fn(self, context):
 def register():
     bpy.utils.register_module(__name__)
     bpy.types.VIEW3D_MT_object.append(menu_fn)
-    print("サンプル5: アドオン「サンプル5」が有効化されました。")
+    print("サンプル2-5: アドオン「サンプル2-5」が有効化されました。")
 
 
 def unregister():
     bpy.types.VIEW3D_MT_object.remove(menu_fn)
     bpy.utils.unregister_module(__name__)
-    print("サンプル5: アドオン「サンプル5」が無効化されました。")
+    print("サンプル2-5: アドオン「サンプル2-5」が無効化されました。")
 
 
 if __name__ == "__main__":

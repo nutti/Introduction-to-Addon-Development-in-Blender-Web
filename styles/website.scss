@@ -1,38 +1,319 @@
-@import "include/common.scss";
+@import "components/common/_fonts.scss";
+
+@mixin process()
+{
+    #process + table {
+        width: 100%;
+        max-width: 100%;
+        table-layout: fixed;
+        thead {
+            border: none;
+            tr {
+                border: none;
+                th:nth-of-type(1) {
+                    font-family: Goudy;
+                    font-weight: bold;
+                    font-style: italic;
+                    color: #BBBBBB;
+                    border: none;
+                    width: 5%;
+                    max-width: 5%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                    font-size: 3.0rem;
+                }
+                th:nth-of-type(2) {
+                    font-family: NotoSansCJKjp;
+                    border: none;
+                    width: 45%;
+                    max-width: 45%;
+                    text-align: left;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                    color: #000000;
+                    font-weight: normal;
+                    white-space: normal;
+                }
+                th:nth-of-type(3) {
+                    font-family: NotoSansCJKjp;
+                    border: none;
+                    width: 50%;
+                    max-width: 50%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                    color: #000000;
+                }
+            }
+        }
+        tbody {
+            border: none;
+            tr {
+                border: none;
+                td:nth-of-type(1) {
+                    font-family: Goudy;
+                    font-weight: bold;
+                    font-style: italic;
+                    color: #BBBBBB;
+                    border: none;
+                    width: 5%;
+                    max-width: 5%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                }
+                td:nth-of-type(2) {
+                    font-family: NotoSansCJKjp;
+                    line-height: 2.0;
+                    border: none;
+                    width: 45%;
+                    max-width: 45%;
+                    text-align: left;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                }
+                td:nth-of-type(3) {
+                    font-family: NotoSansCJKjp;
+                    border: none;
+                    width: 50%;
+                    max-width: 50%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                }
+            }
+        }
+    }
+}
+
+@mixin process_noimg()
+{
+    #process_noimg + table {
+        width: 100%;
+        max-width: 100%;
+        table-layout: fixed;
+        thead {
+            border: none;
+            tr {
+                border: none;
+                th:nth-of-type(1) {
+                    font-family: Goudy;
+                    font-weight: bold;
+                    font-style: italic;
+                    color: #BBBBBB;
+                    border: none;
+                    width: 5%;
+                    max-width: 5%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                    font-size: 3.0rem;
+                }
+                th:nth-of-type(2) {
+                    font-family: NotoSansCJKjp;
+                    border: none;
+                    width: 95%;
+                    max-width: 95%;
+                    text-align: left;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                    color: #000000;
+                    font-weight: normal;
+                    white-space: normal;
+                }
+            }
+        }
+        tbody {
+            border: none;
+            tr {
+                border: none;
+                td:nth-of-type(1) {
+                    font-family: Goudy;
+                    font-weight: bold;
+                    font-style: italic;
+                    color: #BBBBBB;
+                    border: none;
+                    width: 5%;
+                    max-width: 5%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                }
+                td:nth-of-type(2) {
+                    font-family: NotoSansCJKjp;
+                    line-height: 2.0;
+                    border: none;
+                    width: 95%;
+                    max-width: 95%;
+                    text-align: left;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+}
+
+@mixin sidebyside()
+{
+    #sidebyside + table {
+        width: 100%;
+        max-width: 100%;
+        table-layout: fixed;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        thead {
+            border: none;
+            tr {
+                border: none;
+                th:nth-of-type(1) {
+                    font-family: NotoSansCJKjp;
+                    border: none;
+                    width: 50%;
+                    max-width: 50%;
+                    text-align: left;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                    color: #000000;
+                    font-weight: normal;
+                    white-space: normal;
+                }
+                th:nth-of-type(2) {
+                    font-family: NotoSansCJKjp;
+                    border: none;
+                    width: 50%;
+                    max-width: 50%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                    color: #000000;
+                }
+            }
+        }
+        tbody {
+            border: none;
+            tr {
+                border: none;
+                td:nth-of-type(1) {
+                    font-family: NotoSansCJKjp;
+                    border: none;
+                    width: 50%;
+                    max-width: 50%;
+                    text-align: left;
+                    background-color: #FFFFFF;
+                    vertical-align: top;
+                }
+                td:nth-of-type(2) {
+                    font-family: NotoSansCJKjp;
+                    border: none;
+                    width: 50%;
+                    max-width: 50%;
+                    text-align: center;
+                    background-color: #FFFFFF;
+                }
+            }
+        }
+    }
+}
+
+@mixin process_start_end()
+{
+    #process_start_end + hr {
+        height: 0px;
+    }
+}
+
+@mixin process_separator()
+{
+    #process_sep + hr {
+        height: 1px;
+        width: 100%;
+        background-color: #BBBBBF;
+    }
+}
+
+
+@mixin process_title()
+{
+    #process_title + h5 {
+        font-family: MPlus;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        text-align: center;
+        text-decoration: none;
+        background-color: #666666;
+        color: #FFFFFF;
+        font-size: 2.5rem;
+    }
+}
+
+@mixin chapter_title_text()
+{
+    #ch_title_text + h1 {
+        font-family: MPlus;
+    }
+}
+
+@mixin chapter_body() {
+    #ch_body + p {
+        font-family: MPlus;
+        color: #333333;
+    }
+}
+
+@mixin chapter_toc_title() {
+    #ch_toc_title + h2 {
+        font-family: MPlus;
+    }
+}
 
 .book {
     .book-body {
         .page-wrapper {
             .page-inner {
                 section.normal {
-                    @include common(1.2em, 1.4);
-                    @include table(1.2em);
-                    @include process(2.5em, 1.2em * 0.9);
+                    font-family: NotoSansCJKjp;
+                    p {
+                        font-family: NotoSansCJKjp;
+                    }
+                    pre {
+                        background: #FBFBFB;
+                        font-family: Hack, NotoSansCJKjp;
+                        >code {
+                            font-family: Hack, NotoSansCJKjp;
+                        }
+                    }
+                    h1 {
+                        font-family: MPlus;
+                    }
+                    h2 {
+                        font-family: MPlus;
+                        background: #E0E0E0;
+                        padding-left: 1.5rem;
+                    }
+                    h3 {
+                        font-family: MPlus;
+                        padding-left: 1.0rem;
+                        padding-bottom: 0.2rem;
+                        border-bottom: 1px solid #E0E0E0;
+                    }
+                    h4 {
+                        font-family: MPlus;
+                        display: inline;
+                        padding: 2px 0.5em;
+                        border-bottom: 1px solid #E0E0E0;
+                    }
+                    h5 {
+                        font-family: MPlus;
+                    }
+                    @include sidebyside();
+                    @include process();
+                    @include process_noimg();
                     @include process_start_end();
                     @include process_separator();
-                    @include sidebyside(1.2em * 0.9);
-                    @include webpage(1.2em);
-                    @include point(1.2em * 1.5, 0.8em, 0.55em, 13px, 13px, 1.4em, 0.2em, 7px, 7px);
-                    @include ordered_list_1st(1.2em);
-                    @include list_1st(1.2em, 1.5, 5px, 0.4em, -1.2em, 16px, 16px, .67em, -1.02em, 5px, 5px);
-                    @include list_2nd(0.9em, 1.0, .45em, -1.3em, 14px, 14px, .75em, -1.1em, 4px, 4px);
-                    @include h2(2.4em);
-                    @include h3(1.8em);
-                    @include h4(1.3em);
-                    @include h5(1.0em);
-                    @include column(1.2em * 0.8, 1.0);
-                    @include em(0.9em);
-                    @include blockquote(0.82em, -15px, 20px);
-                    @include code(0.7em);
-                    @include a(1.2em * 0.85);
-                    @include chapter_title_img();
-                    @include chapter_title_text(2.2em, -340.0px, -50px);
-                    @include chapter_body(0.65em, 150px, 0px, 0px);
-                    @include chapter_toc(0.65em, -100px, -100px);
-                    @include section_title_text(2.2em, -285.0px, -200px);
-                    @include section_title_img();
-                    @include section_title_preface(1.2em * 0.7, 200px, -100px, -100px);
-                    @include point_item(1.2em, 1.5, 0.4em, -1.2em, 14px, 14px);
+                    @include process_title();
+                    @include chapter_title_text();
+                    @include chapter_body();
+                    @include chapter_toc_title();
                 }
             }
         }

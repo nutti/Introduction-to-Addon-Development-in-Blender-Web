@@ -20,9 +20,9 @@
 ## self.reportデバッグ
 
 読んで字のごとく、 ```self.report()``` メソッドを用いたデバッグ手法です。
-```self.report()``` メソッドの第2引数に任意の文字列を入力できることを利用し、確認したい変数の値をコンソール・ウィンドウに表示させることでデバッグを行います。
+```self.report()``` メソッドの第2引数に任意の文字列を入力できることを利用し、確認したい変数の値をスクリプト実行ログに表示させることでデバッグを行います。
 
-self.reportデバッグの例を以下に示します。以下の例では、 ```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値をコンソール・ウィンドウに表示することで、変数に正しい値が代入されていることを確認します。
+self.reportデバッグの例を以下に示します。以下の例では、 ```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値をスクリプト実行ログに表示することで、変数に正しい値が代入されていることを確認します。
 
 ```python
 def execute(self, context):
@@ -31,7 +31,7 @@ def execute(self, context):
     self.report({'INFO'}, "a=%d, b=%f" % (a, b))
 ```
 
-```execute()``` メソッドが実行されると、コンソール・ウィンドウに以下のように表示されます。
+```execute()``` メソッドが実行されると、スクリプト実行ログに以下のように表示されます。
 
 ```python
 a=50, b=4.0
@@ -43,9 +43,9 @@ self.reportデバッグは、変数を表示したい箇所に ```self.report()`
 
 読んで字のごとく、 ```print()``` 関数を用いたデバッグ手法です。
 
-self.reportデバッグと同じように、確認したい変数の値を表示させてデバッグを行う方法ですが、self.reportデバッグでは確認できなかった処理中の変数も確認することができます。ただし ```print()``` 関数の出力先はコンソールであるため、 [1.3節](../chapter_01/03_Prepare_Add-on_development_environment.md) を参考にして、コンソールからBlenderを起動する必要があります。
+self.reportデバッグと同じように、確認したい変数の値を表示させてデバッグを行う方法ですが、self.reportデバッグでは確認できなかった処理中の変数も確認することができます。ただし ```print()``` 関数の出力先はコンソールウィンドウであるため、 [1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) を参考にして、コンソールウィンドウからBlenderを起動する必要があります。
 
-以下の例では、 ```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値をコンソールに出力することで、変数に正しい値が代入されているかを確認します。
+以下の例では、 ```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値をコンソールウィンドウに出力することで、変数に正しい値が代入されているかを確認します。
 
 ```python
 def execute(self, context):
@@ -54,7 +54,7 @@ def execute(self, context):
     print("a=%d, b=%f" % (a, b))
 ```
 
-```execute()``` メソッドが実行されると、コンソールには以下のように表示されます。
+```execute()``` メソッドが実行されると、コンソールウィンドウには以下のように表示されます。
 
 ```python
 a=50, b=4.0
@@ -62,7 +62,7 @@ a=50, b=4.0
 
 <div id="column"></div>
 
-Pythonコンソールからbpy.ops.XXX（XXX：オペレーションクラスのbl_idname）を実行してアドオンの処理を行った場合、print()関数の出力先はPythonコンソールになります。
+Pythonコンソールウィンドウからbpy.ops.XXX（XXX：オペレーションクラスのbl_idname）を実行してアドオンの処理を行った場合、print()関数の出力先はPythonコンソールウィンドウになります。
 
 <div id="space_m"></div>
 
@@ -305,7 +305,7 @@ BLNEDER_BASE_SCRIPT_PATHは、以下に示すようにOS依存です。BLENDER_V
 
 必要に応じて個人用の作業ディレクトリのパスを追加しても良いです。ここでは上で示したパスに加えて、 ```debug.py``` と ```debuggee.py``` が置かれたディレクトリのパスを指定します。
 
-保存先は、 [1.4節](../chapter_01/04_Install_own_Add-on.md) を参照してください。
+保存先は、 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参照してください。
 
 <div id="process_start_end"></div>
 
@@ -317,15 +317,15 @@ BLNEDER_BASE_SCRIPT_PATHは、以下に示すようにOS依存です。BLENDER_V
 
 以下のようなスクリプトを、ファイル名 ```debug.py``` として作成してください。
 
-[import](../../sample/src/chapter_04/debug.py)
+[import](../../sample/src/chapter_04/sample_4-2/debug.py)
 
 ここで ```PYDEV_SRC_DIR``` にはPyDevが置かれたディレクトリを指定しますが、環境によりPyDevが置かれたディレクトリが異なるため、各自で確認する必要があります。筆者のMac環境ではPyDevの場所は ```~/.p2/pool/plugins/org.python.pydev_XXX/pysrc``` でした。（```XXX```はPyDevのバージョンです。）
 
 次に、デバッグ対象とするアドオンを用意します。本節のサンプルでは以下のデバッグ対象するアドオンを作成し、ファイル名 ```debugee.py``` として作成します。
 
-なお、```debug.py``` と ```debugee.py``` は同じディレクトリに置く必要があります。本節のサンプルは、本書でこれまで紹介してきたサンプルの場所と同じディレクトリに保存します。保存先は、 [1.4節](../chapter_01/04_Install_own_Add-on.md) を参照してください。
+なお、```debug.py``` と ```debugee.py``` は同じディレクトリに置く必要があります。本節のサンプルは、本書でこれまで紹介してきたサンプルの場所と同じディレクトリに保存します。保存先は、 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参照してください。
 
-[import](../../sample/src/chapter_04/debuggee.py)
+[import](../../sample/src/chapter_04/sample_4-2/debuggee.py)
 
 アドオン有効化時にデバッグを開始するために、 ```debug.py``` をインポートし、デバッグを開始する場所に ```debug.start_debug()``` 関数を追加します。
 
@@ -599,7 +599,7 @@ Eclipseを用いたデバッグは準備が非常に大変です。手間をか�
 
 以下のようなデバッグ対象のアドオンを作成し、 ```debuggee_2.py``` として保存します。
 
-[import](../../sample/src/chapter_04/debuggee_2.py)
+[import](../../sample/src/chapter_04/sample_4-2/debuggee_2.py)
 
 ブレークポイントを設定する関数は ```bpy.types.bp.bp()``` ですが、毎回関数名を書くのは冗長ですので、以下のように ```breakpoint()``` と書くだけで呼び出せるようにします。
 
@@ -622,7 +622,7 @@ breakpoint = bpy.types.bp.bp
 
 <div id="process"></div>
 
-|<div id="box">1</div>|テキストエディタエリアのメニューで、ビュー > プロパティを実行し、テキストエディタエリアのプロパティを表示します。|![デバッグ 手順1](https://dl.dropboxusercontent.com/s/bu01qdhpcstfb16/start_bp_debug_1.png "デバッグ 手順1")|
+|<div id="box">1</div>|*テキストエディター* エリアのメニューで、ビュー > プロパティを実行し、*テキストエディター* エリアのプロパティを表示します。|![デバッグ 手順1](https://dl.dropboxusercontent.com/s/bu01qdhpcstfb16/start_bp_debug_1.png "デバッグ 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -649,7 +649,7 @@ breakpoint = bpy.types.bp.bp
 
 <div id="process"></div>
 
-|<div id="box">4</div>|テキストエディタエリアのプロパティにブレークポイントの関数に指定した変数の値が表示されます。|![デバッグ 手順4](https://dl.dropboxusercontent.com/s/fmfykni3dax1vgt/start_bp_debug_4.png "デバッグ 手順4")|
+|<div id="box">4</div>|*テキストエディター* エリアのプロパティにブレークポイントの関数に指定した変数の値が表示されます。|![デバッグ 手順4](https://dl.dropboxusercontent.com/s/fmfykni3dax1vgt/start_bp_debug_4.png "デバッグ 手順4")|
 |---|---|---|
 
 <div id="process_start_end"></div>
@@ -658,8 +658,8 @@ breakpoint = bpy.types.bp.bp
 
 <div id="column"></div>
 
-[1.3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介した方法でBlenderをコンソールから開いた場合は、コンソールにもデバッグ情報が表示されているはずです。  
-またコンソールから起動した場合に限り、Blender本体からコンソールに制御が移ります。制御が移っている間は、コンソールでPythonインタープリタを使うことができますが、Blenderでいかなる操作も受け付けなくなります。  
+[1.3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介した方法でBlenderをコンソールウィンドウから開いた場合は、コンソールウィンドウにもデバッグ情報が表示されているはずです。  
+またコンソールウィンドウから起動した場合に限り、Blender本体からコンソールウィンドウに制御が移ります。制御が移っている間は、コンソールウィンドウでPythonインタープリタを使うことができますが、Blenderでいかなる操作も受け付けなくなります。  
 Blender本体に制御を戻す（アドオンの実行を再開する）場合は、WindowsではCtrl+Zキーを、 Mac/LinuxではCtrl+Dキーを押してください。
 
 
@@ -669,8 +669,8 @@ Blender本体に制御を戻す（アドオンの実行を再開する）場合�
 
 |デバッグ方法|できること|前準備|
 |---|---|---|
-|self.report|コンソール・ウィンドウに出力可能な処理の中での変数値確認|ソースコードの調べたい箇所に ```self.report()``` メソッドを追加|
-|print|すべての変数値確認|コンソールからBlenderを起動、ソースコードの調べたい箇所に ```print()``` 関数を追加|
+|self.report|スクリプト実行ログに出力可能な処理の中での変数値確認|ソースコードの調べたい箇所に ```self.report()``` メソッドを追加|
+|print|すべての変数値確認|コンソールウィンドウからBlenderを起動、ソースコードの調べたい箇所に ```print()``` 関数を追加|
 |外部デバッガ|ブレークポイント設定やコールトレース調査、変数値確認などEclipseが持つデバッガ機能の利用|EclipseやPyDevのインストール、EclipseとBlenderの連携、デバッグ実行用スクリプトの作成|
 |デバッガアドオン『BreakPoint』|ブレークポイント設定、変数値確認|アドオン『BreakPoint』のインストール、ブレークポイント設定のためのソースコード編集|
 

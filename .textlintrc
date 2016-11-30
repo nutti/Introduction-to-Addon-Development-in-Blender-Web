@@ -1,0 +1,19 @@
+{
+  "filters": {},
+  "rules": {
+    "max-ten": {
+      "max": 3
+    },
+    "prh": {
+      "rulePaths": ["prh.yml"]
+    },
+    "spellcheck-tech-word": false,
+    "no-mix-dearu-desumasu": false,
+    "preset-jtf-style": false,
+    "preset-japanese": false,
+    "common-misspellings": false,
+    "no-start-duplicated-conjunction": false,
+    "no-todo": false,
+    "preset-ja-technical-writing": false
+  }
+}

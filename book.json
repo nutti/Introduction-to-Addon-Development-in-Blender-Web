@@ -5,12 +5,21 @@
     "language": "ja",
     "plugins": ["styles-sass", "include-codeblock"],
     "styles": {
-    "website": "styles/website.scss",
-    "pdf": "styles/pdf.scss"
+        "website": "styles/website.scss",
+        "pdf": "styles/pdf.scss"
+    },
+    "variables": {
+        "volume": "all",
+        "format": "website",
+        "edition": "2.0"
     },
     "pdf": {
-        "paperSize": "a4",
+        "paperSize": "a3",
         "margin": {
+            "top": 60,
+            "bottom": 60,
+            "right": 85,
+            "left": 85
         },
         "headerTemplate":
         "<html><body><div id=\"pdf-header\" class=\"pdf-header\"><span>_SECTION_&nbsp;</span><span class=\"header-pages-count sub\"></span></div><script>if (_PAGENUM_ == 1000) document.getElementById('pdf-header').style.display = 'none'</script></body></html>",

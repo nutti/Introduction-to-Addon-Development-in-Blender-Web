@@ -1,8 +1,8 @@
-<div id="sect_title_img_4_4"></div>
+<div id="sect_title_img_4_6"></div>
 
 <div id="sect_title_text"></div>
 
-# アドオンをBlender本体に<br>取り込んでもらう
+# アドオンをBlender本体に取り込んでもらう
 
 <div id="preface"></div>
 

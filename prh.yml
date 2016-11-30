@@ -1,0 +1,10 @@
+version: 1
+rules:
+  - expected: Blender
+    specs:
+      - from: blender
+        to: Blender
+#  - expected: ディレクトリ
+#    specs:
+#      - from: フォルダ
+#        to: ディレクトリ

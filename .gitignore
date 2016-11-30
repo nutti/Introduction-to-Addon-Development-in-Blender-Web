@@ -18,3 +18,9 @@ _book/
 
 # not allow node.js files
 node_modules/
+
+TODO.md
+color
+startup.blend
+backup
+backup.txt
