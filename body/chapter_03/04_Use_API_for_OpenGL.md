@@ -1,4 +1,4 @@
-<div id="sect_title_img_3_3"></div>
+<div id="sect_title_img_3_4"></div>
 
 <div id="sect_title_text"></div>
 
@@ -32,7 +32,7 @@ BlenderはPythonからOpenGLへアクセスするためのAPIも用意してい�
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3-3.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3-4.py``` として保存してください。
 
 [import](../../sample/src/chapter_03/sample_3-4.py)
 
@@ -43,7 +43,7 @@ BlenderはPythonからOpenGLへアクセスするためのAPIも用意してい�
 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参考に作成したアドオンを有効化すると、コンソールウィンドウに以下の文字列が出力されます。
 
 ```sh
-サンプル8: アドオン「サンプル8」が有効化されました。
+サンプル3-4: アドオン「サンプル3-4」が有効化されました。
 ```
 
 <div id="sidebyside"></div>
