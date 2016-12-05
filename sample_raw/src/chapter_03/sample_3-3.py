@@ -34,19 +34,17 @@ class CalculateWorkingHours(bpy.types.Operator):
     bl_label = "作業時間計測"
     bl_description = "作業時間を計測します"
 
-    timer = None    # タイマのハンドラ
-
 
     def __init__(self):
+        self.timer = None           # タイマのハンドラ
         self.prev_time = 0.0        # __calc_delta()メソッドを呼び出した時の時間
         self.prev_obj = None        # __calc_delta()メソッドを呼び出した時に選択していたオブジェクト
         self.prev_mode = None   # __calc_delta()メソッドを呼び出した時のモード
 
 
 //! [add_timer]
-    @staticmethod
-    def handle_add(self, context):
-        if CalculateWorkingHours.timer is None:
+    def __handle_add(self, context):
+        if self.timer is None:
             # タイマを登録
             CalculateWorkingHours.timer = context.window_manager.event_timer_add(
                 0.10, context.window)
@@ -56,12 +54,11 @@ class CalculateWorkingHours(bpy.types.Operator):
 
 
 //! [remove_timer]
-    @staticmethod
-    def handle_remove(self, context):
-        if CalculateWorkingHours.timer is not None:
+    def __handle_remove(self, context):
+        if self.timer is not None:
             # タイマの登録を解除
-            context.window_manager.event_timer_remove(CalculateWorkingHours.timer)
-            CalculateWorkingHours.timer = None
+            context.window_manager.event_timer_remove(self.timer)
+            self.timer = None
 //! [remove_timer]
 
 
@@ -123,6 +120,7 @@ class CalculateWorkingHours(bpy.types.Operator):
 
         # 作業時間計測を停止
         if props.is_calc_mode is False:
+            self.__handle_remove(context)
             return {'FINISHED'}
 
         # データベース更新
@@ -137,12 +135,11 @@ class CalculateWorkingHours(bpy.types.Operator):
             # 開始ボタンが押された時の処理
             if props.is_calc_mode is False:
                 props.is_calc_mode = True
-                CalculateWorkingHours.handle_add(self, context)
+                self.__handle_add(context)
                 print("サンプル3-3: 作業時間の計測を開始しました。")
                 return {'RUNNING_MODAL'}
             # 終了ボタンが押された時の処理
             else:
-                CalculateWorkingHours.handle_remove(self, context)
                 props.is_calc_mode = False
                 print("サンプル3-3: 作業時間の計測を終了しました。")
                 return {'FINISHED'}

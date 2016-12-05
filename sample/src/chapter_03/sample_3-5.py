@@ -35,45 +35,41 @@ class CalculateWorkingHours(bpy.types.Operator):
     bl_label = "作業時間計測"
     bl_description = "作業時間を計測します"
 
-    timer = None    # タイマのハンドラ
-    handler = None   # 描画関数のハンドラ
-
+    handle = None           # 描画関数ハンドラ
 
     def __init__(self):
+        self.timer = None           # タイマハンドラ
         self.prev_time = 0.0        # __calc_delta()メソッドを呼び出した時の時間
         self.prev_obj = None        # __calc_delta()メソッドを呼び出した時に選択していたオブジェクト
         self.prev_mode = None   # __calc_delta()メソッドを呼び出した時のモード
 
 
-    @staticmethod
-    def handle_add(self, context):
-        if (CalculateWorkingHours.timer is None) and (CalculateWorkingHours.handler is None):
+    def __handle_add(self, context):
+        if (self.timer is None) and (CalculateWorkingHours.handle is None):
             # タイマを登録
-            CalculateWorkingHours.timer = context.window_manager.event_timer_add(
+            self.timer = context.window_manager.event_timer_add(
                 0.10, context.window)
             # 描画関数の登録
-            #CalculateWorkingHours.handler = bpy.types.SpaceView3D.draw_handler_add(
-            #    self.render_working_hours, (context, ), 'WINDOW', 'POST_PIXEL')
+            CalculateWorkingHours.handler = bpy.types.SpaceView3D.draw_handler_add(
+                CalculateWorkingHours.render_working_hours, (self, context, ), 'WINDOW', 'POST_PIXEL')
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
 
 
-    @staticmethod
-    def handle_remove(self, context):
+    def __handle_remove(self, context):
         if CalculateWorkingHours.handler is not None:
             # 描画関数の登録を解除
             bpy.types.SpaceView3D.draw_handler_remove(CalculateWorkingHours.handler, 'WINDOW')
             CalculateWorkingHours.handler = None
-            print("aaaa")
-        if CalculateWorkingHours.timer is not None:
+        if self.timer is not None:
             # タイマの登録を解除
-            context.window_manager.event_timer_remove(CalculateWorkingHours.timer)
-            CalculateWorkingHours.timer = None
-            print("bbbbb")
+            context.window_manager.event_timer_remove(self.timer)
+            self.timer = None
 
 
     # 作業時間を表示用にフォーマット化
-    def __make_time_fmt(self, time):
+    @staticmethod
+    def make_time_fmt(time):
         msec = math.floor(time * 1000) % 1000   # ミリ秒
         sec = math.floor(time) % 60                     # 秒
         minute = math.floor(time / 60) % 60         # 分
@@ -82,7 +78,8 @@ class CalculateWorkingHours(bpy.types.Operator):
         return "%d:%02d:%02d.%d" % (hour, minute, sec, math.floor(msec / 100))
 
 
-    def __render_message(self, size, x, y, msg):
+    @staticmethod
+    def render_message(size, x, y, msg):
         # フォントサイズを指定
         blf.size(0, size, 72)
         # 描画位置を指定
@@ -91,7 +88,8 @@ class CalculateWorkingHours(bpy.types.Operator):
         blf.draw(0, msg)
 
 
-    def __get_region(self, context, area_type, region_type):
+    @staticmethod
+    def get_region(context, area_type, region_type):
         region = None
 
         # 指定されたエリアを取得する
@@ -106,6 +104,7 @@ class CalculateWorkingHours(bpy.types.Operator):
         return region
 
 
+    @staticmethod
     def render_working_hours(self, context):
         sc = context.scene
         props = sc.cwh_props
@@ -115,14 +114,15 @@ class CalculateWorkingHours(bpy.types.Operator):
             return
 
         # リージョン幅を取得するため、描画先のリージョンを得る
-        region = self.__get_region(context, 'VIEW_3D', 'WINDOW')
+        region = CalculateWorkingHours.get_region(context, 'VIEW_3D', 'WINDOW')
 
         # 描画先のリージョンへ文字列を描画
         if region is not None:
-            self.__render_message(20, 20, region.height - 40, "Working Hour")
-            self.__render_message(15, 20, region.height - 60,
-                "Object Mode: " + self.__make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['OBJECT']))
-            self.__render_message(15, 20, region.height - 80, "Edit Mode: " + self.__make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['EDIT']))
+            CalculateWorkingHours.render_message(20, 20, region.height - 60, "Working Hour")
+            CalculateWorkingHours.render_message(15, 20, region.height - 80, "Object: " + sc.cwh_prop_object)
+            CalculateWorkingHours.render_message(15, 20, region.height - 100,
+                "Object Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['OBJECT']))
+            CalculateWorkingHours.render_message(15, 20, region.height - 120, "Edit Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['EDIT']))
 
 
     # 前回の呼び出しからの時間差分を計算
@@ -177,6 +177,7 @@ class CalculateWorkingHours(bpy.types.Operator):
 
         # 作業時間計測を停止
         if props.is_calc_mode is False:
+            self.__handle_remove(context)
             return {'FINISHED'}
 
         # データベース更新
@@ -191,12 +192,11 @@ class CalculateWorkingHours(bpy.types.Operator):
             # 開始ボタンが押された時の処理
             if props.is_calc_mode is False:
                 props.is_calc_mode = True
-                CalculateWorkingHours.handle_add(self, context)
+                self.__handle_add(context)
                 print("サンプル3-3: 作業時間の計測を開始しました。")
                 return {'RUNNING_MODAL'}
             # 終了ボタンが押された時の処理
             else:
-                CalculateWorkingHours.handle_remove(self, context)
                 props.is_calc_mode = False
                 print("サンプル3-3: 作業時間の計測を終了しました。")
                 return {'FINISHED'}
