@@ -1,6 +1,8 @@
 import bpy
 from bpy.props import BoolProperty, PointerProperty, IntProperty, EnumProperty
+//! [import_blf]
 import blf
+//! [import_blf]
 import datetime
 import math
 
@@ -211,16 +213,6 @@ class OBJECT_PT_CWH(bpy.types.Panel):
     bl_region_type = "UI"
 
 
-    # 作業時間を表示用にフォーマット化
-    def __make_time_fmt(self, time):
-        msec = math.floor(time * 1000) % 1000   # ミリ秒
-        sec = math.floor(time) % 60                     # 秒
-        minute = math.floor(time / 60) % 60         # 分
-        hour = math.floor(time / (60 * 60))           # 時
-
-        return "%d:%02d:%02d.%d" % (hour, minute, sec, math.floor(msec / 100))
-
-
     def draw(self, context):
         sc = context.scene
         layout = self.layout
@@ -230,19 +222,6 @@ class OBJECT_PT_CWH(bpy.types.Panel):
             layout.operator(CalculateWorkingHours.bl_idname, text="開始", icon="PLAY")
         else:
             layout.operator(CalculateWorkingHours.bl_idname, text="終了", icon="PAUSE")
-
-        layout.separator()
-
-        # 作業時間の描画
-        layout.prop(sc, "cwh_prop_object", text="オブジェクト")
-        if sc.cwh_prop_object != "":
-            column = layout.column()
-            row = column.row()
-            row.label(text="オブジェクトモード")
-            row.label(text=self.__make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['OBJECT']))
-            row = column.row()
-            row.label(text="エディットモード")
-            row.label(text=self.__make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['EDIT']))
 
 
 # 作業時間を表示するオブジェクトを選択するための項目リストを作成
