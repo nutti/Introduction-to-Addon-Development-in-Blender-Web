@@ -84,6 +84,7 @@ class CalculateWorkingHours(bpy.types.Operator):
         return "%d:%02d:%02d.%d" % (hour, minute, sec, math.floor(msec / 100))
 
 
+//! [render_message]
     @staticmethod
     def render_message(size, x, y, msg):
         # フォントサイズを指定
@@ -92,14 +93,16 @@ class CalculateWorkingHours(bpy.types.Operator):
         blf.position(0, x, y, 0)
         # 文字列を描画
         blf.draw(0, msg)
+//! [render_message]
 
 
+//! [get_region]
     @staticmethod
     def get_region(context, area_type, region_type):
         region = None
 
         # 指定されたエリアを取得する
-        for area in bpy.context.screen.areas:
+        for area in context.screen.areas:
             if area.type == area_type:
                 break
         # 指定されたリージョンを取得する
@@ -108,6 +111,7 @@ class CalculateWorkingHours(bpy.types.Operator):
                 break
 
         return region
+//! [get_region]
 
 
     @staticmethod
@@ -122,6 +126,7 @@ class CalculateWorkingHours(bpy.types.Operator):
         # リージョン幅を取得するため、描画先のリージョンを得る
         region = CalculateWorkingHours.get_region(context, 'VIEW_3D', 'WINDOW')
 
+//! [call_render_region]
         # 描画先のリージョンへ文字列を描画
         if region is not None:
             CalculateWorkingHours.render_message(20, 20, region.height - 60, "Working Hour")
@@ -129,6 +134,7 @@ class CalculateWorkingHours(bpy.types.Operator):
             CalculateWorkingHours.render_message(15, 20, region.height - 100,
                 "Object Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['OBJECT']))
             CalculateWorkingHours.render_message(15, 20, region.height - 120, "Edit Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['EDIT']))
+//! [call_render_region]
 
 
     # 前回の呼び出しからの時間差分を計算
