@@ -51,18 +51,22 @@ class CalculateWorkingHours(bpy.types.Operator):
             # タイマを登録
             self.timer = context.window_manager.event_timer_add(
                 0.10, context.window)
+//! [add_render_func]
             # 描画関数の登録
             CalculateWorkingHours.handler = bpy.types.SpaceView3D.draw_handler_add(
-                CalculateWorkingHours.render_working_hours, (self, context, ), 'WINDOW', 'POST_PIXEL')
+                CalculateWorkingHours.render_working_hours, (self, context), 'WINDOW', 'POST_PIXEL')
+//! [add_render_func]
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
 
 
     def __handle_remove(self, context):
+//! [remove_render_func]
         if CalculateWorkingHours.handler is not None:
             # 描画関数の登録を解除
             bpy.types.SpaceView3D.draw_handler_remove(CalculateWorkingHours.handler, 'WINDOW')
             CalculateWorkingHours.handler = None
+//! [remove_render_func]
         if self.timer is not None:
             # タイマの登録を解除
             context.window_manager.event_timer_remove(self.timer)
