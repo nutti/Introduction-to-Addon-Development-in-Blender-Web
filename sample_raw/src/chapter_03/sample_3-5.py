@@ -129,8 +129,15 @@ class CalculateWorkingHours(bpy.types.Operator):
 //! [call_render_region]
         # 描画先のリージョンへ文字列を描画
         if region is not None:
+
             CalculateWorkingHours.render_message(20, 20, region.height - 60, "Working Hour")
+            
+            blf.shadow
+            # ぼかし効果を追加
+            blf.blur(0, 2)
             CalculateWorkingHours.render_message(15, 20, region.height - 80, "Object: " + sc.cwh_prop_object)
+            # ぼかし効果を解除
+            blf.blur(0, 0)
             CalculateWorkingHours.render_message(15, 20, region.height - 100,
                 "Object Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['OBJECT']))
             CalculateWorkingHours.render_message(15, 20, region.height - 120, "Edit Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['EDIT']))

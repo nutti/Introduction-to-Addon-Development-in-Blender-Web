@@ -201,4 +201,7 @@
 
 <div id="point_item"></div>
 
-*
+* Blenderが提供するテキストを描画するためのAPIは、```blf``` モジュールをインポートすることで利用可能になる
+* ```blf``` モジュールを使ってテキストを描画するためには、```bgl``` モジュールを用いた描画処理と同様に ```bpy.types.SpaceXXX.draw_handler_add()``` （XXX：描画するエリア）関数を用いて、描画用のスタティックメソッドまたは関数を登録する必要がある
+* 登録した描画用のスタティックメソッドまたは関数は、アドオン無効化時に ```bpy.types.SpaceXXX.draw_handler_remove()``` 関数を用いて、登録を解除する必要がある
+* Blenderで開いているエリア情報は、```context.screen.areas``` から取得することができる
