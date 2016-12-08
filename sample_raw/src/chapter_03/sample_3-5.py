@@ -129,18 +129,19 @@ class CalculateWorkingHours(bpy.types.Operator):
 //! [call_render_region]
         # 描画先のリージョンへ文字列を描画
         if region is not None:
-
+            # 影の効果を設定
+            blf.shadow(0, 3, 0.0, 1.0, 0.0, 0.5)
+            # 影の位置を設定
+            blf.shadow_offset(0, 2, -2)
+            # 影の効果を有効化
+            blf.enable(0, blf.SHADOW)
             CalculateWorkingHours.render_message(20, 20, region.height - 60, "Working Hour")
-            
-            blf.shadow
-            # ぼかし効果を追加
-            blf.blur(0, 2)
-            CalculateWorkingHours.render_message(15, 20, region.height - 80, "Object: " + sc.cwh_prop_object)
-            # ぼかし効果を解除
-            blf.blur(0, 0)
-            CalculateWorkingHours.render_message(15, 20, region.height - 100,
+            # 影の効果を無効化
+            blf.disable(0, blf.SHADOW)
+            CalculateWorkingHours.render_message(15, 20, region.height - 90, "Object: " + sc.cwh_prop_object)
+            CalculateWorkingHours.render_message(15, 20, region.height - 115,
                 "Object Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['OBJECT']))
-            CalculateWorkingHours.render_message(15, 20, region.height - 120, "Edit Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['EDIT']))
+            CalculateWorkingHours.render_message(15, 20, region.height - 135, "Edit Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['EDIT']))
 //! [call_render_region]
 
 
@@ -212,12 +213,12 @@ class CalculateWorkingHours(bpy.types.Operator):
             if props.is_calc_mode is False:
                 props.is_calc_mode = True
                 self.__handle_add(context)
-                print("サンプル3-3: 作業時間の計測を開始しました。")
+                print("サンプル3-5: 作業時間の計測を開始しました。")
                 return {'RUNNING_MODAL'}
             # 終了ボタンが押された時の処理
             else:
                 props.is_calc_mode = False
-                print("サンプル3-3: 作業時間の計測を終了しました。")
+                print("サンプル3-5: 作業時間の計測を終了しました。")
                 return {'FINISHED'}
         else:
             return {'CANCELLED'}
@@ -239,6 +240,11 @@ class OBJECT_PT_CWH(bpy.types.Panel):
             layout.operator(CalculateWorkingHours.bl_idname, text="開始", icon="PLAY")
         else:
             layout.operator(CalculateWorkingHours.bl_idname, text="終了", icon="PAUSE")
+
+        layout.separator()
+
+        # 作業時間の描画
+        layout.prop(sc, "cwh_prop_object", text="オブジェクト")
 
 
 # 作業時間を表示するオブジェクトを選択するための項目リストを作成
@@ -273,13 +279,13 @@ def clear_props():
 def register():
     bpy.utils.register_module(__name__)
     init_props()
-    print("サンプル3-3: アドオン「サンプル3-3」が有効化されました。")
+    print("サンプル3-5: アドオン「サンプル3-5」が有効化されました。")
 
 
 def unregister():
     clear_props()
     bpy.utils.unregister_module(__name__)
-    print("サンプル3-3: アドオン「サンプル3-3」が無効化されました。")
+    print("サンプル3-5: アドオン「サンプル3-5」が無効化されました。")
 
 
 if __name__ == "__main__":
