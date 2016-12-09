@@ -1,5 +1,5 @@
 import bpy
-from bpy.props import BoolProperty
+from bpy.props import StringProperty, FloatProperty
 import aud
 
 bl_info = {
@@ -33,17 +33,34 @@ class PlayAudioFile(bpy.types.Operator):
     filename = StringProperty()
     directory = StringProperty(subtype="FILE_PATH")
 
+    @staticmethod
+    def set_volume(self, value):
+        self['paf_volume'] = value
+        if PlayAudioFile.handle is not None:
+            print(str(value))
+            PlayAudioFile.handle.volume = value
+
+    @staticmethod
+    def get_volume(self):
+        return self.get('paf_volume', 0.5)
+
+
     def execute(self, context):
+        sc = context.scene
+
         if PlayAudioFile.device is None:
             PlayAudioFile.device = aud.device()
 
-        PlayAudioFile.factory = aud.Factory('test.wav')
+        PlayAudioFile.factory = aud.Factory(self.filepath)
+        PlayAudioFile.factory.volume(sc.paf_volume)
 
         # 再生中なら停止する
         if PlayAudioFile.handle is not None:
             PlayAudioFile.handle.stop()
         # 再生
-        PlayAudioFile.handle = device.play()
+        PlayAudioFile.handle = PlayAudioFile.device.play(PlayAudioFile.factory)
+
+        return {'FINISHED'}
 
 
     def invoke(self, context, event):
@@ -55,7 +72,7 @@ class PlayAudioFile(bpy.types.Operator):
 
 
 # ツールシェルフに「オーディオ再生」タブを追加
-class VIEW3D_PT_CustomMenu(bpy.types.Panel):
+class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
     bl_label = "オーディオ再生"          # タブに表示される文字列
     bl_space_type = 'VIEW_3D'           # メニューを表示するエリア
     bl_region_type = 'TOOLS'            # メニューを表示するリージョン
@@ -65,14 +82,28 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
     # メニューの描画処理
     def draw(self, context):
         layout = self.layout
-        scene = context.scene
+        sc = context.scene
 
         # ファイルブラウザを表示する
-        layout.operator(ShowFileBrowser.bl_idname, text="オーディオファイルを選択")
+        layout.operator(PlayAudioFile.bl_idname, text="オーディオファイルを選択")
+        layout.prop(sc, "paf_volume", text="音量")
 
 
 def init_props():
-    sc = bpy.context.Scene
+    sc = bpy.types.Scene
+    sc.paf_volume = FloatProperty(
+        name="音量",
+        description="音量を調整します",
+        default=0.5,
+        max=1.0,
+        min=0.0,
+        get=PlayAudioFile.get_volume,
+        set=PlayAudioFile.set_volume
+    )
+
+
+def clear_props():
+    pass
 
 
 def register():
