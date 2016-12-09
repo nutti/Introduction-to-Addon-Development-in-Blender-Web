@@ -1,5 +1,5 @@
 import bpy
-from bpy.props import StringProperty, FloatProperty
+from bpy.props import StringProperty, FloatProperty, FloatVectorProperty
 import aud
 
 bl_info = {
@@ -37,12 +37,21 @@ class PlayAudioFile(bpy.types.Operator):
     def set_volume(self, value):
         self['paf_volume'] = value
         if PlayAudioFile.handle is not None:
-            print(str(value))
             PlayAudioFile.handle.volume = value
 
     @staticmethod
     def get_volume(self):
         return self.get('paf_volume', 0.5)
+
+    @staticmethod
+    def set_pitch(self, value):
+        self['paf_pitch'] = value
+        if PlayAudioFile.handle is not None:
+            PlayAudioFile.handle.pitch = value
+
+    @staticmethod
+    def get_pitch(self):
+        return self.get('paf_pitch', 0.5)
 
 
     def execute(self, context):
@@ -87,6 +96,14 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
         # ファイルブラウザを表示する
         layout.operator(PlayAudioFile.bl_idname, text="オーディオファイルを選択")
         layout.prop(sc, "paf_volume", text="音量")
+        layout.prop(sc, "paf_pitch", text="ピッチ")
+        layout.prop(sc, "paf_location", text="位置")
+        layout.prop(sc, "paf_orientation", text="向き")
+
+        if PlayAudioFile.handle is not None:
+            if PlayAudioFile.handle.status == aud.AUD_STATUS_PLAYING:
+            elif PlayAudioFile.handle.status == aud.AUD_STATUS_STOPPED:
+            elif PlayAudioFile.handle.status == aud.AUD_STATUS_PAUSED:
 
 
 def init_props():
@@ -99,6 +116,27 @@ def init_props():
         min=0.0,
         get=PlayAudioFile.get_volume,
         set=PlayAudioFile.set_volume
+    )
+    sc.paf_pitch = FloatProperty(
+        name="ピッチ",
+        description="ピッチを調整します",
+        default=0.5,
+        max=1.0,
+        min=0.0,
+        get=PlayAudioFile.get_pitch,
+        set=PlayAudioFile.set_pitch
+    )
+    sc.paf_location = FloatVectorProperty(
+        name="位置",
+        description="音源の位置を設定します",
+        size = 3,
+        default = (0.0, 0.0, 0.0)
+    )
+    sc.paf_orientation = FloatVectorProperty(
+        name="向き",
+        description="音源の向きを設定します",
+        size = 4,
+        default = (0.0, 0.0, 0.0, 0.0)
     )
 
 
