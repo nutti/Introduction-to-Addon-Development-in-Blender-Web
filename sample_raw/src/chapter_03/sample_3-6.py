@@ -1,5 +1,5 @@
 import bpy
-from bpy.props import StringProperty, FloatProperty, FloatVectorProperty
+from bpy.props import StringProperty, FloatProperty, BoolProperty
 import aud
 import math
 
@@ -19,8 +19,8 @@ bl_info = {
 
 
 class AudioDevice():
-    device = None
-    factory = None
+    device = None       # オーディオデバイス
+    factory = None      # サウンドファクトリー
     handle = None
     filename = None
     paused = False
@@ -47,24 +47,14 @@ def get_pitch(self):
     return self.get('paf_pitch', 1.0)
 
 
-def set_location(self, value):
-    self['paf_location'] = value
+def set_loop(self, value):
+    self['paf_loop'] = value
     if AudioDevice.handle is not None:
-        AudioDevice.handle.location = value
+        AudioDevice.handle.loop_count = -1 if value is False else 1
 
 
-def get_location(self):
-    return self.get('paf_location', (0.0, 0.0, 0.0))
-
-
-def set_orientation(self, value):
-    self['paf_orientation'] = value
-    if AudioDevice.handle is not None:
-        AudioDevice.handle.orientation = value
-
-
-def get_orientation(self):
-    return self.get('paf_orientation', (0.0, 0.0, 0.0, 0.0))
+def get_loop(self):
+    return self.get('paf_loop', 1)
 
 
 class AudioPlayTimeUpdater(bpy.types.Operator):
@@ -117,9 +107,7 @@ class SelectAudioFile(bpy.types.Operator):
 
         if AudioDevice.device is None:
             AudioDevice.device = aud.device()
-            AudioDevice.device.distance_model = aud.AUD_DISTANCE_MODEL_LINEAR
-            AudioDevice.device.listener_location = (0.0, 0.0, 0.0)
-            AudioDevice.device.listener_orientation = (0.0, 0.0, 0.0, 0.0)
+
 
         AudioDevice.factory = aud.Factory(self.filepath)
         AudioDevice.filename = self.filename
@@ -157,12 +145,6 @@ class PlayAudioFile(bpy.types.Operator):
         AudioDevice.handle = AudioDevice.device.play(AudioDevice.factory)
         AudioDevice.handle.volume = sc.paf_volume
         AudioDevice.handle.pitch = sc.paf_pitch
-        AudioDevice.handle.location = sc.paf_location
-        AudioDevice.handle.orientation = sc.paf_orientation
-        AudioDevice.handle.relative = False
-        AudioDevice.handle.distance_maximum = 100
-        AudioDevice.handle.distance_reference = 1
-        AudioDevice.handle.attenuation = 12
 
         AudioDevice.paused = False
         bpy.ops.ui.audio_play_time_updater()
@@ -263,8 +245,7 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
 
             layout.prop(sc, "paf_volume", text="音量")
             layout.prop(sc, "paf_pitch", text="ピッチ")
-            layout.prop(sc, "paf_location", text="位置")
-            layout.prop(sc, "paf_orientation", text="向き")
+
             if AudioDevice.handle.status == aud.AUD_STATUS_PLAYING:
                 if AudioDevice.paused:
                         layout.operator(ResumeAudioFile.bl_idname, text="再生再開", icon='PLAY')
@@ -298,21 +279,12 @@ def init_props():
         get=get_pitch,
         set=set_pitch
     )
-    sc.paf_location = FloatVectorProperty(
-        name="位置",
-        description="音源の位置を設定します",
-        size=3,
-        default=(0.0, 0.0, 0.0),
-        set=set_location,
-        get=get_location
-    )
-    sc.paf_orientation = FloatVectorProperty(
-        name="向き",
-        description="音源の向きを設定します",
-        size=4,
-        default=(0.0, 0.0, 0.0, 0.0),
-        set=set_orientation,
-        get=get_orientation
+    sc.paf_loop = BoolProperty(
+        name="ループ再生",
+        description="ループ再生します",
+        default=False,
+        get=get_loop,
+        set=set_loop
     )
 
 
