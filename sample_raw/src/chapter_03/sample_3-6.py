@@ -14,7 +14,7 @@ bl_info = {
     "support": "TESTING",
     "wiki_url": "",
     "tracker_url": "",
-    "category": "UI"
+    "category": "3D View"
 }
 
 
@@ -24,7 +24,7 @@ class AudioDevice():
     handle = None       # サウンドハンドラ
     filename = None     # 開いているオーディオファイル名
     paused = False      # 再生を一時停止している場合はTrue
-    running = False
+    running = False     # 再生処理が行われた場合はTrue
 
 
 # 音量を設定
@@ -83,11 +83,12 @@ class AudioPlayTimeUpdater(bpy.types.Operator):
                     region.tag_redraw()
 
         # 再生を停止時は更新処理を中断
-        if (AudioDevice.handle is None or (AudioDevice.running and AudioDevice.handle.status == aud.AUD_STATUS_INVALID)) and self.timer is not None:
-            # タイマの登録を解除
-            context.window_manager.event_timer_remove(self.timer)
-            self.timer = None
-            return {'FINISHED'}
+        if AudioDevice.handle is None or (AudioDevice.running and AudioDevice.handle.status == aud.AUD_STATUS_INVALID):
+            if self.timer is not None:
+                # タイマの登録を解除
+                context.window_manager.event_timer_remove(self.timer)
+                self.timer = None
+                return {'FINISHED'}
 
         return {'PASS_THROUGH'}
 
@@ -255,7 +256,8 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
         if AudioDevice.filename is not None:
             layout.label(AudioDevice.filename)
 
-        if AudioDevice.handle.status != aud.AUD_STATUS_INVALID:
+        # 1度再生されたが、再生を終わっている状態
+        if AudioDevice.handle is not None and AudioDevice.handle.status == aud.AUD_STATUS_INVALID:
             AudioDevice.handle = None
 
         if AudioDevice.handle is not None:
@@ -282,6 +284,7 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
             row.prop(sc, "paf_volume", text="音量")
             row.prop(sc, "paf_pitch", text="ピッチ")
         else:
+            # 選択中のオーディオファイルがない
             if AudioDevice.filename is not None:
                 layout.operator(PlayAudioFile.bl_idname, text="再生", icon='PLAY')
 
