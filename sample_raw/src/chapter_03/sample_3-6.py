@@ -19,49 +19,56 @@ bl_info = {
 
 
 class AudioDevice():
-    device = None       # オーディオデバイス
-    factory = None      # サウンドファクトリー
-    handle = None
-    filename = None
-    paused = False
-    timer = None
+    device = None       # サウンドデバイス
+    factory = None      # サウンドファクトリ
+    handle = None       # サウンドハンドラ
+    filename = None     # 開いているオーディオファイル名
+    paused = False      # 再生を一時停止している場合はTrue
+    running = False
 
 
+# 音量を設定
 def set_volume(self, value):
     self['paf_volume'] = value
     if AudioDevice.handle is not None:
         AudioDevice.handle.volume = value
 
 
+# 設定されている音量を取得
 def get_volume(self):
     return self.get('paf_volume', 0.5)
 
 
+# ピッチを設定
 def set_pitch(self, value):
     self['paf_pitch'] = value
     if AudioDevice.handle is not None:
         AudioDevice.handle.pitch = value
 
 
+# 設定されているピッチを取得
 def get_pitch(self):
     return self.get('paf_pitch', 1.0)
 
 
+# ループ再生するか否かを設定
 def set_loop(self, value):
     self['paf_loop'] = value
     if AudioDevice.handle is not None:
-        AudioDevice.handle.loop_count = -1 if value is False else 1
+        AudioDevice.handle.loop_count = -1 if value is False else 0
 
 
+# ループ再生か否かを取得
 def get_loop(self):
-    return self.get('paf_loop', 1)
+    return self.get('paf_loop', False)
 
 
+# 再生時間更新
 class AudioPlayTimeUpdater(bpy.types.Operator):
     bl_idname = "ui.audio_play_time_updater"
     bl_label = "オーディオ再生時間更新処理"
 
-    timer = None
+    timer = None        # タイマ
 
 
     def __init__(self):
@@ -70,21 +77,23 @@ class AudioPlayTimeUpdater(bpy.types.Operator):
 
     def modal(self, context, event):
         if event.type == 'TIMER':
+            # ツール・シェルフ部のみ更新
             for region in context.area.regions:
                 if region.type == 'TOOLS':
                     region.tag_redraw()
 
-        if AudioDevice.handle is None:
-            if self.timer is not None:
-                # タイマの登録を解除
-                context.window_manager.event_timer_remove(self.timer)
-                self.timer = None
-                return {'FINISHED'}
+        # 再生を停止時は更新処理を中断
+        if (AudioDevice.handle is None or (AudioDevice.running and AudioDevice.handle.status == aud.AUD_STATUS_INVALID)) and self.timer is not None:
+            # タイマの登録を解除
+            context.window_manager.event_timer_remove(self.timer)
+            self.timer = None
+            return {'FINISHED'}
 
         return {'PASS_THROUGH'}
 
 
     def execute(self, context):
+        # 再生時間更新処理開始
         if self.timer is None:
             self.timer = context.window_manager.event_timer_add(
                 0.10, context.window)
@@ -105,15 +114,16 @@ class SelectAudioFile(bpy.types.Operator):
     def execute(self, context):
         sc = context.scene
 
+        # 初回時のみサウンドデバイスを作成
         if AudioDevice.device is None:
             AudioDevice.device = aud.device()
 
-
+        # サウンドファクトリを作成
         AudioDevice.factory = aud.Factory(self.filepath)
         AudioDevice.filename = self.filename
         AudioDevice.pause = False
 
-        # 再生中なら停止する
+        # 再生中なら停止し、サウンドハンドラを破棄
         if AudioDevice.handle is not None:
             AudioDevice.handle.stop()
             AudioDevice.handle = None
@@ -145,8 +155,11 @@ class PlayAudioFile(bpy.types.Operator):
         AudioDevice.handle = AudioDevice.device.play(AudioDevice.factory)
         AudioDevice.handle.volume = sc.paf_volume
         AudioDevice.handle.pitch = sc.paf_pitch
-
+        AudioDevice.handle.loop_count = sc.paf_loop
         AudioDevice.paused = False
+        AudioDevice.running = True
+
+        # 再生時間更新処理開始
         bpy.ops.ui.audio_play_time_updater()
 
         return {'FINISHED'}
@@ -208,6 +221,7 @@ class StopAudioFile(bpy.types.Operator):
         AudioDevice.handle.stop()
         AudioDevice.handle = None
         AudioDevice.paused = False
+        AudioDevice.running = False
 
         return {'FINISHED'}
 
@@ -220,6 +234,7 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
     bl_category = "オーディオ再生"       # タブを開いたメニューのヘッダーに表示される文字列
 
 
+    # 作業時間を表示用にフォーマット化
     def __make_time_fmt(self, time):
         sec = math.floor(time) % 60                     # 秒
         minute = math.floor(time / 60) % 60         # 分
@@ -236,29 +251,42 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
         # ファイルブラウザを表示する
         layout.operator(SelectAudioFile.bl_idname, text="オーディオファイルを選択")
 
+        # 選択中のオーディオファイルを表示
         if AudioDevice.filename is not None:
-            # 選択中のオーディオファイル
             layout.label(AudioDevice.filename)
+
+        if AudioDevice.handle.status != aud.AUD_STATUS_INVALID:
+            AudioDevice.handle = None
 
         if AudioDevice.handle is not None:
             layout.label("再生時間： " + self.__make_time_fmt(AudioDevice.handle.position))
+            layout.prop(sc, "paf_loop", text="ループ再生")
 
-            layout.prop(sc, "paf_volume", text="音量")
-            layout.prop(sc, "paf_pitch", text="ピッチ")
-
+            # 再生中または一時停止中の状態
             if AudioDevice.handle.status == aud.AUD_STATUS_PLAYING:
                 if AudioDevice.paused:
-                        layout.operator(ResumeAudioFile.bl_idname, text="再生再開", icon='PLAY')
+                    row = layout.row()
+                    row.operator(ResumeAudioFile.bl_idname, text="再生再開", icon='PLAY')
+                    row.operator(StopAudioFile.bl_idname, text="停止", icon='X')
                 else:
-                    layout.operator(PauseAudioFile.bl_idname, text="一時停止", icon='PAUSE')
-                layout.operator(StopAudioFile.bl_idname, text="停止", icon='X')
+                    row = layout.row()
+                    row.operator(PauseAudioFile.bl_idname, text="一時停止", icon='PAUSE')
+                    row.operator(StopAudioFile.bl_idname, text="停止", icon='X')
+            # 再生を停止した状態
             elif AudioDevice.handle.status == aud.AUD_STATUS_STOPPED:
                 layout.operator(PlayAudioFile.bl_idname, text="再生", icon='PLAY')
+            elif AudioDevice.running:
+                layout.operator(PlayAudioFile.bl_idname, text="再生", icon='PLAY')
+
+            row = layout.row()
+            row.prop(sc, "paf_volume", text="音量")
+            row.prop(sc, "paf_pitch", text="ピッチ")
         else:
             if AudioDevice.filename is not None:
                 layout.operator(PlayAudioFile.bl_idname, text="再生", icon='PLAY')
 
 
+# プロパティを初期化
 def init_props():
     sc = bpy.types.Scene
     sc.paf_volume = FloatProperty(
@@ -288,12 +316,12 @@ def init_props():
     )
 
 
+# プロパティを削除
 def clear_props():
     sc = bpy.types.Scene
     del sc.paf_volume
     del sc.paf_pitch
-    del sc.paf_location
-    del sc.paf_orientation
+    del sc.paf_loop
 
 
 def register():
