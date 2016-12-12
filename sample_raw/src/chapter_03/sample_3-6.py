@@ -113,12 +113,16 @@ class SelectAudioFile(bpy.types.Operator):
 
     filepath = StringProperty(subtype="FILE_PATH")      # ファイルパス
     filename = StringProperty()     # ファイル名
+//! [filter_glob]
     # 検索フィルタ
     filter_glob = StringProperty(
         default="*.wav;*.mp3",
         options={'HIDDEN'}
     )
+//! [filter_glob]
 
+
+//! [select_audio_file_execute]
     def execute(self, context):
         sc = context.scene
 
@@ -137,6 +141,7 @@ class SelectAudioFile(bpy.types.Operator):
             AudioDevice.handle = None
 
         return {'FINISHED'}
+//! [select_audio_file_execute]
 
 
     def invoke(self, context, event):
