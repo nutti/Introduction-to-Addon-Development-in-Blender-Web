@@ -1,6 +1,8 @@
 import bpy
 from bpy.props import StringProperty, FloatProperty, BoolProperty
+//! [import_aud]
 import aud
+//! [import_aud]
 import math
 
 bl_info = {
