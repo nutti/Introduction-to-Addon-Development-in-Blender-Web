@@ -79,10 +79,12 @@ class AudioPlayTimeUpdater(bpy.types.Operator):
 
     def modal(self, context, event):
         if event.type == 'TIMER':
+//! [redraw_toolself]
             # ツール・シェルフ部のみ更新
             for region in context.area.regions:
                 if region.type == 'TOOLS':
                     region.tag_redraw()
+//! [redraw_toolself]
 
         # 再生を停止時は更新処理を中断
         if AudioDevice.handle is None or (AudioDevice.running and AudioDevice.handle.status == aud.AUD_STATUS_INVALID):
@@ -158,6 +160,7 @@ class PlayAudioFile(bpy.types.Operator):
     bl_label = "オーディオファイルの再生"
     bl_description = "オーディオファイルを再生します"
 
+//! [play_audio_file]
     def execute(self, context):
         sc = context.scene
 
@@ -176,6 +179,7 @@ class PlayAudioFile(bpy.types.Operator):
         bpy.ops.ui.audio_play_time_updater()
 
         return {'FINISHED'}
+//! [play_audio_file]
 
 
 # オーディオファイルの再生再開
@@ -273,7 +277,9 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
             AudioDevice.handle = None
 
         if AudioDevice.handle is not None:
+//! [display_play_time]
             layout.label("再生時間： " + self.__make_time_fmt(AudioDevice.handle.position))
+//! [display_play_time]
             layout.prop(sc, "paf_loop", text="ループ再生")
 
             # 再生中または一時停止中の状態
