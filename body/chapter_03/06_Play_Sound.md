@@ -182,10 +182,23 @@ BlenderのAPIを使ってオーディオファイルを再生するためには�
 
 ### オーディオファイルの再生一時停止
 
-オーディオファイルの再生を一時停止するためには、```AudioDevice.handle.pause()``` 関数を実行します。
+オーディオファイルの再生を一時停止するためには、```AudioDevice.handle.pause()``` 関数を実行します。```PauseAudioFile``` クラスの ```execute()``` メソッドでは ```AudioDevice.paused``` に ```True``` を代入していますが、これはポーズ中であることを示すために行っています。なお、```AudioDevice.handle.status``` には```aud.AUD_STATUS_PAUSED``` が設定されることもあるようですが、実際に ```AudioDevice.handle.pause()``` 関数を実行しても ```aud.AUD_STATUS_PAUSED``` から状態が遷移しないため、本節のサンプルではポーズ中であることを示すためのフラグを追加しました。
+
+オーディオファイルの再生を再開するためには、```AudioDevice.handle.resume()``` 関数を実行します。
 
 
 ### オーディオファイルの再生停止
+
+オーディオファイルの再生が停止されるパターンは2通りあります。
+
+* *停止* ボタンを押した
+* チェックボックス *ループ再生* にチェックが入っていない状態で、オーディオファイルを最後まで再生した
+
+*停止* ボタンを押した時にオーディオファイルの再生を停止する場合は、```AudioDevice.handle.stop()``` 関数を実行します。本関数を用いてオーディオファイルの再生を停止した場合、```AudioDevice.handle.status``` には ```aud.AUD_STATUS_STOPPED``` が設定されます。一方、オーディオファイルを最後まで再生して停止した場合は、```AudioDevice.handle.status``` には ```aud.AUD_STATUS_INVALID``` が代入されます。
+
+再生停止時には、```AudioDevice.handle``` に ```None``` を代入することで、サウンドハンドラを破棄します。*停止* ボタンを押した時の処理は、```AudioDevice.handle.stop()``` 関数を呼び出した後にサウンドハンドラを破棄するのみで単純ですが、オーディオファイルを最後まで再生した時の処理が少し複雑です。タイマイベントが発行されると、```AudioPlayTimeUpdater``` の ```modal()``` メソッドは、*3Dビュー* エリアのツール・シェルフリージョンに再描画イベントを発行します。再描画イベントにより、```VIEW3D_PT_PlayAudioFileMenu``` の ```draw()``` メソッド内で以下の処理が呼び出されます。
+
+[import:"destroy_sound_handle", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-6.py)
 
 
 ### 音量、ピッチ、ループ再生の変更

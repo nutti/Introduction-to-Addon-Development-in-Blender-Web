@@ -86,7 +86,7 @@ class AudioPlayTimeUpdater(bpy.types.Operator):
                     region.tag_redraw()
 //! [redraw_toolself]
 
-        # 再生を停止時は更新処理を中断
+        # 再生停止時には更新処理を中断
         if AudioDevice.handle is None or (AudioDevice.running and AudioDevice.handle.status == aud.AUD_STATUS_INVALID):
             if self.timer is not None:
                 # タイマの登録を解除
@@ -272,9 +272,11 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
         if AudioDevice.filename is not None:
             layout.label(AudioDevice.filename)
 
+//! [destroy_sound_handle]
         # 1度再生されたが、再生を終わっている状態
         if AudioDevice.handle is not None and AudioDevice.handle.status == aud.AUD_STATUS_INVALID:
             AudioDevice.handle = None
+//! [destroy_sound_handle]
 
         if AudioDevice.handle is not None:
 //! [display_play_time]
