@@ -162,8 +162,9 @@ BlenderのAPIを使ってオーディオファイルを再生するためには�
 |```pitch```|ピッチ|
 |```loop_count```|ループ回数|
 |```position```|再生位置|
+|```status```|再生状態|
 
-最後に ```bpy.ops.ui.audio_play_time_updater()``` を呼び出していますが、これにより再生時間を更新する処理のクラス ```AudioPlayTimeUpdater``` に記述した処理を実行します。
+最後に ```bpy.ops.ui.audio_play_time_updater()``` を呼び出していますが、これにより再生時間を更新する処理のクラス ```AudioPlayTimeUpdater``` に記述した処理を実行します。オーディオファイルが再生中の時、```AudioDevice.handle.status``` には ```aud.AUD_STATUS_PLAYING``` が保存されています。
 
 
 ### 再生時間の更新
@@ -180,6 +181,8 @@ BlenderのAPIを使ってオーディオファイルを再生するためには�
 
 
 ### オーディオファイルの再生一時停止
+
+オーディオファイルの再生を一時停止するためには、```AudioDevice.handle.pause()``` 関数を実行します。
 
 
 ### オーディオファイルの再生停止
