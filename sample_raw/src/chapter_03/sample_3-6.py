@@ -29,16 +29,20 @@ class AudioDevice():
     running = False     # 再生処理が行われた場合はTrue
 
 
+//! [set_volume]
 # 音量を設定
 def set_volume(self, value):
     self['paf_volume'] = value
     if AudioDevice.handle is not None:
         AudioDevice.handle.volume = value
+//! [set_volume]
 
 
+//! [get_volume]
 # 設定されている音量を取得
 def get_volume(self):
     return self.get('paf_volume', 0.5)
+//! [get_volume]
 
 
 # ピッチを設定
@@ -312,6 +316,7 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
 # プロパティを初期化
 def init_props():
     sc = bpy.types.Scene
+//! [prop_volume]
     sc.paf_volume = FloatProperty(
         name="音量",
         description="音量を調整します",
@@ -321,6 +326,7 @@ def init_props():
         get=get_volume,
         set=set_volume
     )
+//! [prop_volume]
     sc.paf_pitch = FloatProperty(
         name="ピッチ",
         description="ピッチを調整します",
