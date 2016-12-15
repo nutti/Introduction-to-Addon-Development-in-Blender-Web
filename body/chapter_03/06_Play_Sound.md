@@ -201,6 +201,7 @@ BlenderのAPIを使ってオーディオファイルを再生するためには�
 [import:"destroy_sound_handle", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-6.py)
 
 
+
 ### 音量、ピッチ、ループ再生の変更
 
 
