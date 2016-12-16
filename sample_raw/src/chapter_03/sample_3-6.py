@@ -26,7 +26,7 @@ class AudioDevice():
     handle = None       # サウンドハンドラ
     filename = None     # 開いているオーディオファイル名
     paused = False      # 再生を一時停止している場合はTrue
-    running = False     # 再生処理が行われた場合はTrue
+    running = False     # 再生処理が行われた場合はTrue（再生時間超過時にもTrueとなり、明に停止した時にFalseとなる）
 
 
 //! [set_volume]
@@ -290,10 +290,12 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
 
             # 再生中または一時停止中の状態
             if AudioDevice.handle.status == aud.AUD_STATUS_PLAYING:
+                # 一時停止の時
                 if AudioDevice.paused:
                     row = layout.row()
                     row.operator(ResumeAudioFile.bl_idname, text="再生再開", icon='PLAY')
                     row.operator(StopAudioFile.bl_idname, text="停止", icon='X')
+                # 再生中の時
                 else:
                     row = layout.row()
                     row.operator(PauseAudioFile.bl_idname, text="一時停止", icon='PAUSE')
@@ -301,6 +303,7 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
             # 再生を停止した状態
             elif AudioDevice.handle.status == aud.AUD_STATUS_STOPPED:
                 layout.operator(PlayAudioFile.bl_idname, text="再生", icon='PLAY')
+            # 再生時間を超過して再生が停止された状態
             elif AudioDevice.running:
                 layout.operator(PlayAudioFile.bl_idname, text="再生", icon='PLAY')
 
