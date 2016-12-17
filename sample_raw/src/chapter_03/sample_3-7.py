@@ -3,9 +3,9 @@ import bmesh
 from bpy.props import IntProperty, BoolProperty, PointerProperty
 
 bl_info = {
-    "name": "サンプル3-1: マウスの右クリックで面を削除する",
+    "name": "サンプル3-7: マウスの右クリックで面を削除する（多言語対応版）",
     "author": "Nutti",
-    "version": (1, 0),
+    "version": (2, 0),
     "blender": (2, 75, 0),
     "location": "3Dビュー > プロパティパネル > マウスの右クリックで面を削除",
     "description": "マウスの右クリックで面を削除するアドオン",
@@ -16,6 +16,22 @@ bl_info = {
     "category": "Mesh"
 }
 
+
+# 翻訳用辞書
+translation_dict = {
+    "en_US" :
+        {
+            ("*", "Sample3-7: Delete Face By Right Click (Multilingual Support)") :
+                "Sample3-7: Delete Face By Right Click (Multilingual Support)",
+            ("*", "Sample3-7: Delete Face By Right Click (Multilingual Support)") :
+                "Sample3-7: Delete Face By Right Click (Multilingual Support)",
+        },
+    "ja_JP" :
+        {
+            ("*", "Sample3-7: Delete Face By Right Click (Multilingual Support)") :
+                "サンプル3-7: マウスの右クリックで面を削除する（多言語対応版）"
+        }
+}
 
 # プロパティ
 class DFRC_Properties(bpy.types.PropertyGroup):
