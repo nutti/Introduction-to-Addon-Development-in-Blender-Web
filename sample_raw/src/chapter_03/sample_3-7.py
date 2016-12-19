@@ -17,54 +17,52 @@ bl_info = {
 }
 
 
-# 翻訳用辞書
+# 翻訳辞書
 translation_dict = {
-    "en_US" :
-        {
-            ("*", "Delete Face By Right Click") :
-                "Delete Face By Right Click",
-            ("*", "Sample3-7: Out of range") :
-                "Sample3-7: Out of range",
-            ("*", "Sample3-7: No face is selected") :
-                "Sample3-7: No face is selected",
-            ("*", "Sample3-7: Deleted Face") :
-                "Sample3-7: Deleted Face",
-            ("*", "Sample3-7: Start deleting faces") :
-                "Sample3-7: Start deleting faces",
-            ("*", "Sample3-7: %d face(s) are deleted") :
-                "Sample3-7: %d face(s) are deleted",
-            ("*", "Start") :
-                "Start",
-            ("*", "End") :
-                "End",
-            ("*", "Sample3-7: Enabled add-on 'Sample3-7'") :
-                "Sample3-7: Enabled add-on 'Sample3-7'",
-            ("*", "Sample3-7: Disabled add-on 'Sample3-7'") :
-                "Sample3-7: Disabled add-on 'Sample3-7'"
-        },
-    "ja_JP" :
-        {
-            ("*", "Delete Face By Right Click") :
-                "マウスの右クリックで面を削除",
-            ("*", "Sample3-7: Out of range") :
-                "サンプル3-7: 選択範囲外です。",
-            ("*", "Sample3-7: No face is selected") :
-                "サンプル3-7: 面以外を選択しました。",
-            ("*", "Sample3-7: Deleted Face") :
-                "サンプル3-7: 面を削除しました。",
-            ("*", "Sample3-7: Start deleting faces") :
-                "サンプル3-7: 削除処理を開始しました。",
-            ("*", "Sample3-7: %d face(s) are deleted") :
-                "サンプル3-7: %d個の面を削除しました。",
-            ("*", "Start") :
-                "開始",
-            ("*", "End") :
-                "終了",
-            ("*", "Sample3-7: Enabled add-on 'Sample3-7'") :
-                "サンプル3-7: アドオン「サンプル3-7」が有効化されました。",
-            ("*", "Sample3-7: Disabled add-on 'Sample3-7'") :
-                "サンプル3-7: アドオン「サンプル3-7」が無効化されました。"
-        }
+    "en_US" : {
+        ("*", "Delete Face By Right Click") :
+            "Delete Face By Right Click",
+        ("*", "Sample3-7: Out of range") :
+            "Sample3-7: Out of range",
+        ("*", "Sample3-7: No face is selected") :
+            "Sample3-7: No face is selected",
+        ("*", "Sample3-7: Deleted Face") :
+            "Sample3-7: Deleted Face",
+        ("*", "Sample3-7: Start deleting faces") :
+            "Sample3-7: Start deleting faces",
+        ("*", "Sample3-7: %d face(s) are deleted") :
+            "Sample3-7: %d face(s) are deleted",
+        ("*", "Start") :
+            "Start",
+        ("*", "End") :
+            "End",
+        ("*", "Sample3-7: Enabled add-on 'Sample3-7'") :
+            "Sample3-7: Enabled add-on 'Sample3-7'",
+        ("*", "Sample3-7: Disabled add-on 'Sample3-7'") :
+            "Sample3-7: Disabled add-on 'Sample3-7'"
+    },
+    "ja_JP" : {
+        ("*", "Delete Face By Right Click") :
+            "マウスの右クリックで面を削除",
+        ("*", "Sample3-7: Out of range") :
+            "サンプル3-7: 選択範囲外です。",
+        ("*", "Sample3-7: No face is selected") :
+            "サンプル3-7: 面以外を選択しました。",
+        ("*", "Sample3-7: Deleted Face") :
+            "サンプル3-7: 面を削除しました。",
+        ("*", "Sample3-7: Start deleting faces") :
+            "サンプル3-7: 削除処理を開始しました。",
+        ("*", "Sample3-7: %d face(s) are deleted") :
+            "サンプル3-7: %d個の面を削除しました。",
+        ("*", "Start") :
+            "開始",
+        ("*", "End") :
+            "終了",
+        ("*", "Sample3-7: Enabled add-on 'Sample3-7'") :
+            "サンプル3-7: アドオン「サンプル3-7」が有効化されました。",
+        ("*", "Sample3-7: Disabled add-on 'Sample3-7'") :
+            "サンプル3-7: アドオン「サンプル3-7」が無効化されました。"
+    }
 }
 
 # プロパティ
@@ -194,14 +192,20 @@ def register():
         name = "プロパティ",
         description = "本アドオンで利用するプロパティ一覧",
         type = DFRC_Properties)
-    # 辞書の登録
+//! [register_dict]
+    # 翻訳辞書の登録
     bpy.app.translations.register(__name__, translation_dict)
+//! [register_dict]
+//! [translation_func]
     print(bpy.app.translations.pgettext("Sample3-7: Enabled add-on 'Sample3-7'"))
+//! [translation_func]
 
 
 def unregister():
-    # 辞書の削除
+//! [unregister_dict]
+    # 翻訳辞書の登録解除
     bpy.app.translations.unregister(__name__)
+//! [unregister_dict]
     del bpy.types.Scene.dfrc_props
     bpy.utils.unregister_module(__name__)
     print(bpy.app.translations.pgettext("Sample3-7: Disabled add-on 'Sample3-7'"))
