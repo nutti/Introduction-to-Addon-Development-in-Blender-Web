@@ -1,4 +1,4 @@
-<div id="sect_title_img_3_6"></div>
+<div id="sect_title_img_3_7"></div>
 
 <div id="sect_title_text"></div>
 
@@ -7,10 +7,6 @@
 <div id="preface"></div>
 
 ###### Blenderは英語のUIがデフォルトとなっていることから、海外でも多くのCGデザイナーの方がBlenderを使っています。このため、アドオンも英語ベースのUIで構築した方がユーザ数が多くなるように思います。しかし一方で、日本語や他の言語のUIもサポートして英語が苦手な方が困らないようにしたいと考える人もいるはずです。そこで本節では、アドオンのUIを多言語対応させる方法を説明します。
-
-## BlenderのUIの言語を変更する方法
-
-BlenderのUIの言語を変更する方法については、[1-2節](../chapter_01/02_Use_Blender_Add-on.md) で説明しました。
 
 
 ## 作成するアドオンの仕様
