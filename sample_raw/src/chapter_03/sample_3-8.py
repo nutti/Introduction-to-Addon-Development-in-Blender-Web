@@ -1,6 +1,7 @@
 import bpy
 from bpy.props import BoolProperty, PointerProperty
 from bpy_extras import view3d_utils
+from mathutils import Vector, geometry
 import blf
 
 
@@ -34,6 +35,10 @@ class ShowObjectName(bpy.types.Operator):
     bl_description = "オブジェクトの位置にオブジェクト名を表示し、マウスカーソルから発するレイと交差するオブジェクト名を表示します"
 
     handle = None           # 描画関数ハンドラ
+
+
+    def __init__(self):
+        self.intersected_objs = []
 
 
     def __handle_add(self, context):
@@ -119,12 +124,16 @@ class ShowObjectName(bpy.types.Operator):
         blf.disable(0, blf.SHADOW)
 
         # マウスカーソルから発するレイと交差するオブジェクト名を表示
-        #blf.shadow(0, 3, 0.0, 1.0, 0.0, 0.5)
-        #blf.shadow_offset(0, 2, -2)
-        #blf.enable(0, blf.SHADOW)
-        #ShowObjectName.render_message(20, 20, region.height - 60, "Intersect")
-        #blf.disable(0, blf.SHADOW)
-        #ShowObjectName.render_message(15, 20, region.height - 90,  sc.cwh_prop_object)
+        #geometry.intersect.ray_tri()
+
+        # マウスカーソルから発するレイと交差するオブジェクト名を表示
+        blf.shadow(0, 3, 0.0, 1.0, 0.0, 0.5)
+        blf.shadow_offset(0, 2, -2)
+        blf.enable(0, blf.SHADOW)
+        ShowObjectName.render_message(20, 20, region.height - 60, "Intersect")
+        blf.disable(0, blf.SHADOW)
+        for i, o in enumerate(self.intersected_objs):
+            ShowObjectName.render_message(15, 20, region.height - 90 - i * 20, o.name)
 
 
     def modal(self, context, event):
@@ -132,6 +141,27 @@ class ShowObjectName(bpy.types.Operator):
 
         # 3Dビューの画面を更新
         if context.area:
+            mv = Vector((event.mouse_region_x, event.mouse_region_y))
+            region = ShowObjectName.get_region(context, 'VIEW_3D', 'WINDOW')
+            space = ShowObjectName.get_space(context, 'VIEW_3D', 'VIEW_3D')
+            ray_vec = view3d_utils.region_2d_to_vector_3d(
+                region,
+                space.region_3d,
+                mv
+            )
+            ray_orig = view3d_utils.region_2d_to_origin_3d(
+                region,
+                space.region_3d,
+                mv
+            )
+            start = ray_orig
+            end = ray_orig + ray_vec * 2000
+            objs = [o for o in bpy.data.objects if o.type == 'MESH']
+            self.intersected_objs = []
+            for o in objs:
+                result = o.ray_cast(start - o.location, end - o.location)
+                if result[2] != -1:
+                    self.intersected_objs.append(o)
             context.area.tag_redraw()
 
         # 作業時間計測を停止
