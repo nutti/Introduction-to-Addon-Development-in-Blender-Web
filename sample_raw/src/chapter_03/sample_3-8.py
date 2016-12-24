@@ -1,7 +1,9 @@
 import bpy
 from bpy.props import BoolProperty, IntProperty, PointerProperty
+//! [import_view3d_utils]
 from bpy_extras import view3d_utils
-from mathutils import Vector, geometry
+//! [import_view3d_utils]
+from mathutils import Vector
 import blf
 
 
@@ -11,7 +13,7 @@ bl_info = {
     "version": (2, 0),
     "blender": (2, 75, 0),
     "location": "3Dビュー > プロパティパネル > オブジェクト名の表示補助",
-    "description": "オブジェクトの位置にオブジェクト名を表示し、マウスカーソルから発するレイと交差するオブジェクト名を表示するアドオン",
+    "description": "オブジェクトの位置にオブジェクト名を表示し、マウスカーソルの位置に向けて発したレイと交差するオブジェクト名を表示するアドオン",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
@@ -32,13 +34,13 @@ class SON_Properties(bpy.types.PropertyGroup):
 class ShowObjectName(bpy.types.Operator):
     bl_idname = "view3d.show_object_name"
     bl_label = "オブジェクト名の表示補助"
-    bl_description = "オブジェクトの位置にオブジェクト名を表示し、マウスカーソルから発するレイと交差するオブジェクト名を表示します"
+    bl_description = "オブジェクトの位置にオブジェクト名を表示し、マウスカーソルの位置に向けて発したレイと交差するオブジェクト名を表示します"
 
     handle = None           # 描画関数ハンドラ
 
 
     def __init__(self):
-        self.intersected_objs = []      # マウスカーソルから発するレイと交差するオブジェクト一覧
+        self.intersected_objs = []      # マウスカーソルの位置に向けて発したレイと交差するオブジェクト一覧
 
 
     def __handle_add(self, context):
@@ -123,7 +125,7 @@ class ShowObjectName(bpy.types.Operator):
                 ShowObjectName.render_message(sc.son_font_size, loc.x, loc.y, obj.name)
         blf.disable(0, blf.SHADOW)
 
-        # マウスカーソルから発するレイと交差するオブジェクト名を表示
+        # マウスカーソルの位置に向けて発したレイと交差するオブジェクト名を表示
         blf.shadow(0, 3, 0.0, 1.0, 0.0, 0.5)
         blf.shadow_offset(0, 2, -2)
         blf.enable(0, blf.SHADOW)
@@ -147,24 +149,32 @@ class ShowObjectName(bpy.types.Operator):
         props = context.scene.son_props
 
         if context.mode == 'OBJECT':
+//! [get_mouse_region_coord]
             # マウスカーソルのリージョン座標を取得
             mv = Vector((event.mouse_region_x, event.mouse_region_y))
+//! [get_mouse_region_coord]
+//! [calc_ray_dir_and_orig]
+            # 3Dビューエリアのウィンドウリージョンと、スペースを取得する
             region = ShowObjectName.get_region(context, 'VIEW_3D', 'WINDOW')
             space = ShowObjectName.get_space(context, 'VIEW_3D', 'VIEW_3D')
-            # マウスカーソルから発するレイの方向を取得
-            ray_vec = view3d_utils.region_2d_to_vector_3d(
+            # マウスカーソルの位置に向けて発したレイの方向を求める
+            ray_dir = view3d_utils.region_2d_to_vector_3d(
                 region,
                 space.region_3d,
                 mv)
-            # マウスカーソルが発するレイの発生源を取得
+            # マウスカーソルの位置に向けて発したレイの発生源を求める
             ray_orig = view3d_utils.region_2d_to_origin_3d(
                 region,
                 space.region_3d,
                 mv)
+//! [calc_ray_dir_and_orig]
+//! [calc_ray_start_end]
             # レイの始点
             start = ray_orig
             # レイの終点（レイの長さは2000とした）
-            end = ray_orig + ray_vec * 2000
+            end = ray_orig + ray_dir * 2000
+//! [calc_ray_start_end]
+//! [check_intersection]
             # カメラやライトなど、メッシュ型ではないオブジェクトは除く
             objs = [o for o in bpy.data.objects if o.type == 'MESH']
             self.intersected_objs = []
@@ -175,9 +185,10 @@ class ShowObjectName(bpy.types.Operator):
                     # オブジェクトとレイが交差した場合は交差した面のインデックス、交差しない場合は-1が返ってくる
                     if result[2] != -1:
                         self.intersected_objs.append(o)
-                # メッシュタイプのオブジェクトが作られているが、
+                # メッシュタイプのオブジェクトが作られているが、ray_cast対象の面が存在しない場合
                 except RuntimeError as e:
                     print("サンプル3-8: オブジェクト生成タイミングの問題により、例外エラー「レイキャスト可能なデータなし」が発生")
+//! [check_intersection]
 
         # 3Dビューの画面を更新
         if context.area:
