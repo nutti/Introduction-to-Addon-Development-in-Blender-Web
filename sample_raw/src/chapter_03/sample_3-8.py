@@ -1,5 +1,5 @@
 import bpy
-from bpy.props import BoolProperty, PointerProperty
+from bpy.props import BoolProperty, IntProperty, PointerProperty
 from bpy_extras import view3d_utils
 from mathutils import Vector, geometry
 import blf
@@ -23,9 +23,9 @@ bl_info = {
 # プロパティ
 class SON_Properties(bpy.types.PropertyGroup):
     running = BoolProperty(
-        name = "動作中",
-        description = "オブジェクト名の表示補助機能が動作中か？",
-        default = False)
+        name="動作中",
+        description="オブジェクト名の表示補助機能が動作中か？",
+        default=False)
 
 
 # オブジェクト名を表示
@@ -38,7 +38,7 @@ class ShowObjectName(bpy.types.Operator):
 
 
     def __init__(self):
-        self.intersected_objs = []
+        self.intersected_objs = []      # マウスカーソルから発するレイと交差するオブジェクト一覧
 
 
     def __handle_add(self, context):
@@ -109,59 +109,78 @@ class ShowObjectName(bpy.types.Operator):
 
         # オブジェクトの位置にオブジェクト名を表示
         objs = [o for o in bpy.data.objects]
+        # オブジェクトの位置座標（3D座標）をリージョン座標（2D座標）に変換
         locs_on_screen = [view3d_utils.location_3d_to_region_2d(
-                    region,
-                    space.region_3d,
-                    o.location
-                ) for o in objs]
+                region,
+                space.region_3d,
+                o.location) for o in objs]
         blf.shadow(0, 3, 0.1, 0.1, 0.1, 1.0)
         blf.shadow_offset(0, 1, -1)
         blf.enable(0, blf.SHADOW)
         for obj, loc in zip(objs, locs_on_screen):
             # 表示範囲外なら表示しない
             if loc is not None:
-                ShowObjectName.render_message(13, loc.x, loc.y, obj.name)
+                ShowObjectName.render_message(sc.son_font_size, loc.x, loc.y, obj.name)
         blf.disable(0, blf.SHADOW)
-
-        # マウスカーソルから発するレイと交差するオブジェクト名を表示
-        #geometry.intersect.ray_tri()
 
         # マウスカーソルから発するレイと交差するオブジェクト名を表示
         blf.shadow(0, 3, 0.0, 1.0, 0.0, 0.5)
         blf.shadow_offset(0, 2, -2)
         blf.enable(0, blf.SHADOW)
-        ShowObjectName.render_message(20, 20, region.height - 60, "Intersect")
+        ShowObjectName.render_message(
+            int(sc.son_font_size * 1.2), 20, region.height - 100, "Intersect")
         blf.disable(0, blf.SHADOW)
-        for i, o in enumerate(self.intersected_objs):
-            ShowObjectName.render_message(15, 20, region.height - 90 - i * 20, o.name)
+        # ray_castが可能なオブジェクトモード時のみ表示
+        if context.mode == 'OBJECT':
+            for i, o in enumerate(self.intersected_objs):
+                ShowObjectName.render_message(
+                    sc.son_font_size, 20,
+                    region.height - 105 - int(sc.son_font_size * 1.2) - i * (5 + sc.son_font_size),
+                    o.name)
+        else:
+            ShowObjectName.render_message(
+                sc.son_font_size, 20, region.height - 105 - int(sc.son_font_size * 1.2),
+                "Objectモード以外では利用できません")
 
 
     def modal(self, context, event):
         props = context.scene.son_props
 
-        # 3Dビューの画面を更新
-        if context.area:
+        if context.mode == 'OBJECT':
+            # マウスカーソルのリージョン座標を取得
             mv = Vector((event.mouse_region_x, event.mouse_region_y))
             region = ShowObjectName.get_region(context, 'VIEW_3D', 'WINDOW')
             space = ShowObjectName.get_space(context, 'VIEW_3D', 'VIEW_3D')
+            # マウスカーソルから発するレイの方向を取得
             ray_vec = view3d_utils.region_2d_to_vector_3d(
                 region,
                 space.region_3d,
-                mv
-            )
+                mv)
+            # マウスカーソルが発するレイの発生源を取得
             ray_orig = view3d_utils.region_2d_to_origin_3d(
                 region,
                 space.region_3d,
-                mv
-            )
+                mv)
+            # レイの始点
             start = ray_orig
+            # レイの終点（レイの長さは2000とした）
             end = ray_orig + ray_vec * 2000
+            # カメラやライトなど、メッシュ型ではないオブジェクトは除く
             objs = [o for o in bpy.data.objects if o.type == 'MESH']
             self.intersected_objs = []
             for o in objs:
-                result = o.ray_cast(start - o.location, end - o.location)
-                if result[2] != -1:
-                    self.intersected_objs.append(o)
+                try:
+                    # レイとオブジェクトの交差判定
+                    result = o.ray_cast(start - o.location, end - o.location)
+                    # オブジェクトとレイが交差した場合は交差した面のインデックス、交差しない場合は-1が返ってくる
+                    if result[2] != -1:
+                        self.intersected_objs.append(o)
+                # メッシュタイプのオブジェクトが作られているが、
+                except RuntimeError as e:
+                    print("サンプル3-8: オブジェクト生成タイミングの問題により、例外エラー「レイキャスト可能なデータなし」が発生")
+
+        # 3Dビューの画面を更新
+        if context.area:
             context.area.tag_redraw()
 
         # 作業時間計測を停止
@@ -206,6 +225,7 @@ class OBJECT_PT_SON(bpy.types.Panel):
             layout.operator(ShowObjectName.bl_idname, text="開始", icon="PLAY")
         else:
             layout.operator(ShowObjectName.bl_idname, text="終了", icon="PAUSE")
+            layout.prop(sc, "son_font_size")
 
 
 # プロパティの作成
@@ -215,11 +235,18 @@ def init_props():
         name="プロパティ",
         description="本アドオンで利用するプロパティ一覧",
         type=SON_Properties)
+    sc.son_font_size = IntProperty(
+        name="フォントサイズ",
+        description="表示文字列のフォントサイズを変更します",
+        max=100,
+        min=1,
+        default=25)
 
 
 # プロパティの削除
 def clear_props():
     sc = bpy.types.Scene
+    del sc.font_size
     del sc.son_props
 
 
