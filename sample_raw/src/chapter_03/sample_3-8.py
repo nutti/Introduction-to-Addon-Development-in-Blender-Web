@@ -103,6 +103,7 @@ class ShowObjectName(bpy.types.Operator):
         sc = context.scene
         props = sc.son_props
 
+//! [render_object_name]
         region = ShowObjectName.get_region(context, 'VIEW_3D', 'WINDOW')
         space = ShowObjectName.get_space(context, 'VIEW_3D', 'VIEW_3D')
 
@@ -124,6 +125,7 @@ class ShowObjectName(bpy.types.Operator):
             if loc is not None:
                 ShowObjectName.render_message(sc.son_font_size, loc.x, loc.y, obj.name)
         blf.disable(0, blf.SHADOW)
+//! [render_object_name]
 
         # マウスカーソルの位置に向けて発したレイと交差するオブジェクト名を表示
         blf.shadow(0, 3, 0.0, 1.0, 0.0, 0.5)
