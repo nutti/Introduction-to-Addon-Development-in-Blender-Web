@@ -16,7 +16,7 @@ bl_info = {
     "support": "TESTING",
     "wiki_url": "",
     "tracker_url": "",
-    "category": "UI"
+    "category": "System"
 }
 
 

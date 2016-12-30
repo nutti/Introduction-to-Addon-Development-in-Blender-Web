@@ -1,8 +1,6 @@
 import bpy
 from bpy.props import BoolProperty, IntProperty, PointerProperty
-//! [import_view3d_utils]
 from bpy_extras import view3d_utils
-//! [import_view3d_utils]
 from mathutils import Vector
 import blf
 
@@ -103,7 +101,6 @@ class ShowObjectName(bpy.types.Operator):
         sc = context.scene
         props = sc.son_props
 
-//! [render_object_name]
         region = ShowObjectName.get_region(context, 'VIEW_3D', 'WINDOW')
         space = ShowObjectName.get_space(context, 'VIEW_3D', 'VIEW_3D')
 
@@ -125,7 +122,6 @@ class ShowObjectName(bpy.types.Operator):
             if loc is not None:
                 ShowObjectName.render_message(sc.son_font_size, loc.x, loc.y, obj.name)
         blf.disable(0, blf.SHADOW)
-//! [render_object_name]
 
         # マウスカーソルの位置に向けて発したレイと交差するオブジェクト名を表示
         blf.shadow(0, 3, 0.0, 1.0, 0.0, 0.5)
@@ -151,11 +147,8 @@ class ShowObjectName(bpy.types.Operator):
         props = context.scene.son_props
 
         if context.mode == 'OBJECT':
-//! [get_mouse_region_coord]
             # マウスカーソルのリージョン座標を取得
             mv = Vector((event.mouse_region_x, event.mouse_region_y))
-//! [get_mouse_region_coord]
-//! [calc_ray_dir_and_orig]
             # 3Dビューエリアのウィンドウリージョンと、スペースを取得する
             region = ShowObjectName.get_region(context, 'VIEW_3D', 'WINDOW')
             space = ShowObjectName.get_space(context, 'VIEW_3D', 'VIEW_3D')
@@ -169,14 +162,10 @@ class ShowObjectName(bpy.types.Operator):
                 region,
                 space.region_3d,
                 mv)
-//! [calc_ray_dir_and_orig]
-//! [calc_ray_start_end]
             # レイの始点
             start = ray_orig
             # レイの終点（レイの長さは2000とした）
             end = ray_orig + ray_dir * 2000
-//! [calc_ray_start_end]
-//! [check_intersection]
             # カメラやライトなど、メッシュ型ではないオブジェクトは除く
             objs = [o for o in bpy.data.objects if o.type == 'MESH']
             self.intersected_objs = []
@@ -191,7 +180,6 @@ class ShowObjectName(bpy.types.Operator):
                 # メッシュタイプのオブジェクトが作られているが、ray_cast対象の面が存在しない場合
                 except RuntimeError as e:
                     print("サンプル3-8: オブジェクト生成タイミングの問題により、例外エラー「レイキャスト可能なデータなし」が発生")
-//! [check_intersection]
 
         # 3Dビューの画面を更新
         if context.area:

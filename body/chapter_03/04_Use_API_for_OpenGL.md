@@ -12,7 +12,7 @@
 
 2D/3D向けのグラフィックAPIはOpenGL (Open Graphic Library)とDirectXの2つが主流です。3DCGに何かしら関わっている方はご存知かもしれませんが、OpenGLとDirectXの違いがわからない方向けにOpenGLとDirectXの違いをまとめました。
 
-|　|OpenGL|DirectX|
+|　|DirectX|OpenGL|
 |---|---|---|
 |開発元|Microsoft|シリコングラフィクス|
 |主な用途|ゲームの描画|3DCGソフト、CADソフト|

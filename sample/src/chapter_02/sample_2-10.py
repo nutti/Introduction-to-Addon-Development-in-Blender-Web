@@ -101,7 +101,7 @@ class ShowFileBrowser(bpy.types.Operator):
     directory = StringProperty(subtype="FILE_PATH")
 
     def execute(self, context):
-        self.report({'INFO'}, "サンプル2-10: [FilePath] %s, [FileName] %s, [Directory] %s
+        self.report({'INFO'}, "サンプル2-10: [FilePath] %s, [FileName] %s, [Directory] %s"
             % (self.filepath, self.filename, self.directory))
         return {'FINISHED'}
 
