@@ -173,7 +173,7 @@ class ShowObjectName(bpy.types.Operator):
 //! [calc_ray_start_end]
             # レイの始点
             start = ray_orig
-            # レイの終点（レイの長さは2000とした）
+            # レイの終点（線分の長さは2000とした）
             end = ray_orig + ray_dir * 2000
 //! [calc_ray_start_end]
 //! [check_intersection]
@@ -184,7 +184,7 @@ class ShowObjectName(bpy.types.Operator):
                 try:
                     # レイとオブジェクトの交差判定
                     mwi = o.matrix_world.inverted()
-                    result = o.ray_cast(mwi * start, mwi * o.matrix_world.inverted())
+                    result = o.ray_cast(mwi * start, mwi * end)
                     # オブジェクトとレイが交差した場合は交差した面のインデックス、交差しない場合は-1が返ってくる
                     if result[2] != -1:
                         self.intersected_objs.append(o)
