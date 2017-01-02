@@ -91,14 +91,14 @@
 
 テキストを描画するためのAPIをアドオンから利用するためには、```blf``` モジュールをインポートする必要があります。
 
-[import:"import_blf", unindent:"true"](../../sample/src/chapter_03/sample_3-5.py)
+[import:"import_blf", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-5.py)
 
 
 ### 描画関数を登録する
 
 テキストを描画するためには、[3-4節](04_Use_API_for_OpenGL.md) で ```bgl``` モジュールを使って図形を描画した時と同様、描画関数を登録する必要があります。描画関数の登録は、```__handle_add()``` メソッド内の ```bpy.types.SpaceView3D.draw_handler_add()``` 関数で行ないます。具体的な引数の型などは、[3-4節](04_Use_API_for_OpenGL.md) と同じのため説明は省略します。
 
-[import:"add_render_func", unindent:"true"](../../sample/src/chapter_03/sample_3-5.py)
+[import:"add_render_func", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-5.py)
 
 本節のサンプルにおける描画関数は、```render_working_hours()``` スタティックメソッドです。
 
@@ -114,7 +114,7 @@
 
 ウィンドウの左上の座標を取得するためには、エリアを構成するリージョンを取得する必要があります。本節のサンプルでは以下のコードにより、リージョンを指定したリージョンを取得しています。
 
-[import:"get_region", unindent:"true"](../../sample/src/chapter_03/sample_3-5.py)
+[import:"get_region", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-5.py)
 
 現在開いているエリアの一覧は ```context.screen.areas``` で示されているため、```get_region()``` スタティックメソッドの引数に指定したエリアのタイプ ```area_type``` と ```area.type``` が一致を確認することで目的のエリアを取得することができます。本節のサンプルでは、```get_region()``` スタティックメソッドの引数 ```area_type``` に ```'VIEW_3D'``` が指定されているため、*3Dビュー* エリアを取得することができます。
 
@@ -132,7 +132,7 @@
 
 文字列の描画処理は、```render_message()``` スタティックメソッドで行います。
 
-[import:"render_message", unindent:"true"](../../sample/src/chapter_03/sample_3-5.py)
+[import:"render_message", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-5.py)
 
 ```render_message()``` の引数を以下に示します。
 
@@ -176,7 +176,7 @@
 
 描画関数である ```render_working_hours()``` スタティックメソッドでは、計算した描画座標を使い、```render_message()``` スタティックメソッドを呼びます。
 
-[import:"call_render_region", unindent:"true"](../../sample/src/chapter_03/sample_3-5.py)
+[import:"call_render_region", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-5.py)
 
 
 描画する文字列を組み立てるために ```make_time_fmt()``` スタティックメソッドを呼びだしていますが、[3-3節](03_Handle_Timer_Event.md) の ```__make_time_fmt()``` メソッドの処理と同じです。文字列 "Working Hour" は、```blf``` モジュールのフォント装飾機能を使って強調しています。
@@ -242,7 +242,7 @@ blf.shadow_offset() 関数の第2引数は画面右方向がX軸正方向、第3
 
 [3-4節](04_Use_API_for_OpenGL.md) と同様に登録した描画関数は、描画処理を停止するときに登録を解除する必要があります。
 
-[import:"remove_render_func", unindent:"true"](../../sample/src/chapter_03/sample_3-5.py)
+[import:"remove_render_func", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-5.py)
 
 
 

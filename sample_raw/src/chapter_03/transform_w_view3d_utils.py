@@ -27,7 +27,7 @@ def get_region_and_space(area_type, region_type, space_type):
     return (area, region, space)
 
 
-if __name__ == "__main__":
+def main():
     # 3Dビューエリアのウィンドウリージョンのリージョンとスペースを取得
     (area, region, space) = get_region_and_space('VIEW_3D', 'WINDOW', 'VIEW_3D')
     if space is not None:
@@ -45,3 +45,7 @@ if __name__ == "__main__":
             print("==========")
             print("local: " + repr(l))
             print("region: " + repr(r))
+
+
+if __name__ == "__main__":
+    main()
