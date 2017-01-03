@@ -53,6 +53,7 @@ class SpecialObjectEditMode(bpy.types.Operator):
 
     def modal(self, context, event):
         props = context.scene.soem_props
+        prefs = context.user_preferences.addons[__name__].preferences
 
         # 3Dビューの画面を更新
         if context.area:
@@ -61,22 +62,22 @@ class SpecialObjectEditMode(bpy.types.Operator):
         # キーボードのQキーが押された場合は、特殊オブジェクト編集モードを終了
         if event.type == 'Q' and event.value == 'PRESS':
             props.is_special_mode = False
-            print("サンプル3-2: 通常モードへ移行しました。")
+            print("サンプル3-9: 通常モードへ移行しました。")
             return {'FINISHED'}
 
         # 処理するキーイベントのリスト
         ev_key_list = (
             # 編集タイプ（並進移動、拡大・縮小、回転）
-            ('T', "edit_type", EditType['TRANSLATE'], EditType['NONE']),
-            ('S', "edit_type", EditType['SCALE'], EditType['NONE']),
-            ('R', "edit_type", EditType['ROTATE'], EditType['NONE']),
+            (prefs.translate, "edit_type", EditType['TRANSLATE'], EditType['NONE']),
+            (prefs.scale, "edit_type", EditType['SCALE'], EditType['NONE']),
+            (prefs.rotate, "edit_type", EditType['ROTATE'], EditType['NONE']),
             # 軸（X軸、Y軸、Z軸）
-            ('X', "edit_axis", EditAxis['X'], EditAxis['NONE']),
-            ('Y', "edit_axis", EditAxis['Y'], EditAxis['NONE']),
-            ('Z', "edit_axis", EditAxis['Z'], EditAxis['NONE']),
+            (prefs.x_axis, "edit_axis", EditAxis['X'], EditAxis['NONE']),
+            (prefs.y_axis, "edit_axis", EditAxis['Y'], EditAxis['NONE']),
+            (prefs.z_axis, "edit_axis", EditAxis['Z'], EditAxis['NONE']),
             # 方向（正方向、負方向）
-            ('RIGHT_ARROW', "edit_opt", EditOption['+'], EditOption['NONE']),
-            ('LEFT_ARROW', "edit_opt", EditOption['-'], EditOption['NONE'])
+            (prefs.increment, "edit_opt", EditOption['+'], EditOption['NONE']),
+            (prefs.decrement, "edit_opt", EditOption['-'], EditOption['NONE'])
         )
         # キーボードのキーイベントが発生しているかを確認し、現在の状態を更新
         for ev_key in ev_key_list:
@@ -143,12 +144,12 @@ class SpecialObjectEditMode(bpy.types.Operator):
                 props.is_special_mode = True
                 # modal処理クラスを追加
                 context.window_manager.modal_handler_add(self)
-                print("サンプル3-2: 特殊オブジェクト編集モードへ移行しました。")
+                print("サンプル3-9: 特殊オブジェクト編集モードへ移行しました。")
                 return {'RUNNING_MODAL'}
             # 終了ボタンが押された時の処理
             else:
                 props.is_special_mode = False
-                print("サンプル3-2: 通常モードへ移行しました。")
+                print("サンプル3-9: 通常モードへ移行しました。")
                 return {'FINISHED'}
         else:
             return {'CANCELLED'}
@@ -184,12 +185,12 @@ def key_pref_list(self, context):
     ]
     # 表示文字列（説明文を兼ねる）
     key_name = [
-            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D",
-            "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
-            "S", "T", "U", "V", "W", "X", "Y", "Z", "Left Ctrl", "Left Alt",
-            "Left Shift", "Right Alt", "Right Ctrl", "Right Shift", "Tab", "Space",
-            "Back Space", "Delete", ";", ".", ",", "`", "-", "/", "¥", "=", "←",
-            "↓", "→", "↑"
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "[C]", "[D]",
+            "E", "F", "G", "H", "I", "J", "K", "L", "M", "[N]", "O", "P", "Q", "R",
+            "S", "T", "U", "V", "W", "X", "Y", "Z", "[Left Ctrl]", "[Left Alt]",
+            "[Left Shift]", "[Right Alt]", "[Right Ctrl]", "[Right Shift]",
+            "[Tab]", "[Space]", "[Back Space]", "[Delete]", "[;]", "[.]", "[,]",
+            "[`]", "[-]", "[/]", "[¥]", "[=]", "←", "↓", "→", "↑"
     ]
 
     return [(id, name, name, i) for i, (name, id) in enumerate(zip(key_name, key_id))]
