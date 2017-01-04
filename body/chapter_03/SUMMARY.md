@@ -22,7 +22,7 @@
 3. [タイマのイベントを扱う](03_Handle_Timer_Event.md)
 4. [OpenGL向けのAPIを利用する](04_Use_API_for_OpenGL.md)
 5. [blfモジュールを使って文字列を描画する](05_Render_String_with_blf_Module.md)
-6. [アドオンから音を鳴らす](06_Play_Sound_from_Add-on.md)
+6. [オーディオファイルを再生する](06_Play_Audio_File.md)
 7. [アドオンを多言語に対応する](07_Multilingual_Support.md)
 8. [座標変換を活用する](08_Use_Coordinate_Transformation.md)
 9. [アドオンの設定を活用する](09_Use_Add-on_Preference.md)

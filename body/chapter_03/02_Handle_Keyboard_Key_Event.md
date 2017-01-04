@@ -55,7 +55,7 @@
 
 <div id="sidebyside"></div>
 
-|また、プロパティパネルの *特殊オブジェクト編集モード* にボタンが配置されます。||
+|また、プロパティパネルの *特殊オブジェクト編集モード* にボタンが配置されます。|![3-2節 アドオン有効化](https://dl.dropboxusercontent.com/s/sgjvumciomz3uh4/enable_add-on.png "3-2節 アドオン有効化")|
 |---|---|
 
 
@@ -67,7 +67,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|*3Dビュー* エリアのプロパティパネル上の *特殊オブジェクト編集モード* に配置されている *開始* ボタンをクリックすると、特殊オブジェクト編集モードに移行します。この時、コンソールウィンドウに以下のメッセージが出力されます。||
+|<div id="box">1</div>|*3Dビュー* エリアのプロパティパネル上の *特殊オブジェクト編集モード* に配置されている *開始* ボタンをクリックすると、特殊オブジェクト編集モードに移行します。この時、コンソールウィンドウに以下のメッセージが出力されます。|![3-2節 アドオンの使用 手順1](https://dl.dropboxusercontent.com/s/io4co0ap9qnphb5/use_add-on_1.png "3-2節 アドオンの使用 手順1")|
 |---|---|---|
 
 ```sh
@@ -82,7 +82,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|本節サンプルの仕様で書いたように、キーボードのキーの組み合わせによりオブジェクトを並進移動、拡大・縮小、回転することができます。||
+|<div id="box">2</div>|本節サンプルの仕様で書いたように、キーボードのキーの組み合わせによりオブジェクトを並進移動、拡大・縮小、回転することができます。|![3-2節 アドオンの使用 手順2](https://dl.dropboxusercontent.com/s/7ygmch24qzmfcb0/use_add-on_2.png "3-2節 アドオンの使用 手順2")|
 |---|---|---|
 
 
@@ -92,10 +92,10 @@
 なお、*X* キーを一度離した後に再度 *X* キーを押し直せば、本来期待する動作である *→* キーや *←* キーによるオブジェクトの拡大・縮小を行えるようになります。
 
 
-<div id="process"></div>
+<div id="process_noimg"></div>
 
-|<div id="box">3</div>|キーボードの *Q* キーを押し、特殊オブジェクト編集モードを終了します。特殊オブジェクト編集モードを終了すると、コンソールウィンドウに以下のメッセージが表示されます。||
-|---|---|---|
+|<div id="box">3</div>|キーボードの *Q* キーを押し、特殊オブジェクト編集モードを終了します。特殊オブジェクト編集モードを終了すると、コンソールウィンドウに以下のメッセージが表示されます。|
+|---|---|
 
 ```sh
 サンプル3-2: 通常モードへ移行しました。
@@ -128,7 +128,7 @@
 
 本節のサンプルでは、モーダルモードを終了するためにキーボードの *Q* キーを押す必要があります。この処理を実現するために、キーボードのキーイベントが発生した時に ```modal()``` メソッドの引数 ```event``` のイベント情報を利用します。*Q* キーが押された時にモーダルモードを終了するためのコードを以下に示します。
 
-[import:"exit_modal_mode", unindent:"true"](../../sample/src/chapter_03/sample_3-2.py)
+[import:"exit_modal_mode", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-2.py)
 
 キーイベント発生時の変数 ```event``` には、以下のメンバ変数が格納されています。
 
@@ -143,7 +143,7 @@
 
 特殊オブジェクト編集モードでは、利用するキーの状態を確認しオブジェクトの変形処理を実行する必要があります。次に示すコードにより、利用するキーの状態を確認します。
 
-[import:"check_key_state", unindent:"true"](../../sample/src/chapter_03/sample_3-2.py)
+[import:"check_key_state", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-2.py)
 
 コード量を少なくするために少し込み入ったことを行っていますので、順を追って説明します。
 最初に、```ev_key_list``` 変数を宣言しています。```ev_key_list``` 変数の要素については、ソースコードのコメントを参照してください。
@@ -158,25 +158,25 @@
 
 インスタンス変数の定義は、クラスがインスタンス化される時に実行される ```__init__()``` メソッドで行います。
 
-[import:"define_instance_variable", unindent:"true"](../../sample/src/chapter_03/sample_3-2.py)
+[import:"define_instance_variable", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-2.py)
 
 各インスタンス変数には、```Enum``` クラスにより定義された、状態遷移を示す列挙値が入ります。
 クラスがインスタンス化された直後は、どの状態にも含まれていないため ```NONE``` を指定しています。インスタンス変数は、```ev_key_list``` の各要素について、次に示す ```__change_state()``` 関数を呼び出す事更新します。
 
-[import:"change_state", unindent:"true"](../../sample/src/chapter_03/sample_3-2.py)
+[import:"change_state", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-2.py)
 
 ```__change_state()``` 関数は、第1引数に指定された ```event.value``` が ```PRESS``` である場合は第2引数に指定した値、```PRESS``` 以外である場合は第3引数に指定した値を戻り値として返却します。
 このため、```__change_state()``` 関数を実行することで、```ev_key_list``` の要素の第1要素に指定されたキーについて ```PRESS``` イベントが発生した時は、第3要素で指定された列挙値が設定されます。一方で ```PRESS``` イベント以外のイベントが発生した時は、第4要素で指定された列挙値が設定されます。
 
 状態を更新した結果、状態を示す列挙値が ```NONE``` であるインスタンス変数が1つでも存在した場合は、```{'RUNNING_MODAL'}``` を返すことによってオブジェクト変換処理は行いません。
 
-[import:"check_state", unindent:"true"](../../sample/src/chapter_03/sample_3-2.py)
+[import:"check_state", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-2.py)
 
 #### オブジェクトに変形処理を適用
 
 オブジェクトを変形する状態であるならば、インスタンス変数の値を確認してオブジェクトの変形処理を行います。ソースコードにコメントを追加しているので、具体的な処理内容についてはソースコードを参照してください。
 
-[import:"apply_transformation", unindent:"true"](../../sample/src/chapter_03/sample_3-2.py)
+[import:"apply_transformation", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-2.py)
 
 なお、オブジェクト変形処理のためにBlenderのAPIを使用しています。こちらもソースコードのコメントにAPIの簡単な説明と引数の説明を書きましたので、参考にしてください。
 

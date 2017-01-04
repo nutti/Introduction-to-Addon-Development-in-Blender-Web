@@ -52,7 +52,7 @@ class DeleteFaceByRClick(bpy.types.Operator):
 
         # 起動していない場合は終了
         if props.running is False:
-            return {'PASS_THROUGH'}
+            return {'FINISHED'}
 
         # クリック状態を更新
         if event.type == 'RIGHTMOUSE':

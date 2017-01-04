@@ -1,4 +1,4 @@
-<div id="sect_title_img_3_3"></div>
+<div id="sect_title_img_3_4"></div>
 
 <div id="sect_title_text"></div>
 
@@ -12,7 +12,7 @@
 
 2D/3D向けのグラフィックAPIはOpenGL (Open Graphic Library)とDirectXの2つが主流です。3DCGに何かしら関わっている方はご存知かもしれませんが、OpenGLとDirectXの違いがわからない方向けにOpenGLとDirectXの違いをまとめました。
 
-|　|OpenGL|DirectX|
+|　|DirectX|OpenGL|
 |---|---|---|
 |開発元|Microsoft|シリコングラフィクス|
 |主な用途|ゲームの描画|3DCGソフト、CADソフト|
@@ -32,7 +32,7 @@ BlenderはPythonからOpenGLへアクセスするためのAPIも用意してい�
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3-3.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3-4.py``` として保存してください。
 
 [import](../../sample/src/chapter_03/sample_3-4.py)
 
@@ -43,7 +43,7 @@ BlenderはPythonからOpenGLへアクセスするためのAPIも用意してい�
 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参考に作成したアドオンを有効化すると、コンソールウィンドウに以下の文字列が出力されます。
 
 ```sh
-サンプル8: アドオン「サンプル8」が有効化されました。
+サンプル3-4: アドオン「サンプル3-4」が有効化されました。
 ```
 
 <div id="sidebyside"></div>
@@ -179,9 +179,9 @@ del sc.rf_vert_4
 
 ### 図形を描画する関数を登録する
 
-3Dビューエリア上で図形を描画する関数を登録するための静的メソッド ```RenderFigure.handle_add()``` を作成します。
+3Dビューエリア上で図形を描画する関数を登録するためのスタティックメソッド ```RenderFigure.handle_add()``` を作成します。
 
-```RenderFigure.handle_add()``` は静的メソッドとして作成する必要があるため、デコレータ ```@staticmethod``` をメソッド定義の前につけます。
+```RenderFigure.handle_add()``` はスタティックメソッドとして作成する必要があるため、デコレータ ```@staticmethod``` をメソッド定義の前につけます。
 
 ```python
 # 画像描画関数を登録
@@ -199,7 +199,7 @@ def handle_add(self, context):
 
 |引数|意味|
 |---|---|
-|第1引数|描画関数（描画関数は静的メソッド、または通常の関数）|
+|第1引数|描画関数（描画関数はスタティックメソッド、または通常の関数）|
 |第2引数|描画関数に渡す引数リスト|
 |第3引数|描画する *リージョン*|
 |第4引数|描画モード（深度バッファの扱いを指定、基本は ```POST_PIXEL```）|
@@ -210,7 +210,7 @@ def handle_add(self, context):
 
 ### 図形を描画する関数を作成する
 
-図形を描画する静的メソッド ```RenderFigure.render``` を作成します。
+図形を描画するスタティックメソッド ```RenderFigure.render``` を作成します。
 
 ```python
 @staticmethod
@@ -238,7 +238,7 @@ def render(self, context):
         bgl.glEnd()
 ```
 
-静的メソッド ```render()``` 内の処理について説明します。
+スタティックメソッド ```render()``` 内の処理について説明します。
 
 ```render()``` 関数内での図形の描画処理は、基本的にOpenGLを用いた描画手順に従っています。
 
@@ -331,7 +331,7 @@ class RenderingButton(bpy.types.Operator):
         return {'FINISHED'}
 ```
 
-描画中にボタンが押された（ ```sc.rf_running``` が ```True``` ）時には、静的メソッド ```RenderFigure.handle_remove()``` 関数を実行して描画関数を登録解除し、描画を中断します。描画中でない場合にボタンが押された（ ```sc.rf_running``` が ```False``` ）時には、静的メソッド ```RenderFigure.handle_add()``` 関数を実行して描画関数を登録し、描画を開始します。
+描画中にボタンが押された（ ```sc.rf_running``` が ```True``` ）時には、スタティックメソッド ```RenderFigure.handle_remove()``` 関数を実行して描画関数を登録解除し、描画を中断します。描画中でない場合にボタンが押された（ ```sc.rf_running``` が ```False``` ）時には、スタティックメソッド ```RenderFigure.handle_add()``` 関数を実行して描画関数を登録し、描画を開始します。
 
 ## まとめ
 
@@ -348,8 +348,8 @@ OpenGLを利用するためのAPIが用意されているとはいっても、Op
 <div id="point_item"></div>
 
 * OpenGLへアクセスするためのAPIを利用するためには、 ```bgl``` モジュールをインポートする必要がある
-* ```bgl``` モジュールを用いて、アドオン内でOpenGLを用いて描画するためには、 ```bpy.types.SpaceXXX.draw_handler_add()``` （XXX：描画するエリア）関数を用いて、描画用の静的メソッドまたは関数を登録する必要がある
-* 登録した描画用の静的メソッドまたは関数は、アドオン無効化時に ```bpy.types.SpaceXXX.draw_handler_remove()``` 関数を用いて、登録を解除する必要がある
+* ```bgl``` モジュールを用いて、アドオン内でOpenGLを用いて描画するためには、 ```bpy.types.SpaceXXX.draw_handler_add()``` （XXX：描画するエリア）関数を用いて、描画用のスタティックメソッドまたは関数を登録する必要がある
+* 登録した描画用のスタティックメソッドまたは関数は、アドオン無効化時に ```bpy.types.SpaceXXX.draw_handler_remove()``` 関数を用いて、登録を解除する必要がある
 * ```bgl``` モジュールは、オリジナルのOpenGLの使い方と似たような方法でOpenGLへアクセスするための手段を提供する
 * ```context.scene``` に登録したプロパティは、 パネルクラスの ```draw()``` メソッドで ```self.layout.prop()``` 関数を用いることによりUIパーツとして登録できる
 * ```bgl``` モジュールは、OpenGLの関数をすべてサポートしているわけではない。事前に使いたいAPIが用意されているかの確認が必要である

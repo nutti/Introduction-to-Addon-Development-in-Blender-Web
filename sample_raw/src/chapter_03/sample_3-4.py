@@ -13,7 +13,7 @@ bl_info = {
     "support": "TESTING",
     "wiki_url": "",
     "tracker_url": "",
-    "category": "View3D"
+    "category": "3D View"
 }
 
 
