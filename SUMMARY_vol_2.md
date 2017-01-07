@@ -1,6 +1,6 @@
 3. [3. より高度なアドオンを作るために](body/chapter_03/SUMMARY.mdx)
   1. [3-1. マウスクリックのイベントを扱う](body/chapter_03/01_Handle_Mouse_Click_Event.md)
-  2. [3-2. キーボードのキーイベントを扱う](body/chapter_03/02_Handle_Keyboard_Key_Event.mdx)
+  2. [3-2. キーボードのキーイベントを扱う](body/chapter_03/02_Handle_Keyboard_Key_Event.md)
   3. [3-3. タイマのイベントを扱う](body/chapter_03/03_Handle_Timer_Event.md)
   4. [3-4. OpenGL向けのAPIを利用する](body/chapter_03/04_Use_API_for_OpenGL.mdx)
   5. [3-5. blfモジュールを使って文字列を描画する](body/chapter_03/05_Render_String_with_blf_Module.mdx)
