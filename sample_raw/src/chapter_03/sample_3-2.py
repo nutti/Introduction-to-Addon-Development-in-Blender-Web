@@ -38,15 +38,15 @@ class TranslateObjectMode(bpy.types.Operator):
         if context.area:
             context.area.tag_redraw()
 
-//! [check_key_state]
+//! [exit_modal_mode]
         # キーボードのQキーが押された場合は、オブジェクト並進移動モードを終了
         if event.type == 'Q' and event.value == 'PRESS':
             props.running = False
             print("サンプル3-2: 通常モードへ移行しました。")
             return {'FINISHED'}
-//! [check_key_state]
+//! [exit_modal_mode]
 
-//! [translate_object]
+//! [check_key_state]
         if event.value == 'PRESS':
             value = Vector((0.0, 0.0, 0.0))
             if event.type == 'X':
@@ -55,6 +55,7 @@ class TranslateObjectMode(bpy.types.Operator):
                 value.y = 1.0 if not event.shift else -1.0
             if event.type == 'Z':
                 value.z = 1.0 if not event.shift else -1.0
+//! [check_key_state]
 //! [translate_object]
             # 選択中のオブジェクトを並進移動する
             bpy.ops.transform.translate(value=value)
