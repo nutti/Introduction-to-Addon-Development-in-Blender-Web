@@ -136,7 +136,7 @@
 |---|---|
 |```event.alt```|*Alt*|
 |```event.ctrl```|*Ctrl*|
-|```event.oskey```|*Command*| //[TODO] macで確認
+|```event.oskey```|(Macの) *Command*|
 |```event.shift```|*Shift*|
 
 
