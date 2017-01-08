@@ -27,7 +27,7 @@ class TOM_Properties(bpy.types.PropertyGroup):
 
 # オブジェクト並進移動モード時の処理
 class TranslateObjectMode(bpy.types.Operator):
-    bl_idname = "mesh.translate_object_mode"
+    bl_idname = "object.translate_object_mode"
     bl_label = "オブジェクト並進移動モード"
     bl_description = "オブジェクト並進移動モードへ移行します"
 
