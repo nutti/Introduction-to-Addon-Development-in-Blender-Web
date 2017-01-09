@@ -45,7 +45,7 @@ class MoveObjectInterval(bpy.types.Operator):
         if self.timer is None:
             # タイマを登録
             MoveObjectInterval.timer = context.window_manager.event_timer_add(
-                0.10, context.window)
+                0.1, context.window)
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
 //! [add_timer]
@@ -64,9 +64,11 @@ class MoveObjectInterval(bpy.types.Operator):
     # データベースを更新
     def __update_object_location(self, context):
         self.count = self.count + 1
-        angle = self.count * math.pi / 180
+        radius = 5.0                 # 回転半径
+        angular_velocity = 3.0  # 角速度
+        angle = angular_velocity * self.count * math.pi / 180
         for obj, loc in self.orig_obj_loc.items():
-            obj.location = loc + Vector((3 * math.sin(angle), 3 * math.cos(angle), 0.0))
+            obj.location = loc + Vector((radius * math.sin(angle), radius * math.cos(angle), 0.0))
 //! [update_db]
 
 
@@ -101,7 +103,7 @@ class MoveObjectInterval(bpy.types.Operator):
         if context.area.type == 'VIEW_3D':
             # 開始ボタンが押された時の処理
             if props.running is False:
-                self.orig_obj_loc = {obj: obj.location for obj in bpy.data.objects if obj.type == 'MESH' and obj.select}
+                self.orig_obj_loc = {obj: obj.location.copy() for obj in bpy.data.objects if obj.type == 'MESH' and obj.select}
                 props.running = True
                 self.__handle_add(context)
                 print("サンプル3-3: 一定間隔でオブジェクトが移動するようになります。")
