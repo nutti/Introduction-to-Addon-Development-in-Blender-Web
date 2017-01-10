@@ -27,7 +27,7 @@ class MOI_Properties(bpy.types.PropertyGroup):
         default=False)
 
 
-# 作業時間計測時の処理
+# オブジェクト移動の処理
 class MoveObjectInterval(bpy.types.Operator):
     bl_idname = "object.move_object_interval"
     bl_label = "一定間隔でオブジェクトを移動"
@@ -44,7 +44,7 @@ class MoveObjectInterval(bpy.types.Operator):
     def __handle_add(self, context):
         if self.timer is None:
             # タイマを登録
-            MoveObjectInterval.timer = context.window_manager.event_timer_add(
+            self.timer = context.window_manager.event_timer_add(
                 0.1, context.window)
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
@@ -60,8 +60,8 @@ class MoveObjectInterval(bpy.types.Operator):
 //! [remove_timer]
 
 
-//! [update_db]
-    # データベースを更新
+//! [update_object_location]
+    # オブジェクトの位置を更新
     def __update_object_location(self, context):
         self.count = self.count + 1
         radius = 5.0                 # 回転半径
@@ -69,7 +69,7 @@ class MoveObjectInterval(bpy.types.Operator):
         angle = angular_velocity * self.count * math.pi / 180
         for obj, loc in self.orig_obj_loc.items():
             obj.location = loc + Vector((radius * math.sin(angle), radius * math.cos(angle), 0.0))
-//! [update_db]
+//! [update_object_location]
 
 
     def modal(self, context, event):
@@ -92,7 +92,7 @@ class MoveObjectInterval(bpy.types.Operator):
                 obj.location = loc
             return {'FINISHED'}
 
-        # オブジェクトの移動
+        # オブジェクトの位置を更新
         self.__update_object_location(context)
 
         return {'PASS_THROUGH'}
@@ -122,6 +122,16 @@ class OBJECT_PT_MOI(bpy.types.Panel):
     bl_label = "一定間隔でオブジェクトを移動"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
+
+
+//! [poll]
+    @classmethod
+    def poll(cls, context):
+        objs = [obj for obj in bpy.data.objects if obj.type == 'MESH' and obj.select and obj.mode == 'OBJECT']
+        if len(objs) == 0:
+            return False
+        return True
+//! [poll]
 
 
     def draw(self, context):

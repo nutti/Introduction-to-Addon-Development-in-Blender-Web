@@ -45,7 +45,7 @@ class CalculateWorkingHours(bpy.types.Operator):
     def __handle_add(self, context):
         if self.timer is None:
             # タイマを登録
-            CalculateWorkingHours.timer = context.window_manager.event_timer_add(
+            self.timer = context.window_manager.event_timer_add(
                 0.10, context.window)
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
