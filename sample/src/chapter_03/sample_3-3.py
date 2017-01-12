@@ -77,9 +77,10 @@ class MoveObjectInterval(bpy.types.Operator):
         if context.area:
             context.area.tag_redraw()
 
-        # 作業時間計測を停止
+        # オブジェクトの移動を停止
         if props.running is False:
             self.__handle_remove(context)
+            # オブジェクトを初期の位置に移動する
             for obj, loc in self.orig_obj_loc.items():
                 obj.location = loc
             return {'FINISHED'}

@@ -75,22 +75,25 @@ class MoveObjectInterval(bpy.types.Operator):
     def modal(self, context, event):
         props = context.scene.moi_props
 
-//! [handle_timer_event]
+//! [handle_non_timer_event]
         # タイマイベント以外の場合は無視
         if event.type != 'TIMER':
             return {'PASS_THROUGH'}
-//! [handle_timer_event]
+//! [handle_non_timer_event]
 
         # 3Dビューの画面を更新
         if context.area:
             context.area.tag_redraw()
 
-        # 作業時間計測を停止
+//! [stop_moving_object]
+        # オブジェクトの移動を停止
         if props.running is False:
             self.__handle_remove(context)
+            # オブジェクトを初期の位置に移動する
             for obj, loc in self.orig_obj_loc.items():
                 obj.location = loc
             return {'FINISHED'}
+//! [stop_moving_object]
 
         # オブジェクトの位置を更新
         self.__update_object_location(context)
@@ -101,9 +104,11 @@ class MoveObjectInterval(bpy.types.Operator):
     def invoke(self, context, event):
         props = context.scene.moi_props
         if context.area.type == 'VIEW_3D':
+//! [store_obj_loc]
             # 開始ボタンが押された時の処理
             if props.running is False:
                 self.orig_obj_loc = {obj: obj.location.copy() for obj in bpy.data.objects if obj.type == 'MESH' and obj.select}
+//! [store_obj_loc]
                 props.running = True
                 self.__handle_add(context)
                 print("サンプル3-3: 一定間隔でオブジェクトが移動するようになります。")
