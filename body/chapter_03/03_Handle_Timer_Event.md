@@ -54,6 +54,8 @@
 
 ---
 
+<div id="process"></div>
+
 |<div id="box">2</div>|選択中のオブジェクトが約0.1秒ごとに、開始ボタンを押した時の位置を中心に円を描くように移動します。|![3-3節 アドオンの使用 手順2](https://dl.dropboxusercontent.com/s/fk84kkwzwtzyu7j/use_add-on-2.png "3-3節 アドオンの使用 手順2")|
 |---|---|---|
 
@@ -65,6 +67,7 @@
 
 開始ボタンを押した後もオブジェクトを移動することができますが、タイマイベントを契機に元の場所に戻ります。
 
+<div id="process"></div>
 
 |<div id="box">3</div>|*終了* ボタンを押すとオブジェクトの移動しなくなり、開始ボタンを押した時の位置にオブジェクトが移動します。|![3-3節 アドオンの使用 手順3](https://dl.dropboxusercontent.com/s/ori4aazvlzoxhlf/use_add-on-3.png "3-3節 アドオンの使用 手順3")|
 |---|---|---|
