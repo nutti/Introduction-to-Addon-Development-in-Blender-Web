@@ -6,12 +6,12 @@ import math
 
 
 bl_info = {
-    "name": "サンプル3-5: 3Dビューエリアに文字列を描画する",
+    "name": "サンプル3-5: 3Dビューエリアにテキストを描画する",
     "author": "Nutti",
     "version": (2, 0),
     "blender": (2, 75, 0),
-    "location": "3Dビュー > プロパティパネル > 文字列描画",
-    "description": "3Dビューエリアに文字列を描画するアドオン",
+    "location": "3Dビュー > プロパティパネル > テキスト描画",
+    "description": "3Dビューエリアにテキストを描画するアドオン",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
@@ -21,45 +21,45 @@ bl_info = {
 
 
 # プロパティ
-class RS_Properties(bpy.types.PropertyGroup):
+class RT_Properties(bpy.types.PropertyGroup):
     running = BoolProperty(
-        name="文字列描画中",
-        description="文字列描画中か？",
+        name="テキスト描画中",
+        description="テキスト描画中か？",
         default=False)
 
 
-# 文字列描画
-class RenderString(bpy.types.Operator):
-    bl_idname = "view_3d.render_string"
-    bl_label = "文字列描画"
-    bl_description = "文字列を描画します"
+# テキスト描画
+class RenderText(bpy.types.Operator):
+    bl_idname = "view_3d.render_text"
+    bl_label = "テキスト描画"
+    bl_description = "テキストを描画します"
 
     handle = None           # 描画関数ハンドラ
 
 
     def __handle_add(self, context):
-        if RenderString.handle is None:
+        if RenderText.handle is None:
             # 描画関数の登録
-            RenderString.handle = bpy.types.SpaceView3D.draw_handler_add(
-                RenderString.render, (self, context), 'WINDOW', 'POST_PIXEL')
+            RenderText.handle = bpy.types.SpaceView3D.draw_handler_add(
+                RenderText.render, (self, context), 'WINDOW', 'POST_PIXEL')
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
 
 
     def __handle_remove(self, context):
-        if RenderString.handle is not None:
+        if RenderText.handle is not None:
             # 描画関数の登録を解除
-            bpy.types.SpaceView3D.draw_handler_remove(RenderString.handle, 'WINDOW')
-            RenderString.handle = None
+            bpy.types.SpaceView3D.draw_handler_remove(RenderText.handle, 'WINDOW')
+            RenderText.handle = None
 
 
     @staticmethod
-    def render_string(size, x, y, s):
+    def render_text(size, x, y, s):
         # フォントサイズを指定
         blf.size(0, size, 72)
         # 描画位置を指定
         blf.position(0, x, y, 0)
-        # 文字列を描画
+        # テキストを描画
         blf.draw(0, s)
 
 
@@ -82,9 +82,9 @@ class RenderString(bpy.types.Operator):
     @staticmethod
     def render(self, context):
         # リージョン幅を取得するため、描画先のリージョンを得る
-        region = RenderString.get_region(context, 'VIEW_3D', 'WINDOW')
+        region = RenderText.get_region(context, 'VIEW_3D', 'WINDOW')
 
-        # 描画先のリージョンへ文字列を描画
+        # 描画先のリージョンへテキストを描画
         if region is not None:
             # 影の効果を設定
             blf.shadow(0, 3, 0.0, 1.0, 0.0, 0.5)
@@ -92,14 +92,14 @@ class RenderString(bpy.types.Operator):
             blf.shadow_offset(0, 2, -2)
             # 影の効果を有効化
             blf.enable(0, blf.SHADOW)
-            RenderString.render_string(20, 20, region.height - 60, "Hello Blender world!!")
+            RenderText.render_text(20, 20, region.height - 60, "Hello Blender world!!")
             # 影の効果を無効化
             blf.disable(0, blf.SHADOW)
-            RenderString.render_string(15, 20, region.height - 90, "Suzanne on your lap")
+            RenderText.render_text(15, 20, region.height - 90, "Suzanne on your lap")
 
 
     def modal(self, context, event):
-        props = context.scene.rs_props
+        props = context.scene.rt_props
         # 3Dビューの画面を更新
         if context.area:
             context.area.tag_redraw()
@@ -113,26 +113,26 @@ class RenderString(bpy.types.Operator):
 
 
     def invoke(self, context, event):
-        props = context.scene.rs_props
+        props = context.scene.rt_props
         if context.area.type == 'VIEW_3D':
             # 開始ボタンが押された時の処理
             if props.running is False:
                 props.running = True
                 self.__handle_add(context)
-                print("サンプル3-5: 文字列の描画を開始しました。")
+                print("サンプル3-5: テキストの描画を開始しました。")
                 return {'RUNNING_MODAL'}
             # 終了ボタンが押された時の処理
             else:
                 props.running = False
-                print("サンプル3-5: 文字列の描画を終了しました。")
+                print("サンプル3-5: テキストの描画を終了しました。")
                 return {'FINISHED'}
         else:
             return {'CANCELLED'}
 
 
 # UI
-class OBJECT_PT_RS(bpy.types.Panel):
-    bl_label = "文字列描画"
+class OBJECT_PT_RT(bpy.types.Panel):
+    bl_label = "テキスト描画"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
 
@@ -140,27 +140,27 @@ class OBJECT_PT_RS(bpy.types.Panel):
     def draw(self, context):
         sc = context.scene
         layout = self.layout
-        props = sc.rs_props
+        props = sc.rt_props
         # 開始/停止ボタンを追加
         if props.running is False:
-            layout.operator(RenderString.bl_idname, text="開始", icon="PLAY")
+            layout.operator(RenderText.bl_idname, text="開始", icon="PLAY")
         else:
-            layout.operator(RenderString.bl_idname, text="終了", icon="PAUSE")
+            layout.operator(RenderText.bl_idname, text="終了", icon="PAUSE")
 
 
 # プロパティの作成
 def init_props():
     sc = bpy.types.Scene
-    sc.rs_props = PointerProperty(
+    sc.rt_props = PointerProperty(
         name="プロパティ",
         description="本アドオンで利用するプロパティ一覧",
-        type=RS_Properties)
+        type=RT_Properties)
 
 
 # プロパティの削除
 def clear_props():
     sc = bpy.types.Scene
-    del sc.rs_props
+    del sc.rt_props
 
 
 def register():
