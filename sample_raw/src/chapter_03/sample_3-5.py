@@ -25,8 +25,8 @@ bl_info = {
 # プロパティ
 class RS_Properties(bpy.types.PropertyGroup):
     running = BoolProperty(
-        name="作業時間計測中",
-        description="作業時間計測中か？",
+        name="文字列描画中",
+        description="文字列描画中か？",
         default=False)
 
 
@@ -44,7 +44,7 @@ class RenderString(bpy.types.Operator):
 //! [add_render_func]
             # 描画関数の登録
             RenderString.handle = bpy.types.SpaceView3D.draw_handler_add(
-                RenderString.render_string, (self, context), 'WINDOW', 'POST_PIXEL')
+                RenderString.render, (self, context), 'WINDOW', 'POST_PIXEL')
 //! [add_render_func]
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
@@ -59,16 +59,16 @@ class RenderString(bpy.types.Operator):
 //! [remove_render_func]
 
 
-//! [render_message]
+//! [render_string]
     @staticmethod
-    def render_message(size, x, y, msg):
+    def render_string(size, x, y, s):
         # フォントサイズを指定
         blf.size(0, size, 72)
         # 描画位置を指定
         blf.position(0, x, y, 0)
         # 文字列を描画
-        blf.draw(0, msg)
-//! [render_message]
+        blf.draw(0, s)
+//! [render_string]
 
 
 //! [get_region]
@@ -90,7 +90,7 @@ class RenderString(bpy.types.Operator):
 
 
     @staticmethod
-    def render_string(self, context):
+    def render(self, context):
         # リージョン幅を取得するため、描画先のリージョンを得る
         region = RenderString.get_region(context, 'VIEW_3D', 'WINDOW')
 
@@ -103,10 +103,10 @@ class RenderString(bpy.types.Operator):
             blf.shadow_offset(0, 2, -2)
             # 影の効果を有効化
             blf.enable(0, blf.SHADOW)
-            RenderString.render_message(20, 20, region.height - 60, "Hello Blender world!!")
+            RenderString.render_string(20, 20, region.height - 60, "Hello Blender world!!")
             # 影の効果を無効化
             blf.disable(0, blf.SHADOW)
-            RenderString.render_message(15, 20, region.height - 90, "Suzanne on your lap")
+            RenderString.render_string(15, 20, region.height - 90, "Suzanne on your lap")
 //! [call_render_region]
 
 
