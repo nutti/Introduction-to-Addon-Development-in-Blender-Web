@@ -92,10 +92,10 @@ class RenderText(bpy.types.Operator):
             blf.shadow_offset(0, 2, -2)
             # 影の効果を有効化
             blf.enable(0, blf.SHADOW)
-            RenderText.render_text(20, 20, region.height - 60, "Hello Blender world!!")
+            RenderText.render_text(40, 40, region.height - 120, "Hello Blender world!!")
             # 影の効果を無効化
             blf.disable(0, blf.SHADOW)
-            RenderText.render_text(15, 20, region.height - 90, "Suzanne on your lap")
+            RenderText.render_text(30, 40, region.height - 180, "Suzanne on your lap")
 
 
     def modal(self, context, event):

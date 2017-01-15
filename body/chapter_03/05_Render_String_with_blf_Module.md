@@ -35,7 +35,7 @@
 
 <div id="sidebyside"></div>
 
-|また、プロパティパネルの *テキスト描画* にボタンが配置されます。|![3-3節 アドオン有効化](https://dl.dropboxusercontent.com/s/18venqljmdtefp3/enable_add-on.png "3-3節 アドオン有効化")|
+|また、プロパティパネルの *テキスト描画* にボタンが配置されます。|![3-5節 アドオン有効化](https://dl.dropboxusercontent.com/s/mep92jiozyb7qdi/enable_add-on.png "3-5節 アドオン有効化")|
 |---|---|
 
 
@@ -49,7 +49,18 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|*3Dビュー* エリアのプロパティパネルの *テキスト描画* に配置されている *開始* ボタンを押します。||
+|<div id="box">1</div>|*3Dビュー* エリアのプロパティパネルの *テキスト描画* に配置されている *開始* ボタンを押します。|![3-5節 アドオンの使用 手順1](https://dl.dropboxusercontent.com/s/bsvlf2uu2qfcuba/use_add-on_1.png "3-5節 アドオンの使用 手順1")|
+|---|---|---|
+
+
+<div id="process_sep"></div>
+
+---
+
+
+<div id="process"></div>
+
+|<div id="box">2</div>|*3Dビュー* エリアに文字列「Hello Blender world!!」「Suzanne on your lap」が表示されます。|![3-5節 アドオンの使用 手順2](https://dl.dropboxusercontent.com/s/gx7zbr758lausvb/use_add-on_2.png "3-5節 アドオンの使用 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -59,17 +70,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*3Dビュー* エリアに文字列「Hello Blender world!!」「Suzanne on your lap」が表示されます。||
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-
-<div id="process"></div>
-
-|<div id="box">3</div>|*終了* ボタンを押すとテキスト描画処理が止まります。||
+|<div id="box">3</div>|*終了* ボタンを押すとテキスト描画処理が止まります。|![3-5節 アドオンの使用 手順3](https://dl.dropboxusercontent.com/s/cmsnbd7qfi2gk2h/use_add-on_3.png "3-5節 アドオンの使用 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
