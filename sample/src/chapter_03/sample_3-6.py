@@ -57,9 +57,6 @@ class SelectAudioFile(bpy.types.Operator):
             AudioDevice.device = aud.device()
         # サウンドファクトリを作成
         AudioDevice.factory = aud.Factory(self.filepath)
-        # 再生中なら停止し、サウンドハンドラを破棄
-        if AudioDevice.handle is not None and AudioDevice.handle.status == aud.AUD_STATUS_PLAYING:
-            AudioDevice.handle.stop()
         # オーディオファイルを再生
         AudioDevice.handle = AudioDevice.device.play(AudioDevice.factory)
         AudioDevice.handle.volume = sc.paf_volume
@@ -103,18 +100,17 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
         layout = self.layout
         sc = context.scene
 
-        row = layout.row()
         if AudioDevice.handle is not None:
             # 再生中または一時停止中の状態
-            if AudioDevice.handle.status == aud.AUD_STATUS_PLAYING:
-                row.operator(StopAudioFile.bl_idname, text="停止", icon='X')
+            if AudioDevice.handle.status:
+                layout.operator(StopAudioFile.bl_idname, text="停止", icon='X')
             # 再生を停止した状態
-            elif AudioDevice.handle.status == aud.AUD_STATUS_STOPPED:
-                row.operator(SelectAudioFile.bl_idname, text="オーディオファイルを選択", icon='PLAY')
+            else:
+                layout.operator(SelectAudioFile.bl_idname, text="オーディオファイルを選択", icon='PLAY')
         else:
             # ファイルブラウザを表示する
-            row.operator(SelectAudioFile.bl_idname, text="オーディオファイルを選択", icon='PLAY')
-        row.prop(sc, "paf_volume", text="音量")
+            layout.operator(SelectAudioFile.bl_idname, text="オーディオファイルを選択", icon='PLAY')
+        layout.prop(sc, "paf_volume", text="音量")
 
 
 # プロパティを初期化
