@@ -33,7 +33,7 @@
 
 <div id="sidebyside"></div>
 
-|また、*3Dビュー* エリアのツール・シェルフに *オーディオ再生* パネルが追加されます。|![3-6節 アドオン有効化](https://dl.dropboxusercontent.com/s/mep92jiozyb7qdi/enable_add-on.png "3-6節 アドオン有効化")|
+|また、*3Dビュー* エリアのツール・シェルフに *オーディオ再生* パネルが追加されます。|![3-6節 アドオン有効化](https://dl.dropboxusercontent.com/s/kb2nl3uogcae6ze/enable_add-on.png "3-6節 アドオン有効化")|
 |---|---|
 
 
@@ -47,7 +47,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|*3Dビュー* エリアのツール・シェルフから *オーディオ再生* パネルを選択します。||
+|<div id="box">1</div>|*3Dビュー* エリアのツール・シェルフから *オーディオ再生* パネルを選択します。|![3-6節 アドオンの使用 手順1](https://dl.dropboxusercontent.com/s/oaqc04tyq34aad1/use_add-on_1.png "3-6節 アドオンの使用 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -56,7 +56,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*オーディオファイルを選択* ボタンをクリックします。||
+|<div id="box">2</div>|*オーディオファイルを選択* ボタンをクリックします。|![3-6節 アドオンの使用 手順2](https://dl.dropboxusercontent.com/s/3vtpo2ozecl5zox/use_add-on_2.png "3-6節 アドオンの使用 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -65,7 +65,7 @@
 
 <div id="process"></div>
 
-|<div id="box">3</div>|ファイルブラウザが開くため、再生するオーディオファイルを選択して *オーディオファイルの選択* ボタンをクリックします。本節のサンプルでは、デフォルトで *.wav* 形式と *.mp3* 形式の2つの拡張子に絞って表示していますが、*ファイルのフィルタリングを有効化ボタン* をクリックすることで、他のファイルも選択できるようになります。||
+|<div id="box">3</div>|ファイルブラウザが開くため、再生するオーディオファイルを選択して *オーディオファイルの選択* ボタンをクリックします。本節のサンプルでは、デフォルトで *.wav* 形式と *.mp3* 形式の2つの拡張子に絞って表示していますが、*ファイルのフィルタリングを有効化ボタン* をクリックすることで、他のファイルも選択できるようになります。<br>※左図では空のディレクトリを表示しています|![3-6節 アドオンの使用 手順3](https://dl.dropboxusercontent.com/s/k4724owvnjqo5pk/use_add-on_3.png "3-6節 アドオンの使用 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -75,7 +75,7 @@
 
 <div id="process"></div>
 
-|<div id="box">4</div>|*音量* の値を変更することで、再生中の音量を変更することができます。||
+|<div id="box">4</div>|*音量* の値を変更することで、再生中の音量を変更することができます。|![3-6節 アドオンの使用 手順4](https://dl.dropboxusercontent.com/s/g6s72lth07fj96s/use_add-on_4.png "3-6節 アドオンの使用 手順4")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -84,7 +84,7 @@
 
 <div id="process"></div>
 
-|<div id="box">5</div>|*停止* ボタンをクリックすることで、再生を停止することができます。||
+|<div id="box">5</div>|*停止* ボタンをクリックすることで、再生を停止することができます。|![3-6節 アドオンの使用 手順5](https://dl.dropboxusercontent.com/s/j0r4c5k2p75hkb2/use_add-on_5.png "3-6節 アドオンの使用 手順5")|
 |---|---|---|
 
 

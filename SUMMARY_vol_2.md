@@ -4,7 +4,7 @@
   3. [3-3. タイマのイベントを扱う](body/chapter_03/03_Handle_Timer_Event.md)
   4. [3-4. OpenGL向けのAPIを利用する](body/chapter_03/04_Use_API_for_OpenGL.md)
   5. [3-5. blfモジュールを使って文字列を描画する](body/chapter_03/05_Render_String_with_blf_Module.md)
-  6. [3-6. オーディオファイルを再生する](body/chapter_03/06_Play_Audio_File.mdx)
+  6. [3-6. オーディオファイルを再生する](body/chapter_03/06_Play_Audio_File.md)
   7. [3-7. アドオンを多言語に対応する](body/chapter_03/07_Multilingual_Support.mdx)
   8. [3-8. 座標変換を活用する](body/chapter_03/08_Use_Coordinate_Transformation.mdx)
   9. [3-9. アドオンの設定を活用する](body/chapter_03/09_Use_Add-on_Preference.mdx)
