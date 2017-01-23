@@ -173,7 +173,6 @@ class OBJECT_PT_DFRC(bpy.types.Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
 
-
     def draw(self, context):
         sc = context.scene
         layout = self.layout
