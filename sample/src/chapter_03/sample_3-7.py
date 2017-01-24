@@ -160,8 +160,8 @@ class DeleteFaceByRClick(bpy.types.Operator):
             # 終了ボタンが押された時の処理
             else:
                 props.running = False
-                self.report({'INFO'}, bpy.app.translations.pgettext("Sample3-7: %d face(s) are deleted" % (props.deleted_count)))
-                print(bpy.app.translations.pgettext("Sample3-7: %d face(s) are deleted" % (props.deleted_count)))
+                self.report({'INFO'}, bpy.app.translations.pgettext_iface("Sample3-7: %d face(s) are deleted") % (props.deleted_count))
+                print(bpy.app.translations.pgettext_iface("Sample3-7: %d face(s) are deleted") % (props.deleted_count))
                 return {'FINISHED'}
         else:
             return {'CANCELLED'}
@@ -172,7 +172,6 @@ class OBJECT_PT_DFRC(bpy.types.Panel):
     bl_label = bpy.app.translations.pgettext("Delete Face By Right Click")
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-
 
     def draw(self, context):
         sc = context.scene

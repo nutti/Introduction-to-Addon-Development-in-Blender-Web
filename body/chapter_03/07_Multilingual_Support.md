@@ -149,9 +149,22 @@ Blenderは一部日本語をサポートしていますが、すべてサポー�
 |```locale```|翻訳対象のロケールを指定します。日本語なら ```"jp_JP"``` 、英語なら ```"en_US"``` を指定します。ロケールの調べ方は後述します。|
 |```context```|コンテキスト。基本的には ```"*"``` を指定します。|
 |```key```|自動翻訳関数に指定するキー文字列を指定します。```translated_str``` に指定する文字列を指定すると良いと思います。筆者としては、文字化けしない英語がお勧めです。|
-|```translated_str```|翻訳後の文字列を指定します。現在のBlenderのロケールが ```locale``` と同じで、自動翻訳関数に```key``` が指定された時に表示されます。Blenderのロケールと ```locale``` が一致しない場合は、 ```key``` に指定した文字列が表示されます。|
+|```translated_str```|翻訳後の文字列を指定します。現在のBlenderのロケールが ```locale``` と同じで、自動翻訳関数に```key``` が指定された時に表示されます。現在のBlenderのロケールが ```locale``` に存在しない場合は、 ```key``` に指定した文字列が表示されます。|
 
-本節のサンプルでは、翻訳辞書として変数 ```translation_dict``` を定義しています。
+本節のサンプルでは、翻訳辞書として変数 ```translation_dict``` を定義しています。辞書の定義は以下の通りです。
+
+|日本語|英語|その他|
+|---|---|---|
+|マウスの右クリックで面を削除|Delete Face By Right Click|Delete Face By Right Click|
+|サンプル3-7: 選択範囲外です。|Sample3-7: Out of range|Sample3-7: Out of range|
+|サンプル3-7: 面以外を選択しました。|Sample3-7: No face is selected|Sample3-7: No face is selected|
+|サンプル3-7: 面を削除しました。|Sample3-7: Deleted Face|Sample3-7: Deleted Face|
+|サンプル3-7: 削除処理を開始しました。|Sample3-7: Start deleting faces|Sample3-7: Start deleting faces|
+|サンプル3-7: %d個の面を削除しました。|Sample3-7: %d face(s) are deleted|Sample3-7: %d face(s) are deleted|
+|開始|Start|Start|
+|終了|End|End|
+|サンプル3-7: アドオン「サンプル3-7」が有効化されました。|Sample3-7: Enabled add-on 'Sample3-7'|Sample3-7: Enabled add-on 'Sample3-7'|
+|サンプル3-7: アドオン「サンプル3-7」が無効化されました。|Sample3-7: Disabled add-on 'Sample3-7'|Sample3-7: Disabled add-on 'Sample3-7'|
 
 
 #### Blenderに設定されたロケールを調べる方法
@@ -186,6 +199,10 @@ IT用語でロケールとは、言語や国・地域ごとに異なる表記方
 [import:"translation_func", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-7.py)
 
 自動翻訳関数 ```bpy.app.translations.pgettext()``` の引数には、翻訳辞書に登録されている表示したい文字列のキー文字列を指定します。上記の例では、キーに ```"Sample3-7: Enabled add-on 'Sample3-7'"``` を指定することで、ロケールが ```"en_US"``` の場合は ```"Sample3-7: Enabled add-on 'Sample3-7'"``` が、```"ja_JP"``` の場合は ```"サンプル3-7: アドオン「サンプル3-7」が有効化されました。"``` が戻り値として返ってきます。このため、ロケールが変更された時に自動的に文字列が切り替えられるようになり、翻訳が完了します。
+
+基本的には ```bpy.app.translations.pgettext()``` を用いることで文字列の翻訳が完了しますが、本節のサンプルの以下のコードのように文字列フォーマットによる文字列を翻訳する場合は、代わりに ```bpy.app.translations.pgettext_iface()``` を用いる必要があります。
+
+[import:"translation_func_with_format", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-7.py)
 
 
 ## まとめ
