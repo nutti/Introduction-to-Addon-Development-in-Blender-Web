@@ -46,7 +46,7 @@ Sample3-7: Enabled add-on 'Sample3-7'
 
 <div id="process"></div>
 
-|<div id="box">1</div>|*情報* エリアのメニュー *ファイル* > *ユーザー設定...* を実行し、*システム* タブをクリックします。||
+|<div id="box">1</div>|*情報* エリアのメニュー *ファイル* > *ユーザー設定...* を実行し、*システム* タブをクリックします。|![3-7節 アドオンの使用 手順1](https://dl.dropboxusercontent.com/s/1jj5f7p6r9d3fc6/use_add-on_1.png "3-7節 アドオンの使用 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -55,7 +55,7 @@ Sample3-7: Enabled add-on 'Sample3-7'
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*ローカライズ* のチェックボックスにチェックが入っていることを確認し、言語を *日本語 (Japanese)* に設定します。*翻訳* に配置されているボタンが3つとも選択状態であることを確認します。||
+|<div id="box">2</div>|*ローカライズ* のチェックボックスにチェックが入っていることを確認し、言語を *日本語 (Japanese)* に設定します。*翻訳* に配置されているボタンが3つとも選択状態であることを確認します。|![3-7節 アドオンの使用 手順2](https://dl.dropboxusercontent.com/s/cttcw6r6izqepjt/use_add-on_2.png "3-7節 アドオンの使用 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -64,7 +64,7 @@ Sample3-7: Enabled add-on 'Sample3-7'
 
 <div id="process"></div>
 
-|<div id="box">3</div>|[3-1節](01_Handle_Mouse_Click_Event.md) に従ってアドオンを使用し、コンソールウィンドウなどのメッセージやUIが日本語になっていることを確認します。||
+|<div id="box">3</div>|[3-1節](01_Handle_Mouse_Click_Event.md) に従ってアドオンを使用し、コンソールウィンドウなどのメッセージやUIが日本語になっていることを確認します。|![3-7節 アドオンの使用 手順3](https://dl.dropboxusercontent.com/s/5e7rxv7fgivsilb/use_add-on_3.png "3-7節 アドオンの使用 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -73,7 +73,7 @@ Sample3-7: Enabled add-on 'Sample3-7'
 
 <div id="process"></div>
 
-|<div id="box">4</div>|手順1を行った後、*ローカライズ* のチェックボックスにチェックが入っていることを確認し、言語を *英語 (English)* に設定します。*翻訳* に配置されているボタンが3つとも選択状態であることを確認します。||
+|<div id="box">4</div>|手順1を行った後、*ローカライズ* のチェックボックスにチェックが入っていることを確認し、言語を *英語 (English)* に設定します。*翻訳* に配置されているボタンが3つとも選択状態であることを確認します。|![3-7節 アドオンの使用 手順4](https://dl.dropboxusercontent.com/s/7whxog1nqxo1bw5/use_add-on_4.png "3-7節 アドオンの使用 手順4")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -83,7 +83,7 @@ Sample3-7: Enabled add-on 'Sample3-7'
 
 <div id="process"></div>
 
-|<div id="box">5</div>|[3-1節](01_Handle_Mouse_Click_Event.md) に従ってアドオンを使用し、コンソールウィンドウなどのメッセージやUIが英語になっていることを確認します。||
+|<div id="box">5</div>|[3-1節](01_Handle_Mouse_Click_Event.md) に従ってアドオンを使用し、コンソールウィンドウなどのメッセージやUIが英語になっていることを確認します。|![3-7節 アドオンの使用 手順5](https://dl.dropboxusercontent.com/s/gwha06blmyocize/use_add-on_5.png "3-7節 アドオンの使用 手順5")|
 |---|---|---|
 
 <div id="process_sep"></div>
