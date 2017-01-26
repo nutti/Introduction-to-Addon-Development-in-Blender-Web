@@ -75,11 +75,12 @@ class DrawObjectTrajectory(bpy.types.Operator):
         sc = context.scene
         props = sc.dot_props
 
+        # 指定したリージョンとスペースを取得する
         region, space = DrawObjectTrajectory.get_region_space(context, 'VIEW_3D', 'WINDOW', 'VIEW_3D')
         if (region is None) or (space is None):
             return
 
-        # オブジェクトの位置にオブジェクト名を表示
+        # 選択されたオブジェクトを取得
         objs = [o for o in bpy.data.objects if o.select]
         # オブジェクトの位置座標（3D座標）をリージョン座標（2D座標）に変換
         self.loc_history.append([view3d_utils.location_3d_to_region_2d(
@@ -87,13 +88,16 @@ class DrawObjectTrajectory(bpy.types.Operator):
             space.region_3d,
             o.location) for o in objs])
 
+        # 一定期間後、最も古い位置情報を削除する
         if len(self.loc_history) >= 100:
             self.loc_history.pop(0)
 
         # 軌跡を描画
         size = 6.0
         bgl.glEnable(bgl.GL_BLEND)
+        # 保存されている過去の位置情報をすべて表示
         for hist in self.loc_history:
+            # 選択されたすべてのオブジェクトについて表示
             for loc in hist:
                 bgl.glBegin(bgl.GL_QUADS)
                 bgl.glColor4f(0.2, 0.6, 1.0, 0.7)
