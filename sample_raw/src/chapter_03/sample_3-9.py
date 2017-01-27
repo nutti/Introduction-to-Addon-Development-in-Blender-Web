@@ -11,7 +11,7 @@ bl_info = {
     "author": "Nutti",
     "version": (2, 0),
     "blender": (2, 75, 0),
-    "location": "3Dビュー > プロパティパネル > マウスオーバーでオブジェクト選択",
+    "location": "3Dビュー > プロパティパネル > マウスオーバでオブジェクト選択",
     "description": "マウスカーソルが重なったオブジェクトを選択状態に、重なっていないオブジェクトを非選択状態にするアドオン",
     "warning": "",
     "support": "TESTING",
@@ -25,14 +25,14 @@ bl_info = {
 class SOOM_Properties(bpy.types.PropertyGroup):
     running = BoolProperty(
         name="動作中",
-        description="マウスオーバーでオブジェクト選択機能が動作中か？",
+        description="マウスオーバでオブジェクト選択機能が動作中か？",
         default=False)
 
 
 # オブジェクト名を表示
 class SelectObjectOnMouseover(bpy.types.Operator):
     bl_idname = "view3d.select_object_on_mouseover"
-    bl_label = "マウスオーバーでオブジェクト選択"
+    bl_label = "マウスオーバでオブジェクト選択"
     bl_description = "マウスカーソルが重なったオブジェクトを選択状態に、重なっていないオブジェクトを非選択状態にします"
 
     def __init__(self):
@@ -99,14 +99,14 @@ class SelectObjectOnMouseover(bpy.types.Operator):
                         self.intersected_objs.append(o)
                 # メッシュタイプのオブジェクトが作られているが、ray_cast対象の面が存在しない場合
                 except RuntimeError as e:
-                    print("サンプル3-8: オブジェクト生成タイミングの問題により、例外エラー「レイキャスト可能なデータなし」が発生")
+                    print("サンプル3-9: オブジェクト生成タイミングの問題により、例外エラー「レイキャスト可能なデータなし」が発生")
 //! [check_intersection]
 
-        # オブジェクトの選択
+//! [select_object]
+        # レイと交差したオブジェクトを選択
         for o in bpy.data.objects:
-            o.select = False
-        for o in self.intersected_objs:
-            o.select = True
+            o.select = True if o in self.intersected_objs else False
+//! [select_object]
 
         # 3Dビューの画面を更新
         if context.area:
@@ -138,7 +138,7 @@ class SelectObjectOnMouseover(bpy.types.Operator):
 
 # UI
 class OBJECT_PT_SOOM(bpy.types.Panel):
-    bl_label = "オブジェクト名の表示補助"
+    bl_label = "マウスオーバでオブジェクト選択"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
 
