@@ -1,14 +1,14 @@
 import bpy
-from bpy.props import BoolProperty, PointerProperty
+from bpy.props import BoolProperty, PointerProperty, EnumProperty
 from mathutils import Vector
 
 bl_info = {
-    "name": "サンプル3-2: キーボードのキー入力に応じてオブジェクトを並進移動させる",
+    "name": "サンプル3-10: キーボードのキー入力に応じてオブジェクトを並進移動させる（アドオン設定活用版）",
     "author": "Nutti",
     "version": (2, 0),
     "blender": (2, 75, 0),
     "location": "3Dビュー > プロパティパネル > オブジェクト並進移動",
-    "description": "キーボードからの入力に応じてオブジェクトを並進移動させるアドオン",
+    "description": "キーボードからの入力に応じてオブジェクトを並進移動させるアドオン（アドオン設定活用版）",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
@@ -33,6 +33,7 @@ class TranslateObjectMode(bpy.types.Operator):
 
     def modal(self, context, event):
         props = context.scene.tom_props
+        prefs = context.user_preferences.addons[__name__].preferences
 
         # 3Dビューの画面を更新
         if context.area:
@@ -41,16 +42,16 @@ class TranslateObjectMode(bpy.types.Operator):
         # キーボードのQキーが押された場合は、オブジェクト並進移動モードを終了
         if event.type == 'Q' and event.value == 'PRESS':
             props.running = False
-            print("サンプル3-2: 通常モードへ移行しました。")
+            print("サンプル3-10: 通常モードへ移行しました。")
             return {'FINISHED'}
 
         if event.value == 'PRESS':
             value = Vector((0.0, 0.0, 0.0))
-            if event.type == 'X':
+            if event.type == prefs.x_axis:
                 value.x = 1.0 if not event.shift else -1.0
-            if event.type == 'Y':
+            if event.type == prefs.y_axis:
                 value.y = 1.0 if not event.shift else -1.0
-            if event.type == 'Z':
+            if event.type == prefs.z_axis:
                 value.z = 1.0 if not event.shift else -1.0
             # 選択中のオブジェクトを並進移動する
             bpy.ops.transform.translate(value=value)
@@ -93,6 +94,42 @@ class OBJECT_PT_SOEM(bpy.types.Panel):
             layout.operator(TranslateObjectMode.bl_idname, text="終了", icon="PAUSE")
 
 
+key_list = [
+    ('X', "X", 'X'),
+    ('Y', "Y", 'Y'),
+    ('Z', "Z", 'Z')
+]
+
+# アドオン設定
+class SOEM_Preferences(bpy.types.AddonPreferences):
+    bl_idname = __name__
+
+    x_axis = EnumProperty(
+        name="X軸",
+        description="X軸に関する処理を行うキー",
+        items=key_list,
+        default='X')
+    y_axis = EnumProperty(
+        name="Y軸",
+        description="Y軸に関する処理を行うキー",
+        items=key_list,
+        default='Y')
+    z_axis = EnumProperty(
+        name="Z軸",
+        description="Z軸に関する処理を行うキー",
+        items=key_list,
+        default='Z')
+
+    def draw(self, context):
+        layout = self.layout
+
+        layout.label("キー割り当て: ")
+        row = layout.row()
+        row.prop(self, "x_axis")
+        row.prop(self, "y_axis")
+        row.prop(self, "z_axis")
+
+
 def register():
     bpy.utils.register_module(__name__)
     sc = bpy.types.Scene
@@ -100,13 +137,13 @@ def register():
         name="プロパティ",
         description="本アドオンで利用するプロパティ一覧",
         type=TOM_Properties)
-    print("サンプル3-2: アドオン「サンプル3-2」が有効化されました。")
+    print("サンプル3-10: アドオン「サンプル3-10」が有効化されました。")
 
 
 def unregister():
     del bpy.types.Scene.tom_props
     bpy.utils.unregister_module(__name__)
-    print("サンプル3-2: アドオン「サンプル3-2」が無効化されました。")
+    print("サンプル3-10: アドオン「サンプル3-10」が無効化されました。")
 
 
 if __name__ == "__main__":
