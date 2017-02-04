@@ -105,7 +105,7 @@ key_list = [
 ]
 
 //! [addon_prefs]
-# アドオン設定
+# ユーザー・プリファレンスのアドオン設定情報
 class SOEM_Preferences(bpy.types.AddonPreferences):
     bl_idname = __name__
 
