@@ -4,12 +4,12 @@ import enum
 from mathutils import Vector
 
 bl_info = {
-    "name": "サンプル3-9: キーボードのキー入力に応じてオブジェクトを変形する（アドオン設定活用版）",
+    "name": "サンプル5-1: キーボードのキー入力に応じてオブジェクトを変形する",
     "author": "Nutti",
     "version": (2, 0),
     "blender": (2, 75, 0),
     "location": "3Dビュー > プロパティパネル > 特殊オブジェクト編集モード",
-    "description": "オブジェクトの並進移動、拡大・縮小、回転をキーボードから行うアドオン（アドオン設定活用版）",
+    "description": "オブジェクトの並進移動、拡大・縮小、回転をキーボードから行うアドオン",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
@@ -163,12 +163,12 @@ class SpecialObjectEditMode(bpy.types.Operator):
                 props.is_special_mode = True
                 # modal処理クラスを追加
                 context.window_manager.modal_handler_add(self)
-                print("サンプル3-9: 特殊オブジェクト編集モードへ移行しました。")
+                print("サンプル5-1: 特殊オブジェクト編集モードへ移行しました。")
                 return {'RUNNING_MODAL'}
             # 終了ボタンが押された時の処理
             else:
                 props.is_special_mode = False
-                print("サンプル3-9: 通常モードへ移行しました。")
+                print("サンプル5-1: 通常モードへ移行しました。")
                 return {'FINISHED'}
         else:
             return {'CANCELLED'}
@@ -196,7 +196,7 @@ def key_pref_list(self, context):
     key_id = [
             'ZERO', 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT',
             'NINE', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+            'N', 'O', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
             'LEFT_CTRL', 'LEFT_ALT', 'LEFT_SHIFT', 'RIGHT_ALT', 'RIGHT_CTRL',
             'RIGHT_SHIFT', 'TAB', 'SPACE', 'BACK_SPACE', 'DEL', 'SEMI_COLON',
             'PERIOD', 'COMMA', 'QUOTE', 'MINUS', 'SLASH', 'BACK_SLASH', 'EQUAL',
@@ -205,7 +205,7 @@ def key_pref_list(self, context):
     # 表示文字列（説明文を兼ねる）
     key_name = [
             "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "[C]", "[D]",
-            "E", "F", "G", "H", "I", "J", "K", "L", "M", "[N]", "O", "P", "Q", "R",
+            "E", "F", "G", "H", "I", "J", "K", "L", "M", "[N]", "O", "P", "R",
             "S", "T", "U", "V", "W", "X", "Y", "Z", "[Left Ctrl]", "[Left Alt]",
             "[Left Shift]", "[Right Alt]", "[Right Ctrl]", "[Right Shift]",
             "[Tab]", "[Space]", "[Back Space]", "[Delete]", "[;]", "[.]", "[,]",
@@ -366,13 +366,13 @@ def register():
         name="プロパティ",
         description="本アドオンで利用するプロパティ一覧",
         type=SOEM_Properties)
-    print("サンプル3-9: アドオン「サンプル3-9」が有効化されました。")
+    print("サンプル5-1: アドオン「サンプル5-1」が有効化されました。")
 
 
 def unregister():
     del bpy.types.Scene.soem_props
     bpy.utils.unregister_module(__name__)
-    print("サンプル3-9: アドオン「サンプル3-9」が無効化されました。")
+    print("サンプル5-1: アドオン「サンプル5-1」が無効化されました。")
 
 
 if __name__ == "__main__":
