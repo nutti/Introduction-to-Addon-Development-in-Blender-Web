@@ -190,6 +190,17 @@ class OBJECT_PT_SOEM(bpy.types.Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
 
+    @classmethod
+    def poll(cls, context):
+        # オブジェクトモード以外の場合は非表示
+        if bpy.context.mode != 'OBJECT':
+            return False
+        # オブジェクトが選択されている時のみ表示
+        for o in bpy.data.objects:
+            if o.select:
+                return True
+        return False
+
     def draw(self, context):
         sc = context.scene
         layout = self.layout
