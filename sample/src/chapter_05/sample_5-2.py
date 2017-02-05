@@ -1,5 +1,5 @@
 import bpy
-from bpy.props import BoolProperty, PointerProperty, IntProperty, EnumProperty
+from bpy.props import BoolProperty, PointerProperty, IntProperty, EnumProperty, IntVectorProperty
 import blf
 import datetime
 import math
@@ -67,9 +67,9 @@ class CalculateWorkingHours(bpy.types.Operator):
     @staticmethod
     def make_time_fmt(time):
         msec = math.floor(time * 1000) % 1000   # ミリ秒
-        sec = math.floor(time) % 60                     # 秒
-        minute = math.floor(time / 60) % 60         # 分
-        hour = math.floor(time / (60 * 60))           # 時
+        sec = math.floor(time) % 60             # 秒
+        minute = math.floor(time / 60) % 60     # 分
+        hour = math.floor(time / (60 * 60))     # 時
 
         return "%d:%02d:%02d.%d" % (hour, minute, sec, math.floor(msec / 100))
 
@@ -100,6 +100,7 @@ class CalculateWorkingHours(bpy.types.Operator):
     def render_working_hours(self, context):
         sc = context.scene
         props = sc.cwh_props
+        prefs = context.user_preferences.addons[__name__].preferences
 
         # 表示するオブジェクトが選択されていない場合は、描画しない
         if sc.cwh_prop_object == '':
@@ -116,13 +117,28 @@ class CalculateWorkingHours(bpy.types.Operator):
             blf.shadow_offset(0, 2, -2)
             # 影の効果を有効化
             blf.enable(0, blf.SHADOW)
-            CalculateWorkingHours.render_message(20, 20, region.height - 60, "Working Hour")
+            CalculateWorkingHours.render_message(
+                int(prefs.font_size * 1.3),
+                prefs.left_top[0],
+                region.height - prefs.left_top[1],
+                "Working Hour")
             # 影の効果を無効化
             blf.disable(0, blf.SHADOW)
-            CalculateWorkingHours.render_message(15, 20, region.height - 90, "Object: " + sc.cwh_prop_object)
-            CalculateWorkingHours.render_message(15, 20, region.height - 115,
+            CalculateWorkingHours.render_message(
+                prefs.font_size,
+                prefs.left_top[0],
+                region.height - int(prefs.left_top[1] + prefs.font_size * 1.5),
+                "Object: " + sc.cwh_prop_object)
+            CalculateWorkingHours.render_message(
+                prefs.font_size,
+                prefs.left_top[0],
+                region.height - int(prefs.left_top[1] + prefs.font_size * (1.5 + 2.5)),
                 "Object Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['OBJECT']))
-            CalculateWorkingHours.render_message(15, 20, region.height - 135, "Edit Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['EDIT']))
+            CalculateWorkingHours.render_message(
+                prefs.font_size,
+                prefs.left_top[0],
+                region.height - int(prefs.left_top[1] + prefs.font_size * (1.5 + 4.0)),
+                "Edit Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['EDIT']))
 
     # 前回の呼び出しからの時間差分を計算
     def __calc_delta(self, obj):
@@ -220,6 +236,35 @@ class OBJECT_PT_CWH(bpy.types.Panel):
 
         # 作業時間の描画
         layout.prop(sc, "cwh_prop_object", text="オブジェクト")
+
+
+# ユーザー・プリファレンスのアドオン設定情報
+class SOEM_Preferences(bpy.types.AddonPreferences):
+    bl_idname = __name__
+
+    font_size = IntProperty(
+        name="Font Size",
+        description="フォントサイズ",
+        default=15,
+        max=50,
+        min=10)
+    left_top = IntVectorProperty(
+        name="左上座標",
+        description="情報を表示する左上の座標",
+        size=2,
+        default=(20, 60),
+        max=300,
+        min=0)
+
+    def draw(self, context):
+        layout = self.layout
+
+        layout.label("UI: ")
+        row = layout.row()
+        col = row.column()
+        col.prop(self, "left_top")
+        col = row.column()
+        col.prop(self, "font_size")
 
 
 # 作業時間を表示するオブジェクトを選択するための項目リストを作成
