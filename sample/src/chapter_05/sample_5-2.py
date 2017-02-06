@@ -35,7 +35,7 @@ class CalculateWorkingHours(bpy.types.Operator):
     bl_label = "作業時間計測"
     bl_description = "作業時間を計測します"
 
-    handle = None           # 描画関数ハンドラ
+    __handle = None           # 描画関数ハンドラ
 
     def __init__(self):
         self.timer = None           # タイマハンドラ
@@ -44,21 +44,21 @@ class CalculateWorkingHours(bpy.types.Operator):
         self.prev_mode = None   # __calc_delta()メソッドを呼び出した時のモード
 
     def __handle_add(self, context):
-        if (self.timer is None) and (CalculateWorkingHours.handle is None):
+        if (self.timer is None) and (CalculateWorkingHours.__handle is None):
             # タイマを登録
             self.timer = context.window_manager.event_timer_add(
                 0.10, context.window)
             # 描画関数の登録
-            CalculateWorkingHours.handler = bpy.types.SpaceView3D.draw_handler_add(
+            CalculateWorkingHours.__handle = bpy.types.SpaceView3D.draw_handler_add(
                 CalculateWorkingHours.render_working_hours, (self, context), 'WINDOW', 'POST_PIXEL')
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
 
     def __handle_remove(self, context):
-        if CalculateWorkingHours.handler is not None:
+        if CalculateWorkingHours.__handle is not None:
             # 描画関数の登録を解除
-            bpy.types.SpaceView3D.draw_handler_remove(CalculateWorkingHours.handler, 'WINDOW')
-            CalculateWorkingHours.handler = None
+            bpy.types.SpaceView3D.draw_handler_remove(CalculateWorkingHours.__handle, 'WINDOW')
+            CalculateWorkingHours.__handle = None
         if self.timer is not None:
             # タイマの登録を解除
             context.window_manager.event_timer_remove(self.timer)
@@ -252,6 +252,7 @@ class SOEM_Preferences(bpy.types.AddonPreferences):
         name="左上座標",
         description="情報を表示する左上の座標",
         size=2,
+        subtype='XYZ',
         default=(20, 60),
         max=300,
         min=0)
@@ -260,10 +261,9 @@ class SOEM_Preferences(bpy.types.AddonPreferences):
         layout = self.layout
 
         layout.label("UI: ")
-        row = layout.row()
-        col = row.column()
+        sp = layout.split(percentage=0.3)
+        col = sp.column()
         col.prop(self, "left_top")
-        col = row.column()
         col.prop(self, "font_size")
 
 
