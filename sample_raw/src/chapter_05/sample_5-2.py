@@ -6,7 +6,7 @@ import math
 
 
 bl_info = {
-    "name": "サンプル5-2: オブジェクトモードとエディットモードでの作業時間を計測する",
+    "name": "サンプル5-2: 作業時間計測",
     "author": "Nutti",
     "version": (2, 0),
     "blender": (2, 75, 0),

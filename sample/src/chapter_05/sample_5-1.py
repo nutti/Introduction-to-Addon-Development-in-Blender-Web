@@ -4,7 +4,7 @@ import enum
 from mathutils import Vector
 
 bl_info = {
-    "name": "サンプル5-1: キーボードのキー入力に応じてオブジェクトを変形する",
+    "name": "サンプル5-1: キーボードによるオブジェクト変形",
     "author": "Nutti",
     "version": (2, 0),
     "blender": (2, 75, 0),
