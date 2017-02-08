@@ -19,5 +19,5 @@
 5. [5. アドオンサンプル集](body/chapter_05/SUMMARY.md)
   1. [5-1. キーボードによるオブジェクト変形](body/chapter_05/01_Transform_Object_with_Keybord.md)
   2. [5-2. 作業時間計測ツール](body/chapter_05/02_Calculate_Working_Hour.md)
-  3. [5-3. サウンドプレイヤー](body/chapter_05/03_Sound_Player.md)
+  3. [5-3. オーディオプレイヤー](body/chapter_05/03_Audio_Player.md)
   4. [5-4. オブジェクト名の表示サポート](body/chapter_05/04_Display_Object_Name.md)
