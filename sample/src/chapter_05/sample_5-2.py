@@ -239,7 +239,7 @@ class OBJECT_PT_CWH(bpy.types.Panel):
 
 
 # ユーザー・プリファレンスのアドオン設定情報
-class SOEM_Preferences(bpy.types.AddonPreferences):
+class CWH_Preferences(bpy.types.AddonPreferences):
     bl_idname = __name__
 
     font_size = IntProperty(

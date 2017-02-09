@@ -1,16 +1,16 @@
 import bpy
-from bpy.props import BoolProperty, IntProperty, PointerProperty
+from bpy.props import BoolProperty, IntProperty, PointerProperty, IntVectorProperty
 from bpy_extras import view3d_utils
 from mathutils import Vector
 import blf
 
 
 bl_info = {
-    "name": "サンプル3-8: オブジェクト名の表示を補助するアドオン",
+    "name": "サンプル5-4: オブジェクト名の表示サポート",
     "author": "Nutti",
     "version": (2, 0),
     "blender": (2, 75, 0),
-    "location": "3Dビュー > プロパティパネル > オブジェクト名の表示補助",
+    "location": "3Dビュー > プロパティパネル > オブジェクト名の表示サポート",
     "description": "オブジェクトの位置にオブジェクト名を表示し、マウスカーソルの位置に向けて発したレイと交差するオブジェクト名を表示するアドオン",
     "warning": "",
     "support": "TESTING",
@@ -24,35 +24,34 @@ bl_info = {
 class SON_Properties(bpy.types.PropertyGroup):
     running = BoolProperty(
         name="動作中",
-        description="オブジェクト名の表示補助機能が動作中か？",
-        default=False
-    )
+        description="オブジェクト名の表示サポート機能が動作中か？",
+        default=False)
 
 
 # オブジェクト名を表示
 class ShowObjectName(bpy.types.Operator):
     bl_idname = "view3d.show_object_name"
-    bl_label = "オブジェクト名の表示補助"
+    bl_label = "オブジェクト名の表示サポート"
     bl_description = "オブジェクトの位置にオブジェクト名を表示し、マウスカーソルの位置に向けて発したレイと交差するオブジェクト名を表示します"
 
-    handle = None           # 描画関数ハンドラ
+    __handle = None           # 描画関数ハンドラ
 
     def __init__(self):
         self.intersected_objs = []      # マウスカーソルの位置に向けて発したレイと交差するオブジェクト一覧
 
     def __handle_add(self, context):
-        if ShowObjectName.handle is None:
+        if ShowObjectName.__handle is None:
             # 描画関数の登録
-            ShowObjectName.handler = bpy.types.SpaceView3D.draw_handler_add(
+            ShowObjectName.__handle = bpy.types.SpaceView3D.draw_handler_add(
                 ShowObjectName.render, (self, context), 'WINDOW', 'POST_PIXEL')
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
 
     def __handle_remove(self, context):
-        if ShowObjectName.handler is not None:
+        if ShowObjectName.__handle is not None:
             # 描画関数の登録を解除
-            bpy.types.SpaceView3D.draw_handler_remove(ShowObjectName.handler, 'WINDOW')
-            ShowObjectName.handler = None
+            bpy.types.SpaceView3D.draw_handler_remove(ShowObjectName.__handle, 'WINDOW')
+            ShowObjectName.__handle = None
 
     @staticmethod
     def render_message(size, x, y, msg):
@@ -61,7 +60,7 @@ class ShowObjectName(bpy.types.Operator):
         blf.draw(0, msg)
 
     @staticmethod
-    def get_region(context, area_type, region_type):
+    def get_region_space(context, area_type, region_type, space_type):
         region = None
         # 指定されたエリアを取得する
         for area in context.screen.areas:
@@ -71,30 +70,20 @@ class ShowObjectName(bpy.types.Operator):
         for region in area.regions:
             if region.type == region_type:
                 break
-
-        return region
-
-    @staticmethod
-    def get_space(context, area_type, space_type):
-        space = None
-        # 指定されたエリアを取得する
-        for area in context.screen.areas:
-            if area.type == area_type:
-                break
         # 指定されたスペースを取得する
         for space in area.spaces:
             if space.type == space_type:
                 break
 
-        return space
+        return (region, space)
 
     @staticmethod
     def render(self, context):
         sc = context.scene
         props = sc.son_props
+        prefs = context.user_preferences.addons[__name__].preferences
 
-        region = ShowObjectName.get_region(context, 'VIEW_3D', 'WINDOW')
-        space = ShowObjectName.get_space(context, 'VIEW_3D', 'VIEW_3D')
+        region, space  = ShowObjectName.get_region_space(context, 'VIEW_3D', 'WINDOW', 'VIEW_3D')
         if (region is None) or (space is None):
             return
 
@@ -102,16 +91,16 @@ class ShowObjectName(bpy.types.Operator):
         objs = [o for o in bpy.data.objects]
         # オブジェクトの位置座標（3D座標）をリージョン座標（2D座標）に変換
         locs_on_screen = [view3d_utils.location_3d_to_region_2d(
-                region,
-                space.region_3d,
-                o.location) for o in objs]
+            region,
+            space.region_3d,
+            o.location) for o in objs]
         blf.shadow(0, 3, 0.1, 0.1, 0.1, 1.0)
         blf.shadow_offset(0, 1, -1)
         blf.enable(0, blf.SHADOW)
         for obj, loc in zip(objs, locs_on_screen):
             # 表示範囲外なら表示しない
             if loc is not None:
-                ShowObjectName.render_message(sc.son_font_size, loc.x, loc.y, obj.name)
+                ShowObjectName.render_message(prefs.font_size_2, loc.x, loc.y, obj.name)
         blf.disable(0, blf.SHADOW)
 
         # マウスカーソルの位置に向けて発したレイと交差するオブジェクト名を表示
@@ -119,18 +108,24 @@ class ShowObjectName(bpy.types.Operator):
         blf.shadow_offset(0, 2, -2)
         blf.enable(0, blf.SHADOW)
         ShowObjectName.render_message(
-            int(sc.son_font_size * 1.2), 20, region.height - 100, "Intersect")
+            prefs.font_size_1,
+            prefs.left_top[0],
+            region.height - prefs.left_top[1],
+            "Intersect")
         blf.disable(0, blf.SHADOW)
         # ray_castが可能なオブジェクトモード時のみ表示
         if context.mode == 'OBJECT':
             for i, o in enumerate(self.intersected_objs):
                 ShowObjectName.render_message(
-                    sc.son_font_size, 20,
-                    region.height - 105 - int(sc.son_font_size * 1.2) - i * (5 + sc.son_font_size),
+                    int(prefs.font_size_1 * 0.8),
+                    prefs.left_top[0],
+                    region.height - prefs.left_top[1] - int(prefs.font_size_1 * 1.3) - i * int(prefs.font_size_1 * 0.9),
                     o.name)
         else:
             ShowObjectName.render_message(
-                sc.son_font_size, 20, region.height - 105 - int(sc.son_font_size * 1.2),
+                int(prefs.font_size_1 * 0.8),
+                prefs.left_top[0],
+                region.height - prefs.left_top[1] - int(prefs.font_size_1 * 1.3),
                 "Objectモード以外では利用できません")
 
     def modal(self, context, event):
@@ -140,8 +135,7 @@ class ShowObjectName(bpy.types.Operator):
             # マウスカーソルのリージョン座標を取得
             mv = Vector((event.mouse_region_x, event.mouse_region_y))
             # 3Dビューエリアのウィンドウリージョンと、スペースを取得する
-            region = ShowObjectName.get_region(context, 'VIEW_3D', 'WINDOW')
-            space = ShowObjectName.get_space(context, 'VIEW_3D', 'VIEW_3D')
+            region, space  = ShowObjectName.get_region_space(context, 'VIEW_3D', 'WINDOW', 'VIEW_3D')
             # マウスカーソルの位置に向けて発したレイの方向を求める
             ray_dir = view3d_utils.region_2d_to_vector_3d(
                 region,
@@ -169,7 +163,7 @@ class ShowObjectName(bpy.types.Operator):
                         self.intersected_objs.append(o)
                 # メッシュタイプのオブジェクトが作られているが、ray_cast対象の面が存在しない場合
                 except RuntimeError as e:
-                    print("サンプル3-8: オブジェクト生成タイミングの問題により、例外エラー「レイキャスト可能なデータなし」が発生")
+                    print("サンプル5-4: オブジェクト生成タイミングの問題により、例外エラー「レイキャスト可能なデータなし」が発生")
 
         # 3Dビューの画面を更新
         if context.area:
@@ -189,12 +183,12 @@ class ShowObjectName(bpy.types.Operator):
             if props.running is False:
                 props.running = True
                 self.__handle_add(context)
-                print("サンプル3-8: オブジェクト名の表示を開始しました。")
+                print("サンプル5-4: オブジェクト名の表示を開始しました。")
                 return {'RUNNING_MODAL'}
             # 終了ボタンが押された時の処理
             else:
                 props.running = False
-                print("サンプル3-8: オブジェクト名の表示を終了しました。")
+                print("サンプル5-4: オブジェクト名の表示を終了しました。")
                 return {'FINISHED'}
         else:
             return {'CANCELLED'}
@@ -202,7 +196,7 @@ class ShowObjectName(bpy.types.Operator):
 
 # UI
 class OBJECT_PT_SON(bpy.types.Panel):
-    bl_label = "オブジェクト名の表示補助"
+    bl_label = "オブジェクト名の表示サポート"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
 
@@ -215,7 +209,49 @@ class OBJECT_PT_SON(bpy.types.Panel):
             layout.operator(ShowObjectName.bl_idname, text="開始", icon="PLAY")
         else:
             layout.operator(ShowObjectName.bl_idname, text="終了", icon="PAUSE")
-            layout.prop(sc, "son_font_size")
+
+
+# ユーザー・プリファレンスのアドオン設定情報
+class SON_Preferences(bpy.types.AddonPreferences):
+    bl_idname = __name__
+
+    # 交差したオブジェクトの名前表示に使用する設定
+    font_size_1 = IntProperty(
+        name="Font Size",
+        description="フォントサイズ",
+        default=20,
+        max=50,
+        min=10)
+    left_top = IntVectorProperty(
+        name="左上座標",
+        description="情報を表示する左上の座標",
+        size=2,
+        subtype='XYZ',
+        default=(20, 60),
+        max=300,
+        min=0)
+
+    # オブジェクトの位置に表示する時に使用する設定
+    font_size_2 = IntProperty(
+        name="Font Size",
+        description="フォントサイズ",
+        default=12,
+        max=50,
+        min=10)
+
+    def draw(self, context):
+        layout = self.layout
+
+        layout.label("UI: ")
+        sp = layout.split(percentage=0.5)
+        col = sp.column()
+        col.label("交差したオブジェクト名の表示: ")
+        col.prop(self, "left_top")
+        col.prop(self, "font_size_1")
+        sp = layout.split(percentage=0.5)
+        col = sp.column()
+        col.label("オブジェクトの位置にオブジェクト名を表示: ")
+        col.prop(self, "font_size_2")
 
 
 # プロパティの作成
@@ -225,31 +261,24 @@ def init_props():
         name="プロパティ",
         description="本アドオンで利用するプロパティ一覧",
         type=SON_Properties)
-    sc.son_font_size = IntProperty(
-        name="フォントサイズ",
-        description="表示文字列のフォントサイズを変更します",
-        max=100,
-        min=1,
-        default=25)
 
 
 # プロパティの削除
 def clear_props():
     sc = bpy.types.Scene
-    del sc.font_size
     del sc.son_props
 
 
 def register():
     bpy.utils.register_module(__name__)
     init_props()
-    print("サンプル3-8: アドオン「サンプル3-8」が有効化されました。")
+    print("サンプル5-4: アドオン「サンプル5-4」が有効化されました。")
 
 
 def unregister():
     clear_props()
     bpy.utils.unregister_module(__name__)
-    print("サンプル3-8: アドオン「サンプル3-8」が無効化されました。")
+    print("サンプル5-4: アドオン「サンプル5-4」が無効化されました。")
 
 
 if __name__ == "__main__":

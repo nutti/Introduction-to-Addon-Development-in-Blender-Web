@@ -28,38 +28,38 @@ class AudioDevice():
 
 # 音量を設定
 def set_volume(self, value):
-    self['paf_volume'] = value
+    self['ap_volume'] = value
     if AudioDevice.handle is not None:
         AudioDevice.handle.volume = value
 
 
 # 設定されている音量を取得
 def get_volume(self):
-    return self.get('paf_volume', 0.5)
+    return self.get('ap_volume', 0.5)
 
 
 # ピッチを設定
 def set_pitch(self, value):
-    self['paf_pitch'] = value
+    self['ap_pitch'] = value
     if AudioDevice.handle is not None:
         AudioDevice.handle.pitch = value
 
 
 # 設定されているピッチを取得
 def get_pitch(self):
-    return self.get('paf_pitch', 1.0)
+    return self.get('ap_pitch', 1.0)
 
 
 # ループ再生するか否かを設定
 def set_loop(self, value):
-    self['paf_loop'] = value
+    self['ap_loop'] = value
     if AudioDevice.handle is not None:
         AudioDevice.handle.loop_count = -1 if value is True else 0
 
 
 # ループ再生か否かを取得
 def get_loop(self):
-    return self.get('paf_loop', False)
+    return self.get('ap_loop', False)
 
 
 # 再生時間更新
@@ -151,9 +151,9 @@ class PlayAudioFile(bpy.types.Operator):
 
         # 再生
         AudioDevice.handle = AudioDevice.device.play(AudioDevice.factory)
-        AudioDevice.handle.volume = sc.paf_volume
-        AudioDevice.handle.pitch = sc.paf_pitch
-        AudioDevice.handle.loop_count = sc.paf_loop
+        AudioDevice.handle.volume = sc.ap_volume
+        AudioDevice.handle.pitch = sc.ap_pitch
+        AudioDevice.handle.loop_count = sc.ap_loop
         AudioDevice.paused = False
 
         # 再生時間更新処理開始
@@ -255,7 +255,7 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
 
         if AudioDevice.handle is not None:
             layout.label("再生時間： " + self.__make_time_fmt(AudioDevice.handle.position))
-            layout.prop(sc, "paf_loop", text="ループ再生")
+            layout.prop(sc, "ap_loop", text="ループ再生")
 
             # 再生中または一時停止中の状態
             if AudioDevice.handle.status:
@@ -274,8 +274,8 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
                 layout.operator(PlayAudioFile.bl_idname, text="再生", icon='PLAY')
 
             row = layout.row()
-            row.prop(sc, "paf_volume", text="音量")
-            row.prop(sc, "paf_pitch", text="ピッチ")
+            row.prop(sc, "ap_volume", text="音量")
+            row.prop(sc, "ap_pitch", text="ピッチ")
         else:
             # 選択中のオーディオファイルがない
             if AudioDevice.filename is not None:
@@ -285,7 +285,7 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
 # プロパティを初期化
 def init_props():
     sc = bpy.types.Scene
-    sc.paf_volume = FloatProperty(
+    sc.ap_volume = FloatProperty(
         name="音量",
         description="音量を調整します",
         default=0.4,
@@ -293,7 +293,7 @@ def init_props():
         min=0.0,
         get=get_volume,
         set=set_volume)
-    sc.paf_pitch = FloatProperty(
+    sc.ap_pitch = FloatProperty(
         name="ピッチ",
         description="ピッチを調整します",
         default=1.0,
@@ -301,7 +301,7 @@ def init_props():
         min=0.0,
         get=get_pitch,
         set=set_pitch)
-    sc.paf_loop = BoolProperty(
+    sc.ap_loop = BoolProperty(
         name="ループ再生",
         description="ループ再生します",
         default=False,
@@ -312,9 +312,9 @@ def init_props():
 # プロパティを削除
 def clear_props():
     sc = bpy.types.Scene
-    del sc.paf_volume
-    del sc.paf_pitch
-    del sc.paf_loop
+    del sc.ap_volume
+    del sc.ap_pitch
+    del sc.ap_loop
 
 
 def register():
