@@ -77,7 +77,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|アドオンの設定から、機能に割り当てられているキーを変更します。||
+|<div id="box">1</div>|アドオンの設定から、機能に割り当てるキーを変更します。|![キーボードによるオブジェクト変形 手順1](https://dl.dropboxusercontent.com/s/w4ygf0nti8cptnv/use_add-on_1.png "キーボードによるオブジェクト変形 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -86,7 +86,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*3Dビュー* エリアのプロパティパネルの *特殊オブジェクト編集モード* にある *開始* ボタンをクリックします。||
+|<div id="box">2</div>|*3Dビュー* エリアのプロパティパネルの *特殊オブジェクト編集モード* にある *開始* ボタンをクリックします。|![キーボードによるオブジェクト変形 手順2](https://dl.dropboxusercontent.com/s/297pas1oi809otk/use_add-on_2.png "キーボードによるオブジェクト変形 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -95,7 +95,7 @@
 
 <div id="process"></div>
 
-|<div id="box">3</div>|1で割り当てたキーを押して特殊オブジェクト編集モード中の、本アドオンの機能が動作することを確認します。||
+|<div id="box">3</div>|1で割り当てたキーを押して特殊オブジェクト編集モード中の、本アドオンの機能が動作することを確認します。|![キーボードによるオブジェクト変形 手順3](https://dl.dropboxusercontent.com/s/0oekokrdu9t0hg5/use_add-on_3.png "キーボードによるオブジェクト変形 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -104,7 +104,7 @@
 
 <div id="process"></div>
 
-|<div id="box">4</div>|*3Dビュー* エリアのプロパティパネルの *特殊オブジェクト編集モード* から、移動量・拡大率・縮小率・回転量を指定することができます。||
+|<div id="box">4</div>|*3Dビュー* エリアのプロパティパネルの *特殊オブジェクト編集モード* から、移動量・拡大率・縮小率・回転量を指定することができます。|![キーボードによるオブジェクト変形 手順4](https://dl.dropboxusercontent.com/s/62ieg49p4b2nz46/use_add-on_4.png "キーボードによるオブジェクト変形 手順4")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -113,7 +113,7 @@
 
 <div id="process"></div>
 
-|<div id="box">5</div>|*Q* キーもしくは、プロパティパネルの *特殊オブジェクト編集モード* から *終了* ボタンを押します。||
+|<div id="box">5</div>|*Q* キーもしくは、プロパティパネルの *特殊オブジェクト編集モード* から *終了* ボタンを押すと特殊オブジェクト編集モードを終了します。|![キーボードによるオブジェクト変形 手順5](https://dl.dropboxusercontent.com/s/ia65dxpnie7p5sc/use_add-on_5.png "キーボードによるオブジェクト変形 手順5")|
 |---|---|---|
 
 <div id="process_sep"></div>

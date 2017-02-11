@@ -54,7 +54,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|*3Dビュー* エリアのプロパティパネルに追加された *オブジェクト名の表示サポート* の *開始* ボタンをクリックします。||
+|<div id="box">1</div>|*3Dビュー* エリアのプロパティパネルに追加された *オブジェクト名の表示サポート* の *開始* ボタンをクリックします。|![オブジェクト名の表示サポート 手順1](https://dl.dropboxusercontent.com/s/i4s2mc5h10ubntq/use_add-on_1.png "オブジェクト名の表示サポート 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -63,7 +63,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*3Dビュー* エリアで表示されているオブジェクトに重なるように、オブジェクト名が表示されます。||
+|<div id="box">2</div>|*3Dビュー* エリアで表示されているオブジェクトに重なるように、オブジェクト名が表示されます。|![オブジェクト名の表示サポート 手順2](https://dl.dropboxusercontent.com/s/gksjey627jwapzv/use_add-on_2.png "オブジェクト名の表示サポート 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -72,7 +72,17 @@
 
 <div id="process"></div>
 
-|<div id="box">3</div>|*オブジェクトモード* 時に、*マウスカーソル* と重なったオブジェクト名が *3Dビュー* エリアの *ウィンドウ* リージョンの左上に表示されます。||
+|<div id="box">3</div>|*オブジェクトモード* 時に、*マウスカーソル* と重なったオブジェクト名が *3Dビュー* エリアの *ウィンドウ* リージョンの左上に表示されます。|![オブジェクト名の表示サポート 手順3](https://dl.dropboxusercontent.com/s/t5d6aga6euso89d/use_add-on_3.png "オブジェクト名の表示サポート 手順3")|
+|---|---|---|
+
+
+<div id="process_sep"></div>
+
+---
+
+<div id="process"></div>
+
+|<div id="box">4</div>|ユーザー・プリファレンスからそれぞれの機能について、表示文字列のフォントや位置を変更することができます。|![オブジェクト名の表示サポート 手順4](https://dl.dropboxusercontent.com/s/v6i66j1qpm892cr/use_add-on_4.png "オブジェクト名の表示サポート 手順4")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -81,25 +91,7 @@
 
 <div id="process"></div>
 
-|<div id="box">4</div>|*オブジェクトモード* 時に、*マウスカーソル* と重なったオブジェクト名が *3Dビュー* エリアの *ウィンドウ* リージョンの左上に表示されます。||
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">5</div>|ユーザー・プリファレンスからそれぞれの機能について、表示文字列のフォントや位置を変更することができます。||
-|---|---|---|
-
-<div id="process_sep"></div>
-
----
-
-<div id="process"></div>
-
-|<div id="box">6</div>|*3Dビュー* エリアのプロパティパネルの *オブジェクト名の表示サポート* から *終了* ボタンをクリックすると、オブジェクト名が表示されなくなります。||
+|<div id="box">5</div>|*3Dビュー* エリアのプロパティパネルの *オブジェクト名の表示サポート* から *終了* ボタンをクリックすると、オブジェクト名が表示されなくなります。|![オブジェクト名の表示サポート 手順5](https://dl.dropboxusercontent.com/s/lu6tr95ygft3k9o/use_add-on_5.png "オブジェクト名の表示サポート 手順5")|
 |---|---|---|
 
 <div id="process_sep"></div>

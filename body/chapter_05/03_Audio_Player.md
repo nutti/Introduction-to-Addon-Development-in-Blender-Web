@@ -56,7 +56,7 @@
 
 <div id="process"></div>
 
-|<div id="box">1</div>|*3Dビュー* エリアのツール・シェルフの *オーディオプレイヤー* パネルを選択します。||
+|<div id="box">1</div>|*3Dビュー* エリアのツール・シェルフの *オーディオプレイヤー* パネルを選択します。|![オーディオプレイヤー 手順1](https://dl.dropboxusercontent.com/s/ipuyehmoe54sh95/use_add-on_1.png "オーディオプレイヤー 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -65,7 +65,7 @@
 
 <div id="process"></div>
 
-|<div id="box">2</div>|*オーディオファイルを選択* ボタンをクリックします。||
+|<div id="box">2</div>|*オーディオファイルを選択* ボタンをクリックします。|![オーディオプレイヤー 手順2](https://dl.dropboxusercontent.com/s/6uryy1g0vh9r5hn/use_add-on_2.png "オーディオプレイヤー 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -74,7 +74,7 @@
 
 <div id="process"></div>
 
-|<div id="box">3</div>|Blenderのファイルブラウザが開くため、再生したいオーディオファイルを選択して *オーディオファイルの選択* をクリックします。||
+|<div id="box">3</div>|Blenderのファイルブラウザが開くため、再生したいオーディオファイルを選択して *オーディオファイルの選択* をクリックします。|![オーディオプレイヤー 手順3](https://dl.dropboxusercontent.com/s/kcca4od6dakirae/use_add-on_3.png "オーディオプレイヤー 手順3")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -83,7 +83,7 @@
 
 <div id="process"></div>
 
-|<div id="box">4</div>|選択したオーディオファイル名が表示されます。この状態で *再生* ボタンをクリックすると、選択したオーティオファイルが再生されます。||
+|<div id="box">4</div>|選択したオーディオファイル名が表示されます。この状態で *再生* ボタンをクリックすると、選択したオーティオファイルが再生されます。|![オーディオプレイヤー 手順4](https://dl.dropboxusercontent.com/s/zv0nnd474ddthgq/use_add-on_4.png "オーディオプレイヤー 手順4")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -92,7 +92,7 @@
 
 <div id="process"></div>
 
-|<div id="box">5</div>|オーディオファイル再生中は、*音量* や *ピッチ* を変更したり *一時停止* や *再生再開* したりできます。また、再生中は再生時間が表示され、再生を停止したい場合は *停止* ボタンをクリックします。*ループ再生* にチェックを入れると、曲が終わっても再生を停止するまで再生され続けます。||
+|<div id="box">5</div>|オーディオファイル再生中は、*音量* や *ピッチ* を変更したり *一時停止* や *再生再開* したりできます。また、再生中は再生時間が表示され、再生を停止したい場合は *停止* ボタンをクリックします。*ループ再生* にチェックを入れると、曲が終わっても再生を停止するまで再生され続けます。|![オーディオプレイヤー 手順5](https://dl.dropboxusercontent.com/s/qov3eqy8psfazz5/use_add-on_5.png "オーディオプレイヤー 手順5")|
 |---|---|---|
 
 <div id="process_sep"></div>
