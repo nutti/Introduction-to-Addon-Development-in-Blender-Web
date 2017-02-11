@@ -100,7 +100,7 @@ key_list = [
     ('Z', "Z", 'Z')
 ]
 
-# アドオン設定
+# ユーザー・プリファレンスのアドオン設定情報
 class SOEM_Preferences(bpy.types.AddonPreferences):
     bl_idname = __name__
 

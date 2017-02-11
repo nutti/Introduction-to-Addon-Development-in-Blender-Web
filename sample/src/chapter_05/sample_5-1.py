@@ -1,21 +1,22 @@
 import bpy
-from bpy.props import BoolProperty, PointerProperty, EnumProperty
+from bpy.props import BoolProperty, PointerProperty, EnumProperty, FloatProperty
 import enum
 from mathutils import Vector
 
 bl_info = {
-    "name": "サンプル3-9: キーボードのキー入力に応じてオブジェクトを変形する（アドオン設定活用版）",
+    "name": "サンプル5-1: キーボードによるオブジェクト変形",
     "author": "Nutti",
     "version": (2, 0),
     "blender": (2, 75, 0),
     "location": "3Dビュー > プロパティパネル > 特殊オブジェクト編集モード",
-    "description": "オブジェクトの並進移動、拡大・縮小、回転をキーボードから行うアドオン（アドオン設定活用版）",
+    "description": "オブジェクトの並進移動、拡大・縮小、回転をキーボードから行うアドオン",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
     "tracker_url": "",
     "category": "Object"
 }
+
 
 # Enumクラスを用いた列挙値の定義
 EditType = enum.Enum('EditType', 'NONE TRANSLATE SCALE ROTATE')
@@ -26,9 +27,9 @@ EditOption = enum.Enum('EditOption', 'NONE + -')
 # プロパティ
 class SOEM_Properties(bpy.types.PropertyGroup):
     is_special_mode = BoolProperty(
-        name = "特殊オブジェクト編集モード中",
-        description = "特殊オブジェクト編集モード中か？",
-        default = False)
+        name="特殊オブジェクト編集モード中",
+        description="特殊オブジェクト編集モード中か？",
+        default=False)
 
 
 # 特殊オブジェクト編集モード時の処理
@@ -57,7 +58,8 @@ class SpecialObjectEditMode(bpy.types.Operator):
         return off
 
     def modal(self, context, event):
-        props = context.scene.soem_props
+        sc = context.scene
+        props = sc.soem_props
         prefs = context.user_preferences.addons[__name__].preferences
 
         # 3Dビューの画面を更新
@@ -67,8 +69,17 @@ class SpecialObjectEditMode(bpy.types.Operator):
         # キーボードのQキーが押された場合は、特殊オブジェクト編集モードを終了
         if event.type == 'Q' and event.value == 'PRESS':
             props.is_special_mode = False
-            print("サンプル3-9: 通常モードへ移行しました。")
+
+        # 特殊オブジェクト編集モードが終了する場合の処理
+        if not props.is_special_mode:
+            print("サンプル5-1: 通常モードへ移行しました。")
             return {'FINISHED'}
+
+        # マウスの右クリック・左クリック・マウス移動のイベントは無視し、
+        # 他の処理へ通知可能とする
+        # マウス移動のイベントを無視しないと、ボタンのクリックが正常に行われない。
+        if event.type == 'LEFTMOUSE' or event.type == 'RIGHTMOUSE' or event.type == 'MOUSEMOVE':
+            return {'PASS_THROUGH'}
 
         # 処理するキーイベントのリスト
         # 要素1：キーの識別子
@@ -113,10 +124,10 @@ class SpecialObjectEditMode(bpy.types.Operator):
                 if self.edit_axis == EditAxis[axis]:
                     # オブジェクトを正方向に1.0だけ移動
                     if self.edit_opt == EditOption['+']:
-                        value[i] = 1.0
+                        value[i] = sc.movement
                     # オブジェクトを負方向に-1.0だけ移動
                     elif self.edit_opt == EditOption['-']:
-                        value[i] = -1.0
+                        value[i] = -sc.movement
             # bpy.ops.transform.translate()：選択中のオブジェクトを並進移動する
             # 引数value：並進移動量
             bpy.ops.transform.translate(value=value)
@@ -127,10 +138,10 @@ class SpecialObjectEditMode(bpy.types.Operator):
                 if self.edit_axis == EditAxis[axis]:
                     # オブジェクトのサイズを1.1倍に拡大
                     if self.edit_opt == EditOption['+']:
-                        value[i] = 1.1
+                        value[i] = sc.magnification
                     # オブジェクトのサイズを0.9倍に縮小
                     elif self.edit_opt == EditOption['-']:
-                        value[i] = 0.9
+                        value[i] = sc.reduction
             # bpy.ops.transform.resize()：選択中のオブジェクトを拡大・縮小する
             # 引数value：拡大・縮小量
             bpy.ops.transform.resize(value=value)
@@ -144,10 +155,10 @@ class SpecialObjectEditMode(bpy.types.Operator):
             # 回転方向を設定
             # 正方向に0.1（ラジアン）回転
             if self.edit_opt == EditOption['+']:
-                value = 0.1
+                value = sc.rotation
             # 負方向に-0.1（ラジアン）回転
             elif self.edit_opt == EditOption['-']:
-                value = -0.1
+                value = -sc.rotation
             # bpy.ops.transform.rotate()：選択中のオブジェクトを回転する
             # 引数value：回転量
             # 引数rot_axis：回転軸
@@ -163,12 +174,11 @@ class SpecialObjectEditMode(bpy.types.Operator):
                 props.is_special_mode = True
                 # modal処理クラスを追加
                 context.window_manager.modal_handler_add(self)
-                print("サンプル3-9: 特殊オブジェクト編集モードへ移行しました。")
+                print("サンプル5-1: 特殊オブジェクト編集モードへ移行しました。")
                 return {'RUNNING_MODAL'}
             # 終了ボタンが押された時の処理
             else:
                 props.is_special_mode = False
-                print("サンプル3-9: 通常モードへ移行しました。")
                 return {'FINISHED'}
         else:
             return {'CANCELLED'}
@@ -180,6 +190,17 @@ class OBJECT_PT_SOEM(bpy.types.Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
 
+    @classmethod
+    def poll(cls, context):
+        # オブジェクトモード以外の場合は非表示
+        if bpy.context.mode != 'OBJECT':
+            return False
+        # オブジェクトが選択されている時のみ表示
+        for o in bpy.data.objects:
+            if o.select:
+                return True
+        return False
+
     def draw(self, context):
         sc = context.scene
         layout = self.layout
@@ -189,105 +210,158 @@ class OBJECT_PT_SOEM(bpy.types.Panel):
             layout.operator(SpecialObjectEditMode.bl_idname, text="開始", icon="PLAY")
         else:
             layout.operator(SpecialObjectEditMode.bl_idname, text="終了", icon="PAUSE")
+            layout.prop(sc, "movement", text="移動量")
+            layout.prop(sc, "magnification", text="拡大率")
+            layout.prop(sc, "reduction", text="縮小率")
+            layout.prop(sc, "rotation", text="回転量")
 
 
 def key_pref_list(self, context):
     # キーの識別子
     key_id = [
-            'ZERO', 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT',
-            'NINE', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-            'LEFT_CTRL', 'LEFT_ALT', 'LEFT_SHIFT', 'RIGHT_ALT', 'RIGHT_CTRL',
-            'RIGHT_SHIFT', 'TAB', 'SPACE', 'BACK_SPACE', 'DEL', 'SEMI_COLON',
-            'PERIOD', 'COMMA', 'QUOTE', 'MINUS', 'SLASH', 'BACK_SLASH', 'EQUAL',
-            'LEFT_ARROW', 'DOWN_ARROW', 'RIGHT_ARROW', 'UP_ARROW'
+        'ZERO', 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT',
+        'NINE', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+        'N', 'O', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+        'LEFT_CTRL', 'LEFT_ALT', 'LEFT_SHIFT', 'RIGHT_ALT', 'RIGHT_CTRL',
+        'RIGHT_SHIFT', 'TAB', 'SPACE', 'BACK_SPACE', 'DEL', 'SEMI_COLON',
+        'PERIOD', 'COMMA', 'QUOTE', 'MINUS', 'SLASH', 'BACK_SLASH', 'EQUAL',
+        'LEFT_ARROW', 'DOWN_ARROW', 'RIGHT_ARROW', 'UP_ARROW'
     ]
     # 表示文字列（説明文を兼ねる）
     key_name = [
-            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "[C]", "[D]",
-            "E", "F", "G", "H", "I", "J", "K", "L", "M", "[N]", "O", "P", "Q", "R",
-            "S", "T", "U", "V", "W", "X", "Y", "Z", "[Left Ctrl]", "[Left Alt]",
-            "[Left Shift]", "[Right Alt]", "[Right Ctrl]", "[Right Shift]",
-            "[Tab]", "[Space]", "[Back Space]", "[Delete]", "[;]", "[.]", "[,]",
-            "[`]", "[-]", "[/]", "[¥]", "[=]", "←", "↓", "→", "↑"
+        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "[C]", "[D]",
+        "E", "F", "G", "H", "I", "J", "K", "L", "M", "[N]", "O", "P", "R",
+        "S", "T", "U", "V", "W", "X", "Y", "Z", "[Left Ctrl]", "[Left Alt]",
+        "[Left Shift]", "[Right Alt]", "[Right Ctrl]", "[Right Shift]",
+        "[Tab]", "[Space]", "[Back Space]", "[Delete]", "[;]", "[.]", "[,]",
+        "[`]", "[-]", "[/]", "[¥]", "[=]", "←", "↓", "→", "↑"
     ]
 
     return [(id, name, name, i) for i, (name, id) in enumerate(zip(key_name, key_id))]
 
 
+# 登録済みのキーを取得
+def get_reserved_key_list(self):
+    list_ = []
+
+    list_.append(get_pref_translate(self))
+    list_.append(get_pref_scale(self))
+    list_.append(get_pref_rotate(self))
+    list_.append(get_pref_x_axis(self))
+    list_.append(get_pref_y_axis(self))
+    list_.append(get_pref_z_axis(self))
+    list_.append(get_pref_increment(self))
+    list_.append(get_pref_decrement(self))
+
+    return list_
+
+
+# ユーザー・プリファレンスの設定情報「移動」の値を取得
 def get_pref_translate(self):
     key_list = key_pref_list(self, None)
     return self.get('translate', [key[3] for key in key_list if key[0] == 'T'][0])
 
 
+# ユーザー・プリファレンスの設定情報「移動」の値を設定
 def set_pref_translate(self, value):
-    self['translate'] = value
+    reserved = get_reserved_key_list(self)
+    # 他の操作にキーが割り当たっている場合は値を設定しない
+    if not value in reserved:
+        self['translate'] = value
 
 
+# ユーザー・プリファレンスの設定情報「拡大縮小」の値を取得
 def get_pref_scale(self):
     key_list = key_pref_list(self, None)
     return self.get('scale', [key[3] for key in key_list if key[0] == 'S'][0])
 
 
+# ユーザー・プリファレンスの設定情報「拡大縮小」の値を設定
 def set_pref_scale(self, value):
-    self['scale'] = value
+    reserved = get_reserved_key_list(self)
+    if not value in reserved:
+        self['scale'] = value
 
 
+# ユーザー・プリファレンスの設定情報「回転」の値を取得
 def get_pref_rotate(self):
     key_list = key_pref_list(self, None)
     return self.get('rotate', [key[3] for key in key_list if key[0] == 'R'][0])
 
 
+# ユーザー・プリファレンスの設定情報「回転」の値を設定
 def set_pref_rotate(self, value):
-    self['rotate'] = value
+    reserved = get_reserved_key_list(self)
+    if not value in reserved:
+        self['rotate'] = value
 
 
+# ユーザー・プリファレンスの設定情報「X軸」の値を取得
 def get_pref_x_axis(self):
     key_list = key_pref_list(self, None)
     return self.get('x_axis', [key[3] for key in key_list if key[0] == 'X'][0])
 
 
+# ユーザー・プリファレンスの設定情報「X軸」の値を設定
 def set_pref_x_axis(self, value):
-    self['x_axis'] = value
+    reserved = get_reserved_key_list(self)
+    if not value in reserved:
+        self['x_axis'] = value
 
 
+# ユーザー・プリファレンスの設定情報「Y軸」の値を取得
 def get_pref_y_axis(self):
     key_list = key_pref_list(self, None)
     return self.get('y_axis', [key[3] for key in key_list if key[0] == 'Y'][0])
 
 
+# ユーザー・プリファレンスの設定情報「Y軸」の値を設定
 def set_pref_y_axis(self, value):
-    self['y_axis'] = value
+    reserved = get_reserved_key_list(self)
+    if not value in reserved:
+        self['y_axis'] = value
 
 
+# ユーザー・プリファレンスの設定情報「Z軸」の値を取得
 def get_pref_z_axis(self):
     key_list = key_pref_list(self, None)
     return self.get('z_axis', [key[3] for key in key_list if key[0] == 'Z'][0])
 
 
+# ユーザー・プリファレンスの設定情報「Z軸」の値を設定
 def set_pref_z_axis(self, value):
-    self['z_axis'] = value
+    reserved = get_reserved_key_list(self)
+    if not value in reserved:
+        self['z_axis'] = value
 
 
+# ユーザー・プリファレンスの設定情報「+」の値を取得
 def get_pref_increment(self):
     key_list = key_pref_list(self, None)
     return self.get('increment', [key[3] for key in key_list if key[0] == 'RIGHT_ARROW'][0])
 
 
+# ユーザー・プリファレンスの設定情報「+」の値を設定
 def set_pref_increment(self, value):
-    self['increment'] = value
+    reserved = get_reserved_key_list(self)
+    if not value in reserved:
+        self['increment'] = value
 
 
+# ユーザー・プリファレンスの設定情報「-」の値を取得
 def get_pref_decrement(self):
     key_list = key_pref_list(self, None)
     return self.get('decrement', [key[3] for key in key_list if key[0] == 'LEFT_ARROW'][0])
 
 
+# ユーザー・プリファレンスの設定情報「-」の値を設定
 def set_pref_decrement(self, value):
-    self['decrement'] = value
+    reserved = get_reserved_key_list(self)
+    if not value in reserved:
+        self['decrement'] = value
 
 
-# アドオン設定
+# ユーザー・プリファレンスのアドオン設定情報
 class SOEM_Preferences(bpy.types.AddonPreferences):
     bl_idname = __name__
 
@@ -359,20 +433,59 @@ class SOEM_Preferences(bpy.types.AddonPreferences):
         col.prop(self, "decrement")
 
 
-def register():
-    bpy.utils.register_module(__name__)
+def init_props():
     sc = bpy.types.Scene
+    # 内部処理向け
     sc.soem_props = PointerProperty(
         name="プロパティ",
         description="本アドオンで利用するプロパティ一覧",
         type=SOEM_Properties)
-    print("サンプル3-9: アドオン「サンプル3-9」が有効化されました。")
+    # プロパティパネル上での設定情報
+    sc.movement = FloatProperty(
+        name="移動量",
+        description="移動量",
+        default=1.0,
+        max=5.0,
+        min=0.01)
+    sc.magnification = FloatProperty(
+        name="拡大率",
+        description="拡大率",
+        default=1.1,
+        max=10.0,
+        min=1.0)
+    sc.reduction = FloatProperty(
+        name="縮小率",
+        description="縮小率",
+        default=0.9,
+        max=1.0,
+        min=0.01)
+    sc.rotation = FloatProperty(
+        name="回転量",
+        description="回転量",
+        default=0.1,
+        max=2.0,
+        min=0.01)
+
+
+def clear_props():
+    sc = bpy.types.Scene
+    del sc.rotation
+    del sc.reduction
+    del sc.magnification
+    del sc.movement
+    del sc.soem_props
+
+
+def register():
+    bpy.utils.register_module(__name__)
+    init_props()
+    print("サンプル5-1: アドオン「サンプル5-1」が有効化されました。")
 
 
 def unregister():
-    del bpy.types.Scene.soem_props
+    clear_props()
     bpy.utils.unregister_module(__name__)
-    print("サンプル3-9: アドオン「サンプル3-9」が無効化されました。")
+    print("サンプル5-1: アドオン「サンプル5-1」が無効化されました。")
 
 
 if __name__ == "__main__":
