@@ -213,7 +213,7 @@ class OBJECT_PT_SOEM(bpy.types.Panel):
             layout.prop(sc, "movement", text="移動量")
             layout.prop(sc, "magnification", text="拡大率")
             layout.prop(sc, "reduction", text="縮小率")
-            layout.prop(sc, "rotation", text="回転率")
+            layout.prop(sc, "rotation", text="回転量")
 
 
 def key_pref_list(self, context):
