@@ -14,7 +14,7 @@
   2. [4-2. アドオンをデバッグする](body/chapter_04/02_Debug_Add-on.md)
   3. [4-3. アドオンを公開する](body/chapter_04/03_Publish_your_Add-on.md)
   4. [4-4. アドオンのライセンスを決める](body/chapter_04/04_Determine_License_of_Add-on.mdx)
-  5. [4-5. アドオンを自動テストする](body/chapter_04/05_Test_Add-on_Automatically.mdx)
+  5. [4-5. アドオンの動作テストを自動化する](body/chapter_04/05_Test_Add-on_Automatically.mdx)
   6. [4-6. アドオンをBlender本体に取り込んでもらう](body/chapter_04/06_Commit_your_Add-on_to_Blender.md)
 5. [5. アドオンサンプル集](body/chapter_05/SUMMARY.md)
   1. [5-1. キーボードによるオブジェクト変形](body/chapter_05/01_Transform_Object_with_Keybord.md)
