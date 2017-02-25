@@ -35,7 +35,7 @@ class TestOps2(bpy.types.Operator):
 
     def execute(self, context):
         # オブジェクト名が「Cube」であるオブジェクトが存在しない場合
-        if bpy.data.objects['Cube'] == None:
+        if bpy.data.objects.find('Cube') == -1:
             return {'CANCELLED'}
         return {'FINISHED'}
 
