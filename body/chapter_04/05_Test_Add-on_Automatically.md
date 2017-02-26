@@ -20,7 +20,7 @@
 
 BlenderはGUIベースのソフトウェアですので、アドオンの機能が正しく動作していることを動作確認するためにはマウスやキーボードを使った操作が必要になるため、テストを自動化することが難しいと感じるかもしれません。しかし幸いなことに、BlenderはコマンドラインでPythonスクリプトを実行するモード（CUIモード）が標準で備わっているため、CUIモードを活用してアドオンのテストを自動化することができます。
 
-Blenderをコマンドラインから実行するためには、[1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介した通り、ターミナルを開きBlenderの実行ファイルを実行します。しかし、[1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介した方法では、BlenderがGUIモードで起動してしまいます。CUIモードで起動するためには、```--backgroud``` オプションをつけて実行します。以降の説明では、Blenderの実行ファイルが置かれているパスが ```/path/blender``` とします。
+Blenderをコマンドラインから実行するためには、[1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介した通り、ターミナルを開きBlenderの実行ファイルを実行します。しかし、[1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介した方法では、BlenderがGUIモードで起動してしまいます。CUIモードで起動するためには、```--background``` オプションをつけて実行します。以降の説明では、Blenderの実行ファイルが置かれているパスが ```/path/blender``` とします。
 
 ```sh
 $ /path/blender --background
@@ -97,7 +97,7 @@ GitHubとTravis CIとの連携は、次の手順で行います。
 
 <div id="process"></div>
 
-|<div id="box">1</div>|右上のユーザのアイコンから *Accounts* をクリックしてアカウント情報を表示すると、GitHubで作成したリポジトリの一覧が表示されますので、テスト対象のリポジトリを有効化します。|![ポップアップメッセージボタン 手順1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "ポップアップメッセージボタン 手順1")|
+|<div id="box">1</div>|右上のユーザのアイコンから *Accounts* をクリックしてアカウント情報を表示すると、GitHubで作成したリポジトリの一覧が表示されますので、テスト対象のリポジトリを有効化します。|![GitHubとTravis CIの連携 手順1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "GitHubとTravis CIの連携 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -107,7 +107,7 @@ GitHubとTravis CIとの連携は、次の手順で行います。
 
 <div id="process"></div>
 
-|<div id="box">2</div>|リポジトリ有効化ボタンの隣にある歯車マークをクリックすると、テスト（ビルド）を実行する契機を確認することができます。|![ポップアップメッセージボタン 手順1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "ポップアップメッセージボタン 手順1")|
+|<div id="box">2</div>|リポジトリ有効化ボタンの隣にある歯車マークをクリックすると、テスト（ビルド）を実行する契機を確認することができます。|![GitHubとTravis CIの連携 手順2](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "GitHubとTravis CIの連携 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -116,7 +116,7 @@ GitHubとTravis CIとの連携は、次の手順で行います。
 
 <div id="process"></div>
 
-|<div id="box">3</div>|デフォルトでは *Build pushes* （プッシュ時に実行）と *Build pull requests* （プルリクエスト時に実行）の2つが有効化されています。|![ポップアップメッセージボタン 手順1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "ポップアップメッセージボタン 手順1")|
+|<div id="box">3</div>|デフォルトでは *Build pushes* （プッシュ時に実行）と *Build pull requests* （プルリクエスト時に実行）の2つが有効化されています。|![GitHubとTravis CIの連携 手順3](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "GitHubとTravis CIの連携 手順3")|
 |---|---|---|
 
 
@@ -142,7 +142,7 @@ GitHubとTravis CIとの連携は、次の手順で行います。
 [import](../../sample/src/chapter_04/sample_4-5/test.py)
 
 
-スクリプト自体は単純で、```testee.py``` で登録するオペレータクラスの ```bl_idname``` を使ってアドオンの機能を呼び出すだけです。アドオンの機能を呼び出した後は、その戻り値を ```assert``` 文で判定します。第1引数の条件が偽の場合に、第2引数に指定した文字列が表示されてテストがエラー終了します。アドオンの機能を実行した時の戻り値が期待したものではなかった場合にエラーとなるようにスクリプトを作成することで、アドオンが正常に動作しているのかを確認することができます。
+スクリプト自体は単純で、```testee.py``` で登録するオペレータクラスの ```bl_idname``` を使ってアドオンの機能を呼び出すだけです。アドオンの機能を呼び出した後は、その戻り値を ```assert``` 文で判定します。第1引数の条件が偽の場合には ```AssertionError``` 例外オブジェクトが発生し、```except``` 処理の中で第2引数に指定した文字列が表示されたあと、```sys.exit(1)``` によりBlenderが復帰値 ```1``` で終了することでテストがエラー終了します。Travis CIはテストのコマンドの結果が ```0``` 以外の場合には、テストが失敗したと判断します。アドオンの機能を実行した時の戻り値が期待したものではなかった場合にBlenderが ```0``` 以外で終了するようなスクリプトを作成することで、アドオンが正常に動作しているのか否かを確認することができます。
 
 Blender実行開始時にはオブジェクト名がCubeであるオブジェクトが最初から作られているため、作成したアドオン ```testee.py``` で定義した全てのオペレーションは ```{'FINISHED'}``` で返ります。また、アドオンが正常に読み込まれていれば、```bpy.ops.object.test_ops_1``` や ```bpy.ops.object.test_ops_2``` は ```None``` 以外となるため、全ての ```assert``` 文の第1引数は ```True``` となり、テストが正常に終了します。
 
@@ -153,7 +153,7 @@ Travis CIでテストを実行するためには、```.travis.yml``` ファイ�
 
 [import](../../sample/src/chapter_04/sample_4-5/.travis.yml)
 
-設定ファイルには、次に示す5つの項目について記載します。ファイル内のコメントも参照してください。
+設定ファイルには、次に示す5つの項目について記載します。```.travis.yml``` に記載したコメントも参照してください。なお、コメントで★を記載した部分は、テスト対象とするBlenderのバージョンにより修正が必要な箇所です。
 
 |項目|概要|
 |---|---|
@@ -162,6 +162,13 @@ Travis CIでテストを実行するためには、```.travis.yml``` ファイ�
 |```before_install```|```install``` 前に実行する処理を、Linuxのコマンドで記述します。Blenderを動作させるために必要なLinuxのパッケージを取得するため、パッケージマネージャの更新とパッケージマネージャからBlenderのインストールを行なっています。パッケージマネージャでインストールしたBlenderは、パッケージマネージャで管理するBlenderのバージョンに依存するため、基本的には利用しません。|
 |```install```|```script``` 前（テスト実行前）に実行する処理です。```before_install``` と同様、Linuxのコマンドで記述します。本節のサンプルでは、バージョンが2.75であるBlenderをダウンロードしたあと、アドオンをインストールしています。|
 |```script```|テスト実行時に実行する処理を、Linuxのコマンドで記述します。|
+
+Blenderをコマンドラインから実行する方法で記載したように ```script``` には、```--python``` , ```--addons``` と ```--background``` オプションを指定して、アドオン ```testee``` を有効化した上でテストスクリプト ```test.py``` をCUIモードで実行しています。他にも、オーディオを無効化する ```-noaudio``` オプションや初期状態で起動する ```--factory-startup``` オプションを追加しています。```-noaudio``` オプションを指定しないで実行すると、オーディオライブラリ関連のエラーがログに出力されてしまいます。ダウンロードを実行した直後にBlenderを実行するため初期状態での起動となり ```--factory-startup``` は本来不要ですが、念のために指定しています。
+
+
+<div id="tips">
+
+Blenderのコマンドラインオプションの一覧は、```--help``` オプションを指定して実行することで表示することができます。
 
 
 #### Blenderが採用しているPythonのバージョンを調べる方法
@@ -208,7 +215,7 @@ $ git push origin master
 
 <div id="process"></div>
 
-|<div id="box">1</div>|右上のユーザのアイコンから *Accounts* をクリックしてアカウント情報を表示し、リポジトリ名をクリックします。。|![ポップアップメッセージボタン 手順1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "ポップアップメッセージボタン 手順1")|
+|<div id="box">1</div>|右上のユーザのアイコンから *Accounts* をクリックしてアカウント情報を表示し、リポジトリ名をクリックします。。|![テスト結果の確認 手順1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "テスト結果の確認 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -218,7 +225,7 @@ $ git push origin master
 
 <div id="process"></div>
 
-|<div id="box">2</div>|テストが正常に終了すれば、passedと表示されます。|![ポップアップメッセージボタン 手順1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "ポップアップメッセージボタン 手順1")|
+|<div id="box">2</div>|テストが正常に終了すれば、passedと表示されます。|![テスト結果の確認 手順2](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "テスト結果の確認 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -228,7 +235,7 @@ $ git push origin master
 
 <div id="process"></div>
 
-|<div id="box">3</div>|*Job log* から、テストの実行ログを確認することができます。|![ポップアップメッセージボタン 手順1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "ポップアップメッセージボタン 手順1")|
+|<div id="box">3</div>|*Job log* から、テストの実行ログを確認することができます。|![テスト結果の確認 手順3](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "テスト結果の確認 手順3")|
 |---|---|---|
 
 
@@ -241,7 +248,7 @@ $ git push origin master
 #### テスト失敗時の表示を確認する
 
 テスト失敗時にTravis CIではどのように表示されるか確認します。
-テストを失敗させるために、```test.py``` を次のように書き換えます。オブジェクト名が「Cube」のオブジェクトを削除して、```bpy.ops.object.test_ops_2()``` の戻り値が ```{'CANCELLED'}``` になるようにして、テストが失敗するようにします。
+テストを失敗させるために、```test.py``` を次のように書き換えます（```test.py``` から変更された箇所はコメントの先頭に ```$``` を記載しています）。オブジェクト名が「Cube」のオブジェクトを削除して、```bpy.ops.object.test_ops_2()``` の戻り値が ```{'CANCELLED'}``` になるようにして、テストが失敗するようにします。
 
 [import](../../sample/src/chapter_04/sample_4-5/test_alt.py)
 
@@ -250,9 +257,11 @@ $ git push origin master
 
 <div id="sidebyside"></div>
 
-|テストは期待した通り失敗し、Travis CIのテスト結果では左図のように失敗したことが表示されます。|![アドオンの有効化](https://dl.dropboxusercontent.com/s/insl725bg08g8j4/enable_add-on.png "アドオンの有効化")|
+|テストは期待した通り失敗し、Travis CIのテスト結果では左図のように失敗したことが表示されます。|![テスト失敗時の表示確認1](https://dl.dropboxusercontent.com/s/insl725bg08g8j4/enable_add-on.png "テスト失敗時の表示確認1")|
 |---|---|
 
+|ログには失敗した原因が表示されています。|![テスト失敗時の表示確認2](https://dl.dropboxusercontent.com/s/insl725bg08g8j4/enable_add-on.png "テスト失敗時の表示確認2")|
+|---|---|
 
 
 ## まとめ
@@ -269,7 +278,7 @@ GitHubとTravis CIを利用して、アドオンのテストを自動化する�
 <div id="point_item"></div>
 
 * アドオンのテストを自動化することで、ソースコードを修正したことによるバグの発生を早期に発見できる
-* *ターミナル* からBlenderを実行する時にオプション ```--backgroud``` を指定することでCUIモードでBlenderを実行することができる
+* *ターミナル* からBlenderを実行する時にオプション ```--background``` を指定することでCUIモードでBlenderを実行することができる
 * CUIモードでPythonスクリプトを実行するためには、```--python``` オプションの引数に実行するスクリプト名を指定する
 * CUIモードでアドオンを有効化するためには、```--addons``` オプションの引数に有効化したいアドオンのパッケージまたはモジュール名を指定する
 * GitHubをTravis CIと連携することで、GitHubのリポジトリにコミットした時に ```.travis.yml``` に記載した内容に従ってビルドやテストを行い、その結果をTravis CI上で確認することができる
