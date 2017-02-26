@@ -82,7 +82,7 @@ CIとはContinuous Integration(継続的インテグレーション)の略で、
 |Travis CI|
 |---|
 |https://travis-ci.org/|
-|![Travis CI]( "Travis CI")|
+|![Travis CI](https://dl.dropboxusercontent.com/s/d5wmzeuhv93nufx/travis_ci.png "Travis CI")|
 
 
 GitHubと同様、Travis CIへの登録の仕方についても、本書では割愛します。すでにGitHubアカウントを持っていれば特別必要な作業は不要かと思います。
@@ -97,7 +97,7 @@ GitHubとTravis CIとの連携は、次の手順で行います。
 
 <div id="process"></div>
 
-|<div id="box">1</div>|右上のユーザのアイコンから *Accounts* をクリックしてアカウント情報を表示すると、GitHubで作成したリポジトリの一覧が表示されますので、テスト対象のリポジトリを有効化します。|![GitHubとTravis CIの連携 手順1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "GitHubとTravis CIの連携 手順1")|
+|<div id="box">1</div>|右上のユーザのアイコンから *Accounts* をクリックしてアカウント情報を表示すると、GitHubで作成したリポジトリの一覧が表示されますので、テスト対象のリポジトリを有効化します。|![GitHubとTravis CIの連携 手順1](https://dl.dropboxusercontent.com/s/zh7p3nmnt9sx6u7/link_to_travis_ci_1.png "GitHubとTravis CIの連携 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -107,7 +107,7 @@ GitHubとTravis CIとの連携は、次の手順で行います。
 
 <div id="process"></div>
 
-|<div id="box">2</div>|リポジトリ有効化ボタンの隣にある歯車マークをクリックすると、テスト（ビルド）を実行する契機を確認することができます。|![GitHubとTravis CIの連携 手順2](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "GitHubとTravis CIの連携 手順2")|
+|<div id="box">2</div>|リポジトリ有効化ボタンの隣にある歯車マークをクリックすると、テスト（ビルド）を実行する契機を確認することができます。|![GitHubとTravis CIの連携 手順2](https://dl.dropboxusercontent.com/s/h7vf50tbmyzivi6/link_to_travis_ci_2.png "GitHubとTravis CIの連携 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -116,7 +116,7 @@ GitHubとTravis CIとの連携は、次の手順で行います。
 
 <div id="process"></div>
 
-|<div id="box">3</div>|デフォルトでは *Build pushes* （プッシュ時に実行）と *Build pull requests* （プルリクエスト時に実行）の2つが有効化されています。|![GitHubとTravis CIの連携 手順3](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "GitHubとTravis CIの連携 手順3")|
+|<div id="box">3</div>|デフォルトでは *Build pushes* （プッシュ時に実行）と *Build pull requests* （プルリクエスト時に実行）の2つが有効化されています。|![GitHubとTravis CIの連携 手順3](https://dl.dropboxusercontent.com/s/f836k1u4ab1j9z3/link_to_travis_ci_3.png "GitHubとTravis CIの連携 手順3")|
 |---|---|---|
 
 
@@ -215,7 +215,7 @@ $ git push origin master
 
 <div id="process"></div>
 
-|<div id="box">1</div>|右上のユーザのアイコンから *Accounts* をクリックしてアカウント情報を表示し、リポジトリ名をクリックします。。|![テスト結果の確認 手順1](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "テスト結果の確認 手順1")|
+|<div id="box">1</div>|右上のユーザのアイコンから *Accounts* をクリックしてアカウント情報を表示し、リポジトリ名をクリックします。。|![テスト結果の確認 手順1](https://dl.dropboxusercontent.com/s/eowughm4ekq90vv/check_test_result_1.png "テスト結果の確認 手順1")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -225,7 +225,7 @@ $ git push origin master
 
 <div id="process"></div>
 
-|<div id="box">2</div>|テストが正常に終了すれば、passedと表示されます。|![テスト結果の確認 手順2](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "テスト結果の確認 手順2")|
+|<div id="box">2</div>|テストが正常に終了すれば、passedと表示されます。|![テスト結果の確認 手順2](https://dl.dropboxusercontent.com/s/8zpzlg5jz7gtesn/check_test_result_2.png "テスト結果の確認 手順2")|
 |---|---|---|
 
 <div id="process_sep"></div>
@@ -235,7 +235,7 @@ $ git push origin master
 
 <div id="process"></div>
 
-|<div id="box">3</div>|*Job log* から、テストの実行ログを確認することができます。|![テスト結果の確認 手順3](https://dl.dropboxusercontent.com/s/os3tka7asic48ai/popup_message_1.png "テスト結果の確認 手順3")|
+|<div id="box">3</div>|*Job log* から、テストの実行ログを確認することができます。|![テスト結果の確認 手順3](https://dl.dropboxusercontent.com/s/162cqvaq0fqq9e4/check_test_result_3.png "テスト結果の確認 手順3")|
 |---|---|---|
 
 
@@ -257,10 +257,10 @@ $ git push origin master
 
 <div id="sidebyside"></div>
 
-|テストは期待した通り失敗し、Travis CIのテスト結果では左図のように失敗したことが表示されます。|![テスト失敗時の表示確認1](https://dl.dropboxusercontent.com/s/insl725bg08g8j4/enable_add-on.png "テスト失敗時の表示確認1")|
+|テストは期待した通り失敗し、Travis CIのテスト結果では左図のように失敗したことが表示されます。|![テスト失敗時の表示確認1](https://dl.dropboxusercontent.com/s/3cfuwl2hkmhnyd0/check_test_failed_result_1.png "テスト失敗時の表示確認1")|
 |---|---|
 
-|ログには失敗した原因が表示されています。|![テスト失敗時の表示確認2](https://dl.dropboxusercontent.com/s/insl725bg08g8j4/enable_add-on.png "テスト失敗時の表示確認2")|
+|ログには失敗した原因が表示されています。|![テスト失敗時の表示確認2](https://dl.dropboxusercontent.com/s/ljo7ty7uin68v58/check_test_failed_result_2.png "テスト失敗時の表示確認2")|
 |---|---|
 
 
