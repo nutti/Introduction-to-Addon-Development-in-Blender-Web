@@ -95,7 +95,7 @@ BlenderはPythonからOpenGLへアクセスするためのAPIも用意してい�
 [1-5節](../chapter_01/05_Install_own_Add-on.md)を参考に有効化したアドオンを無効化すると、コンソールウィンドウに以下の文字列が出力されます。
 
 ```sh
-サンプル8: アドオン「サンプル8」が無効化されました。
+サンプル3-4: アドオン「サンプル3-4」が無効化されました。
 ```
 
 ## ソースコードの解説
@@ -106,9 +106,7 @@ BlenderはPythonからOpenGLへアクセスするためのAPIも用意してい�
 
 OpenGLへアクセスするAPIをアドオンから利用するためには、 ```bgl``` モジュールをインポートする必要があります。
 
-```python
-import bgl
-```
+[import:"import_bgl", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-4.py)
 
 ### アドオンで利用するプロパティを定義する
 
@@ -125,73 +123,17 @@ import bgl
 
 以下のようにして、上記プロパティを定義します。
 
-```python
-sc = bpy.types.Scene
-sc.rf_running = BoolProperty(
-    name = "実行中",
-    description = "実行中か？",
-    default = False
-)
-sc.rf_figure = EnumProperty(
-    name = "図形",
-    description = "表示する図形",
-    items = [
-        ('TRIANGLE', "三角形", "三角形を表示します"),
-        ('RECTANGLE', "四角形", "四角形を表示します")]
-)
-sc.rf_vert_1 = FloatVectorProperty(
-    name = "頂点1",
-    description = "図形の頂点",
-    size = 2,
-    default = (50.0, 50.0)
-)
-sc.rf_vert_2 = FloatVectorProperty(
-    name = "頂点2",
-    description = "図形の頂点",
-    size = 2,
-    default = (50.0, 100.0)
-)
-sc.rf_vert_3 = FloatVectorProperty(
-    name = "頂点3",
-    description = "図形の頂点",
-    size = 2,
-    default = (100.0, 100.0)
-)
-sc.rf_vert_4 = FloatVectorProperty(
-    name = "頂点4",
-    description = "図形の頂点",
-    size = 2,
-    default = (100.0, 50.0)
-)
-```
+[import:"init_props", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-4.py)
 
 定義したプロパティは、アドオン無効化時に削除します。
 
-```python
-sc = bpy.types.Scene
-del sc.rf_running
-del sc.rf_figure
-del sc.rf_vert_1
-del sc.rf_vert_2
-del sc.rf_vert_3
-del sc.rf_vert_4
-```
+[import:"clear_props", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-4.py)
 
 ### 図形を描画する関数を登録する
 
 3Dビューエリア上で図形を描画する関数を登録するためのスタティックメソッド ```RenderFigure.handle_add()``` を作成します。
 
-```RenderFigure.handle_add()``` はスタティックメソッドとして作成する必要があるため、デコレータ ```@staticmethod``` をメソッド定義の前につけます。
-
-```python
-# 画像描画関数を登録
-@staticmethod
-def handle_add(self, context):
-    if RenderFigure.__handle is None:
-        RenderFigure.__handle = bpy.types.SpaceView3D.draw_handler_add(
-            RenderFigure.render,
-            (self, context), 'WINDOW', 'POST_PIXEL')
-```
+[import:"handle_add", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-4.py)
 
 描画関数の登録は ```bpy.types.SpaceView3D.draw_handler_add()``` 関数で行います。ここで ```SpaceView3D``` は3Dビューを指していますが、描画するエリアによって名前が変わります。
 
@@ -212,31 +154,7 @@ def handle_add(self, context):
 
 図形を描画するスタティックメソッド ```RenderFigure.render``` を作成します。
 
-```python
-@staticmethod
-def render(self, context):
-    sc = context.scene
-
-    # OpenGLの設定
-    bgl.glEnable(bgl.GL_BLEND)
-
-    # 図形を表示
-    if sc.rf_figure == 'TRIANGLE':
-        bgl.glBegin(bgl.GL_TRIANGLES)
-        bgl.glColor4f(1.0, 1.0, 1.0, 0.7)
-        bgl.glVertex2f(sc.rf_vert_1[0], sc.rf_vert_1[1])
-        bgl.glVertex2f(sc.rf_vert_2[0], sc.rf_vert_2[1])
-        bgl.glVertex2f(sc.rf_vert_3[0], sc.rf_vert_3[1])
-        bgl.glEnd()
-    elif sc.rf_figure == 'RECTANGLE':
-        bgl.glBegin(bgl.GL_QUADS)
-        bgl.glColor4f(1.0, 1.0, 1.0, 0.7)
-        bgl.glVertex2f(sc.rf_vert_1[0], sc.rf_vert_1[1])
-        bgl.glVertex2f(sc.rf_vert_2[0], sc.rf_vert_2[1])
-        bgl.glVertex2f(sc.rf_vert_3[0], sc.rf_vert_3[1])
-        bgl.glVertex2f(sc.rf_vert_4[0], sc.rf_vert_4[1])
-        bgl.glEnd()
-```
+[import:"render", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-4.py)
 
 スタティックメソッド ```render()``` 内の処理について説明します。
 
@@ -246,23 +164,15 @@ def render(self, context):
 
 続いて表示する図形の判定を行った後、 ```bgl.glBegin()``` 関数により図形描画を開始します。```bgl.glBegin()``` の引数には描画モードを指定します。 ```bgl.GL_TRIANGLES``` を指定することで三角形の描画を、 ```bgl.GL_QUADS``` を指定することで四角形の描画を開始します。
 
-次に、 ```bgl.glColor4f()``` 関数により図形の色を指定しています。引数は順に、赤(R)、緑(G)、青(B)、アルファ値(A)となります。今回はやや半透明の白色の設定にしました。
+次に、 ```bgl.glColor4f()``` 関数により図形の色を指定しています。引数は順に、赤(R)、緑(G)、青(B)、アルファ値(A)となります。今回はやや半透明の白色の設定にしました。そして ```bgl.glVertex2f()``` 関数を呼んで図形の頂点の座標を設定した後に、 ```bgl.glEnd()``` 関数により描画を完了します。```bgl.glVertex2f()``` 関数の引数には、X座標、Y座標の順で浮動小数点値で座標を指定します。三角形の場合は3つの頂点を指定するため3回 ```bgl.glVertex2f()``` 関数を呼び、四角形の場合は4つの頂点を指定するため4回 ```bgl.glVertex2f()``` 関数を呼びます。
 
-最後に ```bgl.glVertex2f()``` 関数を呼んで図形の頂点の座標を設定した後に、 ```bgl.glEnd()``` 関数により描画を完了します。```bgl.glVertex2f()``` 関数の引数には、X座標、Y座標の順で浮動小数点値で座標を指定します。三角形の場合は3つの頂点を指定するため3回 ```bgl.glVertex2f()``` 関数を呼び、四角形の場合は4つの頂点を指定するため4回 ```bgl.glVertex2f()``` 関数を呼びます。
-
+最後に ```bgl.glDisable(bgl.GL_BLEND)``` により、有効化したOpenGLの設定を無効化する必要があります。無効化しないまま描画関数を終えてしまうと、OpenGLの設定がすべてのBlenderのUIに対して適用されてしまいます。他のOpenGLの設定についても同様ですので、覚えておいてください。
 
 ### 図形を描画する関数を登録解除する
 
 登録した図形を描画する関数は、アドオン無効化時に登録を解除する必要があります。
 
-```python
-@staticmethod
-def handle_remove(self, context):
-    if RenderFigure.__handle is not None:
-        bpy.types.SpaceView3D.draw_handler_remove(
-            RenderFigure.__handle, 'WINDOW')
-        RenderFigure.__handle = None
-```
+[import:"handle_remove", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-4.py)
 
 描画関数の登録解除は、 ```bpy.types.SpaceView3D.draw_handler_remove()``` 関数で行います。
 
@@ -279,59 +189,16 @@ def handle_remove(self, context):
 
 最後に、本アドオンのUIを構築します。
 
-```python
-class OBJECT_PT_RF(bpy.types.Panel):
-    bl_label = "図形を表示"
-    bl_space_type = "VIEW_3D"
-    bl_region_type = "UI"
+[import:"panel_class", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-4.py)
 
-    def draw(self, context):
-        sc = context.scene
-        layout = self.layout
-        if context.area:
-            context.area.tag_redraw()
-        if sc.rf_running is True:
-            layout.operator(RenderingButton.bl_idname, text="Stop", icon="PAUSE")
-            layout.prop(sc, "rf_figure", "図形")
-            layout.prop(sc, "rf_vert_1", "頂点1")
-            layout.prop(sc, "rf_vert_2", "頂点2")
-            layout.prop(sc, "rf_vert_3", "頂点3")
-            if sc.rf_figure == 'RECTANGLE':
-                layout.prop(sc, "rf_vert_4", "頂点4")
-        elif sc.rf_running is False:
-            layout.operator(RenderingButton.bl_idname, text="Start", icon="PLAY")
-```
+[3-1節](01_Handle_Mouse_Click_Event.md) と同様、```bpy.types.Panel``` を継承したパネルクラスの中でUIを構築します。
 
-[3.1節](01_Handle_Mouse_Click_Event.md) と同様、 ```bpy.types.Panel``` を継承したパネルクラスの中でUIを構築します。
+最初に描画中か否かの判定を行った後、描画中であれば終了ボタンを、描画中でなければ開始ボタンを配置します。
 
-最初に描画中か否かの判定を行った後、描画中であればStopボタンを、描画中でなければStartボタンを配置します。
+終了ボタンが押された（```sc.rf_running``` が ```True```）時には、```handle_remove()``` メソッドを実行して描画関数を登録解除し、描画を中断します。開始ボタンが押された（```sc.rf_running``` が ```False```）時には、スタティックメソッド ```RenderFigure.handle_add()``` メソッドを実行して描画関数を登録し、描画を開始します。
 
-続いて、描画中であれば描画する図形や頂点の座標を指定できるようにするため、 ```layout.prop()``` 関数を用いてこれらのUIパーツを配置します。 ```layout.prop()``` 関数の詳細については、 [2-9節](../chapter_02/09_Control_Blender_UI_2.md) を参照してください。
+続いて、描画中であれば描画する図形や頂点の座標を指定できるようにするため、```layout.prop()``` 関数を用いてこれらのUIパーツを配置します。```layout.prop()``` 関数の詳細については、[2-9節](../chapter_02/09_Control_Blender_UI_2.md) を参照してください。四角形を描画する場合にはユーザが4つの頂点を指定できる必要があるため、描画する図形が四角形に選択されている場合は、4つ目の頂点を指定するUIパーツを配置します。
 
-四角形を描画する場合にはユーザが4つの頂点を指定できる必要があるため、描画する図形が四角形に選択されている場合は、4つ目の頂点を指定するUIパーツを配置します。
-
-最後に、描画開始/終了を行うオペレータクラスを作成します。
-
-```python
-class RenderingButton(bpy.types.Operator):
-    bl_idname = "view3d.rendering_button"
-    bl_label = "図形表示/非表示切り替えボタン"
-    bl_description = "図形の表示/非表示を切り替えるボタン"
-    bl_options = {'REGISTER', 'UNDO'}
-
-    def invoke(self, context, event):
-        sc = context.scene
-        if sc.rf_running is True:
-            RenderFigure.handle_remove(self, context)
-            sc.rf_running = False
-        elif sc.rf_running is False:
-            RenderFigure.handle_add(self, context)
-            sc.rf_running = True
-
-        return {'FINISHED'}
-```
-
-描画中にボタンが押された（ ```sc.rf_running``` が ```True``` ）時には、スタティックメソッド ```RenderFigure.handle_remove()``` 関数を実行して描画関数を登録解除し、描画を中断します。描画中でない場合にボタンが押された（ ```sc.rf_running``` が ```False``` ）時には、スタティックメソッド ```RenderFigure.handle_add()``` 関数を実行して描画関数を登録し、描画を開始します。
 
 ## まとめ
 
@@ -353,5 +220,6 @@ OpenGLを利用するためのAPIが用意されているとはいっても、Op
 * ```bgl``` モジュールは、オリジナルのOpenGLの使い方と似たような方法でOpenGLへアクセスするための手段を提供する
 * ```context.scene``` に登録したプロパティは、 パネルクラスの ```draw()``` メソッドで ```self.layout.prop()``` 関数を用いることによりUIパーツとして登録できる
 * ```bgl``` モジュールは、OpenGLの関数をすべてサポートしているわけではない。事前に使いたいAPIが用意されているかの確認が必要である
+* ```bgl.glEnable()``` 関数により有効化したOpenGLの設定は、描画関数を終える前に ```bgl.glDisable()``` を使って無効化する必要がある
 
 <div id="space_page"></div>

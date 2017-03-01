@@ -36,14 +36,14 @@ class RenderText(bpy.types.Operator):
     bl_label = "テキスト描画"
     bl_description = "テキストを描画します"
 
-    handle = None           # 描画関数ハンドラ
+    __handle = None           # 描画関数ハンドラ
 
 
     def __handle_add(self, context):
-        if RenderText.handle is None:
+        if RenderText.__handle is None:
 //! [add_render_func]
             # 描画関数の登録
-            RenderText.handle = bpy.types.SpaceView3D.draw_handler_add(
+            RenderText.__handle = bpy.types.SpaceView3D.draw_handler_add(
                 RenderText.render, (self, context), 'WINDOW', 'POST_PIXEL')
 //! [add_render_func]
             # モーダルモードへの移行
@@ -52,10 +52,10 @@ class RenderText(bpy.types.Operator):
 
     def __handle_remove(self, context):
 //! [remove_render_func]
-        if RenderText.handle is not None:
+        if RenderText.__handle is not None:
             # 描画関数の登録を解除
-            bpy.types.SpaceView3D.draw_handler_remove(RenderText.handle, 'WINDOW')
-            RenderText.handle = None
+            bpy.types.SpaceView3D.draw_handler_remove(RenderText.__handle, 'WINDOW')
+            RenderText.__handle = None
 //! [remove_render_func]
 
 
@@ -109,7 +109,6 @@ class RenderText(bpy.types.Operator):
             RenderText.render_text(30, 40, region.height - 180, "Suzanne on your lap")
 //! [call_render_region]
 
-
     def modal(self, context, event):
         props = context.scene.rt_props
         # 3Dビューの画面を更新
@@ -122,7 +121,6 @@ class RenderText(bpy.types.Operator):
             return {'FINISHED'}
 
         return {'PASS_THROUGH'}
-
 
     def invoke(self, context, event):
         props = context.scene.rt_props
@@ -147,7 +145,6 @@ class OBJECT_PT_RT(bpy.types.Panel):
     bl_label = "テキスト描画"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-
 
     def draw(self, context):
         sc = context.scene

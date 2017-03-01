@@ -1,9 +1,11 @@
 import bpy
+//! [import_bgl]
 import bgl
+//! [import_bgl]
 from bpy.props import FloatVectorProperty, BoolProperty, EnumProperty
 
 bl_info = {
-    "name": "サンプル8: OpenGL向けのAPIを利用して図形を表示する",
+    "name": "サンプル3-4: OpenGL向けのAPIを利用して図形を表示する",
     "author": "Nutti",
     "version": (1, 0),
     "blender": (2, 75, 0),
@@ -25,29 +27,31 @@ class RenderFigure(bpy.types.Operator):
 
     __handle = None
 
+//! [handle_add]
     # 画像描画関数を登録
-    @staticmethod
-    def handle_add(self, context):
+    def __handle_add(self, context):
         if RenderFigure.__handle is None:
             RenderFigure.__handle = bpy.types.SpaceView3D.draw_handler_add(
                 RenderFigure.render,
                 (self, context), 'WINDOW', 'POST_PIXEL')
+//! [handle_add]
 
+//! [handle_remove]
     # 画像描画関数を登録解除
-    @staticmethod
-    def handle_remove(self, context):
+    def __handle_remove(self, context):
         if RenderFigure.__handle is not None:
             bpy.types.SpaceView3D.draw_handler_remove(
                 RenderFigure.__handle, 'WINDOW')
             RenderFigure.__handle = None
+//! [handle_remove]
 
+//! [render]
     @staticmethod
     def render(self, context):
         sc = context.scene
 
         # OpenGLの設定
         bgl.glEnable(bgl.GL_BLEND)
-
         # 図形を表示
         if sc.rf_figure == 'TRIANGLE':
             bgl.glBegin(bgl.GL_TRIANGLES)
@@ -64,26 +68,42 @@ class RenderFigure(bpy.types.Operator):
             bgl.glVertex2f(sc.rf_vert_3[0], sc.rf_vert_3[1])
             bgl.glVertex2f(sc.rf_vert_4[0], sc.rf_vert_4[1])
             bgl.glEnd()
+        # 有効化したOpenGLの設定は無効化する
+        bgl.glDisable(bgl.GL_BLEND)
+//! [render]
 
+    def modal(self, context, event):
+        sc = context.scene
+        # 3Dビューの画面を更新
+        if context.area:
+            context.area.tag_redraw()
 
-class RenderingButton(bpy.types.Operator):
-    bl_idname = "view3d.rendering_button"
-    bl_label = "図形表示/非表示切り替えボタン"
-    bl_description = "図形の表示/非表示を切り替えるボタン"
-    bl_options = {'REGISTER', 'UNDO'}
+        # 作業時間計測を停止
+        if sc.rf_running is False:
+            self.__handle_remove(context)
+            return {'FINISHED'}
+
+        return {'PASS_THROUGH'}
 
     def invoke(self, context, event):
         sc = context.scene
-        if sc.rf_running is True:
-            RenderFigure.handle_remove(self, context)
-            sc.rf_running = False
-        elif sc.rf_running is False:
-            RenderFigure.handle_add(self, context)
-            sc.rf_running = True
+        if context.area.type == 'VIEW_3D':
+            # 開始ボタンが押された時の処理
+            if sc.rf_running is False:
+                sc.rf_running = True
+                self.__handle_add(context)
+                print("サンプル3-4: 図形の描画を開始しました。")
+                return {'RUNNING_MODAL'}
+            # 終了ボタンが押された時の処理
+            else:
+                props.rf_running = False
+                print("サンプル3-4: 図形の描画を終了しました。")
+                return {'FINISHED'}
+        else:
+            return {'CANCELLED'}
 
-        return {'FINISHED'}
 
-
+//! [panel_class]
 class OBJECT_PT_RF(bpy.types.Panel):
     bl_label = "図形を表示"
     bl_space_type = "VIEW_3D"
@@ -92,63 +112,59 @@ class OBJECT_PT_RF(bpy.types.Panel):
     def draw(self, context):
         sc = context.scene
         layout = self.layout
-        if context.area:
-            context.area.tag_redraw()
         if sc.rf_running is True:
-            layout.operator(RenderingButton.bl_idname, text="Stop", icon="PAUSE")
+            layout.operator(RenderFigure.bl_idname, text="終了", icon="PAUSE")
             layout.prop(sc, "rf_figure", "図形")
             layout.prop(sc, "rf_vert_1", "頂点1")
             layout.prop(sc, "rf_vert_2", "頂点2")
             layout.prop(sc, "rf_vert_3", "頂点3")
             if sc.rf_figure == 'RECTANGLE':
                 layout.prop(sc, "rf_vert_4", "頂点4")
-        elif sc.rf_running is False:
-            layout.operator(RenderingButton.bl_idname, text="Start", icon="PLAY")
+        else:
+            layout.operator(RenderFigure.bl_idname, text="開始", icon="PLAY")
+//! [panel_class]
 
 
-def register():
-    bpy.utils.register_module(__name__)
+//! [init_props]
+# プロパティの作成
+def init_props():
     sc = bpy.types.Scene
     sc.rf_running = BoolProperty(
-        name = "実行中",
-        description = "実行中か？",
-        default = False
-    )
+        name="実行中",
+        description="実行中か？",
+        default=False)
     sc.rf_figure = EnumProperty(
-        name = "図形",
-        description = "表示する図形",
-        items = [
+        name="図形",
+        description ="表示する図形",
+        items=[
             ('TRIANGLE', "三角形", "三角形を表示します"),
-            ('RECTANGLE', "四角形", "四角形を表示します")]
-    )
+            ('RECTANGLE', "四角形", "四角形を表示します")])
     sc.rf_vert_1 = FloatVectorProperty(
-        name = "頂点1",
-        description = "図形の頂点",
-        size = 2,
-        default = (50.0, 50.0)
-    )
+        name="頂点1",
+        description="図形の頂点",
+        size=2,
+        default=(50.0, 50.0))
     sc.rf_vert_2 = FloatVectorProperty(
-        name = "頂点2",
-        description = "図形の頂点",
-        size = 2,
-        default = (50.0, 100.0)
-    )
+        name="頂点2",
+        description="図形の頂点",
+        size=2,
+        default=(50.0, 100.0))
     sc.rf_vert_3 = FloatVectorProperty(
-        name = "頂点3",
-        description = "図形の頂点",
-        size = 2,
-        default = (100.0, 100.0)
-    )
+        name="頂点3",
+        description="図形の頂点",
+        size=2,
+        default=(100.0, 100.0))
     sc.rf_vert_4 = FloatVectorProperty(
-        name = "頂点4",
-        description = "図形の頂点",
-        size = 2,
-        default = (100.0, 50.0)
-    )
-    print("サンプル8: アドオン「サンプル8」が有効化されました。")
+        name="頂点4",
+        description="図形の頂点",
+        size=2,
+        default=(100.0, 50.0))
+//! [init_props]
 
 
-def unregister():
+//! [clear_props]
+# プロパティの削除
+def clear_props():
     sc = bpy.types.Scene
     del sc.rf_running
     del sc.rf_figure
@@ -156,8 +172,19 @@ def unregister():
     del sc.rf_vert_2
     del sc.rf_vert_3
     del sc.rf_vert_4
+//! [clear_props]
+
+
+def register():
+    bpy.utils.register_module(__name__)
+    init_props()
+    print("サンプル3-4: アドオン「サンプル3-4」が有効化されました。")
+
+
+def unregister():
+    clear_props()
     bpy.utils.unregister_module(__name__)
-    print("サンプル8: アドオン「サンプル8」が無効化されました。")
+    print("サンプル3-4: アドオン「サンプル3-4」が無効化されました。")
 
 
 if __name__ == "__main__":
