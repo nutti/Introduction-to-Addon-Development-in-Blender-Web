@@ -41,11 +41,11 @@ self.reportデバッグは、変数を表示したい箇所に ```self.report()`
 
 ## printデバッグ
 
-読んで字のごとく、 ```print()``` 関数を用いたデバッグ手法です。
+読んで字のごとく、```print()``` 関数を用いたデバッグ手法です。
 
-self.reportデバッグと同じように、確認したい変数の値を表示させてデバッグを行う方法ですが、self.reportデバッグでは確認できなかった処理中の変数も確認することができます。ただし ```print()``` 関数の出力先はコンソールウィンドウであるため、 [1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) を参考にして、コンソールウィンドウからBlenderを起動する必要があります。
+self.reportデバッグと同じように、確認したい変数の値を表示させてデバッグを行う方法ですが、self.reportデバッグでは確認できなかった処理中の変数も確認することができます。ただし ```print()``` 関数の出力先はコンソールウィンドウであるため、[1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) を参考にして、コンソールウィンドウからBlenderを起動する必要があります。
 
-以下の例では、 ```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値をコンソールウィンドウに出力することで、変数に正しい値が代入されているかを確認します。
+以下の例では、```execute()``` メソッド内で定義された変数 ```a``` と ```b``` の値をコンソールウィンドウに出力することで、変数に正しい値が代入されているかを確認します。
 
 ```python
 def execute(self, context):
@@ -305,7 +305,7 @@ BLNEDER_BASE_SCRIPT_PATHは、以下に示すようにOS依存です。BLENDER_V
 
 必要に応じて個人用の作業ディレクトリのパスを追加しても良いです。ここでは上で示したパスに加えて、 ```debug.py``` と ```debuggee.py``` が置かれたディレクトリのパスを指定します。
 
-保存先は、 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参照してください。
+保存先は、[1-5節](../chapter_01/05_Install_own_Add-on.md) を参照してください。
 
 <div id="process_start_end"></div>
 
@@ -658,7 +658,7 @@ breakpoint = bpy.types.bp.bp
 
 <div id="column"></div>
 
-[1.3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介した方法でBlenderをコンソールウィンドウから開いた場合は、コンソールウィンドウにもデバッグ情報が表示されているはずです。  
+[1-3節](../chapter_01/03_Prepare_Add-on_development_environment.md) で紹介した方法でBlenderをコンソールウィンドウから開いた場合は、コンソールウィンドウにもデバッグ情報が表示されているはずです。  
 またコンソールウィンドウから起動した場合に限り、Blender本体からコンソールウィンドウに制御が移ります。制御が移っている間は、コンソールウィンドウでPythonインタープリタを使うことができますが、Blenderでいかなる操作も受け付けなくなります。  
 Blender本体に制御を戻す（アドオンの実行を再開する）場合は、WindowsではCtrl+Zキーを、 Mac/LinuxではCtrl+Dキーを押してください。
 

@@ -77,7 +77,7 @@ Application Modulesである ```bpy``` モジュールは非常に大きなモ�
 
 ### Standalone Modules
 
-Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュールです。Application Modulesを使っただけでは実装が大変な処理を簡単かつ効率的に行うことができるAPIが提供されています。
+Standalone Modulesは、```bpy``` モジュールを拡張するモジュールです。Application Modulesを使っただけでは実装が大変な処理を簡単かつ効率的に行うことができるAPIが提供されています。
 
 |モジュール名|概要|
 |---|---|
@@ -89,7 +89,7 @@ Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュール
 |```bpy_extras```|```bpy``` モジュールを補助する目的で提供される便利関数群|
 |```bmesh```|メッシュデータを容易に扱うための関数群|
 
-ここでは、3Dビューエリアでアクティブ状態のオブジェクトを取得するためのAPI  ```bpy.props.EnumProperty``` を調べます。
+ここでは、3Dビューエリアでアクティブ状態のオブジェクトを取得するためのAPI ```bpy.props.EnumProperty``` を調べます。
 
 <div id="sidebyside"></div>
 
@@ -99,7 +99,7 @@ Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュール
 
 ## PythonコンソールウィンドウでAPIを検索・実行する
 
-[2.2節](../chapter_02/02_Register_Multiple_Operation_Classes.md)でも説明しましたが、 Pythonコンソールウィンドウを用いることでBlenderが提供するAPIを検索し、実行することができます。
+[2-2節](../chapter_02/02_Register_Multiple_Operation_Classes.md)でも説明しましたが、 Pythonコンソールウィンドウを用いることでBlenderが提供するAPIを検索し、実行することができます。
 
 ここでは、Pythonコンソールウィンドウを使ってAPIを調査する例を紹介します。
 
@@ -153,7 +153,7 @@ Standalone Modulesは、 ```bpy``` モジュールを拡張するモジュール
 ---
 
 
-以上のことから、 ```select``` はオブジェクトが選択状態であるか否かを調べるためのAPIであると判断できます。
+以上のことから、```select``` はオブジェクトが選択状態であるか否かを調べるためのAPIであると判断できます。
 
 実際にBlender公式のAPIドキュメント(```http://www.blender.org/api/blender_python_api_2_75a_release/bpy.types.Object.html#bpy.types.Object.select```)を調べてみると、以下のように記載されています。
 

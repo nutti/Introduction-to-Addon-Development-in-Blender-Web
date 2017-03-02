@@ -4,7 +4,7 @@ raw_path = 'sample_raw/'
 target_path = 'sample/'
 
 filelist = []
-entry = Dir.glob(raw_path + '**/**')
+entry = Dir.glob(raw_path + '**/**', File::FNM_DOTMATCH)
 entry.each {|e|
     next e if File::ftype(e) == 'directory'
     filelist.push(e)
@@ -12,7 +12,7 @@ entry.each {|e|
 
 filelist.each {|filepath|
     next filepath if filepath.match(/^sample\//)
-    next filepath if File.extname(filepath) != '.py'
+    next filepath if File.extname(filepath) != '.py' and File.extname(filepath) != '.yml'
 
     path = filepath.dup
     path.slice!(raw_path)

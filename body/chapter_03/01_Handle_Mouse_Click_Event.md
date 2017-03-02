@@ -11,7 +11,7 @@
 ## 作成するアドオンの仕様
 
 * 3Dビューエリアの編集モード時に、マウスで右クリックしたオブジェクトの面を削除する
-* プロパティパネル（3Dビューエリア上でNキーを押した時に右側に表示されるパネル）から、上記処理の開始/終了を切り替える
+* プロパティパネル（3Dビューエリア上でNキーを押した時に右側に表示されるパネル）から、上記処理の開始/終了を切り替えるボタンを配置する
 
 ## アドオンを作成する
 
@@ -26,7 +26,7 @@
 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参考に、作成したアドオンを有効化するとコンソールウィンドウに以下の文字列が出力されます。
 
 ```sh
-サンプル7: アドオン「サンプル7」が有効化されました。
+サンプル3-1: アドオン「サンプル3-1」が有効化されました。
 ```
 
 <div id="sidebyside"></div>
@@ -83,7 +83,7 @@
 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参考に有効化したアドオンを無効化すると、コンソールウィンドウに以下の文字列が出力されます。
 
 ```sh
-サンプル7: アドオン「サンプル7」が無効化されました。
+サンプル3-1: アドオン「サンプル3-1」が無効化されました。
 ```
 
 ## ソースコードの解説
@@ -94,26 +94,7 @@
 
 ```bpy.types.PropertyGroup``` クラスは、 [2-3節](../chapter_02/03_Use_Property_on_Tool_Shelf_1.md) で紹介したプロパティクラスをグループ化するためのクラスです。　```bpy.types.PropertyGroup``` クラスを継承し、グループ化したいプロパティクラスをクラス変数に追加して使用します。
 
-```python
-# プロパティ
-class DFRC_Properties(bpy.types.PropertyGroup):
-    running = BoolProperty(
-        name = "動作中",
-        description = "削除処理が動作中か？",
-        default = False)
-    right_mouse_down = BoolProperty(
-        name = "右クリックされた状態",
-        description = "右クリックされた状態か？",
-        default = False)
-    deleted = BoolProperty(
-        name = "面が削除された状態",
-        description = "面が削除された状態か？",
-        default = False)
-    deleted_count = IntProperty(
-        name = "削除した面数",
-        description = "削除した面の数",
-        default = 0)
-```
+[import:"define_properties", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
 本節のサンプルにおいてグループ化したプロパティ一覧を以下に示します。
 
@@ -124,28 +105,15 @@ class DFRC_Properties(bpy.types.PropertyGroup):
 |```deleted```|```True``` の時は、 右クリックにより削除された状態であることを示す。右クリックし続けた状態でマウスを動かし、複数の面が削除されないようにするために必要|
 |```deleted_count```|```running``` が ```True``` から ```False``` になるまでに削除された面の数|
 
-作成したグループは、 ```PointerProperty``` クラスを利用して登録します。
+作成したグループは、```register()``` 関数の処理内で ```PointerProperty``` クラスを利用して登録します。
 
-```python
-def register():
-# （略）
-    sc = bpy.types.Scene
-    sc.dfrc_props = PointerProperty(
-        name = "プロパティ",
-        description = "本アドオンで利用するプロパティ一覧",
-        type = DFRC_Properties)
-# （略）
-```
+[import:"register_properties", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
-アドオン有効時に ```PointerProperty``` の引数 ```type``` へグループ化のために定義したクラス名を指定することで、 ```bpy.types.Scene.dfrc_props``` 変数にプロパティのグループを登録します。以降、各プロパティには ```bpy.types.Scene.dfrc_props.running``` 等でアクセスすることができます。
+アドオン有効時に ```PointerProperty``` の引数 ```type``` へグループ化のために定義したクラス名を指定することで、```bpy.types.Scene.dfrc_props``` 変数にプロパティのグループを登録します。以降、各プロパティには ```bpy.types.Scene.dfrc_props.running``` 等でアクセスすることができます。
 
 アドオン無効時には、```bpy.types.Scene``` に追加したプロパティのグループを削除しています。
 
-```python
-def unregister():
-    del bpy.types.Scene.dfrc_props
-# （略）
-```
+[import:"unregister_properties", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
 
 ### UIを作成する
@@ -158,33 +126,11 @@ def unregister():
 
 パネルクラスのクラス変数については、[2-8節](../chapter_02/08_Control_Blender_UI_1.md) を参照してください。
 
-```python
-# UI
-class OBJECT_PT_DFRC(bpy.types.Panel):
-    bl_label = "マウスの右クリックで面を削除"
-    bl_space_type = "VIEW_3D"
-    bl_region_type = "UI"
-
-# ・・・（略）・・・
-```
+[import:"define_panel_class", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
 続いて、 ```draw()``` メソッドを定義します。
 
-```python
-# UI
-class OBJECT_PT_DFRC(bpy.types.Panel):
-# ・・・（略）・・・
-
-    def draw(self, context):
-        sc = context.scene
-        layout = self.layout
-        props = context.scene.dfrc_props
-        # 開始/停止ボタンを追加
-        if props.running is False:
-            layout.operator(DeleteFaceByRClick.bl_idname, text="開始", icon="PLAY")
-        else:
-            layout.operator(DeleteFaceByRClick.bl_idname, text="終了", icon="PAUSE")
-```
+[import:"define_draw_method", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
 
 ```draw()``` メソッドに渡されてくる引数 ```context``` には、 ```draw()``` メソッドが呼ばれた時のコンテキスト情報が含まれています。
@@ -198,35 +144,15 @@ class OBJECT_PT_DFRC(bpy.types.Panel):
 
 最後に、 *オペレータクラス* を作成します。
 
-本節のアドオンでは、これまで紹介したサンプル内のオペレータクラスで毎回定義した ```execute()``` メソッドが定義されていません。その代わり、 ```modal()``` メソッドと ```invoke()``` メソッドが定義されています。
+本節のアドオンでは、これまで紹介したサンプル内のオペレータクラスで毎回定義した ```execute()``` メソッドが定義されていません。その代わり、```modal()``` メソッドと ```invoke()``` メソッドが定義されています。
 
 #### invoke()メソッド
 
 本節のサンプルでは、ボタンが押した時に処理を開始/終了する処理を ```invoke()``` メソッドに記述します。
 
-```python
-def invoke(self, context, event):
-    props = context.scene.dfrc_props
-    if context.area.type == 'VIEW_3D':
-# ・・・（略）・・・
-    else:
-        return {'CANCELLED'}
-```
-
-
 プロパティグループ ```DFRC_Properties``` の取得方法は、UIの作成時に説明した方法と同じで、 ```context.scene.dfrc_props``` で取得できます。
 
-```python
-        if props.running is False:
-            props.running = True
-            props.deleted = False
-            props.right_mouse_down = False
-            props.deleted_count = 0
-            # modal処理クラスを追加
-            context.window_manager.modal_handler_add(self)
-            print("サンプル7: 削除処理を開始しました。")
-            return {'RUNNING_MODAL'}
-```
+[import:"press_start_button", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
 アドオンの機能実行開始時の処理は変数 ```props.running``` が ```False``` の時に行い、変数 ```props.running``` を ```True``` に設定した後、 ```DFRC_Properties``` の各クラス変数を初期値に設定します。最後に ```context.window_manager.modal_handler_add()``` 関数を実行してモーダルクラスを登録し、 ```{'RUNNING_MODAL'}``` を返してモーダルモードへ移行します。
 
@@ -234,14 +160,7 @@ def invoke(self, context, event):
 
 本節のアドオンでは、 ```invoke()``` メソッドと ```modal()``` メソッドを同一のクラスで定義しているため、 ```context.window_manager.modal_handler_add()``` 関数の引数に ```self``` を指定します。
 
-```python
-        # 処理停止
-        else:
-            props.running = False
-            self.report({'INFO'}, "サンプル7: %d個の面を削除しました。" % (props.deleted_count))
-            print("サンプル7: %d個の面を削除しました。" % (props.deleted_count))
-            return {'FINISHED'}
-```
+[import:"press_stop_button", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
 アドオンの機能実行終了時の処理は変数 ```props.running``` が ```True``` の時に行い、変数 ```props.running``` を ```False``` に設定後、モーダルモード中に削除した面の数を出力します。
 
@@ -254,39 +173,13 @@ def invoke(self, context, event):
 
 続いて、 *モーダルモード* 中に呼ばれる ```modal()``` メソッドについて説明します。
 
-```python
-def modal(self, context, event):
-    props = context.scene.dfrc_props
+最初に ```context.area.tag_redraw()``` 関数を実行し、3Dビューエリアを更新します。
 
-    # 3Dビューの画面を更新
-    if context.area:
-        context.area.tag_redraw()
+[import:"redraw_view3d", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
-    # 起動していない場合は終了
-    if props.running is False:
-        return {'PASS_THROUGH'}
+次に変数 ```props.running``` を確認し、アドオンの機能開始時の処理が開始されていない場合は ```{'FINISHED'}``` を返して ```modal()``` メソッドを終了します。
 
-# ・・・（略）・・・
-
-    return {'PASS_THROUGH'}
-```
-
-最初に ```context.area.tag_redraw()``` 関数を実行し、3Dビューエリアを更新します。次に変数 ```props.running``` を確認し、アドオンの機能開始時の処理が開始されていない場合は ```{'PASS_THROUGH'}``` を返して ```modal()``` メソッドを終了します。
-
-```{'PASS_THROUGH'}``` が返されるとイベントを本処理に閉じず、別の処理に対しても通知することができます。```{'PASS_THROUGH'}``` が指定されていないと、マウスやキーボードのイベントが発生した時に行う ```DeleteFaceByRClick``` の処理後にイベントが捨てられてしまい、マウスやキーボードからのイベントに対する他の処理が発生しなくなってしまいます。
-
-試しに、 ```modal()``` メソッドの最終行である ```return {'PASS_THROUGH'}``` を ```return {'RUNNING_MODAL'}``` に変更してみましょう。
-
-プロパティパネルからアドオンの機能を実行開始した後はボタンを押すことができなくなり、処理を終えることができなくなります。これは ```DeleteFaceByRClick``` の ```modal()``` メソッドでイベントが捨てられ、他の処理へイベントが通知されていないことを示します。
-
-```python
-    # クリック状態を更新
-    if event.type == 'RIGHTMOUSE':
-        if event.value == 'PRESS':
-            props.right_mouse_down = True
-        elif event.value == 'RELEASE':
-            props.right_mouse_down = False
-```
+[import:"update_click_status", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
 次に、```modal()``` メソッドの引数 ```event``` を用いて、マウスのクリックやキーボードが押された状態を取得します。```event.type``` には発生した様々なイベントの種類が保存されていて、例えば以下のようなイベントの種類があります。
 
@@ -304,23 +197,15 @@ def modal(self, context, event):
 |```PRESS```|ボタンやキーが押された|
 |```RELEASE```|ボタンやキーが離された|
 
+右クリックされた時の処理を実装します。削除処理の前に、 ```if props.right_mouse_down is True and props.deleted is False``` により、削除処理を行うか否かを確認しています。この確認処理には少し工夫を加えています。
 
-```python
-    # 右クリックされた面を削除
-    if props.right_mouse_down is True and props.deleted is False:
+[import:"delete_face", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
-# ・・・（略）・・・
-
-    # マウスがクリック状態から解除された時に、削除禁止状態を解除
-    if props.right_mouse_down is False:
-        props.deleted = False
-```
-
-右クリックされた時の処理を実装します。
-
-削除処理の前に、 ```if props.right_mouse_down is True and props.deleted is False``` により、削除処理を行うか否かを確認しています。この確認処理には少し工夫を加えています。
 
 右クリックをされたことを検出するためには、 ```props.right_mouse_down``` が ```True``` であることの判定だけで問題ないように思えます。しかし、右クリックが押されたいる間は ```props.right_mouse_down``` が常に ```True``` になるため、クリック中にマウスを移動させると面を削除できてしまいます。これは、本来期待する動作(右クリックを行った直後の1回だけ面を削除)とは少し異なります。そこで変数 ```props.deleted``` が ```True``` であることを確認し、すでに面を一度削除した状態であれば、削除処理を行わないようにします。そして ```props.right_mouse_down``` が ```False``` に変わった時に ```props.deleted``` を ```False``` に戻すことで、次に右クリックが行われた時に面を削除できるようにします。
+
+[import:"clear_restrict_status", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+
 
 続いて面を削除の処理の説明をします。
 
@@ -332,20 +217,13 @@ def modal(self, context, event):
 
 ```bmesh``` を利用するためには、以下のように ```bmesh``` モジュールをインポートする必要があります。
 
-```python
-import bmesh
-```
+[import:"import_bmesh", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
 面の削除処理本体を説明します。
 
 最初にメッシュデータにアクセスするため、 ```bmesh``` 用のメッシュデータを構築します。編集中のオブジェクトデータ ```context.edit_object.data``` を ```bmesh.from_edit_mesh()``` 関数の引数に渡すことで、 ```bmesh``` 用のメッシュデータを構築できます。
 
-```python
-        # bmeshの構築
-        obj = context.edit_object
-        me = obj.data
-        bm = bmesh.from_edit_mesh(me)
-```
+[import:"build_bmesh", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
 次に、クリックされた面を削除する処理について説明します。
 
@@ -361,28 +239,13 @@ import bmesh
 
 ```bpy.ops.view3d.select()``` 関数の引数 ```location``` にマウスの位置を指定することで、マウスの位置にある面を選択することができます。もしマウスの位置に面がなければ ```bpy.ops.view3d.select()``` 関数は ```{'PASS_THROUGH'}``` を返すため、マウスの位置に面がないことを出力した後に処理を終了します。
 
-```python
-        # クリックされた面を選択
-        loc = event.mouse_region_x, event.mouse_region_y
-        ret = bpy.ops.view3d.select(location=loc)
-        if ret == {'PASS_THROUGH'}:
-            print("サンプル7: 選択範囲外です。")
-            return {'PASS_THROUGH'}
-
-```
+[import:"select_clicked_face", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
 続いて2の選択された面を取得する手順について説明します。
 
 選択された面は、 ```bmesh``` の履歴情報のうち最後に選択された面として取得できます。頂点・辺・面の選択履歴 ```bm.select_history``` の最後の要素が面であるか否かを確認し、面であれば処理を継続します。面でなければ ```{'PASS_THROUGH'}``` を返して処理を終了します。
 
-```python
-        # 選択面を取得
-        e = bm.select_history[-1]
-        if not isinstance(e, bmesh.types.BMFace):
-            bm.select_history.remove(e)
-            print("サンプル7: 面以外を選択しました。")
-            return {'PASS_THROUGH'}
-```
+[import:"get_selected_face", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
 最後に選択した面を削除します。
 
@@ -396,30 +259,23 @@ import bmesh
 
 今回は面を削除するため、 ```context``` に ```5``` を指定しています。
 
-```python
-        # 選択面を削除
-        bm.select_history.remove(e)
-        bmesh.ops.delete(bm, geom=[e], context=5)
-```
+[import:"delete_selected_face", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
 面を削除したことをメッシュに反映させるため、 ```bmesh.update_edit_mesh()``` 関数を実行します。この関数を実行しないとメッシュが更新されませんので、 ```bmesh``` 用のメッシュデータを修正した時は必ず実行するようにしましょう。
 
-```python
-        # bmeshの更新
-        bmesh.update_edit_mesh(me, True)
-```
+[import:"update_bmesh", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
 
 面の削除処理の説明はこれで終わりです。
 
 最後に、削除した面数をカウントアップして変数 ```props.deleted``` を ```True``` に変更し、マウスの右ボタンが押された状態で連続して面が削除されないようにします。
 
-```python
-        # 削除面数をカウントアップ
-        props.deleted_count = props.deleted_count + 1
-        # マウスクリック中に連続して面が削除されることを防ぐ
-        props.deleted = True
-        print("サンプル7: 面を削除しました。")
-```
+[import:"post_process", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+
+最後に、```modal``` メソッドは ```{'PASS_THROUGH'}``` を返します。```{'PASS_THROUGH'}``` が返されるとイベントを本処理に閉じず、別の処理に対しても通知することができます。```{'PASS_THROUGH'}``` が指定されていないと、マウスやキーボードのイベントが発生した時に行う ```DeleteFaceByRClick``` の処理後にイベントが捨てられてしまい、マウスやキーボードからのイベントに対する他の処理が発生しなくなってしまいます。
+
+試しに、 ```modal()``` メソッドの最終行である ```return {'PASS_THROUGH'}``` を ```return {'RUNNING_MODAL'}``` に変更してみましょう。
+
+プロパティパネルからアドオンの機能を実行開始した後はボタンを押すことができなくなり、処理を終えることができなくなります。これは ```DeleteFaceByRClick``` の ```modal()``` メソッドでイベントが捨てられ、他の処理へイベントが通知されていないことを示します。
 
 ## まとめ
 
