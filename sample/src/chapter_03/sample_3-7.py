@@ -2,6 +2,7 @@ import bpy
 import bmesh
 from bpy.props import IntProperty, BoolProperty, PointerProperty
 
+
 bl_info = {
     "name": "サンプル3-7: マウスの右クリックで面を削除する（多言語対応版）",
     "author": "Nutti",
@@ -64,6 +65,7 @@ translation_dict = {
             "サンプル3-7: アドオン「サンプル3-7」が無効化されました。"
     }
 }
+
 
 # プロパティ
 class DFRC_Properties(bpy.types.PropertyGroup):

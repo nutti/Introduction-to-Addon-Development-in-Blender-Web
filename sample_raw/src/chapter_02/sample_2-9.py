@@ -1,6 +1,7 @@
 import bpy
 from bpy.props import IntProperty, FloatProperty, EnumProperty, FloatVectorProperty, StringProperty
 
+
 bl_info = {
     "name": "サンプル2-9: BlenderのUIを制御するアドオン2",
     "author": "Nutti",
@@ -15,7 +16,9 @@ bl_info = {
     "category": "User Interface"
 }
 
+
 class NullOperation(bpy.types.Operator):
+
     bl_idname = "object.null_operation"
     bl_label = "NOP"
     bl_description = "何もしない"
@@ -26,19 +29,20 @@ class NullOperation(bpy.types.Operator):
 
 
 class NullOperationMenu(bpy.types.Menu):
+
     bl_idname = "object.null_operation_menu"
     bl_label = "NOP メニュー"
     bl_description = "何もしない処理を複数持つメニュー"
 
     def draw(self, context):
         layout = self.layout
-
         # メニュー項目の追加
         for i in range(3):
             layout.operator(NullOperation.bl_idname, text=("項目 %d" % (i)))
 
 
 class ShowAllIcons(bpy.types.Operator):
+
     bl_idname = "object.show_all_icons"
     bl_label = "利用可能なアイコンをすべて表示"
     bl_description = "利用可能なアイコンをすべて表示"
@@ -49,7 +53,8 @@ class ShowAllIcons(bpy.types.Operator):
         description="一行に表示するアイコン数",
         default=2,
         min=1,
-        max=5)
+        max=5
+    )
 
 //! [customize_option_UI]
     # オプションのUI
@@ -74,12 +79,12 @@ class ShowAllIcons(bpy.types.Operator):
 
 # ツールシェルフに「カスタムメニュー」タブを追加
 class VIEW3D_PT_CustomMenu(bpy.types.Panel):
+
     bl_label = "カスタムメニュー"          # タブに表示される文字列
     bl_space_type = 'VIEW_3D'           # メニューを表示するエリア
     bl_region_type = 'TOOLS'            # メニューを表示するリージョン
     bl_category = "カスタムメニュー"       # タブを開いたメニューのヘッダーに表示される文字列
     bl_context = "objectmode"           # パネルを表示するコンテキスト
-
 
     # 本クラスの処理が実行可能かを判定する
     @classmethod
@@ -273,28 +278,33 @@ def init_props():
         description="Integer Property",
         default=100,
         min=0,
-        max=255)
+        max=255
+    )
     scene.cm_prop_float = FloatProperty(
         name="Prop 2",
         description="Float Property",
         default=0.75,
         min=0.0,
-        max=1.0)
+        max=1.0
+    )
     scene.cm_prop_enum = EnumProperty(
         name="Prop 3",
         description="Enum Property",
         items=[
             ('ITEM_1', "項目 1", "項目 1"),
             ('ITEM_2', "項目 2", "項目 2"),
-            ('ITEM_3', "項目 3", "項目 3")],
-        default='ITEM_1')
+            ('ITEM_3', "項目 3", "項目 3")
+        ],
+        default='ITEM_1'
+    )
     scene.cm_prop_floatv = FloatVectorProperty(
         name="Prop 4",
         description="Float Vector Property",
         subtype='COLOR_GAMMA',
         default=(1.0, 1.0, 1.0),
         min=0.0,
-        max=1.0)
+        max=1.0
+    )
 //! [init_props]
 
 

@@ -2,6 +2,7 @@ import bpy
 from bpy.props import StringProperty, FloatVectorProperty, EnumProperty
 from mathutils import Vector
 
+
 bl_info = {
     "name": "サンプル2-5: オブジェクトを複製するアドオン",
     "author": "Nutti",
@@ -36,35 +37,31 @@ class ReplicateObject(bpy.types.Operator):
     bl_options = {'REGISTER', 'UNDO'}
 
     location = EnumProperty(
-        name = "配置位置",
-        description = "複製したオブジェクトの配置位置",
-        items = location_list_fn
+        name="配置位置",
+        description="複製したオブジェクトの配置位置",
+        items=location_list_fn
     )
-
     scale = FloatVectorProperty(
-        name = "拡大率",
-        description = "複製したオブジェクトの拡大率を設定します",
-        default = (1.0, 1.0, 1.0),
-        subtype = 'XYZ',
-        unit = 'LENGTH'
+        name="拡大率",
+        description="複製したオブジェクトの拡大率を設定します",
+        default=(1.0, 1.0, 1.0),
+        subtype='XYZ',
+        unit='LENGTH'
     )
-
     rotation = FloatVectorProperty(
-        name = "回転角度",
-        description = "複製したオブジェクトの回転角度を設定します",
-        default = (0.0, 0.0, 0.0),
-        subtype = 'AXISANGLE',
-        unit = 'ROTATION'
+        name="回転角度",
+        description="複製したオブジェクトの回転角度を設定します",
+        default=(0.0, 0.0, 0.0),
+        subtype='AXISANGLE',
+        unit='ROTATION'
     )
-
     offset = FloatVectorProperty(
-        name = "オフセット",
-        description = "複製したオブジェクトの配置位置からのオフセットを設定します",
-        default = (0.0, 0.0, 0.0),
-        subtype = 'TRANSLATION',
-        unit = 'LENGTH'
+        name="オフセット",
+        description="複製したオブジェクトの配置位置からのオフセットを設定します",
+        default=(0.0, 0.0, 0.0),
+        subtype='TRANSLATION',
+        unit='LENGTH'
     )
-
     src_obj_name = bpy.props.StringProperty()
 
     def execute(self, context):
@@ -104,14 +101,15 @@ class ReplicateObject(bpy.types.Operator):
         # 複製したオブジェクトの最終位置を設定
         active_obj.location = active_obj.location + Vector(self.offset)
 
-        self.report({'INFO'}, "サンプル2-5: 「%s」を複製しました。" % self.src_obj_name)
-        print("サンプル2-5: オペレーション「%s」が実行されました。" % self.bl_idname)
+        self.report({'INFO'}, "サンプル2-5: 「%s」を複製しました。" % (self.src_obj_name))
+        print("サンプル2-5: オペレーション「%s」が実行されました。" % (self.bl_idname))
 
         return {'FINISHED'}
 
 
 # メインメニュー
 class ReplicateObjectMenu(bpy.types.Menu):
+
     bl_idname = "uv.replicate_object_menu"
     bl_label = "オブジェクトの複製"
     bl_description = "オブジェクトを複製します"

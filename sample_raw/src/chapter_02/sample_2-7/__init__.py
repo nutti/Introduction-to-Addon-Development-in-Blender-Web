@@ -12,6 +12,7 @@ bl_info = {
     "category": "Object"
 }
 
+
 //! [import_moudle]
 if "bpy" in locals():
     import imp
@@ -21,8 +22,10 @@ else:
     from . import enlarge_object
     from . import reduce_object
 
+
 import bpy
 //! [import_moudle]
+
 
 # メニューを構築する関数
 def menu_fn(self, context):

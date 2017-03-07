@@ -2,6 +2,7 @@ import bpy
 from bpy.props import FloatVectorProperty, EnumProperty
 from mathutils import Vector
 
+
 bl_info = {
     "name": "サンプル2-6: オブジェクトを複製するアドオン",
     "author": "Nutti",
@@ -18,6 +19,7 @@ bl_info = {
 
 addon_keymaps = []          # 登録したショートカットキー一覧
 
+
 # EnumPropertyで表示したい項目リストを作成する関数
 def location_list_fn(scene, context):
     items = [
@@ -26,6 +28,7 @@ def location_list_fn(scene, context):
     items.extend([('OBJ_' + o.name, o.name, "オブジェクトに配置します") for o in bpy.data.objects])
 
     return items
+
 
 # 選択したオブジェクトを複製するアドオン
 class ReplicateObject(bpy.types.Operator):
@@ -36,33 +39,30 @@ class ReplicateObject(bpy.types.Operator):
     bl_options = {'REGISTER', 'UNDO'}
 
     location = EnumProperty(
-        name = "配置位置",
-        description = "複製したオブジェクトの配置位置",
-        items = location_list_fn
+        name="配置位置",
+        description="複製したオブジェクトの配置位置",
+        items=location_list_fn
     )
-
     scale = FloatVectorProperty(
-        name = "拡大率",
-        description = "複製したオブジェクトの拡大率を設定します",
-        default = (1.0, 1.0, 1.0),
-        subtype = 'XYZ',
-        unit = 'LENGTH'
+        name="拡大率",
+        description="複製したオブジェクトの拡大率を設定します",
+        default=(1.0, 1.0, 1.0),
+        subtype='XYZ',
+        unit='LENGTH'
     )
-
     rotation = FloatVectorProperty(
-        name = "回転角度",
-        description = "複製したオブジェクトの回転角度を設定します",
-        default = (0.0, 0.0, 0.0),
-        subtype = 'AXISANGLE',
-        unit = 'ROTATION'
+        name="回転角度",
+        description="複製したオブジェクトの回転角度を設定します",
+        default=(0.0, 0.0, 0.0),
+        subtype='AXISANGLE',
+        unit='ROTATION'
     )
-
     offset = FloatVectorProperty(
-        name = "オフセット",
-        description = "複製したオブジェクトの配置位置からのオフセットを設定します",
-        default = (0.0, 0.0, 0.0),
-        subtype = 'TRANSLATION',
-        unit = 'LENGTH'
+        name="オフセット",
+        description="複製したオブジェクトの配置位置からのオフセットを設定します",
+        default=(0.0, 0.0, 0.0),
+        subtype='TRANSLATION',
+        unit='LENGTH'
     )
 
     def execute(self, context):
@@ -93,8 +93,8 @@ class ReplicateObject(bpy.types.Operator):
         # 複製したオブジェクトの最終位置を設定
         active_obj.location = active_obj.location + Vector(self.offset)
 
-        self.report({'INFO'}, "サンプル2-6: 「%s」を複製しました。" % src_obj_name)
-        print("サンプル2-6: オペレーション「%s」が実行されました。" % self.bl_idname)
+        self.report({'INFO'}, "サンプル2-6: 「%s」を複製しました。" % (src_obj_name))
+        print("サンプル2-6: オペレーション「%s」が実行されました。" % (self.bl_idname))
 
         return {'FINISHED'}
 
@@ -117,7 +117,8 @@ def register_shortcut():
             value="PRESS",
             shift=False,
             ctrl=True,
-            alt=True)
+            alt=True
+        )
         # ショートカットキー一覧に登録
         addon_keymaps.append((km, kmi))
 

@@ -1,6 +1,7 @@
 import bpy
 from bpy.props import IntProperty, FloatProperty, EnumProperty, FloatVectorProperty, StringProperty
 
+
 bl_info = {
     "name": "サンプル2-8: BlenderのUIを制御するアドオン1",
     "author": "Nutti",
@@ -15,6 +16,7 @@ bl_info = {
     "category": "User Interface"
 }
 
+
 class NullOperation(bpy.types.Operator):
     bl_idname = "object.null_operation"
     bl_label = "NOP"
@@ -28,13 +30,13 @@ class NullOperation(bpy.types.Operator):
 //! [panel_cls]
 # ツールシェルフに「カスタムメニュー」タブを追加
 class VIEW3D_PT_CustomMenu(bpy.types.Panel):
+
     bl_label = "カスタムメニュー"          # タブに表示される文字列
     bl_space_type = 'VIEW_3D'           # メニューを表示するエリア
     bl_region_type = 'TOOLS'            # メニューを表示するリージョン
     bl_category = "カスタムメニュー"       # タブを開いたメニューのヘッダーに表示される文字列
     bl_context = "objectmode"           # パネルを表示するコンテキスト
 //! [panel_cls]
-
 
 //! [poll]
     # 本クラスの処理が実行可能かを判定する

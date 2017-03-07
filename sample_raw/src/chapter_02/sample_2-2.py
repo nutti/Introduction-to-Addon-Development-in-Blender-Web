@@ -1,5 +1,6 @@
 import bpy
 
+
 bl_info = {
     "name": "サンプル2-2: オブジェクトを拡大・縮小するアドオン",
     "author": "Nutti",
@@ -30,8 +31,8 @@ class EnlargeObject(bpy.types.Operator):
     def execute(self, context):
         active_obj = context.active_object
         active_obj.scale = active_obj.scale * 2.0
-        self.report({'INFO'}, "サンプル2-2: 「" + active_obj.name + "」を2倍に拡大しました。")
-        print("サンプル2-2: オペレーション「"+ self.bl_idname +"」が実行されました。")
+        self.report({'INFO'}, "サンプル2-2: 「%s」を2倍に拡大しました。" % (active_obj.name))
+        print("サンプル2-2: オペレーション「%s」が実行されました。" % (self.bl_idname))
 
         return {'FINISHED'}
 //! [execute_enlarge_object]
@@ -52,8 +53,8 @@ class ReduceObject(bpy.types.Operator):
     def execute(self, context):
         active_obj = context.active_object
         active_obj.scale = active_obj.scale * 0.5
-        self.report({'INFO'}, "サンプル2-2: 「" + active_obj.name + "」を1/2倍に縮小しました。")
-        print("サンプル2-2: オペレーション「"+self.bl_idname+"」が実行されました。")
+        self.report({'INFO'}, "サンプル2-2: 「%s」を1/2倍に縮小しました。" % (active_obj.name))
+        print("サンプル2-2: オペレーション「%s」が実行されました。" % (self.bl_idname))
 
         return {'FINISHED'}
 //! [execute_reduce_object]

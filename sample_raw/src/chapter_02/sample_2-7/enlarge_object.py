@@ -1,5 +1,6 @@
 import bpy
 
+
 # オブジェクトを拡大するオペレーション
 class EnlargeObject(bpy.types.Operator):
 
@@ -12,7 +13,7 @@ class EnlargeObject(bpy.types.Operator):
     def execute(self, context):
         active_obj = context.active_object
         active_obj.scale = active_obj.scale * 2.0
-        self.report({'INFO'}, "サンプル 2-7: 「" + active_obj.name + "」を2倍に拡大しました。")
-        print("サンプル 2-7: オペレーション「" + self.bl_idname + "」が実行されました。")
+        self.report({'INFO'}, "サンプル 2-7: 「%s」を2倍に拡大しました。" % (active_obj.name))
+        print("サンプル 2-7: オペレーション「%s」が実行されました。" % (self.bl_idname))
 
         return {'FINISHED'}

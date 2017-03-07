@@ -3,6 +3,7 @@
 import bpy   # アドオン開発者に対して用意しているAPIを利用する
 //! [import_bpy]
 
+
 //! [bl_info]
 # アドオンに関する情報を保持する、bl_info変数
 bl_info = {

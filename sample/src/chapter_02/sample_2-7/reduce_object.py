@@ -12,7 +12,7 @@ class ReduceObject(bpy.types.Operator):
     def execute(self, context):
         active_obj = context.active_object
         active_obj.scale = active_obj.scale * 0.5
-        self.report({'INFO'}, "サンプル 2-7: 「" + active_obj.name + "」を1/2倍に縮小しました。")
-        print("サンプル 2-7: オペレーション「" + self.bl_idname + "」が実行されました。")
+        self.report({'INFO'}, "サンプル 2-7: 「%s」を1/2倍に縮小しました。" % (active_obj.name))
+        print("サンプル 2-7: オペレーション「%s」が実行されました。" % (self.bl_idname))
 
         return {'FINISHED'}

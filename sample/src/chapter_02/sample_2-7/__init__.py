@@ -12,6 +12,7 @@ bl_info = {
     "category": "Object"
 }
 
+
 if "bpy" in locals():
     import imp
     imp.reload(enlarge_object)
@@ -20,7 +21,9 @@ else:
     from . import enlarge_object
     from . import reduce_object
 
+
 import bpy
+
 
 # メニューを構築する関数
 def menu_fn(self, context):
