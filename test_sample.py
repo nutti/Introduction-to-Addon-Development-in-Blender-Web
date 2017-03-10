@@ -1,5 +1,9 @@
+# coding:utf-8
+
 import bpy
 import unittest
+from io import StringIO
+import sys
 
 
 def check_addon_enabled(self, mod):
@@ -21,6 +25,22 @@ def operator_exists(idname):
         return True
     except:
         return False
+
+
+def menu_exists(idname):
+    return idname in dir(bpy.types)
+
+
+class StdoutCapture():
+    def setUp(self):
+        self.capture = StringIO()
+        sys.stdout = self.capture
+
+    def tearDown(self):
+        sys.stdout = sys.__stdout__
+
+    def get_captured_value(self):
+        return self.capture.getValue()
 
 
 class Test_Sample_1_5(unittest.TestCase):
@@ -107,6 +127,7 @@ class Test_Sample_2_5(unittest.TestCase):
 
     def test_addon_registered(self):
         check_addon_enabled(self, 'sample_2-5')
+        self.assertTrue(menu_exists("object.replicate_object_menu"))
         self.assertTrue(operator_exists("object.replicate_object"))
         result = bpy.ops.object.replicate_object(
             location='ORIGIN',
@@ -118,6 +139,33 @@ class Test_Sample_2_5(unittest.TestCase):
         self.assertSetEqual(result, {'FINISHED'})
         self.assertIsNotNone(bpy.data.objects['Cube.001'])
         check_addon_disabled(self, 'sample_2-5')
+        self.assertFalse(menu_exists("object.replicate_object_menu"))
+        self.assertFalse(operator_exists("object.replicate_object"))
+
+
+
+class Test_Sample_2_5_alt(unittest.TestCase):
+    def test_addon_enabled(self):
+        check_addon_enabled(self, 'sample_2-5_alt')
+        check_addon_disabled(self, 'sample_2-5_alt')
+
+    def test_addon_registered(self):
+        check_addon_enabled(self, 'sample_2-5_alt')
+        self.assertTrue(menu_exists("object.replicate_object_menu"))
+        self.assertTrue(menu_exists("object.replicate_object_sub_menu"))
+        self.assertTrue(operator_exists("object.replicate_object"))
+        result = bpy.ops.object.replicate_object(
+            location='ORIGIN',
+            scale=(2.0, 1.5, 1.0),
+            rotation=(0.1, -0.1, 0.5),
+            offset=(10.0, -20.0, 15.0),
+            src_obj_name='Cube'
+        )
+        self.assertSetEqual(result, {'FINISHED'})
+        self.assertIsNotNone(bpy.data.objects['Cube.001'])
+        check_addon_disabled(self, 'sample_2-5_alt')
+        self.assertFalse(menu_exists("object.replicate_object_menu"))
+        self.assertFalse(menu_exists("object.replicate_object_sub_menu"))
         self.assertFalse(operator_exists("object.replicate_object"))
 
 
@@ -131,6 +179,7 @@ if __name__ == "__main__":
         Test_Sample_2_5
     ]
 
+    suite = unittest.TestSuite()
     for case in test_cases:
-        suite = unittest.defaultTestLoader.loadTestsFromTestCase(case)
-        unittest.TextTestRunner().run(suite)
+        suite.addTest(unittest.makeSuite(case))
+    unittest.TextTestRunner().run(suite)

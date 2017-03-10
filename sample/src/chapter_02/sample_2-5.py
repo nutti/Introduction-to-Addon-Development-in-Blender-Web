@@ -110,7 +110,7 @@ class ReplicateObject(bpy.types.Operator):
 # メインメニュー
 class ReplicateObjectMenu(bpy.types.Menu):
 
-    bl_idname = "uv.replicate_object_menu"
+    bl_idname = "object.replicate_object_menu"
     bl_label = "オブジェクトの複製"
     bl_description = "オブジェクトを複製します"
 
