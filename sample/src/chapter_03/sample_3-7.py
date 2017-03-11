@@ -183,7 +183,6 @@ class OBJECT_PT_DFRC(bpy.types.Panel):
     bl_region_type = "UI"
 
     def draw(self, context):
-        sc = context.scene
         layout = self.layout
         props = context.scene.dfrc_props
         # 開始/停止ボタンを追加

@@ -90,7 +90,7 @@ class RenderFigure(bpy.types.Operator):
                 return {'RUNNING_MODAL'}
             # 終了ボタンが押された時の処理
             else:
-                props.rf_running = False
+                sc.rf_running = False
                 print("サンプル3-4: 図形の描画を終了しました。")
                 return {'FINISHED'}
         else:

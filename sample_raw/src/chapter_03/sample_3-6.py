@@ -92,8 +92,6 @@ class StopAudioFile(bpy.types.Operator):
 
 //! [stop_audio_file]
     def execute(self, context):
-        sc = context.scene
-
         if AudioDevice.handle is None:
             return {'CANCELLED'}
         # 再生停止

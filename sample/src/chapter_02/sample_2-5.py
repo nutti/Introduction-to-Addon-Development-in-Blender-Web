@@ -62,7 +62,7 @@ class ReplicateObject(bpy.types.Operator):
         subtype='TRANSLATION',
         unit='LENGTH'
     )
-    src_obj_name = bpy.props.StringProperty()
+    src_obj_name = StringProperty()
 
     def execute(self, context):
         # bpy.ops.object.duplicate()は選択中のオブジェクトをコピーするため、

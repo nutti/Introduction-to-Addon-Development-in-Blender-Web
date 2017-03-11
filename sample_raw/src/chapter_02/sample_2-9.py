@@ -1,5 +1,5 @@
 import bpy
-from bpy.props import IntProperty, FloatProperty, EnumProperty, FloatVectorProperty, StringProperty
+from bpy.props import IntProperty, FloatProperty, EnumProperty, FloatVectorProperty
 
 
 bl_info = {

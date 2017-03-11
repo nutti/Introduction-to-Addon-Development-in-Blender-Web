@@ -81,7 +81,8 @@ class ShowDialogMenu(bpy.types.Operator):
 
     def execute(self, context):
         self.report({'INFO'}, "サンプル2-10: [1] %d, [2] %f, [3] %s, [4] (%f, %f, %f)"
-            % (self.prop_int, self.prop_float, self.prop_enum, self.prop_floatv[0], self.prop_floatv[1], self.prop_floatv[2]))
+            % (self.prop_int, self.prop_float, self.prop_enum, self.prop_floatv[0], self.prop_floatv[1], self.prop_floatv[2])
+        )
 
         return {'FINISHED'}
 
@@ -111,7 +112,8 @@ class ShowFileBrowser(bpy.types.Operator):
 
     def execute(self, context):
         self.report({'INFO'}, "サンプル2-10: [FilePath] %s, [FileName] %s, [Directory] %s"
-            % (self.filepath, self.filename, self.directory))
+            % (self.filepath, self.filename, self.directory)
+        )
         return {'FINISHED'}
 
     def invoke(self, context, event):
@@ -249,7 +251,6 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
     # メニューの描画処理
     def draw(self, context):
         layout = self.layout
-        scene = context.scene
 
         # ポップアップメッセージを表示する
         layout.label(text="ポップアップメッセージを表示する:")

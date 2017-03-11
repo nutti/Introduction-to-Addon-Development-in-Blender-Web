@@ -1,5 +1,3 @@
-import bpy
-
 bl_info = {
     "name": "サンプル1-5: 何もしないアドオン",
     "author": "Nutti",

@@ -63,7 +63,7 @@ class ReplicateObject(bpy.types.Operator):
         unit='LENGTH'
     )
 //! [string_prop]
-    src_obj_name = bpy.props.StringProperty()
+    src_obj_name = StringProperty()
 //! [string_prop]
 
     def execute(self, context):

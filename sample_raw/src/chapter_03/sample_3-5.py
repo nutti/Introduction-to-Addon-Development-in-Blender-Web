@@ -1,10 +1,8 @@
 import bpy
-from bpy.props import BoolProperty, PointerProperty, IntProperty, EnumProperty
+from bpy.props import BoolProperty, PointerProperty
 //! [import_blf]
 import blf
 //! [import_blf]
-import datetime
-import math
 
 
 bl_info = {
@@ -74,14 +72,19 @@ class RenderText(bpy.types.Operator):
     @staticmethod
     def get_region(context, area_type, region_type):
         region = None
+        area = None
 
         # 指定されたエリアを取得する
-        for area in context.screen.areas:
-            if area.type == area_type:
+        for a in context.screen.areas:
+            if a.type == area_type:
+                area = a
                 break
+        if area is None:
+            return None
         # 指定されたリージョンを取得する
-        for region in area.regions:
-            if region.type == region_type:
+        for r in area.regions:
+            if r.type == region_type:
+                region = r
                 break
 
         return region

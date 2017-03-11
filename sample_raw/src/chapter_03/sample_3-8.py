@@ -60,26 +60,31 @@ class DrawObjectTrajectory(bpy.types.Operator):
     @staticmethod
     def get_region_space(context, area_type, region_type, space_type):
         region = None
+        area = None
+        space = None
+
         # 指定されたエリアを取得する
-        for area in context.screen.areas:
-            if area.type == area_type:
+        for a in context.screen.areas:
+            if a.type == area_type:
+                area = a
                 break
+        if area is None:
+            return (None, None)
         # 指定されたリージョンを取得する
-        for region in area.regions:
-            if region.type == region_type:
+        for r in area.regions:
+            if r.type == region_type:
+                region = r
                 break
         # 指定されたスペースを取得する
-        for space in area.spaces:
-            if space.type == space_type:
+        for s in area.spaces:
+            if s.type == space_type:
+                space = s
                 break
 
         return (region, space)
 
     @staticmethod
     def render(self, context):
-        sc = context.scene
-        props = sc.dot_props
-
 //! [loc_to_region]
         # 指定したリージョンとスペースを取得する
         region, space = DrawObjectTrajectory.get_region_space(context, 'VIEW_3D', 'WINDOW', 'VIEW_3D')

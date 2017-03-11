@@ -93,7 +93,6 @@ class OBJECT_PT_SOEM(bpy.types.Panel):
     bl_region_type = "UI"
 
     def draw(self, context):
-        sc = context.scene
         layout = self.layout
         props = context.scene.tom_props
         # 開始/停止ボタンを追加

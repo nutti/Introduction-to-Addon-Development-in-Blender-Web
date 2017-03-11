@@ -1,5 +1,4 @@
 import bpy
-from bpy.props import IntProperty, FloatProperty, EnumProperty, FloatVectorProperty, StringProperty
 
 
 bl_info = {
@@ -53,8 +52,7 @@ class VIEW3D_PT_CustomMenu(bpy.types.Panel):
 
     # メニューの描画処理
     def draw(self, context):
-        layout = self.layout
-        scene = context.scene
+        pass
 
 
 def menu_fn_1(self, context):

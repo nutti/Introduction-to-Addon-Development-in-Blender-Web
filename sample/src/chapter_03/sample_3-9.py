@@ -42,17 +42,25 @@ class SelectObjectOnMouseover(bpy.types.Operator):
     @staticmethod
     def get_region_space(context, area_type, region_type, space_type):
         region = None
+        area = None
+        space = None
+
         # 指定されたエリアを取得する
-        for area in context.screen.areas:
-            if area.type == area_type:
+        for a in context.screen.areas:
+            if a.type == area_type:
+                area = a
                 break
+        if area is None:
+            return (None, None)
         # 指定されたリージョンを取得する
-        for region in area.regions:
-            if region.type == region_type:
+        for r in area.regions:
+            if r.type == region_type:
+                region = r
                 break
         # 指定されたスペースを取得する
-        for space in area.spaces:
-            if space.type == space_type:
+        for s in area.spaces:
+            if s.type == space_type:
+                space = s
                 break
 
         return (region, space)
@@ -93,7 +101,7 @@ class SelectObjectOnMouseover(bpy.types.Operator):
                     if result[2] != -1:
                         self.intersected_objs.append(o)
                 # メッシュタイプのオブジェクトが作られているが、ray_cast対象の面が存在しない場合
-                except RuntimeError as e:
+                except RuntimeError:
                     print("サンプル3-9: オブジェクト生成タイミングの問題により、例外エラー「レイキャスト可能なデータなし」が発生")
 
         # レイと交差したオブジェクトを選択
