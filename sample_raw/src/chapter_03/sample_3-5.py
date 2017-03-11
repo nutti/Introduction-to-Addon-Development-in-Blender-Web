@@ -24,20 +24,22 @@ bl_info = {
 
 # プロパティ
 class RT_Properties(bpy.types.PropertyGroup):
+
     running = BoolProperty(
         name="テキスト描画中",
         description="テキスト描画中か？",
-        default=False)
+        default=False
+    )
 
 
 # テキスト描画
 class RenderText(bpy.types.Operator):
+
     bl_idname = "view_3d.render_text"
     bl_label = "テキスト描画"
     bl_description = "テキストを描画します"
 
     __handle = None           # 描画関数ハンドラ
-
 
     def __handle_add(self, context):
         if RenderText.__handle is None:
@@ -49,7 +51,6 @@ class RenderText(bpy.types.Operator):
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
 
-
     def __handle_remove(self, context):
 //! [remove_render_func]
         if RenderText.__handle is not None:
@@ -57,7 +58,6 @@ class RenderText(bpy.types.Operator):
             bpy.types.SpaceView3D.draw_handler_remove(RenderText.__handle, 'WINDOW')
             RenderText.__handle = None
 //! [remove_render_func]
-
 
 //! [render_text]
     @staticmethod
@@ -69,7 +69,6 @@ class RenderText(bpy.types.Operator):
         # テキストを描画
         blf.draw(0, s)
 //! [render_text]
-
 
 //! [get_region]
     @staticmethod
@@ -87,7 +86,6 @@ class RenderText(bpy.types.Operator):
 
         return region
 //! [get_region]
-
 
     @staticmethod
     def render(self, context):
@@ -142,6 +140,7 @@ class RenderText(bpy.types.Operator):
 
 # UI
 class OBJECT_PT_RT(bpy.types.Panel):
+
     bl_label = "テキスト描画"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
@@ -163,7 +162,8 @@ def init_props():
     sc.rt_props = PointerProperty(
         name="プロパティ",
         description="本アドオンで利用するプロパティ一覧",
-        type=RT_Properties)
+        type=RT_Properties
+    )
 
 
 # プロパティの削除

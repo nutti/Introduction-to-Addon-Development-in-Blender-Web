@@ -21,24 +21,25 @@ bl_info = {
 
 # プロパティ
 class MOI_Properties(bpy.types.PropertyGroup):
+
     running = BoolProperty(
         name="一定間隔でオブジェクト移動中",
         description="一定間隔でオブジェクト移動中か？",
-        default=False)
+        default=False
+    )
 
 
 # オブジェクト移動の処理
 class MoveObjectInterval(bpy.types.Operator):
+
     bl_idname = "object.move_object_interval"
     bl_label = "一定間隔でオブジェクトを移動"
     bl_description = "一定間隔でオブジェクトを移動します"
-
 
     def __init__(self):
         self.timer = None           # タイマのハンドラ
         self.count = 0.0             # タイマイベントが発生した回数
         self.orig_obj_loc = {}      # 初期のオブジェクトの位置
-
 
     def __handle_add(self, context):
         if self.timer is None:
@@ -48,13 +49,11 @@ class MoveObjectInterval(bpy.types.Operator):
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
 
-
     def __handle_remove(self, context):
         if self.timer is not None:
             # タイマの登録を解除
             context.window_manager.event_timer_remove(self.timer)
             self.timer = None
-
 
     # オブジェクトの位置を更新
     def __update_object_location(self, context):
@@ -64,7 +63,6 @@ class MoveObjectInterval(bpy.types.Operator):
         angle = angular_velocity * self.count * math.pi / 180
         for obj, loc in self.orig_obj_loc.items():
             obj.location = loc + Vector((radius * math.sin(angle), radius * math.cos(angle), 0.0))
-
 
     def modal(self, context, event):
         props = context.scene.moi_props
@@ -90,7 +88,6 @@ class MoveObjectInterval(bpy.types.Operator):
 
         return {'PASS_THROUGH'}
 
-
     def invoke(self, context, event):
         props = context.scene.moi_props
         if context.area.type == 'VIEW_3D':
@@ -112,10 +109,10 @@ class MoveObjectInterval(bpy.types.Operator):
 
 # UI
 class OBJECT_PT_MOI(bpy.types.Panel):
+
     bl_label = "一定間隔でオブジェクトを移動"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-
 
     @classmethod
     def poll(cls, context):
@@ -123,7 +120,6 @@ class OBJECT_PT_MOI(bpy.types.Panel):
         if len(objs) == 0:
             return False
         return True
-
 
     def draw(self, context):
         sc = context.scene
@@ -142,7 +138,8 @@ def init_props():
     sc.moi_props = PointerProperty(
         name="プロパティ",
         description="本アドオンで利用するプロパティ一覧",
-        type=MOI_Properties)
+        type=MOI_Properties
+    )
 
 
 # プロパティの削除

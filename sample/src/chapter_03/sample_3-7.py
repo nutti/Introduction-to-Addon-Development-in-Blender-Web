@@ -69,26 +69,32 @@ translation_dict = {
 
 # プロパティ
 class DFRC_Properties(bpy.types.PropertyGroup):
+
     running = BoolProperty(
-        name = "動作中",
-        description = "削除処理が動作中か？",
-        default = False)
+        name="動作中",
+        description="削除処理が動作中か？",
+        default=False
+    )
     right_mouse_down = BoolProperty(
-        name = "右クリックされた状態",
-        description = "右クリックされた状態か？",
-        default = False)
+        name="右クリックされた状態",
+        description="右クリックされた状態か？",
+        default=False
+    )
     deleted = BoolProperty(
-        name = "面が削除された状態",
-        description = "面が削除された状態か？",
-        default = False)
+        name="面が削除された状態",
+        description="面が削除された状態か？",
+        default=False
+    )
     deleted_count = IntProperty(
-        name = "削除した面数",
-        description = "削除した面の数",
-        default = 0)
+        name="削除した面数",
+        description="削除した面の数",
+        default=0
+    )
 
 
 # マウスの右クリックで面を削除
 class DeleteFaceByRClick(bpy.types.Operator):
+
     bl_idname = "mesh.delete_face_by_rclick"
     bl_label = bpy.app.translations.pgettext("Delete Face By Right Click")
     bl_description = bpy.app.translations.pgettext("Delete Face By Right Click")
@@ -171,6 +177,7 @@ class DeleteFaceByRClick(bpy.types.Operator):
 
 # UI
 class OBJECT_PT_DFRC(bpy.types.Panel):
+
     bl_label = bpy.app.translations.pgettext("Delete Face By Right Click")
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
@@ -190,9 +197,10 @@ def register():
     bpy.utils.register_module(__name__)
     sc = bpy.types.Scene
     sc.dfrc_props = PointerProperty(
-        name = "プロパティ",
-        description = "本アドオンで利用するプロパティ一覧",
-        type = DFRC_Properties)
+        name="プロパティ",
+        description="本アドオンで利用するプロパティ一覧",
+        type=DFRC_Properties
+    )
     # 翻訳辞書の登録
     bpy.app.translations.register(__name__, translation_dict)
     print(bpy.app.translations.pgettext("Sample3-7: Enabled add-on 'Sample3-7'"))

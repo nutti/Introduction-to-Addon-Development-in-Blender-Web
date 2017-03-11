@@ -18,6 +18,7 @@ bl_info = {
 
 
 class NullOperation(bpy.types.Operator):
+
     bl_idname = "object.null_operation"
     bl_label = "NOP"
     bl_description = "何もしない"

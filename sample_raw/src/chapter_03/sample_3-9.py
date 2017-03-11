@@ -23,14 +23,17 @@ bl_info = {
 
 # プロパティ
 class SOOM_Properties(bpy.types.PropertyGroup):
+
     running = BoolProperty(
         name="動作中",
         description="マウスオーバでオブジェクト選択機能が動作中か？",
-        default=False)
+        default=False
+    )
 
 
 # オブジェクト名を表示
 class SelectObjectOnMouseover(bpy.types.Operator):
+
     bl_idname = "view3d.select_object_on_mouseover"
     bl_label = "マウスオーバでオブジェクト選択"
     bl_description = "マウスカーソルが重なったオブジェクトを選択状態に、重なっていないオブジェクトを非選択状態にします"
@@ -56,7 +59,6 @@ class SelectObjectOnMouseover(bpy.types.Operator):
 
         return (region, space)
 
-
     def modal(self, context, event):
         props = context.scene.soom_props
 
@@ -72,12 +74,14 @@ class SelectObjectOnMouseover(bpy.types.Operator):
             ray_dir = view3d_utils.region_2d_to_vector_3d(
                 region,
                 space.region_3d,
-                mv)
+                mv
+            )
             # マウスカーソルの位置に向けて発したレイの発生源を求める
             ray_orig = view3d_utils.region_2d_to_origin_3d(
                 region,
                 space.region_3d,
-                mv)
+                mv
+            )
 //! [calc_ray_dir_and_orig]
 //! [calc_ray_start_end]
             # レイの始点
@@ -138,6 +142,7 @@ class SelectObjectOnMouseover(bpy.types.Operator):
 
 # UI
 class OBJECT_PT_SOOM(bpy.types.Panel):
+
     bl_label = "マウスオーバでオブジェクト選択"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"

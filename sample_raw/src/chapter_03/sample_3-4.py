@@ -4,10 +4,11 @@ import bgl
 //! [import_bgl]
 from bpy.props import FloatVectorProperty, BoolProperty, EnumProperty
 
+
 bl_info = {
     "name": "サンプル3-4: OpenGL向けのAPIを利用して図形を表示する",
     "author": "Nutti",
-    "version": (1, 0),
+    "version": (2, 0),
     "blender": (2, 75, 0),
     "location": "3Dビュー > プロパティパネル > 図形を表示",
     "description": "OpenGL向けのAPIを利用して3Dビューに図形を表示する",
@@ -21,6 +22,7 @@ bl_info = {
 
 # 図形を表示
 class RenderFigure(bpy.types.Operator):
+
     bl_idname = "view_3d.render_figure"
     bl_label = "図形を表示"
     bl_description = "図形を表示します"
@@ -105,6 +107,7 @@ class RenderFigure(bpy.types.Operator):
 
 //! [panel_class]
 class OBJECT_PT_RF(bpy.types.Panel):
+
     bl_label = "図形を表示"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
@@ -132,33 +135,40 @@ def init_props():
     sc.rf_running = BoolProperty(
         name="実行中",
         description="実行中か？",
-        default=False)
+        default=False
+    )
     sc.rf_figure = EnumProperty(
         name="図形",
         description ="表示する図形",
         items=[
             ('TRIANGLE', "三角形", "三角形を表示します"),
-            ('RECTANGLE', "四角形", "四角形を表示します")])
+            ('RECTANGLE', "四角形", "四角形を表示します")
+        ]
+    )
     sc.rf_vert_1 = FloatVectorProperty(
         name="頂点1",
         description="図形の頂点",
         size=2,
-        default=(50.0, 50.0))
+        default=(50.0, 50.0)
+    )
     sc.rf_vert_2 = FloatVectorProperty(
         name="頂点2",
         description="図形の頂点",
         size=2,
-        default=(50.0, 100.0))
+        default=(50.0, 100.0)
+    )
     sc.rf_vert_3 = FloatVectorProperty(
         name="頂点3",
         description="図形の頂点",
         size=2,
-        default=(100.0, 100.0))
+        default=(100.0, 100.0)
+    )
     sc.rf_vert_4 = FloatVectorProperty(
         name="頂点4",
         description="図形の頂点",
         size=2,
-        default=(100.0, 50.0))
+        default=(100.0, 50.0)
+    )
 //! [init_props]
 
 

@@ -22,15 +22,18 @@ bl_info = {
 
 # プロパティ
 class CWH_Properties(bpy.types.PropertyGroup):
+
     is_calc_mode = BoolProperty(
         name="作業時間計測中",
         description="作業時間計測中か？",
-        default=False)
+        default=False
+    )
     working_hour_db = {}    # 作業時間を保存するためのデータベース
 
 
 # 作業時間計測時の処理
 class CalculateWorkingHours(bpy.types.Operator):
+
     bl_idname = "ui.calculate_working_hours"
     bl_label = "作業時間計測"
     bl_description = "作業時間を計測します"
@@ -121,24 +124,28 @@ class CalculateWorkingHours(bpy.types.Operator):
                 int(prefs.font_size * 1.3),
                 prefs.left_top[0],
                 region.height - prefs.left_top[1],
-                "Working Hour")
+                "Working Hour"
+            )
             # 影の効果を無効化
             blf.disable(0, blf.SHADOW)
             CalculateWorkingHours.render_message(
                 prefs.font_size,
                 prefs.left_top[0],
                 region.height - int(prefs.left_top[1] + prefs.font_size * 1.5),
-                "Object: " + sc.cwh_prop_object)
+                "Object: " + sc.cwh_prop_object
+            )
             CalculateWorkingHours.render_message(
                 prefs.font_size,
                 prefs.left_top[0],
                 region.height - int(prefs.left_top[1] + prefs.font_size * (1.5 + 2.5)),
-                "Object Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['OBJECT']))
+                "Object Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['OBJECT'])
+            )
             CalculateWorkingHours.render_message(
                 prefs.font_size,
                 prefs.left_top[0],
                 region.height - int(prefs.left_top[1] + prefs.font_size * (1.5 + 4.0)),
-                "Edit Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['EDIT']))
+                "Edit Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['EDIT'])
+            )
 
     # 前回の呼び出しからの時間差分を計算
     def __calc_delta(self, obj):
@@ -218,6 +225,7 @@ class CalculateWorkingHours(bpy.types.Operator):
 
 # UI
 class OBJECT_PT_CWH(bpy.types.Panel):
+
     bl_label = "作業時間計測"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
@@ -240,6 +248,7 @@ class OBJECT_PT_CWH(bpy.types.Panel):
 
 # ユーザー・プリファレンスのアドオン設定情報
 class CWH_Preferences(bpy.types.AddonPreferences):
+
     bl_idname = __name__
 
     font_size = IntProperty(
@@ -247,7 +256,8 @@ class CWH_Preferences(bpy.types.AddonPreferences):
         description="フォントサイズ",
         default=15,
         max=50,
-        min=10)
+        min=10
+    )
     left_top = IntVectorProperty(
         name="左上座標",
         description="情報を表示する左上の座標",
@@ -255,7 +265,8 @@ class CWH_Preferences(bpy.types.AddonPreferences):
         subtype='XYZ',
         default=(20, 60),
         max=300,
-        min=0)
+        min=0
+    )
 
     def draw(self, context):
         layout = self.layout
@@ -282,11 +293,13 @@ def init_props():
     sc.cwh_prop_object = EnumProperty(
         name="オブジェクト",
         description="作業時間を表示する対象のオブジェクト",
-        items=object_list_fn)
+        items=object_list_fn
+    )
     sc.cwh_props = PointerProperty(
         name="プロパティ",
         description="本アドオンで利用するプロパティ一覧",
-        type=CWH_Properties)
+        type=CWH_Properties
+    )
 
 
 # プロパティの削除

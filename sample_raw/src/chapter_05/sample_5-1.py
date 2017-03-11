@@ -3,6 +3,7 @@ from bpy.props import BoolProperty, PointerProperty, EnumProperty, FloatProperty
 import enum
 from mathutils import Vector
 
+
 bl_info = {
     "name": "サンプル5-1: キーボードによるオブジェクト変形",
     "author": "Nutti",
@@ -17,7 +18,6 @@ bl_info = {
     "category": "Object"
 }
 
-
 # Enumクラスを用いた列挙値の定義
 EditType = enum.Enum('EditType', 'NONE TRANSLATE SCALE ROTATE')
 EditAxis = enum.Enum('EditAxis', 'NONE X Y Z')
@@ -26,14 +26,17 @@ EditOption = enum.Enum('EditOption', 'NONE + -')
 
 # プロパティ
 class SOEM_Properties(bpy.types.PropertyGroup):
+
     is_special_mode = BoolProperty(
         name="特殊オブジェクト編集モード中",
         description="特殊オブジェクト編集モード中か？",
-        default=False)
+        default=False
+    )
 
 
 # 特殊オブジェクト編集モード時の処理
 class SpecialObjectEditMode(bpy.types.Operator):
+
     bl_idname = "mesh.special_object_edit_mode"
     bl_label = "特殊オブジェクト編集モード"
     bl_description = "特殊オブジェクト編集モードへ移行します"
@@ -186,6 +189,7 @@ class SpecialObjectEditMode(bpy.types.Operator):
 
 # UI
 class OBJECT_PT_SOEM(bpy.types.Panel):
+
     bl_label = "特殊オブジェクト編集モード"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
@@ -363,6 +367,7 @@ def set_pref_decrement(self, value):
 
 # ユーザー・プリファレンスのアドオン設定情報
 class SOEM_Preferences(bpy.types.AddonPreferences):
+
     bl_idname = __name__
 
     translate = EnumProperty(
@@ -370,50 +375,57 @@ class SOEM_Preferences(bpy.types.AddonPreferences):
         description="並進移動の処理を行うキー",
         items=key_pref_list,
         get=get_pref_translate,
-        set=set_pref_translate)
+        set=set_pref_translate
+    )
     scale = EnumProperty(
         name="Scale",
         description="拡大・縮小の処理を行うキー",
         items=key_pref_list,
         get=get_pref_scale,
-        set=set_pref_scale)
+        set=set_pref_scale
+    )
     rotate = EnumProperty(
         name="Rotate",
         description="回転の処理を行うキー",
         items=key_pref_list,
         get=get_pref_rotate,
-        set=set_pref_rotate)
+        set=set_pref_rotate
+    )
     x_axis = EnumProperty(
         name="X軸",
         description="X軸に関する処理を行うキー",
         items=key_pref_list,
         get=get_pref_x_axis,
-        set=set_pref_x_axis)
+        set=set_pref_x_axis
+    )
     y_axis = EnumProperty(
         name="Y軸",
         description="Y軸に関する処理を行うキー",
         items=key_pref_list,
         get=get_pref_y_axis,
-        set=set_pref_y_axis)
+        set=set_pref_y_axis
+    )
     z_axis = EnumProperty(
         name="Z軸",
         description="Z軸に関する処理を行うキー",
         items=key_pref_list,
         get=get_pref_z_axis,
-        set=set_pref_z_axis)
+        set=set_pref_z_axis
+    )
     increment = EnumProperty(
         name="+",
         description="インクリメント方向の操作を行うキー",
         items=key_pref_list,
         get=get_pref_increment,
-        set=set_pref_increment)
+        set=set_pref_increment
+    )
     decrement = EnumProperty(
         name="-",
         description="デクリメント方向の操作を行うキー",
         items=key_pref_list,
         get=get_pref_decrement,
-        set=set_pref_decrement)
-
+        set=set_pref_decrement
+    )
 
     def draw(self, context):
         layout = self.layout
@@ -439,32 +451,37 @@ def init_props():
     sc.soem_props = PointerProperty(
         name="プロパティ",
         description="本アドオンで利用するプロパティ一覧",
-        type=SOEM_Properties)
+        type=SOEM_Properties
+    )
     # プロパティパネル上での設定情報
     sc.movement = FloatProperty(
         name="移動量",
         description="移動量",
         default=1.0,
         max=5.0,
-        min=0.01)
+        min=0.01
+    )
     sc.magnification = FloatProperty(
         name="拡大率",
         description="拡大率",
         default=1.1,
         max=10.0,
-        min=1.0)
+        min=1.0
+    )
     sc.reduction = FloatProperty(
         name="縮小率",
         description="縮小率",
         default=0.9,
         max=1.0,
-        min=0.01)
+        min=0.01
+    )
     sc.rotation = FloatProperty(
         name="回転量",
         description="回転量",
         default=0.1,
         max=2.0,
-        min=0.01)
+        min=0.01
+    )
 
 
 def clear_props():

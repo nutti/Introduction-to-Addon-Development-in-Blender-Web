@@ -2,6 +2,7 @@ import bpy
 from bpy.props import BoolProperty, PointerProperty, EnumProperty
 from mathutils import Vector
 
+
 bl_info = {
     "name": "サンプル3-10: キーボードのキー入力に応じてオブジェクトを並進移動させる（アドオン設定活用版）",
     "author": "Nutti",
@@ -19,14 +20,17 @@ bl_info = {
 
 # プロパティ
 class TOM_Properties(bpy.types.PropertyGroup):
+
     running = BoolProperty(
         name="オブジェクト並進移動モード中",
         description="オブジェクト並進移動モード中か？",
-        default=False)
+        default=False
+    )
 
 
 # オブジェクト並進移動モード時の処理
 class TranslateObjectMode(bpy.types.Operator):
+
     bl_idname = "object.translate_object_mode"
     bl_label = "オブジェクト並進移動モード"
     bl_description = "オブジェクト並進移動モードへ移行します"
@@ -83,6 +87,7 @@ class TranslateObjectMode(bpy.types.Operator):
 
 # UI
 class OBJECT_PT_SOEM(bpy.types.Panel):
+
     bl_label = "オブジェクト並進移動モード"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
@@ -113,17 +118,20 @@ class SOEM_Preferences(bpy.types.AddonPreferences):
         name="X軸",
         description="X軸に関する処理を行うキー",
         items=key_list,
-        default='X')
+        default='X'
+    )
     y_axis = EnumProperty(
         name="Y軸",
         description="Y軸に関する処理を行うキー",
         items=key_list,
-        default='Y')
+        default='Y'
+    )
     z_axis = EnumProperty(
         name="Z軸",
         description="Z軸に関する処理を行うキー",
         items=key_list,
-        default='Z')
+        default='Z'
+    )
 
     def draw(self, context):
         layout = self.layout
@@ -142,7 +150,8 @@ def register():
     sc.tom_props = PointerProperty(
         name="プロパティ",
         description="本アドオンで利用するプロパティ一覧",
-        type=TOM_Properties)
+        type=TOM_Properties
+    )
     print("サンプル3-10: アドオン「サンプル3-10」が有効化されました。")
 
 

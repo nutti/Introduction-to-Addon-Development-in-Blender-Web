@@ -19,6 +19,7 @@ bl_info = {
 
 
 class AudioDevice():
+
     device = None       # サウンドデバイス
     factory = None      # サウンドファクトリ
     handle = None       # サウンドハンドラ
@@ -38,6 +39,7 @@ def get_volume(self):
 
 # オーディオファイルの選択
 class SelectAudioFile(bpy.types.Operator):
+
     bl_idname = "view_3d.select_audio_file"
     bl_label = "オーディオファイルの選択"
     bl_description = "再生するオーディオファイルを選択します"
@@ -73,6 +75,7 @@ class SelectAudioFile(bpy.types.Operator):
 
 # 再生停止
 class StopAudioFile(bpy.types.Operator):
+
     bl_idname = "view_3d.stop_audio_file"
     bl_label = "オーディオファイルの再生を停止"
     bl_description = "オーディオファイルの再生を停止します"
@@ -90,6 +93,7 @@ class StopAudioFile(bpy.types.Operator):
 
 # ツールシェルフに「オーディオ再生」タブを追加
 class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
+
     bl_label = "オーディオ再生"          # タブに表示される文字列
     bl_space_type = 'VIEW_3D'           # メニューを表示するエリア
     bl_region_type = 'TOOLS'            # メニューを表示するリージョン

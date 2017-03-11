@@ -21,14 +21,17 @@ bl_info = {
 
 # プロパティ
 class DOT_Properties(bpy.types.PropertyGroup):
+
     running = BoolProperty(
         name="動作中",
         description="オブジェクトの移動軌跡表示機能が動作中か？",
-        default=False)
+        default=False
+    )
 
 
 # オブジェクト名を表示
 class DrawObjectTrajectory(bpy.types.Operator):
+
     bl_idname = "view3d.draw_object_trajectory"
     bl_label = "オブジェクトの軌跡表示"
     bl_description = "選択中のオブジェクトが移動した時に軌跡を表示します"
@@ -107,7 +110,6 @@ class DrawObjectTrajectory(bpy.types.Operator):
                 bgl.glVertex2f(loc.x + size / 2.0, loc.y - size / 2.0)
                 bgl.glEnd()
 
-
     def modal(self, context, event):
         props = context.scene.dot_props
         # 3Dビューの画面を更新
@@ -141,6 +143,7 @@ class DrawObjectTrajectory(bpy.types.Operator):
 
 # UI
 class OBJECT_PT_DOT(bpy.types.Panel):
+
     bl_label = "オブジェクトの軌跡表示"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"

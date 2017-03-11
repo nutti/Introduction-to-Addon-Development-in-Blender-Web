@@ -22,14 +22,17 @@ bl_info = {
 
 # プロパティ
 class SON_Properties(bpy.types.PropertyGroup):
+
     running = BoolProperty(
         name="動作中",
         description="オブジェクト名の表示サポート機能が動作中か？",
-        default=False)
+        default=False
+    )
 
 
 # オブジェクト名を表示
 class ShowObjectName(bpy.types.Operator):
+
     bl_idname = "view3d.show_object_name"
     bl_label = "オブジェクト名の表示サポート"
     bl_description = "オブジェクトの位置にオブジェクト名を表示し、マウスカーソルの位置に向けて発したレイと交差するオブジェクト名を表示します"
@@ -91,9 +94,11 @@ class ShowObjectName(bpy.types.Operator):
         objs = [o for o in bpy.data.objects]
         # オブジェクトの位置座標（3D座標）をリージョン座標（2D座標）に変換
         locs_on_screen = [view3d_utils.location_3d_to_region_2d(
-            region,
-            space.region_3d,
-            o.location) for o in objs]
+                region,
+                space.region_3d,
+                o.location
+            ) for o in objs
+        ]
         blf.shadow(0, 3, 0.1, 0.1, 0.1, 1.0)
         blf.shadow_offset(0, 1, -1)
         blf.enable(0, blf.SHADOW)
@@ -111,7 +116,8 @@ class ShowObjectName(bpy.types.Operator):
             prefs.font_size_1,
             prefs.left_top[0],
             region.height - prefs.left_top[1],
-            "Intersect")
+            "Intersect"
+        )
         blf.disable(0, blf.SHADOW)
         # ray_castが可能なオブジェクトモード時のみ表示
         if context.mode == 'OBJECT':
@@ -120,13 +126,15 @@ class ShowObjectName(bpy.types.Operator):
                     int(prefs.font_size_1 * 0.8),
                     prefs.left_top[0],
                     region.height - prefs.left_top[1] - int(prefs.font_size_1 * 1.3) - i * int(prefs.font_size_1 * 0.9),
-                    o.name)
+                    o.name
+                )
         else:
             ShowObjectName.render_message(
                 int(prefs.font_size_1 * 0.8),
                 prefs.left_top[0],
                 region.height - prefs.left_top[1] - int(prefs.font_size_1 * 1.3),
-                "Objectモード以外では利用できません")
+                "Objectモード以外では利用できません"
+            )
 
     def modal(self, context, event):
         props = context.scene.son_props
@@ -140,12 +148,14 @@ class ShowObjectName(bpy.types.Operator):
             ray_dir = view3d_utils.region_2d_to_vector_3d(
                 region,
                 space.region_3d,
-                mv)
+                mv
+            )
             # マウスカーソルの位置に向けて発したレイの発生源を求める
             ray_orig = view3d_utils.region_2d_to_origin_3d(
                 region,
                 space.region_3d,
-                mv)
+                mv
+            )
             # レイの始点
             start = ray_orig
             # レイの終点（線分の長さは2000とした）
@@ -196,6 +206,7 @@ class ShowObjectName(bpy.types.Operator):
 
 # UI
 class OBJECT_PT_SON(bpy.types.Panel):
+
     bl_label = "オブジェクト名の表示サポート"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
@@ -221,7 +232,8 @@ class SON_Preferences(bpy.types.AddonPreferences):
         description="フォントサイズ",
         default=20,
         max=50,
-        min=10)
+        min=10
+    )
     left_top = IntVectorProperty(
         name="左上座標",
         description="情報を表示する左上の座標",
@@ -229,15 +241,16 @@ class SON_Preferences(bpy.types.AddonPreferences):
         subtype='XYZ',
         default=(20, 60),
         max=300,
-        min=0)
-
+        min=0
+    )
     # オブジェクトの位置に表示する時に使用する設定
     font_size_2 = IntProperty(
         name="Font Size",
         description="フォントサイズ",
         default=12,
         max=50,
-        min=10)
+        min=10
+    )
 
     def draw(self, context):
         layout = self.layout

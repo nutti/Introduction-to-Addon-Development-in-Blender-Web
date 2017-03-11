@@ -3,6 +3,7 @@ from bpy.props import StringProperty, FloatProperty, BoolProperty
 import aud
 import math
 
+
 bl_info = {
     "name": "サンプル5-3: オーディオプレイヤー",
     "author": "Nutti",
@@ -19,6 +20,7 @@ bl_info = {
 
 
 class AudioDevice():
+
     device = None       # サウンドデバイス
     factory = None      # サウンドファクトリ
     handle = None       # サウンドハンドラ
@@ -64,6 +66,7 @@ def get_loop(self):
 
 # 再生時間更新
 class AudioPlayTimeUpdater(bpy.types.Operator):
+
     bl_idname = "ui.audio_play_time_updater"
     bl_label = "オーディオ再生時間更新処理"
 
@@ -99,6 +102,7 @@ class AudioPlayTimeUpdater(bpy.types.Operator):
 
 # オーディオファイルの選択
 class SelectAudioFile(bpy.types.Operator):
+
     bl_idname = "ui.select_audio_file"
     bl_label = "オーディオファイルの選択"
     bl_description = "再生するオーディオファイルを選択します"
@@ -108,7 +112,8 @@ class SelectAudioFile(bpy.types.Operator):
     # 検索フィルタ
     filter_glob = StringProperty(
         default="*.wav;*.mp3",
-        options={'HIDDEN'})
+        options={'HIDDEN'}
+    )
 
     def execute(self, context):
         sc = context.scene
@@ -139,6 +144,7 @@ class SelectAudioFile(bpy.types.Operator):
 
 # オーディオファイルの再生
 class PlayAudioFile(bpy.types.Operator):
+
     bl_idname = "ui.play_audio_file"
     bl_label = "オーディオファイルの再生"
     bl_description = "オーディオファイルを再生します"
@@ -164,6 +170,7 @@ class PlayAudioFile(bpy.types.Operator):
 
 # オーディオファイルの再生再開
 class ResumeAudioFile(bpy.types.Operator):
+
     bl_idname = "ui.resume_audio_file"
     bl_label = "オーディオファイルの再生再開"
     bl_description = "オーディオファイルの再生を再開します"
@@ -184,6 +191,7 @@ class ResumeAudioFile(bpy.types.Operator):
 
 # 再生一時停止
 class PauseAudioFile(bpy.types.Operator):
+
     bl_idname = "ui.pause_audio_file"
     bl_label = "オーディオファイルの再生を一時停止"
     bl_description = "オーディオファイルの再生を一時停止します"
@@ -204,6 +212,7 @@ class PauseAudioFile(bpy.types.Operator):
 
 # 再生停止
 class StopAudioFile(bpy.types.Operator):
+
     bl_idname = "ui.stop_audio_file"
     bl_label = "オーディオファイルの再生を停止"
     bl_description = "オーディオファイルの再生を停止します"
@@ -224,6 +233,7 @@ class StopAudioFile(bpy.types.Operator):
 
 # ツール・シェルフに「オーディオプレイヤー」タブを追加
 class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
+
     bl_label = "オーディオプレイヤー"          # タブに表示される文字列
     bl_space_type = 'VIEW_3D'           # メニューを表示するエリア
     bl_region_type = 'TOOLS'            # メニューを表示するリージョン
@@ -292,7 +302,8 @@ def init_props():
         max=1.0,
         min=0.0,
         get=get_volume,
-        set=set_volume)
+        set=set_volume
+    )
     sc.ap_pitch = FloatProperty(
         name="ピッチ",
         description="ピッチを調整します",
@@ -300,13 +311,15 @@ def init_props():
         max=3.0,
         min=0.0,
         get=get_pitch,
-        set=set_pitch)
+        set=set_pitch
+    )
     sc.ap_loop = BoolProperty(
         name="ループ再生",
         description="ループ再生します",
         default=False,
         get=get_loop,
-        set=set_loop)
+        set=set_loop
+    )
 
 
 # プロパティを削除
