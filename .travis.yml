@@ -8,11 +8,8 @@ before_install:
   - sudo apt-get install blender
 
 install:
-  - mkdir tmp && cd tmp
   - wget http://mirror.cs.umn.edu/blender.org/release/Blender2.75/blender-2.75-linux-glibc211-x86_64.tar.bz2
   - tar jxf blender-2.75-linux-glibc211-x86_64.tar.bz2
-  - mv blender-2.75-linux-glibc211-x86_64 blender
-  - rm blender-2.75-linux-glibc211-x86_64.tar.bz2
-  - cd ..
+  - sh tests/install_sample.sh blender-2.75-linux-glibc211-x86_64/2.75/scripts/addons/testee.py
 
-script: 
+script: blender-2.75-linux-glibc211-x86_64/blender -noaudio --factory-startup --background --python test_sample.py
