@@ -5,19 +5,34 @@ if [ $# -ne 1 ]; then
 fi
 
 
-package=("te")
-
-find ./sample -type f | while read file
-do
+# search package
+package=()
+files=()
+for file in `\find ./sample -type f -name '*.py'`; do
     if [ `echo "${file}" | grep '__init__.py'` ]; then
         path=${file%/*}
-        echo ${path}
-        package+=("1")
+        package+=("${path}")
+        
+    fi
+    files+=("${file}")
+done
+
+# remove package
+module=()
+for file in ${files[@]}; do
+    found=0
+    for pkg in ${package[@]}; do
+        if [ `echo "${file}" | grep "${pkg}"` ]; then
+            found=1
+        fi
+    done
+    if [ ${found} -ne 1 ]; then
+        module+=("${file}")
     fi
 done
 
+echo "pa"
 echo ${package[@]}
-#
-# for pkg in ${package[@]}; do
-#     echo "${pkg}"
-# done
+echo "mo"
+echo ${module[@]}
+
