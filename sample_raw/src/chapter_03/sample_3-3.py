@@ -37,15 +37,15 @@ class MoveObjectInterval(bpy.types.Operator):
     bl_description = "一定間隔でオブジェクトを移動します"
 
     def __init__(self):
-        self.timer = None           # タイマのハンドラ
-        self.count = 0.0             # タイマイベントが発生した回数
-        self.orig_obj_loc = {}      # 初期のオブジェクトの位置
+        self.__timer = None           # タイマのハンドラ
+        self.__count = 0.0             # タイマイベントが発生した回数
+        self.__orig_obj_loc = {}      # 初期のオブジェクトの位置
 
 //! [add_timer]
     def __handle_add(self, context):
-        if self.timer is None:
+        if self.__timer is None:
             # タイマを登録
-            self.timer = context.window_manager.event_timer_add(
+            self.__timer = context.window_manager.event_timer_add(
                 0.1, context.window)
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
@@ -53,20 +53,20 @@ class MoveObjectInterval(bpy.types.Operator):
 
 //! [remove_timer]
     def __handle_remove(self, context):
-        if self.timer is not None:
+        if self.__timer is not None:
             # タイマの登録を解除
-            context.window_manager.event_timer_remove(self.timer)
-            self.timer = None
+            context.window_manager.event_timer_remove(self.__timer)
+            self.__timer = None
 //! [remove_timer]
 
 //! [update_object_location]
     # オブジェクトの位置を更新
     def __update_object_location(self, context):
-        self.count = self.count + 1
+        self.__count = self.__count + 1
         radius = 5.0                 # 回転半径
         angular_velocity = 3.0  # 角速度
-        angle = angular_velocity * self.count * math.pi / 180
-        for obj, loc in self.orig_obj_loc.items():
+        angle = angular_velocity * self.__count * math.pi / 180
+        for obj, loc in self.__orig_obj_loc.items():
             obj.location = loc + Vector((radius * math.sin(angle), radius * math.cos(angle), 0.0))
 //! [update_object_location]
 
@@ -88,7 +88,7 @@ class MoveObjectInterval(bpy.types.Operator):
         if props.running is False:
             self.__handle_remove(context)
             # オブジェクトを初期の位置に移動する
-            for obj, loc in self.orig_obj_loc.items():
+            for obj, loc in self.__orig_obj_loc.items():
                 obj.location = loc
             return {'FINISHED'}
 //! [stop_moving_object]
@@ -104,7 +104,7 @@ class MoveObjectInterval(bpy.types.Operator):
 //! [store_obj_loc]
             # 開始ボタンが押された時の処理
             if props.running is False:
-                self.orig_obj_loc = {obj: obj.location.copy() for obj in bpy.data.objects if obj.type == 'MESH' and obj.select}
+                self.__orig_obj_loc = {obj: obj.location.copy() for obj in bpy.data.objects if obj.type == 'MESH' and obj.select}
 //! [store_obj_loc]
                 props.running = True
                 self.__handle_add(context)

@@ -24,19 +24,23 @@ class DFRC_Properties(bpy.types.PropertyGroup):
     running = BoolProperty(
         name="動作中",
         description="削除処理が動作中か？",
-        default=False)
+        default=False
+    )
     right_mouse_down = BoolProperty(
         name="右クリックされた状態",
         description="右クリックされた状態か？",
-        default=False)
+        default=False
+    )
     deleted = BoolProperty(
         name="面が削除された状態",
         description="面が削除された状態か？",
-        default=False)
+        default=False
+    )
     deleted_count = IntProperty(
         name="削除した面数",
         description="削除した面の数",
-        default=0)
+        default=0
+    )
 
 
 # マウスの右クリックで面を削除

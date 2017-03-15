@@ -1,10 +1,11 @@
 import bpy
 import debug     # デバッグ実行するクリプトをimport
 
+
 bl_info = {
     "name": "デバッグテスト用のアドオン",
     "author": "Nutti",
-    "version": (1, 0),
+    "version": (2, 0),
     "blender": (2, 75, 0),
     "location": "3Dビュー > 追加 > メッシュ",
     "description": "アドオンのデバッグテスト用アドオン",
@@ -27,7 +28,7 @@ class DebugTestOps(bpy.types.Operator):
         debug_var = 10.0
         debug_var = debug_var + 30.0
         debug_var = debug_var + 9.5
-        print("debug_var=%d" % debug_var)
+        print("debug_var=%d" % (debug_var))
 
         return {'FINISHED'}
 

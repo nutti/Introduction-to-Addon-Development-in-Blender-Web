@@ -39,10 +39,10 @@ class SelectObjectOnMouseover(bpy.types.Operator):
     bl_description = "マウスカーソルが重なったオブジェクトを選択状態に、重なっていないオブジェクトを非選択状態にします"
 
     def __init__(self):
-        self.intersected_objs = []      # マウスカーソルの位置に向けて発したレイと交差するオブジェクト一覧
+        self.__intersected_objs = []      # マウスカーソルの位置に向けて発したレイと交差するオブジェクト一覧
 
     @staticmethod
-    def get_region_space(context, area_type, region_type, space_type):
+    def __get_region_space(context, area_type, region_type, space_type):
         region = None
         area = None
         space = None
@@ -52,7 +52,7 @@ class SelectObjectOnMouseover(bpy.types.Operator):
             if a.type == area_type:
                 area = a
                 break
-        if area is None:
+        else:
             return (None, None)
         # 指定されたリージョンを取得する
         for r in area.regions:
@@ -77,7 +77,7 @@ class SelectObjectOnMouseover(bpy.types.Operator):
 //! [get_mouse_region_coord]
 //! [calc_ray_dir_and_orig]
             # 3Dビューエリアのウィンドウリージョンと、スペースを取得する
-            region, space = SelectObjectOnMouseover.get_region_space(context, 'VIEW_3D', 'WINDOW', 'VIEW_3D')
+            region, space = SelectObjectOnMouseover.__get_region_space(context, 'VIEW_3D', 'WINDOW', 'VIEW_3D')
             # マウスカーソルの位置に向けて発したレイの方向を求める
             ray_dir = view3d_utils.region_2d_to_vector_3d(
                 region,
@@ -100,7 +100,7 @@ class SelectObjectOnMouseover(bpy.types.Operator):
 //! [check_intersection]
             # カメラやライトなど、メッシュ型ではないオブジェクトは除く
             objs = [o for o in bpy.data.objects if o.type == 'MESH']
-            self.intersected_objs = []
+            self.__intersected_objs = []
             for o in objs:
                 try:
                     # レイとオブジェクトの交差判定
@@ -108,7 +108,7 @@ class SelectObjectOnMouseover(bpy.types.Operator):
                     result = o.ray_cast(mwi * start, mwi * end)
                     # オブジェクトとレイが交差した場合は交差した面のインデックス、交差しない場合は-1が返ってくる
                     if result[2] != -1:
-                        self.intersected_objs.append(o)
+                        self.__intersected_objs.append(o)
                 # メッシュタイプのオブジェクトが作られているが、ray_cast対象の面が存在しない場合
                 except RuntimeError:
                     print("サンプル3-9: オブジェクト生成タイミングの問題により、例外エラー「レイキャスト可能なデータなし」が発生")
@@ -117,7 +117,7 @@ class SelectObjectOnMouseover(bpy.types.Operator):
 //! [select_object]
         # レイと交差したオブジェクトを選択
         for o in bpy.data.objects:
-            o.select = True if o in self.intersected_objs else False
+            o.select = True if o in self.__intersected_objs else False
 //! [select_object]
 
         # 3Dビューの画面を更新

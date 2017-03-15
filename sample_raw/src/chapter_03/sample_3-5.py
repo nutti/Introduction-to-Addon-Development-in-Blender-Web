@@ -44,7 +44,7 @@ class RenderText(bpy.types.Operator):
 //! [add_render_func]
             # 描画関数の登録
             RenderText.__handle = bpy.types.SpaceView3D.draw_handler_add(
-                RenderText.render, (self, context), 'WINDOW', 'POST_PIXEL')
+                RenderText.__render, (self, context), 'WINDOW', 'POST_PIXEL')
 //! [add_render_func]
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
@@ -59,7 +59,7 @@ class RenderText(bpy.types.Operator):
 
 //! [render_text]
     @staticmethod
-    def render_text(size, x, y, s):
+    def __render_text(size, x, y, s):
         # フォントサイズを指定
         blf.size(0, size, 72)
         # 描画位置を指定
@@ -70,7 +70,7 @@ class RenderText(bpy.types.Operator):
 
 //! [get_region]
     @staticmethod
-    def get_region(context, area_type, region_type):
+    def __get_region(context, area_type, region_type):
         region = None
         area = None
 
@@ -91,9 +91,9 @@ class RenderText(bpy.types.Operator):
 //! [get_region]
 
     @staticmethod
-    def render(self, context):
+    def __render(self, context):
         # リージョン幅を取得するため、描画先のリージョンを得る
-        region = RenderText.get_region(context, 'VIEW_3D', 'WINDOW')
+        region = RenderText.__get_region(context, 'VIEW_3D', 'WINDOW')
 
 //! [call_render_region]
         # 描画先のリージョンへテキストを描画
@@ -104,10 +104,10 @@ class RenderText(bpy.types.Operator):
             blf.shadow_offset(0, 2, -2)
             # 影の効果を有効化
             blf.enable(0, blf.SHADOW)
-            RenderText.render_text(40, 40, region.height - 120, "Hello Blender world!!")
+            RenderText.__render_text(40, 40, region.height - 120, "Hello Blender world!!")
             # 影の効果を無効化
             blf.disable(0, blf.SHADOW)
-            RenderText.render_text(30, 40, region.height - 180, "Suzanne on your lap")
+            RenderText.__render_text(30, 40, region.height - 180, "Suzanne on your lap")
 //! [call_render_region]
 
     def modal(self, context, event):

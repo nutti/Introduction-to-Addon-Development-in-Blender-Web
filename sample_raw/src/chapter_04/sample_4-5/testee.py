@@ -1,5 +1,6 @@
 import bpy
 
+
 bl_info = {
     "name": "テスト対象のアドオン",
     "author": "Nutti",

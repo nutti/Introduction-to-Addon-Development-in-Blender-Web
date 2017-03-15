@@ -12,23 +12,27 @@ def viewport_transform(region, v):
 
 # 指定したエリア、リージョン、スペースを取得する関数
 def get_region_and_space(area_type, region_type, space_type):
-    for area in bpy.context.screen.areas:
-        if area.type == area_type:
+    region = None
+    area = None
+    space = None
+
+    # 指定されたエリアを取得する
+    for a in bpy.context.screen.areas:
+        if a.type == area_type:
+            area = a
             break
     else:
         return (None, None, None)
-
-    for region in area.regions:
-        if region.type == region_type:
+    # 指定されたリージョンを取得する
+    for r in area.regions:
+        if r.type == region_type:
+            region = r
             break
-    else:
-        return (area, None, None)
-
-    for space in area.spaces:
-        if space.type == space_type:
+    # 指定されたスペースを取得する
+    for s in area.spaces:
+        if s.type == space_type:
+            space = s
             break
-    else:
-        return (area, region, None)
 
     return (area, region, space)
 

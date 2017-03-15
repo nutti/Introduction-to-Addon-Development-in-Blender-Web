@@ -41,13 +41,13 @@ class DrawObjectTrajectory(bpy.types.Operator):
     __handle = None           # 描画関数ハンドラ
 
     def __init__(self):
-        self.loc_history = []      # オブジェクトの過去の位置情報
+        self.__loc_history = []      # オブジェクトの過去の位置情報
 
     def __handle_add(self, context):
         if DrawObjectTrajectory.__handle is None:
             # 描画関数の登録
             DrawObjectTrajectory.__handle = bpy.types.SpaceView3D.draw_handler_add(
-                DrawObjectTrajectory.render, (self, context), 'WINDOW', 'POST_PIXEL')
+                DrawObjectTrajectory.__render, (self, context), 'WINDOW', 'POST_PIXEL')
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
 
@@ -58,7 +58,7 @@ class DrawObjectTrajectory(bpy.types.Operator):
             DrawObjectTrajectory.__handle = None
 
     @staticmethod
-    def get_region_space(context, area_type, region_type, space_type):
+    def __get_region_space(context, area_type, region_type, space_type):
         region = None
         area = None
         space = None
@@ -68,7 +68,7 @@ class DrawObjectTrajectory(bpy.types.Operator):
             if a.type == area_type:
                 area = a
                 break
-        if area is None:
+        else:
             return (None, None)
         # 指定されたリージョンを取得する
         for r in area.regions:
@@ -84,17 +84,17 @@ class DrawObjectTrajectory(bpy.types.Operator):
         return (region, space)
 
     @staticmethod
-    def render(self, context):
+    def __render(self, context):
 //! [loc_to_region]
         # 指定したリージョンとスペースを取得する
-        region, space = DrawObjectTrajectory.get_region_space(context, 'VIEW_3D', 'WINDOW', 'VIEW_3D')
+        region, space = DrawObjectTrajectory.__get_region_space(context, 'VIEW_3D', 'WINDOW', 'VIEW_3D')
         if (region is None) or (space is None):
             return
 
         # 選択されたオブジェクトを取得
         objs = [o for o in bpy.data.objects if o.select]
         # オブジェクトの位置座標（3D座標）をリージョン座標（2D座標）に変換
-        self.loc_history.append([view3d_utils.location_3d_to_region_2d(
+        self.__loc_history.append([view3d_utils.location_3d_to_region_2d(
             region,
             space.region_3d,
             o.location) for o in objs])
@@ -102,8 +102,8 @@ class DrawObjectTrajectory(bpy.types.Operator):
 
 //! [delete_oldest_loc]
         # 一定期間後、最も古い位置情報を削除する
-        if len(self.loc_history) >= 100:
-            self.loc_history.pop(0)
+        if len(self.__loc_history) >= 100:
+            self.__loc_history.pop(0)
 //! [delete_oldest_loc]
 
 //! [render_rect]
@@ -111,7 +111,7 @@ class DrawObjectTrajectory(bpy.types.Operator):
         size = 6.0
         bgl.glEnable(bgl.GL_BLEND)
         # 保存されている過去の位置情報をすべて表示
-        for hist in self.loc_history:
+        for hist in self.__loc_history:
             # 選択されたすべてのオブジェクトについて表示
             for loc in hist:
                 bgl.glBegin(bgl.GL_QUADS)
@@ -178,7 +178,8 @@ def init_props():
     sc.dot_props = PointerProperty(
         name="プロパティ",
         description="本アドオンで利用するプロパティ一覧",
-        type=DOT_Properties)
+        type=DOT_Properties
+    )
 
 
 # プロパティの削除

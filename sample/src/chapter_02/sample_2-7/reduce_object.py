@@ -1,5 +1,6 @@
 import bpy
 
+
 # オブジェクトを縮小するオペレーション
 class ReduceObject(bpy.types.Operator):
 

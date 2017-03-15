@@ -40,13 +40,13 @@ class ShowObjectName(bpy.types.Operator):
     __handle = None           # 描画関数ハンドラ
 
     def __init__(self):
-        self.intersected_objs = []      # マウスカーソルの位置に向けて発したレイと交差するオブジェクト一覧
+        self.__intersected_objs = []      # マウスカーソルの位置に向けて発したレイと交差するオブジェクト一覧
 
     def __handle_add(self, context):
         if ShowObjectName.__handle is None:
             # 描画関数の登録
             ShowObjectName.__handle = bpy.types.SpaceView3D.draw_handler_add(
-                ShowObjectName.render, (self, context), 'WINDOW', 'POST_PIXEL')
+                ShowObjectName.__render, (self, context), 'WINDOW', 'POST_PIXEL')
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
 
@@ -57,36 +57,44 @@ class ShowObjectName(bpy.types.Operator):
             ShowObjectName.__handle = None
 
     @staticmethod
-    def render_message(size, x, y, msg):
+    def __render_message(size, x, y, msg):
         blf.size(0, size, 72)
         blf.position(0, x, y, 0)
         blf.draw(0, msg)
 
     @staticmethod
-    def get_region_space(context, area_type, region_type, space_type):
+    def __get_region_space(context, area_type, region_type, space_type):
         region = None
+        area = None
+        space = None
+
         # 指定されたエリアを取得する
-        for area in context.screen.areas:
-            if area.type == area_type:
+        for a in context.screen.areas:
+            if a.type == area_type:
+                area = a
                 break
+        else:
+            return (None, None)
         # 指定されたリージョンを取得する
-        for region in area.regions:
-            if region.type == region_type:
+        for r in area.regions:
+            if r.type == region_type:
+                region = r
                 break
         # 指定されたスペースを取得する
-        for space in area.spaces:
-            if space.type == space_type:
+        for s in area.spaces:
+            if s.type == space_type:
+                space = s
                 break
 
         return (region, space)
 
     @staticmethod
-    def render(self, context):
+    def __render(self, context):
         sc = context.scene
         props = sc.son_props
         prefs = context.user_preferences.addons[__name__].preferences
 
-        region, space  = ShowObjectName.get_region_space(context, 'VIEW_3D', 'WINDOW', 'VIEW_3D')
+        region, space  = ShowObjectName.__get_region_space(context, 'VIEW_3D', 'WINDOW', 'VIEW_3D')
         if (region is None) or (space is None):
             return
 
@@ -105,14 +113,14 @@ class ShowObjectName(bpy.types.Operator):
         for obj, loc in zip(objs, locs_on_screen):
             # 表示範囲外なら表示しない
             if loc is not None:
-                ShowObjectName.render_message(prefs.font_size_2, loc.x, loc.y, obj.name)
+                ShowObjectName.__render_message(prefs.font_size_2, loc.x, loc.y, obj.name)
         blf.disable(0, blf.SHADOW)
 
         # マウスカーソルの位置に向けて発したレイと交差するオブジェクト名を表示
         blf.shadow(0, 3, 0.0, 1.0, 0.0, 0.5)
         blf.shadow_offset(0, 2, -2)
         blf.enable(0, blf.SHADOW)
-        ShowObjectName.render_message(
+        ShowObjectName.__render_message(
             prefs.font_size_1,
             prefs.left_top[0],
             region.height - prefs.left_top[1],
@@ -121,15 +129,15 @@ class ShowObjectName(bpy.types.Operator):
         blf.disable(0, blf.SHADOW)
         # ray_castが可能なオブジェクトモード時のみ表示
         if context.mode == 'OBJECT':
-            for i, o in enumerate(self.intersected_objs):
-                ShowObjectName.render_message(
+            for i, o in enumerate(self.__intersected_objs):
+                ShowObjectName.__render_message(
                     int(prefs.font_size_1 * 0.8),
                     prefs.left_top[0],
                     region.height - prefs.left_top[1] - int(prefs.font_size_1 * 1.3) - i * int(prefs.font_size_1 * 0.9),
                     o.name
                 )
         else:
-            ShowObjectName.render_message(
+            ShowObjectName.__render_message(
                 int(prefs.font_size_1 * 0.8),
                 prefs.left_top[0],
                 region.height - prefs.left_top[1] - int(prefs.font_size_1 * 1.3),
@@ -143,7 +151,7 @@ class ShowObjectName(bpy.types.Operator):
             # マウスカーソルのリージョン座標を取得
             mv = Vector((event.mouse_region_x, event.mouse_region_y))
             # 3Dビューエリアのウィンドウリージョンと、スペースを取得する
-            region, space  = ShowObjectName.get_region_space(context, 'VIEW_3D', 'WINDOW', 'VIEW_3D')
+            region, space  = ShowObjectName.__get_region_space(context, 'VIEW_3D', 'WINDOW', 'VIEW_3D')
             # マウスカーソルの位置に向けて発したレイの方向を求める
             ray_dir = view3d_utils.region_2d_to_vector_3d(
                 region,
@@ -162,7 +170,7 @@ class ShowObjectName(bpy.types.Operator):
             end = ray_orig + ray_dir * 2000
             # カメラやライトなど、メッシュ型ではないオブジェクトは除く
             objs = [o for o in bpy.data.objects if o.type == 'MESH']
-            self.intersected_objs = []
+            self.__intersected_objs = []
             for o in objs:
                 try:
                     # レイとオブジェクトの交差判定
@@ -170,7 +178,7 @@ class ShowObjectName(bpy.types.Operator):
                     result = o.ray_cast(mwi * start, mwi * end)
                     # オブジェクトとレイが交差した場合は交差した面のインデックス、交差しない場合は-1が返ってくる
                     if result[2] != -1:
-                        self.intersected_objs.append(o)
+                        self.__intersected_objs.append(o)
                 # メッシュタイプのオブジェクトが作られているが、ray_cast対象の面が存在しない場合
                 except RuntimeError as e:
                     print("サンプル5-4: オブジェクト生成タイミングの問題により、例外エラー「レイキャスト可能なデータなし」が発生")
@@ -224,6 +232,7 @@ class OBJECT_PT_SON(bpy.types.Panel):
 
 # ユーザー・プリファレンスのアドオン設定情報
 class SON_Preferences(bpy.types.AddonPreferences):
+
     bl_idname = __name__
 
     # 交差したオブジェクトの名前表示に使用する設定

@@ -1,9 +1,10 @@
 import bpy
 
+
 bl_info = {
     "name": "デバッグテスト用のアドオン2",
     "author": "Nutti",
-    "version": (1, 0),
+    "version": (2, 0),
     "blender": (2, 75, 0),
     "location": "3Dビュー > 追加 > メッシュ",
     "description": "アドオン『BreakPoint』を用いたデバッグテスト用アドオン",
@@ -16,6 +17,7 @@ bl_info = {
 
 # ブレークポイント関数
 breakpoint = bpy.types.bp.bp
+
 
 class DebugTestOps2(bpy.types.Operator):
 

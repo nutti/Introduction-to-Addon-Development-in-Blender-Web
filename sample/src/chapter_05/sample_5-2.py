@@ -41,19 +41,19 @@ class CalculateWorkingHours(bpy.types.Operator):
     __handle = None           # 描画関数ハンドラ
 
     def __init__(self):
-        self.timer = None           # タイマハンドラ
-        self.prev_time = 0.0        # __calc_delta()メソッドを呼び出した時の時間
-        self.prev_obj = None        # __calc_delta()メソッドを呼び出した時に選択していたオブジェクト
-        self.prev_mode = None   # __calc_delta()メソッドを呼び出した時のモード
+        self.__timer = None           # タイマハンドラ
+        self.__prev_time = 0.0        # __calc_delta()メソッドを呼び出した時の時間
+        self.__prev_obj = None        # __calc_delta()メソッドを呼び出した時に選択していたオブジェクト
+        self.__prev_mode = None   # __calc_delta()メソッドを呼び出した時のモード
 
     def __handle_add(self, context):
-        if (self.timer is None) and (CalculateWorkingHours.__handle is None):
+        if (self.__timer is None) and (CalculateWorkingHours.__handle is None):
             # タイマを登録
-            self.timer = context.window_manager.event_timer_add(
+            self.__timer = context.window_manager.event_timer_add(
                 0.10, context.window)
             # 描画関数の登録
             CalculateWorkingHours.__handle = bpy.types.SpaceView3D.draw_handler_add(
-                CalculateWorkingHours.render_working_hours, (self, context), 'WINDOW', 'POST_PIXEL')
+                CalculateWorkingHours.__render_working_hours, (self, context), 'WINDOW', 'POST_PIXEL')
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
 
@@ -62,13 +62,13 @@ class CalculateWorkingHours(bpy.types.Operator):
             # 描画関数の登録を解除
             bpy.types.SpaceView3D.draw_handler_remove(CalculateWorkingHours.__handle, 'WINDOW')
             CalculateWorkingHours.__handle = None
-        if self.timer is not None:
+        if self.__timer is not None:
             # タイマの登録を解除
-            context.window_manager.event_timer_remove(self.timer)
-            self.timer = None
+            context.window_manager.event_timer_remove(self.__timer)
+            self.__timer = None
 
     @staticmethod
-    def make_time_fmt(time):
+    def __make_time_fmt(time):
         msec = math.floor(time * 1000) % 1000   # ミリ秒
         sec = math.floor(time) % 60             # 秒
         minute = math.floor(time / 60) % 60     # 分
@@ -77,7 +77,7 @@ class CalculateWorkingHours(bpy.types.Operator):
         return "%d:%02d:%02d.%d" % (hour, minute, sec, math.floor(msec / 100))
 
     @staticmethod
-    def render_message(size, x, y, msg):
+    def __render_message(size, x, y, msg):
         # フォントサイズを指定
         blf.size(0, size, 72)
         # 描画位置を指定
@@ -86,21 +86,27 @@ class CalculateWorkingHours(bpy.types.Operator):
         blf.draw(0, msg)
 
     @staticmethod
-    def get_region(context, area_type, region_type):
+    def __get_region(context, area_type, region_type):
         region = None
+        area = None
+
         # 指定されたエリアを取得する
-        for area in context.screen.areas:
-            if area.type == area_type:
+        for a in context.screen.areas:
+            if a.type == area_type:
+                area = a
                 break
+        else:
+            return None
         # 指定されたリージョンを取得する
-        for region in area.regions:
-            if region.type == region_type:
+        for r in area.regions:
+            if r.type == region_type:
+                region = r
                 break
 
         return region
 
     @staticmethod
-    def render_working_hours(self, context):
+    def __render_working_hours(self, context):
         sc = context.scene
         props = sc.cwh_props
         prefs = context.user_preferences.addons[__name__].preferences
@@ -110,7 +116,7 @@ class CalculateWorkingHours(bpy.types.Operator):
             return
 
         # リージョン幅を取得するため、描画先のリージョンを得る
-        region = CalculateWorkingHours.get_region(context, 'VIEW_3D', 'WINDOW')
+        region = CalculateWorkingHours.__get_region(context, 'VIEW_3D', 'WINDOW')
 
         # 描画先のリージョンへ文字列を描画
         if region is not None:
@@ -120,7 +126,7 @@ class CalculateWorkingHours(bpy.types.Operator):
             blf.shadow_offset(0, 2, -2)
             # 影の効果を有効化
             blf.enable(0, blf.SHADOW)
-            CalculateWorkingHours.render_message(
+            CalculateWorkingHours.__render_message(
                 int(prefs.font_size * 1.3),
                 prefs.left_top[0],
                 region.height - prefs.left_top[1],
@@ -128,23 +134,23 @@ class CalculateWorkingHours(bpy.types.Operator):
             )
             # 影の効果を無効化
             blf.disable(0, blf.SHADOW)
-            CalculateWorkingHours.render_message(
+            CalculateWorkingHours.__render_message(
                 prefs.font_size,
                 prefs.left_top[0],
                 region.height - int(prefs.left_top[1] + prefs.font_size * 1.5),
                 "Object: " + sc.cwh_prop_object
             )
-            CalculateWorkingHours.render_message(
+            CalculateWorkingHours.__render_message(
                 prefs.font_size,
                 prefs.left_top[0],
                 region.height - int(prefs.left_top[1] + prefs.font_size * (1.5 + 2.5)),
-                "Object Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['OBJECT'])
+                "Object Mode: " + CalculateWorkingHours.__make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['OBJECT'])
             )
-            CalculateWorkingHours.render_message(
+            CalculateWorkingHours.__render_message(
                 prefs.font_size,
                 prefs.left_top[0],
                 region.height - int(prefs.left_top[1] + prefs.font_size * (1.5 + 4.0)),
-                "Edit Mode: " + CalculateWorkingHours.make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['EDIT'])
+                "Edit Mode: " + CalculateWorkingHours.__make_time_fmt(props.working_hour_db[sc.cwh_prop_object]['EDIT'])
             )
 
     # 前回の呼び出しからの時間差分を計算
@@ -153,15 +159,15 @@ class CalculateWorkingHours(bpy.types.Operator):
         cur_time = datetime.datetime.now()
 
         # オブジェクトやモードが異なっていた場合は無効とし、時間差分を0とする
-        if (self.prev_obj != obj) or (self.prev_mode != obj.mode):
+        if (self.__prev_obj != obj) or (self.__prev_mode != obj.mode):
             delta = 0.0
         else:
-            delta = (cur_time - self.prev_time).total_seconds()
+            delta = (cur_time - self.__prev_time).total_seconds()
 
         # 情報をアップデート
-        self.prev_time = cur_time
-        self.prev_obj = obj
-        self.prev_mode = obj.mode
+        self.__prev_time = cur_time
+        self.__prev_obj = obj
+        self.__prev_mode = obj.mode
 
         return delta
 

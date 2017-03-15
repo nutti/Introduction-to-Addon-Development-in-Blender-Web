@@ -315,6 +315,7 @@ class Test_Sample_3_1(TestBase):
     ]
 
     def test_addon(self):
+        bpy.ops.object.mode_set(mode='EDIT')
         context = get_invoke_context('VIEW_3D', 'WINDOW')
         result = bpy.ops.mesh.delete_face_by_rclick(context, 'INVOKE_DEFAULT')
         self.assertSetEqual(result, {'PASS_THROUGH'})
