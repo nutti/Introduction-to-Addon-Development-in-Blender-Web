@@ -104,7 +104,7 @@
 
 [import:"add_timer", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-3.py)
 
-タイマの登録は、```context.window_manager.event_timer_add()``` 関数で行っています。```context.window_manager.event_timer_add()``` 関数は次に示す引数を取り、戻り値としてタイマのハンドラを返します。戻り値として返されたハンドラはタイマの登録を解除する時に使用するため、インスタンス変数 ```timer``` に保存します。
+タイマの登録は、```context.window_manager.event_timer_add()``` 関数で行っています。```context.window_manager.event_timer_add()``` 関数は次に示す引数を取り、戻り値としてタイマのハンドラを返します。戻り値として返されたハンドラはタイマの登録を解除する時に使用するため、インスタンス変数 ```timer``` に保存します。ここで、```timer``` はインスタンス変数でなければ正しく動作しないので注意が必要です。
 
 |引数|値の意味|
 |---|---|
