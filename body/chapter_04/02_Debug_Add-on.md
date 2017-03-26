@@ -317,7 +317,7 @@ BLNEDER_BASE_SCRIPT_PATHは、以下に示すようにOS依存です。BLENDER_V
 
 以下のようなスクリプトを、ファイル名 ```debug.py``` として作成してください。
 
-[import](../../sample/src/chapter_04/sample_4-2/debug.py)
+[import](../../sample/src/chapter_04/sample_4_2/debug.py)
 
 ここで ```PYDEV_SRC_DIR``` にはPyDevが置かれたディレクトリを指定しますが、環境によりPyDevが置かれたディレクトリが異なるため、各自で確認する必要があります。筆者のMac環境ではPyDevの場所は ```~/.p2/pool/plugins/org.python.pydev_XXX/pysrc``` でした。（```XXX```はPyDevのバージョンです。）
 
@@ -325,7 +325,7 @@ BLNEDER_BASE_SCRIPT_PATHは、以下に示すようにOS依存です。BLENDER_V
 
 なお、```debug.py``` と ```debugee.py``` は同じディレクトリに置く必要があります。本節のサンプルは、本書でこれまで紹介してきたサンプルの場所と同じディレクトリに保存します。保存先は、 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参照してください。
 
-[import](../../sample/src/chapter_04/sample_4-2/debuggee.py)
+[import](../../sample/src/chapter_04/sample_4_2/debuggee.py)
 
 アドオン有効化時にデバッグを開始するために、 ```debug.py``` をインポートし、デバッグを開始する場所に ```debug.start_debug()``` 関数を追加します。
 
@@ -599,7 +599,7 @@ Eclipseを用いたデバッグは準備が非常に大変です。手間をか�
 
 以下のようなデバッグ対象のアドオンを作成し、 ```debuggee_2.py``` として保存します。
 
-[import](../../sample/src/chapter_04/sample_4-2/debuggee_2.py)
+[import](../../sample/src/chapter_04/sample_4_2/debuggee_2.py)
 
 ブレークポイントを設定する関数は ```bpy.types.bp.bp()``` ですが、毎回関数名を書くのは冗長ですので、以下のように ```breakpoint()``` と書くだけで呼び出せるようにします。
 

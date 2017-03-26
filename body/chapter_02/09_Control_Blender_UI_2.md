@@ -22,9 +22,9 @@
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_2-9.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_2_9.py``` として保存してください。
 
-[import](../../sample/src/chapter_02/sample_2-9.py)
+[import](../../sample/src/chapter_02/sample_2_9.py)
 
 
 ## アドオンを使用する
@@ -111,7 +111,7 @@
 
 本節のサンプルでは、以下の処理により2種類のボタン（標準のボタンと文字列の周りの装飾が消えたボタン）を追加しています。
 
-[import:"add_button", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"add_button", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 ボタンは ```layout.operator()``` 関数で追加することができ、以下の引数を指定します。ボタンを押すと、```layout.operator()``` 関数の第1引数に指定したオペレータクラスの ```bl_idname``` を持つオペレータクラスの処理が実行されます。
@@ -130,7 +130,7 @@
 
 本節のサンプルでは以下の処理により、メニューを追加しています。
 
-[import:"add_menu", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"add_menu", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 [2-5節](05_Create_Sub-menu.md) で説明したサブメニューを追加するための関数 ```layout.menu()``` により、メニューを追加します。追加したメニューは、セレクトボックスのUIとなります。表示されるメニュー名は、デフォルトで第1引数に指定したメニュークラスの ```bl_label``` が表示されますが、```text``` 引数に表示したい文字列を指定することで変更することができます。
@@ -146,7 +146,7 @@
 
 プロパティの定義は、アドオン有効化時に ```register()``` 関数から呼び出される ```init_props()``` 関数で行います。プロパティは、```bpy.types.Scene``` に変数を追加することで定義できます。
 
-[import:"init_props"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"init_props"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 ##### プロパティを削除する
@@ -155,7 +155,7 @@
 
 本節のサンプルでは、```unregister()``` 関数から呼び出される ```clear_props()``` 関数により、定義したプロパティを削除しています。
 
-[import:"clear_props"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"clear_props"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 ##### プロパティを変更するためのUIを構築する
@@ -170,7 +170,7 @@
 
 本節のサンプルでは ```bpy.types.Scene``` にプロパティを登録したため、```context.scene``` を第1引数に指定します。第2引数には、```bpy.types.Scene``` に登録したプロパティ変数名を文字列で指定します。
 
-[import:"add_prop", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"add_prop", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 #### ボタンを一行に並べる
@@ -179,12 +179,12 @@
 
 ボタンを横に並べるためには ```layout.row()``` 関数を使って行成分を取得し、取得した行成分に対して ```operator()``` 関数を使ってボタンを配置する必要があります。本節のサンプルでは、以下のようにして3つのボタンを一行に並べています。
 
-[import:"arrange_column", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"arrange_column", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 なお、```layout.row()``` 関数の引数に ```align=False``` を指定すると、ボタンとボタンの間に隙間が空くようにして配置されるようになります。一方、以下のコードのように、 ```align=True``` を指定すると、この隙間がなくなります。
 
-[import:"arrange_column_align", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"arrange_column_align", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 なお、```operator()``` の代わりに ```label()``` 関数、 ```prop()``` 関数や ```menu()``` 関数を使うことによって、ラベル、プロパティやメニューを一行に並べて配置することができます。
@@ -195,12 +195,12 @@
 
 本節のサンプルでは、以下のように3つのボタンを一列に並べています。
 
-[import:"arrange_row", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"arrange_row", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 ボタン間の隙間を無くすために ```align=True``` を指定できる点は、```layout.row()``` 関数と同様です。
 
-[import:"arrange_row_align", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"arrange_row_align", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 なお、```operator()``` 関数の代わりに ```label()``` 関数、```prop()``` 関数や ```menu()``` 関数を使うことによって、ラベル、プロパティやメニューを一列に並べて配置することができます。
@@ -214,7 +214,7 @@
 
 本節のサンプルでは、以下のようにして2行2列にボタンを配置しています。
 
-[import:"arrange_row_multi", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"arrange_row_multi", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 #### 領域を分割する
@@ -225,7 +225,7 @@
 
 本節のサンプルでは、以下のような処理で領域を3分割しています。
 
-[import:"divide_region", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"divide_region", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 分割後の各領域では、縦並びにボタンを2つ表示しています。
@@ -240,7 +240,7 @@
 
 本節のサンプルでは、以下のように ```row.alignment``` に ```EXPAND``` を設定し、明示的にボタンの横幅を自動的に拡大しています。
 
-[import:"align_expand", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"align_expand", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 #### ボタンを右寄せ・左寄せ配置にする
@@ -249,12 +249,12 @@
 
 本節のサンプルでは、以下のように ```row.alignment``` に ```LEFT``` を設定し、ボタンを左寄せ配置しています。
 
-[import:"align_left", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"align_left", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 また、```row.alignment``` に ```RIGHT``` を設定することで右寄せ配置も可能です。
 
-[import:"align_right", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"align_right", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 #### グループ化する
@@ -263,7 +263,7 @@
 
 本節のサンプルでは、以下のコードにより4つのボタンをグループ化しています。グループ内のUIは、通常のUIと同様のコードで構築することができます。
 
-[import:"group", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"group", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 #### オプションの UI をカスタマイズする
@@ -274,7 +274,7 @@
 
 オプションのUIをカスタマイズする処理を以下に示します。
 
-[import:"customize_option_UI", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"customize_option_UI", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 オプションのUIの構築は、オペレータクラスの ```draw()``` メソッドで行います。メソッドで定義している処理は、メニュークラスやパネルクラスで定義する ```draw()``` メソッドと同じように、```self.layout``` を通して行います。
 
@@ -282,7 +282,7 @@
 
 最後に、以下のコードにより、*利用可能なアイコンをすべて表示* ボタンを配置します。
 
-[import:"show_all_icons", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-9.py)
+[import:"show_all_icons", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_9.py)
 
 
 ## まとめ

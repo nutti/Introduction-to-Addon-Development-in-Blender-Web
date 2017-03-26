@@ -19,9 +19,9 @@
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3-5.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3_5.py``` として保存してください。
 
-[import](../../sample/src/chapter_03/sample_3-5.py)
+[import](../../sample/src/chapter_03/sample_3_5.py)
 
 ## アドオンを使用する
 
@@ -100,14 +100,14 @@
 
 テキストを描画するためのAPIをアドオンから利用するためには、```blf``` モジュールをインポートする必要があります。
 
-[import:"import_blf", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-5.py)
+[import:"import_blf", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_5.py)
 
 
 ### 描画関数を登録する
 
 テキストを描画するためには、[3-4節](04_Use_API_for_OpenGL.md) で ```bgl``` モジュールを使って図形を描画した時と同様、描画関数を登録する必要があります。描画関数の登録は、```__handle_add()``` メソッド内の ```bpy.types.SpaceView3D.draw_handler_add()``` 関数で行ないます。具体的な引数の型などは、[3-4節](04_Use_API_for_OpenGL.md) と同じのため説明は省略します。
 
-[import:"add_render_func", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-5.py)
+[import:"add_render_func", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_5.py)
 
 本節のサンプルにおける描画関数は、```render()``` スタティックメソッドです。
 
@@ -123,7 +123,7 @@
 
 ウィンドウの左上の座標を取得するためには、エリアを構成するリージョンを取得する必要があります。本節のサンプルでは以下のコードにより、リージョンを指定したリージョンを取得しています。
 
-[import:"get_region", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-5.py)
+[import:"get_region", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_5.py)
 
 現在開いているエリアの一覧は ```context.screen.areas``` に保持されているため、```get_region()``` スタティックメソッドの引数に指定したエリアのタイプ ```area_type``` と ```area.type``` が一致することを確認することで目的のエリアを取得することができます。本節のサンプルでは、```get_region()``` スタティックメソッドの引数 ```area_type``` に ```'VIEW_3D'``` が指定されているため、*3Dビュー* エリアを取得することができます。
 
@@ -141,7 +141,7 @@
 
 テキストの描画処理は、```render_text()``` スタティックメソッドで行います。
 
-[import:"render_text", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-5.py)
+[import:"render_text", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_5.py)
 
 ```render_text()``` の引数を以下に示します。
 
@@ -185,7 +185,7 @@
 
 描画関数である ```render()``` スタティックメソッドではリージョン情報を使って計算した描画座標を使い、```render_text()``` スタティックメソッドを呼びます。
 
-[import:"call_render_region", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-5.py)
+[import:"call_render_region", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_5.py)
 
 
 テキスト "Hello Blender world!!" は、```blf``` モジュールのフォント装飾機能を使って強調表示しています。
@@ -250,7 +250,7 @@ blf.shadow_offset() 関数の第2引数は画面右方向がX軸正方向、第3
 
 [3-4節](04_Use_API_for_OpenGL.md) と同様に登録した描画関数は、描画処理を停止するときに登録を解除する必要があります。
 
-[import:"remove_render_func", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-5.py)
+[import:"remove_render_func", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_5.py)
 
 
 

@@ -68,9 +68,9 @@ Blenderは、ユーザから与えられた頂点情報（座標や法線）な�
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3-8.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3_8.py``` として保存してください。
 
-[import](../../sample/src/chapter_03/sample_3-8.py)
+[import](../../sample/src/chapter_03/sample_3_8.py)
 
 ## アドオンを使用する
 
@@ -159,7 +159,7 @@ Blenderが提供するAPIの大半は ```bpy``` モジュールとして提供�
 
 本節で使用している座標変換のAPIを利用するためには、```bpy_extra``` モジュールの ```view3d_utils``` をインポートする必要があります。
 
-[import:"import_view3d_utils", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-8.py)
+[import:"import_view3d_utils", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_8.py)
 
 
 ### オブジェクトの軌跡を表示する
@@ -173,7 +173,7 @@ Blenderが提供するAPIの大半は ```bpy``` モジュールとして提供�
 
 最初に1と2の処理を行うコードを次に示します。
 
-[import:"loc_to_region", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-8.py)
+[import:"loc_to_region", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_8.py)
 
 オブジェクトの位置座標は、```bpy.data.objects``` の各要素から取得できるオブジェクトデータの ```location``` メンバ変数から取得することができます。続いて、オブジェクトの位置座標をリージョン座標に座標変換します。この座標変換を1から実装するとなると、カメラのビュー行列などを用いて行列計算を行う必要があります。幸いなことに ```bpy_extra``` モジュールの ```view3d_utils``` サブモジュールが提供するAPIを利用することで、この処理を比較的簡単な方法で実現することができます。本節のサンプルでは、オブジェクトの位置座標をリージョン座標に変換するために ```view3d_utils.location_3d_to_region_2d()``` 関数を呼び出します。```view3d_utils.location_3d_to_region_2d()``` 関数の引数を以下に示します。
 
@@ -187,11 +187,11 @@ Blenderが提供するAPIの大半は ```bpy``` モジュールとして提供�
 
 保存した位置情報は古くなったら削除しないと、画面が四角形で埋め尽くされてしまいます。このため、次の処理により位置情報の履歴が100以上になった時に最も古い位置情報を削除しています（3の処理）。
 
-[import:"delete_oldest_loc", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-8.py)
+[import:"delete_oldest_loc", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_8.py)
 
 最後に、変換したリージョン座標に四角形を描画します（4の処理）。四角形の描画は ```bgl``` モジュールを使い、[3-4節](04_Use_API_for_OpenGL.md) で説明した方法で描画します。
 
-[import:"render_rect", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-8.py)
+[import:"render_rect", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_8.py)
 
 
 

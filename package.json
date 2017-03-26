@@ -1,11 +1,8 @@
 {
   "name": "introduction-to-add-on-development-in-blender",
   "version": "2.0.0",
-  "description": "<div id=\"sect_title_img_0_0\"></div>",
+  "description": "Guide book for Blender's Add-on Development",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nutti/Introduction-to-Add-on-Development-in-Blender.git"

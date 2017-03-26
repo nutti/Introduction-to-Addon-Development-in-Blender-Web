@@ -29,9 +29,9 @@ Blenderでは何かしら操作を行う度に、直前の操作に対するパ�
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名 ```sample_2-3.py``` で保存します。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名 ```sample_2_3.py``` で保存します。
 
-[import](../../sample/src/chapter_02/sample_2-3.py)
+[import](../../sample/src/chapter_02/sample_2_3.py)
 
 ## アドオンを使用する
 
@@ -155,9 +155,9 @@ Blenderでは何かしら操作を行う度に、直前の操作に対するパ�
 
 今回は以下のように、 ```FloatPropery``` クラスを用いて拡大率と縮小率を指定できるようにします。
 
-[import:"prop_enlarge_object_2", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-3.py)
+[import:"prop_enlarge_object_2", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_3.py)
 
-[import:"prop_reduce_object_2", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-3.py)
+[import:"prop_reduce_object_2", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_3.py)
 
 
 次に、*オブジェクト* > *選択オブジェクトの拡大（拡大率任意指定）* を実行した時の処理について解説します。
@@ -172,7 +172,7 @@ Blenderでは何かしら操作を行う度に、直前の操作に対するパ�
 
 ```execute()``` メソッドの中で指定されたオプションの値は、以下のように通常のクラス変数と同様、self変数からアクセスすることで取得します。
 
-[import:"access_to_prop", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-3.py)
+[import:"access_to_prop", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_3.py)
 
 
 ## まとめ

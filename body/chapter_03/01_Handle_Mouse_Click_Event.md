@@ -15,9 +15,9 @@
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして、以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3-1.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして、以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3_1.py``` として保存してください。
 
-[import](../../sample/src/chapter_03/sample_3-1.py)
+[import](../../sample/src/chapter_03/sample_3_1.py)
 
 ## アドオンを使用する
 
@@ -94,7 +94,7 @@
 
 ```bpy.types.PropertyGroup``` クラスは、 [2-3節](../chapter_02/03_Use_Property_on_Tool_Shelf_1.md) で紹介したプロパティクラスをグループ化するためのクラスです。　```bpy.types.PropertyGroup``` クラスを継承し、グループ化したいプロパティクラスをクラス変数に追加して使用します。
 
-[import:"define_properties", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"define_properties", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 本節のサンプルにおいてグループ化したプロパティ一覧を以下に示します。
 
@@ -107,13 +107,13 @@
 
 作成したグループは、```register()``` 関数の処理内で ```PointerProperty``` クラスを利用して登録します。
 
-[import:"register_properties", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"register_properties", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 アドオン有効時に ```PointerProperty``` の引数 ```type``` へグループ化のために定義したクラス名を指定することで、```bpy.types.Scene.dfrc_props``` 変数にプロパティのグループを登録します。以降、各プロパティには ```bpy.types.Scene.dfrc_props.running``` 等でアクセスすることができます。
 
 アドオン無効時には、```bpy.types.Scene``` に追加したプロパティのグループを削除しています。
 
-[import:"unregister_properties", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"unregister_properties", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 
 ### UIを作成する
@@ -126,11 +126,11 @@
 
 パネルクラスのクラス変数については、[2-8節](../chapter_02/08_Control_Blender_UI_1.md) を参照してください。
 
-[import:"define_panel_class", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"define_panel_class", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 続いて、 ```draw()``` メソッドを定義します。
 
-[import:"define_draw_method", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"define_draw_method", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 
 ```draw()``` メソッドに渡されてくる引数 ```context``` には、 ```draw()``` メソッドが呼ばれた時のコンテキスト情報が含まれています。
@@ -152,7 +152,7 @@
 
 プロパティグループ ```DFRC_Properties``` の取得方法は、UIの作成時に説明した方法と同じで、 ```context.scene.dfrc_props``` で取得できます。
 
-[import:"press_start_button", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"press_start_button", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 アドオンの機能実行開始時の処理は変数 ```props.running``` が ```False``` の時に行い、変数 ```props.running``` を ```True``` に設定した後、 ```DFRC_Properties``` の各クラス変数を初期値に設定します。最後に ```context.window_manager.modal_handler_add()``` 関数を実行してモーダルクラスを登録し、 ```{'RUNNING_MODAL'}``` を返してモーダルモードへ移行します。
 
@@ -160,7 +160,7 @@
 
 本節のアドオンでは、 ```invoke()``` メソッドと ```modal()``` メソッドを同一のクラスで定義しているため、 ```context.window_manager.modal_handler_add()``` 関数の引数に ```self``` を指定します。
 
-[import:"press_stop_button", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"press_stop_button", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 アドオンの機能実行終了時の処理は変数 ```props.running``` が ```True``` の時に行い、変数 ```props.running``` を ```False``` に設定後、モーダルモード中に削除した面の数を出力します。
 
@@ -175,11 +175,11 @@
 
 最初に ```context.area.tag_redraw()``` 関数を実行し、3Dビューエリアを更新します。
 
-[import:"redraw_view3d", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"redraw_view3d", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 次に変数 ```props.running``` を確認し、アドオンの機能開始時の処理が開始されていない場合は ```{'FINISHED'}``` を返して ```modal()``` メソッドを終了します。
 
-[import:"update_click_status", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"update_click_status", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 次に、```modal()``` メソッドの引数 ```event``` を用いて、マウスのクリックやキーボードが押された状態を取得します。```event.type``` には発生した様々なイベントの種類が保存されていて、例えば以下のようなイベントの種類があります。
 
@@ -199,12 +199,12 @@
 
 右クリックされた時の処理を実装します。削除処理の前に、 ```if props.right_mouse_down is True and props.deleted is False``` により、削除処理を行うか否かを確認しています。この確認処理には少し工夫を加えています。
 
-[import:"delete_face", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"delete_face", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 
 右クリックをされたことを検出するためには、 ```props.right_mouse_down``` が ```True``` であることの判定だけで問題ないように思えます。しかし、右クリックが押されたいる間は ```props.right_mouse_down``` が常に ```True``` になるため、クリック中にマウスを移動させると面を削除できてしまいます。これは、本来期待する動作(右クリックを行った直後の1回だけ面を削除)とは少し異なります。そこで変数 ```props.deleted``` が ```True``` であることを確認し、すでに面を一度削除した状態であれば、削除処理を行わないようにします。そして ```props.right_mouse_down``` が ```False``` に変わった時に ```props.deleted``` を ```False``` に戻すことで、次に右クリックが行われた時に面を削除できるようにします。
 
-[import:"clear_restrict_status", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"clear_restrict_status", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 
 続いて面を削除の処理の説明をします。
@@ -217,13 +217,13 @@
 
 ```bmesh``` を利用するためには、以下のように ```bmesh``` モジュールをインポートする必要があります。
 
-[import:"import_bmesh", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"import_bmesh", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 面の削除処理本体を説明します。
 
 最初にメッシュデータにアクセスするため、 ```bmesh``` 用のメッシュデータを構築します。編集中のオブジェクトデータ ```context.edit_object.data``` を ```bmesh.from_edit_mesh()``` 関数の引数に渡すことで、 ```bmesh``` 用のメッシュデータを構築できます。
 
-[import:"build_bmesh", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"build_bmesh", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 次に、クリックされた面を削除する処理について説明します。
 
@@ -239,13 +239,13 @@
 
 ```bpy.ops.view3d.select()``` 関数の引数 ```location``` にマウスの位置を指定することで、マウスの位置にある面を選択することができます。もしマウスの位置に面がなければ ```bpy.ops.view3d.select()``` 関数は ```{'PASS_THROUGH'}``` を返すため、マウスの位置に面がないことを出力した後に処理を終了します。
 
-[import:"select_clicked_face", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"select_clicked_face", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 続いて2の選択された面を取得する手順について説明します。
 
 選択された面は、 ```bmesh``` の履歴情報のうち最後に選択された面として取得できます。頂点・辺・面の選択履歴 ```bm.select_history``` の最後の要素が面であるか否かを確認し、面であれば処理を継続します。面でなければ ```{'PASS_THROUGH'}``` を返して処理を終了します。
 
-[import:"get_selected_face", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"get_selected_face", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 最後に選択した面を削除します。
 
@@ -259,17 +259,17 @@
 
 今回は面を削除するため、 ```context``` に ```5``` を指定しています。
 
-[import:"delete_selected_face", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"delete_selected_face", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 面を削除したことをメッシュに反映させるため、 ```bmesh.update_edit_mesh()``` 関数を実行します。この関数を実行しないとメッシュが更新されませんので、 ```bmesh``` 用のメッシュデータを修正した時は必ず実行するようにしましょう。
 
-[import:"update_bmesh", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"update_bmesh", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 面の削除処理の説明はこれで終わりです。
 
 最後に、削除した面数をカウントアップして変数 ```props.deleted``` を ```True``` に変更し、マウスの右ボタンが押された状態で連続して面が削除されないようにします。
 
-[import:"post_process", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-1.py)
+[import:"post_process", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_1.py)
 
 最後に、```modal``` メソッドは ```{'PASS_THROUGH'}``` を返します。```{'PASS_THROUGH'}``` が返されるとイベントを本処理に閉じず、別の処理に対しても通知することができます。```{'PASS_THROUGH'}``` が指定されていないと、マウスやキーボードのイベントが発生した時に行う ```DeleteFaceByRClick``` の処理後にイベントが捨てられてしまい、マウスやキーボードからのイベントに対する他の処理が発生しなくなってしまいます。
 

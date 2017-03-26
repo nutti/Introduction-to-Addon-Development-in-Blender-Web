@@ -15,9 +15,9 @@
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3-7.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3_7.py``` として保存してください。
 
-[import](../../sample/src/chapter_03/sample_3-7.py)
+[import](../../sample/src/chapter_03/sample_3_7.py)
 
 ## アドオンを使用する
 
@@ -151,6 +151,11 @@ Blenderは一部日本語をサポートしていますが、すべてサポー�
 |```key```|自動翻訳関数に指定するキー文字列を指定します。```translated_str``` に指定する文字列を指定すると良いと思います。筆者としては、文字化けしない英語がお勧めです。|
 |```translated_str```|翻訳後の文字列を指定します。現在のBlenderのロケールが ```locale``` と同じで、自動翻訳関数に```key``` が指定された時に表示されます。現在のBlenderのロケールが ```locale``` に存在しない場合は、 ```key``` に指定した文字列が表示されます。|
 
+<div id="tips"></div>
+
+パラメータ ```context``` には ```"*"``` 以外の値も設定できるようですが、具体的に指定できる値はよくわかっていません。本パラメータ自体何を意味しているのか不明ですが、とりあえず ```"*"``` を指定しておけば正しく翻訳処理が行われます。
+
+
 本節のサンプルでは、翻訳辞書として変数 ```translation_dict``` を定義しています。辞書の定義は以下の通りです。
 
 |日本語|英語|その他|
@@ -183,7 +188,7 @@ IT用語でロケールとは、言語や国・地域ごとに異なる表記方
 
 作成した翻訳辞書を登録します。翻訳辞書の登録は、```register()``` 関数の ```bpy.app.translations.register()``` 関数で行っています。
 
-[import:"register_dict", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-7.py)
+[import:"register_dict", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_7.py)
 
 第1引数には翻訳辞書の登録先モジュールを指定しますが、```bpy.utils.register_module()``` の引数に指定した時と同様に ```__name__``` を指定することで、自身のモジュールに対して登録するようにします。第2引数には、翻訳辞書である変数を指定します。
 
@@ -196,13 +201,13 @@ IT用語でロケールとは、言語や国・地域ごとに異なる表記方
 
 本節のサンプルでは複数の箇所に自動翻訳関数を追加していますが、ここではアドオン有効化時に表示する文字列について取り上げます。
 
-[import:"translation_func", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-7.py)
+[import:"translation_func", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_7.py)
 
 自動翻訳関数 ```bpy.app.translations.pgettext()``` の引数には、翻訳辞書に登録されている表示したい文字列のキー文字列を指定します。上記の例では、キーに ```"Sample3-7: Enabled add-on 'Sample3-7'"``` を指定することで、ロケールが ```"en_US"``` の場合は ```"Sample3-7: Enabled add-on 'Sample3-7'"``` が、```"ja_JP"``` の場合は ```"サンプル3-7: アドオン「サンプル3-7」が有効化されました。"``` が戻り値として返ってきます。このため、ロケールが変更された時に自動的に文字列が切り替えられるようになり、翻訳が完了します。
 
 基本的には ```bpy.app.translations.pgettext()``` を用いることで文字列の翻訳が完了しますが、本節のサンプルの以下のコードのように文字列フォーマットによる文字列を翻訳する場合は、代わりに ```bpy.app.translations.pgettext_iface()``` を用いる必要があります。
 
-[import:"translation_func_with_format", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-7.py)
+[import:"translation_func_with_format", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_7.py)
 
 
 ## まとめ

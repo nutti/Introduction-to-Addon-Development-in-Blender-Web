@@ -16,9 +16,9 @@
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3-9.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3_9.py``` として保存してください。
 
-[import](../../sample/src/chapter_03/sample_3-9.py)
+[import](../../sample/src/chapter_03/sample_3_9.py)
 
 ## アドオンを使用する
 
@@ -106,14 +106,14 @@
 
 マウスカーソルのリージョン座標を取得するためのコードを次に示します。マウスカーソルのリージョン座標は、```mouse_region_x``` （X座標）と ```mouse_region_y``` （Y座標）で取得することができます。
 
-[import:"get_mouse_region_coord", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-9.py)
+[import:"get_mouse_region_coord", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_9.py)
 
 
 #### 2. リージョン座標から、レイの向きと発生源の座標を求める
 
 1で取得したマウスカーソルのリージョン座標からレイの向きと発生源の座標を求めます。[3-8節](08_Use_Coordinate_Transformation_1.md) で *3Dビュー* エリアの3D空間の座標からリージョン座標へ座標する場合と同様、この座標変換を1から実装すると大変です。そこで本節のサンプルでも ```bpy_extra``` モジュールの ```view3d_utils``` サブモジュールを利用することにします。リージョン座標から、レイの向きと発生源の座標を求めるためのコードを以下に示します。
 
-[import:"calc_ray_dir_and_orig", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-9.py)
+[import:"calc_ray_dir_and_orig", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_9.py)
 
 レイの発生源は、*3Dビュー* エリアの3D空間を映し出しているカメラの座標（視点）となるため、```view3d_utils.region_2d_to_origin_3d()``` 関数を使って取得することができます。一方レイの向きは、視点からマウスカーソルのリージョン座標を *3Dビュー* の3D空間座標に変換した座標の点への向きとなるため、```view3d_utils.region_2d_to_vector_3d()``` 関数を使って取得します。```view3d_utils.region_2d_to_vector_3d()``` 関数と ```view3d_utils.region_2d_to_origin_3d()``` 関数の引数は次に示すように、共に同じ引数を受け取ります。
 
@@ -130,7 +130,7 @@
 
 4で使用する ```ray_cast``` 関数は、引数にレイの始点と終点を指定する必要があります。このため次のコードにより、2で取得したレイの向きと発生源の座標からレイの視点と終点を求めます。
 
-[import:"calc_ray_start_end", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-9.py)
+[import:"calc_ray_start_end", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_9.py)
 
 レイの始点はレイの発生源と同じです。一方レイの終点は、レイの発生源からレイの方向に伸ばした線上に設定します。本節では、発生源から距離が2000離れたところに終点を設定しています。このため、距離がレイの発生源から2000以上離れたオブジェクトは交差判定の対象外となります。
 
@@ -141,7 +141,7 @@
 
 レイとオブジェクトの交差判定は、```ray_cast()``` 関数で行うことができます。しかし ```ray_cast()``` 関数には、*オブジェクトモード* 以外で実行できないという制限があります。本節のサンプルでは、 *オブジェクトモード* 時のみオブジェクトの選択を可能とする使用のため問題がありませんが、```ray_cast()``` を使うときには気を付けておきましょう。
 
-[import:"check_intersection", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-9.py)
+[import:"check_intersection", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_9.py)
 
 レイと交差したオブジェクトは、メンバ変数 ```intersected_objs``` に保存します。レイとオブジェクトが交差したことは、```ray_cast()``` 関数の戻り値で確認します。```ray_cast()``` 関数の戻り値は次に示すタプル型の値です。本節のサンプルでは ```ray_cast()``` の戻り値の第3要素が ```-1``` 以外の場合にレイが交差したと判定します。
 
@@ -202,7 +202,7 @@ for o in objs:
 
 最後に、```intersected_objs``` メンバ変数に例と交差したオブジェクトが格納されていることを利用し、次の処理でレイと交差したオブジェクトを選択します。
 
-[import:"select_object", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-9.py)
+[import:"select_object", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_9.py)
 
 
 ## 自力で座標変換を行う

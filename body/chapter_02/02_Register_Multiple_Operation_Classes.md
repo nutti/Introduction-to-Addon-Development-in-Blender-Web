@@ -18,9 +18,9 @@
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名 ```sample_2-2.py``` で保存します。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名 ```sample_2_2.py``` で保存します。
 
-[import](../../sample/src/chapter_02/sample_2-2.py)
+[import](../../sample/src/chapter_02/sample_2_2.py)
 
 
 ## アドオンを使用する
@@ -113,9 +113,9 @@
 
 1つのファイルに複数のオペレータクラスを定義するためには、**作りたい機能の数だけオペレーションクラスを定義する** 必要があります。本節のサンプルでは、オブジェクトの拡大とオブジェクトの縮小の2つの機能のために、2つのオペーレーションクラスを以下のように作成しました。
 
-[import:"op_enlarge_object"](../../sample_raw/src/chapter_02/sample_2-2.py)
+[import:"op_enlarge_object"](../../sample_raw/src/chapter_02/sample_2_2.py)
 
-[import:"op_reduce_object"](../../sample_raw/src/chapter_02/sample_2-2.py)
+[import:"op_reduce_object"](../../sample_raw/src/chapter_02/sample_2_2.py)
 
 
 ```bl_idname``` はオペレータクラスごとに固有の文字列を指定する必要があるため、重複しないように気をつけてください。重複しないようにするための方法は、後ほど紹介します。
@@ -126,7 +126,7 @@
 
 ここでは、```EnlargeObject``` クラスの ```execute()``` メソッド内に定義されている、スクリプト実行ログへメッセージを出力する処理について説明します。
 
-[import:"execute_enlarge_object", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-2.py)
+[import:"execute_enlarge_object", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_2.py)
 
 ```execute()``` メソッドに渡されてくる引数については、[2-1節](01_Basic_of_Add-on_Development.md) で説明しましたので、引数の詳細についての説明はここでは省略します。引数 ```context``` から、現在のコンテキスト（実行状態）を取得することができます。
 
@@ -138,7 +138,7 @@
 
 |引数|型|値の説明|
 |---|---|---|
-|第1引数|ディクショナリ型|出力メッセージの種類|
+|第1引数|集合型|出力メッセージの種類|
 |第2引数|文字列|メッセージ本文|
 
 表示したいメッセージの内容に応じてメッセージの種類を指定し、スクリプト実行ログへ出力することができます。出力メッセージの種類には例えば以下のようなものがあります。

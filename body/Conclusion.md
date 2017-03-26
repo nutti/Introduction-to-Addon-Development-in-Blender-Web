@@ -66,7 +66,7 @@ BLUG.jp 様
 
 誤字・脱字の指摘、修正や改善要望していただいた方です。
 
-conchan-akita 様, sariew 様, AWA 様
+conchan-akita 様, sariew 様, AWA 様, うにっこ 様
 
 <div id="space_s"></div>
 

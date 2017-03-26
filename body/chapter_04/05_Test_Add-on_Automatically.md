@@ -131,7 +131,7 @@ GitHubとTravis CIとの連携は、次の手順で行います。
 
 本節でテスト対象とするアドオンを作成します。ファイル名 ```testee.py``` として作成します。
 
-[import](../../sample/src/chapter_04/sample_4-5/testee.py)
+[import](../../sample/src/chapter_04/sample_4_5/testee.py)
 
 テスト対象のアドオンでは、2つのオペレータクラスが定義されています。```TestOps1``` は何もせずに ```{'FINISHED'}``` を返すオペレーションが定義されています。```TestOps2``` はオブジェクト名がCubeであるオブジェクトが存在する場合に ```{'FINISHED'}``` 、存在しない場合に ```{'CANCELLED'}``` を返すオペレーションが定義されています。
 
@@ -139,7 +139,7 @@ GitHubとTravis CIとの連携は、次の手順で行います。
 
 アドオンをテストするためのスクリプトを作成します。本節では、ファイル名 ```test.py``` として作成します。
 
-[import](../../sample/src/chapter_04/sample_4-5/test.py)
+[import](../../sample/src/chapter_04/sample_4_5/test.py)
 
 
 スクリプト自体は単純で、```testee.py``` で登録するオペレータクラスの ```bl_idname``` を使ってアドオンの機能を呼び出すだけです。アドオンの機能を呼び出した後は、その戻り値を ```assert``` 文で判定します。第1引数の条件が偽の場合には ```AssertionError``` 例外オブジェクトが発生し、```except``` 処理の中で第2引数に指定した文字列が表示されたあと、```sys.exit(1)``` によりBlenderが復帰値 ```1``` で終了することでテストがエラー終了します。Travis CIはテストのコマンドの結果が ```0``` 以外の場合には、テストが失敗したと判断します。アドオンの機能を実行した時の戻り値が期待したものではなかった場合にBlenderが ```0``` 以外で終了するようなスクリプトを作成することで、アドオンが正常に動作しているのか否かを確認することができます。
@@ -151,7 +151,7 @@ Blender実行開始時にはオブジェクト名がCubeであるオブジェク
 
 Travis CIでテストを実行するためには、```.travis.yml``` ファイルというYAML形式の設定ファイルを作成する必要があります。
 
-[import](../../sample/src/chapter_04/sample_4-5/.travis.yml)
+[import](../../sample/src/chapter_04/sample_4_5/.travis.yml)
 
 設定ファイルには、次に示す5つの項目について記載します。```.travis.yml``` に記載したコメントも参照してください。なお、コメントで★を記載した部分は、テスト対象とするBlenderのバージョンにより修正が必要な箇所です。
 
@@ -250,7 +250,7 @@ $ git push origin master
 テスト失敗時にTravis CIではどのように表示されるか確認します。
 テストを失敗させるために、```test.py``` を次のように書き換えます（```test.py``` から変更された箇所はコメントの先頭に ```$``` を記載しています）。オブジェクト名が「Cube」のオブジェクトを削除して、```bpy.ops.object.test_ops_2()``` の戻り値が ```{'CANCELLED'}``` になるようにして、テストが失敗するようにします。
 
-[import](../../sample/src/chapter_04/sample_4-5/test_alt.py)
+[import](../../sample/src/chapter_04/sample_4_5/test_alt.py)
 
 修正後にアドオンのソースコードをリポジトリにコミットし、テストを実行します。
 

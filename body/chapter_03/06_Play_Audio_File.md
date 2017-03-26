@@ -16,9 +16,9 @@
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3-6.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードをテキスト・エディタに入力し、ファイル名 ```sample_3_6.py``` として保存してください。
 
-[import](../../sample/src/chapter_03/sample_3-6.py)
+[import](../../sample/src/chapter_03/sample_3_6.py)
 
 ## アドオンを使用する
 
@@ -108,7 +108,7 @@
 
 BlenderのAPIを使ってオーディオファイルを再生するためには、audモジュールをインポートする必要があります。
 
-[import:"import_aud", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-6.py)
+[import:"import_aud", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_6.py)
 
 
 ### オーディオファイルの選択
@@ -117,7 +117,7 @@ BlenderのAPIを使ってオーディオファイルを再生するためには�
 
 ファイルブラウザの表示に関しては、[2-10節](../chapter_02/10_Control_Blender_UI_3.md) と1点だけ異なるところがあり、本節のサンプルではwavファイルとmp3のファイルしか表示しません。このように、特定のファイルのみを表示したい場合は ```filter_glob``` クラス変数を宣言します。```filter_glob``` は ```StringProperty``` クラスで定義し、```default``` に表示するファイルのリストを ```;``` （セミコロン）区切りで指定します。また、正規表現を使うこともできます。本節のサンプルでは全てのwavファイルとmp3ファイルを表示するため、```*.wav; *.mp3``` を指定しています。
 
-[import:"filter_glob", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-6.py)
+[import:"filter_glob", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_6.py)
 
 
 ### オーディオファイルの再生
@@ -132,7 +132,7 @@ BlenderのAPIを使ってオーディオファイルを再生するためには�
 
 ファイルブラウザでファイルを選択すると、```SelectAudioFile``` の ```execute()``` メソッドが実行され、オーディオファイルが再生されます。オーディオファイル再生の具体的なコードを見てみましょう。
 
-[import:"select_audio_file_execute", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-6.py)
+[import:"select_audio_file_execute", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_6.py)
 
 サウンドデバイスとサウンドファクトリは、```aud.device()``` 関数および ```aud.Factory()``` 関数を実行することで作成することができます。```aud.device()``` 関数は引数が不要ですが、```aud.Factory()``` 関数は再生するオーディオファイルのパスを引数に指定する必要があります。サウンドデバイスは一度作成した後に再度作り直す必要はありませんが、サウンドファクトリは再生するオーディオファイルを変更する度に作成し直す必要があります。
 
@@ -153,7 +153,7 @@ BlenderのAPIを使ってオーディオファイルを再生するためには�
 
 *停止* ボタンが押された時は ```StopAudioFile``` クラスの ```execute()``` メソッドが呼び出され、オーディオファイルの再生を停止する処理が実行されます。
 
-[import:"stop_audio_file", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-6.py)
+[import:"stop_audio_file", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_6.py)
 
 サウンドハンドラである ```AudioDevice.handle``` には再生状態を制御するために、次に示す関数が用意されています。
 
@@ -170,7 +170,7 @@ BlenderのAPIを使ってオーディオファイルを再生するためには�
 
 本節のサンプルでは、オーディオファイルの再生状態に応じてUIを変更する処理がパネルクラス ```VIEW3D_PT_PlayAudioFileMenu``` の ```draw()``` メソッドに存在します。
 
-[import:"check_play_status", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-6.py)
+[import:"check_play_status", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_6.py)
 
 オーディオファイルの再生状態は、```AudioDevice.handle.status``` の値を参照することによって判断することができます。```AudioDevice.handle.status``` に設定される値を以下に示します。
 
@@ -186,22 +186,23 @@ BlenderのAPIを使ってオーディオファイルを再生するためには�
 
 本節のサンプルのようにプロパティの値が変わったことを検知して処理を行いたい場合は、プロパティクラスを作成する時に引数 ```set``` と ```get``` に、プロパティが変わった時に実行する関数を登録する必要があります。音量を変更するプロパティの定義の処理を見てみましょう。
 
-[import:"prop_volume", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-6.py)
+[import:"prop_volume", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_6.py)
 
 引数 ```get``` に ```get_volume()``` 関数、引数 ```set``` に ```set_volume()``` 関数を指定しています。引数 ```set``` には、プロパティの値が変更された時に呼び出す関数を指定し、引数 ```get``` にはプロパティの値を参照する時に呼び出す関数を指定します。
 
 最初に、```get_volume()``` 関数について説明します。
 
-[import:"get_volume", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-6.py)
+[import:"get_volume", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_6.py)
 
-```get_volume()``` 関数は第1引数にプロパティクラスのインスタンスが代入された状態で呼び出されます。```get_volume()``` 関数はプロパティを参照する時に呼び出されるため、予期しない時に呼び出される可能性があります。このため、呼び出されるタイミングによっては参照したい変数が存在しないかもしれません。そこで ```self.get()``` メソッドの第2引数にデフォルト値を指定することで、第1引数に指定したインスタンス変数が存在しない場合はデフォルト値を返すようにします。
+```get_volume()``` 関数は第1引数に ```bpy.context.scene``` が代入された状態で呼び出されます。```init_props()``` 関数で ```bpy.context.scene``` にプロパティクラスを登録したことから、プロパティクラスを登録した変数へは ```bpy.context.scene['paf_volume']``` つまり ```self['paf_volume']``` としてアクセスすることができます。
 
-一方で ```set_volume()``` 関数は、第1引数にプロパティクラスのインスタンス、第2引数にプロパティに設定された値が渡されて呼び出されます。
+```get_volume()``` 関数はプロパティを参照する時に呼び出されるため、予期しない時に呼び出される可能性があります。このため、呼び出されるタイミングによっては参照したい変数が存在しないかもしれません。そこで ```self.get()``` メソッドの第2引数にデフォルト値を指定することで、第1引数に指定したインスタンス変数が存在しない場合はデフォルト値を返すようにします。
 
-[import:"set_volume", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-6.py)
+一方で ```set_volume()``` 関数は、第1引数に ```bpy.context.scene```、第2引数にプロパティに設定された値が渡されて呼び出されます。
+
+[import:"set_volume", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_6.py)
 
 ```set_volume()``` 関数は、```self['paf_volume'] = value``` によりプロパティの値を更新した後、```AudioDevice.handle.volume``` に値を設定することで音量を変更しています。このような一連の処理を行うことで、ユーザからのプロパティ変更を検知し、オーディオファイルの再生音量を変更することができます。
-
 
 
 ## まとめ

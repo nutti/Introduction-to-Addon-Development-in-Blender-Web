@@ -26,10 +26,10 @@
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_3-2.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_3_2.py``` として保存してください。
 
 
-[import](../../sample/src/chapter_03/sample_3-2.py)
+[import](../../sample/src/chapter_03/sample_3_2.py)
 
 ## アドオンを使用する
 
@@ -111,7 +111,7 @@
 
 本節のサンプルでは、モーダルモードを終了するためにキーボードの *Q* キーを押す必要があります。この処理を実現するために、キーボードのキーイベントが発生した時に ```modal()``` メソッドの引数 ```event``` のイベント情報を利用します。*Q* キーが押された時にモーダルモードを終了するためのコードを以下に示します。
 
-[import:"exit_modal_mode", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-2.py)
+[import:"exit_modal_mode", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_2.py)
 
 キーイベント発生時の変数 ```event``` には、以下のメンバ変数が格納されています。
 
@@ -126,7 +126,7 @@
 
 オブジェクト並進移動モードでは、利用するキーの状態を確認しオブジェクトを並進移動する必要があります。次に示すコードにより、キーの入力を確認してオブジェクトを並進移動します。
 
-[import:"check_key_state", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-2.py)
+[import:"check_key_state", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_2.py)
 
 基本的にはモーダルモード終了処理と同様に、```event``` のイベント情報を利用しています。ただし、*Shift* キーを押した時に反対方向へ並進移動するため、*Shift* キーが押されていることを判定する必要があります。*Shift* キーが押されたか否かを判定するためには、```event.shift``` 変数を参照します。*Shift* キーが押されていると ```event.shift``` に ```True``` が設定されることを利用し、```event.shift``` が ```True``` か ```False``` かで、移動量を ```1.0``` または ```-1.0``` を設定します。
 
@@ -150,7 +150,7 @@
 
 本節のサンプルでは、オブジェクトの並進移動のために ```bpy.ops.transform.translate()``` 関数を利用しています。引数 ```value``` に並進移動量を渡すことで選択中のオブジェクトを並進移動します。```bpy.ops.transform.translate()``` 関数には他にも色々な引数を渡すことができますが、ここでは割愛します。
 
-[import:"translate_object", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-2.py)
+[import:"translate_object", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_2.py)
 
 #### modal()メソッドの戻り値
 

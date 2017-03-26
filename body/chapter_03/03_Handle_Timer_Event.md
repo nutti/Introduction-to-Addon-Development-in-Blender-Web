@@ -17,10 +17,10 @@
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_3-3.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_3_3.py``` として保存してください。
 
 
-[import](../../sample/src/chapter_03/sample_3-3.py)
+[import](../../sample/src/chapter_03/sample_3_3.py)
 
 ## アドオンを使用する
 
@@ -102,9 +102,9 @@
 
 タイマの登録処理は、次に示す ```__handle_add()``` メソッドで行っています。
 
-[import:"add_timer", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-3.py)
+[import:"add_timer", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_3.py)
 
-タイマの登録は、```context.window_manager.event_timer_add()``` 関数で行っています。```context.window_manager.event_timer_add()``` 関数は次に示す引数を取り、戻り値としてタイマのハンドラを返します。戻り値として返されたハンドラはタイマの登録を解除する時に使用するため、インスタンス変数 ```timer``` に保存します。
+タイマの登録は、```context.window_manager.event_timer_add()``` 関数で行っています。```context.window_manager.event_timer_add()``` 関数は次に示す引数を取り、戻り値としてタイマのハンドラを返します。戻り値として返されたハンドラはタイマの登録を解除する時に使用するため、インスタンス変数 ```timer``` に保存します。ここで、```timer``` はインスタンス変数でなければ正しく動作しないので注意が必要です。
 
 |引数|値の意味|
 |---|---|
@@ -122,7 +122,7 @@
 
 タイマの登録解除処理は、次に示す ```__handle_remove()``` メソッドで行っています。
 
-[import:"remove_timer", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-3.py)
+[import:"remove_timer", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_3.py)
 
 タイマの登録解除は ```context.window_manager.event_timer_remove()``` 関数で行いますが、引数には ```context.window_manager.modal_handler_add()``` 関数の戻り値として返されたタイマのハンドラを渡す必要があります。本節のサンプルでは、タイマのハンドラを保存したインスタンス変数 ```timer``` を引数に渡しています。
 
@@ -135,18 +135,18 @@
 
 タイマイベントが発生すると、```modal()``` メソッドが呼ばれますが、[3-1節](01_Handle_Mouse_Click_Event.md) や [3-2節](02_Handle_Keyboard_Key_Event.md) で説明したように、```modal()``` メソッドはキーボードやマウスのイベントが発生した時にも呼ばれます。このためマウスやキーボードのイベントについて特別扱いしないと、タイマイベント発生時のみオブジェクトを移動する仕様を満たせなくなってしまいます。そこで次のようにして、発生したイベントがタイマイベントでない時に```{'PASS_THROUGH'}``` を返すことで、マウスやキーボードからのイベントが発生した時にオブジェクトが移動しないようにします。
 
-[import:"handle_timer_event", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-3.py)
+[import:"handle_timer_event", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_3.py)
 
 続いて、終了ボタンが押された時にオブジェクトの移動を停止する処理を実行します。終了ボタンが押された時は、オブジェクトの移動を停止する以外にもオブジェクトを開始ボタンが押された時の初期位置に移動させる必要があります。
 
-[import:"stop_moving_object", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-3.py)
+[import:"stop_moving_object", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_3.py)
 
 
 ### オブジェクトの位置を更新する
 
 タイマイベント発生時にオブジェクトの位置を更新する処理は、```__update_object_location()``` メソッドで行います。
 
-[import:"update_object_location", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-3.py)
+[import:"update_object_location", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_3.py)
 
 オブジェクトの初期位置はインスタンス変数 ```orig_obj_loc``` の値に保存されているため、オブジェクトの初期位置に移動先の位置を相対座標で加えることでオブジェクトの位置を更新します。オブジェクトの位置は ```obj.location``` から参照・変更することができます。
 
@@ -171,7 +171,7 @@
 |```LAMP```|ランプ|
 |```SPEAKER```|スピーカー|
 
-[import:"store_obj_loc", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-3.py)
+[import:"store_obj_loc", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_3.py)
 
 
 <div id="tips"></div>
@@ -186,7 +186,7 @@
 
 *3Dビュー* エリアのプロパティパネルに追加した *一定間隔でオブジェクトを移動* パネルは、```poll()``` クラスメソッドで表示する条件を絞っています。本節のサンプルでは最低でも1つのメッシュ型のオブジェクトが選択され、かつオブジェクトモードの時にパネルを表示しています。オブジェクトの型がメッシュ型かつ選択された状態であるかを判定する方法は先ほど書きました。そして、現在のオブジェクトが *オブジェクトモード* と *エディットモード* のどちらの状態にあるのかは ```obj.mode``` により取得することができるため、先ほどのパネル表示条件を満たしたことを判定するコードは次のようになります。
 
-[import:"poll", unindent:"true"](../../sample_raw/src/chapter_03/sample_3-3.py)
+[import:"poll", unindent:"true"](../../sample_raw/src/chapter_03/sample_3_3.py)
 
 なお、```obj.mode``` には次のような値が設定されます。オブジェクトが現在どのようなモードであるかを確認したい場合に利用することができます。
 
