@@ -15,8 +15,10 @@ bl_info = {
     "category": "Object"
 }
 
+//! [short_call]
 # ブレークポイント関数
 breakpoint = bpy.types.bp.bp
+//! [short_call]
 
 
 class DebugTestOps2(bpy.types.Operator):
@@ -30,8 +32,10 @@ class DebugTestOps2(bpy.types.Operator):
         debug_var = 10.0
         debug_var = debug_var + 30.0
         debug_var = debug_var + 9.5
+//! [set_breakpoint]
         # ブレークポイント
         breakpoint(locals(), debug_var)
+//! [set_breakpoint]
 
         return {'FINISHED'}
 

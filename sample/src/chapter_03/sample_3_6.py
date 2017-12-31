@@ -103,7 +103,7 @@ class VIEW3D_PT_PlayAudioFileMenu(bpy.types.Panel):
         sc = context.scene
 
         if AudioDevice.handle is not None:
-            # 再生中または一時停止中の状態
+            # 再生中の状態
             if AudioDevice.handle.status:
                 layout.operator(StopAudioFile.bl_idname, text="停止", icon='X')
             # 再生を停止した状態

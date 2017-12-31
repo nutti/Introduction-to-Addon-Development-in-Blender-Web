@@ -18,16 +18,6 @@ bl_info = {
 }
 
 
-# プロパティ
-class RT_Properties(bpy.types.PropertyGroup):
-
-    running = BoolProperty(
-        name="テキスト描画中",
-        description="テキスト描画中か？",
-        default=False
-    )
-
-
 # テキスト描画
 class RenderText(bpy.types.Operator):
 
@@ -42,8 +32,6 @@ class RenderText(bpy.types.Operator):
             # 描画関数の登録
             RenderText.__handle = bpy.types.SpaceView3D.draw_handler_add(
                 RenderText.__render, (self, context), 'WINDOW', 'POST_PIXEL')
-            # モーダルモードへの移行
-            context.window_manager.modal_handler_add(self)
 
     def __handle_remove(self, context):
         if RenderText.__handle is not None:
@@ -72,7 +60,7 @@ class RenderText(bpy.types.Operator):
             if a.type == area_type:
                 area = a
                 break
-        if area is None:
+        else:
             return None
         # 指定されたリージョンを取得する
         for r in area.regions:
@@ -104,33 +92,23 @@ class RenderText(bpy.types.Operator):
                 30, 40, region.height - 180, "Suzanne on your lap"
             )
 
-    def modal(self, context, event):
-        props = context.scene.rt_props
-        # 3Dビューの画面を更新
-        if context.area:
-            context.area.tag_redraw()
-
-        # 作業時間計測を停止
-        if props.running is False:
-            self.__handle_remove(context)
-            return {'FINISHED'}
-
-        return {'PASS_THROUGH'}
-
     def invoke(self, context, event):
-        props = context.scene.rt_props
+        sc = context.scene
         if context.area.type == 'VIEW_3D':
             # 開始ボタンが押された時の処理
-            if props.running is False:
-                props.running = True
+            if sc.rt_running is False:
+                sc.rt_running = True
                 self.__handle_add(context)
                 print("サンプル3-5: テキストの描画を開始しました。")
-                return {'RUNNING_MODAL'}
             # 終了ボタンが押された時の処理
             else:
-                props.running = False
+                sc.rt_running = False
+                self.__handle_remove(context)
                 print("サンプル3-5: テキストの描画を終了しました。")
-                return {'FINISHED'}
+            # 3Dビューの画面を更新
+            if context.area:
+                context.area.tag_redraw()
+            return {'FINISHED'}
         else:
             return {'CANCELLED'}
 
@@ -145,9 +123,8 @@ class OBJECT_PT_RT(bpy.types.Panel):
     def draw(self, context):
         sc = context.scene
         layout = self.layout
-        props = sc.rt_props
         # 開始/停止ボタンを追加
-        if props.running is False:
+        if sc.rt_running is False:
             layout.operator(RenderText.bl_idname, text="開始", icon="PLAY")
         else:
             layout.operator(RenderText.bl_idname, text="終了", icon="PAUSE")
@@ -156,17 +133,17 @@ class OBJECT_PT_RT(bpy.types.Panel):
 # プロパティの作成
 def init_props():
     sc = bpy.types.Scene
-    sc.rt_props = PointerProperty(
-        name="プロパティ",
-        description="本アドオンで利用するプロパティ一覧",
-        type=RT_Properties
+    sc.rt_running = BoolProperty(
+        name="実行中",
+        description="実行中か？",
+        default=False
     )
 
 
 # プロパティの削除
 def clear_props():
     sc = bpy.types.Scene
-    del sc.rt_props
+    del sc.rt_running
 
 
 def register():

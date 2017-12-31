@@ -1,11 +1,12 @@
 @import "../common/_fonts.scss";
 
-$ch_list: '1', '2', '3', '4';
+$ch_list: '1', '2', '3', '4', '5';
 
 $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_1.png',
 'https://dl.dropboxusercontent.com/s/kn7y8riseci4xxw/ch_title_img_2.png',
 'https://dl.dropboxusercontent.com/s/c40c6lrjnuxa4az/ch_title_img_3.png',
-'https://dl.dropboxusercontent.com/s/gqkb3l2no2e39o0/ch_title_img_4.png';
+'https://dl.dropboxusercontent.com/s/gqkb3l2no2e39o0/ch_title_img_4.png',
+'https://dl.dropboxusercontent.com/s/7paovxn0hrvzs3r/ch_title_img_5.png';
 
 
 
@@ -127,8 +128,8 @@ $ch_img_list: 'https://dl.dropboxusercontent.com/s/p8n04m7bbogsm86/ch_title_img_
     .section {
         @include chapter_title_img();
         @include chapter_title_text(1.95em, -340.0px, -50px);
-        @include chapter_body(0.8em, 190px, -30px, -110px);
-        @include chapter_toc(0.8em, 0px, 0px);
+        @include chapter_body(0.8em, 300px, -30px, -110px);
+        @include chapter_toc(0.8em, 150px, 150px);
         @include space_chapter();
         @include space_chapter_before_toc();
     }

@@ -82,11 +82,6 @@ class TranslateObjectMode(bpy.types.Operator):
                 context.window_manager.modal_handler_add(self)
                 print("サンプル3-2: オブジェクト並進移動モードへ移行しました。")
                 return {'RUNNING_MODAL'}
-            # 終了ボタンが押された時の処理
-            else:
-                props.running = False
-                print("サンプル3-2: 通常モードへ移行しました。")
-                return {'FINISHED'}
         else:
             return {'CANCELLED'}
 

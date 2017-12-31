@@ -19,7 +19,6 @@ install:
   - tar jxf blender-2.75-linux-glibc211-x86_64.tar.bz2
   - bash tests/install_sample.sh sample blender-2.75-linux-glibc211-x86_64/2.75/scripts/addons
   - cp tests/test_sample.py blender-2.75-linux-glibc211-x86_64
-  - ls -al
 
 before_script:
   - cp .pylintrc ~/

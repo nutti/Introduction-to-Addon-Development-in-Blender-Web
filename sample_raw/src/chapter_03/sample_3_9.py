@@ -1,5 +1,5 @@
 import bpy
-from bpy.props import BoolProperty, PointerProperty
+from bpy.props import BoolProperty
 //! [import_view3d_utils]
 from bpy_extras import view3d_utils
 //! [import_view3d_utils]
@@ -19,16 +19,6 @@ bl_info = {
     "tracker_url": "",
     "category": "3D View"
 }
-
-
-# プロパティ
-class SOOM_Properties(bpy.types.PropertyGroup):
-
-    running = BoolProperty(
-        name="動作中",
-        description="マウスオーバでオブジェクト選択機能が動作中か？",
-        default=False
-    )
 
 
 # オブジェクト名を表示
@@ -68,7 +58,7 @@ class SelectObjectOnMouseover(bpy.types.Operator):
         return (region, space)
 
     def modal(self, context, event):
-        props = context.scene.soom_props
+        sc = context.scene
 
         if context.mode == 'OBJECT':
 //! [get_mouse_region_coord]
@@ -106,6 +96,8 @@ class SelectObjectOnMouseover(bpy.types.Operator):
             for o in objs:
                 try:
                     # レイとオブジェクトの交差判定
+                    # 交差判定はオブジェクトのローカル座標で行われるため、
+                    # レイの始点と終点をローカル座標に変換する
                     mwi = o.matrix_world.inverted()
                     result = o.ray_cast(mwi * start, mwi * end)
                     # オブジェクトとレイが交差した場合は交差した面のインデックス、
@@ -132,23 +124,23 @@ class SelectObjectOnMouseover(bpy.types.Operator):
             context.area.tag_redraw()
 
         # 作業時間計測を停止
-        if props.running is False:
+        if sc.soom_running is False:
             return {'FINISHED'}
 
         return {'PASS_THROUGH'}
 
     def invoke(self, context, event):
-        props = context.scene.soom_props
+        sc = context.scene
         if context.area.type == 'VIEW_3D':
             # 開始ボタンが押された時の処理
-            if props.running is False:
-                props.running = True
+            if sc.soom_running is False:
+                sc.soom_running = True
                 context.window_manager.modal_handler_add(self)
                 print("サンプル3-9: オブジェクト名の表示を開始しました。")
                 return {'RUNNING_MODAL'}
             # 終了ボタンが押された時の処理
             else:
-                props.running = False
+                sc.soom_running = False
                 print("サンプル3-9: オブジェクト名の表示を終了しました。")
                 return {'FINISHED'}
         else:
@@ -165,9 +157,8 @@ class OBJECT_PT_SOOM(bpy.types.Panel):
     def draw(self, context):
         sc = context.scene
         layout = self.layout
-        props = sc.soom_props
         # 開始/停止ボタンを追加
-        if props.running is False:
+        if sc.soom_running is False:
             layout.operator(
                 SelectObjectOnMouseover.bl_idname, text="開始", icon="PLAY"
             )
@@ -180,16 +171,17 @@ class OBJECT_PT_SOOM(bpy.types.Panel):
 # プロパティの作成
 def init_props():
     sc = bpy.types.Scene
-    sc.soom_props = PointerProperty(
-        name="プロパティ",
-        description="本アドオンで利用するプロパティ一覧",
-        type=SOOM_Properties)
+    sc.soom_running = BoolProperty(
+        name="動作中",
+        description="マウスオーバでオブジェクト選択機能が動作中か？",
+        default=False
+    )
 
 
 # プロパティの削除
 def clear_props():
     sc = bpy.types.Scene
-    del sc.soom_props
+    del sc.soom_running
 
 
 def register():

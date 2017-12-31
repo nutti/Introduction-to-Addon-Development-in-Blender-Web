@@ -1,5 +1,5 @@
 import bpy
-from bpy.props import BoolProperty, PointerProperty
+from bpy.props import BoolProperty
 //! [import_view3d_utils]
 from bpy_extras import view3d_utils
 //! [import_view3d_utils]
@@ -21,16 +21,6 @@ bl_info = {
 }
 
 
-# プロパティ
-class DOT_Properties(bpy.types.PropertyGroup):
-
-    running = BoolProperty(
-        name="動作中",
-        description="オブジェクトの移動軌跡表示機能が動作中か？",
-        default=False
-    )
-
-
 # オブジェクト名を表示
 class DrawObjectTrajectory(bpy.types.Operator):
 
@@ -39,20 +29,16 @@ class DrawObjectTrajectory(bpy.types.Operator):
     bl_description = "選択中のオブジェクトが移動した時に軌跡を表示します"
 
     __handle = None           # 描画関数ハンドラ
-
-    def __init__(self):
-        self.__loc_history = []      # オブジェクトの過去の位置情報
+    __loc_history = []
 
     def __handle_add(self, context):
         if DrawObjectTrajectory.__handle is None:
             # 描画関数の登録
             space = bpy.types.SpaceView3D
             DrawObjectTrajectory.__handle = space.draw_handler_add(
-                DrawObjectTrajectory.__render, (self, context),
+                DrawObjectTrajectory.__render, (context, ),
                 'WINDOW', 'POST_PIXEL'
             )
-            # モーダルモードへの移行
-            context.window_manager.modal_handler_add(self)
 
     def __handle_remove(self, context):
         if DrawObjectTrajectory.__handle is not None:
@@ -62,6 +48,7 @@ class DrawObjectTrajectory(bpy.types.Operator):
             )
             DrawObjectTrajectory.__handle = None
 
+//! [get_region_space]
     @staticmethod
     def __get_region_space(context, area_type, region_type, space_type):
         region = None
@@ -87,9 +74,10 @@ class DrawObjectTrajectory(bpy.types.Operator):
                 break
 
         return (region, space)
+//! [get_region_space]
 
     @staticmethod
-    def __render(self, context):
+    def __render(context):
 //! [loc_to_region]
         # 指定したリージョンとスペースを取得する
         region, space = DrawObjectTrajectory.__get_region_space(
@@ -101,16 +89,19 @@ class DrawObjectTrajectory(bpy.types.Operator):
         # 選択されたオブジェクトを取得
         objs = [o for o in bpy.data.objects if o.select]
         # オブジェクトの位置座標（3D座標）をリージョン座標（2D座標）に変換
-        self.__loc_history.append([view3d_utils.location_3d_to_region_2d(
-            region,
-            space.region_3d,
-            o.location) for o in objs])
+        DrawObjectTrajectory.__loc_history.append([
+            view3d_utils.location_3d_to_region_2d(
+                region,
+                space.region_3d,
+                o.location
+            ) for o in objs
+        ])
 //! [loc_to_region]
 
 //! [delete_oldest_loc]
         # 一定期間後、最も古い位置情報を削除する
-        if len(self.__loc_history) >= 100:
-            self.__loc_history.pop(0)
+        if len(DrawObjectTrajectory.__loc_history) >= 100:
+            DrawObjectTrajectory.__loc_history.pop(0)
 //! [delete_oldest_loc]
 
 //! [render_rect]
@@ -118,7 +109,7 @@ class DrawObjectTrajectory(bpy.types.Operator):
         size = 6.0
         bgl.glEnable(bgl.GL_BLEND)
         # 保存されている過去の位置情報をすべて表示
-        for hist in self.__loc_history:
+        for hist in DrawObjectTrajectory.__loc_history:
             # 選択されたすべてのオブジェクトについて表示
             for loc in hist:
                 bgl.glBegin(bgl.GL_QUADS)
@@ -130,33 +121,24 @@ class DrawObjectTrajectory(bpy.types.Operator):
                 bgl.glEnd()
 //! [render_rect]
 
-    def modal(self, context, event):
-        props = context.scene.dot_props
-        # 3Dビューの画面を更新
-        if context.area:
-            context.area.tag_redraw()
-
-        # 作業時間計測を停止
-        if props.running is False:
-            self.__handle_remove(context)
-            return {'FINISHED'}
-
-        return {'PASS_THROUGH'}
-
     def invoke(self, context, event):
-        props = context.scene.dot_props
+        sc = context.scene
         if context.area.type == 'VIEW_3D':
             # 開始ボタンが押された時の処理
-            if props.running is False:
-                props.running = True
+            if sc.dot_running is False:
+                sc.dot_running = True
+                DrawObjectTrajectory.__loc_history = []
                 self.__handle_add(context)
                 print("サンプル3-8: オブジェクトの軌跡表示を開始しました。")
-                return {'RUNNING_MODAL'}
             # 終了ボタンが押された時の処理
             else:
-                props.running = False
+                sc.dot_running = False
+                self.__handle_remove(context)
                 print("サンプル3-8: オブジェクトの軌跡表示を終了しました。")
-                return {'FINISHED'}
+            # 3Dビューの画面を更新
+            if context.area:
+                context.area.tag_redraw()
+            return {'FINISHED'}
         else:
             return {'CANCELLED'}
 
@@ -171,9 +153,8 @@ class OBJECT_PT_DOT(bpy.types.Panel):
     def draw(self, context):
         sc = context.scene
         layout = self.layout
-        props = sc.dot_props
         # 開始/停止ボタンを追加
-        if props.running is False:
+        if sc.dot_running is False:
             layout.operator(
                 DrawObjectTrajectory.bl_idname, text="開始", icon="PLAY"
             )
@@ -186,17 +167,17 @@ class OBJECT_PT_DOT(bpy.types.Panel):
 # プロパティの作成
 def init_props():
     sc = bpy.types.Scene
-    sc.dot_props = PointerProperty(
-        name="プロパティ",
-        description="本アドオンで利用するプロパティ一覧",
-        type=DOT_Properties
+    sc.dot_running = BoolProperty(
+        name="動作中",
+        description="オブジェクトの移動軌跡表示機能が動作中か？",
+        default=False
     )
 
 
 # プロパティの削除
 def clear_props():
     sc = bpy.types.Scene
-    del sc.dot_props
+    del sc.dot_running
 
 
 def register():

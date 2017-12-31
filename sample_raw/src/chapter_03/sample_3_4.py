@@ -35,7 +35,8 @@ class RenderFigure(bpy.types.Operator):
         if RenderFigure.__handle is None:
             RenderFigure.__handle = bpy.types.SpaceView3D.draw_handler_add(
                 RenderFigure.__render,
-                (self, context), 'WINDOW', 'POST_PIXEL')
+                (context, ), 'WINDOW', 'POST_PIXEL'
+            )
 //! [handle_add]
 
 //! [handle_remove]
@@ -43,13 +44,14 @@ class RenderFigure(bpy.types.Operator):
     def __handle_remove(self, context):
         if RenderFigure.__handle is not None:
             bpy.types.SpaceView3D.draw_handler_remove(
-                RenderFigure.__handle, 'WINDOW')
+                RenderFigure.__handle, 'WINDOW'
+            )
             RenderFigure.__handle = None
 //! [handle_remove]
 
 //! [render]
     @staticmethod
-    def __render(self, context):
+    def __render(context):
         sc = context.scene
 
         # OpenGLの設定
@@ -74,19 +76,6 @@ class RenderFigure(bpy.types.Operator):
         bgl.glDisable(bgl.GL_BLEND)
 //! [render]
 
-    def modal(self, context, event):
-        sc = context.scene
-        # 3Dビューの画面を更新
-        if context.area:
-            context.area.tag_redraw()
-
-        # 作業時間計測を停止
-        if sc.rf_running is False:
-            self.__handle_remove(context)
-            return {'FINISHED'}
-
-        return {'PASS_THROUGH'}
-
     def invoke(self, context, event):
         sc = context.scene
         if context.area.type == 'VIEW_3D':
@@ -95,12 +84,15 @@ class RenderFigure(bpy.types.Operator):
                 sc.rf_running = True
                 self.__handle_add(context)
                 print("サンプル3-4: 図形の描画を開始しました。")
-                return {'RUNNING_MODAL'}
             # 終了ボタンが押された時の処理
             else:
                 sc.rf_running = False
+                self.__handle_remove(context)
                 print("サンプル3-4: 図形の描画を終了しました。")
-                return {'FINISHED'}
+            # 3Dビューの画面を更新
+            if context.area:
+                context.area.tag_redraw()
+            return {'FINISHED'}
         else:
             return {'CANCELLED'}
 
@@ -128,7 +120,6 @@ class OBJECT_PT_RF(bpy.types.Panel):
 //! [panel_class]
 
 
-//! [init_props]
 # プロパティの作成
 def init_props():
     sc = bpy.types.Scene
@@ -169,10 +160,8 @@ def init_props():
         size=2,
         default=(100.0, 50.0)
     )
-//! [init_props]
 
 
-//! [clear_props]
 # プロパティの削除
 def clear_props():
     sc = bpy.types.Scene
@@ -182,7 +171,6 @@ def clear_props():
     del sc.rf_vert_2
     del sc.rf_vert_3
     del sc.rf_vert_4
-//! [clear_props]
 
 
 def register():
