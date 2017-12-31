@@ -1,0 +1,28 @@
+# プログラミング言語の指定
+# BlenderのアドオンはPythonで記述するためpythonを指定
+language: python
+
+# 使用するPythonのバージョン
+# ★BlenderのPythonコンソールから利用されているPythonのバージョンを特定可能
+python:
+  - "3.4"
+
+# install前に実行する処理
+before_install:
+  # 可能な限り最新のBlenderをインストール
+  # パッケージマネージャー経由でインストールすることで、Blenderに依存しているパッケージを
+  # 自動的にインストール（手動で依存するパッケージをインストールするのは手間がかかるため）
+  - sudo apt-get update -qq
+  - sudo apt-get install blender
+
+# テスト実行の前準備
+install:
+  # ★最新版のBlenderをダウンロード
+  - wget http://mirror.cs.umn.edu/blender.org/release/Blender2.75/blender-2.75-linux-glibc211-x86_64.tar.bz2
+  # ★ダウンロードしたBlenderを解凍
+  - tar jxf blender-2.75-linux-glibc211-x86_64.tar.bz2
+  # ★アドオンをインストール（Blenderのバージョンに合わせて、ディレクトリを指定）
+  - cp testee.py blender-2.75-linux-glibc211-x86_64/2.75/scripts/addons/testee.py
+
+# ★テスト実行
+script: blender-2.75-linux-glibc211-x86_64/blender -noaudio --factory-startup --background --addons testee --python test.py

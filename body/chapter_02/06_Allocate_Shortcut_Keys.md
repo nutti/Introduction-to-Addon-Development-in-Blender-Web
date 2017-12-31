@@ -14,9 +14,9 @@
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_2-6.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_2_6.py``` として保存してください。
 
-[import](../../sample/src/chapter_02/sample_2-6.py)
+[import](../../sample/src/chapter_02/sample_2_6.py)
 
 <div id="space_m"></div>
 
@@ -54,7 +54,7 @@
 
 ショートカットキーの割り当ては、 ```register_shortcut()``` 関数で行います。
 
-[import:"register_shortcut"](../../sample_raw/src/chapter_02/sample_2-6.py)
+[import:"register_shortcut"](../../sample_raw/src/chapter_02/sample_2_6.py)
 
 
 ```bpy.context.window_manager.keyconfigs.addon.keymaps``` はアドオンに割り当てられているキーマップです。
@@ -94,7 +94,7 @@
 
 ショートカットキーの割り当て解除は、 ```unregister_shortcut()``` 関数で行います。
 
-[import:"unregister_shortcut"](../../sample_raw/src/chapter_02/sample_2-6.py)
+[import:"unregister_shortcut"](../../sample_raw/src/chapter_02/sample_2_6.py)
 
 
 アドオン有効化時にグローバル変数 ```addon_keymaps``` に保存したキーマップを、 ```keymap_items.remove()``` 関数の引数に指定して実行することで、ショートカットキーのペアを削除します。

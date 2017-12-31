@@ -27,9 +27,9 @@
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_2-10.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_2_10.py``` として保存してください。
 
-[import](../../sample/src/chapter_02/sample_2-10.py)
+[import](../../sample/src/chapter_02/sample_2_10.py)
 
 
 ## アドオンを使用する
@@ -314,14 +314,16 @@
 
 ポップアップメッセージを表示するためのオペレータクラスを、以下に示します。
 
-[import:"ops_show_popup_message"](../../sample_raw/src/chapter_02/sample_2-10.py)
+[import:"ops_show_popup_message"](../../sample_raw/src/chapter_02/sample_2_10.py)
 
 
-ポップアップメッセージの表示はボタンを押したときに呼ばれる ```invoke()``` メソッド内の ```context.window_manager.invoke_popup()``` 関数で行っています。
+ポップアップメッセージの表示はボタンを押したときに呼ばれる ```invoke()``` メソッドで行っています。
 
-```invoke()``` メソッドは、処理が実行された時に呼ばれるメソッドです。```execute()``` メソッドも処理が実行された時に呼ばれますが、```execute()``` メソッドの前に ```invoke()``` メソッドが呼ばれる点が異なります。このため、```execute()``` メソッドの実行前に行いたい処理がある場合は、 ```invoke()``` メソッドを使用します。
+```invoke()``` メソッドは、処理が実行された時に呼ばれるメソッドです。```execute()``` メソッドも処理が実行された時に呼ばれますが、```execute()``` メソッドの引数にはなかったイベント ```event``` を受け取る点が異なります。[3-1節](../chapter_03/01_Handle_Mouse_Click_Event.md) でも説明しますが、引数 ```event``` には ```invoke()``` メソッドが呼ばれた時のマウスの位置や発生したキーイベントなどの情報が含まれています。また、```invoke()``` と ```execute()``` が2つ定義されていた場合、メニューの項目を選択した時やボタンを押したなどのUIから操作を行うと ```invoke()``` が優先的に呼ばれます。一方、[2-2節](../chapter_02/02_Register_Multiple_Operation_Classes.md) で説明した ```bpy.ops.<オペレーションクラスのbl_idname>``` を実行すると ```execute()``` が呼び出されます。
 
-```wm.invoke_popup()``` 関数の引数を以下に示します。
+このようにユーザからの入力を積極的に使いたい場合や、```invoke()``` メソッドで前処理を行った後に ```bpy.ops.<オペレーションクラスのbl_idname>``` を実行じて ```excute()``` を呼び出したい場合に ```invoke()``` メソッドを利用します。
+
+本節のサンプルでは、```invoke()``` メソッド内で ```wm.invoke_popup()``` 関数を次に示す引数を指定して実行しています。
 
 |引数|型|意味|
 |---|---|
@@ -335,7 +337,7 @@
 
 *ポップアップメッセージ* ボタンを配置する処理を以下に示します。
 
-[import:"show_popup_message", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-10.py)
+[import:"show_popup_message", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_10.py)
 
 
 #### ダイアログメニューを表示する
@@ -344,7 +346,7 @@
 
 ダイアログメニューを表示するオペレータクラスを以下に示します。
 
-[import:"ops_show_dialog_menu"](../../sample_raw/src/chapter_02/sample_2-10.py)
+[import:"ops_show_dialog_menu"](../../sample_raw/src/chapter_02/sample_2_10.py)
 
 ```ShowDialogMenu``` クラスには4つのプロパティクラスの変数が宣言されていて、ダイアログメニューではこれらのプロパティを表示します。ダイアログメニューの表示は ```wm.invoke_props_dialog()``` 関数で行います。引数には、ダイアログメニューに表示するプロパティクラスの変数を持つオペレータクラスのインスタンスを渡します。
 
@@ -364,7 +366,7 @@
 
 *ダイアログメニュー* ボタンを配置する処理を以下に示します。
 
-[import:"show_dialog_menu", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-10.py)
+[import:"show_dialog_menu", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_10.py)
 
 
 #### ファイルブラウザを表示する
@@ -373,7 +375,7 @@
 
 本節のサンプルでは、以下のコードでファイルブラウザを表示しています。
 
-[import:"ops_show_file_browser"](../../sample_raw/src/chapter_02/sample_2-10.py)
+[import:"ops_show_file_browser"](../../sample_raw/src/chapter_02/sample_2_10.py)
 
 ファイルブラウザを表示するためには、```invoke()``` メソッド内で ```wm.fileselect_add()``` 関数を呼ぶ必要があります。引数には、ファイルブラウザ内でファイルを確定した時に実行される ```execute()``` メソッドが定義されたオペレータクラスのインスタンスを指定します。```invoke()``` メソッドの戻り値は、```{'RUNNING_MODAL'}``` にする必要があります。
 
@@ -383,7 +385,7 @@
 
 最後に、*ファイルブラウザ* ボタンを配置する処理を以下に示します。
 
-[import:"show_file_browser", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-10.py)
+[import:"show_file_browser", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_10.py)
 
 
 #### 実行確認のポップアップを表示する
@@ -394,7 +396,7 @@ Blenderの機能の中には、実行する前に処理を実行するか中断�
 
 本節のサンプルでは、以下のコードで実行確認のポップアップを表示しています。
 
-[import:"ops_show_confirm_popup"](../../sample_raw/src/chapter_02/sample_2-10.py)
+[import:"ops_show_confirm_popup"](../../sample_raw/src/chapter_02/sample_2_10.py)
 
 
 実行確認のポップアップは、```invoke()``` メソッド内から ```wm.invoke_confirm()``` 関数を呼び出して表示しています。
@@ -408,7 +410,7 @@ Blenderの機能の中には、実行する前に処理を実行するか中断�
 
 *確認ポップアップ* ボタンを配置する処理を以下に示します。
 
-[import:"show_confirm_popup", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-10.py)
+[import:"show_confirm_popup", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_10.py)
 
 
 #### プロパティ付きポップアップを表示する
@@ -417,7 +419,7 @@ Blenderの機能の中には、実行する前に処理を実行するか中断�
 
 本節のサンプルでは、以下のようにしてプロパティ付きポップアップを表示しています。
 
-[import:"ops_show_property_popup"](../../sample_raw/src/chapter_02/sample_2-10.py)
+[import:"ops_show_property_popup"](../../sample_raw/src/chapter_02/sample_2_10.py)
 
 
 プロパティ付きポップアップは、```invoke()``` メソッド内から ```context.window_manager.invoke_props_popup()``` 関数を実行することで表示することができます。プロパティを変更すると ```execute()``` メソッドが実行され、 現在のプロパティの値がスクリプト実行ログに表示されます。
@@ -433,7 +435,7 @@ Blenderの機能の中には、実行する前に処理を実行するか中断�
 
 *プロパティ付きポップアップ* ボタンを配置する処理を以下に示します。
 
-[import:"show_property_popup", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-10.py)
+[import:"show_property_popup", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_10.py)
 
 
 #### 検索ウィンドウ付きポップアップを表示する
@@ -442,7 +444,7 @@ Blenderの機能の中には、実行する前に処理を実行するか中断�
 
 本節のサンプルでは、検索ウィンドウ付きポップアップを以下のコードにより表示します。
 
-[import:"ops_show_search_popup"](../../sample_raw/src/chapter_02/sample_2-10.py)
+[import:"ops_show_search_popup"](../../sample_raw/src/chapter_02/sample_2_10.py)
 
 
 検索ウィンドウ付きのポップアップを表示するためには、```invoke()``` メソッド内で ```context.window_manager.invoke_search_popup()``` 関数を使います。引数には、項目確定時に呼び出される ```execute()``` メソッドが定義されたクラスのインスタンスを指定します。なお ```invoke()``` メソッドは ```{'FINISHED'}``` を返す必要があります。
@@ -453,7 +455,7 @@ Blenderの機能の中には、実行する前に処理を実行するか中断�
 
 最後に、*検索ウィンドウ付きポップアップ* ボタンを配置する処理を以下に示します。
 
-[import:"show_search_popup", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-10.py)
+[import:"show_search_popup", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_10.py)
 
 <div id="space_s"></div>
 
@@ -484,7 +486,9 @@ Blenderの機能の中には、実行する前に処理を実行するか中断�
 <div id="point_item"></div>
 
 * ポップアップウィンドウやファイルブラウザなど、Blenderが提供する特殊なUIは、実行コンテキストの ```window_manager``` を通して呼び出すことができる
-* オペレータクラスに定義する ```invoke()``` メソッドは、オペレータクラスが実行された時に呼び出されるメソッドで、```execute()``` メソッドより前に呼び出される
+* オペレータクラスに定義する ```invoke()``` メソッドと ```execute()``` メソッドは、引数にイベント情報を受け取らない点で異なる
+* メニューやボタンからオペレータクラスの処理を実行する場合は、```invoke()``` メソッドが優先的に実行される
+* ```bpy.ops.<オペレーションクラスのbl_idname>``` オペレータクラスの処理を実行した場合は、```execute()``` メソッドが優先的に実行される
 * UIの構築方法を知ることと、わかりやすいUIを構築することは別である。わかりやすいUIを構築するために他の方が作成したUIを参考にしよう
 
 <div id="space_page"></div>

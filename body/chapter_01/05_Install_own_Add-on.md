@@ -39,7 +39,7 @@
 |<div id="box">3</div>| 以下に示すソースコード全文を入力します。**空白は全て半角スペースで入力し、タブや全角スペースが含まれない** ように注意してください。|![アドオン作成 手順3](https://dl.dropboxusercontent.com/s/yv4zxwqlzljnm10/blender_make_add-on_3.png "アドオン作成 手順3")|
 |---|---|---|
 
-[import](../../sample/src/chapter_01/sample_1-5.py)
+[import](../../sample/src/chapter_01/sample_1_5.py)
 
 <div id="process_sep"></div>
 
@@ -56,7 +56,7 @@
 
 <div id="process"></div>
 
-|<div id="box">5</div>|ファイル名 *sample_1-5.py* として保存します。保存先はOSごとに異なりますので注意してください。|![アドオン作成 手順5](https://dl.dropboxusercontent.com/s/z9ibf7qz2t1jlj7/blender_make_add-on_5.png "アドオン作成 手順5")|
+|<div id="box">5</div>|ファイル名 *sample_1_5.py* として保存します。保存先はOSごとに異なりますので注意してください。|![アドオン作成 手順5](https://dl.dropboxusercontent.com/s/z9ibf7qz2t1jlj7/blender_make_add-on_5.png "アドオン作成 手順5")|
 |---|---|---|
 
 |OS|保存先|

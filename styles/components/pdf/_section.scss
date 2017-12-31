@@ -23,12 +23,19 @@ $sect_list: '0_0',
 '3_5',
 '3_6',
 '3_7',
+'3_8',
+'3_9',
+'3_10',
 '4_1',
 '4_2',
 '4_3',
 '4_4',
 '4_5',
-'4_6';
+'4_6',
+'5_1',
+'5_2',
+'5_3',
+'5_4';
 
 $sect_img_list:
 'https://dl.dropboxusercontent.com/s/o4kgodzmoi21ibn/sect_title_img_0_0.png',
@@ -54,12 +61,20 @@ $sect_img_list:
 'https://dl.dropboxusercontent.com/s/qvk9bj6ohu98k6a/sect_title_img_3_5.png',
 'https://dl.dropboxusercontent.com/s/c6xs3xvg9xuenga/sect_title_img_3_6.png',
 'https://dl.dropboxusercontent.com/s/i3if7aromu9082g/sect_title_img_3_7.png',
+'https://dl.dropboxusercontent.com/s/3w0qtink6cnd906/sect_title_img_3_8.png',
+'https://dl.dropboxusercontent.com/s/liy4imecpp9jkra/sect_title_img_3_9.png',
+'https://dl.dropboxusercontent.com/s/9napuc5qjwgc3bt/sect_title_img_3_10.png',
 'https://dl.dropboxusercontent.com/s/xp2czcybl5le7nu/sect_title_img_4_1.png',
 'https://dl.dropboxusercontent.com/s/16hlrbm8kpnhu4q/sect_title_img_4_2.png',
 'https://dl.dropboxusercontent.com/s/93ox0py4e8pflfp/sect_title_img_4_3.png',
 'https://dl.dropboxusercontent.com/s/ln0itmf0jrhblt3/sect_title_img_4_4.png',
 'https://dl.dropboxusercontent.com/s/wkhnupyyxkd7wdm/sect_title_img_4_5.png',
-'https://dl.dropboxusercontent.com/s/b5mwln1onpzqnvx/sect_title_img_4_6.png';
+'https://dl.dropboxusercontent.com/s/b5mwln1onpzqnvx/sect_title_img_4_6.png',
+'https://dl.dropboxusercontent.com/s/4ucvsuyf3hai87b/sect_title_img_5_1.png',
+'https://dl.dropboxusercontent.com/s/8uqd1hz9cl2mxew/sect_title_img_5_2.png',
+'https://dl.dropboxusercontent.com/s/x284k5cuy19s9r2/sect_title_img_5_3.png',
+'https://dl.dropboxusercontent.com/s/n2ssp8z55yszw3w/sect_title_img_5_4.png';
+
 
 @mixin section_title_text($font_size, $top, $margin_bottom) {
     #sect_title_text + h1 {

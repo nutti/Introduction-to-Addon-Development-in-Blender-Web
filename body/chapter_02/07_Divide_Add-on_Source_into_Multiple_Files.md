@@ -22,24 +22,24 @@
 
 ## アドオンを作成する
 
-[1-2節](../chapter_01/02_Use_Blender_Add-on.md) のBlenderアドオン用フォルダに、ディレクトリ名 ```sample_2-2``` のディレクトリを作成します。
+[1-2節](../chapter_01/02_Use_Blender_Add-on.md) のBlenderアドオン用フォルダに、ディレクトリ名 ```sample_2_7``` のディレクトリを作成します。
 [1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、作成したディレクトリの下にファイル名をそれぞれ ```__init__.py``` , ```enlarge_object.py``` , ```reduce_object.py``` として保存してください。
 
 <div id="space_x6l"></div>
 
 ### \_\_init\_\_.py
 
-[import](../../sample/src/chapter_02/sample_2-7/__init__.py)
+[import](../../sample/src/chapter_02/sample_2_7/__init__.py)
 
 <div id="space_xl"></div>
 
 ### enlarge_object.py
 
-[import](../../sample/src/chapter_02/sample_2-7/enlarge_object.py)
+[import](../../sample/src/chapter_02/sample_2_7/enlarge_object.py)
 
 ### reduce_object.py
 
-[import](../../sample/src/chapter_02/sample_2-7/reduce_object.py)
+[import](../../sample/src/chapter_02/sample_2_7/reduce_object.py)
 
 ## アドオンを使用する
 
@@ -75,7 +75,7 @@ Pythonでは、 **クラスや関数、変数が定義された1つのスクリ�
 
 そして、 **複数のモジュールを1つにまとめたもの** をパッケージといいます。Pythonでパッケージを作成するためには、ディレクトリを作成し、その配下にファイル ```__init__.py``` とパッケージ化するモジュール一式を置きます。Pythonで一般的にパッケージを作る場合は ```__init__.py``` は空のファイルでもよいですが、後で説明するようにBlenderでパッケージを作る場合は、特別な処理を記載する必要があります。
 
-モジュール名はスクリプトのファイル名、パッケージ名は ```__init__.py``` とモジュール一式をまとめたディレクトリ名となります。このことを踏まえると、本節のサンプルについてモジュールとパッケージの関係は、 **sample_2-7パッケージにはenlarge_objectモジュールとreduce_objectモジュールが含まれる** と表すことができます。
+モジュール名はスクリプトのファイル名、パッケージ名は ```__init__.py``` とモジュール一式をまとめたディレクトリ名となります。このことを踏まえると、本節のサンプルについてモジュールとパッケージの関係は、 **sample_2_7パッケージにはenlarge_objectモジュールとreduce_objectモジュールが含まれる** と表すことができます。
 
 ### \_\_init\_\_.pyとは
 
@@ -111,7 +111,7 @@ from . import reduce_object
 
 この問題に対処するため、以下のようにインポート処理を書き換える必要があります。
 
-[import:"import_moudle"](../../sample_raw/src/chapter_02/sample_2-7/__init__.py)
+[import:"import_moudle"](../../sample_raw/src/chapter_02/sample_2_7/__init__.py)
 
 上記のコードを簡単に説明します。最初のif文では、```bpy``` モジュールが既にインポートされているかを判定します。インポートされていなければ、Blender起動後に初めてアドオンが読み込まれたと判定し、関連するモジュールをインポートします。
 

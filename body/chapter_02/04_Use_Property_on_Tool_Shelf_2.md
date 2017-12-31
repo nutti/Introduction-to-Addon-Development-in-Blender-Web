@@ -25,9 +25,9 @@
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名 ```sample_2-4.py``` で保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名 ```sample_2_4.py``` で保存してください。
 
-[import](../../sample/src/chapter_02/sample_2-4.py)
+[import](../../sample/src/chapter_02/sample_2_4.py)
 
 ## アドオンを使用する
 
@@ -134,9 +134,9 @@ location = EnumProperty(
 
 基本的には *3Dビュー* エリア上に存在するオブジェクト名一覧を項目に追加すれば良さそうですが、存在するオブジェクトは処理の実行状況に応じて変化するため、 ```items``` に渡す項目リストを動的に生成する必要があります。例えば、*3Dビュー* エリアのメニューである、 *オブジェクト* > *選択オブジェクトの複製* を実行した後に、*オブジェクト* > *選択オブジェクトの複製* を再度実行した場合、最初に複製したオブジェクトを複製オブジェクトの配置先として選べる必要があります。このため、本節のサンプルでは以下のようにして ```EnumProperty``` クラスにより作られるセレクトボックスの選択項目を動的に追加する処理を記載しています。
 
-[import:"enum_list_fn"](../../sample_raw/src/chapter_02/sample_2-4.py)
+[import:"enum_list_fn"](../../sample_raw/src/chapter_02/sample_2_4.py)
 
-[import:"enum_prop", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-4.py)
+[import:"enum_prop", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_4.py)
 
 
 ```EnumProperty``` クラスの ```items``` に項目リストを渡す代わりに、項目リストを返す```location_list_fn()``` 関数を渡しています。

@@ -14,9 +14,9 @@
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_2-5.py``` で保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_2_5.py``` で保存してください。
 
-[import](../../sample/src/chapter_02/sample_2-5.py)
+[import](../../sample/src/chapter_02/sample_2_5.py)
 
 ## アドオンを使用する
 
@@ -79,7 +79,7 @@
 
 サブメニューを追加するためには、 ```bpy.types.Menu``` クラスを継承した **メニュークラスを作成する** 必要があります。
 
-[import:"menu_cls"](../../sample_raw/src/chapter_02/sample_2-5.py)
+[import:"menu_cls"](../../sample_raw/src/chapter_02/sample_2_5.py)
 
 
 オペレータクラスと同様、メニュークラスにはクラス変数 ```bl_idname``` , ```bl_label``` , ```bl_description``` を定義する必要がありますが、 ```bl_options``` を指定する必要はありません。
@@ -95,13 +95,13 @@
 
 オペレータクラスは、複製するオブジェクトをオブジェクト名で判定するため、オペレータクラスのクラス変数 ```src_obj_name``` にオブジェクト名を代入します。```src_obj_name``` は ```StringProperty``` クラスの変数で定義します。
 
-[import:"string_prop", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-5.py)
+[import:"string_prop", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_5.py)
 
 オペレータクラスの ```execute()``` メソッドでは、クラス変数 ```src_obj_name``` に代入されたオブジェクト名を用いてオブジェクトを複製するように処理を変更しています。本書については説明しませんが、ソースコードのコメントに処理内容を細かく記載しているため確認してください。
 
 最後に、*3Dビュー* エリアのメニューである *オブジェクト* へ項目を追加します。
 
-[import:"build_menu"](../../sample_raw/src/chapter_02/sample_2-5.py)
+[import:"build_menu"](../../sample_raw/src/chapter_02/sample_2_5.py)
 
 これまでオペレータクラスをメニューに追加する時は ```self.layout.operator()``` 関数を利用していましたが、メニュークラスをメニューに追加する場合は ```self.layout.menu()``` 関数を利用します。```self.layout.menu()``` 関数にメニュークラスのクラス変数 ```bl_idname``` を引数として渡すことで、メニューをメニューの項目に追加することができます。
 
@@ -113,7 +113,7 @@
 
 以下のサンプルでは、先ほど作成したサンプルのメニューとサブメニューの間に新たなメニューとして、 *オブジェクトの複製（サブメニュー）* を追加しています。
 
-[import](../../sample/src/chapter_02/sample_2-5_alt.py)
+[import](../../sample/src/chapter_02/sample_2_5_alt.py)
 
 <div id="sidebyside"></div>
 
@@ -123,9 +123,9 @@
 
 サンプルのソースコードを見るとわかると思いますが、3階層のメニューは2階層のメニューを作成した時の応用であることがわかります。
 
-[import:"sub_menu_cls"](../../sample_raw/src/chapter_02/sample_2-5_alt.py)
+[import:"sub_menu_cls"](../../sample_raw/src/chapter_02/sample_2_5_alt.py)
 
-[import:"main_menu_cls"](../../sample_raw/src/chapter_02/sample_2-5_alt.py)
+[import:"main_menu_cls"](../../sample_raw/src/chapter_02/sample_2_5_alt.py)
 
 
 サブメニュー登録時に ```self.layout.operator()``` 関数の代わりに ```self.layout.menu()``` 関数を用い、サブメニュー用に作成したメニュークラスのクラス変数 ```bl_idname``` を指定します。そしてサブメニュー用に作成したクラスの中で、オペレータクラスを登録することで、3階層のメニューを作成することができます。

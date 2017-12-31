@@ -90,9 +90,9 @@ BlenderのUIを変更するためには大変な労力が必要だと思って�
 
 ## アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_2-8.py``` として保存してください。
+[1-5節](../chapter_01/05_Install_own_Add-on.md) を参考にして以下のソースコードを入力し、ファイル名を ```sample_2_8.py``` として保存してください。
 
-[import](../../sample/src/chapter_02/sample_2-8.py)
+[import](../../sample/src/chapter_02/sample_2_8.py)
 
 
 ## アドオンを使用する
@@ -132,7 +132,7 @@ BlenderのUIを変更するためには大変な労力が必要だと思って�
 
 ツール・シェルフのタブに追加するためには、以下に示すような ```bpy.types.Panel``` クラスを継承した **パネルクラスを作成する** 必要があります。
 
-[import:"panel_cls"](../../sample_raw/src/chapter_02/sample_2-8.py)
+[import:"panel_cls"](../../sample_raw/src/chapter_02/sample_2_8.py)
 
 
 本節のサンプルでは、 ```bpy.types.Panel``` クラスを継承した ```VIEW3D_PT_CustomMenu``` クラスを作成しています。クラス名は基本的に自由につけることができますが、Blender本体では ```<エリア名>_<タイプ>_<クラスを表す適切な名前>``` と命名されていることが多いようですので、本節のサンプルではそれに合わせてみました。ここで ```<タイプ>``` には、継承する型に応じて以下のような文字列が入ります。
@@ -155,27 +155,42 @@ BlenderのUIを変更するためには大変な労力が必要だと思って�
 
 ```bl_label``` には、ツール・シェルフのタブに表示される文字列を指定します。クラス変数 ```bl_space_type``` には登録先のエリアを指定します。本節のサンプルでは、*3Dビュー* エリアに登録することを考えて ```VIEW_3D``` を指定しています。
 
-クラス変数 ```bl_space_type``` には、他にも以下のような値を指定することができます。
+他にもクラス変数 ```bl_space_type``` には、Blenderのエリアに対応した以下のような値を指定することができます。
 
-|設定値|値の意味|
+
+|設定値|エリア|
 |---|---|
 |```VIEW_3D```|3Dビュー|
-|```IMAGE_EDITOR```|UV/画像エディター|
+|```TIME_LINE```|タイムライン|
+|```GRAPH_EDITOR```|グラフエディター|
+|```DOPESHEET_EDITOR```|ドープシート|
 |```NLA_EDITOR```|NLAエディター|
+|```IMAGE_EDITOR```|UV/画像エディター|
+|```SEQUENCE_EDITOR```|ビデオシーケンスエディター|
+|```CLIP_EDITOR```|動画クリップエディター|
+|```TEXT_EDITOR```|テキストエディター|
 |```NODE_EDITOR```|ノードエディター|
 |```LOGIC_EDITOR```|ロジックエディター|
-|```SEQUENCE_EDITOR```|ビデオシーケンスエディター|
-|```GRAPH_EDITOR```|グラフエディター|
+|```PROPERTIES```|プロパティ|
+|```OUTLINER```|アウトライナー|
+|```USER_PREFERENCES```|ユーザ設定|
+|```INFO```|情報|
+|```FILE_BROWSER```|ファイルブラウザー|
+|```CONSOLE```|Pythonコンソール|
+
 
 クラス変数 ```bl_region_type``` には登録先のリージョンを指定します。本節のサンプルではツール・シェルフに登録するため、```TOOLS``` を指定しています。
 
 クラス変数 ```bl_region_type``` には、他にも以下のような値を設定することが可能です。
 
+
 |設定値|値の意味|
 |---|---|
-|```UI```|プロパティパネル|
-|```TOOLS```|ツール・シェルフ|
-|```TOOL_PROPS```|ツール・シェルフのプロパティ|
+|```UI```|プロパティパネル（*N* キーを押したときにエリアの右側に表示される領域）|
+|```TOOLS```|ツール・シェルフ（*T* キーを押したときにエリアの左側に表示される上側部分の領域）|
+|```TOOL_PROPS```|ツール・シェルフのプロパティ（*T* キーを押したときにエリアの左側に表示される下側部分の領域）|
+|```WINDOW```|ウィンドウ（エリア中央の領域で常に表示される）|
+|```HEADER```|ヘッダ（エリア上部または下部に表示されるバーで常に表示されている）|
 
 
 ```VIEW3D_PT_CustomMenu``` クラスには、```poll()``` メソッド、```draw_header()``` メソッド、```draw()``` メソッドが定義されています。各メソッドの処理を以下に示します。定義したメソッドの詳細については後ほど説明します。
@@ -202,7 +217,7 @@ BlenderのUIを変更するためには大変な労力が必要だと思って�
 
 また、```poll()``` メソッドでは、オブジェクトが選択されている時にのみ描画する処理を追加しています。
 
-[import:"poll", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-8.py)
+[import:"poll", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_8.py)
 
 ```poll()``` メソッドはクラス単位の処理となるため、クラスメソッドとして定義する必要があります。このため、メソッドの前にデコレータ ```@classmethod``` をつける必要があります。
 
@@ -220,7 +235,7 @@ BlenderのUIを変更するためには大変な労力が必要だと思って�
 
 タブに追加したメニューのヘッダーのUIを変更するためには、パネルクラスの ```draw_header()``` メソッドを定義します。```draw()``` メソッドでは、ヘッダーのUIを変更できない点に注意が必要です。
 
-[import:"draw_header", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-8.py)
+[import:"draw_header", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_8.py)
 
 
 ```draw_header()``` メソッドの引数は、以下の通りです。
@@ -249,7 +264,7 @@ BlenderのUIを変更するためには大変な労力が必要だと思って�
 
 本節のサンプルでは、```bpy.types.VIEW3D_MT_object.prepend()``` 関数を用いてメニューの先頭にも項目を追加しています。
 
-[import:"append_item_to_menu", unindent:"true"](../../sample_raw/src/chapter_02/sample_2-8.py)
+[import:"append_item_to_menu", unindent:"true"](../../sample_raw/src/chapter_02/sample_2_8.py)
 
 
 

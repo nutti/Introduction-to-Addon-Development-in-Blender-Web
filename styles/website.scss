@@ -11,7 +11,6 @@
             tr {
                 border: none;
                 th:nth-of-type(1) {
-                    font-family: Goudy;
                     font-weight: bold;
                     font-style: italic;
                     color: #BBBBBB;
@@ -24,7 +23,6 @@
                     font-size: 3.0rem;
                 }
                 th:nth-of-type(2) {
-                    font-family: NotoSansCJKjp;
                     border: none;
                     width: 45%;
                     max-width: 45%;
@@ -36,7 +34,7 @@
                     white-space: normal;
                 }
                 th:nth-of-type(3) {
-                    font-family: NotoSansCJKjp;
+                    //font-family: NotoSansCJKjp;
                     border: none;
                     width: 50%;
                     max-width: 50%;
@@ -51,7 +49,6 @@
             tr {
                 border: none;
                 td:nth-of-type(1) {
-                    font-family: Goudy;
                     font-weight: bold;
                     font-style: italic;
                     color: #BBBBBB;
@@ -63,7 +60,6 @@
                     vertical-align: top;
                 }
                 td:nth-of-type(2) {
-                    font-family: NotoSansCJKjp;
                     line-height: 2.0;
                     border: none;
                     width: 45%;
@@ -73,7 +69,6 @@
                     vertical-align: top;
                 }
                 td:nth-of-type(3) {
-                    font-family: NotoSansCJKjp;
                     border: none;
                     width: 50%;
                     max-width: 50%;
@@ -96,7 +91,6 @@
             tr {
                 border: none;
                 th:nth-of-type(1) {
-                    font-family: Goudy;
                     font-weight: bold;
                     font-style: italic;
                     color: #BBBBBB;
@@ -109,7 +103,6 @@
                     font-size: 3.0rem;
                 }
                 th:nth-of-type(2) {
-                    font-family: NotoSansCJKjp;
                     border: none;
                     width: 95%;
                     max-width: 95%;
@@ -127,7 +120,6 @@
             tr {
                 border: none;
                 td:nth-of-type(1) {
-                    font-family: Goudy;
                     font-weight: bold;
                     font-style: italic;
                     color: #BBBBBB;
@@ -139,7 +131,6 @@
                     vertical-align: top;
                 }
                 td:nth-of-type(2) {
-                    font-family: NotoSansCJKjp;
                     line-height: 2.0;
                     border: none;
                     width: 95%;
@@ -166,7 +157,6 @@
             tr {
                 border: none;
                 th:nth-of-type(1) {
-                    font-family: NotoSansCJKjp;
                     border: none;
                     width: 50%;
                     max-width: 50%;
@@ -178,7 +168,6 @@
                     white-space: normal;
                 }
                 th:nth-of-type(2) {
-                    font-family: NotoSansCJKjp;
                     border: none;
                     width: 50%;
                     max-width: 50%;
@@ -193,7 +182,6 @@
             tr {
                 border: none;
                 td:nth-of-type(1) {
-                    font-family: NotoSansCJKjp;
                     border: none;
                     width: 50%;
                     max-width: 50%;
@@ -202,7 +190,6 @@
                     vertical-align: top;
                 }
                 td:nth-of-type(2) {
-                    font-family: NotoSansCJKjp;
                     border: none;
                     width: 50%;
                     max-width: 50%;
@@ -234,7 +221,6 @@
 @mixin process_title()
 {
     #process_title + h5 {
-        font-family: MPlus;
         margin-left: auto;
         margin-right: auto;
         width: 40%;
@@ -249,20 +235,17 @@
 @mixin chapter_title_text()
 {
     #ch_title_text + h1 {
-        font-family: MPlus;
     }
 }
 
 @mixin chapter_body() {
     #ch_body + p {
-        font-family: MPlus;
         color: #333333;
     }
 }
 
 @mixin chapter_toc_title() {
     #ch_toc_title + h2 {
-        font-family: MPlus;
     }
 }
 
@@ -271,39 +254,30 @@
         .page-wrapper {
             .page-inner {
                 section.normal {
-                    font-family: NotoSansCJKjp;
                     p {
-                        font-family: NotoSansCJKjp;
                     }
                     pre {
                         background: #FBFBFB;
-                        font-family: Hack, NotoSansCJKjp;
                         >code {
-                            font-family: Hack, NotoSansCJKjp;
                         }
                     }
                     h1 {
-                        font-family: MPlus;
                     }
                     h2 {
-                        font-family: MPlus;
                         background: #E0E0E0;
                         padding-left: 1.5rem;
                     }
                     h3 {
-                        font-family: MPlus;
                         padding-left: 1.0rem;
                         padding-bottom: 0.2rem;
                         border-bottom: 1px solid #E0E0E0;
                     }
                     h4 {
-                        font-family: MPlus;
                         display: inline;
                         padding: 2px 0.5em;
                         border-bottom: 1px solid #E0E0E0;
                     }
                     h5 {
-                        font-family: MPlus;
                     }
                     @include sidebyside();
                     @include process();
