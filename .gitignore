@@ -9,10 +9,6 @@
 *.pdf
 _book/
 
-# not allow media files
-*.png
-*.jpg
-
 # allow cover
 !cover.jpg
 
@@ -25,3 +21,7 @@ startup.blend
 backup
 backup.txt
 venv/
+release/
+
+*.css
+*.css.map
