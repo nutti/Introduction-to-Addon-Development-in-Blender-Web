@@ -6,22 +6,6 @@
 .sass-cache/
 
 # not allow output files
-*.pdf
-_book/
-
-# allow cover
-!cover.jpg
-
-# not allow node.js files
-node_modules/
-
-TODO.md
-color
-startup.blend
-backup
-backup.txt
-venv/
 release/
-
 *.css
 *.css.map
