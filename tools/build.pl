@@ -77,7 +77,7 @@ sub create_temporary_directories {
     get_dir_list($md_dir, \@dirs);
 
     foreach (@dirs) {
-        s/$md_dir\//$TMP_DIR\//;
+        s/$md_dir/$TMP_DIR/;
         my $tmp_dir = $_;
         mkpath($tmp_dir);
         print "  Created $tmp_dir\n";
