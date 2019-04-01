@@ -13,20 +13,23 @@ $endif$
 $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
 $endif$
+  <meta name="description" content="これからBlenderのアドオンを開発しようと考えている人向けの技術資料" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@nutti__" />
   <meta property="og:url" content="https://colorful-pico.net/introduction-to-addon-development-in-blender/2.7/index.html" />
-  <meta property="og:title" content="[はじめてのBlenderアドオン開発] (Blender 2.7版) $title-prefix$" />
-  <meta property="og:description" content="これからBlenderのアドオンを開発しようと考えている人向けの技術資料です" />
-  <meta property="og:image" content="" />
-
+  <meta property="og:title" content="$if(title-prefix)$title-prefix$$endif$$if(title-prefix) | $pagetitle$$endif$" />
+  <meta property="og:description" content="これからBlenderのアドオンを開発しようと考えている人向けの技術資料" />
+  <meta property="og:image" content="https://media.githubusercontent.com/media/nutti/Introduction-to-Addon-Development-in-Blender/master/src/2.7/images/chapter_01/05_Install_own_Add-on/blender_make_add-on_3.png" />
+  <meta property="og:site_name" content="$if(title-prefix)$title-prefix$$endif$$if(title-prefix) | $pagetitle$$endif$" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:type" content="website" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
-  <title>$if(title-prefix)$[$title-prefix$] $endif$$pagetitle$</title>
+  <title>$if(title-prefix)$title-prefix$$endif$$if(title-prefix) | $pagetitle$$endif$</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -109,8 +112,6 @@ $body$
 $for(include-after)$
 $include-after$
 $endfor$
-
-
 
 </body>
 </html>
