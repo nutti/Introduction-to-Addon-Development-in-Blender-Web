@@ -1,6 +1,7 @@
 ---
 title-prefix: はじめてのBlenderアドオン開発 (Blender 2.7版)
-title: はじめてのBlenderアドオン開発 (Blender 2.7版)
-author: ぬっち (COLORFUL PICO)
-date: 2019.3.24
+description: これからBlenderのアドオンを開発しようと考えている人向けの技術資料
+author: ぬっち
+date: 2019.4.2
+keywords: Blender, アドオン, 3DCG, 開発, Python, プログラミング, 入門, 初心者
 ---

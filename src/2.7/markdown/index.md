@@ -1,5 +1,4 @@
 ---
-pagetitle: 目次
 subtitle: 目次
 ---
 
