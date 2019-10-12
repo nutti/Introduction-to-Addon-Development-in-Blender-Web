@@ -1,6 +1,6 @@
 ---
-pagetitle: 1章 Blenderアドオン開発の世界へようこそ
-subtitle: 1章 Blenderアドオン開発の世界へようこそ
+pagetitle: 1. Blenderアドオン開発の世界へようこそ
+subtitle: 1. Blenderアドオン開発の世界へようこそ
 ---
 
 Blenderアドオン開発の世界へようこそ！  
@@ -10,7 +10,7 @@ Blenderアドオン開発の世界へようこそ！
 ## 本章の構成
 
 1. [Blenderって何？アドオンって何？](01_What_is_Blender_What_is_Add-on.html)
-2. [Blenderアドオンを使う](02_Use_Blender_Add-on.html)
-3. [アドオン開発環境を整える](03_Prepare_Add-on_development_environment.html)
-4. [アドオンのインストール・アンインストール・アップデート方法を理解する](04_Understand_Install_Uninstall_Update_Add-on.html)
-5. [自作のアドオンをインストールする](05_Install_own_Add-on.html)
+2. Blenderのアドオンを使ってみよう
+3. アドオンの開発環境を整えよう
+4. アドオンのインストール・アンインストール・アップデート方法を理解しよう
+5. 自作のアドオンをインストールしてみよう
