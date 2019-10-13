@@ -1,3 +1,5 @@
+'use strict';
+
 let gulp = require('gulp');
 let plumber = require('gulp-plumber');
 let compass = require('gulp-compass');
@@ -9,6 +11,7 @@ let execSync = require('child_process').execSync;
 let fs = require('fs');
 
 // Parse options.(strip argv[0:1])
+let match = null;
 let blenderVersion = "";
 for (let i = 2; i < process.argv.length; i++) {
   if ((match = /--blender-version=([0-9.]+)/.exec(process.argv[i])) != null) {
