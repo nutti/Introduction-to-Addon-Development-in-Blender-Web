@@ -1,0 +1,27 @@
+{
+    "name": "Introduction-to-Addon-Development-in-Blender-Web",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/nutti/Introduction-to-Addon-Development-in-Blender-Web.git"
+    },
+    "author": "nutti",
+    "bugs": {
+      "url": "https://github.com/nutti/Introduction-to-Addon-Development-in-Blender-Web/issues"
+    },
+    "homepage": "https://github.com/nutti/Introduction-to-Addon-Development-in-Blender-Web/blob/master/README.md",
+    "devDependencies": {
+      "firebase-tools": "^6.7.0",
+      "gulp": "^4.0.0",
+      "gulp-compass": "^2.1.0",
+      "gulp-exec": "^3.0.2",
+      "gulp-plumber": "^1.2.1",
+      "gulp-rename": "^1.4.0"
+    }
+  }
+  

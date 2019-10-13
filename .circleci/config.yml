@@ -1,0 +1,35 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ubuntu:latest
+    branches:
+      only:
+        - master
+        - ci_testing
+    steps:
+      - checkout
+      - run:
+          name: Install apt packages
+          command: apt-get update && apt-get install -y ruby ruby-dev rubygems nodejs npm pandoc
+      - run:
+          name: Install gulp-client
+          command: npm install -g gulp
+      - run:
+          name: Install npm dependencies
+          command: npm install --dev
+      - run:
+          name: Install bundler
+          command: gem install bundler
+      - run:
+          name: Install gem dependencies
+          command: bundle install
+      - run:
+          name: Create HTML files
+          command: gulp build
+      - run:
+          name: Compress files as tarball
+          command: mkdir release && tar cvfz release/build.tar.gz build
+      - store_artifacts:
+          path: release
+          destination: book

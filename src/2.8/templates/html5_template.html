@@ -4,29 +4,32 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-$for(author-meta)$
-  <meta name="author" content="$author-meta$" />
+$for(author)$
+  <meta name="author" content="$author$" />
 $endfor$
-$if(date-meta)$
-  <meta name="dcterms.date" content="$date-meta$" />
-$endif$
 $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
 $endif$
-
+$if(description)$
+  <meta name="description" content="$description$" />
+$endif$
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@nutti__" />
-  <meta property="og:url" content="https://colorful-pico.net/introduction-to-addon-development-in-blender/2.8/index.html" />
-  <meta property="og:title" content="[はじめてのBlenderアドオン開発] (Blender 2.8版) $title-prefix$" />
-  <meta property="og:description" content="これからBlenderのアドオンを開発しようと考えている人向けの技術資料です" />
-  <meta property="og:image" content="" />
-
+  <meta name="twitter:site" content="@$twitter-site$" />
+  <meta property="og:url" content="$og-url$" />
+  <meta property="og:title" content="$if(title-prefix)$$title-prefix$$endif$$if(pagetitle)$ | $pagetitle$$endif$" />
+$if(description)$
+  <meta property="og:description" content="$description$" />
+$endif$
+  <meta property="og:image" content="$og-img$" />
+  <meta property="og:site_name" content="$og-sitename$" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:type" content="website" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
-  <title>$if(title-prefix)$[$title-prefix$] $endif$$pagetitle$</title>
+  <title>$if(title-prefix)$$title-prefix$$endif$$if(pagetitle)$ | $pagetitle$$endif$</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -37,14 +40,17 @@ $if(quotes)$
       q { quotes: "“" "”" "‘" "’"; }
 $endif$
   </style>
+
 $if(highlighting-css)$
   <style type="text/css">
 $highlighting-css$
   </style>
 $endif$
+
 $for(css)$
   <link rel="stylesheet" href="$css$">
 $endfor$
+
 $if(math)$
   $math$
 $endif$
@@ -75,11 +81,11 @@ $endif$
     <div class="body-inner">
         <header>
             <div class="contact">
-                <a href="https://github.com/nutti/Introduction-to-Addon-Development-in-Blender/issues">問題を報告する</a><br>
-                <a href="https://github.com/nutti/Introduction-to-Addon-Development-in-Blender/pulls">本を修正する</a>
+                <a href="$report-url$">問題を報告する</a><br>
+                <a href="$contrib-url$">本を修正する</a>
             </div>
             <div class="share">
-                <a href="https://twitter.com/home?status=[$title-prefix$]%20$subtitle$%20https%3A//colorful-pico.net/bl-addon-intro/<!-- @replace-own-url -->">Twitter</a>
+                <a href="https://twitter.com/home?status=$title-prefix$%20|%20$subtitle$%20$deploy-url$/<!-- @replace-own-url -->">Twitter</a>
             </div>
         </header>
 
@@ -100,7 +106,7 @@ $body$
             </div>
 
             $for(author)$
-            <p class="author">© 2015-2019 $author$</p>
+            <p class="author">© $copyright-year$ $author$</p>
             $endfor$
         </footer>
     </div>
@@ -109,8 +115,6 @@ $body$
 $for(include-after)$
 $include-after$
 $endfor$
-
-
 
 </body>
 </html>
