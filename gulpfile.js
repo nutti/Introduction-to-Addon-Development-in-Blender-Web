@@ -8,8 +8,21 @@ let through = require('through2');
 let execSync = require('child_process').execSync;
 let fs = require('fs');
 
-let srcDir = './src';
-let destDir = './build';
+// Parse options.(strip argv[0:1])
+let blenderVersion = "";
+for (let i = 2; i < process.argv.length; i++) {
+  if ((match = /--blender-version=([0-9.]+)/.exec(process.argv[i])) != null) {
+    blenderVersion = match[1];
+  }
+}
+if (blenderVersion == "") {
+  console.log("Could not find --blender-version option.");
+  process.exit(1);
+}
+console.log(`Target Blender Version: ${blenderVersion}`);
+
+let srcDir = './src' + '/' + blenderVersion;
+let destDir = './build' + '/' + blenderVersion;
 let tmpDir = './tmp';
 
 let srcFontDir = srcDir + '/fonts';

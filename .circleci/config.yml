@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ubuntu:latest
+      - image: nutti/pandoc_gulp_html:v1.0
     branches:
       only:
         - master
@@ -10,26 +10,29 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install apt packages
-          command: apt-get update && apt-get install -y ruby ruby-dev rubygems nodejs npm pandoc
-      - run:
-          name: Install gulp-client
-          command: npm install -g gulp
+          name: Get binaries from Git LFS
+          command: git lfs pull
       - run:
           name: Install npm dependencies
           command: npm install --dev
       - run:
-          name: Install bundler
-          command: gem install bundler
-      - run:
           name: Install gem dependencies
           command: bundle install
       - run:
-          name: Create HTML files
-          command: gulp build
+          name: Create HTML files (Blender 2.7)
+          command: gulp build --blender-version=2.7
       - run:
-          name: Compress files as tarball
-          command: mkdir release && tar cvfz release/build.tar.gz build
+          name: Create HTML files (Blender 2.8)
+          command: gulp build --blender-version=2.8
+      - run:
+          name: Make release directory
+          command: mkdir release
+      - run:
+          name: Compress files as tarball (Blender 2.7)
+          command: cd build && tar cvfz 2.7.tar.gz 2.7 && cd .. && mv build/2.7.tar.gz release
+      - run:
+          name: Compress files as tarball (Blender 2.8)
+          command: cd build && tar cvfz 2.8.tar.gz 2.8 && cd .. && mv build/2.8.tar.gz release
       - store_artifacts:
           path: release
           destination: book
