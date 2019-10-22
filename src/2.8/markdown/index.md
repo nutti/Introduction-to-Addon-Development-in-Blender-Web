@@ -10,7 +10,7 @@ subtitle: 目次
 ## [1. Blenderアドオン開発の世界へようこそ](html/chapter_01/index.html)
 
 * [1-1. Blenderって何？アドオンって何？](html/chapter_01/01_What_is_Blender_What_is_Add-on.html)
-* 1-2. Blenderのアドオンを使ってみよう
+* [1-2. Blenderのアドオンを使ってみよう](html/chapter_01/02_Use_Blender_Add-on.html)
 * 1-3. アドオンの開発環境を整えよう
 * 1-4. アドオンのインストール・アンインストール・アップデート方法を理解しよう
 * 1-5. 自作のアドオンをインストールしてみよう
