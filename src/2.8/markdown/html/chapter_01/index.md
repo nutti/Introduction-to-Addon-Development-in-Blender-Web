@@ -11,6 +11,6 @@ Blenderアドオン開発の世界へようこそ！
 
 1. [Blenderって何？アドオンって何？](01_What_is_Blender_What_is_Add-on.html)
 2. [Blenderのアドオンを使ってみよう](02_Use_Blender_Add-on.html)
-3. アドオンの開発環境を整えよう
+3. [アドオンの開発環境を整えよう](03_Prepare_Add-on_development_environment.html)
 4. アドオンのインストール・アンインストール・アップデート方法を理解しよう
 5. 自作のアドオンをインストールしてみよう

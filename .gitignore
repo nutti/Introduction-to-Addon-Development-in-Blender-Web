@@ -9,3 +9,6 @@
 release/
 *.css
 *.css.map
+
+# not allow .blend files
+*.blend

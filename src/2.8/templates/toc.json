@@ -7,7 +7,7 @@
         "@title": "html/chapter_01/index.html",
         "@01:1-1. Blenderって何？アドオンって何？": "html/chapter_01/01_What_is_Blender_What_is_Add-on.html",
         "@02:1-2. Blenderアドオンを使う": "html/chapter_01/02_Use_Blender_Add-on.html",
-        "@03:1-3. アドオン開発環境を整える": "",
+        "@03:1-3. アドオン開発環境を整える": "html/chapter_01/03_Prepare_Add-on_development_environment.html",
         "@04:1-4. アドオンのインストール・アンインストール・アップデート方法を理解する": "",
         "@05:1-5. 自作のアドオンをインストールする": ""
     },
