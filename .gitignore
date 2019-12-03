@@ -12,3 +12,6 @@ release/
 
 # not allow .blend files
 *.blend
+
+# not allow PSD files
+*.psd

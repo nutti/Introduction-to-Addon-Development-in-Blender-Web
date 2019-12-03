@@ -20,10 +20,10 @@ Blenderは海外で開発されたソフトであるため、Blenderを初めて
 
 |||
 |---|---|
-|1|トップバーから [Edit] > [Preferences...] を実行します。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/localizing_into_japanese_1.png "アドオンの日本語化 手順1")|
-|2|[Blender Preferences] ウィンドウが立ち上がるので、[Interface] タブを選択します。|
-|3|[Translation] にチェックを入れると、UIの言語を変更することができるようになります。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/localizing_into_japanese_3.png "アドオンの日本語化 手順3")|
-|4|[Language] を [Japanese (日本語)] に変更し、日本語化する項目を選択すると、選択した項目のUIに関して日本語化されます。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/localizing_into_japanese_4.png "アドオンの日本語化 手順4")|
+|1|トップバーから *[Edit]* > *[Preferences...]* を実行します。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/localizing_into_japanese_1.png "アドオンの日本語化 手順1")|
+|2|*[Blender Preferences]* ウィンドウが立ち上がるので、*[Interface]* タブを選択します。|
+|3|*[Translation]* にチェックを入れると、UIの言語を変更することができるようになります。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/localizing_into_japanese_3.png "アドオンの日本語化 手順3")|
+|4|*[Language]* を *[Japanese (日本語)]* に変更し、日本語化する項目を選択すると、選択した項目のUIに関して日本語化されます。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/localizing_into_japanese_4.png "アドオンの日本語化 手順4")|
 
 
 # アドオンの種類
@@ -93,11 +93,11 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 |||
 |---|---|
 |1|Blenderを起動します。|
-|2|トップバーのメニューから、[編集] > [プリファレンス...] を選択します。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/enable_add-on_2.png "アドオンの有効化 手順2")|
-|3|[Blenderプリファレンス] ウィンドウが別ウィンドウで開きますので、[アドオン] タブを選択します。|
-|4|検索窓に [mira tools] と入力します。|
-|5|ウィンドウ右側に [Mira Tools] が表示されますので、チェックボックスにチェックを入れるとアドオンが有効化されます。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/enable_add-on_5.png "アドオンの有効化 手順5")|
-|6|実際にアドオンが有効化されているかは、[エディットモード] 時に [3Dビュー] エリアの右側のSidebarのタブに [Mira] が追加されていることで確認できます。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/enable_add-on_6.png "アドオンの有効化 手順6")|
+|2|トップバーのメニューから、*[編集]* > *[プリファレンス...]* を選択します。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/enable_add-on_2.png "アドオンの有効化 手順2")|
+|3|*[Blenderプリファレンス]* ウィンドウが別ウィンドウで開きますので、*[アドオン]* タブを選択します。|
+|4|検索窓に *[mira tools]* と入力します。|
+|5|ウィンドウ右側に *[Mira Tools]* が表示されますので、チェックボックスにチェックを入れるとアドオンが有効化されます。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/enable_add-on_5.png "アドオンの有効化 手順5")|
+|6|実際にアドオンが有効化されているかは、*[エディットモード]* 時に *[3Dビューポート]* エリアの右側のSidebarのタブに *[Mira]* が追加されていることで確認できます。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/enable_add-on_6.png "アドオンの有効化 手順6")|
 
 
 <div class="column">
@@ -116,8 +116,8 @@ Release/Contrib/Externalいずれのサポートレベルについても共通�
 
 |||
 |---|---|
-|1|アドオンを有効化した時と同様、[Blenderプリファレンス] ウィンドウを開きます。|
-|2|[アドオン] タブを選択し、[Mira Tools] のチェックボックスのチェックを外すことでアドオンが無効化されます。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/disable_add-on_2.png "アドオンの無効化 手順2")|
+|1|アドオンを有効化した時と同様、*[Blenderプリファレンス]* ウィンドウを開きます。|
+|2|*[アドオン]* タブを選択し、*[Mira Tools]* のチェックボックスのチェックを外すことでアドオンが無効化されます。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/disable_add-on_2.png "アドオンの無効化 手順2")|
 
 
 # アドオンのアンインストール
@@ -132,5 +132,5 @@ Release/Contrib/Externalいずれのサポートレベルについても共通�
 
 |||
 |---|---|
-|1|[Blenderプリファレンス] ウィンドウの [アドオン] タブを選択し、[Mira Tools] の左の矢印をクリックして詳細情報を開きます。|
-|2|[削除] ボタンをクリックすると、アンインストールが完了します。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/uninstall_add-on_2.png "アドオンのアンインストール 手順2")|
+|1|*[Blenderプリファレンス]* ウィンドウの *[アドオン]* タブを選択し、*[Mira Tools]* の左の矢印をクリックして詳細情報を開きます。|
+|2|*[削除]* ボタンをクリックすると、アンインストールが完了します。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/uninstall_add-on_2.png "アドオンのアンインストール 手順2")|
