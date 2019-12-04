@@ -85,7 +85,7 @@ function includeCode(input, passCount) {
 
         let embedFilepath = null;
         let embedExtension = null;
-        if ((match = /filepath="([\.\w_\/]+)"/.exec(line)) !== null) {
+        if ((match = /filepath="([-\.\w_\/]+)"/.exec(line)) !== null) {
             embedFilepath = path.resolve(srcSampleDir + '/' + match[1]);
             embedExtension = path.extname(embedFilepath);
         } else {
@@ -286,7 +286,7 @@ function replaceOwnUrl(input, passCount, destHtmlPath) {
 
 function getOrderedToc(toc) {
     let output = [];
-    
+
     // @pre
     if ('@pre' in toc) {
         for (let section in toc['@pre']) {
@@ -416,7 +416,7 @@ gulp.task('pandoc', (done) => {
             let destHtmlPath = path.relative(srcMarkdownDir, file.path).replace(/\\/g, '/').replace(/.md$/g, '.html');
             let destHtmlFullPath = destDir + '/' + destHtmlPath;
             let destCssPath = path.relative(destHtmlFullPath, path.resolve(destScssDir + '/style.css')).replace(/\\/g, '/').replace(/^\.\.\//g, '').replace(/\\/g, '/');
-            
+
             if (!fs.existsSync(tmpDir)) {
                 fs.mkdirSync(tmpDir, {recursive: true});
             }
