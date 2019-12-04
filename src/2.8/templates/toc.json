@@ -9,7 +9,7 @@
         "@02:1-2. Blenderアドオンを使う": "html/chapter_01/02_Use_Blender_Add-on.html",
         "@03:1-3. アドオン開発環境を整える": "html/chapter_01/03_Prepare_Add-on_development_environment.html",
         "@04:1-4. アドオンのインストール・アンインストール・アップデート方法を理解する": "html/chapter_01/04_Understand_Install_Uninstall_Update_Add-on.html",
-        "@05:1-5. 自作のアドオンをインストールする": ""
+        "@05:1-5. 自作のアドオンをインストールする": "html/chapter_01/05_Install_own_Add-on.html"
     },
     "2. アドオンを作ってみよう": {
         "@title": "",

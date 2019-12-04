@@ -13,7 +13,7 @@ subtitle: 目次
 * [1-2. Blenderのアドオンを使ってみよう](html/chapter_01/02_Use_Blender_Add-on.html)
 * [1-3. アドオンの開発環境を整えよう](html/chapter_01/03_Prepare_Add-on_development_environment.html)
 * [1-4. アドオンのインストール・アンインストール・アップデート方法を理解しよう](html/chapter_01/04_Understand_Install_Uninstall_Update_Add-on.html)
-* 1-5. 自作のアドオンをインストールしてみよう
+* [1-5. 自作のアドオンをインストールしてみよう](html/chapter_01/05_Install_own_Add-on.html)
 
 
 ## 2. アドオンを作ってみよう

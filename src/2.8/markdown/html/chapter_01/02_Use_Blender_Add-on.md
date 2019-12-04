@@ -97,7 +97,7 @@ Mira Toolsのインストール方法は前述のURLにも記載されていま�
 |3|*[Blenderプリファレンス]* ウィンドウが別ウィンドウで開きますので、*[アドオン]* タブを選択します。|
 |4|検索窓に *[mira tools]* と入力します。|
 |5|ウィンドウ右側に *[Mira Tools]* が表示されますので、チェックボックスにチェックを入れるとアドオンが有効化されます。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/enable_add-on_5.png "アドオンの有効化 手順5")|
-|6|実際にアドオンが有効化されているかは、*[エディットモード]* 時に *[3Dビューポート]* エリアの右側のSidebarのタブに *[Mira]* が追加されていることで確認できます。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/enable_add-on_6.png "アドオンの有効化 手順6")|
+|6|実際にアドオンが有効化されているかは、*[エディットモード]* 時に *[3Dビューポート]* スペースの右側のSidebarのタブに *[Mira]* が追加されていることで確認できます。<br>![](../../images/chapter_01/02_Use_Blender_Add-on/enable_add-on_6.png "アドオンの有効化 手順6")|
 
 
 <div class="column">

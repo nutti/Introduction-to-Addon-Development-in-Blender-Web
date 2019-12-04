@@ -13,4 +13,4 @@ Blenderアドオン開発の世界へようこそ！
 2. [Blenderのアドオンを使ってみよう](02_Use_Blender_Add-on.html)
 3. [アドオンの開発環境を整えよう](03_Prepare_Add-on_development_environment.html)
 4. [アドオンのインストール・アンインストール・アップデート方法を理解しよう](04_Understand_Install_Uninstall_Update_Add-on.html)
-5. 自作のアドオンをインストールしてみよう
+5. [自作のアドオンをインストールしてみよう](05_Install_own_Add-on.html)

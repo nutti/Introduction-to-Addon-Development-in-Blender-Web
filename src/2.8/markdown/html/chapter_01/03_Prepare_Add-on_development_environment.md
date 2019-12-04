@@ -41,27 +41,27 @@ Blenderはアプリケーション内で複数のエリアに分割すること�
 
 |||
 |---|---|
-|1|*[3Dビューポート]* エリア左上を下側にドラッグ&ドロップしてエリアを横に2分割します。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_divide_window_1.png "ウィンドウの分割 手順1")|
-|2|下側の *[3Dビューポート]* エリア左下を右側にドラッグ&ドロップしてエリアを縦に2分割します。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_divide_window_2.png "ウィンドウの分割 手順2")|
-|3|左下側の *[3Dビューポート]* エリアの左下を上側にドラッグ&ドロップしてエリアを横に2分割します。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_divide_window_3.png "ウィンドウの分割 手順3")|
-|4|これでエリア分割は完了です。分割後のエリアは全て *[3Dビューポート]* になります。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_divide_window_4.png "ウィンドウの分割 手順4")|
+|1|*[3Dビューポート]* スペースが表示されたエリア左上を下側にドラッグ&ドロップしてエリアを横に2分割します。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_divide_window_1.png "ウィンドウの分割 手順1")|
+|2|下側の *[3Dビューポート]* スペースが表示されたエリア左下を右側にドラッグ&ドロップしてエリアを縦に2分割します。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_divide_window_2.png "ウィンドウの分割 手順2")|
+|3|左下側の *[3Dビューポート]* スペースが表示されたエリアの左下を上側にドラッグ&ドロップしてエリアを横に2分割します。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_divide_window_3.png "ウィンドウの分割 手順3")|
+|4|これでエリア分割は完了です。分割後のエリアに表示されているスペースは全て *[3Dビューポート]* になります。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_divide_window_4.png "ウィンドウの分割 手順4")|
 
 
-## エリアの変更
+## スペースの変更
 
-エリアを分割した後、それぞれのエリアを変更します。エリア変更の手順を以下に示します。
+エリアを分割した後、それぞれのエリアに表示されているスペースを変更します。スペース変更の手順を以下に示します。
 
 
 <div class="work"></div>
 
 |||
 |---|---|
-|1|一番上の *[3Dビューポート]* エリアのメニューの一番左のボタンから、*[情報]* をクリックします。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_1.png "ウィンドウ表示の変更 手順1")|
-|2|エリアが *[3Dビューポート]* から *[情報]* に変更されます。*[情報]* エリアには、アドオンの実行結果やエラーのログを表示する機能があり、アドオン開発時に役に立ちます。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_2.png "ウィンドウ表示の変更 手順2")|
-|3|左下の *[3Dビューポート]* エリアのメニューの一番左のボタンから、*[テキストエディター]* をクリックします。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_3.png "ウィンドウ表示の変更 手順3")|
-|4|エリアが *[3Dビューポート]* から *[テキストエディター]* に変更されます。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_4.png "ウィンドウ表示の変更 手順4")|
-|5|左上の *[3Dビューポート]* エリアのメニューの一番左のボタンから、*[Pythonコンソール]* をクリックします。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_5.png "ウィンドウ表示の変更 手順5")|
-|6|エリアが *[3Dビューポート]* から *[Pythonコンソール]* に変更されます。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_6.png "ウィンドウ表示の変更 手順6")|
+|1|一番上の *[3Dビューポート]* スペースが表示されたメニューの一番左のボタンから、*[情報]* をクリックします。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_1.png "ウィンドウ表示の変更 手順1")|
+|2|スペースが *[3Dビューポート]* から *[情報]* に変更されます。*[情報]* スペースには、アドオンの実行結果やエラーのログを表示する機能があり、アドオン開発時に役に立ちます。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_2.png "ウィンドウ表示の変更 手順2")|
+|3|左下の *[3Dビューポート]* スペースが表示されたメニューの一番左のボタンから、*[テキストエディター]* をクリックします。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_3.png "ウィンドウ表示の変更 手順3")|
+|4|スペースが *[3Dビューポート]* から *[テキストエディター]* に変更されます。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_4.png "ウィンドウ表示の変更 手順4")|
+|5|左上の *[3Dビューポート]* スペースが表示されたエリアのメニューの一番左のボタンから、*[Pythonコンソール]* をクリックします。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_5.png "ウィンドウ表示の変更 手順5")|
+|6|スペースが *[3Dビューポート]* から *[Pythonコンソール]* に変更されます。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_6.png "ウィンドウ表示の変更 手順6")|
 
 
 
