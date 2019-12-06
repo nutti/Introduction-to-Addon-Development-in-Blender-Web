@@ -32,7 +32,7 @@ class SAMPLE21_OT_CreateObject(bpy.types.Operator):
 # @include-source end [mem_var]
 
 # @include-source start [execute]
-    # メニューを実行した時に呼ばれる関数
+    # メニューを実行したときに呼ばれる関数
     def execute(self, context):
         bpy.ops.mesh.primitive_ico_sphere_add()
         print("サンプル2-1: ICO球を生成しました。")
@@ -58,7 +58,7 @@ classes = [
 def register():
     for c in classes:
         bpy.utils.register_class(c)
-    bpy.types.INFO_MT_mesh_add.append(menu_fn)
+    bpy.types.VIEW3D_MT_mesh_add.append(menu_fn)
     print("サンプル2-1: アドオン『サンプル2-1』が有効化されました。")
 # @include-source end [register]
 
@@ -66,7 +66,7 @@ def register():
 # @include-source start [unregister]
 # アドオン無効化時の処理
 def unregister():
-    bpy.types.INFO_MT_mesh_add.remove(menu_fn)
+    bpy.types.VIEW3D_MT_mesh_add.remove(menu_fn)
     for c in classes:
         bpy.utils.unregister_class(c)
     print("サンプル2-1: アドオン『サンプル2-1』が無効化されました。")
