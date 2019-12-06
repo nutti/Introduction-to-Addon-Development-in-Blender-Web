@@ -42,9 +42,9 @@ subtitle: 2-1. アドオン開発の基礎を身につける
 
 仕様を満たすようにアドオンを作成します。
 
-ソースコードの解説は後ほど行いますので、ここでは [1-5節](../chapter_01/05_Install_own_Add-on.html) を参考にして以下のソースコードを入力し、ファイル名を `sample_2_1.py` として保存してください。
+ソースコードの解説は後ほど行いますので、ここでは [1-5節](../chapter_01/05_Install_own_Add-on.html) を参考にして以下のソースコードを入力し、ファイル名を `sample_2-1.py` として保存してください。
 
-[@include-source pattern="full" filepath="chapter_02/sample_2_1.py"]
+[@include-source pattern="full" filepath="chapter_02/sample_2-1.py"]
 
 
 # アドオンを使用する
