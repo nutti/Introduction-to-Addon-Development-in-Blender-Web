@@ -19,7 +19,7 @@ subtitle: 目次
 ## [2. アドオンを作ってみよう](html/chapter_02/index.html)
 
 * [2-1. アドオン開発の基礎を身につける](html/chapter_02/01_Basic_of_Add-on_Development.html)
-* 2-2. 複数のオペレータクラスを登録する
+* [2-2. 複数のオペレータクラスを登録する](html/chapter_02/02_Register_Multiple_Operation_Classes.html)
 * 2-3. オペレータプロパティを活用する①
 * 2-4. オペレータプロパティを活用する②
 * 2-5. サブメニューを作成する
