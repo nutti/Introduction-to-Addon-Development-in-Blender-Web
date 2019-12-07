@@ -22,7 +22,7 @@ bl_info = {
 
 
 # @include-source start [mem_var]
-# オブジェクト（ICO球）を生成するオペレーション
+# オブジェクト（ICO球）を生成するオペレータ
 class SAMPLE21_OT_CreateObject(bpy.types.Operator):
 
     bl_idname = "object.sample21_create_object"

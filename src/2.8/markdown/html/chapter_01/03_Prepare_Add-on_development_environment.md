@@ -57,7 +57,7 @@ Blenderはアプリケーション内で複数のエリアに分割すること�
 |||
 |---|---|
 |1|一番上の *[3Dビューポート]* スペースが表示されたメニューの一番左のボタンから、*[情報]* をクリックします。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_1.png "ウィンドウ表示の変更 手順1")|
-|2|スペースが *[3Dビューポート]* から *[情報]* に変更されます。*[情報]* スペースには、アドオンの実行結果やエラーのログを表示する機能があり、アドオン開発時に役に立ちます。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_2.png "ウィンドウ表示の変更 手順2")|
+|2|スペースが *[3Dビューポート]* から *[情報]* に変更されます。*[情報]* スペースには、アドオンの実行結果やエラーのログ（**オペレータメッセージ**）を表示する機能があり、アドオン開発時に役に立ちます。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_2.png "ウィンドウ表示の変更 手順2")|
 |3|左下の *[3Dビューポート]* スペースが表示されたメニューの一番左のボタンから、*[テキストエディター]* をクリックします。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_3.png "ウィンドウ表示の変更 手順3")|
 |4|スペースが *[3Dビューポート]* から *[テキストエディター]* に変更されます。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_4.png "ウィンドウ表示の変更 手順4")|
 |5|左上の *[3Dビューポート]* スペースが表示されたエリアのメニューの一番左のボタンから、*[Pythonコンソール]* をクリックします。<br>![](../../images/chapter_01/03_Prepare_Add-on_development_environment/blender_change_window_5.png "ウィンドウ表示の変更 手順5")|
