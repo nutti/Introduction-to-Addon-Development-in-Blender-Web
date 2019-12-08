@@ -47,12 +47,14 @@ class SAMPLE23_OT_TranslateObject(bpy.types.Operator):
     # メニューを実行したときに呼ばれるメソッド
     def execute(self, context):
         active_obj = context.active_object
+# @include-source start [access_to_prop]
         if self.axis == 'X':
             active_obj.location[0] += self.amount
         elif self.axis == 'Y':
             active_obj.location[1] += self.amount
         elif self.axis == 'Z':
             active_obj.location[2] += self.amount
+# @include-source end [access_to_prop]
         self.report({'INFO'}, "サンプル2-3: 『{}』を{}軸方向へ {} 並進移動しました。"
                               .format(active_obj.name, self.axis, self.amount))
         print("サンプル2-3: オペレータ『{}』が実行されました。".format(self.bl_idname))
