@@ -20,14 +20,13 @@ subtitle: 目次
 
 * [2-1. アドオン開発の基礎を身につける](html/chapter_02/01_Basic_of_Add-on_Development.html)
 * [2-2. 複数のオペレータクラスを登録する](html/chapter_02/02_Register_Multiple_Operation_Classes.html)
-* 2-3. オペレータプロパティを活用する①
-* 2-4. オペレータプロパティを活用する②
-* 2-5. サブメニューを作成する
-* 2-6. ショートカットキーを割り当てる
-* 2-7. アドオンのソースコードを複数ファイルへ分割する
-* 2-8. BlenderのUIを制御する①
-* 2-9. BlenderのUIを制御する②
-* 2-10. BlenderのUIを制御する③
+* [2-3. オペレータプロパティを活用する](html/chapter_02/03_Use_Operator_Property.html)
+* 2-4. サブメニューを作成する
+* 2-5. ショートカットキーを割り当てる
+* 2-6. アドオンのソースコードを複数ファイルへ分割する
+* 2-7. BlenderのUIを制御する①
+* 2-8. BlenderのUIを制御する②
+* 2-9. BlenderのUIを制御する③
 
 
 ## 3. より高度なアドオンを作るために

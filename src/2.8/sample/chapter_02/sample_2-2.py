@@ -2,12 +2,12 @@ import bpy
 
 
 bl_info = {
-    "name": "サンプル2-2: オブジェクトを拡大・縮小するアドオン",
+    "name": "サンプル2-2: オブジェクトを並進移動するアドオン",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
     "location": "3Dビューポート > オブジェクト",
-    "description": "オブジェクトを拡大・縮小するサンプルアドオン",
+    "description": "オブジェクトを並進移動するサンプルアドオン",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
@@ -31,8 +31,8 @@ class SAMPLE22_OT_ForwardXObject(bpy.types.Operator):
     def execute(self, context):
         active_obj = context.active_object
         active_obj.location[0] += 1.0
-        self.report({'INFO'}, "サンプル2-2: 『%s』をX軸正方向へ並進移動しました。" % (active_obj.name))
-        print("サンプル2-2: オペレータ『%s』が実行されました。" % (self.bl_idname))
+        self.report({'INFO'}, "サンプル2-2: 『{}』をX軸正方向へ並進移動しました。".format(active_obj.name))
+        print("サンプル2-2: オペレータ『{}』が実行されました。".format(self.bl_idname))
 
         return {'FINISHED'}
 # @include-source end [execute_forward_object]
@@ -53,8 +53,8 @@ class SAMPLE22_OT_BackwardXObject(bpy.types.Operator):
     def execute(self, context):
         active_obj = context.active_object
         active_obj.location[0] -= 1.0
-        self.report({'INFO'}, "サンプル2-2: 『%s』をX軸負方向へ並進移動しました。" % (active_obj.name))
-        print("サンプル2-2: オペレータ『%s』が実行されました。" % (self.bl_idname))
+        self.report({'INFO'}, "サンプル2-2: 『{}』をX軸負方向へ並進移動しました。".format(active_obj.name))
+        print("サンプル2-2: オペレータ『{}』が実行されました。".format(self.bl_idname))
 
         return {'FINISHED'}
 # @include-source end [execute_backward_object]
