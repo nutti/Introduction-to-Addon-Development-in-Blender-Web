@@ -12,7 +12,7 @@ Blenderおよびアドオンの基礎知識を一通り説明したところで�
 1. [アドオン開発の基礎を身につける](01_Basic_of_Add-on_Development.html)
 2. [複数のオペレータクラスを登録する](02_Register_Multiple_Operation_Classes.html)
 3. [ツール・シェルフのオプションを活用する](03_Use_Operator_Property.html)
-4. サブメニューを作成する
+4. [サブメニューを作成する](04_Create_Sub-menu.html)
 5. ショートカットキーを割り当てる
 6. アドオンのソースコードを複数ファイルへ分割する
 7. BlenderのUIを制御する①

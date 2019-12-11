@@ -2,12 +2,12 @@ import bpy
 
 
 bl_info = {
-    "name": "サンプル2-2: オブジェクトを並進移動するアドオン",
+    "name": "サンプル2-2: オブジェクトを並進移動するアドオン①",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
     "location": "3Dビューポート > オブジェクト",
-    "description": "オブジェクトを並進移動するサンプルアドオン",
+    "description": "アクティブなオブジェクトを並進移動するサンプルアドオン",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",

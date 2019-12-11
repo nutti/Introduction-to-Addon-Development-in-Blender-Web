@@ -3,12 +3,12 @@ from bpy.props import FloatProperty, EnumProperty
 
 
 bl_info = {
-    "name": "サンプル2-3: オブジェクトを並進移動するアドオン（移動量、移動軸 任意指定版）",
+    "name": "サンプル2-3: オブジェクトを並進移動するアドオン②",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
     "location": "3Dビューポート > オブジェクト",
-    "description": "オブジェクトを並進移動するサンプルアドオン",
+    "description": "アクティブなオブジェクトを並進移動するサンプルアドオン（移動量、移動軸 任意指定版）",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
