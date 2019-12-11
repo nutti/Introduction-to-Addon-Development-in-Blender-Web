@@ -66,7 +66,7 @@ Blender 2.79以前のアドオン開発に関しては、[はじめてのBlender
 
 本書で紹介するサンプルアドオンのソースコードは、以下のURLからダウンロードすることができます。
 
-https://github.com/nutti/Introduction-to-Addon-Development-in-Blender-Web/tree/master/src/2.8/sample
+[https://github.com/nutti/Introduction-to-Addon-Development-in-Blender-Web/tree/master/src/2.8/sample](https://github.com/nutti/Introduction-to-Addon-Development-in-Blender-Web/tree/master/src/2.8/sample)
 
 
 # 前提知識
