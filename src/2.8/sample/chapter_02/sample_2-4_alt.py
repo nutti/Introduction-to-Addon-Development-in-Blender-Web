@@ -1,6 +1,5 @@
 import bpy
 from bpy.props import StringProperty, FloatProperty, EnumProperty
-from mathutils import Vector
 
 
 bl_info = {

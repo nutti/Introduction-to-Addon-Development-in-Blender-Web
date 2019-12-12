@@ -17,7 +17,7 @@
         "@02:2-2. 複数のオペレータクラスを登録する": "html/chapter_02/02_Register_Multiple_Operation_Classes.html",
         "@03:2-3. オペレータプロパティを活用する": "html/chapter_02/03_Use_Operator_Property.html",
         "@04:2-4. サブメニューを作成する": "html/chapter_02/04_Create_Sub-menu.html",
-        "@05:2-5. ショートカットキーを割り当てる": "",
+        "@05:2-5. ショートカットキーを割り当てる": "html/chapter_02/05_Allocate_Shortcut_Keys.html",
         "@06:2-6. アドオンのソースコードを複数ファイルへ分割する": "",
         "@07:2-7. BlenderのUIを制御する①": "",
         "@08:2-8. BlenderのUIを制御する②": "",
