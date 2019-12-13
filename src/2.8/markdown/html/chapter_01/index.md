@@ -1,6 +1,6 @@
 ---
-pagetitle: 1. Blenderアドオン開発の世界へようこそ
-subtitle: 1. Blenderアドオン開発の世界へようこそ
+pagetitle: 1章 Blenderアドオン開発の世界へようこそ
+subtitle: 1章 Blenderアドオン開発の世界へようこそ
 ---
 
 Blenderアドオン開発の世界へようこそ！  

@@ -1,10 +1,10 @@
 bl_info = {
-    "name": "サンプル2-7: オブジェクトを拡大・縮小するアドオン（ファイル分割版）",
-    "author": "ぬっち",
+    "name": "サンプル2-6: オブジェクトを並進移動するアドオン⑤",
+    "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
     "location": "3Dビューポート > オブジェクト",
-    "description": "オブジェクトを拡大・縮小するサンプルアドオン（ファイル分割版）",
+    "description": "アクティブなオブジェクトを並進移動するサンプルアドオン（ファイル分割版）",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
@@ -16,11 +16,11 @@ bl_info = {
 # @include-source start [import_moudle]
 if "bpy" in locals():
     import imp
-    imp.reload(enlarge_object)
-    imp.reload(reduce_object)
+    imp.reload(forward_object)
+    imp.reload(backward_object)
 else:
-    from . import enlarge_object
-    from . import reduce_object
+    from . import forward_object
+    from . import backward_object
 
 
 import bpy
@@ -30,14 +30,14 @@ import bpy
 # メニューを構築する関数
 def menu_fn(self, context):
     self.layout.separator()
-    self.layout.operator(enlarge_object.SAMPLE27_OT_EnlargeObject.bl_idname)
-    self.layout.operator(reduce_object.SAMPLE27_OT_ReduceObject.bl_idname)
+    self.layout.operator(forward_object.SAMPLE26_OT_ForwardXObject.bl_idname)
+    self.layout.operator(backward_object.SAMPLE26_OT_BackwardXObject.bl_idname)
 
 
 # Blenderに登録するクラス
 classes = [
-    enlarge_object.SAMPLE27_OT_EnlargeObject,
-    reduce_object.SAMPLE27_OT_ReduceObject,
+    forward_object.SAMPLE26_OT_ForwardXObject,
+    backward_object.SAMPLE26_OT_BackwardXObject,
 ]
 
 
@@ -46,7 +46,7 @@ def register():
     for c in classes:
         bpy.utils.register_class(c)
     bpy.types.VIEW3D_MT_object.append(menu_fn)
-    print("サンプル 2-7: アドオン「サンプル 2-7」が有効化されました。")
+    print("サンプル 2-6: アドオン『サンプル 2-6』が有効化されました。")
 
 
 # アドオン無効化時の処理
@@ -54,7 +54,7 @@ def unregister():
     bpy.types.VIEW3D_MT_object.remove(menu_fn)
     for c in classes:
         bpy.utils.unregister_class(c)
-    print("サンプル 2-7: アドオン「サンプル 2-7」が無効化されました。")
+    print("サンプル 2-6: アドオン『サンプル 2-6』が無効化されました。")
 
 
 # メイン処理
