@@ -3,7 +3,7 @@ from bpy.props import StringProperty, FloatProperty, EnumProperty
 
 
 bl_info = {
-    "name": "サンプル2-4: オブジェクトを複製するアドオン③",
+    "name": "サンプル2-4: オブジェクトを並進移動するアドオン③",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),

@@ -7,7 +7,7 @@ bl_info = {
     "version": (3, 0),
     "blender": (2, 80, 0),
     "location": "3Dビューポート > Sidebar > Sample 3-1",
-    "description": "マウスの右ドラッグでオブジェクトを回転するアドオン",
+    "description": "マウスの右ドラッグでオブジェクトを回転するサンプルアドオン",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
@@ -16,7 +16,7 @@ bl_info = {
 }
 
 
-# マウスドラッグでオブジェクトを回転
+# マウスドラッグでオブジェクトを回転するオペレータ
 class SAMPLE31_OT_RotateObjectByMouseDragging(bpy.types.Operator):
 
     bl_idname = "object.sample31_rotate_object_by_mouse_dragging"
@@ -110,7 +110,7 @@ class SAMPLE31_OT_RotateObjectByMouseDragging(bpy.types.Operator):
 # UI
 class SAMPLE31_PT_RotateObjectByMouseDragging(bpy.types.Panel):
 
-    bl_label = "マウスドラッグでオブジェクトを回転"
+    bl_label = "マウスドラッグでオブジェクト回転"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = "Sample 3-1"
