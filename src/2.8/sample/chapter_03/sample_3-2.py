@@ -1,10 +1,8 @@
 import bpy
-from bpy.props import BoolProperty, PointerProperty
-from mathutils import Vector
 
 
 bl_info = {
-    "name": "サンプル3-2: 入力したキーのテキストオブジェクトを表示するアドオン",
+    "name": "サンプル3-2: 入力したキーを表示するアドオン",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
@@ -19,14 +17,14 @@ bl_info = {
 
 
 # 大文字のアルファベットリスト
-ALPHABET_LIST = [chr(i) for i in range(65, 65+26)]
+ALPHABET_LIST = [chr(i) for i in range(65, 65 + 26)]
 
 
 # 入力したキーのテキストオブジェクトを表示するオペレータ
 class SAMPLE32_OT_ShowInputKey(bpy.types.Operator):
 
     bl_idname = "object.sample32_show_input_key"
-    bl_label = "入力キーのテキストオブジェクト表示"
+    bl_label = "入力キーを表示"
     bl_description = "入力したキーをテキストオブジェクトとして表示します"
 
     # Trueの場合は、キーを入力したときに入力したキーに対する
@@ -72,18 +70,18 @@ class SAMPLE32_OT_ShowInputKey(bpy.types.Operator):
         if context.area.type == 'VIEW_3D':
             # [開始] ボタンが押された時の処理
             if not op_cls.is_running():
-                op_cls.__running = True
-                # modal処理クラスを追加
-                context.window_manager.modal_handler_add(self)
                 # テキストオブジェクト作成
                 bpy.ops.object.text_add(location=(0.0, 0.0, 0.0), radius=2.0)
                 op_cls.__text_object_name = context.active_object.name
                 bpy.data.objects[op_cls.__text_object_name].data.body = ""
-                print("サンプル3-2: キーに対するテキストオブジェクト表示処理を開始しました。")
+                # モーダルモードを開始
+                context.window_manager.modal_handler_add(self)
+                op_cls.__running = True
+                print("サンプル3-2: 入力キーの表示処理を開始しました。")
                 return {'RUNNING_MODAL'}
             else:
                 op_cls.__running = False
-                print("サンプル3-2: キーに対するテキストオブジェクト表示処理を終了しました。")
+                print("サンプル3-2: 入力キーの表示処理を終了しました。")
                 return {'FINISHED'}
         else:
             return {'CANCELLED'}
@@ -92,7 +90,7 @@ class SAMPLE32_OT_ShowInputKey(bpy.types.Operator):
 # UI
 class SAMPLE32_PT_ShowInputKey(bpy.types.Panel):
 
-    bl_label = "入力キーのテキストオブジェクト表示"
+    bl_label = "入力キーを表示"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = "Sample 3-2"

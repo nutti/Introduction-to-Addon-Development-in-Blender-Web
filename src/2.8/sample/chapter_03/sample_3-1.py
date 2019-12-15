@@ -2,7 +2,7 @@ import bpy
 
 
 bl_info = {
-    "name": "サンプル3-1: マウスドラッグでオブジェクトを回転するアドオン",
+    "name": "サンプル3-1: オブジェクトを回転するアドオン",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
@@ -20,7 +20,7 @@ bl_info = {
 class SAMPLE31_OT_RotateObjectByMouseDragging(bpy.types.Operator):
 
     bl_idname = "object.sample31_rotate_object_by_mouse_dragging"
-    bl_label = "マウスドラッグでオブジェクトを回転"
+    bl_label = "オブジェクトを回転"
     bl_description = "マウスドラッグでオブジェクトを回転します"
 
     # Trueの場合は、マウスを右ドラッグさせたときに、アクティブなオブジェクトが
@@ -86,12 +86,12 @@ class SAMPLE31_OT_RotateObjectByMouseDragging(bpy.types.Operator):
 # @include-source start [press_start_button]
             # [開始] ボタンが押された時の処理
             if not self.is_running():
-                op_cls.__running = True
                 op_cls.__right_mouse_down = False
                 op_cls.__initial_rotation = None
                 op_cls.__initial_mouse_x = None
                 # モーダルモードを開始
                 context.window_manager.modal_handler_add(self)
+                op_cls.__running = True
                 print("サンプル3-1: オブジェクトの回転処理を開始しました。")
                 return {'RUNNING_MODAL'}
 # @include-source end [press_start_button]
@@ -110,7 +110,7 @@ class SAMPLE31_OT_RotateObjectByMouseDragging(bpy.types.Operator):
 # UI
 class SAMPLE31_PT_RotateObjectByMouseDragging(bpy.types.Panel):
 
-    bl_label = "マウスドラッグでオブジェクト回転"
+    bl_label = "オブジェクトを回転"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = "Sample 3-1"
