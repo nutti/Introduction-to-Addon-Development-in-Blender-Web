@@ -79,6 +79,7 @@ class SAMPLE32_OT_ShowInputKey(bpy.types.Operator):
                 op_cls.__running = True
                 print("サンプル3-2: 入力キーの表示処理を開始しました。")
                 return {'RUNNING_MODAL'}
+            # [終了] ボタンが押された時の処理
             else:
                 op_cls.__running = False
                 print("サンプル3-2: 入力キーの表示処理を終了しました。")

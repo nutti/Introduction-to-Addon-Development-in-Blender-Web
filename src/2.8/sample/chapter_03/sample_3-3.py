@@ -4,12 +4,12 @@ import bpy
 
 
 bl_info = {
-    "name": "サンプル3-3: 日時を表示するアドオン",
+    "name": "サンプル3-3: 日時を表示するアドオン①",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
     "location": "3Dビューポート > Sidebar > Sample 3-3",
-    "description": "現在の時刻をテキストオブジェクトとして表示するアドオン",
+    "description": "現在の日時をテキストオブジェクトとして表示するアドオン",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
@@ -40,7 +40,7 @@ class SAMPLE33_OT_ShowDatetime(bpy.types.Operator):
             # タイマを登録
             SAMPLE33_OT_ShowDatetime.__timer = \
                 context.window_manager.event_timer_add(
-                    0.1, window=context.window
+                    0.5, window=context.window
                 )
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
@@ -59,8 +59,7 @@ class SAMPLE33_OT_ShowDatetime(bpy.types.Operator):
         if context.area:
             context.area.tag_redraw()
 
-        # パネル [入力キーのテキストオブジェクト表示] のボタン [終了] を
-        # 押したときに、モーダルモードを終了
+        # パネル [日時を表示] のボタン [終了] を押したときに、モーダルモードを終了
         if not self.is_running():
             # テキストオブジェクトを削除
             if op_cls.__text_object_name in bpy.data.objects:
@@ -87,6 +86,7 @@ class SAMPLE33_OT_ShowDatetime(bpy.types.Operator):
                 self.__handle_add(context)
                 print("サンプル3-3: 日時の表示処理を開始しました。")
                 return {'RUNNING_MODAL'}
+            # [終了] ボタンが押された時の処理
             else:
                 # モーダルモードを終了
                 self.__handle_remove(context)
