@@ -74,12 +74,12 @@ def register_shortcut():
     kc = wm.keyconfigs.addon
     if kc:
         # [3Dビューポート] スペースのショートカットキーとして登録
-        km = kc.keymaps.new(name="3D View", space_type="VIEW_3D")
+        km = kc.keymaps.new(name="3D View", space_type='VIEW_3D')
         # ショートカットキーの登録
         kmi = km.keymap_items.new(
             idname=SAMPLE25_OT_TranslateObject.bl_idname,
-            type="T",
-            value="PRESS",
+            type='T',
+            value='PRESS',
             shift=False,
             ctrl=True,
             alt=True
