@@ -6,7 +6,7 @@ from bpy.props import (
     EnumProperty,
     BoolProperty,
 )
-    
+
 
 bl_info = {
     "name": "サンプル2-7: BlenderのUIを制御するアドオン",
@@ -47,6 +47,7 @@ class SAMPLE27_MT_NopMenu(bpy.types.Menu):
             layout.operator(SAMPLE27_OT_Nop.bl_idname, text=("項目 %d" % (i)))
 
 
+# @include-source start [panel_cls]
 # Sidebarのタブ [カスタムタブ] に、パネル [カスタムパネル] を追加
 class SAMPLE27_PT_CustomPanel(bpy.types.Panel):
 
@@ -55,7 +56,9 @@ class SAMPLE27_PT_CustomPanel(bpy.types.Panel):
     bl_region_type = 'UI'               # パネルを登録するリージョン
     bl_category = "カスタムタブ"        # パネルを登録するタブ名
     bl_context = "objectmode"           # パネルを表示するコンテキスト
+# @include-source end [panel_cls]
 
+# @include-source start [poll]
     # 本クラスの処理が実行可能かを判定する
     @classmethod
     def poll(cls, context):
@@ -64,6 +67,7 @@ class SAMPLE27_PT_CustomPanel(bpy.types.Panel):
             if o.select_get():
                 return True
         return False
+# @include-source end [poll]
 
 # @include-source start [draw_header]
     # ヘッダーのカスタマイズ

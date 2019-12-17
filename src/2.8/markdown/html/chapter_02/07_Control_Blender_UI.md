@@ -247,7 +247,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### ラベル
 
-![ラベル](src/image/chapter_02/07_Control_Blender_UI/ui_label.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_label.png "ラベル")
 
 **ラベル** は、ユーザが編集できないテキストボックスで、主にテキストを表示するために使用します。
 `layout.label` メソッドを利用することで、ラベルを配置できます。
@@ -256,7 +256,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### ボタン
 
-![ボタン](src/image/chapter_02/07_Control_Blender_UI/ui_button.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_button.png "ボタン")
 
 **ボタン** は `layout.operator` メソッドで追加することができ、以下の引数を指定します。
 
@@ -283,7 +283,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### ドロップダウンメニュー
 
-![ドロップダウンメニュー](src/image/chapter_02/07_Control_Blender_UI/ui_dropdown_menu.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_dropdown_menu.png "ドロップダウンメニュー")
 
 `layout.menu` メソッドを利用することで、**ドロップダウンメニュー** を追加できます。
 
@@ -299,7 +299,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### テキストボックス
 
-![テキストボックス](src/image/chapter_02/07_Control_Blender_UI/ui_textbox.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_textbox.png "テキストボックス")
 
 ユーザが値を変更可能な **テキストボックス** を配置するためには、`layout.prop` メソッドを使います。
 `layout.prop` メソッドの引数を以下に示します。
@@ -318,7 +318,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### ドロップダウンプロパティ
 
-![ドロップダウンプロパティ](src/image/chapter_02/07_Control_Blender_UI/ui_dropdown_property.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_dropdown_property.png "ドロップダウンプロパティ")
 
 **ドロップダウンプロパティ** は、登録された項目の中からユーザが値を設定可能なUIパーツです。
 `self.layout.prop` メソッドの第2引数に、`bpy.props.EnumProperty` クラスの変数を指定することで、ドロップダウンプロパティを作成できます。
@@ -328,7 +328,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### チェックボックス
 
-![チェックボックス](src/image/chapter_02/07_Control_Blender_UI/ui_checkbox.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_checkbox.png "チェックボックス")
 
 **チェックボックス** は、ユーザがON/OFFを切りかえることができるUIパーツです。
 `self.layout.prop` メソッドの第2引数に、`bpy.props.BoolProperty` の変数を指定することで、チェックボックスを作成できます。
@@ -341,7 +341,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### 一行配置（アライメントなし）
 
-![一行に配置（アライメントなし）](src/image/chapter_02/07_Control_Blender_UI/ui_arrange_row_without_align.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_arrange_row_without_align.png "一行に配置（アライメントなし）")
 
 `layout.operator` メソッドを用いると、横幅が100%のボタンが配置されます。
 このため、単純に `layout.operator` メソッドを複数回実行すると、実行した回数分だけ縦方向にボタンが配置されてしまいます。
@@ -356,7 +356,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### 一行配置（アライメントあり）
 
-![一行に配置（アライメントあり）](src/image/chapter_02/07_Control_Blender_UI/ui_arrange_row_with_align.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_arrange_row_with_align.png "一行に配置（アライメントあり）")
 
 `layout.row` メソッドの引数に `align=True` を指定すると、ボタンとボタンの間に隙間がなくなるように配置されます。
 
@@ -365,7 +365,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### 一列配置（アライメントなし）
 
-![一列に配置（アライメントなし）](src/image/chapter_02/07_Control_Blender_UI/ui_arrange_column_without_align.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_arrange_column_without_align.png "一列に配置（アライメントなし）")
 
 `layout.operator` メソッドを複数回実行することでボタンを一列に配置できますが、隙間が広くて気に入らない人もいると思います。
 隙間を縮めた状態でボタンを縦に並べるためには、`layout.column` メソッドを使って列成分を取得し、取得した列成分に対して `operator` メソッドを使ってボタンを配置します。
@@ -379,7 +379,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### 一列配置（アライメントあり）
 
-![一列に配置（アライメントあり）](src/image/chapter_02/07_Control_Blender_UI/ui_arrange_column_with_align.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_arrange_column_with_align.png "一列に配置（アライメントあり）")
 
 `layout.column ` メソッドの引数に `align=True` を指定すると、ボタンとボタンの間に隙間がなくなるように配置されます。
 
@@ -388,7 +388,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### 複数行、複数列配置
 
-![複数行、複数列に配置](src/image/chapter_02/07_Control_Blender_UI/ui_arrange_multi.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_arrange_multi.png "複数行、複数列に配置")
 
 `layout.column` メソッドや `layout.row` メソッドで取得した行成分や列成分に対して、さらに行成分や列成分を取得することで、より複雑なボタンの配置を実現することができます。
 
@@ -399,7 +399,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### 領域分割
 
-![領域分割](src/image/chapter_02/07_Control_Blender_UI/ui_split_region.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_split_region.png "領域分割")
 
 `layout.row` メソッドを用いて行成分を取得することで、一行にボタンを配置することができますが、ボタンはすべて等幅になっていました。
 ボタンの横幅を変えたいときは、`layout.split` メソッドを用いて領域を分割します。
@@ -423,7 +423,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### 明示的な横幅最大化
 
-![明示的な横幅の最大化](src/image/chapter_02/07_Control_Blender_UI/ui_explicit_expantion.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_explicit_expantion.png "明示的な横幅の最大化")
 
 `layout.operator` メソッドを使ってボタンを配置すると、ボタンの横幅が自動的に領域全体へ拡大されますが、ボタンの横幅を明示的に領域全体に最大化する方法もあります。
 
@@ -434,7 +434,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### 左寄せ
 
-![左寄せ](src/image/chapter_02/07_Control_Blender_UI/ui_aligh_left.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_aligh_left.png "左寄せ")
 
 ボタンの横幅を自動的に最大化せず、右や左に寄せて配置することもできます。
 
@@ -445,7 +445,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### 右寄せ
 
-![右寄せ](src/image/chapter_02/07_Control_Blender_UI/ui_aligh_right.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_aligh_right.png "右寄せ")
 
 `row.alignment` に `RIGHT` を指定することで右寄せ配置も可能です。
 
@@ -454,7 +454,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### グループ化
 
-![グループ化](src/image/chapter_02/07_Control_Blender_UI/ui_grouping.png)
+![](../../images/chapter_02/07_Control_Blender_UI/ui_grouping.png "グループ化")
 
 複数のUIパーツをグループ化することもできます。
 `layout.box` メソッドの戻り値に対して `operator` メソッドや `menu` メソッドなどを呼び出すことで、作成したUIがグループ化されます。
