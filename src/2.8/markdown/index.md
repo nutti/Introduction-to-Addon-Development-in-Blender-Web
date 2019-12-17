@@ -24,9 +24,7 @@ subtitle: 目次
 * [2-4. サブメニューを作成する](html/chapter_02/04_Create_Sub-menu.html)
 * [2-5. ショートカットキーを割り当てる](html/chapter_02/05_Allocate_Shortcut_Keys.html)
 * [2-6. アドオンのソースコードを複数ファイルへ分割する](html/chapter_02/06_Divide_Add-on_Source_into_Multiple_Files.html)
-* 2-7. BlenderのUIを制御する①
-* 2-8. BlenderのUIを制御する②
-* 2-9. BlenderのUIを制御する③
+* [2-7. BlenderのUIを制御する](html/chapter_02/07_Control_Blender_UI.html)
 
 
 ## [3. より高度なアドオンを作るために](html/chapter_03/index.html)
