@@ -23,7 +23,8 @@ class SAMPLE31_OT_RotateObjectByMouseDragging(bpy.types.Operator):
     bl_label = "オブジェクトを回転"
     bl_description = "マウスドラッグでオブジェクトを回転します"
 
-    # Trueの場合は、マウスを右ドラッグさせたときに、アクティブなオブジェクトが
+# @include-source start [class_variable]
+    # Trueの場合は、マウスをドラッグさせたときに、アクティブなオブジェクトが
     # 回転する（Trueの場合は、モーダルモード中である）
     __running = False
     # マウスが右クリックされている間に、Trueとなる
@@ -32,6 +33,7 @@ class SAMPLE31_OT_RotateObjectByMouseDragging(bpy.types.Operator):
     __initial_rotation_x = None
     # 初期のマウスポインタのX座標
     __initial_mouse_x = None
+# @include-source end [class_variable]
 
     # モーダルモード中はTrueを返す
     @classmethod
@@ -56,12 +58,14 @@ class SAMPLE31_OT_RotateObjectByMouseDragging(bpy.types.Operator):
 # @include-source end [exit_modal_mode]
 
 # @include-source start [update_click_status]
-        # クリック状態を更新
+        # マウスのクリック状態を更新
         if event.type == 'RIGHTMOUSE':
+            # 右ボタンを押されたとき
             if event.value == 'PRESS':
                 op_cls.__right_mouse_down = True
                 op_cls.__initial_rotation_x = active_obj.rotation_euler[0]
                 op_cls.__initial_mouse_x = event.mouse_region_x
+            # 右ボタンが離されたとき
             elif event.value == 'RELEASE':
                 op_cls.__right_mouse_down = False
                 op_cls.__initial_rotation_x = None
@@ -71,7 +75,7 @@ class SAMPLE31_OT_RotateObjectByMouseDragging(bpy.types.Operator):
 # @include-source start [update_object_rotation]
         # マウスドラッグによるオブジェクト回転
         elif event.type == 'MOUSEMOVE':
-            if op_cls.__initial_rotation_x is not None:
+            if op_cls.__right_mouse_down:
                 rotate_angle_x = (event.mouse_region_x - op_cls.__initial_mouse_x) * 0.01
                 active_obj.rotation_euler[0] = op_cls.__initial_rotation_x + rotate_angle_x
                 return {'RUNNING_MODAL'}
