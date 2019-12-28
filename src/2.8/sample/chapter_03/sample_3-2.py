@@ -16,8 +16,10 @@ bl_info = {
 }
 
 
+# @include-source start [make_alphabet_list]
 # 大文字のアルファベットリスト
 ALPHABET_LIST = [chr(i) for i in range(65, 65 + 26)]
+# @include-source end [make_alphabet_list]
 
 
 # 入力したキーのテキストオブジェクトを表示するオペレータ
@@ -45,6 +47,7 @@ class SAMPLE32_OT_ShowInputKey(bpy.types.Operator):
         if context.area:
             context.area.tag_redraw()
 
+# @include-source start [finish_modal_mode]
         # パネル [入力キーのテキストオブジェクト表示] のボタン [終了] を
         # 押したときに、モーダルモードを終了
         if not self.is_running():
@@ -53,14 +56,17 @@ class SAMPLE32_OT_ShowInputKey(bpy.types.Operator):
                 bpy.data.objects.remove(bpy.data.objects[op_cls.__text_object_name])
             op_cls.__text_object_name = None
             return {'FINISHED'}
+# @include-source end [finish_modal_mode]
 
+# @include-source start [change_text_object_text]
         input_key = event.type
         # 大文字のアルファベット以外はすべてイベントを無視する
         if input_key not in ALPHABET_LIST:
             return {'PASS_THROUGH'}
-        
+
         if op_cls.__text_object_name in bpy.data.objects:
             bpy.data.objects[op_cls.__text_object_name].data.body = input_key
+# @include-source end [change_text_object_text]
 
         return {'RUNNING_MODAL'}
 
