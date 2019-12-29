@@ -35,6 +35,7 @@ class SAMPLE33_OT_ShowDatetime(bpy.types.Operator):
         # モーダルモード中はTrue
         return True if cls.__timer else False
 
+# @include-source start [add_timer]
     def __handle_add(self, context):
         if not self.is_running():
             # タイマを登録
@@ -44,13 +45,16 @@ class SAMPLE33_OT_ShowDatetime(bpy.types.Operator):
                 )
             # モーダルモードへの移行
             context.window_manager.modal_handler_add(self)
+# @include-source end [add_timer]
 
+# @include-source start [remove_timer]
     def __handle_remove(self, context):
         if self.is_running():
             # タイマの登録を解除
             context.window_manager.event_timer_remove(
                 SAMPLE33_OT_ShowDatetime.__timer)
             SAMPLE33_OT_ShowDatetime.__timer = None
+# @include-source end [remove_timer]
 
     def modal(self, context, event):
         op_cls = SAMPLE33_OT_ShowDatetime
@@ -67,8 +71,10 @@ class SAMPLE33_OT_ShowDatetime(bpy.types.Operator):
             op_cls.__text_object_name = None
             return {'FINISHED'}
 
+# @include-source begin [handle_timer_event]
         if event.type == 'TIMER':
             bpy.data.objects[op_cls.__text_object_name].data.body = datetime.datetime.now().strftime("%Y.%m.%d %H:%M:%S")
+# @include-source end [handle_timer_event]
 
         return {'PASS_THROUGH'}
 
@@ -78,10 +84,12 @@ class SAMPLE33_OT_ShowDatetime(bpy.types.Operator):
         if context.area.type == 'VIEW_3D':
             # [開始] ボタンが押された時の処理
             if not op_cls.is_running():
+# @include-source begin [make_text_object]
                 # テキストオブジェクト作成
                 bpy.ops.object.text_add(location=(0.0, 0.0, 0.0), radius=2.0)
                 op_cls.__text_object_name = context.active_object.name
                 bpy.data.objects[op_cls.__text_object_name].data.body = ""
+# @include-source end [make_text_object]
                 # モーダルモードを開始
                 self.__handle_add(context)
                 print("サンプル3-3: 日時の表示処理を開始しました。")

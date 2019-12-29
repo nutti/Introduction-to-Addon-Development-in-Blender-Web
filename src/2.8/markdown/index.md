@@ -29,9 +29,9 @@ subtitle: 目次
 
 ## [3. より高度なアドオンを作るために](html/chapter_03/index.html)
 
-* 3-1. マウスクリックのイベントを扱う
-* 3-2. キーボードのキーイベントを扱う
-* 3-3. タイマのイベントを扱う
+* [3-1. マウスのイベントを扱う](html/chapter_03/01_Handle_Mouse_Event.html)
+* [3-2. キーボードのイベントを扱う](html/chapter_03/02_Handle_Keyboard_Event.html)
+* [3-3. タイマのイベントを扱う](html/chapter_03/03_Handle_Timer_Event.html)
 * 3-4. gpuモジュールを使って図形描画する
 * 3-5. blfモジュールを使って文字列を描画する
 * 3-6. アドオンのUIを複数の言語に対応する
