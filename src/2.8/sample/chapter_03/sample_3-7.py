@@ -2,15 +2,16 @@ import datetime
 
 import bpy
 import blf
+from bpy.props import IntProperty, IntVectorProperty
 
 
 bl_info = {
-    "name": "サンプル3-5: 日時を表示するアドオン②",
+    "name": "サンプル3-7: 日時を表示するアドオン③",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
-    "location": "3Dビューポート > Sidebar > Sample 3-5",
-    "description": "現在の日時を表示するアドオン",
+    "location": "3Dビューポート > Sidebar > サンプル 3-7",
+    "description": "現在の日時を表示するアドオン（プリファレンス利用版）",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
@@ -41,9 +42,9 @@ def get_region(context, area_type, region_type):
 
 
 # 日時を表示するオペレータ
-class SAMPLE35_OT_ShowDatetime(bpy.types.Operator):
+class SAMPLE37_OT_ShowDatetime(bpy.types.Operator):
 
-    bl_idname = "object.sample35_show_datetime"
+    bl_idname = "object.sample37_show_datetime"
     bl_label = "日時を表示"
     bl_description = "日時を表示します"
 
@@ -74,31 +75,31 @@ class SAMPLE35_OT_ShowDatetime(bpy.types.Operator):
 
     @classmethod
     def __draw(cls, context):
+        prefs = context.preferences.addons[__name__].preferences
+
         # リージョンの幅を取得するため、描画先のリージョンを得る
         region = get_region(context, 'VIEW_3D', 'WINDOW')
 
         # 描画先のリージョンへテキストを描画
-        #   注意：本来ならタイマを併用して再描画しないと日時が更新されないが、
-        #         説明簡略化のためにタイマを利用していない。
-        #         このため表示の不自然さを避けるため、時間以下の情報を表示していない。
         if region is not None:
-            blf.size(0, 30, 72)
-            blf.position(0, 100.0, region.height - 120.0, 0)
+            blf.size(0, prefs.font_size, 72)
+            blf.position(0, prefs.position[0],
+                         region.height - prefs.position[1], 0)
             date_str = datetime.datetime.now().strftime("%Y.%m.%d")
             blf.draw(0, date_str)
 
     def invoke(self, context, event):
-        op_cls = SAMPLE35_OT_ShowDatetime
+        op_cls = SAMPLE37_OT_ShowDatetime
 
         if context.area.type == 'VIEW_3D':
             # [開始] ボタンが押された時の処理
             if not op_cls.is_running():
                 self.__handle_add(context)
-                print("サンプル3-5: 日時の表示処理を開始しました。")
+                print("サンプル3-7: 日時の表示処理を開始しました。")
             # [終了] ボタンが押された時の処理
             else:
                 self.__handle_remove(context)
-                print("サンプル3-5: 日時の表示処理を終了しました。")
+                print("サンプル3-7: 日時の表示処理を終了しました。")
             # エリアを再描画
             if context.area:
                 context.area.tag_redraw()
@@ -108,7 +109,7 @@ class SAMPLE35_OT_ShowDatetime(bpy.types.Operator):
 
 
 # UI
-class SAMPLE35_PT_ShowDatetime(bpy.types.Panel):
+class SAMPLE37_PT_ShowDatetime(bpy.types.Panel):
 
     bl_label = "日時を表示"
     bl_space_type = 'VIEW_3D'
@@ -117,7 +118,7 @@ class SAMPLE35_PT_ShowDatetime(bpy.types.Panel):
     bl_context = "objectmode"
 
     def draw(self, context):
-        op_cls = SAMPLE35_OT_ShowDatetime
+        op_cls = SAMPLE37_OT_ShowDatetime
 
         layout = self.layout
         # [開始] / [停止] ボタンを追加
@@ -127,22 +128,56 @@ class SAMPLE35_PT_ShowDatetime(bpy.types.Panel):
             layout.operator(op_cls.bl_idname, text="終了", icon="PAUSE")
 
 
+# プリファレンスのアドオン設定情報
+class SAMPLE37_Preferences(bpy.types.AddonPreferences):
+    bl_idname = __name__
+
+    position: IntVectorProperty(
+        name="位置",
+        description="描画位置",
+        size=2,
+        min=0,
+        default=(100, 120),
+        subtype='TRANSLATION'
+    )
+    font_size: IntProperty(
+        name="フォントサイズ",
+        description="描画フォントサイズ",
+        min=10,
+        max=100,
+        default=30,
+    )
+
+    def draw(self, context):
+        layout = self.layout
+
+        sp = layout.split(factor=0.3)
+        col = sp.column()
+        col.prop(self, "position")
+
+        sp = sp.split(factor=0.4)
+        col = sp.column()
+        col.label(text="フォントサイズ:")
+        col.prop(self, "font_size", text="")
+
+
 classes = [
-    SAMPLE35_OT_ShowDatetime,
-    SAMPLE35_PT_ShowDatetime,
+    SAMPLE37_OT_ShowDatetime,
+    SAMPLE37_PT_ShowDatetime,
+    SAMPLE37_Preferences,
 ]
 
 
 def register():
     for c in classes:
         bpy.utils.register_class(c)
-    print("サンプル3-5: アドオン『サンプル3-5』が有効化されました。")
+    print("サンプル3-7: アドオン『サンプル 3-7』が有効化されました。")
 
 
 def unregister():
     for c in classes:
         bpy.utils.unregister_class(c)
-    print("サンプル3-5: アドオン『サンプル3-5』が無効化されました。")
+    print("サンプル3-7: アドオン『サンプル 3-7』が無効化されました。")
 
 
 if __name__ == "__main__":
