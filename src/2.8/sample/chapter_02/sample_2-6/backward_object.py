@@ -13,7 +13,7 @@ class SAMPLE26_OT_BackwardXObject(bpy.types.Operator):
     def execute(self, context):
         active_obj = context.active_object
         active_obj.location[0] -= 1.0
-        self.report({'INFO'}, "サンプル2-6: 『{}』をX軸負方向へ並進移動しました。".format(active_obj.name))
-        print("サンプル2-6: オペレータ『{}』が実行されました。".format(self.bl_idname))
+        self.report({'INFO'}, "サンプル 2-6: 『{}』をX軸負方向へ並進移動しました。".format(active_obj.name))
+        print("サンプル 2-6: オペレータ『{}』が実行されました。".format(self.bl_idname))
 
         return {'FINISHED'}

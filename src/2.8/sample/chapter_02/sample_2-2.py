@@ -2,7 +2,7 @@ import bpy
 
 
 bl_info = {
-    "name": "サンプル2-2: オブジェクトを並進移動するアドオン①",
+    "name": "サンプル 2-2: オブジェクトを並進移動するアドオン①",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
@@ -31,8 +31,8 @@ class SAMPLE22_OT_ForwardXObject(bpy.types.Operator):
     def execute(self, context):
         active_obj = context.active_object
         active_obj.location[0] += 1.0
-        self.report({'INFO'}, "サンプル2-2: 『{}』をX軸正方向へ並進移動しました。".format(active_obj.name))
-        print("サンプル2-2: オペレータ『{}』が実行されました。".format(self.bl_idname))
+        self.report({'INFO'}, "サンプル 2-2: 『{}』をX軸正方向へ並進移動しました。".format(active_obj.name))
+        print("サンプル 2-2: オペレータ『{}』が実行されました。".format(self.bl_idname))
 
         return {'FINISHED'}
 # @include-source end [execute_forward_object]
@@ -53,8 +53,8 @@ class SAMPLE22_OT_BackwardXObject(bpy.types.Operator):
     def execute(self, context):
         active_obj = context.active_object
         active_obj.location[0] -= 1.0
-        self.report({'INFO'}, "サンプル2-2: 『{}』をX軸負方向へ並進移動しました。".format(active_obj.name))
-        print("サンプル2-2: オペレータ『{}』が実行されました。".format(self.bl_idname))
+        self.report({'INFO'}, "サンプル 2-2: 『{}』をX軸負方向へ並進移動しました。".format(active_obj.name))
+        print("サンプル 2-2: オペレータ『{}』が実行されました。".format(self.bl_idname))
 
         return {'FINISHED'}
 # @include-source end [execute_backward_object]
@@ -76,14 +76,14 @@ def register():
     for c in classes:
         bpy.utils.register_class(c)
     bpy.types.VIEW3D_MT_object.append(menu_fn)
-    print("サンプル2-2: アドオン『サンプル2-2』が有効化されました。")
+    print("サンプル 2-2: アドオン『サンプル 2-2』が有効化されました。")
 
 
 def unregister():
     bpy.types.VIEW3D_MT_object.remove(menu_fn)
     for c in classes:
         bpy.utils.unregister_class(c)
-    print("サンプル2-2: アドオン『サンプル2-2』が無効化されました。")
+    print("サンプル 2-2: アドオン『サンプル 2-2』が無効化されました。")
 
 
 if __name__ == "__main__":

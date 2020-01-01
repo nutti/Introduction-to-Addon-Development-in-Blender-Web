@@ -4,11 +4,11 @@ import bpy
 
 
 bl_info = {
-    "name": "サンプル3-3: 日時を表示するアドオン①",
+    "name": "サンプル 3-3: 日時を表示するアドオン①",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
-    "location": "3Dビューポート > Sidebar > Sample 3-3",
+    "location": "3Dビューポート > Sidebar > サンプル 3-3",
     "description": "現在の日時をテキストオブジェクトとして表示するアドオン",
     "warning": "",
     "support": "TESTING",
@@ -92,13 +92,13 @@ class SAMPLE33_OT_ShowDatetime(bpy.types.Operator):
 # @include-source end [make_text_object]
                 # モーダルモードを開始
                 self.__handle_add(context)
-                print("サンプル3-3: 日時の表示処理を開始しました。")
+                print("サンプル 3-3: 日時の表示処理を開始しました。")
                 return {'RUNNING_MODAL'}
             # [終了] ボタンが押された時の処理
             else:
                 # モーダルモードを終了
                 self.__handle_remove(context)
-                print("サンプル3-3: 日時の表示処理を終了しました。")
+                print("サンプル 3-3: 日時の表示処理を終了しました。")
                 return {'FINISHED'}
         else:
             return {'CANCELLED'}
@@ -110,7 +110,7 @@ class SAMPLE33_PT_ShowDatetime(bpy.types.Panel):
     bl_label = "日時を表示"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = "Sample 3-3"
+    bl_category = "サンプル 3-3"
     bl_context = "objectmode"
 
     def draw(self, context):
@@ -133,13 +133,13 @@ classes = [
 def register():
     for c in classes:
         bpy.utils.register_class(c)
-    print("サンプル3-3: アドオン『サンプル3-3』が有効化されました。")
+    print("サンプル 3-3: アドオン『サンプル 3-3』が有効化されました。")
 
 
 def unregister():
     for c in classes:
         bpy.utils.unregister_class(c)
-    print("サンプル3-3: アドオン『サンプル3-3』が無効化されました。")
+    print("サンプル 3-3: アドオン『サンプル 3-3』が無効化されました。")
 
 
 if __name__ == "__main__":

@@ -2,11 +2,11 @@ import bpy
 
 
 bl_info = {
-    "name": "サンプル3-2: 入力したキーを表示するアドオン",
+    "name": "サンプル 3-2: 入力したキーを表示するアドオン",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
-    "location": "3Dビューポート > Sidebar > Sample 3-2",
+    "location": "3Dビューポート > Sidebar > サンプル 3-2",
     "description": "入力したキーのテキストオブジェクトを表示するアドオン",
     "warning": "",
     "support": "TESTING",
@@ -83,12 +83,12 @@ class SAMPLE32_OT_ShowInputKey(bpy.types.Operator):
                 # モーダルモードを開始
                 context.window_manager.modal_handler_add(self)
                 op_cls.__running = True
-                print("サンプル3-2: 入力キーの表示処理を開始しました。")
+                print("サンプル 3-2: 入力キーの表示処理を開始しました。")
                 return {'RUNNING_MODAL'}
             # [終了] ボタンが押された時の処理
             else:
                 op_cls.__running = False
-                print("サンプル3-2: 入力キーの表示処理を終了しました。")
+                print("サンプル 3-2: 入力キーの表示処理を終了しました。")
                 return {'FINISHED'}
         else:
             return {'CANCELLED'}
@@ -100,7 +100,7 @@ class SAMPLE32_PT_ShowInputKey(bpy.types.Panel):
     bl_label = "入力キーを表示"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = "Sample 3-2"
+    bl_category = "サンプル 3-2"
     bl_context = "objectmode"
 
     def draw(self, context):
@@ -123,13 +123,13 @@ classes = [
 def register():
     for c in classes:
         bpy.utils.register_class(c)
-    print("サンプル3-2: アドオン『サンプル3-2』が有効化されました。")
+    print("サンプル 3-2: アドオン『サンプル 3-2』が有効化されました。")
 
 
 def unregister():
     for c in classes:
         bpy.utils.unregister_class(c)
-    print("サンプル3-2: アドオン『サンプル3-2』が無効化されました。")
+    print("サンプル 3-2: アドオン『サンプル 3-2』が無効化されました。")
 
 
 if __name__ == "__main__":

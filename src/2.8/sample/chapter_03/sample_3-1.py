@@ -2,11 +2,11 @@ import bpy
 
 
 bl_info = {
-    "name": "サンプル3-1: オブジェクトを回転するアドオン",
+    "name": "サンプル 3-1: オブジェクトを回転するアドオン",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
-    "location": "3Dビューポート > Sidebar > Sample 3-1",
+    "location": "3Dビューポート > Sidebar > サンプル 3-1",
     "description": "マウスの右ドラッグでオブジェクトを回転するサンプルアドオン",
     "warning": "",
     "support": "TESTING",
@@ -96,14 +96,14 @@ class SAMPLE31_OT_RotateObjectByMouseDragging(bpy.types.Operator):
                 # モーダルモードを開始
                 context.window_manager.modal_handler_add(self)
                 op_cls.__running = True
-                print("サンプル3-1: オブジェクトの回転処理を開始しました。")
+                print("サンプル 3-1: オブジェクトの回転処理を開始しました。")
                 return {'RUNNING_MODAL'}
 # @include-source end [press_start_button]
 # @include-source start [press_stop_button]
             # [終了] ボタンが押された時の処理
             else:
                 op_cls.__running = False
-                print("サンプル3-1: オブジェクトの回転処理を終了しました。")
+                print("サンプル 3-1: オブジェクトの回転処理を終了しました。")
                 return {'FINISHED'}
 # @include-source end [press_stop_button]
         else:
@@ -117,7 +117,7 @@ class SAMPLE31_PT_RotateObjectByMouseDragging(bpy.types.Panel):
     bl_label = "オブジェクトを回転"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = "Sample 3-1"
+    bl_category = "サンプル 3-1"
     bl_context = "objectmode"
 # @include-source end [define_panel_class]
 
@@ -143,13 +143,13 @@ classes = [
 def register():
     for c in classes:
         bpy.utils.register_class(c)
-    print("サンプル3-1: アドオン『サンプル3-1』が有効化されました。")
+    print("サンプル 3-1: アドオン『サンプル 3-1』が有効化されました。")
 
 
 def unregister():
     for c in classes:
         bpy.utils.unregister_class(c)
-    print("サンプル3-1: アドオン『サンプル3-1』が無効化されました。")
+    print("サンプル 3-1: アドオン『サンプル 3-1』が無効化されました。")
 
 
 if __name__ == "__main__":

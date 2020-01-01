@@ -3,7 +3,7 @@ from bpy.props import FloatProperty, EnumProperty
 
 
 bl_info = {
-    "name": "サンプル2-3: オブジェクトを並進移動するアドオン②",
+    "name": "サンプル 2-3: オブジェクトを並進移動するアドオン②",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
@@ -55,9 +55,9 @@ class SAMPLE23_OT_TranslateObject(bpy.types.Operator):
         elif self.axis == 'Z':
             active_obj.location[2] += self.amount
 # @include-source end [access_to_prop]
-        self.report({'INFO'}, "サンプル2-3: 『{}』を{}軸方向へ {} 並進移動しました。"
+        self.report({'INFO'}, "サンプル 2-3: 『{}』を{}軸方向へ {} 並進移動しました。"
                               .format(active_obj.name, self.axis, self.amount))
-        print("サンプル2-3: オペレータ『{}』が実行されました。".format(self.bl_idname))
+        print("サンプル 2-3: オペレータ『{}』が実行されました。".format(self.bl_idname))
 
         return {'FINISHED'}
 
@@ -76,14 +76,14 @@ def register():
     for c in classes:
         bpy.utils.register_class(c)
     bpy.types.VIEW3D_MT_object.append(menu_fn)
-    print("サンプル2-3: アドオン『サンプル2-3』が有効化されました。")
+    print("サンプル 2-3: アドオン『サンプル 2-3』が有効化されました。")
 
 
 def unregister():
     bpy.types.VIEW3D_MT_object.remove(menu_fn)
     for c in classes:
         bpy.utils.unregister_class(c)
-    print("サンプル2-3: アドオン『サンプル2-3』が無効化されました。")
+    print("サンプル 2-3: アドオン『サンプル 2-3』が無効化されました。")
 
 
 if __name__ == "__main__":

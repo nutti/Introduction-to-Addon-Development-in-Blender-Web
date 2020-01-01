@@ -6,7 +6,7 @@ import bpy   # アドオン開発者に対して用意しているAPIを利用�
 # @include-source start [bl_info]
 # アドオンに関する情報を保持する、bl_info変数
 bl_info = {
-    "name": "サンプル2-1: オブジェクトを生成するアドオン",
+    "name": "サンプル 2-1: オブジェクトを生成するアドオン",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
@@ -35,7 +35,7 @@ class SAMPLE21_OT_CreateObject(bpy.types.Operator):
     # メニューを実行したときに呼ばれる関数
     def execute(self, context):
         bpy.ops.mesh.primitive_ico_sphere_add()
-        print("サンプル2-1: ICO球を生成しました。")
+        print("サンプル 2-1: ICO球を生成しました。")
 
         return {'FINISHED'}
 # @include-source end [execute]
@@ -59,7 +59,7 @@ def register():
     for c in classes:
         bpy.utils.register_class(c)
     bpy.types.VIEW3D_MT_mesh_add.append(menu_fn)
-    print("サンプル2-1: アドオン『サンプル2-1』が有効化されました。")
+    print("サンプル 2-1: アドオン『サンプル 2-1』が有効化されました。")
 # @include-source end [register]
 
 
@@ -69,7 +69,7 @@ def unregister():
     bpy.types.VIEW3D_MT_mesh_add.remove(menu_fn)
     for c in classes:
         bpy.utils.unregister_class(c)
-    print("サンプル2-1: アドオン『サンプル2-1』が無効化されました。")
+    print("サンプル 2-1: アドオン『サンプル 2-1』が無効化されました。")
 # @include-source end [unregister]
 
 

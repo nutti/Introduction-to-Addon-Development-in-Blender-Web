@@ -1,17 +1,21 @@
 import math
 
 import bpy
+# @include-source start [import_gpu]
 import gpu
+# @include-source end [import_gpu]
 from bpy.props import FloatProperty, FloatVectorProperty
+# @include-source start [import_gpu_extras]
 from gpu_extras.batch import batch_for_shader
+# @include-source end [import_gpu_extras]
 
 
 bl_info = {
-    "name": "サンプル3-4: 星型の図形を描画するアドオン",
+    "name": "サンプル 3-4: 星型の図形を描画するアドオン",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
-    "location": "3Dビューポート > Sidebar > Sample 3-4",
+    "location": "3Dビューポート > Sidebar > サンプル 3-4",
     "description": "星型の図形を描画するアドオン",
     "warning": "",
     "support": "TESTING",
@@ -33,9 +37,10 @@ class SAMPLE34_OT_DrawStar(bpy.types.Operator):
 
     @classmethod
     def is_running(cls):
-        # 描画中はTrue
+        # 描画ハンドラがNone以外のときは描画中であるため、Trueを返す
         return True if cls.__handle else False
 
+# @include-source start [handle_add]
     @classmethod
     def __handle_add(cls, context):
         if not cls.is_running():
@@ -43,7 +48,9 @@ class SAMPLE34_OT_DrawStar(bpy.types.Operator):
             cls.__handle = bpy.types.SpaceView3D.draw_handler_add(
                 cls.__draw, (context, ), 'WINDOW', 'POST_PIXEL'
             )
+# @include-source end [handle_add]
 
+# @include-source start [handle_remove]
     @classmethod
     def __handle_remove(cls, context):
         if cls.is_running():
@@ -52,14 +59,18 @@ class SAMPLE34_OT_DrawStar(bpy.types.Operator):
                 cls.__handle, 'WINDOW'
             )
             cls.__handle = None
+# @include-source end [handle_remove]
 
     @classmethod
     def __draw(cls, context):
         sc = context.scene
 
+# @include-source start [build_shader]
         # ビルトインのシェーダを取得
         shader = gpu.shader.from_builtin('2D_UNIFORM_COLOR')
+# @include-source end [build_shader]
 
+# @include-source start [build_vert_and_idx_data]
         # 頂点データを作成
         center = sc.sample34_center
         radius = sc.sample34_size / 2.0
@@ -71,22 +82,29 @@ class SAMPLE34_OT_DrawStar(bpy.types.Operator):
             [center[0] - radius * math.sin(2 * angle), center[1] + radius * math.cos(2 * angle)],
             [center[0] - radius * math.sin(angle), center[1] + radius * math.cos(angle)]
         ]}
-        
+
         # インデックスデータを作成
         indices = [
             [0, 2], [2, 4], [4, 1], [1, 3], [3, 0]
-        ]      
+        ]
+# @include-source end [build_vert_and_idx_data]
 
+# @include-source start [build_batch]
         # バッチを作成
         batch = batch_for_shader(shader, 'LINES', data, indices=indices)
+# @include-source end [build_batch]
 
+# @include-source start [set_shader_parameter]
         # シェーダのパラメータ設定
         color = [0.5, 1.0, 1.0, 1.0]
         shader.bind()
         shader.uniform_float("color", color)
+# @include-source end [set_shader_parameter]
 
+# @include-source start [draw]
         # 描画
         batch.draw(shader)
+# @include-source end [draw]
 
     def invoke(self, context, event):
         op_cls = SAMPLE34_OT_DrawStar
@@ -95,11 +113,11 @@ class SAMPLE34_OT_DrawStar(bpy.types.Operator):
             # [開始] ボタンが押された時の処理
             if not op_cls.is_running():
                 self.__handle_add(context)
-                print("サンプル3-4: 星型の図形の描画処理を開始しました。")
+                print("サンプル 3-4: 星型の図形の描画処理を開始しました。")
             # [終了] ボタンが押された時の処理
             else:
                 self.__handle_remove(context)
-                print("サンプル3-4: 星型の図形の描画処理を終了しました。")
+                print("サンプル 3-4: 星型の図形の描画処理を終了しました。")
             # エリアを再描画
             if context.area:
                 context.area.tag_redraw()
@@ -114,7 +132,7 @@ class SAMPLE34_PT_DrawStar(bpy.types.Panel):
     bl_label = "星型の図形を表示"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = "Sample 3-4"
+    bl_category = "サンプル 3-4"
     bl_context = "objectmode"
 
     def draw(self, context):
@@ -134,6 +152,7 @@ class SAMPLE34_PT_DrawStar(bpy.types.Panel):
             layout.prop(sc, "sample34_size")
 
 
+# @include-source start [init_clear_props]
 def init_props():
     sc = bpy.types.Scene
     sc.sample34_center = FloatVectorProperty(
@@ -161,20 +180,21 @@ classes = [
     SAMPLE34_OT_DrawStar,
     SAMPLE34_PT_DrawStar,
 ]
+# @include-source end [init_clear_props]
 
 
 def register():
     for c in classes:
         bpy.utils.register_class(c)
     init_props()
-    print("サンプル3-4: アドオン『サンプル3-4』が有効化されました。")
+    print("サンプル 3-4: アドオン『サンプル 3-4』が有効化されました。")
 
 
 def unregister():
     clear_props()
     for c in classes:
         bpy.utils.unregister_class(c)
-    print("サンプル3-4: アドオン『サンプル3-4』が無効化されました。")
+    print("サンプル 3-4: アドオン『サンプル 3-4』が無効化されました。")
 
 
 if __name__ == "__main__":

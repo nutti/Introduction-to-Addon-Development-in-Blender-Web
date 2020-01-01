@@ -9,7 +9,7 @@ from bpy.props import (
 
 
 bl_info = {
-    "name": "サンプル2-7: BlenderのUIを制御するアドオン",
+    "name": "サンプル 2-7: BlenderのUIを制御するアドオン",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
@@ -318,14 +318,14 @@ def register():
     for c in classes:
         bpy.utils.register_class(c)
     init_props()
-    print("サンプル2-7: アドオン『サンプル2-7』が有効化されました。")
+    print("サンプル 2-7: アドオン『サンプル 2-7』が有効化されました。")
 
 
 def unregister():
     clear_props()
     for c in classes:
         bpy.utils.unregister_class(c)
-    print("サンプル2-7: アドオン『サンプル2-7』が無効化されました。")
+    print("サンプル 2-7: アドオン『サンプル 2-7』が無効化されました。")
 
 
 if __name__ == "__main__":
