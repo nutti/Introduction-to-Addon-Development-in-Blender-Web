@@ -1,7 +1,9 @@
 import datetime
 
 import bpy
+# @include-source start [import_blf]
 import blf
+# @include-source end [import_blf]
 
 
 bl_info = {
@@ -19,6 +21,7 @@ bl_info = {
 }
 
 
+# @include-source start [get_region]
 # リージョン情報の取得
 def get_region(context, area_type, region_type):
     region = None
@@ -38,6 +41,7 @@ def get_region(context, area_type, region_type):
             break
 
     return region
+# @include-source end [get_region]
 
 
 # 日時を表示するオペレータ
@@ -55,6 +59,7 @@ class SAMPLE35_OT_ShowDatetime(bpy.types.Operator):
         # 描画中はTrue
         return True if cls.__handle else False
 
+# @include-source start [handle_add]
     @classmethod
     def __handle_add(cls, context):
         if not cls.is_running():
@@ -62,7 +67,9 @@ class SAMPLE35_OT_ShowDatetime(bpy.types.Operator):
             cls.__handle = bpy.types.SpaceView3D.draw_handler_add(
                 cls.__draw, (context, ), 'WINDOW', 'POST_PIXEL'
             )
+# @include-source end [handle_add]
 
+# @include-source start [handle_remove]
     @classmethod
     def __handle_remove(cls, context):
         if cls.is_running():
@@ -71,6 +78,7 @@ class SAMPLE35_OT_ShowDatetime(bpy.types.Operator):
                 cls.__handle, 'WINDOW'
             )
             cls.__handle = None
+# @include-source end [handle_remove]
 
     @classmethod
     def __draw(cls, context):
@@ -82,10 +90,12 @@ class SAMPLE35_OT_ShowDatetime(bpy.types.Operator):
         #         説明簡略化のためにタイマを利用していない。
         #         このため表示の不自然さを避けるため、時間以下の情報を表示していない。
         if region is not None:
+# @include-source start [draw_text]
             blf.size(0, 30, 72)
             blf.position(0, 100.0, region.height - 120.0, 0)
             date_str = datetime.datetime.now().strftime("%Y.%m.%d")
             blf.draw(0, date_str)
+# @include-source end [draw_text]
 
     def invoke(self, context, event):
         op_cls = SAMPLE35_OT_ShowDatetime

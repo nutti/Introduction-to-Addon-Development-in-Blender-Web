@@ -16,8 +16,8 @@ APIを理解するために毎回調査するのは大変ですし、そもそ�
 1. [マウスのイベントを扱う](01_Handle_Mouse_Event.html)
 2. [キーボードのイベントを扱う](02_Handle_Keyboard_Event.html)
 3. [タイマのイベントを扱う](03_Handle_Timer_Event.html)
-4. gpuモジュールを使って図形描画する
-5. blfモジュールを使って文字列を描画する
+4. [gpuモジュールを使って図形描画する](04_Draw_Figures.html)
+5. [blfモジュールを使って文字列を描画する](05_Draw_Texts.html)
 6. アドオンのUIを複数の言語に対応する
 7. 座標変換を活用する
 8. プリファレンスを活用する

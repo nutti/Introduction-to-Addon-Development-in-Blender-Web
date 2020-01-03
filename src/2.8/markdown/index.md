@@ -32,8 +32,8 @@ subtitle: 目次
 * [3-1. マウスのイベントを扱う](html/chapter_03/01_Handle_Mouse_Event.html)
 * [3-2. キーボードのイベントを扱う](html/chapter_03/02_Handle_Keyboard_Event.html)
 * [3-3. タイマのイベントを扱う](html/chapter_03/03_Handle_Timer_Event.html)
-* 3-4. gpuモジュールを使って図形描画する
-* 3-5. blfモジュールを使って文字列を描画する
+* [3-4. gpuモジュールを使って図形描画する](html/chapter_03/04_Draw_Figures.html)
+* [3-5. blfモジュールを使って文字列を描画する](html/chapter_03/05_Draw_Texts.html)
 * 3-6. アドオンのUIを複数の言語に対応する
 * 3-7. 座標変換を活用する
 * 3-8. プリファレンスを活用する
