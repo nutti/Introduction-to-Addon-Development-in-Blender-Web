@@ -64,7 +64,7 @@ class SAMPLE51_OT_SpecialObjectEditMode(bpy.types.Operator):
         prefs = context.preferences.addons[__name__].preferences
         sc = context.scene
 
-        # 画面の再描画
+        # エリアを再描画
         if context.area:
             context.area.tag_redraw()
 
@@ -129,10 +129,10 @@ class SAMPLE51_OT_SpecialObjectEditMode(bpy.types.Operator):
                 if self.edit_axis == EditAxis[axis]:
                     # オブジェクトを正方向に1.0だけ移動
                     if self.edit_opt == EditOption['+']:
-                        value[i] = sc.movement
+                        value[i] = sc.sample51_movement
                     # オブジェクトを負方向に-1.0だけ移動
                     elif self.edit_opt == EditOption['-']:
-                        value[i] = -sc.movement
+                        value[i] = -sc.sample51_movement
             # bpy.ops.transform.translate(): 選択中のオブジェクトを並進移動する
             # 引数
             #   value: 並進移動量
@@ -144,10 +144,10 @@ class SAMPLE51_OT_SpecialObjectEditMode(bpy.types.Operator):
                 if self.edit_axis == EditAxis[axis]:
                     # オブジェクトのサイズを1.1倍に拡大
                     if self.edit_opt == EditOption['+']:
-                        value[i] = sc.magnification
+                        value[i] = sc.sample51_magnification
                     # オブジェクトのサイズを0.9倍に縮小
                     elif self.edit_opt == EditOption['-']:
-                        value[i] = sc.reduction
+                        value[i] = sc.sample51_reduction
             # bpy.ops.transform.resize(): 選択中のオブジェクトを拡大・縮小する
             # 引数
             #   value: 拡大・縮小量
@@ -159,10 +159,10 @@ class SAMPLE51_OT_SpecialObjectEditMode(bpy.types.Operator):
                     # 回転方向を設定
                     # 正方向に0.1（ラジアン）回転
                     if self.edit_opt == EditOption['+']:
-                        value = sc.rotation
+                        value = sc.sample51_rotation
                     # 負方向に-0.1（ラジアン）回転
                     elif self.edit_opt == EditOption['-']:
-                        value = -sc.rotation
+                        value = -sc.sample51_rotation
                     # bpy.ops.transform.rotate(): 選択中のオブジェクトを回転する
                     # 引数
                     #   value: 回転量
@@ -221,10 +221,10 @@ class SAMPLE51_PT_SpecialObjectEditMode(bpy.types.Panel):
             layout.operator(
                 SAMPLE51_OT_SpecialObjectEditMode.bl_idname, text="終了", icon="PAUSE"
             )
-            layout.prop(sc, "movement", text="移動量")
-            layout.prop(sc, "magnification", text="拡大率")
-            layout.prop(sc, "reduction", text="縮小率")
-            layout.prop(sc, "rotation", text="回転量")
+            layout.prop(sc, "sample51_movement", text="移動量")
+            layout.prop(sc, "sample51_magnification", text="拡大率")
+            layout.prop(sc, "sample51_reduction", text="縮小率")
+            layout.prop(sc, "sample51_rotation", text="回転量")
 
 
 def key_pref_list(self, context):
@@ -346,7 +346,7 @@ def set_pref_y_axis(self, value):
         self['y_axis'] = value
 
 
-# ユーザー・プリファレンスの設定情報「Z軸」の値を取得
+# プリファレンスの設定情報 [Z軸] の値を取得
 def get_pref_z_axis(self):
     key_list = key_pref_list(self, None)
     return self.get('z_axis', [key[3] for key in key_list if key[0] == 'Z'][0])
@@ -367,7 +367,7 @@ def get_pref_increment(self):
     )
 
 
-# ユーザー・プリファレンスの設定情報「+」の値を設定
+# プリファレンスの設定情報 [+] の値を設定
 def set_pref_increment(self, value):
     reserved = get_reserved_key_list(self)
     if value not in reserved:
@@ -473,28 +473,28 @@ def init_props():
     sc = bpy.types.Scene
 
     # プロパティパネル上での設定情報
-    sc.movement = FloatProperty(
+    sc.sample51_movement = FloatProperty(
         name="移動量",
         description="移動量",
         default=1.0,
         max=5.0,
         min=0.01
     )
-    sc.magnification = FloatProperty(
+    sc.sample51_magnification = FloatProperty(
         name="拡大率",
         description="拡大率",
         default=1.1,
         max=10.0,
         min=1.0
     )
-    sc.reduction = FloatProperty(
+    sc.sample51_reduction = FloatProperty(
         name="縮小率",
         description="縮小率",
         default=0.9,
         max=1.0,
         min=0.01
     )
-    sc.rotation = FloatProperty(
+    sc.sample51_rotation = FloatProperty(
         name="回転量",
         description="回転量",
         default=0.1,
@@ -506,10 +506,10 @@ def init_props():
 def clear_props():
     sc = bpy.types.Scene
 
-    del sc.rotation
-    del sc.reduction
-    del sc.magnification
-    del sc.movement
+    del sc.sample51_rotation
+    del sc.sample51_magnification
+    del sc.sample51_reduction
+    del sc.sample51_movement
 
 
 classes = [
@@ -530,7 +530,7 @@ def unregister():
     clear_props()
     for c in classes:
         bpy.utils.unregister_class(c)
-    print("サンプル 5-1: アドオン『サンプル5-1』が無効化されました。")
+    print("サンプル 5-1: アドオン『サンプル 5-1』が無効化されました。")
 
 
 if __name__ == "__main__":
