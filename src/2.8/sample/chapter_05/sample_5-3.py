@@ -7,11 +7,11 @@ import blf
 
 
 bl_info = {
-    "name": "サンプル 5-4: オブジェクト名の表示サポート",
+    "name": "サンプル 5-3: オブジェクト名の表示サポート",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
-    "location": "3Dビューポート > Sidebar > サンプル 5-4",
+    "location": "3Dビューポート > Sidebar > サンプル 5-3",
     "description": """オブジェクトの位置にオブジェクト名を表示し、マウスカーソルの位置に
                       向けて発したレイと交差するオブジェクト名を表示するアドオン""",
     "warning": "",
@@ -49,9 +49,9 @@ def get_region_space(context, area_type, region_type, space_type):
 
 
 # オブジェクト名の表示サポートのオペレータ
-class SAMPLE54_OT_ShowObjectName(bpy.types.Operator):
+class SAMPLE53_OT_ShowObjectName(bpy.types.Operator):
 
-    bl_idname = "view3d.sample54_show_object_name"
+    bl_idname = "view3d.sample53_show_object_name"
     bl_label = "オブジェクト名の表示サポート"
     bl_description = """オブジェクトの位置にオブジェクト名を表示し、マウスカーソルの位置に
                         向けて発したレイと交差するオブジェクト名を表示します"""
@@ -67,7 +67,7 @@ class SAMPLE54_OT_ShowObjectName(bpy.types.Operator):
         self.__intersected_objs = []      # マウスカーソルの位置に向けて発したレイと交差するオブジェクト一覧
 
     def __handle_add(self, context):
-        op_cls = SAMPLE54_OT_ShowObjectName
+        op_cls = SAMPLE53_OT_ShowObjectName
 
         if op_cls.__handle is None:
             # 描画関数の登録
@@ -79,7 +79,7 @@ class SAMPLE54_OT_ShowObjectName(bpy.types.Operator):
             context.window_manager.modal_handler_add(self)
 
     def __handle_remove(self, context):
-        op_cls = SAMPLE54_OT_ShowObjectName
+        op_cls = SAMPLE53_OT_ShowObjectName
 
         if op_cls.__handle is not None:
             # 描画関数の登録を解除
@@ -94,7 +94,7 @@ class SAMPLE54_OT_ShowObjectName(bpy.types.Operator):
 
     @staticmethod
     def __draw(self, context):
-        op_cls = SAMPLE54_OT_ShowObjectName
+        op_cls = SAMPLE53_OT_ShowObjectName
         prefs = context.preferences.addons[__name__].preferences
 
         region, space = get_region_space(
@@ -147,7 +147,7 @@ class SAMPLE54_OT_ShowObjectName(bpy.types.Operator):
             )
 
     def modal(self, context, event):
-        op_cls = SAMPLE54_OT_ShowObjectName
+        op_cls = SAMPLE53_OT_ShowObjectName
 
         # エリアを再描画
         if context.area:
@@ -203,41 +203,41 @@ class SAMPLE54_OT_ShowObjectName(bpy.types.Operator):
                         self.__intersected_objs.append(o)
                 # メッシュタイプのオブジェクトが作られているが、ray_cast対象の面が存在しない場合
                 except RuntimeError:
-                    print("""サンプル 5-4: オブジェクト生成タイミングの問題により、
+                    print("""サンプル 5-3: オブジェクト生成タイミングの問題により、
                              例外エラー「レイキャスト可能なデータなし」が発生""")
 
         return {'PASS_THROUGH'}
 
     def invoke(self, context, event):
-        op_cls = SAMPLE54_OT_ShowObjectName
+        op_cls = SAMPLE53_OT_ShowObjectName
 
         if context.area.type == 'VIEW_3D':
             # [開始] ボタンが押された時の処理
             if not op_cls.is_running():
                 op_cls.__running = True
                 self.__handle_add(context)
-                print("サンプル 5-4: オブジェクト名の表示を開始しました。")
+                print("サンプル 5-3: オブジェクト名の表示を開始しました。")
                 return {'RUNNING_MODAL'}
             # [終了] ボタンが押された時の処理
             else:
                 op_cls.__running = False
-                print("サンプル 5-4: オブジェクト名の表示を終了しました。")
+                print("サンプル 5-3: オブジェクト名の表示を終了しました。")
                 return {'FINISHED'}
         else:
             return {'CANCELLED'}
 
 
 # UI
-class SAMPLE54_PT_ShowObjectName(bpy.types.Panel):
+class SAMPLE53_PT_ShowObjectName(bpy.types.Panel):
 
     bl_label = "オブジェクト名の表示サポート"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = "サンプル 5-4"
+    bl_category = "サンプル 5-3"
     bl_context = "objectmode"
 
     def draw(self, context):
-        op_cls = SAMPLE54_OT_ShowObjectName
+        op_cls = SAMPLE53_OT_ShowObjectName
         layout = self.layout
 
         # [開始] / [停止] ボタンを追加
@@ -248,7 +248,7 @@ class SAMPLE54_PT_ShowObjectName(bpy.types.Panel):
 
 
 # プリファレンスのアドオン設定情報
-class SAMPLE54_Preferences(bpy.types.AddonPreferences):
+class SAMPLE53_Preferences(bpy.types.AddonPreferences):
 
     bl_idname = __name__
 
@@ -297,22 +297,22 @@ class SAMPLE54_Preferences(bpy.types.AddonPreferences):
 
 
 classes = [
-    SAMPLE54_OT_ShowObjectName,
-    SAMPLE54_PT_ShowObjectName,
-    SAMPLE54_Preferences,
+    SAMPLE53_OT_ShowObjectName,
+    SAMPLE53_PT_ShowObjectName,
+    SAMPLE53_Preferences,
 ]
 
 
 def register():
     for c in classes:
         bpy.utils.register_class(c)
-    print("サンプル 5-4: アドオン『サンプル 5-4』が有効化されました。")
+    print("サンプル 5-3: アドオン『サンプル 5-3』が有効化されました。")
 
 
 def unregister():
     for c in classes:
         bpy.utils.unregister_class(c)
-    print("サンプル 5-4: アドオン『サンプル 5-4』が無効化されました。")
+    print("サンプル 5-3: アドオン『サンプル 5-3』が無効化されました。")
 
 
 if __name__ == "__main__":

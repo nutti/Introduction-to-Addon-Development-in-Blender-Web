@@ -68,10 +68,6 @@ class SAMPLE51_OT_SpecialObjectEditMode(bpy.types.Operator):
         if context.area:
             context.area.tag_redraw()
 
-        # キーボードの [Q] キーが押された場合は、特殊オブジェクト編集モードを終了
-        if event.type == 'Q' and event.value == 'PRESS':
-            op_cls.__running = False
-
         # 特殊オブジェクト編集モードが終了する場合の処理
         if not self.is_running():
             print("サンプル 5-1: 特殊オブジェクト編集モードを終了しました。")
@@ -232,7 +228,7 @@ def key_pref_list(self, context):
     key_id = [
         'ZERO', 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT',
         'NINE', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-        'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+        'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
         'LEFT_CTRL', 'LEFT_ALT', 'LEFT_SHIFT', 'RIGHT_ALT', 'RIGHT_CTRL',
         'RIGHT_SHIFT', 'TAB', 'SPACE', 'BACK_SPACE', 'DEL', 'SEMI_COLON',
         'PERIOD', 'COMMA', 'QUOTE', 'MINUS', 'SLASH', 'BACK_SLASH', 'EQUAL',
@@ -242,7 +238,7 @@ def key_pref_list(self, context):
     key_name = [
         "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "[C]",
         "[D]", "E", "F", "G", "H", "I", "J", "K", "L", "M", "[N]", "O", "P",
-        "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "[Left Ctrl]",
+        "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "[Left Ctrl]",
         "[Left Alt]", "[Left Shift]", "[Right Alt]", "[Right Ctrl]",
         "[Right Shift]", "[Tab]", "[Space]", "[Back Space]", "[Delete]", "[;]",
         "[.]", "[,]", "[`]", "[-]", "[/]", "[¥]", "[=]", "←", "↓", "→", "↑"
