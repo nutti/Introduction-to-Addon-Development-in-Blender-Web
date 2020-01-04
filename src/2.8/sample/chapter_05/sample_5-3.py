@@ -1,9 +1,8 @@
 import bpy
-from bpy.props import BoolProperty, IntProperty
-from bpy.props import PointerProperty, IntVectorProperty
+import blf
+from bpy.props import IntProperty, IntVectorProperty
 from bpy_extras import view3d_utils
 from mathutils import Vector
-import blf
 
 
 bl_info = {
@@ -12,8 +11,7 @@ bl_info = {
     "version": (3, 0),
     "blender": (2, 80, 0),
     "location": "3Dビューポート > Sidebar > サンプル 5-3",
-    "description": """オブジェクトの位置にオブジェクト名を表示し、マウスカーソルの位置に
-                      向けて発したレイと交差するオブジェクト名を表示するアドオン""",
+    "description": "オブジェクトの位置にオブジェクト名を表示し、マウスカーソルの位置に向けて発したレイと交差するオブジェクト名を表示するアドオン",
     "warning": "",
     "support": "TESTING",
     "wiki_url": "",
@@ -53,8 +51,7 @@ class SAMPLE53_OT_ShowObjectName(bpy.types.Operator):
 
     bl_idname = "view3d.sample53_show_object_name"
     bl_label = "オブジェクト名の表示サポート"
-    bl_description = """オブジェクトの位置にオブジェクト名を表示し、マウスカーソルの位置に
-                        向けて発したレイと交差するオブジェクト名を表示します"""
+    bl_description = "オブジェクトの位置にオブジェクト名を表示し、マウスカーソルの位置に向けて発したレイと交差するオブジェクト名を表示します"
 
     __handle = None           # 描画関数ハンドラ
     __running = False         # オブジェクト名表示中はTrue
@@ -203,8 +200,7 @@ class SAMPLE53_OT_ShowObjectName(bpy.types.Operator):
                         self.__intersected_objs.append(o)
                 # メッシュタイプのオブジェクトが作られているが、ray_cast対象の面が存在しない場合
                 except RuntimeError:
-                    print("""サンプル 5-3: オブジェクト生成タイミングの問題により、
-                             例外エラー「レイキャスト可能なデータなし」が発生""")
+                    print("サンプル 5-3: オブジェクト生成タイミングの問題により、例外エラー「レイキャスト可能なデータなし」が発生")
 
         return {'PASS_THROUGH'}
 

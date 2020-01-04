@@ -1,7 +1,7 @@
-import bpy
-from bpy.props import BoolProperty, PointerProperty
-from bpy.props import EnumProperty, FloatProperty
 import enum
+
+import bpy
+from bpy.props import EnumProperty, FloatProperty
 from mathutils import Vector
 
 
