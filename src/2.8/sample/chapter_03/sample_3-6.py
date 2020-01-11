@@ -3,7 +3,7 @@ from bpy.props import FloatProperty, EnumProperty
 
 
 bl_info = {
-    "name": "サンプル3-6: オブジェクトを並進移動するアドオン⑥",
+    "name": "サンプル 3-6: オブジェクトを並進移動するアドオン⑥",
     "author": "ぬっち（Nutti）",
     "version": (3, 0),
     "blender": (2, 80, 0),
@@ -25,11 +25,11 @@ translation_dict = {
         ("*", "Translation axis"): "Translation axis",
         ("*", "Set translation axis"): "Set translation axis",
         ("*", "X-axis"): "X-axis",
-        ("*", "Translate along X-axis"): "Translate along X axis",
+        ("*", "Translate along X-axis"): "Translate along X-axis",
         ("*", "Y-axis"): "Y-axis",
-        ("*", "Translate along Y-axis"): "Translate along Y axis",
+        ("*", "Translate along Y-axis"): "Translate along Y-axis",
         ("*", "Z-axis"): "Z-axis",
-        ("*", "Translate along Z-axis"): "Translate along Z axis",
+        ("*", "Translate along Z-axis"): "Translate along Z-axis",
         ("*", "Translation amount"): "Translation amount",
         ("*", "Set translation amount"): "Set translation amount",
         ("*", "Sample 3-6: Translated object '%s' (Axis: %s, Amount: %f)"): "Sample 3-6: Translated object '%s' (Axis: %s, Amount: %f)",
@@ -50,10 +50,10 @@ translation_dict = {
         ("*", "Translate along Z-axis"): "Z軸に沿って並進移動します",
         ("*", "Translation amount"): "移動量",
         ("*", "Set translation amount"): "移動量を設定します",
-        ("*", "Sample 3-6: Translated object '%s' (Axis: %s, Amount: %f)"): "サンプル3-6: 『%s』を%s軸方向へ %f 並進移動しました。",
-        ("*", "Sample 3-6: Executed operator '%s'"): "サンプル3-6: オペレータ『%s』が実行されました。",
-        ("*", "Sample 3-6: Add-on 'Sample 3-6' is enabled"): "サンプル3-6: アドオン『サンプル3-6』が有効化されました。",
-        ("*", "Sample 3-6: Add-on 'Sample 3-6' is disabled"): "サンプル3-6: アドオン『サンプル3-6』が無効化されました。",
+        ("*", "Sample 3-6: Translated object '%s' (Axis: %s, Amount: %f)"): "サンプル 3-6: 『%s』を%s軸方向へ %f 並進移動しました。",
+        ("*", "Sample 3-6: Executed operator '%s'"): "サンプル 3-6: オペレータ『%s』が実行されました。",
+        ("*", "Sample 3-6: Add-on 'Sample 3-6' is enabled"): "サンプル 3-6: アドオン『サンプル 3-6』が有効化されました。",
+        ("*", "Sample 3-6: Add-on 'Sample 3-6' is disabled"): "サンプル 3-6: アドオン『サンプル 3-6』が無効化されました。",
     }
 }
 
@@ -99,12 +99,14 @@ class SAMPLE36_OT_TranslateObject(bpy.types.Operator):
             )
             % (active_obj.name, self.axis, self.amount)
         )
+# @include-source start [translation_func_with_format]
         print(
             bpy.app.translations.pgettext_iface(
                 "Sample 3-6: Executed operator '%s'"
             )
             % (self.bl_idname)
         )
+# @include-source end [translation_func_with_format]
 
         return {'FINISHED'}
 
@@ -147,16 +149,22 @@ def register():
         bpy.utils.register_class(c)
     bpy.types.VIEW3D_MT_object.append(menu_fn)
     register_shortcut()
+# @include-source start [register_dict]
     # 翻訳辞書の登録
     bpy.app.translations.register(__name__, translation_dict)
+# @include-source end [register_dict]
+# @include-source start [translation_func]
     print(bpy.app.translations.pgettext(
         "Sample 3-6: Add-on 'Sample 3-6' is enabled"
     ))
+# @include-source end [translation_func]
 
 
 def unregister():
+# @include-source start [unregister_dict]
     # 翻訳辞書の登録解除
     bpy.app.translations.unregister(__name__)
+# @include-source end [unregister_dict]
     unregister_shortcut()
     bpy.types.VIEW3D_MT_object.remove(menu_fn)
     for c in classes:
