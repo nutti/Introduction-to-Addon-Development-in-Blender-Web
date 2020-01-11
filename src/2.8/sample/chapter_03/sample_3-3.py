@@ -71,7 +71,7 @@ class SAMPLE33_OT_ShowDatetime(bpy.types.Operator):
             op_cls.__text_object_name = None
             return {'FINISHED'}
 
-# @include-source begin [handle_timer_event]
+# @include-source start [handle_timer_event]
         if event.type == 'TIMER':
             bpy.data.objects[op_cls.__text_object_name].data.body = datetime.datetime.now().strftime("%Y.%m.%d %H:%M:%S")
 # @include-source end [handle_timer_event]
@@ -84,7 +84,7 @@ class SAMPLE33_OT_ShowDatetime(bpy.types.Operator):
         if context.area.type == 'VIEW_3D':
             # [開始] ボタンが押された時の処理
             if not op_cls.is_running():
-# @include-source begin [make_text_object]
+# @include-source start [make_text_object]
                 # テキストオブジェクト作成
                 bpy.ops.object.text_add(location=(0.0, 0.0, 0.0), radius=2.0)
                 op_cls.__text_object_name = context.active_object.name
