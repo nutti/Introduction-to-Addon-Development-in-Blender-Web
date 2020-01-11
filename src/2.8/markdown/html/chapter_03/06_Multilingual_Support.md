@@ -53,10 +53,10 @@ Sample 3-6: Add-on 'Sample 3-6' is enabled
 |||
 |---|---|
 |1|トップバーから *[編集]* > *[プリファレンス...]* を実行して表示された *[Blenderプリファレンス]* ウィンドウより、*[インターフェース]* ボタンをクリックします。<br>![](../../images/chapter_03/06_Multilingual_Support/use_add-on_1.png "サンプルアドオン3-7 手順1")|
-|2|*[翻訳]* のチェックボックスにチェックが入っていることを確認し、言語を *[日本語 (Japanese)]* に設定します。また、配置されている3つのチェックボックスにチェックが入っていることを確認します。<br>![](../../images/chapter_03/07_Multilingual_Support/use_add-on_2.png "サンプルアドオン3-7 手順2")|
-|3|[2-5節](05_Allocate_Shortcut_Keys.html) にしたがってアドオンを使用し、UIやコンソールウィンドウなどに表示されるメッセージが、日本語になっていることを確認します。<br>![](../../images/chapter_03/07_Multilingual_Support/use_add-on_3.png "サンプルアドオン3-7 手順3")|
-|4|手順1を行った後、*[翻訳]* のチェックボックスにチェックが入っていることを確認し、言語を *[英語 (English)]* に設定します。また、配置されている3つのチェックボックスにチェックが入っていることを確認します。<br>![](../../images/chapter_03/07_Multilingual_Support/use_add-on_4.png "サンプルアドオン3-7 手順4")|
-|5|[2-5節](05_Allocate_Shortcut_Keys.html) にしたがってアドオンを使用し、UIやコンソールウィンドウなどに表示されるメッセージが英語になっていることを確認します。<br>![](../../images/chapter_03/07_Multilingual_Support/use_add-on_5.png "サンプルアドオン3-7 手順5")|
+|2|*[翻訳]* のチェックボックスにチェックが入っていることを確認し、言語を *[日本語 (Japanese)]* に設定します。また、配置されている3つのチェックボックスにチェックが入っていることを確認します。<br>![](../../images/chapter_03/06_Multilingual_Support/use_add-on_2.png "サンプルアドオン3-7 手順2")|
+|3|[2-5節](05_Allocate_Shortcut_Keys.html) にしたがってアドオンを使用し、UIやコンソールウィンドウなどに表示されるメッセージが、日本語になっていることを確認します。<br>![](../../images/chapter_03/06_Multilingual_Support/use_add-on_3.png "サンプルアドオン3-7 手順3")|
+|4|手順1を行った後、*[翻訳]* のチェックボックスにチェックが入っていることを確認し、言語を *[英語 (English)]* に設定します。また、配置されている3つのチェックボックスにチェックが入っていることを確認します。<br>![](../../images/chapter_03/06_Multilingual_Support/use_add-on_4.png "サンプルアドオン3-7 手順4")|
+|5|[2-5節](05_Allocate_Shortcut_Keys.html) にしたがってアドオンを使用し、UIやコンソールウィンドウなどに表示されるメッセージが英語になっていることを確認します。<br>![](../../images/chapter_03/06_Multilingual_Support/use_add-on_5.png "サンプルアドオン3-7 手順5")|
 
 
 ## アドオンを無効化する

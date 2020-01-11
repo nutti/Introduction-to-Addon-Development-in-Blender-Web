@@ -39,7 +39,7 @@ subtitle: 目次
 * 3-8. プリファレンスを活用する
 
 
-## 4. [さらにその先へ](html/chapter_04/index.html)
+## [4. さらにその先へ](html/chapter_04/index.html)
 
 * 4-1. Blenderが提供するAPIを調べる
 * 4-2. アドオンをデバッグする

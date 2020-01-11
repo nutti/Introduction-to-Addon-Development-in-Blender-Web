@@ -140,7 +140,7 @@ Blender上で開いている全てのエリア情報は、`context.screen.areas`
 
 `SAMPLE35_OT_ShowDatetime.__draw` 関数では、テキストを描画するために、blfモジュールの関数を3つ呼び出しています。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-5.py" block="Draw_Texts"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-5.py" block="draw_text"]
 
 
 1つ目の `blf.size` 関数はフォントサイズを指定する関数で、次に示す引数を指定します。
@@ -163,7 +163,7 @@ Blender上で開いている全てのエリア情報は、`context.screen.areas`
 
 最後に、次に示す引数を `blf.draw` 関数に渡して呼び出し、引数に指定されたテキストを描画します。
 
-|引数|型意味|
+|引数|型|意味|
 |---|---|---|
 |第1引数|`int`|フォントID（デフォルトのフォントを使う場合は、`0`を指定）|
 |第2引数|`str`|描画するテキストの文字列|
