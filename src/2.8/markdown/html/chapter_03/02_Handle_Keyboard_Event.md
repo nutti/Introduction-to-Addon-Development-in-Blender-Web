@@ -90,7 +90,7 @@ subtitle: 3-2. キーボードのイベントを扱う
 `bpy.data.objects.remove` メソッドの引数に、削除対象のオブジェクトのオブジェクト名を指定することで、オブジェクトを削除できます。
 オブジェクト削除後、`modal` メソッドは `{'FINISHED'}` を返して、モーダルモードを終了します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_3-2.py" block="finish_modal_mode"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-2.py" block="finish_modal_mode"]
 
 
 ### テキストオブジェクトのテキスト更新処理
@@ -102,11 +102,11 @@ subtitle: 3-2. キーボードのイベントを扱う
 `ALPHABET_LIST` は大文字のアルファベット `'A'` から `'Z'` までが保存されたリストになっていて、`event.type` がリスト内のいずれかの要素に一致する場合に、テキストオブジェクトのテキストを更新しています。
 もしリスト中のいずれの要素にも一致しない場合、`modal` メソッドは `{'PASS_THROUGH'}` を返してしまうため、テキストオブジェクトを更新しません。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_3-2.py" block="change_text_object_text"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-2.py" block="change_text_object_text"]
 
 なお、大文字のアルファベットのリストは、次のコードで作成できます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_3-2.py" block="make_alphabet_list"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-2.py" block="make_alphabet_list"]
 
 
 # まとめ
