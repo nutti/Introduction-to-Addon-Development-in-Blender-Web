@@ -49,9 +49,9 @@ subtitle: 目次
 
 ## [5. アドオンサンプル集](html/chapter_05/index.html)
 
-* 5-1. キーボードによるオブジェクト変形
-* 5-2. 作業時間計測ツール
-* 5-3. オブジェクト名の表示サポート
+* [5-1. キーボードによるオブジェクト変形](html/chapter_05/01_Transform_Object_with_Keybord.html)
+* [5-2. 作業時間計測ツール](html/chapter_05/02_Calculate_Working_Hour.html)
+* [5-3. オブジェクト名の表示サポート](html/chapter_05/03_Display_Object_Name.html)
 
 ---
 

@@ -19,7 +19,7 @@ subtitle: 5-1. キーボードによるオブジェクト変形
 * [2-7. BlenderのUIを制御する](../chapter_02/07_Control_Blender_UI.html)
   * `poll` メソッドの扱い方
   * SidebarのUI構築
-* [3-2. キーボードのキーイベントを扱う](../chapter_03/02_Handle_Keyboard_Key_Event.html)
+* [3-2. キーボードのイベントを扱う](../chapter_03/02_Handle_Keyboard_Key_Event.html)
   * キーボードのイベントの扱い方
 * [3-7. プリファレンスを活用する](../chapter_03/07_Use_Preference.html)
   * プリファレンスにアドオン設定情報を配置する方法
