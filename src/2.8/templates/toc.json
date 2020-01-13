@@ -29,8 +29,8 @@
         "@04:3-4. gpuモジュールを使って図形描画する": "html/chapter_03/04_Draw_Figures.html",
         "@05:3-5. blfモジュールを使って文字列を描画する": "html/chapter_03/05_Draw_Texts.html",
         "@06:3-6. アドオンのUIを複数の言語に対応する": "html/chapter_03/06_Multilingual_Support.html",
-        "@07:3-7. 座標変換を活用する": "",
-        "@08:3-8. プリファレンスを活用する": ""
+        "@07:3-7. プリファレンスを活用する": "html/chapter_03/07_Use_Preference.html",
+        "@08:3-8. 座標変換を活用する": ""
     },
     "4. さらにその先へ": {
         "@title": "html/chapter_04/index.html",

@@ -35,8 +35,8 @@ subtitle: 目次
 * [3-4. gpuモジュールを使って図形描画する](html/chapter_03/04_Draw_Figures.html)
 * [3-5. blfモジュールを使って文字列を描画する](html/chapter_03/05_Draw_Texts.html)
 * [3-6. アドオンのUIを複数の言語に対応する](html/chapter_03/06_Multilingual_Support.html)
-* 3-7. 座標変換を活用する
-* 3-8. プリファレンスを活用する
+* [3-7. プリファレンスを活用する](html/chapter_03/07_Use_Preference.html)
+* 3-8. 座標変換を活用する
 
 
 ## [4. さらにその先へ](html/chapter_04/index.html)
