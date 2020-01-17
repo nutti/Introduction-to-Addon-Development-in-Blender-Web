@@ -1,7 +1,11 @@
 import bpy
 import mathutils
+# @include-source start [import_bmesh]
 import bmesh
+# @include-source end [import_bmesh]
+# @include-source start [import_bpy_extras]
 from bpy_extras import view3d_utils
+# @include-source end [import_bpy_extras]
 
 
 bl_info = {
@@ -19,6 +23,7 @@ bl_info = {
 }
 
 
+# @include-source start [get_region_space]
 def get_region_and_space(context, area_type, region_type, space_type):
     region = None
     area = None
@@ -43,6 +48,7 @@ def get_region_and_space(context, area_type, region_type, space_type):
             break
 
     return (region, space)
+# @include-source end [get_region_space]
 
 
 # マウスカーソルの位置にあるメッシュの面を選択するオペレータ
@@ -76,8 +82,12 @@ class SAMPLE38_OT_SelectMouseOveredMesh(bpy.types.Operator):
 
         # マウスドラッグ中は、マウスカーソルの位置にあるメッシュの面を選択
         if event.type == 'MOUSEMOVE':
+# @include-source start [get_mouse_region_coord]
             # マウスカーソルのリージョン座標を取得
             mv = mathutils.Vector((event.mouse_region_x, event.mouse_region_y))
+# @include-source end [get_mouse_region_coord]
+
+# @include-source start [calc_ray_dir_and_orig]
             # [3Dビューポート] スペースを表示するエリアの [Window] リージョンの
             # 情報と、[3Dビューポート] スペースのスペース情報を取得する
             region, space = get_region_and_space(
@@ -95,6 +105,9 @@ class SAMPLE38_OT_SelectMouseOveredMesh(bpy.types.Operator):
                 space.region_3d,
                 mv
             )
+# @include-source end [calc_ray_dir_and_orig]
+
+# @include-source start [calc_ray_start_end]
             # レイの始点
             start = ray_orig
             # レイの終点
@@ -110,20 +123,32 @@ class SAMPLE38_OT_SelectMouseOveredMesh(bpy.types.Operator):
             mwi_end = mwi @ end
             # レイの向き
             mwi_dir = mwi_end - mwi_start
+# @include-source end [calc_ray_start_end]
 
+# @include-source start [deselect_all]
             # オブジェクトの面選択解除
             bpy.ops.mesh.select_all(action='DESELECT')
+# @include-source end [deselect_all]
 
+# @include-source start [build_bmesh]
             # bmeshオブジェクトの構築
             bm = bmesh.from_edit_mesh(active_obj.data)
+# @include-source end [build_bmesh]
+# @include-source start [build_bvhtree]
             # BVHツリーの構築
             tree = mathutils.bvhtree.BVHTree.FromBMesh(bm)
+# @include-source end [build_bvhtree]
+
+# @include-source start [ray_cast]
             # オブジェクトとレイの交差判定を行う
             _, _, fidx, _ = tree.ray_cast(mwi_start, mwi_dir, 2000.0)
-            
+# @include-source end [ray_cast]
+
+# @include-source start [select_intersected_face]
             # メッシュとレイが衝突した場合
             if fidx is not None:
                 bm.faces[fidx].select = True
+# @include-source end [select_intersected_face]
 
         return {'PASS_THROUGH'}
 
