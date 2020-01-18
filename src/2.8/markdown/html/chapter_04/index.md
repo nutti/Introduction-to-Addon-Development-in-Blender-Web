@@ -14,7 +14,7 @@ Blenderの内部データにアクセスするAPIをはじめとして、入力�
 
 ## 本章の構成
 
-1. Blenderが提供するAPIを調べる
+1. [Blenderが提供するAPIを調べる](01_Research_Blender_API.html)
 2. アドオンをデバッグする
 3. アドオンを公開する
 4. アドオンのライセンスを決める
