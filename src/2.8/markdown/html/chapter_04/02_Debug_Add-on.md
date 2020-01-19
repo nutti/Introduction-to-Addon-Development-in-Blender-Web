@@ -110,12 +110,12 @@ Visual Studio Codeの *[Debug]* タブを開き、左上のリストボックス
 # まとめ
 
 本節では、Visual Studio Codeを用いてアドオンをデバッグする方法を説明しました。
-Visual Studio Codeを利用することで、より効率よくアドオンを開発できると思います。
+Visual Studio Codeを用いたデバッグは非常に強力で、より効率よくアドオンを開発できると思います。
 
 Visual Studio Codeは更新頻度が高く、UIも変化しているため、おもにVisual Studio Codeの設定に関しては、本節を執筆した時点から大きく変更されている可能性がある点には注意してください。
 このため、実際にデバッグ環境を整えるときは、Web上にあるVisual Studio Codeの記事なども確認する必要があります。
 
 
-# ポイント
+## ポイント
 
 * Visual Studio Codeでのデバッグ環境を整えることで、アドオンのデバッグを効率化できる
