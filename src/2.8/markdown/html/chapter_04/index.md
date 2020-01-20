@@ -17,5 +17,5 @@ Blenderの内部データにアクセスするAPIをはじめとして、入力�
 1. [Blenderが提供するAPIを調べる](01_Research_Blender_API.html)
 2. [アドオンをデバッグする](02_Debug_Add-on.html)
 3. [BlenderのAPIをコード補完する](03_Code_Complete_Blender_API.html)
-4. アドオンのライセンスを決める
+4. [アドオンのライセンスを決める](04_Determine_License.html)
 5. アドオンを公開する
