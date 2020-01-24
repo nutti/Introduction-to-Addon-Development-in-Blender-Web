@@ -56,5 +56,5 @@ subtitle: 目次
 
 ---
 
-* 用語集
+* [索引](html/chapter_99/00_Index.html)
 * [おわりに](html/chapter_99/01_Conclusion.html)

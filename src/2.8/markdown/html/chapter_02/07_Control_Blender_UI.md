@@ -275,7 +275,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 ### セパレータ
 
-`layout.separator` メソッドを呼ぶことで、上下のスペースを空けることができます（**セパレータと呼びます**）。
+`layout.separator` メソッドを呼ぶことで、上下のスペースを空けることができます（**セパレータ** と呼びます）。
 メニューに対して `layout.separator` メソッドを実行したときの動作については、[2-1節](01_Basic_of_Add-on_Development.html) を参考にしてください。
 
 [@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="add_separator"]

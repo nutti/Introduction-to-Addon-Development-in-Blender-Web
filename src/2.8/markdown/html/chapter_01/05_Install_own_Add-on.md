@@ -19,7 +19,7 @@ subtitle: 1-5. 自作のアドオンをインストールする
 |||
 |---|---|
 |1|[1-3節](03_Prepare_Add-on_development_environment.html) を参考にして、コンソールウィンドウからBlenderを起動します。|
-|2|**[テキストエディター]** スペースのメニューから *[新規]* ボタンをクリックして空のテキストを作成します。<br>![](../../images/chapter_01/05_Install_own_Add-on/blender_make_add-on_2.png "アドオン作成 手順2")|
+|2|*[テキストエディター]* スペースのメニューから *[新規]* ボタンをクリックして空のテキストを作成します。<br>![](../../images/chapter_01/05_Install_own_Add-on/blender_make_add-on_2.png "アドオン作成 手順2")|
 |3|以下に示すソースコード全文を入力します。空白は全て半角スペースで入力し、タブや全角スペースが含まれないように注意してください。<br>![](../../images/chapter_01/05_Install_own_Add-on/blender_make_add-on_3.png "アドオン作成 手順3")|
 |4|入力が完了したら、*[テキストエディター]* スペースのメニューから *[テキスト]* > *[名前をつけて保存]* を実行します。<br>![](../../images/chapter_01/05_Install_own_Add-on/blender_make_add-on_4.png "アドオン作成 手順4")|
 |5|ファイル名 `sample_1-5.py` として保存します。保存先はOSごとに異なりますので注意してください。<br>![](../../images/chapter_01/05_Install_own_Add-on/blender_make_add-on_5.png "アドオン作成 手順5")|

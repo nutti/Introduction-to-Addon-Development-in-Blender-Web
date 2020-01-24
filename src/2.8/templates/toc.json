@@ -47,7 +47,7 @@
         "@03:5-3. オブジェクト名の表示サポート": "html/chapter_05/03_Display_Object_Name.html"
     },
     "@post": {
-        "@00:用語集": "",
+        "@00:索引": "html/chapter_99/00_Index.html",
         "@01:おわりに": "html/chapter_99/01_Conclusion.html"
     }
 }

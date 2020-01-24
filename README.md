@@ -101,3 +101,12 @@ $ perl tools/build.pl src/<version> <output>
 Markdownに埋め込むソースコードの部分を `# @include-source start [<block>]` と `# @include-source end [<block>]` で指定します。  
 `<block>` には、Markdown拡張 `@include-source` のオプション `block` に指定する、埋め込む場所を示す識別子を指定します。  
 なお、`# @include-source` で始まる行は、ソースコードをMarkdownに埋め込む際に削除されます。
+
+
+## 索引自動生成ツール
+
+以下のコマンドを実行することで、`src/2.8` 以下に存在する `.md` ファイルから、強調表示された単語（`**` で囲われた単語）を抽出し、Markdown形式の索引を自動生成します。
+
+```
+$ node tools/gen_word_index.js --src-dir=src/2.8 --dest-file=00_Index.md
+```
