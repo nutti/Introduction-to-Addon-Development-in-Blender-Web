@@ -77,12 +77,13 @@ APIを調べる具体的な方法は、[2-7節](../chapter_02/07_Control_Blender
 新たなAPIを知るきっかけとして、Blenderのアドオン開発について解説したWebページを参照することも考えられます。
 ここでは、アドオン開発の参考になる日本語のサイトをいくつか紹介します。
 
-* [Blender Wiki](https://wiki.blender.org/wiki/Python)
-  * Blenderの公式Wikiページ
-* [BlenderのWiki](https://wiki3.jp/blugjp/page/12)
-  * BLUG.jpさんが管理されているWikiページ（アドオンのページを参照のこと）
-* [Qiita](https://qiita.com/tags/blender)
-  * プログラマ向けの情報共有サイト（Blenderのタグを参照のこと）
+|サイト|概要|
+|---|---|
+|[Blender Wiki](https://wiki.blender.org/wiki/Python)|Blenderの公式Wikiページです。|
+|[BlenderのWiki](https://wiki3.jp/blugjp/page/12)|BLUG.jpさんが管理されているWikiページです。アドオンのページアドオン開発に関する情報があります。|
+|[blugjpまとめサイト](https://sites.google.com/site/blugjp/blenderpython)|BLUG.jpさんが管理されているサイトです。BlenderでPythonを使うときの情報が公開されていますが、2.80へ移行中であるために不完全なページがあります。|
+|[Qiita](https://qiita.com/tags/blender)|プログラマ向けの情報共有サイトです。Blender専用のタグもあります。|
+|[YouTube](https://www.youtube.com/)|BlenderのPythonに関するチュートリアル動画がアップロードされています。*[blender]* や *[python]* などで検索しましょう。|
 
 
 # 他者が作成したアドオンのソースコードを読む
@@ -114,12 +115,11 @@ APIドキュメントを調べたり、他のアドオンを参考にしたり�
 
 ここでは、Blenderのアドオン開発について質問できるコミュニティサイトを紹介しますが、いずれも海外のサイトであるため、英語で質問を投稿する必要があります。
 
-* [Blender Artists Community](https://blenderartists.org)
-  * アドオン開発に関して質問する場合は、*[Coding]* > *[Python Support]* にトピックを立てる
-* [Blender Stack Exchange](http://blender.stackexchange.com)
-  * アドオン開発に関して質問をする場合、*[Python]* や *[add-on]*、*[scripting]* のタグを追加する
-* [reddit](https://www.reddit.com)
-  * BlenderのPythonに関する投稿は、[/r/blenderpython](https://www.reddit.com/r/blenderpython) で行う
+|サイト|概要|
+|---|---|
+|[Blender Artists Community](https://blenderartists.org)|海外最大のBlenderコミュニティサイトです。アドオン開発に関して質問する場合は、*[Coding]* > *[Python Support]* にトピックを立てましょう。|
+|[Blender Stack Exchange](http://blender.stackexchange.com)|Stack Overflow（http://stackoverflow.com）という、プログラマの間で有名な情報共有サイトがありますが、Blender Stack Exchangeはその派生サイトで、Blenderに特化されています。 アドオン開発に関して質問をする場合、*[Python]* や *[add-on]*、*[scripting]* のタグを追加しましょう。|
+|[reddit](https://www.reddit.com)|ニュース記事などのトピックを立てて、コメントをもらうためのWebサービスです。BlenderのPythonに関する投稿は、[/r/blenderpython](https://www.reddit.com/r/blenderpython) で行いましょう。|
 
 
 # PythonコンソールでAPIを検索・実行する

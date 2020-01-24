@@ -45,7 +45,7 @@ subtitle: 目次
 * [4-2. アドオンをデバッグする](html/chapter_04/02_Debug_Add-on.html)
 * [4-3. BlenderのAPIをコード補完する](html/chapter_04/03_Code_Complete_Blender_API.html)
 * [4-4. アドオンのライセンスを決める](html/chapter_04/04_Determine_License.html)
-* 4-5. アドオンを公開する
+* [4-5. アドオンを公開する](html/chapter_04/05_Publish_Add-on.html)
 
 
 ## [5. アドオンサンプル集](html/chapter_05/index.html)
