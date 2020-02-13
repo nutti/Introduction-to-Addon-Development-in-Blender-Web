@@ -3,9 +3,9 @@ pagetitle: 4-1. Blenderが提供するAPIを調べる
 subtitle: 4-1. Blenderが提供するAPIを調べる
 ---
 
-[2章](../chapter_02/index.html) や [3章](../chapter_03/index.html) で紹介したサンプルアドオンでは、Blenderが提供するさまざまなAPIを使われていました。
-ところで、サンプルアドオンで利用したAPIはどのように調べたのでしょうか？
-また、サンプルアドオンで紹介していないAPIはどのように調べたらよいのでしょうか？
+[2章](../chapter_02/index.html) や [3章](../chapter_03/index.html) で紹介したサンプルアドオンでは、Blenderが提供するさまざまなAPIが使われていました。
+サンプルアドオンで利用したAPIは、どのように見つけたのでしょうか？
+また、サンプルアドオンで紹介していないその他のAPIは、どのように調べたらよいのでしょうか？
 本節ではこの疑問に答えるため、Blenderが提供するAPIについて調べる方法を紹介します。
 
 
@@ -25,19 +25,18 @@ Blenderが提供するAPIの情報を収集する主な方法としては、次�
 
 # Blender公式のAPIリファレンスを読む
 
-Blenderの情報を収集するのであれば、やはり公式のドキュメント（[https://docs.blender.org/api/](https://docs.blender.org/api/)）が一番です。
-公式として提供されるドキュメントであることから、他の情報源と比較して情報の信頼性が高いです。
+Blenderの情報を収集するのであれば、やはり公式のAPIリファレンス（[https://docs.blender.org/api/](https://docs.blender.org/api/)）が一番信頼性があり、おすすめです。
 
-Blenderは、過去のBlenderのバージョン含めたすべてのバージョンのAPIについて、ドキュメント化しています。
+Blenderは、過去のBlenderのバージョン含めたすべてのバージョンのAPIについて、リファレンスとして公開しています。
 Blenderのバージョンに応じて提供されるAPIが変わるため、対象とするバージョンのドキュメントを参照する必要があります。
 例えば、Blenderのバージョンが2.80のAPIドキュメントは、[https://docs.blender.org/api/2.80/](https://docs.blender.org/api/2.80/)) から参照できます。
 
-仮に `bpy.context` で提供されているAPIを調べたい場合は、左側のメニューより *[APPLICATION MODULES]* > *[Context Access (bpy.context)]* のページ（[https://docs.blender.org/api/blender2.8/bpy.context.html](https://docs.blender.org/api/blender2.8/bpy.context.html)）を開くとよいでしょう。
+仮に `bpy.context` で提供されているAPIを調べたい場合は、左側のメニューより *[APPLICATION MODULES]* > *[Context Access (bpy.context)]* のページ（[https://docs.blender.org/api/2.80/bpy.context.html](https://docs.blender.org/api/2.80/bpy.context.html)）を開くとよいでしょう。
 
 
 ## BlenderからAPIリファレンスへ移動する
 
-Blenderの機能に対応するAPIのリファレンスに、Blenderから直接移動することもできます。
+Blenderの機能に対応したAPIのリファレンスに、Blenderから直接移動することもできます。
 ここでは、*[3Dビューポート]* スペースのメニュー *[オブジェクト]* > *[トランスフォーム]* > *[移動]* のAPIドキュメントを表示する方法を説明します。
 
 
@@ -45,14 +44,14 @@ Blenderの機能に対応するAPIのリファレンスに、Blenderから直接
 
 |||
 |---|---|
-|1|*[3Dビューポート]* スペースのメニュー *[オブジェクト]* > *[トランスフォーム]* > *[移動]* を右クリックして表示されるメニューから、[Blender PythonAPI リファレンス] をクリックします。<br>![](../../images/chapter_04/01_Research_Blender_API/move_to_api_reference_1.png "APIリファレンスへの移動 手順1")|
+|1|*[3Dビューポート]* スペースのメニュー *[オブジェクト]* > *[トランスフォーム]* > *[移動]* を右クリックして表示されるメニューから、*[Blender PythonAPI リファレンス]* をクリックします。<br>![](../../images/chapter_04/01_Research_Blender_API/move_to_api_reference_1.png "APIリファレンスへの移動 手順1")|
 |2|クリックした機能に関するAPIドキュメントが存在する場合、該当するAPIのドキュメントページが表示されます。<br>![](../../images/chapter_04/01_Research_Blender_API/move_to_api_reference_2.png "APIリファレンスへの移動 手順2")|
 
 
 # Blenderに付随するスクリプトのテンプレートを読む
 
-Blenderは、各テーマに関してスクリプトのテンプレートを提供しています。
-テンプレートはBlender本体が提供しているため、正常に動作することが保証されています。
+Blenderは、各テーマに関して、Pythonスクリプトのテンプレートを提供しています。
+テンプレートは、Blender本体が提供しているため、正常に動作することが保証されています。
 
 Blenderが提供するAPIの概要を一通り学んでおきたい場合に、これらのテンプレートが参考になります。
 テンプレートは、*[テキストエディター]* スペースのメニュー *[テンプレート]* > *[Python]* から参照できます。
@@ -68,19 +67,19 @@ Blenderが提供するAPIの概要を一通り学んでおきたい場合に、�
 # BlenderのUIからAPIを調べる
 
 BlenderのUIを構築する処理は、Pythonで記述されています。
-このため、BlenderのUIから対称のAPIを調べることができます。
+このため、BlenderのUIからもAPIを調べることができます。
 APIを調べる具体的な方法は、[2-7節](../chapter_02/07_Control_Blender_UI.html) に記載されています。
 
 
 # Blenderアドオン開発の参考サイトを読む
 
-新たなAPIを知るきっかけとして、Blenderのアドオン開発について解説したWebページを参照することも考えられます。
+Blenderのアドオン開発について解説したWebページを見ることでも、新たなAPIを知るきっかけとなります。
 ここでは、アドオン開発の参考になる日本語のサイトをいくつか紹介します。
 
 |サイト|概要|
 |---|---|
 |[Blender Wiki](https://wiki.blender.org/wiki/Python)|Blenderの公式Wikiページです。|
-|[BlenderのWiki](https://wiki3.jp/blugjp/page/12)|BLUG.jpさんが管理されているWikiページです。アドオンのページアドオン開発に関する情報があります。|
+|[BlenderのWiki](https://wiki3.jp/blugjp/page/12)|BLUG.jpさんが管理されているWikiページです。アドオンのページに、アドオン開発に関する情報があります。|
 |[blugjpまとめサイト](https://sites.google.com/site/blugjp/blenderpython)|BLUG.jpさんが管理されているサイトです。BlenderでPythonを使うときの情報が公開されていますが、2.80へ移行中であるために不完全なページがあります。|
 |[Qiita](https://qiita.com/tags/blender)|プログラマ向けの情報共有サイトです。Blender専用のタグもあります。|
 |[YouTube](https://www.youtube.com/)|BlenderのPythonに関するチュートリアル動画がアップロードされています。*[blender]* や *[python]* などで検索しましょう。|
@@ -90,10 +89,10 @@ APIを調べる具体的な方法は、[2-7節](../chapter_02/07_Control_Blender
 
 他者が作成したアドオンのソースコードを読むことでも、Blenderが提供するAPIを調べることができます。
 なお、ソースコードを参照して処理を流用する場合は、[4-3節](03_Determine_License_of_Add-on.html) で説明するアドオンのソースコードに適用されているライセンスに気をつけてください。
-ライセンスによっては流用できない場合もありますし、流用に必要な条件が決められている場合もあります。
+ライセンスによっては流用できない場合もありますし、流用に必要な条件が定められている場合もあります。
 
 インストール済みのアドオンのソースコードが置かれている場所は、トップバーのメニュー項目 *[編集]* > *[プリファレンス...]* で開いたプリファレンスにおいて、左の *[アドオン]* を選択したときに表示されるアドオンの情報から確認できます。
-Web上に公開されているアドオンなど、非公式に提供されるアドオンの場合はソースコードがそのまま提供されていることが多いため、直接ソースコードを読むことができるかもしれません。
+Web上に公開されているアドオンなど、非公式に提供されるアドオンの場合は、ソースコードがそのまま提供されていることが多いため、直接ソースコードを読むことができるかもしれません。
 
 ![](../../images/chapter_04/01_Research_Blender_API/read_addon_source_code.png "アドオンのソースコードを読む")
 
@@ -118,15 +117,15 @@ APIドキュメントを調べたり、他のアドオンを参考にしたり�
 |サイト|概要|
 |---|---|
 |[Blender Artists Community](https://blenderartists.org)|海外最大のBlenderコミュニティサイトです。アドオン開発に関して質問する場合は、*[Coding]* > *[Python Support]* にトピックを立てましょう。|
-|[Blender Stack Exchange](http://blender.stackexchange.com)|Stack Overflow（http://stackoverflow.com）という、プログラマの間で有名な情報共有サイトがありますが、Blender Stack Exchangeはその派生サイトで、Blenderに特化されています。 アドオン開発に関して質問をする場合、*[Python]* や *[add-on]*、*[scripting]* のタグを追加しましょう。|
+|[Blender Stack Exchange](http://blender.stackexchange.com)|Stack Overflow（http://stackoverflow.com）という、プログラマの間で有名な情報共有サイトがありますが、Blender Stack Exchangeはその派生サイトで、Blenderに関する話題に特化されています。 アドオン開発に関して質問する場合、*[Python]* や *[add-on]*、*[scripting]* のタグを追加しましょう。|
 |[reddit](https://www.reddit.com)|ニュース記事などのトピックを立てて、コメントをもらうためのWebサービスです。BlenderのPythonに関する投稿は、[/r/blenderpython](https://www.reddit.com/r/blenderpython) で行いましょう。|
 
 
 # PythonコンソールでAPIを検索・実行する
 
-[2-2節](../chapter_02/02_Register_Multiple_Operation_Classes.html) で紹介したように、Pythonコンソールを活用し、Blenderが提供するAPIを検索して実行できます。
+[2-2節](../chapter_02/02_Register_Multiple_Operator.html) で紹介したように、Pythonコンソールを活用し、Blenderが提供するAPIを検索して実行できます。
 
-APIリファレンスだけではわからなかった、APIの動作を確認できる点がPythonコンソールを利用するメリットになります。
+APIリファレンスだけではわからなかった、APIの動作を確認できる点が、Pythonコンソールを利用するメリットになります。
 APIを使ったときに、リファレンスから期待した動作と異なることはよくあることですし、そもそもAPIのリファレンスが存在しないこともあります。
 Pythonコンソールを活用することで、よりAPIへの理解が深まると思いますので、積極的に活用していきましょう。
 
@@ -145,5 +144,5 @@ Pythonコンソールを活用することで、よりAPIへの理解が深ま�
 
 ## ポイント
 
-* 公式のリファレンスやサンプルを読む以外にも、他者が作成したアドオンのソースコードを読んだり、実際にAPIを実行して確かめたりすることでも、Blenderが提供するAPIを調査できる
-* アドオンの開発に慣れるもっとも効率的な方法は、他者が作成したアドオンのソースコードを読んで具体的なAPIの使い方を知り、改造してその効果を実際に確かめることである
+* 公式のリファレンスやサンプルのアドオンを読む以外にも、他者が作成したアドオンのソースコードを読んだり、実際にAPIを実行して確かめたりすることでも、Blenderが提供するAPIを調査できる
+* アドオンの開発に慣れるもっとも効率的な方法は、他者が作成したアドオンのソースコードを読んで具体的なAPIの使い方を知り、改造するなどしてその効果を実際に確かめることである

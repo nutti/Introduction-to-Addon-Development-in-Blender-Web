@@ -94,19 +94,17 @@ class SAMPLE36_OT_TranslateObject(bpy.types.Operator):
             active_obj.location[2] += self.amount
         self.report(
             {'INFO'},
-            bpy.app.translations.pgettext_iface(
+            bpy.app.translations.pgettext(
                 "Sample 3-6: Translated object '%s' (Axis: %s, Amount: %f)"
             )
             % (active_obj.name, self.axis, self.amount)
         )
-# @include-source start [translation_func_with_format]
         print(
-            bpy.app.translations.pgettext_iface(
+            bpy.app.translations.pgettext(
                 "Sample 3-6: Executed operator '%s'"
             )
             % (self.bl_idname)
         )
-# @include-source end [translation_func_with_format]
 
         return {'FINISHED'}
 

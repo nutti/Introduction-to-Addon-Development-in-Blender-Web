@@ -172,9 +172,9 @@ def init_props():
 
 def clear_props():
     sc = bpy.types.Scene
-    del sc.ngons
-    for i in range(10):
-        del sc["vert_{}".format(i + 1)]
+    del sc.sample34_center
+    del sc.sample34_size
+
 
 classes = [
     SAMPLE34_OT_DrawStar,

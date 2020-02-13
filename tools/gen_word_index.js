@@ -22,7 +22,7 @@ function readdirRecursive(p, fileCallback, errCallback) {
     });
 }
 
-for (let i = 2; i <process.argv.length; i++) {
+for (let i = 2; i < process.argv.length; i++) {
     let match = null;
     if ((match = /--src-dir=(\S+)/.exec(process.argv[i])) != null) {
         srcDir = match[1];
@@ -85,21 +85,22 @@ filesToParse.forEach((file) => {
     });
 });
 
-console.log("Start writing file...");
+console.log('Start writing file...');
 let linesToWrite = [];
-linesToWrite.push("---");
-linesToWrite.push("pagetitle: 索引");
-linesToWrite.push("subtitle: 索引");
-linesToWrite.push("---");
-linesToWrite.push("");
-linesToWrite.push("");
-linesToWrite.push("|用語|節|");
-linesToWrite.push("|---|---|");
+linesToWrite.push('---');
+linesToWrite.push('pagetitle: 索引');
+linesToWrite.push('subtitle: 索引');
+linesToWrite.push('---');
+linesToWrite.push('');
+linesToWrite.push('');
+linesToWrite.push('|用語|節|');
+linesToWrite.push('|---|---|');
 wordIndices.forEach((wi) => {
     linesToWrite.push(`|${wi[0]}|[${wi[1]}](${wi[2]})|`);
 });
+linesToWrite.push('');
 
-let textToWrite = linesToWrite.join("\n");
+let textToWrite = linesToWrite.join('\n');
 fs.writeFileSync(destFile, textToWrite);
 
-console.log("Finished");
+console.log('Finished');

@@ -4,26 +4,43 @@ subtitle: 目次
 ---
 
 
+## 宣伝: 電子書籍版『はじめてのBlenderアドオン開発 v3』
+
+**Blenderアドオン開発 入門書の決定版！ [BOOTH](https://colorful-pico.booth.pm/items/1678181) にて販売中です！**
+
+<a href="https://colorful-pico.booth.pm/items/1678181">
+<img href="https://booth.pximg.net/c/620x620/0776876a-b0d5-43e5-8ea4-2ab6342eb9fe/i/1678181/e30bde38-8bc6-4aac-8b04-7a77e433a57e_base_resized.jpg" style="width: 50%;" />
+</a>
+
+Blenderのアドオン開発方法が1冊にまとめられている、日本国内初の本です！  
+Blenderアドオンの作り方の基礎からアドオンの公開まで、全ての工程を本書1冊で網羅します。  
+Web版では解説していない、より進んだ内容やPython APIの解説に加え、数多くのサンプルアドオンが本書に含まれています。  
+Blender 2.8対応。
+
+※タイトルにv3が含まれていますが、v1やv2の続編ではありません（v1やv2は古いBlenderバージョン向けでした）
+
+---------------------------------------
+
 * [はじめに](html/chapter_00/00_Introduction.html)
 
 
 ## [1. Blenderアドオン開発の世界へようこそ](html/chapter_01/index.html)
 
-* [1-1. Blenderって何？アドオンって何？](html/chapter_01/01_What_is_Blender_What_is_Add-on.html)
+* [1-1. Blenderって何？アドオンって何？](html/chapter_01/01_What_Is_Blender_What_Is_Add-on.html)
 * [1-2. Blenderのアドオンを使ってみよう](html/chapter_01/02_Use_Blender_Add-on.html)
-* [1-3. アドオンの開発環境を整えよう](html/chapter_01/03_Prepare_Add-on_development_environment.html)
+* [1-3. アドオンの開発環境を整えよう](html/chapter_01/03_Prepare_Add-on_Development_Environment.html)
 * [1-4. アドオンのインストール・アンインストール・アップデート方法を理解しよう](html/chapter_01/04_Understand_Install_Uninstall_Update_Add-on.html)
-* [1-5. 自作のアドオンをインストールしてみよう](html/chapter_01/05_Install_own_Add-on.html)
+* [1-5. 自作のアドオンをインストールしてみよう](html/chapter_01/05_Install_Own_Add-on.html)
 
 
 ## [2. アドオンを作ってみよう](html/chapter_02/index.html)
 
-* [2-1. アドオン開発の基礎を身につける](html/chapter_02/01_Basic_of_Add-on_Development.html)
-* [2-2. 複数のオペレータクラスを登録する](html/chapter_02/02_Register_Multiple_Operation_Classes.html)
+* [2-1. アドオン開発の基礎を身につける](html/chapter_02/01_Basic_Of_Add-on_Development.html)
+* [2-2. 複数のオペレータクラスを登録する](html/chapter_02/02_Register_Multiple_Operator.html)
 * [2-3. オペレータプロパティを活用する](html/chapter_02/03_Use_Operator_Property.html)
 * [2-4. サブメニューを作成する](html/chapter_02/04_Create_Sub-menu.html)
 * [2-5. ショートカットキーを割り当てる](html/chapter_02/05_Allocate_Shortcut_Keys.html)
-* [2-6. アドオンのソースコードを複数ファイルへ分割する](html/chapter_02/06_Divide_Add-on_Source_into_Multiple_Files.html)
+* [2-6. アドオンのソースコードを複数ファイルへ分割する](html/chapter_02/06_Divide_Add-on_Source_Code_Into_Multiple_Files.html)
 * [2-7. BlenderのUIを制御する](html/chapter_02/07_Control_Blender_UI.html)
 
 

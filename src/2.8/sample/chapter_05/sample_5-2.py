@@ -251,7 +251,7 @@ class SAMPLE52_PT_CalculateWorkingHours(bpy.types.Panel):
     bl_label = "作業時間計測"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = "Sample 5-2"
+    bl_category = "サンプル 5-2"
 
     def draw(self, context):
         op_cls = SAMPLE52_OT_CalculateWorkingHours

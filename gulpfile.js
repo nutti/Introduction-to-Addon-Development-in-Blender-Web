@@ -371,8 +371,7 @@ function includePrevNextUrl(input, passCount, destHtmlPath) {
                 let body = `<a href="${relativeUrl}">${title}</a>`;
                 output.push(line.replace(/<!--\s+@include-prev-url\s+-->/g, body));
             }
-        }
-        if (/<!--\s+@include-next-url\s+-->/.exec(line) !== null) {
+        } else if (/<!--\s+@include-next-url\s+-->/.exec(line) !== null) {
             if (nextEntry !== null) {
                 let title = nextEntry['title'];
                 let url = nextEntry['url'];
@@ -383,9 +382,9 @@ function includePrevNextUrl(input, passCount, destHtmlPath) {
                 let body = `<a href="${relativeUrl}">${title}</a>`;
                 output.push(line.replace(/<!--\s+@include-next-url\s+-->/g, body));
             }
+        } else {
+            output.push(line);
         }
-
-        output.push(line);
     });
 
     console.log(`    [Pass ${passCount}] Include Prev Next URL`);
