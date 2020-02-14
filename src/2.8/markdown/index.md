@@ -36,7 +36,7 @@ Blender 2.8対応。
 ## [2. アドオンを作ってみよう](html/chapter_02/index.html)
 
 * [2-1. アドオン開発の基礎を身につける](html/chapter_02/01_Basic_Of_Add-on_Development.html)
-* [2-2. 複数のオペレータクラスを登録する](html/chapter_02/02_Register_Multiple_Operator.html)
+* [2-2. 複数のオペレータクラスを登録する](html/chapter_02/02_Register_Multiple_Operators.html)
 * [2-3. オペレータプロパティを活用する](html/chapter_02/03_Use_Operator_Property.html)
 * [2-4. サブメニューを作成する](html/chapter_02/04_Create_Sub-menu.html)
 * [2-5. ショートカットキーを割り当てる](html/chapter_02/05_Allocate_Shortcut_Keys.html)
@@ -51,7 +51,7 @@ Blender 2.8対応。
 * [3-3. タイマのイベントを扱う](html/chapter_03/03_Handle_Timer_Event.html)
 * [3-4. gpuモジュールを使って図形描画する](html/chapter_03/04_Draw_Figures.html)
 * [3-5. blfモジュールを使って文字列を描画する](html/chapter_03/05_Draw_Texts.html)
-* [3-6. アドオンのUIを複数の言語に対応する](html/chapter_03/06_Multilingual_Support.html)
+* [3-6. アドオンのUIを複数の言語に対応する](html/chapter_03/06_Support_Multiple_Languages.html)
 * [3-7. プリファレンスを活用する](html/chapter_03/07_Use_Preference.html)
 * [3-8. 座標変換を活用する](html/chapter_03/08_Use_Coordinate_Transformation)
 
@@ -67,7 +67,7 @@ Blender 2.8対応。
 
 ## [5. アドオンサンプル集](html/chapter_05/index.html)
 
-* [5-1. キーボードによるオブジェクト変形](html/chapter_05/01_Transform_Object_with_Keybord.html)
+* [5-1. キーボードによるオブジェクト変形](html/chapter_05/01_Transform_Object_With_Keyboard.html)
 * [5-2. 作業時間計測ツール](html/chapter_05/02_Calculate_Working_Hour.html)
 * [5-3. オブジェクト名の表示サポート](html/chapter_05/03_Display_Object_Name.html)
 

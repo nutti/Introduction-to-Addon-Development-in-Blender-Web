@@ -3,9 +3,9 @@ pagetitle: 2-2. 複数のオペレータを登録する
 subtitle: 2-2. 複数のオペレータを登録する
 ---
 
-[2-1節](01_Basic_of_Add-on_Development.html) では、アドオン開発の基本的なことについて説明しました。
-本節では、前節の内容を理解していることを前提に、[2-1節](01_Basic_of_Add-on_Development.html) よりも複雑なサンプルアドオンを用いて、1つのアドオンで複数のオペレータを追加する方法を解説します。
-解説済みの部分は説明を省略するため、不明な点がある場合は [2-1節](01_Basic_of_Add-on_Development.html) に戻って確認してください。
+[2-1節](01_Basic_Of_Add-on_Development.html) では、アドオン開発の基本的なことについて説明しました。
+本節では、前節の内容を理解していることを前提に、[2-1節](01_Basic_Of_Add-on_Development.html) よりも複雑なサンプルアドオンを用いて、1つのアドオンで複数のオペレータを追加する方法を解説します。
+解説済みの部分は説明を省略するため、不明な点がある場合は [2-1節](01_Basic_Of_Add-on_Development.html) に戻って確認してください。
 
 
 # 作成するアドオンの仕様
@@ -19,7 +19,7 @@ subtitle: 2-2. 複数のオペレータを登録する
 
 # アドオンを作成する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.html) を参考にして次に示すソースコードを入力し、ファイル名 `sample_2-2.py` で保存します。
+[1-5節](../chapter_01/05_Install_Own_Add-on.html) を参考にして次に示すソースコードを入力し、ファイル名 `sample_2-2.py` で保存します。
 
 [@include-source pattern="full" filepath="chapter_02/sample_2-2.py"]
 
@@ -28,7 +28,7 @@ subtitle: 2-2. 複数のオペレータを登録する
 
 ## アドオンを有効化する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.html) を参考にして、作成したアドオンを有効化します。
+[1-5節](../chapter_01/05_Install_Own_Add-on.html) を参考にして、作成したアドオンを有効化します。
 
 アドオンが有効化されると、コンソールウィンドウに次の文字列が出力されるはずです。
 
@@ -38,7 +38,7 @@ subtitle: 2-2. 複数のオペレータを登録する
 
 アドオン有効化後、*[3Dビューポート]* スペースのメニューに *[オブジェクト]* > *[X軸正方向へ並進移動]* と、*[オブジェクト]* > *[X軸負方向へ並進移動]* が追加されていることを確認します。
 
-![](../../images/chapter_02/02_Register_Multiple_Operation_Classes/enable_add-on.png "サンプルアドオン2-2 有効化")
+![](../../images/chapter_02/02_Register_Multiple_Operators/enable_add-on.png "サンプルアドオン2-2 有効化")
 
 
 ## アドオンの機能を使用する
@@ -49,13 +49,13 @@ subtitle: 2-2. 複数のオペレータを登録する
 
 |||
 |---|---|
-|1|Blender起動直後に自動的に生成されているオブジェクト *[Cube]* を選択し、*[3Dビューポート]* スペースのメニュー *[オブジェクト]* > *[X軸正方向へ並進移動]* を実行します。選択したオブジェクト *[Cube]* がX軸正方向に並進移動します。<br>![](../../images/chapter_02/02_Register_Multiple_Operation_Classes/use_add-on_1.png "サンプルアドオン2-2 手順1")<br>このとき、次のオペレータメッセージが出力されます。<br>`サンプル 2-2: 『Cube』をX軸正方向へ並進移動しました。`<br>また、コンソールウィンドウにも次のメッセージが出力されます。<br>`サンプル 2-2: オペレータ『OBJECT_OT_sample22_forward_x_object』が実行されました。`|
-|2|トップバーのメニュー *[ファイル]* > *[新規]* > *[全般]* を実行したあと、*[3Dビューポート]* スペースのメニュー *[オブジェクト]* > *[X軸負方向へ並進移動]* を実行します。選択中のオブジェクト *[Cube]* がX軸負方向に並進移動します。<br>![](../../images/chapter_02/02_Register_Multiple_Operation_Classes/use_add-on_2.png "サンプルアドオン2-2 手順2")<br>このとき、次のオペレータメッセージが出力されます。<br>`サンプル 2-2: 『Cube』をX軸負方向へ並進移動しました。`<br>また、コンソールウィンドウにも次のメッセージが出力されます。<br>`サンプル 2-2: オペレータ『OBJECT_OT_sample22_backward_x_object』が実行されました。`|
+|1|Blender起動直後に自動的に生成されているオブジェクト *[Cube]* を選択し、*[3Dビューポート]* スペースのメニュー *[オブジェクト]* > *[X軸正方向へ並進移動]* を実行します。選択したオブジェクト *[Cube]* がX軸正方向に並進移動します。<br>![](../../images/chapter_02/02_Register_Multiple_Operators/use_add-on_1.png "サンプルアドオン2-2 手順1")<br>このとき、次のオペレータメッセージが出力されます。<br>`サンプル 2-2: 『Cube』をX軸正方向へ並進移動しました。`<br>また、コンソールウィンドウにも次のメッセージが出力されます。<br>`サンプル 2-2: オペレータ『OBJECT_OT_sample22_forward_x_object』が実行されました。`|
+|2|トップバーのメニュー *[ファイル]* > *[新規]* > *[全般]* を実行したあと、*[3Dビューポート]* スペースのメニュー *[オブジェクト]* > *[X軸負方向へ並進移動]* を実行します。選択中のオブジェクト *[Cube]* がX軸負方向に並進移動します。<br>![](../../images/chapter_02/02_Register_Multiple_Operators/use_add-on_2.png "サンプルアドオン2-2 手順2")<br>このとき、次のオペレータメッセージが出力されます。<br>`サンプル 2-2: 『Cube』をX軸負方向へ並進移動しました。`<br>また、コンソールウィンドウにも次のメッセージが出力されます。<br>`サンプル 2-2: オペレータ『OBJECT_OT_sample22_backward_x_object』が実行されました。`|
 
 
 ## アドオンを無効化する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.html) を参考に、有効化したアドオンを無効化します。
+[1-5節](../chapter_01/05_Install_Own_Add-on.html) を参考に、有効化したアドオンを無効化します。
 
 アドオンを無効化すると、コンソールウィンドウに次の文字列が出力されます。
 
@@ -93,7 +93,7 @@ subtitle: 2-2. 複数のオペレータを登録する
 
 [@include-source pattern="partial" filepath="chapter_02/sample_2-2.py" block="execute_forward_object"]
 
-`execute` メソッドに渡されてくる引数については、[2-1節](01_Basic_of_Add-on_Development.html) で説明したため、引数の詳細についての説明はここでは省略します。
+`execute` メソッドに渡されてくる引数については、[2-1節](01_Basic_Of_Add-on_Development.html) で説明したため、引数の詳細についての説明はここでは省略します。
 引数 `context` から、現在のコンテキスト（実行状態）を取得できます。
 
 現在選択されているオブジェクト `context.active_object` を `active_obj` に一度保存し、`active_obj.location` の第1要素に `1.0` を加えることで、オブジェクトをX軸正方向に並進移動します。
@@ -130,14 +130,14 @@ subtitle: 2-2. 複数のオペレータを登録する
 ここでは、*[Pythonコンソール]* スペースを使って、本節のサンプルアドオンで追加したオペレータクラスの `bl_idname` が、既存のAPIと重複していないかを実際に確認してみます。
 確認対象とする `bl_idname` は `"object.sample22_forward_x_object"` とします。
 
-Blenderのエリア構成が、[1-3節](../chapter_01/03_Prepare_Add-on_development_environment.html) で紹介したようなものとなっていれば、左上が *[Pythonコンソール]* スペースとなります。
+Blenderのエリア構成が、[1-3節](../chapter_01/03_Prepare_Add-on_Development_Environment.html) で紹介したようなものとなっていれば、左上が *[Pythonコンソール]* スペースとなります。
 
 <div class="work"></div>
 
 |||
 |---|---|
-|1|設定したオペレータクラスのクラス変数 `bl_idname` が `bpy.ops.<オペレータクラスのbl_idname>` に登録されることを利用します。*[Pythonコンソール]* スペースに `bpy.ops.object.sample22_forward_x_` と入力してみます。入力が完了したら、WindowsやLinuxであれば *[Ctrl]* + *[Space]*、Macであれば *[control]* + *[space]* を押します。ここで単語が補完されなければ、`bl_idname` として `object.sample22_forward_x_object` が利用されていないことになります。<br>![](../../images/chapter_02/02_Register_Multiple_Operation_Classes/python_console_1.png "Pythonコンソール 手順1")|
-|2|本節で作成したアドオンを有効化したあとに、コンソールに次のように打ち込んで *[Enter]* キーを押します。<br>`bpy.ops.object.sample22_forward_x_object()`<br>![](../../images/chapter_02/02_Register_Multiple_Operation_Classes/python_console_2.png "Pythonコンソール 手順2")<br>*[3Dビューポート]* スペースのメニューである、*[オブジェクト]* > *[X軸正方向へ並進移動]* を実行したときと同様の効果が得られます。このように、オペレータクラスを登録すると、オペレータクラスの `bl_idname` が `bpy.ops.<オペレータクラスのbl_idname>` として登録されていることがわかります。|
+|1|設定したオペレータクラスのクラス変数 `bl_idname` が `bpy.ops.<オペレータクラスのbl_idname>` に登録されることを利用します。*[Pythonコンソール]* スペースに `bpy.ops.object.sample22_forward_x_` と入力してみます。入力が完了したら、WindowsやLinuxであれば *[Ctrl]* + *[Space]*、Macであれば *[control]* + *[space]* を押します。ここで単語が補完されなければ、`bl_idname` として `object.sample22_forward_x_object` が利用されていないことになります。<br>![](../../images/chapter_02/02_Register_Multiple_Operators/python_console_1.png "Pythonコンソール 手順1")|
+|2|本節で作成したアドオンを有効化したあとに、コンソールに次のように打ち込んで *[Enter]* キーを押します。<br>`bpy.ops.object.sample22_forward_x_object()`<br>![](../../images/chapter_02/02_Register_Multiple_Operators/python_console_2.png "Pythonコンソール 手順2")<br>*[3Dビューポート]* スペースのメニューである、*[オブジェクト]* > *[X軸正方向へ並進移動]* を実行したときと同様の効果が得られます。このように、オペレータクラスを登録すると、オペレータクラスの `bl_idname` が `bpy.ops.<オペレータクラスのbl_idname>` として登録されていることがわかります。|
 
 
 # まとめ

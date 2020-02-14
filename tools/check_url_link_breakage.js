@@ -35,25 +35,96 @@ if (dirToCheck === '') {
 
 console.log(`Directory to check URL link breakage: ${dirToCheck}`);
 
-let filesToCheck = [];
-readdirRecursive(dirToCheck, (path) => {
-    filesToCheck.push(path.replace(/\\/g, '/'));
-    console.log(`  ${path}`);
+let mdFilesToCheck = [];
+let pngFilesToCheck = [];
+let tocFilesToCheck = [];
+readdirRecursive(dirToCheck, (p) => {
+    let path = p.replace(/\\/g, '/')
+
+    let match = null;
+    if ((match = /.*\.md$/.exec(path)) != null) {
+        mdFilesToCheck.push(path);
+        console.log(`  [Markdown] ${path}`);
+    }
+    if ((match = /.*\.png$/.exec(path)) != null) {
+        pngFilesToCheck.push(path);
+        console.log(`  [PNG] ${path}`);
+    }
+    if ((match = /toc\.json$/.exec(path)) != null) {
+      tocFilesToCheck.push(path);
+      console.log(`  [TOC] ${path}`);
+    }
 }, (err) => {
     console.log(`Error: (readdirRecursive) ${err}`)
 });
 
 console.log(`Checking...`);
 
-filesToCheck.forEach((file) => {
+mdFilesToCheck.forEach((file) => {
+    let match = null;
+
     console.log(`  Check ${file} ...`);
 
     let relativePaths = [];
-    filesToCheck.forEach((f) => {
+    mdFilesToCheck.forEach((f) => {
         let rPath = path.relative(file, f).replace(/\\/g, '/');;
-        if (rPath !== '') {
-            rPath = rPath.replace(/^\.\.\//g, '').replace(/\\/g, '/');
+        if (rPath === '') {
+            return;
         }
+        rPath = rPath.replace(/^\.\.\//g, '').replace(/\\/g, '/');
+        rPath = rPath.replace(/\.md$/g, '.html');
+        relativePaths.push(rPath);
+    });
+    pngFilesToCheck.forEach((f) => {
+        let rPath = path.relative(file, f).replace(/\\/g, '/');;
+        if (rPath === '') {
+            return;
+        }
+        rPath = rPath.replace(/^\.\.\/\.\.\//g, '').replace(/\\/g, '/');
+        relativePaths.push(rPath);
+    });
+
+    let body = fs.readFileSync(file);
+    let lines = body.toString().split('\n');
+    lines.forEach((l) => {
+        let match = null;
+
+        // for HTML link.
+        if ((match = /\[.*\]\((.*\.html)\)/.exec(l)) != null) {
+            let target = match[1];
+            if ((match = /^http/.exec(target)) != null) {
+                return;
+            }
+            if (!relativePaths.includes(target)) {
+              console.log(`    Invalid html URL found '${target}'`);
+            }
+        }
+
+        // for image link.
+        if ((match = /!\[.*\]\((.*\.png) ".*"\)/.exec(l)) != null) {
+            let target = match[1];
+            if ((match = /^http/.exec(target)) != null) {
+                return;
+            }
+            if (!relativePaths.includes(target)) {
+              console.log(`    Invalid Image URL found '${target}'`);
+            }
+        }
+    });
+});
+
+tocFilesToCheck.forEach((file) => {
+    let match = null;
+
+    console.log(`  Check ${file} ...`);
+
+    let relativePaths = [];
+    mdFilesToCheck.forEach((f) => {
+        let rPath = path.relative(file, f).replace(/\\/g, '/');;
+        if (rPath === '') {
+            return;
+        }
+        rPath = rPath.replace(/^\.\.\/\.\.\/markdown\//g, '').replace(/\\/g, '/');
         rPath = rPath.replace(/\.md$/g, '.html');
         relativePaths.push(rPath);
     });
@@ -62,11 +133,13 @@ filesToCheck.forEach((file) => {
     let lines = body.toString().split('\n');
     lines.forEach((l) => {
         let match = null;
-        if ((match = /\[.*\]\((.*\.html)\)/.exec(l)) != null) {
+
+        // for HTML link.
+        if ((match = /: "(.*\.html)"/.exec(l)) != null) {
             let target = match[1];
             if (!relativePaths.includes(target)) {
-              console.log(`    Invalid target found '${target}'`);
+              console.log(`    Invalid html URL found '${target}'`);
             }
         }
     });
-})
+});

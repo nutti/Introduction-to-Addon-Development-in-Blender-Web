@@ -18,6 +18,6 @@ APIを理解するために毎回調査するのは大変ですし、そもそ�
 3. [タイマのイベントを扱う](03_Handle_Timer_Event.html)
 4. [gpuモジュールを使って図形描画する](04_Draw_Figures.html)
 5. [blfモジュールを使って文字列を描画する](05_Draw_Texts.html)
-6. [アドオンのUIを複数の言語に対応する](06_Multilingual_Support.html)
+6. [アドオンのUIを複数の言語に対応する](06_Support_Multiple_Languages.html)
 7. [プリファレンスを活用する](07_Use_Preference.html)
 8. [座標変換を活用する](08_Use_Coordinate_Transformation)

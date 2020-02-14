@@ -127,7 +127,7 @@ Blenderアドオン用フォルダに配置されている、アドオンのソ�
 
 <div class="column">
 『Reload Scripts』は非常に便利な機能ですが、複数のファイルで構成されるアドオンが『Reload Scripts』に対応していない場合は、正しくアップデートされない可能性があります。
-詳しくは、[2-6節](../chapter_02/06_Divide_Add-on_Source_into_Multiple_Files.html) を参照してください。
+詳しくは、[2-6節](../chapter_02/06_Divide_Add-on_Source_Code_Into_Multiple_Files.html) を参照してください。
 </div>
 
 

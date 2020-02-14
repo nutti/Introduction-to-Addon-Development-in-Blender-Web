@@ -18,11 +18,11 @@ subtitle: 1-5. 自作のアドオンをインストールする
 
 |||
 |---|---|
-|1|[1-3節](03_Prepare_Add-on_development_environment.html) を参考にして、コンソールウィンドウからBlenderを起動します。|
-|2|*[テキストエディター]* スペースのメニューから、*[新規]* ボタンをクリックして空のテキストを作成します。<br>![](../../images/chapter_01/05_Install_own_Add-on/blender_make_add-on_2.png "アドオンの作成 手順2")|
-|3|後述のソースコード全文を入力します。空白は全て半角スペースで入力し、タブや全角スペースが含まれないように注意してください。<br>![](../../images/chapter_01/05_Install_own_Add-on/blender_make_add-on_3.png "アドオンの作成 手順3")|
-|4|入力が完了したら、*[テキストエディター]* スペースのメニューから *[テキスト]* > *[名前をつけて保存]* を実行します。<br>![](../../images/chapter_01/05_Install_own_Add-on/blender_make_add-on_4.png "アドオンの作成 手順4")|
-|5|ファイル名 `sample_1-5.py` として保存します。保存先はOSごとに異なりますので注意してください。<br>![](../../images/chapter_01/05_Install_own_Add-on/blender_make_add-on_5.png "アドオンの作成 手順5")|
+|1|[1-3節](03_Prepare_Add-on_Development_Environment.html) を参考にして、コンソールウィンドウからBlenderを起動します。|
+|2|*[テキストエディター]* スペースのメニューから、*[新規]* ボタンをクリックして空のテキストを作成します。<br>![](../../images/chapter_01/05_Install_Own_Add-on/blender_make_add-on_2.png "アドオンの作成 手順2")|
+|3|後述のソースコード全文を入力します。空白は全て半角スペースで入力し、タブや全角スペースが含まれないように注意してください。<br>![](../../images/chapter_01/05_Install_Own_Add-on/blender_make_add-on_3.png "アドオンの作成 手順3")|
+|4|入力が完了したら、*[テキストエディター]* スペースのメニューから *[テキスト]* > *[名前をつけて保存]* を実行します。<br>![](../../images/chapter_01/05_Install_Own_Add-on/blender_make_add-on_4.png "アドオンの作成 手順4")|
+|5|ファイル名 `sample_1-5.py` として保存します。保存先はOSごとに異なりますので注意してください。<br>![](../../images/chapter_01/05_Install_Own_Add-on/blender_make_add-on_5.png "アドオンの作成 手順5")|
 
 
 ### ソースコード
@@ -49,8 +49,8 @@ subtitle: 1-5. 自作のアドオンをインストールする
 |||
 |---|---|
 |1|トップバーのメニューから *[編集]* > *[プリファレンス...]* を選択します。|
-|2|*[アドオン]* タブを選択し、上部から *[テスト中]* を選択すると、今回作成したアドオンが表示されます。<br>![](../../images/chapter_01/05_Install_own_Add-on/blender_enable_add-on_2.png "アドオンの有効化 手順2")|
-|3|チェックボックスをクリックし、アドオンを有効化します。<br>![](../../images/chapter_01/05_Install_own_Add-on/blender_enable_add-on_3.png "アドオンの有効化 手順3")|
+|2|*[アドオン]* タブを選択し、上部から *[テスト中]* を選択すると、今回作成したアドオンが表示されます。<br>![](../../images/chapter_01/05_Install_Own_Add-on/blender_enable_add-on_2.png "アドオンの有効化 手順2")|
+|3|チェックボックスをクリックし、アドオンを有効化します。<br>![](../../images/chapter_01/05_Install_Own_Add-on/blender_enable_add-on_3.png "アドオンの有効化 手順3")|
 |4|アドオンを有効化すると、コンソールウィンドウに次の文字列が出力されます。<br>`サンプル 1-5: アドオン『サンプル 1-5』が有効化されました。`<br>ここまでの手順で、本節で作成したアドオンが有効化され、アドオンを使用する準備が整いました。|
 
 
@@ -60,7 +60,7 @@ subtitle: 1-5. 自作のアドオンをインストールする
 
 アドオン有効化時にクリックしたチェックボックスを、再度クリックしてチェックを外すことで、アドオンを無効化できます。
 
-![](../../images/chapter_01/05_Install_own_Add-on/blender_disable_add-on.png "アドオン無効化")
+![](../../images/chapter_01/05_Install_Own_Add-on/blender_disable_add-on.png "アドオン無効化")
 
 アドオンを無効化すると、コンソールウィンドウに次の文字列が出力されます。
 

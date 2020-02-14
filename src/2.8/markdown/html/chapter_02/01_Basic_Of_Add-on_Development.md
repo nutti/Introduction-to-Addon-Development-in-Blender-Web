@@ -3,13 +3,13 @@ pagetitle: 2-1. アドオン開発の基礎を身につける
 subtitle: 2-1. アドオン開発の基礎を身につける
 ---
 
-[1-5節](../chapter_01/05_Install_own_Add-on.html) ではアドオンを作成しましたが、ソースコードの解説を行いませんでした。
-本節では、[1-5節](../chapter_01/05_Install_own_Add-on.html) よりも実用的なアドオンのサンプルを紹介し、そのソースコードを解説します。
+[1-5節](../chapter_01/05_Install_Own_Add-on.html) ではアドオンを作成しましたが、ソースコードの解説を行いませんでした。
+本節では、[1-5節](../chapter_01/05_Install_Own_Add-on.html) よりも実用的なアドオンのサンプルを紹介し、そのソースコードを解説します。
 
 
 # 作成するアドオンの仕様
 
-[1-5節](../chapter_01/05_Install_own_Add-on.html) で紹介したアドオンは、アドオンを有効化または無効化したときにコンソールウィンドウへメッセージを出力する機能のみを持つアドオンでした。
+[1-5節](../chapter_01/05_Install_Own_Add-on.html) で紹介したアドオンは、アドオンを有効化または無効化したときにコンソールウィンドウへメッセージを出力する機能のみを持つアドオンでした。
 これをアドオンと呼ぶのには寂しいので、本節ではより実用的な機能を備えたアドオンを作ります。
 
 最初に、本節で作成するアドオンの仕様を決めます。
@@ -34,14 +34,14 @@ subtitle: 2-1. アドオン開発の基礎を身につける
 
 |||
 |---|---|
-|1|*[3Dビューポート]* スペースのメニューから、*[追加]* > *[メッシュ]* > *[ICO球]* を実行します。<br>![](../../images/chapter_02/01_Basic_of_Add-on_Development/generate_ico-sphere_1.png "ICO球作成 手順1")|
-|2|3Dカーソルを中心としたICO球が作成されます。<br>![](../../images/chapter_02/01_Basic_of_Add-on_Development/generate_ico-sphere_2.png "ICO球作成 手順2")|
+|1|*[3Dビューポート]* スペースのメニューから、*[追加]* > *[メッシュ]* > *[ICO球]* を実行します。<br>![](../../images/chapter_02/01_Basic_Of_Add-on_Development/generate_ico-sphere_1.png "ICO球作成 手順1")|
+|2|3Dカーソルを中心としたICO球が作成されます。<br>![](../../images/chapter_02/01_Basic_Of_Add-on_Development/generate_ico-sphere_2.png "ICO球作成 手順2")|
 
 
 # アドオンを作成する
 
 仕様を満たすように、アドオンを作成します。
-ここでは、[1-5節](../chapter_01/05_Install_own_Add-on.html) を参考にして次のソースコードを入力し、ファイル名を `sample_2-1.py` として保存してください。
+ここでは、[1-5節](../chapter_01/05_Install_Own_Add-on.html) を参考にして次のソースコードを入力し、ファイル名を `sample_2-1.py` として保存してください。
 
 [@include-source pattern="full" filepath="chapter_02/sample_2-1.py"]
 
@@ -53,7 +53,7 @@ subtitle: 2-1. アドオン開発の基礎を身につける
 
 ## アドオンを有効化する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.html) を参考にして、作成したアドオンを有効化します。
+[1-5節](../chapter_01/05_Install_Own_Add-on.html) を参考にして、作成したアドオンを有効化します。
 
 アドオンを有効化すると、コンソールウィンドウに次の文字列が出力されます。
 
@@ -63,7 +63,7 @@ subtitle: 2-1. アドオン開発の基礎を身につける
 
 アドオン有効化後、*[3Dビューポート]* スペースのメニューに *[追加]* > *[メッシュ]* > *[球]* が追加されていることを確認します。
 
-![](../../images/chapter_02/01_Basic_of_Add-on_Development/enable_add-on.png "サンプルアドオン2-1 有効化")
+![](../../images/chapter_02/01_Basic_Of_Add-on_Development/enable_add-on.png "サンプルアドオン2-1 有効化")
 
 
 ## アドオンの機能を使用する
@@ -74,12 +74,12 @@ subtitle: 2-1. アドオン開発の基礎を身につける
 
 |||
 |---|---|
-|1|追加されたメニュー *[追加]* > *[メッシュ]* > *[球]* を実行すると、3Dカーソルを中心としたICO球が作成されます。<br>![](../../images/chapter_02/01_Basic_of_Add-on_Development/use_add-on_1.png "サンプルアドオン2-1 手順1")<br>さらに、コンソールウィンドウには次の文字列が出力されます。<br>`サンプル 2-1: ICO球を生成しました。`|
+|1|追加されたメニュー *[追加]* > *[メッシュ]* > *[球]* を実行すると、3Dカーソルを中心としたICO球が作成されます。<br>![](../../images/chapter_02/01_Basic_Of_Add-on_Development/use_add-on_1.png "サンプルアドオン2-1 手順1")<br>さらに、コンソールウィンドウには次の文字列が出力されます。<br>`サンプル 2-1: ICO球を生成しました。`|
 
 
 ## アドオンを無効化する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.html) を参考に、アドオンを無効化します。
+[1-5節](../chapter_01/05_Install_Own_Add-on.html) を参考に、アドオンを無効化します。
 
 アドオンを無効化すると、コンソールウィンドウに次の文字列が出力されます。
 
@@ -147,7 +147,7 @@ Blenderのアドオンを開発するためには、bpyモジュールと呼ば�
 次の図では、`bl_info` 変数に指定された値と表示内容の対応関係を示しています。
 `warning`, `wiki_url`, `tracker_url` については、本節のサンプルアドオンでは未設定のため表示されていません。
 
-![](../../images/chapter_02/01_Basic_of_Add-on_Development/bl-info_1.png "bl_info 解説1")
+![](../../images/chapter_02/01_Basic_Of_Add-on_Development/bl-info_1.png "bl_info 解説1")
 
 本節で作成したサンプルアドオンは、`warning`, `wiki_url`, `tracker_url` を設定していませんが、もしこれらのキーについて値を設定した場合に *[プリファレンス]* へどのように反映されるかを確認するため、ソースコードの `bl_info` を次のように書き換えます。
 
@@ -170,7 +170,7 @@ bl_info = {
 
 ソースコードを書き換えてファイルを保存し、アドオンを有効化すると、*[プリファレンス]* のアドオン情報にボタンと警告マークが表示されます。
 
-![](../../images/chapter_02/01_Basic_of_Add-on_Development/bl-info_2.png "bl_info 解説2")
+![](../../images/chapter_02/01_Basic_Of_Add-on_Development/bl-info_2.png "bl_info 解説2")
 
 *[ドキュメント編集]* ボタンをクリックすると、`wiki_url` に指定したURLが開きます。
 アドオンのドキュメントやアドオンの最新情報が得られるサイトのURLを、`wiki_url` に設定します。
@@ -241,7 +241,7 @@ Blenderのバージョンが2.80のとき、`(2, 80, 0)` を指定します。
 実際、どのような警告メッセージが表示されるか確認してみましょう。
 `blender` に `(2, 90, 0)` を指定してアドオンを有効化すると、次のように警告メッセージが表示されます。
 
-![](../../images/chapter_02/01_Basic_of_Add-on_Development/bl-info_3.png "bl_info 解説3")
+![](../../images/chapter_02/01_Basic_Of_Add-on_Development/bl-info_3.png "bl_info 解説3")
 
 <div class="column">
 アドオンが動作するバージョンを指定する必要があると説明しましたが、実際は警告が表示されるだけで警告を無視して使うことができてしまいます。
@@ -294,7 +294,7 @@ Blenderのバージョンが2.80のとき、`(2, 80, 0)` を指定します。
 本書で紹介する全てのサンプルアドオンは、`support` のキーに対して `TESTING` が設定されています。
 このため、*[テスト中]* ボタンのみを選択することで、サンプルアドオンをすぐに見つけることができます。
 
-![](../../images/chapter_02/01_Basic_of_Add-on_Development/bl-info_4.png "bl_info 解説4")
+![](../../images/chapter_02/01_Basic_Of_Add-on_Development/bl-info_4.png "bl_info 解説4")
 
 
 #### wiki_url
@@ -317,12 +317,12 @@ Blender公式のWikiページにアドオンのドキュメントを公開して
 カテゴリ一覧は、*[プリファレンス]* から確認できます。
 アドオンのカテゴリは英語で指定する必要があるため、Blenderを日本語化している人は一度英語に戻し、カテゴリの正式名称を確認しましょう。
 
-![](../../images/chapter_02/01_Basic_of_Add-on_Development/bl-info_5.png "bl_info 解説5")
+![](../../images/chapter_02/01_Basic_Of_Add-on_Development/bl-info_5.png "bl_info 解説5")
 
 既存のカテゴリに分類できない場合は、新たなカテゴリを作ることもできます。
 `category` に `"Sample"` を指定すると、次のように新たなカテゴリとして「Sample」が追加されていることがわかります。
 
-![](../../images/chapter_02/01_Basic_of_Add-on_Development/bl-info_6.png "bl_info 解説6")
+![](../../images/chapter_02/01_Basic_Of_Add-on_Development/bl-info_6.png "bl_info 解説6")
 
 
 <div class="column">
@@ -369,7 +369,7 @@ Blender公式のアドオン開発のガイドラインにも、アドオン開�
 
 `bl_idname` 、`bl_label` 、`bl_description` に指定した値は、次の図のように追加したメニューの項目から確認できます。
 
-![](../../images/chapter_02/01_Basic_of_Add-on_Development/operation_1.png "オペレータ 解説1")
+![](../../images/chapter_02/01_Basic_Of_Add-on_Development/operation_1.png "オペレータ 解説1")
 
 続いて、メニューを実行したときに呼ばれる `execute` メソッドを作成します。
 
@@ -416,7 +416,7 @@ def execute(self, context):
 
 アドオンを有効化し、*[3Dビューポート]* スペースのメニューから *[追加]* > *[メッシュ]* > *[球]* を実行すると、図のように指定した引数によって、ICO球の生成方法が変わったことが確認できます。
 
-![](../../images/chapter_02/01_Basic_of_Add-on_Development/operation_2.png "オペレータ 解説2")
+![](../../images/chapter_02/01_Basic_Of_Add-on_Development/operation_2.png "オペレータ 解説2")
 
 
 <div class="column">
@@ -426,7 +426,7 @@ Blenderでは、メニューやボタンをマウスオーバーすることで�
 このため、*[3Dビューポート]* スペースのメニュー *[追加]* > *[メッシュ]* > *[ICO球]* にマウスカーソルを置くことで、ICO球を生成する関数を確認できます。  
 この方法で確認できるのは、メニューなどで提供される機能に限りますが、手軽にAPIを確認できるため、覚えておいて損はないでしょう。
 
-![](../../images/chapter_02/01_Basic_of_Add-on_Development/find_API.png "APIの調査")
+![](../../images/chapter_02/01_Basic_Of_Add-on_Development/find_API.png "APIの調査")
 </div>
 
 続いて `print` 関数を呼んでいますが、`print` 関数は引数に指定した文字列をコンソールウィンドウに表示する関数です。
@@ -501,7 +501,7 @@ Blenderでは、メニューやボタンをマウスオーバーすることで�
 
 *[テキストエディター]* スペースのメニュー *[テキスト]* > *[スクリプト実行]* を実行したときに呼ばれる処理が、メイン処理です。
 
-![](../../images/chapter_02/01_Basic_of_Add-on_Development/run_script.png "スクリプト実行 手順")|
+![](../../images/chapter_02/01_Basic_Of_Add-on_Development/run_script.png "スクリプト実行 手順")|
 
 メイン処理では、アドオンの登録処理のみ行っています。
 

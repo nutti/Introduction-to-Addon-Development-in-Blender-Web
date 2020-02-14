@@ -25,7 +25,7 @@ subtitle: 索引
 |チェックボックス|[2-7](../chapter_02/07_Control_Blender_UI.html)|
 |モーダルモード|[3-1](../chapter_03/01_Handle_Mouse_Event.html)|
 |描画関数|[3-4](../chapter_03/04_Draw_Figures.html)|
-|翻訳辞書|[3-6](../chapter_03/06_Multilingual_Support.html)|
-|自動翻訳関数|[3-6](../chapter_03/06_Multilingual_Support.html)|
+|翻訳辞書|[3-6](../chapter_03/06_Support_Multiple_Languages.html)|
+|自動翻訳関数|[3-6](../chapter_03/06_Support_Multiple_Languages.html)|
 |プリファレンス|[3-7](../chapter_03/07_Use_Preference.html)|
 |アドオン設定情報クラス|[3-7](../chapter_03/07_Use_Preference.html)|

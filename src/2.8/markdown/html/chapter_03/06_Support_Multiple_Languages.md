@@ -14,7 +14,7 @@ BlenderのUIは、英語がデフォルトであることから、海外でも�
 本節では、アドオンのUIを複数の言語に対応させる方法について説明するため、新たな機能は作らずに、前節までのサンプルアドオンを改造します。
 このため、本節では次のような仕様のアドオンを作成します。
 
-* [2-5節](05_Allocate_Shortcut_Keys.html) のサンプルアドオンを改造し、英語と日本語のUIに対応する
+* [2-5節](../chapter_02/05_Allocate_Shortcut_Keys.html) のサンプルアドオンを改造し、英語と日本語のUIに対応する
 
 
 # アドオンを作成する
@@ -46,17 +46,17 @@ Sample 3-6: Add-on 'Sample 3-6' is enabled
 ## アドオンの機能を使用する
 
 有効化したアドオンの機能を使い、動作を確認します。
-[2-5節](05_Allocate_Shortcut_Keys.html) と同じ機能を持つアドオンであるため、本節ではUIの言語を変更する方法の手順のみ説明します。
+[2-5節](../chapter_02/05_Allocate_Shortcut_Keys.html) と同じ機能を持つアドオンであるため、本節ではUIの言語を変更する方法の手順のみ説明します。
 
 <div class="work"></div>
 
 |||
 |---|---|
-|1|トップバーから *[編集]* > *[プリファレンス...]* を実行して表示された *[プリファレンス]* より、*[インターフェース]* ボタンをクリックします。<br>![](../../images/chapter_03/06_Multilingual_Support/use_add-on_1.png "サンプルアドオン3-7 手順1")|
-|2|*[翻訳]* のチェックボックスにチェックが入っていることを確認し、言語を *[日本語 (Japanese)]* に設定します。また、配置されている3つのチェックボックスに、チェックが入っていることを確認します。<br>![](../../images/chapter_03/06_Multilingual_Support/use_add-on_2.png "サンプルアドオン3-7 手順2")|
-|3|[2-5節](05_Allocate_Shortcut_Keys.html) に従ってアドオンを使用し、UIやコンソールウィンドウなどに表示されるメッセージが、日本語になっていることを確認します。<br>![](../../images/chapter_03/06_Multilingual_Support/use_add-on_3.png "サンプルアドオン3-7 手順3")|
-|4|手順1を行ったあと、*[翻訳]* のチェックボックスにチェックが入っていることを確認し、言語を *[英語 (English)]* に設定します。また、配置されている3つのチェックボックスに、チェックが入っていることを確認します。<br>![](../../images/chapter_03/06_Multilingual_Support/use_add-on_4.png "サンプルアドオン3-7 手順4")|
-|5|[2-5節](05_Allocate_Shortcut_Keys.html) に従ってアドオンを使用し、UIやコンソールウィンドウなどに表示されるメッセージが英語になっていることを確認します。<br>![](../../images/chapter_03/06_Multilingual_Support/use_add-on_5.png "サンプルアドオン3-7 手順5")|
+|1|トップバーから *[編集]* > *[プリファレンス...]* を実行して表示された *[プリファレンス]* より、*[インターフェース]* ボタンをクリックします。<br>![](../../images/chapter_03/06_Support_Multiple_Languages/use_add-on_1.png "サンプルアドオン3-7 手順1")|
+|2|*[翻訳]* のチェックボックスにチェックが入っていることを確認し、言語を *[日本語 (Japanese)]* に設定します。また、配置されている3つのチェックボックスに、チェックが入っていることを確認します。<br>![](../../images/chapter_03/06_Support_Multiple_Languages/use_add-on_2.png "サンプルアドオン3-7 手順2")|
+|3|[2-5節](../chapter_02/05_Allocate_Shortcut_Keys.html) に従ってアドオンを使用し、UIやコンソールウィンドウなどに表示されるメッセージが、日本語になっていることを確認します。<br>![](../../images/chapter_03/06_Support_Multiple_Languages/use_add-on_3.png "サンプルアドオン3-7 手順3")|
+|4|手順1を行ったあと、*[翻訳]* のチェックボックスにチェックが入っていることを確認し、言語を *[英語 (English)]* に設定します。また、配置されている3つのチェックボックスに、チェックが入っていることを確認します。<br>![](../../images/chapter_03/06_Support_Multiple_Languages/use_add-on_4.png "サンプルアドオン3-7 手順4")|
+|5|[2-5節](../chapter_02/05_Allocate_Shortcut_Keys.html) に従ってアドオンを使用し、UIやコンソールウィンドウなどに表示されるメッセージが英語になっていることを確認します。<br>![](../../images/chapter_03/06_Support_Multiple_Languages/use_add-on_5.png "サンプルアドオン3-7 手順5")|
 
 
 ## アドオンを無効化する
@@ -77,7 +77,7 @@ Sample 3-6: Add-on 'Sample 3-6' is disabled
 
 # ソースコードの解説
 
-本節のサンプルアドオンは、[2-5節](05_Allocate_Shortcut_Keys.html) のサンプルを改造したものであるため、[2-5節](05_Allocate_Shortcut_Keys.html) で説明した処理については説明せず、複数の言語に対応する方法についてのみ説明します。
+本節のサンプルアドオンは、[2-5節](../chapter_02/05_Allocate_Shortcut_Keys.html) のサンプルを改造したものであるため、[2-5節](../chapter_02/05_Allocate_Shortcut_Keys.html) で説明した処理については説明せず、複数の言語に対応する方法についてのみ説明します。
 
 
 ## 複数言語への対応方法

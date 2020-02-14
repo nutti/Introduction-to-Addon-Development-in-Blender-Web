@@ -24,14 +24,14 @@ subtitle: 2-6. アドオンのソースコードを<br>複数ファイルへ分�
 
 本節では、次に示すアドオンを作成します。
 
-* [2-2節](../chapter_02/02_Register_Multiple_Operator.html) で紹介したサンプルアドオンと同じ機能を持つ
+* [2-2節](02_Register_Multiple_Operators.html) で紹介したサンプルアドオンと同じ機能を持つ
 * *[オブジェクト]* > *[X軸正方向へ並進移動]* の処理と *[オブジェクト]* > *[X軸負方向へ並進移動]* の処理を、複数のファイルに分割して記述する
 
 
 # アドオンを作成する
 
 [1-2節](../chapter_01/02_Use_Blender_Add-on.html) で説明したBlenderアドオン用フォルダに、ディレクトリ名 `sample_2-6` のディレクトリを作成します。
-[1-5節](../chapter_01/05_Install_own_Add-on.html) を参考にして次のソースコードを入力し、作成したディレクトリの下にファイル名をそれぞれ `__init__.py` , `forward_object.py` , `backward_object.py` として保存してください。
+[1-5節](../chapter_01/05_Install_Own_Add-on.html) を参考にして次のソースコードを入力し、作成したディレクトリの下にファイル名をそれぞれ `__init__.py` , `forward_object.py` , `backward_object.py` として保存してください。
 
 
 ## \_\_init\_\_.py
@@ -53,7 +53,7 @@ subtitle: 2-6. アドオンのソースコードを<br>複数ファイルへ分�
 
 ## アドオンを有効化する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.html) を参考に作成したアドオンを有効化すると、コンソールウィンドウに次の文字列が出力されます。
+[1-5節](../chapter_01/05_Install_Own_Add-on.html) を参考に作成したアドオンを有効化すると、コンソールウィンドウに次の文字列が出力されます。
 
 ```
 サンプル 2-6: アドオン『サンプル 2-6』が有効化されました。
@@ -62,12 +62,12 @@ subtitle: 2-6. アドオンのソースコードを<br>複数ファイルへ分�
 
 ## アドオンの機能を使用する
 
-アドオンの機能は、[2-2節](../chapter_02/02_Register_Multiple_Operation_Classes.html) で紹介したサンプルと同じ機能ですので、ここでは説明を省きます。
+アドオンの機能は、[2-2節](02_Register_Multiple_Operators.html) で紹介したサンプルと同じ機能ですので、ここでは説明を省きます。
 
 
 ## アドオンを無効化する
 
-[1-5節](../chapter_01/05_Install_own_Add-on.html) を参考にして有効化したアドオンを無効化すると、コンソールウィンドウに次の文字列が出力されます。
+[1-5節](../chapter_01/05_Install_Own_Add-on.html) を参考にして有効化したアドオンを無効化すると、コンソールウィンドウに次の文字列が出力されます。
 
 ```
 サンプル 2-6: アドオン『サンプル 2-6』が無効化されました。
@@ -150,14 +150,14 @@ from . import backward_object
 ### グローバル変数bl_infoの作成
 
 ファイル `__init__.py` には、グローバル変数 `bl_info` を定義する必要があります。
-`bl_info` については、[2-1節](../chapter_02/01_Basic_of_Add-on_Development.html) ですでに説明しているため、ここでは説明を省略します。
+`bl_info` については、[2-1節](01_Basic_Of_Add-on_Development.html) ですでに説明しているため、ここでは説明を省略します。
 
 
 ### アドオン有効化・無効化時の処理
 
 アドオンの有効化・無効化時に呼ばれる `register` 関数と `unregister` 関数についても、`__init__.py` に定義する必要があります。
 
-`register` 関数と `unregister` 関数に定義した処理は、[2-1節](../chapter_02/01_Basic_of_Add-on_Development.html) で説明した内容とほぼ同じですが、1点異なることがあります。
+`register` 関数と `unregister` 関数に定義した処理は、[2-1節](01_Basic_Of_Add-on_Development.html) で説明した内容とほぼ同じですが、1点異なることがあります。
 
 `register` 関数や `unregister` 関数の処理内で、`bpy.types.VIEW3D_MT_object.append` メソッドの引数に渡す `menu_fn` 関数を見てください。
 `menu_fn` 関数の中で `self.layout.operator` メソッドが呼ばれているのは同じですが、引数に渡すクラス名の前にモジュール名が追加されています。
@@ -167,7 +167,7 @@ bpyモジュールと同様に、forward_objectやbackward_objectもモジュー
 ## forward_object.py、backward_object.py
 
 `forward_object.py` には `SAMPLE26_OT_ForwardXObject` クラス、`backward_object.py` には `SAMPLE26_OT_BackwardXObject` クラスが定義されています。
-ソースコードの内容は、[2-1節](../chapter_02/01_Basic_of_Add-on_Development.html) と同じであるため、ここでは説明を省略します。
+ソースコードの内容は、[2-1節](01_Basic_Of_Add-on_Development.html) と同じであるため、ここでは説明を省略します。
 
 
 # まとめ

@@ -19,7 +19,7 @@ subtitle: 5-1. キーボードによるオブジェクト変形
 * [2-7. BlenderのUIを制御する](../chapter_02/07_Control_Blender_UI.html)
   * `poll` メソッドの扱い方
   * SidebarのUI構築
-* [3-2. キーボードのイベントを扱う](../chapter_03/02_Handle_Keyboard_Key_Event.html)
+* [3-2. キーボードのイベントを扱う](../chapter_03/02_Handle_Keyboard_Event.html)
   * キーボードのイベントの扱い方
 * [3-7. プリファレンスを活用する](../chapter_03/07_Use_Preference.html)
   * プリファレンスにアドオン設定情報を配置する方法
@@ -66,8 +66,8 @@ subtitle: 5-1. キーボードによるオブジェクト変形
 
 |||
 |---|---|
-|1|プリファンレンスのアドオンの設定から、特殊オブジェクト編集モード時の処理に割り当てるキーを変更します。<br>![](../../images/chapter_05/01_Transform_Object_with_Keybord/use_add-on_1.png "サンプルアドオン5-1 手順1")|
-|2|*[3Dビューポート]* スペースのSidebarから、*[サンプル 5-1]* > *[特殊オブジェクト編集モード]* > *[開始]* ボタンをクリックします。<br>![](../../images/chapter_05/01_Transform_Object_with_Keybord/use_add-on_2.png "サンプルアドオン5-1 手順2")|
-|3|1で割り当てたキーを押し、特殊オブジェクト編集モード中にキーに割り当てた処理が実行されることを確認します。<br>![](../../images/chapter_05/01_Transform_Object_with_Keybord/use_add-on_3.png "サンプルアドオン5-1 手順3")|
-|4|パネル *[サンプル 5-1]* > *[特殊オブジェクト編集モード]* から、各処理の移動量・拡大率・縮小率・回転量を指定できます。<br>![](../../images/chapter_05/01_Transform_Object_with_Keybord/use_add-on_4.png "サンプルアドオン5-1 手順4")|
-|5|パネル *[サンプル 5-1]* > *[特殊オブジェクト編集モード]* に配置されている *[終了]* ボタンを押すと、特殊オブジェクト編集モードを終了します。<br>![](../../images/chapter_05/01_Transform_Object_with_Keybord/use_add-on_5.png "サンプルアドオン 5-1 手順5")|
+|1|プリファンレンスのアドオンの設定から、特殊オブジェクト編集モード時の処理に割り当てるキーを変更します。<br>![](../../images/chapter_05/01_Transform_Object_With_Keybord/use_add-on_1.png "サンプルアドオン5-1 手順1")|
+|2|*[3Dビューポート]* スペースのSidebarから、*[サンプル 5-1]* > *[特殊オブジェクト編集モード]* > *[開始]* ボタンをクリックします。<br>![](../../images/chapter_05/01_Transform_Object_With_Keybord/use_add-on_2.png "サンプルアドオン5-1 手順2")|
+|3|1で割り当てたキーを押し、特殊オブジェクト編集モード中にキーに割り当てた処理が実行されることを確認します。<br>![](../../images/chapter_05/01_Transform_Object_With_Keybord/use_add-on_3.png "サンプルアドオン5-1 手順3")|
+|4|パネル *[サンプル 5-1]* > *[特殊オブジェクト編集モード]* から、各処理の移動量・拡大率・縮小率・回転量を指定できます。<br>![](../../images/chapter_05/01_Transform_Object_With_Keybord/use_add-on_4.png "サンプルアドオン5-1 手順4")|
+|5|パネル *[サンプル 5-1]* > *[特殊オブジェクト編集モード]* に配置されている *[終了]* ボタンを押すと、特殊オブジェクト編集モードを終了します。<br>![](../../images/chapter_05/01_Transform_Object_With_Keybord/use_add-on_5.png "サンプルアドオン 5-1 手順5")|
