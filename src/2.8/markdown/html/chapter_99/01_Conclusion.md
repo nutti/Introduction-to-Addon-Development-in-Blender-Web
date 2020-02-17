@@ -41,7 +41,10 @@ Twitteで宣伝したときにリツイートやいいねしてくださった�
 
 Webサイトの一部をお借りして、本書の宣伝にご協力いただいた方です。
 
-BLUG.jp 様
+* BLUG.jp 様
+    * [BlenderのWiki](https://wiki3.jp/blugjp/page/12)、[blugjpまとめサイト](https://sites.google.com/site/blugjp/blenderpython) にて、本書をご紹介していただきました
+* 3D人 様
+    * [3D人-3dnchu-](https://3dnchu.com/) にて、本書の [Blender 2.7版](https://3dnchu.com/archives/introduction-to-add-on-development-in-blender/) と [Blender 2.8版](https://3dnchu.com/archives/introduction-addon-dev-book-blender-28/) をご紹介していただきました
 
 
 ## 本書執筆にご協力いただいた方
