@@ -51,7 +51,7 @@ Webサイトの一部をお借りして、本書の宣伝にご協力いただ�
 
 誤字・脱字の指摘、修正や改善要望していただいた方です。
 
-conchan-akita 様, sariew 様, AWA 様, うにっこ 様, itashin0501 様, N(Natukikazemizo) 様
+conchan-akita 様, sariew 様, AWA 様, うにっこ 様, itashin0501 様, N(Natukikazemizo) 様, hzuika 様
 
 
 ## ホームページや連絡先
