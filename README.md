@@ -110,3 +110,19 @@ Markdownに埋め込むソースコードの部分を `# @include-source start [
 ```
 $ node tools/gen_word_index.js --src-dir=src/2.8 --dest-file=00_Index.md
 ```
+
+
+## Project Authors
+
+
+### Owner
+
+[**@nutti**](https://github.com/nutti)
+
+Indie Game/Application Developer.  
+Especially, I spend most time to improve Blender and Unreal Game Engine via providing the extensions.
+
+Support via [GitHub Sponsors](https://github.com/sponsors/nutti)
+
+* CONTACTS: [Twitter](https://twitter.com/nutti__)
+* WEBSITE: [Japanese Only](https://colorful-pico.net/)
