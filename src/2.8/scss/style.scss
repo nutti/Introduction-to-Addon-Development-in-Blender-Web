@@ -91,7 +91,12 @@ html {
             top: 0;
             bottom: 0;
             right: 0;
-
+            div.ad-header {
+                text-align: center;
+            }
+            div.ad-footer {
+                text-align: center;
+            }
             div.body-inner {
                 padding: 2rem;
                 max-width: 60rem;
