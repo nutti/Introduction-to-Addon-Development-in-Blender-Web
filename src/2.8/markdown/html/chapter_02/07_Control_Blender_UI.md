@@ -93,7 +93,7 @@ BlenderのUIが、Pythonで書かれていることを確認するために、*[
 サンプルアドオンでは、アドオン有効化時に `register` 関数から呼び出される `init_props` 関数で、プロパティを作成しています。
 プロパティクラスの変数を `bpy.types.Scene` に追加することで、プロパティを追加できます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="init_props"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="init_props", unindent="True"]
 
 
 #### プロパティを削除する
@@ -103,7 +103,7 @@ BlenderのUIが、Pythonで書かれていることを確認するために、*[
 
 サンプルアドオンでは、`unregister` 関数から呼び出される `clear_props` 関数で、プロパティを削除しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="clear_props"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="clear_props", unindent="True"]
 
 
 ## Sidebarにパネルを追加する
@@ -114,7 +114,7 @@ BlenderのUIが、Pythonで書かれていることを確認するために、*[
 
 Sidebarにパネルを追加するためには、`bpy.types.Panel` クラスを継承した **パネルクラス** を定義する必要があります。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="panel_cls"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="panel_cls", unindent="True"]
 
 本節のサンプルアドオンでは、パネルクラスとして `SAMPLE27_PT_CustomPanel` クラスを作成しています。
 パネルクラスのクラス名は、フォーマット `XXX_PT_YYY` に従う必要があります。
@@ -197,7 +197,7 @@ Sidebarにパネルを追加するためには、`bpy.types.Panel` クラスを�
 本節のサンプルアドオンでは、*[オブジェクトモード]* 時のみパネルを描画するため、`bl_context = "objectmode"` としています。
 また、`poll` メソッドでは、オブジェクトが選択されているときのみ、パネルクラスの処理が実行可能になるように定義しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="poll"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="poll", unindent="True"]
 
 `poll` メソッドはクラス単位で定義する処理となるため、クラスメソッドとして定義する必要があります。
 このため、デコレータ `@classmethod` をつけてメソッドを定義する必要があります。
@@ -219,7 +219,7 @@ Sidebarにパネルを追加するためには、`bpy.types.Panel` クラスを�
 パネルのヘッダのUIを変更するためには、パネルクラスの `draw_header` メソッドを定義します。
 `draw` メソッドでは、ヘッダのUIを変更できない点に注意が必要です。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="draw_header"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="draw_header", unindent="True"]
 
 `draw_header` メソッドの引数は、次に示す通りです。
 
@@ -271,7 +271,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 ボタンを押すと、`layout.operator` メソッドの第1引数に指定したオペレータクラスの `bl_idname` を持つ、オペレータクラスの処理が実行されます。
 本節のサンプルアドオンでは、次の処理により2種類のボタン（標準のボタンと文字列の周りの装飾が消えたボタン）を追加しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="add_button"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="add_button", unindent="True"]
 
 
 ### セパレータ
@@ -279,7 +279,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 `layout.separator` メソッドを呼ぶことで、上下のスペースを空けることができます（**セパレータ** と呼びます）。
 メニューに対して `layout.separator` メソッドを実行したときの動作については、[2-1節](01_Basic_Of_Add-on_Development.html) を参考にしてください。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="add_separator"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="add_separator", unindent="True"]
 
 
 ### ドロップダウンメニュー
@@ -295,7 +295,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 メニュー名は、第1引数に指定したメニュークラスのクラス変数 `bl_label` がデフォルトになりますが、`text` 引数に文字列を指定することで変更できます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="add_dropdown_menu"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="add_dropdown_menu", unindent="True"]
 
 
 ### テキストボックス
@@ -314,7 +314,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 サンプルアドオンでは、`bpy.types.Scene` にプロパティクラスの変数を登録したため、`context.scene` を第1引数に指定します。
 第2引数には、`bpy.types.Scene` に登録したプロパティクラスの変数名を文字列で指定します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="add_textbox"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="add_textbox", unindent="True"]
 
 
 ### ドロップダウンプロパティ
@@ -324,7 +324,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 **ドロップダウンプロパティ** は、登録された項目の中からユーザが値を設定できるUIパーツです。
 `self.layout.prop` メソッドの第2引数に、`bpy.props.EnumProperty` クラスの変数を指定することで、ドロップダウンプロパティを作成できます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="add_dropdown_property"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="add_dropdown_property", unindent="True"]
 
 
 ### チェックボックス
@@ -334,7 +334,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 **チェックボックス** は、ユーザがON/OFFを切りかえることができるUIパーツです。
 `self.layout.prop` メソッドの第2引数に、`bpy.props.BoolProperty` の変数を指定することで、チェックボックスを作成できます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="add_checkbox"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="add_checkbox", unindent="True"]
 
 
 ## 整列
@@ -350,7 +350,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 ボタンを横に並べるためには、`layout.row` メソッドを使って行成分を取得し、取得した行成分に対して `operator` メソッドを使ってボタンを配置する必要があります。
 本節のサンプルアドオンでは、次のようにして3つのボタンを一行に並べています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="arrange_column"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="arrange_column", unindent="True"]
 
 なお、`operator` メソッドの代わりに `label` メソッド、`prop` メソッドや `menu` メソッドを使うことによって、ラベルやボタンなどを一行に並べて配置できます。
 
@@ -361,7 +361,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 `layout.row` メソッドの引数に `align=True` を指定すると、ボタンとボタンの間に隙間がなくなるように配置されます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="arrange_column_align"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="arrange_column_align", unindent="True"]
 
 
 ### 一列配置（アライメントなし）
@@ -373,7 +373,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 本節のサンプルアドオンでは、次のようにして3つのボタンを一列に並べています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="arrange_row"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="arrange_row", unindent="True"]
 
 なお、`operator` メソッドの代わりに `label` メソッド、`prop` メソッドや `menu` メソッドを使うことによって、ラベルやボタンなどを一列に並べて配置できます。
 
@@ -384,7 +384,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 `layout.column ` メソッドの引数に `align=True` を指定すると、ボタンとボタンの間に隙間がなくなるように配置されます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="arrange_row_align"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="arrange_row_align", unindent="True"]
 
 
 ### 複数行、複数列配置
@@ -395,7 +395,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 本節のサンプルアドオンでは、次のようにして2行2列にボタンを配置しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="arrange_row_multi"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="arrange_row_multi", unindent="True"]
 
 
 ### 領域分割
@@ -411,7 +411,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 本節のサンプルアドオンでは、次のような処理で領域を3分割しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="divide_region"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="divide_region", unindent="True"]
 
 分割後の各領域では、縦並びにボタンを2つ表示しています。
 
@@ -430,7 +430,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 サンプルアドオンでは、次のように `row.alignment` に `EXPAND` を設定し、明示的にボタンの横幅を最大化しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="align_expand"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="align_expand", unindent="True"]
 
 
 ### 左寄せ
@@ -441,7 +441,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 サンプルアドオンでは、次のように `row.alignment` に `LEFT` を指定し、ボタンを左寄せ配置しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="align_left"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="align_left", unindent="True"]
 
 
 ### 右寄せ
@@ -450,7 +450,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 
 `row.alignment` に `RIGHT` を指定することで、右寄せ配置も可能です。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="align_right"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="align_right", unindent="True"]
 
 
 ### グループ化
@@ -463,7 +463,7 @@ Blenderは、ボタンやリストボックスなどのさまざまなUIパー�
 サンプルアドオンでは、次のソースコードにより、4つのボタンをグループ化しています。
 グループ内のUIは、通常のUIと同様の方法でUIを構築できます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="grouping"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-7.py" block="grouping", unindent="True"]
 
 
 # まとめ

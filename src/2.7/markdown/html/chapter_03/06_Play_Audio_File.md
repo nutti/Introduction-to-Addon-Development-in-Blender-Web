@@ -78,7 +78,7 @@ subtitle: 3-6. オーディオファイルを再生する
 Blenderは `aud` モジュールと呼ばれる、オーディオファイルを扱うためのモジュールを提供しています。
 オーディオファイルを扱うためには、この `aud` モジュールをインポートする必要があります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="import_aud"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="import_aud", unindent="True"]
 
 
 ## アドオン内で利用するプロパティを定義する
@@ -112,7 +112,7 @@ Blenderは `aud` モジュールと呼ばれる、オーディオファイルを
 
 2つ目は、ファイルブラウザを開いた時に表示されるファイルが、wavファイルとmp3のファイルのみであることです。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="filter_glob"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="filter_glob", unindent="True"]
 
 
 特定のファイルのみをファイルブラウザで表示する場合は、`filter_glob` クラス変数を `StringProperty` クラスで定義し、表示するファイルのリストを引数 `default` に `;` （セミコロン）区切りで指定します。
@@ -144,7 +144,7 @@ Blenderは `aud` モジュールと呼ばれる、オーディオファイルを
 ファイルブラウザでファイルを選択すると、`SelectAudioFile` クラスの `execute` メソッドが実行され、選択したオーディオファイルが再生されます。
 それでは、オーディオファイルを再生するための具体的なコードを見てみましょう。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="select_audio_file_execute"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="select_audio_file_execute", unindent="True"]
 
 
 ### 1. サウンドデバイスの作成
@@ -185,7 +185,7 @@ Blenderは `aud` モジュールと呼ばれる、オーディオファイルを
 
 [停止] ボタンが押された時は `StopAudioFile` クラスの `execute` メソッドが呼び出され、オーディオファイルの再生を停止する処理が実行されます。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="stop_audio_file"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="stop_audio_file", unindent="True"]
 
 
 サウンドハンドラである `AudioDevice.handle` は、再生状態を制御するための次のような関数を用意しています。
@@ -203,7 +203,7 @@ Blenderは `aud` モジュールと呼ばれる、オーディオファイルを
 本節のサンプルでは、オーディオファイルの再生状態に応じてUIを変更する処理が、パネルクラス `VIEW3D_PT_PlayAudioFileMenu` の `draw` メソッドに存在します。
 オーディオが再生停止中の場合には [オーディオファイルを選択] ボタンを表示し、再生中の場合には [停止] ボタンを表示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="check_play_status"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="check_play_status", unindent="True"]
 
 
 オーディオファイルの再生状態に応じてUIを変更するために、オーディオファイルの再生状態を知る必要があります。
@@ -232,13 +232,13 @@ Blenderは `aud` モジュールと呼ばれる、オーディオファイルを
 本節のサンプルのように、プロパティの値が変わったことを検知して独自の処理を行いたい場合は、プロパティクラスの引数 `set` と `get` に、実行したい関数をプロパティクラス作成時に登録します。
 引数 `set` には、プロパティの値が変更された時に呼び出す関数を指定し、引数 `get` にはプロパティの値を参照するときに呼び出す関数を指定します。サンプルのプロパティの定義を見てみましょう。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="prop_volume"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="prop_volume", unindent="True"]
 
 
 プロパティクラス `FloatProperty` の引数 `get` に `get_volume` 関数、引数 `set` に `set_volume` 関数を指定しています。
 最初に、`get_volume` 関数について説明します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="get_volume"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="get_volume", unindent="True"]
 
 
 `get_volume` 関数は、第1引数に `bpy.context.scene` が指定された状態で呼び出されます。
@@ -253,7 +253,7 @@ Blenderは `aud` モジュールと呼ばれる、オーディオファイルを
 続いて、`set_volume` 関数について説明します。
 `set_volume` 関数は、第1引数に `bpy.context.scene`、ユーザがプロパティに設定した値が第2引数に渡されて呼び出されます。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="set_volume"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_6.py" block="set_volume", unindent="True"]
 
 
 `set_volume` 関数は、`self['paf_volume'] = value` によりプロパティの値を更新した後、`AudioDevice.handle.volume` に値を設定することで音量を変更します。

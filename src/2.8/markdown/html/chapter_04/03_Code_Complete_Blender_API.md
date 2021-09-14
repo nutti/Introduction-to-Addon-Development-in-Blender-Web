@@ -10,7 +10,7 @@ subtitle: 4-3. BlenderのAPIをコード補完する
 
 # 「fake-bpy-module」の紹介
 
-Blenderが提供するPython APIの一部は、Pythonのソースコードではなくバイナリデータとして提供されるため、そのままではコードを補完できません。
+Blenderが提供するPython APIの一部はスタブやPythonプログラムとして提供されていないため、そのままではコードを補完できません。
 筆者はこの問題を解決するため、Blenderが提供するPython APIのインタフェース部分のみを記述した、疑似モジュール「[fake-bpy-module](https://github.com/nutti/fake-bpy-module)」を開発しました。
 「fake-bpy-module」を利用することで、基本的にコード補完機能を持つすべてのエディタで、BlenderのPython APIに関してコード補完できます。
 

@@ -78,7 +78,7 @@ subtitle: 3-5. blfモジュールを使ってテキストを描画する
 テキストを描画するためのAPIは、`blf` と呼ばれるモジュールに含まれています。
 このため、`blf` モジュールをインポートする必要があります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_5.py" block="import_blf"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_5.py" block="import_blf", unindent="True"]
 
 
 ## アドオン内で利用するプロパティを定義する
@@ -97,7 +97,7 @@ subtitle: 3-5. blfモジュールを使ってテキストを描画する
 描画関数の登録は、`__handle_add` メソッド内の `bpy.types.SpaceView3D.draw_handler_add` 関数で行います。
 具体的な引数の型については、[3-4節](04_Use_API_for_OpenGL.html) と同じであるため、説明は省略します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_5.py" block="add_render_func"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_5.py" block="add_render_func", unindent="True"]
 
 
 本節のサンプルでは、描画関数が `RenderText.__render` スタティックメソッド、描画するリージョンが `WINDOW` であることから、第1引数に `RenderText.__render` 、第3引数に `WINDOW` を指定します。
@@ -129,7 +129,7 @@ subtitle: 3-5. blfモジュールを使ってテキストを描画する
 
 `RenderText.__get_region` スタティックメソッドのコードを次に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_5.py" block="get_region"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_5.py" block="get_region", unindent="True"]
 
 
 Blender上で開いている全てのエリア情報は、`context.screen.areas` に保存されているため、`RenderText.__get_region` スタティックメソッドの引数に指定したエリアのタイプ `area_type` と `area.type` が一致することを確認することで、目的のエリア情報を取得することができます。
@@ -157,7 +157,7 @@ Blender上で開いている全てのエリア情報は、`context.screen.areas`
 
 テキストの描画処理は、`RenderText.__render_text` スタティックメソッドで行います。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_5.py" block="render_text"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_5.py" block="render_text", unindent="True"]
 
 
 `RenderText.__render_text` スタティックメソッドに指定する引数を次に示します。
@@ -205,7 +205,7 @@ Blender上で開いている全てのエリア情報は、`context.screen.areas`
 
 ここまでの処理でテキストを描画することができますが、本節のサンプルでは `blf` モジュールのフォント装飾機能を使ってテキストに少し飾りつけを行っています。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_5.py" block="call_render_region"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_5.py" block="call_render_region", unindent="True"]
 
 
 テキスト "Hello Blender world!!" は、`blf` モジュールのフォント装飾機能を使って強調表示しています。
@@ -282,7 +282,7 @@ Blender上で開いている全てのエリア情報は、`context.screen.areas`
 
 [3-4節](04_Use_API_for_OpenGL.html) と同様に、描画処理を停止するときに登録した描画関数の登録を解除する必要があります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_5.py" block="remove_render_func"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_5.py" block="remove_render_func", unindent="True"]
 
 
 # まとめ

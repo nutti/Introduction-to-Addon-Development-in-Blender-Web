@@ -133,7 +133,7 @@ from . import backward_object
 
 この問題に対応するため、次のようにインポート処理を書き換える必要があります。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-6/__init__.py" block="import_moudle"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-6/__init__.py" block="import_moudle", unindent="True"]
 
 上記の処理を簡単に説明します。
 最初のif文では、bpyモジュールがすでにインポートされているかを判定します。

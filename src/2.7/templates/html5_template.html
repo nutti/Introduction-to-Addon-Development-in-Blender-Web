@@ -14,19 +14,19 @@ $if(description)$
   <meta name="description" content="$description$" />
 $endif$
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@nutti__" />
-  <meta property="og:url" content="https://colorful-pico.net/introduction-to-addon-development-in-blender/2.7/index.html" />
+  <meta name="twitter:site" content="@$twitter-site$" />
+  <meta property="og:url" content="$og-url$" />
   <meta property="og:title" content="$if(title-prefix)$$title-prefix$$endif$$if(pagetitle)$ | $pagetitle$$endif$" />
 $if(description)$
   <meta property="og:description" content="$description$" />
 $endif$
-  <meta property="og:image" content="https://media.githubusercontent.com/media/nutti/Introduction-to-Addon-Development-in-Blender/master/src/2.7/images/chapter_01/05_Install_own_Add-on/blender_make_add-on_3.png" />
-  <meta property="og:site_name" content="COLORFUL PICO" />
+  <meta property="og:image" content="$og-img$" />
+  <meta property="og:site_name" content="$og-sitename$" />
   <meta property="og:locale" content="ja_JP" />
   <meta property="og:type" content="website" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
   <title>$if(title-prefix)$$title-prefix$$endif$$if(pagetitle)$ | $pagetitle$$endif$</title>
@@ -40,6 +40,15 @@ $if(quotes)$
       q { quotes: "“" "”" "‘" "’"; }
 $endif$
   </style>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="/2.7/js/main.js"></script>
+  <script type="text/javascript">
+    toggleMenuVisibility();
+    addLinkHoverEffect();
+    window.onload = function(){ setupMenuVisibility(); enhanceCurrentTocItem(); }
+    
+  </script>
 
 $if(highlighting-css)$
   <style type="text/css">
@@ -67,28 +76,54 @@ $for(include-before)$
 $include-before$
 $endfor$
 
+<div id="toggle-pc-toc-open"><a href="#toggle-pc-toc-open"></a></div>
+
+<div id="toggle-sp-toc-open"><a href="#toggle-sp-toc-open"></a></div>
+
+
 <div class="toc">
-$if(title-prefix)$
-<p class="title">$title-prefix$</p>
-$endif$
-$if(date)$
-<p class="date">Last Update: $date$</p>
-$endif$
-<!-- @include-toc -->
+  <div id="toc-pc" class="toc-pc">
+    <div id="toggle-pc-toc-close"><a href="#toggle-pc-toc-close"></a></div>
+    $if(title-prefix)$
+    <p class="title">$title-prefix$</p>
+    $endif$
+    $if(date)$
+    <p class="date">Last Update: $date$</p>
+    $endif$
+    <!-- @include-toc -->
+  </div>
+  <div id="toc-sp" class="toc-sp">
+    <div class="contents">
+      $if(title-prefix)$
+      <p class="title">$title-prefix$</p>
+      $endif$
+      <!-- @include-toc -->
+      $if(date)$
+      <p class="date">Last Update: $date$</p>
+      $endif$
+    </div>
+  </div>
 </div>
 
 <div class="body">
+    <div class="body-header">
+      <a href="#toggle-sp-toc-close">
+        <div class="toggle-sp-toc-close">
+        </div>
+      </a>
+    </div>
+
     <div class="ad-header">
       <!-- embed_ad=colorful_pico_ad_header -->
     </div>
     <div class="body-inner">
         <header>
             <div class="contact">
-                <a href="https://github.com/nutti/Introduction-to-Addon-Development-in-Blender/issues">問題を報告する</a><br>
-                <a href="https://github.com/nutti/Introduction-to-Addon-Development-in-Blender/pulls">本を修正する</a>
+                <a href="$report-url$">問題を報告する</a><br>
+                <a href="$contrib-url$">本を修正する</a>
             </div>
             <div class="share">
-                <a href="https://twitter.com/home?status=[$title-prefix$]%20$subtitle$%20https%3A//colorful-pico.net/bl-addon-intro/<!-- @replace-own-url -->">Twitter</a>
+                <a href="https://twitter.com/home?status=$title-prefix$%20|%20$subtitle$%20$deploy-url$/<!-- @replace-own-url -->">Twitter</a>
             </div>
         </header>
 
@@ -109,7 +144,7 @@ $body$
             </div>
 
             $for(author)$
-            <p class="author">© 2015-2019 $author$</p>
+            <p class="author">© $copyright-year$ $author$</p>
             $endfor$
         </footer>
     </div>

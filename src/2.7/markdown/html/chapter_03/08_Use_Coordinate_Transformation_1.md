@@ -149,7 +149,7 @@ Blenderが提供するAPIの大半は `bpy` モジュールに含まれるため
 サンプルでは、座標変換を行うために `bpy_extra` モジュールを利用します。
 座標変換を行うためのAPIは、`bpy_extra` モジュールのサブモジュール `view3d_utils` に含まれているため、サブモジュール `view3d_utils` をインポートします。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_8.py" block="import_view3d_utils"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_8.py" block="import_view3d_utils", unindent="True"]
 
 
 ## オブジェクトの軌跡を表示する
@@ -189,13 +189,13 @@ Blenderが提供するAPIの大半は `bpy` モジュールに含まれるため
 
 この `view3d_utils.location_3d_to_region_2d` 関数を使って、オブジェクトの位置座標をリージョン座標に変換する処理を次に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_8.py" block="loc_to_region"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_8.py" block="loc_to_region", unindent="True"]
 
 
 `view3d_utils.location_3d_to_region_2d` 関数を呼び出すために必要となるリージョン情報とスペース情報は、`DrawObjectTrajectory.__get_region_space` スタティックメソッドで取得します。
 `DrawObjectTrajectory.__get_region_space` スタティックメソッドは、[3-5節](05_Render_String_with_blf_Module.html) で説明した `RenderText.__get_region` スタティックメソッドを改良したものです。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_8.py" block="get_region_space"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_8.py" block="get_region_space", unindent="True"]
 
 
 `DrawObjectTrajectory.__get_region_space` スタティックメソッドは、引数 `area_type` で指定されたエリア上の、`region_type` に指定されたリージョン情報を返すことに加え、引数 `space_type` に指定されたスペース情報も返します。
@@ -215,7 +215,7 @@ Blenderが提供するAPIの大半は `bpy` モジュールに含まれるため
 位置情報の履歴は、一定量を超えた時に削除しないと、画面が四角形で埋め尽くされてしまいます。
 このため、位置情報の履歴数が100以上になった時に最も古い位置情報（クラス変数 `DrawObjectTrajectory.__loc_history` の先頭の要素）を削除します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_8.py" block="delete_oldest_loc"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_8.py" block="delete_oldest_loc", unindent="True"]
 
 
 ### 4. 変換したリージョン座標に四角形を描画する
@@ -224,7 +224,7 @@ Blenderが提供するAPIの大半は `bpy` モジュールに含まれるため
 四角形の描画は `bgl` モジュールを使い、クラス変数 `DrawObjectTrajectory.__loc_history` に保存されたすべての要素について [3-4節](04_Use_API_for_OpenGL.html) で説明した方法で描画します。
 描画処理については、特に新しいことは行っていないため、具体的な処理の説明は割愛します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_8.py" block="render_rect"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_8.py" block="render_rect", unindent="True"]
 
 
 # まとめ

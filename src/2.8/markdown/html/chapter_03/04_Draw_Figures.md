@@ -74,7 +74,7 @@ Sidebarを表示し、パネル *[サンプル 3-4]* > *[星型の図形を表�
 本節のサンプルアドオンは、図形を描画するために、gpuモジュールで提供されるAPIを利用しています。
 このため、gpuモジュールをインポートする必要があります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="import_gpu"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="import_gpu", unindent="True"]
 
 
 ## アドオン内で利用するプロパティクラスの変数を定義する
@@ -92,7 +92,7 @@ Sidebarを表示し、パネル *[サンプル 3-4]* > *[星型の図形を表�
 例えば、プロパティ `sample34_center` にアクセスする場合は、`bpy.types.Scene.sample34_center` とします。
 プロパティクラスの変数は、`register` 関数で呼ばれる `init_props` 関数で作成し、`unregister` 関数で呼ばれる `clear_props` 関数で削除しています。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="init_clear_props"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="init_clear_props", unindent="True"]
 
 
 ## 描画関数を登録する
@@ -102,7 +102,7 @@ Sidebarを表示し、パネル *[サンプル 3-4]* > *[星型の図形を表�
 
 サンプルアドオンでは、*[3Dビューポート]* スペースに対して描画関数を登録する処理をクラスメソッド `__handle_add` に定義し、`invoke` メソッドの *[開始]* ボタンが押されたときに呼び出します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="handle_add"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="handle_add", unindent="True"]
 
 描画関数の登録は、スペース単位で行います。
 例えば、*[3Dビューポート]* スペースに描画関数を登録したい場合は、`bpy.types.SpaceView3D.draw_handler_add` メソッドを使って登録します。
@@ -173,7 +173,7 @@ Sidebarを表示し、パネル *[サンプル 3-4]* > *[星型の図形を表�
 なお、サンプルアドオンでは、gpu_extrasモジュールを使って描画処理を簡略化しています。
 次のようにして、gpu_extrasモジュールの `batch.batch_for_shader` 関数をインポートしていることに注意してください。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="import_gpu_extras"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="import_gpu_extras", unindent="True"]
 
 
 ### 1. ビルトインシェーダの取得
@@ -182,7 +182,7 @@ Sidebarを表示し、パネル *[サンプル 3-4]* > *[星型の図形を表�
 シェーダ `'2D_UNIFORM_COLOR'` は、1色で図形を塗りつぶすときに利用します。
 ビルトインのシェーダは、`gpu.shader.from_builtin` 関数を呼び出して取得します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="build_shader"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="build_shader", unindent="True"]
 
 
 ### 2. 頂点データ、インデックスデータ作成
@@ -190,7 +190,7 @@ Sidebarを表示し、パネル *[サンプル 3-4]* > *[星型の図形を表�
 バッチを作るために必要な、頂点データやインデックスデータを作成します。
 星型の図形になるように、頂点データやインデックスデータを作成していますが、星型図形の頂点の求め方に関しては、ここでは詳細を割愛します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="build_vert_and_idx_data"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="build_vert_and_idx_data", unindent="True"]
 
 なお、クラスメソッド `SAMPLE34_OT_DrawStar.__draw` に渡されてくる引数 `context` はコンテキスト情報であり、`context.scene` は `bpy.types.Scene` と同じものであることに注意してください。
 このため、`bpy.types.Scene.sample34_center` として定義したプロパティクラスの変数は、`context.scene.sample34_center` としてアクセスできます。
@@ -201,7 +201,7 @@ Sidebarを表示し、パネル *[サンプル 3-4]* > *[星型の図形を表�
 作成した、頂点データやインデックスデータをもとに、バッチを作成します。
 バッチは、gpu_extraモジュールの `batch_for_shader` 関数を呼び出して作成します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="build_batch"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="build_batch", unindent="True"]
 
 `batch_for_shader` 関数は、次に示す引数を受け取ります。
 
@@ -221,7 +221,7 @@ Sidebarを表示し、パネル *[サンプル 3-4]* > *[星型の図形を表�
 渡せるパラメータはシェーダによって異なりますが、サンプルアドオンで使用するシェーダには、図形を塗りつぶす色 `"color"` をパラメータとして渡すことができます。
 シェーダにパラメータを渡すために、`shader.uniform_float` メソッドを呼び出しています。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="set_shader_parameter"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="set_shader_parameter", unindent="True"]
 
 サンプルアドオンでは `(赤, 緑, 青, アルファ値) = (0.5, 1.0, 1.0, 1.0)` を渡すことで、描画色を水色に設定しています。
 
@@ -238,7 +238,7 @@ Sidebarを表示し、パネル *[サンプル 3-4]* > *[星型の図形を表�
 このため、不要になったとき（本節のサンプルアドオンでは、*[終了]* ボタンが押されたとき）に登録解除する必要があります。
 描画関数を登録解除する処理を次に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="handle_remove"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-4.py" block="handle_remove", unindent="True"]
 
 描画関数の登録解除は、`bpy.types.SpaceView3D.draw_handler_remove` メソッドを呼び出して行います。
 描画関数を登録したときに使用した `bpy.types.SpaceView3D.draw_handler_add` メソッドと同様、`SpaceView3D` は、描画関数を登録解除する対象のスペースによって変更する必要があります。

@@ -335,12 +335,12 @@ Webサイト((http://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts/Develo
 
 ブレークポイントを設定するためには、`bpy.types.bp.bp` 関数を呼び出す必要がありますが、毎回これを書くのは面倒ですので、次のようにして `breakpoint` と書くだけで呼び出せるようにすると、ブレークポイントの設定が少し楽になるかと思います。
 
-[@include-source pattern="partial" filepath="chapter_04/sample_4_2/debuggee_2.py" block="short_call"]
+[@include-source pattern="partial" filepath="chapter_04/sample_4_2/debuggee_2.py" block="short_call", unindent="True"]
 
 
 以降、ブレークポイントを設定する時は、次のようにしてブレークポイントを設定したい場所で `breakpoint` 関数を実行します。
 
-[@include-source pattern="partial" filepath="chapter_04/sample_4_2/debuggee_2.py" block="set_breakpoint"]
+[@include-source pattern="partial" filepath="chapter_04/sample_4_2/debuggee_2.py" block="set_breakpoint", unindent="True"]
 
 
 `breakpoint` 関数の第1引数には、変数のスコープの辞書（ローカル変数であれば `locals`、グローバル変数であれば `globals`）、第2引数には確認したい変数を指定します。

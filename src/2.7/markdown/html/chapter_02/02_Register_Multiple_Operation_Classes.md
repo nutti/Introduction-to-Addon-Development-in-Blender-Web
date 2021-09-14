@@ -77,9 +77,9 @@ subtitle: 2-2. 複数のオペレータクラスを登録する
 1つのファイルに複数のオペレータクラスを定義するためには、**作りたい機能の数だけオペレーションクラスを定義する** 必要があります。
 本節のサンプルでは、オブジェクトの拡大とオブジェクトの縮小の2つの機能のために、2つのオペーレーションクラスを以下のように作成しました。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_2.py" block="op_enlarge_object"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_2.py" block="op_enlarge_object", unindent="True"]
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_2.py" block="op_reduce_object"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_2.py" block="op_reduce_object", unindent="True"]
 
 `bl_idname` はオペレータクラスごとに固有の文字列を指定する必要があるため、重複しないように気をつけてください。
 重複しないようにするための方法は、後ほど紹介します。
@@ -91,7 +91,7 @@ subtitle: 2-2. 複数のオペレータクラスを登録する
 
 ここでは、`EnlargeObject` クラスの `execute` メソッド内に定義されている、スクリプト実行ログへメッセージを出力する処理について説明します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_2.py" block="execute_enlarge_object"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_2.py" block="execute_enlarge_object", unindent="True"]
 
 `execute` メソッドに渡されてくる引数については、[2-1節](01_Basic_of_Add-on_Development.html) で説明しましたので、引数の詳細についての説明はここでは省略します。
 引数 `context` から、現在のコンテキスト（実行状態）を取得することができます。

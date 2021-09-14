@@ -70,7 +70,7 @@ blfモジュールを使ってテキストを描画する方法を理解する�
 
 テキストを描画するために利用するAPIは、blfモジュールをインポートすることによって利用できるようになります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-5.py" block="import_blf"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-5.py" block="import_blf", unindent="True"]
 
 
 
@@ -80,7 +80,7 @@ blfモジュールを使ってテキストを描画する方法を理解する�
 描画関数の登録は、クラスメソッド `__handle_add` で行っています。
 具体的な引数の型については、[3-4節](04_Draw_Figures.html) と同じであるため、説明は省略します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-5.py" block="handle_add"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-5.py" block="handle_add", unindent="True"]
 
 サンプルアドオンでは、描画関数が `SAMPLE35_OT_ShowDatetime.__draw` スタティックメソッド、描画するリージョンが `WINDOW` であることから、第1引数に `RenderText.__render` 、第3引数に `WINDOW` を指定します。
 第2引数には、コンテキストを渡します。
@@ -113,7 +113,7 @@ blfモジュールを使ってテキストを描画する方法を理解する�
 
 `get_region` 関数のソースコードを次に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-5.py" block="get_region"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-5.py" block="get_region", unindent="True"]
 
 
 Blender上で開いている全てのエリア情報は、`context.screen.areas` に保存されているため、`get_region` 関数の引数に指定したスペースのタイプ `area_type` と、エリア情報のメンバ変数 `type` が一致することを確認することで、目的のエリア情報を取得できます。
@@ -140,7 +140,7 @@ Blender上で開いている全てのエリア情報は、`context.screen.areas`
 
 `SAMPLE35_OT_ShowDatetime.__draw` 関数では、テキストを描画するために、blfモジュールの関数を3つ呼び出しています。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-5.py" block="draw_text"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-5.py" block="draw_text", unindent="True"]
 
 1つ目の `blf.size` 関数は、フォントサイズを指定する関数で、次に示す引数を指定します。
 
@@ -183,7 +183,7 @@ Blender上で開いている全てのエリア情報は、`context.screen.areas`
 
 [3-4節](04_Draw_Figures.html) と同様に、不要になった描画関数は登録解除する必要があります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-5.py" block="handle_remove"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-5.py" block="handle_remove", unindent="True"]
 
 
 # まとめ

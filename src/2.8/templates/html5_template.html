@@ -25,8 +25,8 @@ $endif$
   <meta property="og:locale" content="ja_JP" />
   <meta property="og:type" content="website" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
   <title>$if(title-prefix)$$title-prefix$$endif$$if(pagetitle)$ | $pagetitle$$endif$</title>
@@ -40,6 +40,15 @@ $if(quotes)$
       q { quotes: "“" "”" "‘" "’"; }
 $endif$
   </style>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="/2.8/js/main.js"></script>
+  <script type="text/javascript">
+    toggleMenuVisibility();
+    addLinkHoverEffect();
+    window.onload = function(){ setupMenuVisibility(); enhanceCurrentTocItem(); }
+    
+  </script>
 
 $if(highlighting-css)$
   <style type="text/css">
@@ -67,17 +76,43 @@ $for(include-before)$
 $include-before$
 $endfor$
 
+<div id="toggle-pc-toc-open"><a href="#toggle-pc-toc-open"></a></div>
+
+<div id="toggle-sp-toc-open"><a href="#toggle-sp-toc-open"></a></div>
+
+
 <div class="toc">
-$if(title-prefix)$
-<p class="title">$title-prefix$</p>
-$endif$
-$if(date)$
-<p class="date">Last Update: $date$</p>
-$endif$
-<!-- @include-toc -->
+  <div id="toc-pc" class="toc-pc">
+    <div id="toggle-pc-toc-close"><a href="#toggle-pc-toc-close"></a></div>
+    $if(title-prefix)$
+    <p class="title">$title-prefix$</p>
+    $endif$
+    $if(date)$
+    <p class="date">Last Update: $date$</p>
+    $endif$
+    <!-- @include-toc -->
+  </div>
+  <div id="toc-sp" class="toc-sp">
+    <div class="contents">
+      $if(title-prefix)$
+      <p class="title">$title-prefix$</p>
+      $endif$
+      <!-- @include-toc -->
+      $if(date)$
+      <p class="date">Last Update: $date$</p>
+      $endif$
+    </div>
+  </div>
 </div>
 
 <div class="body">
+    <div class="body-header">
+      <a href="#toggle-sp-toc-close">
+        <div class="toggle-sp-toc-close">
+        </div>
+      </a>
+    </div>
+
     <div class="ad-header">
       <!-- embed_ad=colorful_pico_ad_header -->
     </div>

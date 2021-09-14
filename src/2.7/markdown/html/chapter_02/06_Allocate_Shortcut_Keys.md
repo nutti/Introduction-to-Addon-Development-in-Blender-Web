@@ -57,7 +57,7 @@ Blenderの機能と同様、個人で作成した機能にもショートカッ�
 
 ショートカットキーの割り当ては、`register_shortcut` 関数で行います。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_6.py" block="register_shortcut"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_6.py" block="register_shortcut", unindent="True"]
 
 `bpy.context.window_manager.keyconfigs.addon.keymaps` はアドオンに割り当てられているキーマップです。
 
@@ -101,7 +101,7 @@ Blenderの機能と同様、個人で作成した機能にもショートカッ�
 
 ショートカットキーの割り当て解除は、`unregister_shortcut` 関数で行います。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_6.py" block="unregister_shortcut"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_6.py" block="unregister_shortcut", unindent="True"]
 
 
 アドオン有効化時にグローバル変数 `addon_keymaps` に保存したキーマップを、`keymap_items.remove` 関数の引数に指定して実行することで、ショートカットキーのペアを削除します。

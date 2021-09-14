@@ -121,7 +121,7 @@ subtitle: 3-10. ユーザー・プリファレンスを活用する
 
 ユーザー・プリファレンスにアドオンの設定情報を追加するためには、次に示す `bpy.types.AddonPreferences` クラスを継承したクラス（アドオン設定クラスと呼ぶことにします）を定義する必要があります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_10.py" block="addon_prefs"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_10.py" block="addon_prefs", unindent="True"]
 
 
 アドオン設定クラスのクラス変数 `bl_idname` には、ユーザー・プリファレンスにアドオンの設定情報を追加する、パッケージ名やモジュール名を指定します。
@@ -153,7 +153,7 @@ subtitle: 3-10. ユーザー・プリファレンスを活用する
 
 ユーザー・プリファレンスに追加したアドオンの設定情報は、次のコードにより取得できます。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_10.py" block="get_prefs"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_10.py" block="get_prefs", unindent="True"]
 
 
 本節のサンプルで追加したアドオンの設定情報に限らず、ユーザー・プリファレンスに追加されている全てのアドオンの設定情報は、パッケージ名やモジュール名をキーとした辞書型で `context.user_preferences.addons` に保存されています。
@@ -170,7 +170,7 @@ subtitle: 3-10. ユーザー・プリファレンスを活用する
 
 最後に、アドオンの設定情報を使ってオブジェクトを移動する処理を次に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_10.py" block="refer_prefs"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_10.py" block="refer_prefs", unindent="True"]
 
 
 `event.type` でどのボタンが押されたのかを判定するために、`'X'` などの文字列の代わりにアドオンの設定情報の値を用いることを除けば、[3-2節](02_Handle_Keyboard_Key_Event.html) と同じですので、説明は割愛します。

@@ -104,7 +104,7 @@ Blenderでは、オペレータを実行すると、オペレータに対する�
 
 サンプルアドオンでは、`EnumProperty` クラスを用いて移動軸を、`FloatPropery` クラスを用いて移動量を指定できるようにします。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-3.py" block="prop_translate_object"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-3.py" block="prop_translate_object", unindent="True"]
 
 引数 `name` はオペレータプロパティの名称で、サンプルアドオンではそれぞれ `"移動軸"` と `"移動量"` を指定しています。
 引数 `description ` はオペレータプロパティの説明文で、マウスオーバーしたときに表示される文字列です。
@@ -121,7 +121,7 @@ Blenderでは、オペレータを実行すると、オペレータに対する�
 オペレータプロパティの値を変更すると、オペレータクラスの `execute` メソッドが実行されます。
 `execute` メソッドの中で指定されたオペレータプロパティの値は、通常のクラス変数と同様、self変数からアクセスできます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-3.py" block="access_to_prop"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-3.py" block="access_to_prop", unindent="True"]
 
 <div class="column">
 本節のサンプルのように、値を連続的に変更可能なオペレータプロパティを作成した場合、値が変更される度に `execute` メソッドが呼ばれます。

@@ -68,7 +68,7 @@ subtitle: 2-4. サブメニューを作成する
 
 サブメニューを追加するためには、`bpy.types.Menu` クラスを継承した **メニュークラス** を作成する必要があります。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-4.py" block="menu_cls"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-4.py" block="menu_cls", unindent="True"]
 
 オペレータクラスと同様、メニュークラスにはクラス変数 `bl_idname` , `bl_label` , `bl_description` を定義する必要がありますが、`bl_options` を定義する必要はありません。
 ただし `bl_idname` は、メニュークラスのクラス名と同一の文字列を指定する必要があります。
@@ -91,14 +91,14 @@ subtitle: 2-4. サブメニューを作成する
 なお、引数 `options` に値 `{'HIDDEN'}` を渡していますが、これはオペレータプロパティとしてユーザに変更を許したくないプロパティに対して設定します。
 これにより `obj_name` がオペレータプロパティとして表示されなくなります。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-4.py" block="string_prop"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-4.py" block="string_prop", unindent="True"]
 
 オペレータクラスの `execute` メソッドでは、クラス変数 `obj_name` に代入されたオブジェクト名を用いて、並進移動の対象となるオブジェクトを取得して並進移動させています。
 なお、詳細を省略した `execute` メソッドの具体的な処理については、ソースコードのコメントに処理内容を細かく記載しているため、確認してみてください。
 
 最後に、*[3Dビューポート]* スペースのメニュー *[オブジェクト]* にメニューを追加します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-4.py" block="build_menu"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-4.py" block="build_menu", unindent="True"]
 
 オペレータをメニューに追加するときは、`self.layout.operator` メソッドを利用していました。
 しかし、サブメニューをメニューに追加する場合は、`self.layout.menu` メソッドを利用する必要があります。
@@ -119,9 +119,9 @@ subtitle: 2-4. サブメニューを作成する
 
 コードを見るとわかると思いますが、3階層のメニューは2階層のメニューを作成したときの応用です。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-4_alt.py" block="sub_menu_cls"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-4_alt.py" block="sub_menu_cls", unindent="True"]
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-4_alt.py" block="main_menu_cls"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-4_alt.py" block="main_menu_cls", unindent="True"]
 
 メニュークラス `SAMPLE24_MT_TranslateObject` では、サブサブメニュー用に作成したメニュークラス `SAMPLE24_MT_TranslateObjectSub` のクラス変数 `bl_idname` を、`self.layout.menu` メソッドに渡しています。
 そして、`SAMPLE24_MT_TranslateObjectSub` クラスの中でオペレータを登録することで、3階層のメニューを作成しています。

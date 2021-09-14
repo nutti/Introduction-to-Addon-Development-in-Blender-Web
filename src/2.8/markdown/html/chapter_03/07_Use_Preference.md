@@ -109,7 +109,7 @@ subtitle: 3-7. プリファレンスを活用する
 
 プリファレンスにアドオンの設定情報を追加するためには、`bpy.types.AddonPreferences` クラスを継承したクラス（**アドオン設定情報クラス** と呼ぶことにします）を定義する必要があります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-7.py" block="addon_prefs"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-7.py" block="addon_prefs", unindent="True"]
 
 
 アドオン設定情報クラスのクラス変数 `bl_idname` には、プリファレンスに追加するアドオンの設定情報に対応した、パッケージ名やモジュール名を指定します。
@@ -132,7 +132,7 @@ subtitle: 3-7. プリファレンスを活用する
 
 アドオンの設定情報へは、次のコードでアクセスできます。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-7.py" block="get_prefs"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-7.py" block="get_prefs", unindent="True"]
 
 本節のサンプルアドオンのソースコードは、単一のファイルで構成されます。
 このため、`context.preferences.addons[__name__].preferences` でアドオンの設定情報にアクセスできます。
@@ -141,7 +141,7 @@ subtitle: 3-7. プリファレンスを活用する
 これで、プリファレンスに追加されたアドオンの設定情報にアクセスできるようになりました。
 アドオンの設定情報を使ってテキストを描画する処理を、次に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-7.py" block="refer_prefs"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-7.py" block="refer_prefs", unindent="True"]
 
 
 # まとめ

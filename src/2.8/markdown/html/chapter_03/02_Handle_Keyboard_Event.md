@@ -90,7 +90,7 @@ Sidebarを表示し、タブ *[サンプル 3-2]* が追加されていること
 `bpy.data.objects.remove` メソッドの引数に、削除対象のオブジェクトのオブジェクト名を指定することで、オブジェクトを削除できます。
 オブジェクト削除後、`modal` メソッドは `{'FINISHED'}` を返して、モーダルモードを終了します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-2.py" block="finish_modal_mode"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-2.py" block="finish_modal_mode", unindent="True"]
 
 
 ### テキストオブジェクトのテキスト更新処理
@@ -102,11 +102,11 @@ Sidebarを表示し、タブ *[サンプル 3-2]* が追加されていること
 `ALPHABET_LIST` は、大文字のアルファベット `'A'` から `'Z'` までが保存されたリストとなっていて、`event.type` がリスト内のいずれかの要素に一致する場合に、テキストオブジェクトのテキストを更新しています。
 もし、リスト中のいずれの要素にも一致しない場合、`modal` メソッドは `{'PASS_THROUGH'}` を返してしまうため、テキストオブジェクトを更新しません。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-2.py" block="change_text_object_text"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-2.py" block="change_text_object_text", unindent="True"]
 
 なお、大文字のアルファベットのリストは、次のコードで作成できます。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-2.py" block="make_alphabet_list"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-2.py" block="make_alphabet_list", unindent="True"]
 
 
 # まとめ

@@ -99,14 +99,14 @@ Blenderのアドオンを開発するためには、bpyモジュールと呼ば�
 
 次のコードにより、bpyモジュールをインポートできます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="import_bpy"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="import_bpy", unindent="True"]
 
 
 ## bl_info変数の定義
 
 作成したソースコードが、BlenderのアドオンであることをBlender本体に認識させるためには、変数 `bl_info` を定義する必要があります。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="bl_info"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="bl_info", unindent="True"]
 
 
 `bl_info` はディクショナリ型の変数で、次のようなキーと値を定義します。
@@ -349,7 +349,7 @@ Blender公式のアドオン開発のガイドラインにも、アドオン開�
 ここでは、オペレータクラスの作成方法を説明します。
 最初に、オペレータクラスのクラス変数の宣言例を次に示します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="mem_var"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="mem_var", unindent="True"]
 
 オペレータクラスには、次のようなクラス変数を含める必要があります。
 
@@ -373,7 +373,7 @@ Blender公式のアドオン開発のガイドラインにも、アドオン開�
 
 続いて、メニューを実行したときに呼ばれる `execute` メソッドを作成します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="execute"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="execute", unindent="True"]
 
 `execute` メソッドには、メニューを実行したときの処理を定義します。
 
@@ -454,7 +454,7 @@ Blenderでは、メニューやボタンをマウスオーバーすることで�
 最初に、メニューを構築するための関数 `menu_fn` を作成します。
 `menu_fn` 関数は、あとで解説するアドオン有効化・無効化時に呼ばれる関数の中で利用します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="build_menu"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="build_menu", unindent="True"]
 
 メニューの編集は、メンバ変数 `self.layout` を用いて行います。
 
@@ -468,7 +468,7 @@ Blenderでは、メニューやボタンをマウスオーバーすることで�
 
 アドオン有効化時には、`register` 関数が呼ばれます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="register"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="register", unindent="True"]
 
 `bpy.utils.register_class` 関数は、引数に指定したクラスを登録し、Blender内で使えるようにするための関数です。
 サンプルアドオンでは、登録するオペレータクラス一式を変数 `classes` にまとめ、`register` 関数の中で `bpy.utils.register_class` 関数を使って1つずつオペレータクラスを登録しています。
@@ -487,7 +487,7 @@ Blenderでは、メニューやボタンをマウスオーバーすることで�
 
 アドオン無効化時には、`unregister` 関数が呼ばれます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="unregister"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="unregister", unindent="True"]
 
 `bpy.types.VIEW3D_MT_mesh_add.remove` メソッドに、`menu_fn` 関数を指定することで、*[3Dビューポート]* スペースのメニュー *[追加]* > *[メッシュ]* から、アドオン有効化時に追加した項目を削除できます。
 
@@ -509,7 +509,7 @@ Blenderでは、メニューやボタンをマウスオーバーすることで�
 
 アドオンの場合、メイン処理は必要な処理ではありませんが、慣習として書くことが多いです。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="main"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-1.py" block="main", unindent="True"]
 
 
 # まとめ

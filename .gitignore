@@ -4,9 +4,12 @@
 .DS_Store
 *.swp
 .sass-cache/
+Gemfile.lock
+node_modules/
 
 # not allow output files
 release/
+build/
 *.css
 *.css.map
 

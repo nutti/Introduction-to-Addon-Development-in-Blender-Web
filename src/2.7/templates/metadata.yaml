@@ -1,7 +1,15 @@
 ---
 title-prefix: はじめてのBlenderアドオン開発 (Blender 2.7版)
-description: これからBlenderのアドオンを開発しようと考えている人向けの技術資料
-author: ぬっち
-date: 2019.4.2
+description: これからBlenderのアドオンを開発しようと考えている人向けの技術資料です
+author: ぬっち (COLORFUL PICO)
+date: 2021.9.14
 keywords: Blender, アドオン, 3DCG, 開発, Python, プログラミング, 入門, 初心者
+report-url: https://github.com/nutti/Introduction-to-Addon-Development-in-Blender-Web/issues
+contrib-url: https://github.com/nutti/Introduction-to-Addon-Development-in-Blender-Web/pulls
+deploy-url: https://colorful-pico.net/introduction-to-addon-development-in-blender/2.7
+copyright-year: 2015-2020
+og-url: https://colorful-pico.net/introduction-to-addon-development-in-blender/2.7/index.html
+og-image: ""
+og-sitename: "[はじめてのBlenderアドオン開発] (Blender 2.7版)"
+twitter-site: nutti__
 ---

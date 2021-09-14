@@ -93,7 +93,7 @@ BlenderのUIがPythonのソースコードで書かれていることを確認�
 
 ツール・シェルフのタブに追加するためには、以下に示すような `bpy.types.Panel` クラスを継承した **パネルクラスを作成する** 必要があります。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_8.py" block="panel_cls"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_8.py" block="panel_cls", unindent="True"]
 
 
 本節のサンプルでは、`bpy.types.Panel` クラスを継承した `VIEW3D_PT_CustomMenu` クラスを作成しています。
@@ -185,7 +185,7 @@ BlenderのUIがPythonのソースコードで書かれていることを確認�
 
 また、`poll` メソッドでは、オブジェクトが選択されている時にのみ描画する処理を追加しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_8.py" block="poll"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_8.py" block="poll", unindent="True"]
 
 `poll` メソッドはクラス単位の処理となるため、クラスメソッドとして定義する必要があります。
 このため、メソッドの前にデコレータ `@classmethod` をつける必要があります。
@@ -206,7 +206,7 @@ BlenderのUIがPythonのソースコードで書かれていることを確認�
 タブに追加したメニューのヘッダーのUIを変更するためには、パネルクラスの `draw_header` メソッドを定義します。
 `draw` メソッドでは、ヘッダーのUIを変更できない点に注意が必要です。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_8.py" block="draw_header"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_8.py" block="draw_header", unindent="True"]
 
 
 `draw_header` メソッドの引数は、以下の通りです。
@@ -234,7 +234,7 @@ BlenderのUIがPythonのソースコードで書かれていることを確認�
 
 本節のサンプルでは、`bpy.types.VIEW3D_MT_object.prepend` 関数を用いてメニューの先頭にも項目を追加しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_8.py" block="append_item_to_menu"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_8.py" block="append_item_to_menu", unindent="True"]
 
 
 # まとめ

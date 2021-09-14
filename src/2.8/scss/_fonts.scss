@@ -2,6 +2,13 @@
     font-family: "NotoSansCJKjp";
     font-style: normal;
     font-weight: normal;
-    font-display: auto;
     src: url('../fonts/NotoSansCJKjp-DemiLight-Subset.woff') format('woff');
+}
+
+@font-face {
+    font-family: "CodeFont";
+    font-style: normal;
+    font-weight: normal;
+    src: local('Consolas'),
+         local('Courier New');
 }

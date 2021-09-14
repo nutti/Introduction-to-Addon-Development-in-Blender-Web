@@ -113,9 +113,9 @@ Blenderでは何かしら操作を行う度に、直前の操作に対するパ�
 
 今回は以下のように、`FloatPropery` クラスを用いて拡大率と縮小率を指定できるようにします。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_3.py" block="prop_enlarge_object_2"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_3.py" block="prop_enlarge_object_2", unindent="True"]
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_3.py" block="prop_reduce_object_2"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_3.py" block="prop_reduce_object_2", unindent="True"]
 
 次に、[オブジェクト] > [選択オブジェクトの拡大（拡大率任意指定）] を実行した時の処理について解説します。
 
@@ -133,7 +133,7 @@ Blenderでは何かしら操作を行う度に、直前の操作に対するパ�
 
 `execute` メソッドの中で指定されたオプションの値は、以下のように通常のクラス変数と同様、self変数からアクセスすることで取得します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_3.py" block="access_to_prop"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_3.py" block="access_to_prop", unindent="True"]
 
 
 # まとめ

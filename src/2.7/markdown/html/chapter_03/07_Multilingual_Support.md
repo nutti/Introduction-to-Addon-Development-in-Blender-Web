@@ -177,7 +177,7 @@ Blenderに設定されている現在のロケールを調べるためには、[
 作成した翻訳辞書をBlenderに登録します。
 サンプルでは、`register` 関数において `bpy.app.translations.register` 関数を呼び出すことで翻訳辞書を登録します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_7.py" block="register_dict"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_7.py" block="register_dict", unindent="True"]
 
 `bpy.app.translations.register` 関数の第1引数には、翻訳辞書の登録先モジュールを指定します。
 `bpy.utils.register_module` の引数に `__name__` を指定して自身のモジュールを登録したときと同じように、`bpy.app.translations.register` 関数の引数に `__name__` を指定することで、自身のモジュールに対して翻訳辞書を登録することができます。
@@ -194,7 +194,7 @@ Blenderに設定されている現在のロケールを調べるためには、[
 
 本節のサンプルでは複数の箇所に自動翻訳関数を追加していますが、ここではアドオン有効化時にコンソールウィンドウへ文字列を表示する部分について説明します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_7.py" block="translation_func"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_7.py" block="translation_func", unindent="True"]
 
 自動翻訳関数 `bpy.app.translations.pgettext` の引数には、表示したい翻訳後の文字列 `translated_str` に対応する `key` に指定した文字列を指定します。
 上記の例では、引数に `"Sample3-7: Enabled add-on 'Sample3-7'"` を指定することで、ロケールが英語（`"en_US"`）の場合は `"Sample3-7: Enabled add-on 'Sample3-7'"` が、ロケールが日本語（`"ja_JP"`）の場合は `"サンプル3-7: アドオン「サンプル3-7」が有効化されました。"` が `bpy.app.translations.pgettext` 関数の戻り値として返ります。
@@ -202,7 +202,7 @@ Blenderに設定されている現在のロケールを調べるためには、[
 
 なお、`bpy.app.translations.pgettext` を用いることで文字列の翻訳が完了しますが、次に示す処理のように文字列フォーマットによる文字列を翻訳する場合は、代わりに `bpy.app.translations.pgettext_iface` を用いる必要があることに注意が必要です。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_7.py" block="translation_func_with_format"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_7.py" block="translation_func_with_format", unindent="True"]
 
 
 # まとめ

@@ -118,7 +118,7 @@ subtitle: 3-9. 座標変換を活用する②
 
 最初に、マウスカーソルのリージョン座標を取得します。マウスカーソルのリージョン座標を取得するためのコードを次に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_9.py" block="get_mouse_region_coord"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_9.py" block="get_mouse_region_coord", unindent="True"]
 
 
 [3-1節](01_Handle_Mouse_Click_Event.html) で説明したように、マウスカーソルのリージョン座標は、`mouse_region_x` （X座標）と `mouse_region_y` （Y座標）で取得することができます。
@@ -132,7 +132,7 @@ subtitle: 3-9. 座標変換を活用する②
 そこで本節のサンプルでも、`bpy_extra` モジュールの `view3d_utils` サブモジュールを利用します。
 マウスのリージョン座標から、レイの向きと発生源の座標を求めるためのコードを以下に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_9.py" block="calc_ray_dir_and_orig"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_9.py" block="calc_ray_dir_and_orig", unindent="True"]
 
 
 レイの発生源は、[3Dビュー] エリアの3D空間を映し出しているカメラの座標（視点）と同じです。
@@ -158,7 +158,7 @@ subtitle: 3-9. 座標変換を活用する②
 手順4にて、レイと [3Dビュー] エリアに配置されているオブジェクトとの交差判定を行うために使用する `ray_cast` 関数は、引数にレイの始点と終点を指定する必要があります。
 このため次のコードにより、手順2で取得したレイの向きと発生源の座標からレイの始点と終点を求めます。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_9.py" block="calc_ray_start_end"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_9.py" block="calc_ray_start_end", unindent="True"]
 
 
 レイの始点はレイの発生源と同じですが、レイの終点は発生源からレイの方向に伸ばした線上に設定します。
@@ -170,7 +170,7 @@ subtitle: 3-9. 座標変換を活用する②
 
 レイと [3Dビュー] エリアに配置されているオブジェクトとの交差判定を行うための処理を次に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_9.py" block="check_intersection"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_9.py" block="check_intersection", unindent="True"]
 
 
 レイとオブジェクトの交差は、`ray_cast` 関数を呼び出すことで判定できます。
@@ -259,7 +259,7 @@ for o in objs:
 
 最後に、インスタンス変数 `__intersected_objs` に保存した、レイと交差したオブジェクトを選択します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_9.py" block="select_object"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_9.py" block="select_object", unindent="True"]
 
 
 オブジェクトの選択は、`bpy.data.objects` の各要素の `select` メンバ変数に `True` を設定することで実現できます。
@@ -303,7 +303,7 @@ for o in objs:
 
 選択中の頂点のローカル座標は、[3-1節](01_Handle_Mouse_Click_Event.html) で説明した `bmesh` モジュールを使って取得します。
 
-[@include-source pattern="partial" filepath="chapter_03/transform_wo_view3d_utils.py" block="get_local_coord"]
+[@include-source pattern="partial" filepath="chapter_03/transform_wo_view3d_utils.py" block="get_local_coord", unindent="True"]
 
 メッシュの頂点情報は、リストとして `bm.verts` に保存されています。
 リストの各要素のインスタンス変数 `select` が `True` の時に頂点が選択されていることから、頂点が選択されているか判断することができます。
@@ -322,7 +322,7 @@ for o in objs:
 
 上記の計算をコードにすると、次のようになります。
 
-[@include-source pattern="partial" filepath="chapter_03/transform_wo_view3d_utils.py" block="transform_local_to_global"]
+[@include-source pattern="partial" filepath="chapter_03/transform_wo_view3d_utils.py" block="transform_local_to_global", unindent="True"]
 
 
 グローバル座標変換行列は `obj.matrix_world` で取得することができます。
@@ -348,7 +348,7 @@ Blenderにおいて変換行列をベクトルに掛ける場合、変換を適�
 これらの行列を使って座標変換しても良いのですが、Blenderでは射影変換行列とビュー変換行列を掛けた透視投影変換行列 `space.region_3d.perspective_matrix` を提供しているため、これを利用することにします。
 透視投影変換行列を用いた、グローバル座標から射影座標への座標変換をコードにすると、次のようになります。
 
-[@include-source pattern="partial" filepath="chapter_03/transform_wo_view3d_utils.py" block="transform_global_to_pers"]
+[@include-source pattern="partial" filepath="chapter_03/transform_wo_view3d_utils.py" block="transform_global_to_pers", unindent="True"]
 
 <div class="column">
 space.region_3d.perspective_matrixは、space.region_3d.window_matrix * space.region_3d.view_matrixで求めることができます。
@@ -376,12 +376,12 @@ Blenderは、ビューポート変換行列を参照するためのAPIを提供�
 
 この計算を行っているのが `viewport_transform` 関数で、その処理を次に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/transform_wo_view3d_utils.py" block="viewport_transform"]
+[@include-source pattern="partial" filepath="chapter_03/transform_wo_view3d_utils.py" block="viewport_transform", unindent="True"]
 
 
 上記の `viewport_transform` 関数を用いて、射影座標からリージョン座標へ変換するためのコードは次のようになります。
 
-[@include-source pattern="partial" filepath="chapter_03/transform_wo_view3d_utils.py" block="transform_pers_to_region"]
+[@include-source pattern="partial" filepath="chapter_03/transform_wo_view3d_utils.py" block="transform_pers_to_region", unindent="True"]
 
 
 ## view3d_utilsを使った場合との比較

@@ -98,7 +98,7 @@ subtitle: 3-3. タイマのイベントを扱う
 タイマイベントを発生させるためには、タイマを登録する必要があります。
 タイマの登録処理は、次に示す `__handle_add` メソッドで行います。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="add_timer"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="add_timer", unindent="True"]
 
 
 タイマは、`context.window_manager.event_timer_add` 関数を呼び出すことで登録することができます。
@@ -125,7 +125,7 @@ subtitle: 3-3. タイマのイベントを扱う
 
 タイマの登録解除処理は、次に示す `__handle_remove` メソッドで行っています。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="remove_timer"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="remove_timer", unindent="True"]
 
 
 タイマは `context.window_manager.event_timer_remove` 関数を呼び出すことで登録解除できますが、引数には `context.window_manager.modal_handler_add` 関数の戻り値として返されたタイマのハンドラを渡す必要があります。
@@ -140,14 +140,14 @@ subtitle: 3-3. タイマのイベントを扱う
 
 [3-1節](01_Handle_Mouse_Click_Event.html) や [3-2節](02_Handle_Keyboard_Key_Event.html) と同様に `modal` メソッドの最初で、[3Dビュー] エリアの画面更新と `modal` メソッドの終了判定処理を行います。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="handle_non_timer_event"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="handle_non_timer_event", unindent="True"]
 
 
 [3-1節](01_Handle_Mouse_Click_Event.html) や [3-2節](02_Handle_Keyboard_Key_Event.html) で説明したように、`modal` メソッドはキーボードやマウスのイベントが発生したときにも呼ばれます。
 このためタイマイベントが発生したときのみオブジェクトを移動するようにしないと、キーボードやマウスの入力イベントが発生するたびにオブジェクトが移動してしまいます。
 そこで発生したイベントがタイマイベントではないときに `{'PASS_THROUGH'}` を返すことで、マウスやキーボードからのイベントが発生したときにオブジェクトが移動しないようにします。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="stop_moving_object"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="stop_moving_object", unindent="True"]
 
 
 続いて、[終了] ボタンが押されたときにモーダルモードを終了する処理を実行します。
@@ -165,7 +165,7 @@ subtitle: 3-3. タイマのイベントを扱う
 
 タイマイベントが発生したときにオブジェクトの位置を更新する処理は、`__update_object_location` メソッドで行います。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="update_object_location"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="update_object_location", unindent="True"]
 
 
 オブジェクトの初期位置はインスタンス変数 `__orig_obj_loc` に保存されているため、オブジェクトの初期位置に移動先の位置を相対座標として加えることで、オブジェクトの位置を更新します。
@@ -185,7 +185,7 @@ subtitle: 3-3. タイマのイベントを扱う
 
 ## invokeメソッド
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="store_obj_loc"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="store_obj_loc", unindent="True"]
 
 オブジェクトの初期位置は、`invoke` メソッドの開始ボタンが押されたとき（`props.running` が `False` のとき）の処理の中で、インスタンス変数である `__orig_obj_loc` にオブジェクトをキーとして保存します。
 
@@ -229,7 +229,7 @@ subtitle: 3-3. タイマのイベントを扱う
 オブジェクトの型がメッシュ型かつ選択された状態であるかを判定する方法は先ほど説明した通り、`obj.type` が `MESH` かつ `obj.select` が `True` の場合です。
 そして、現在のオブジェクトが [オブジェクトモード] と [エディットモード] のどちらの状態にあるのかは `obj.mode` により取得することができることから、先ほどの項目の表示条件を満たしたことを判定するコードは次のようになります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="poll"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_3.py" block="poll", unindent="True"]
 
 
 項目を表示する条件を満たすオブジェクトが存在しない場合、`poll` クラスメソッドは `False` を返すことで項目を表示しないようにします。

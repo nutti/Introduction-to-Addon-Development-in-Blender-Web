@@ -1,0 +1,212 @@
+.toc {
+    @include pc {
+        .toc-pc {
+            position: absolute;
+            width: 20rem;
+            overflow-y: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: $toc-background-color;
+            color: $toc-font-color;
+            z-index: 999;
+            display: initial;
+            &.pc-toc-closed {
+                display: none;
+            }
+            p.title {
+                text-align: center;
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+            p.date {
+                text-align: center;
+                font-size: 0.8rem;
+                margin-bottom: 2rem;
+            }
+            ul {
+                background-color: $toc-item-background-color;
+                padding: 0;
+                margin: 0;
+                &:not(:first-of-type) {
+                    border-top: 2px solid #000000;
+                }
+                &:not(:last-of-type) {
+                    border-bottom: 1px solid #909090;
+                }
+                li {
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    margin: 0;
+                    &:not(:first-of-type) {
+                        border-top: 2px solid #000000;
+                    }
+                    &:not(:last-of-type) {
+                        border-bottom: 1px solid #909090;
+                    }
+                    a, a:visited {
+                        padding-top: 1rem;
+                        padding-bottom: 1rem;
+                        display: block;
+                        padding-left: 1rem;
+                        text-decoration: none;
+                        color: $toc-item-font-color;
+                        font-weight: bold;
+                        &:hover {
+                            background-color: $toc-item-hover-background-color;
+                        }
+                    }
+                    &.current {
+                        background-color: #300000;
+                    }
+                }
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    &:first-of-type {
+                        border-top: none;
+                    }
+                    &:not(:last-of-type) {
+                        border-bottom: none;
+                    }
+                    &:last-of-type {
+                        border-bottom: none;
+                    }
+                    li {
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        margin: 0;
+                        border-top: 1px solid #505050;
+                        &:not(:last-child) {
+                            border-bottom: 1px solid #4A4A4A;
+                        }
+                        a, a:visited {
+                            padding-top: 1rem;
+                            padding-bottom: 1rem;
+                            display: block;
+                            padding-left: 2rem;
+                            text-decoration: none;
+                            color: $toc-item-font-color;
+                            font-weight: bold;
+                            &:hover {
+                                background-color: $toc-item-hover-background-color;
+                            }
+                        }
+                        &.current {
+                            background-color: #300000;
+                        }
+                    }
+                }
+            }
+        } // .toc-pc
+        .toc-sp {
+            display: none;
+        }
+    } // @include pc
+
+    @include sp {
+        .toc-pc {
+            display: none;
+        }
+        .toc-sp {
+            position: absolute;
+            width: 65%;
+            max-width: 65%;
+            height: 100vh;
+            top: 0;
+            display: none;
+            z-index: 999;
+            .contents {
+                width: 100%;
+                max-width: 100%;
+                height: 100vh;
+                background-color: $sp-toc-background-color;
+                p.date {
+                    text-align: center;
+                    font-size: 0.8rem;
+                    color: $sp-toc-font-color + #606060;
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                    margin: 0;
+                    background-color: $sp-toc-background-color;
+                }
+                p.title {
+                    text-align: center;
+                    font-weight: bold;
+                    font-size: 1rem;
+                    color: $sp-toc-font-color;
+                    margin: 0;
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                    background-color: $sp-toc-background-color;
+                }
+                ul {
+                    margin-left: -1.6rem;
+                    padding: 0;
+                    margin: 0;
+                    border-top: 1px solid #A0A0A0;
+                    background-color: $sp-toc-background-color;
+                    &:last-of-type {
+                        border-bottom: 1px solid #A0A0A0;
+                    }
+                    li {
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        margin: 0;
+                        &:not(:first-of-type) {
+                            border-top: 1px solid #A0A0A0;
+                        }
+                        a, a:visited {
+                            padding-top: 1rem;
+                            padding-bottom: 1rem;
+                            display: block;
+                            padding-left: 1rem;
+                            text-decoration: none;
+                            color: $sp-toc-item-font-color;
+                            font-weight: bold;
+                        }
+                        &.current {
+                            background-color: #C0A0A0;
+                        }
+                    } // li
+                    ul {
+                        margin: 0;
+                        border-top: 0px;
+                        padding: 0;
+                        border-top: none;
+                        background-color: $sp-toc-background-color;
+                        &:last-of-type {
+                            border-bottom: none;
+                        }
+                        li {
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            margin: 0;
+                            border-top: 1px solid #C0C0C0;
+                            a, a:visited {
+                                padding-top: 1rem;
+                                padding-bottom: 1rem;
+                                display: block;
+                                padding-left: 1rem;
+                                text-decoration: none;
+                                color: $sp-toc-item-font-color;
+                                font-weight: bold;
+                            }
+                            &.current {
+                                background-color: #C0A0A0;
+                            }
+                        } // li
+                    } // ul
+                } // ul
+            } // .contents
+        } // .toc-sp
+    } // @include sp
+    
+} // div.toc
+

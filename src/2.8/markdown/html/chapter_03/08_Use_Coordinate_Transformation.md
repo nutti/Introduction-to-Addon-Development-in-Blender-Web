@@ -89,7 +89,7 @@ subtitle: 3-8. 座標変換を活用する
 最初に、マウスカーソルのリージョン座標を取得します。
 マウスカーソルのリージョン座標を取得するためのコードを次に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="get_mouse_region_coord"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="get_mouse_region_coord", unindent="True"]
 
 [3-1節](01_Handle_Mouse_Event.html) で説明したように、マウスカーソルのリージョン座標は、`mouse_region_x` （X座標）と `mouse_region_y` （Y座標）で取得できます。
 
@@ -100,11 +100,11 @@ subtitle: 3-8. 座標変換を活用する
 リージョン座標からこれらの座標への変換は、bpy_extraモジュールのview3d_utilsサブモジュールを利用すると簡単に実現できます。
 事前に、bpy_extraモジュールをインポートしておきましょう。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="import_bpy_extras"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="import_bpy_extras", unindent="True"]
 
 マウスのリージョン座標から、レイの向きと始点の座標を求めるためのコードを次に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="calc_ray_dir_and_orig"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="calc_ray_dir_and_orig", unindent="True"]
 
 レイの始点の座標は、*[3Dビューポート]* スペースの3D空間を映し出しているカメラの座標（視点）と同じです。
 これは、`view3d_utils.region_2d_to_origin_3d` 関数を使って取得できます。
@@ -120,7 +120,7 @@ subtitle: 3-8. 座標変換を活用する
 
 それぞれの関数に渡す第1引数と第2引数は、`get_region_space` 関数で取得します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="get_region_space"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="get_region_space", unindent="True"]
 
 `get_region_space` 関数は、[3-5節](05_Draw_Texts.md) で紹介した `get_region` 関数の改良版です。
 `get_region_space` 関数は、引数 `area_type` で指定されたエリア上において、`region_type` に指定されたリージョン情報を返すことに加え、引数 `space_type` に指定されたスペース情報も返します。
@@ -140,7 +140,7 @@ subtitle: 3-8. 座標変換を活用する
 このため、2で求めたレイの始点座標と向きを、オブジェクトのローカル座標に座標変換する必要があります。
 次のコードは、2で取得したレイの始点の座標とレイの向きから、オブジェクトのローカル座標でのレイの始点座標とレイの向きを求める処理です。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="calc_ray_start_end"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="calc_ray_start_end", unindent="True"]
 
 2で取得したレイの始点の座標とレイの向きから、レイの終点の座標を求めたあと、レイの始点と終点の座標をそれぞれローカル座標に変換している点に注意が必要です。
 グローバル座標からローカル座標へは、オブジェクトのグローバル座標変換行列の逆行列である `matrix_world.inverted` をグローバル座標にかけることで変換できます。
@@ -151,7 +151,7 @@ subtitle: 3-8. 座標変換を活用する
 
 オブジェクトのすべての面の選択を解除するためには、`bpy.ops.mesh.select_all` 関数の引数 `action` に `'DESELECT'` を渡します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="deselect_all"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="deselect_all", unindent="True"]
 
 
 ### 5. bmeshオブジェクトとBVHツリーを構築する
@@ -159,23 +159,23 @@ subtitle: 3-8. 座標変換を活用する
 メッシュデータにアクセスするためには、bmesh用のメッシュデータを構築する必要があります。
 bmesh用のメッシュデータを構築するためには、オブジェクトのデータ `activate_obj.data` を `bmesh.from_edit_mesh` 関数に渡す必要があります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="build_bmesh"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="build_bmesh", unindent="True"]
 
 `bmesh.from_edit_mesh` 関数は、bmeshモジュールに定義されているため、あらかじめbmeshモジュールをインポートしておく必要があります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="import_bmesh"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="import_bmesh", unindent="True"]
 
 続いて、bmeshオブジェクトからBVHツリーを構築します。
 bmeshオブジェクトからBVHツリーを構築するためには、mathutilsモジュールに定義されている `mathutils.bvhtree.BVHTree.FromBMesh` 関数を呼び出す必要があります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="build_bvhtree"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="build_bvhtree", unindent="True"]
 
 
 ### 6. オブジェクトとレイの交差判定を行う
 
 構築したBVHツリーの `ray_cast` メソッドを使って、オブジェクトとレイの交差判定を行います。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="ray_cast"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="ray_cast", unindent="True"]
 
 `ray_cast` メソッドの引数には、ローカル座標でのレイの始点と向きに加えて、始点からの距離を渡します。
 本節では、始点から距離が2000だけ離れたところにレイの終点を設定するため、第3引数に `2000.0` を渡しています。
@@ -190,7 +190,7 @@ bmeshオブジェクトからBVHツリーを構築するためには、mathutils
 6の結果を使って、レイと交差したメッシュの面を選択します。
 `bm.faces[fidx]` で、レイと交差したメッシュの面を取得できるため、そのメンバ変数である `select` に `True` を設定することで、該当する面を選択状態に変更できます。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="select_intersected_face"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-8.py" block="select_intersected_face", unindent="True"]
 
 
 # まとめ

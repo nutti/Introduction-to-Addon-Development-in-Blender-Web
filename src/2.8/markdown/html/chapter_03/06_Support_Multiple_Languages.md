@@ -185,7 +185,7 @@ Blenderに設定されているロケールを調べるためには、*[Python�
 作成した翻訳辞書をBlenderに登録します。
 サンプルアドオンでは、`register` 関数において `bpy.app.translations.register` 関数を呼び出し、翻訳辞書を登録します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-6.py" block="register_dict"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-6.py" block="register_dict", unindent="True"]
 
 `bpy.app.translations.register` 関数の第1引数には、翻訳辞書の登録先モジュールを指定します。
 引数に `__name__` を指定することで、自身のモジュールに対して翻訳辞書を登録できます。
@@ -194,7 +194,7 @@ Blenderに設定されているロケールを調べるためには、*[Python�
 なお、登録した翻訳辞書は、不要になった時点で `bpy.app.translations.unregister` 関数を呼び出し、登録を解除する必要があります。
 サンプルアドオンでは、アドオンを無効化したときに翻訳辞書を登録解除するため、`unregister` 関数の処理内で `bpy.app.translations.unregister` 関数を呼び出します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-6.py" block="unregister_dict"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-6.py" block="unregister_dict", unindent="True"]
 
 
 ## 3. 翻訳箇所の文字列を、自動翻訳関数に置き換える
@@ -204,7 +204,7 @@ Blenderに設定されているロケールを調べるためには、*[Python�
 
 本節のサンプルアドオンでは、複数の箇所で自動翻訳関数を呼び出していますが、ここではアドオン有効化時にコンソールウィンドウへ文字列を表示する部分について見てみましょう。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-6.py" block="translation_func"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-6.py" block="translation_func", unindent="True"]
 
 自動翻訳関数 `bpy.app.translations.pgettext` 関数の引数には、翻訳辞書に登録した表示したい翻訳後の文字列 `translated_str` に対応する、`key` に指定した文字列を指定します。
 上記の例では、引数に `"Sample 3-6: Add-on 'Sample 3-6' is enabled"` を指定することで、ロケールが英語（`"en_US"`）の場合は `"Sample 3-6: Add-on 'Sample 3-6' is enabled"` が、ロケールが日本語（`"ja_JP"`）の場合は `"サンプル 3-6: アドオン『サンプル 3-6』が有効化されました。"` が、`bpy.app.translations.pgettext` 関数の戻り値として返ります。

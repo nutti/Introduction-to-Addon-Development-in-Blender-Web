@@ -10,22 +10,51 @@ let through = require('through2');
 let execSync = require('child_process').execSync;
 let fs = require('fs');
 
-// Parse options.(strip argv[0:1])
-let match = null;
-let blenderVersion = "";
-for (let i = 2; i < process.argv.length; i++) {
-  if ((match = /--blender-version=([0-9.]+)/.exec(process.argv[i])) != null) {
-    blenderVersion = match[1];
-  }
-}
-if (blenderVersion == "") {
-  console.log("Could not find --blender-version option.");
-  process.exit(1);
-}
-console.log(`Target Blender Version: ${blenderVersion}`);
+function parseOptions() {
+    let options = {};
 
-let srcDir = './src' + '/' + blenderVersion;
-let destDir = './build' + '/' + blenderVersion;
+    for (let i = 2; i < process.argv.length; i++) {
+        let match = '';
+        if ((match = /--dest-dir=([-_/.a-zA-Z0-9]+)/.exec(process.argv[i])) != null) {
+            options['destDir'] = match[1];
+        }
+        else if ((match = /--blender-version=([0-9.]+)/.exec(process.argv[i])) != null) {
+            options['blenderVersion'] = match[1];
+        }
+        else if ((match = /--debug/.exec(process.argv[i])) != null) {
+            options['debug'] = true;
+        }
+    }
+
+    if (!('destDir' in options)) {
+        options['destDir'] = './build';
+    }
+    if (!('blenderVersion' in options)) {
+	    console.log('Could not find --blender-version option.');
+        process.exit(1);
+    }
+    if (!('debug' in options)) {
+        options['debug'] = false;
+    }
+
+    return options;
+}
+
+
+let options = parseOptions();
+
+
+function debugLog(text) {
+    if (options['debug']) {
+        console.log(text);
+    }
+}
+
+
+debugLog(`Target Blender Version: ${options["blenderVersion"]}`)
+
+let srcDir = './src/' + options["blenderVersion"];
+let destDir = options["destDir"];
 let tmpDir = './tmp';
 
 let srcFontDir = srcDir + '/fonts';
@@ -33,29 +62,45 @@ let srcImageDir = srcDir + '/images';
 let srcScssDir = srcDir + '/scss';
 let srcMarkdownDir = srcDir + '/markdown';
 let srcSampleDir = srcDir + '/sample';
+let srcJSDir = srcDir + '/js';
+
 let destFontDir = destDir + '/fonts';
 let destImageDir = destDir + '/images';
 let destScssDir = destDir + '/css';
 let destMarkdownDir = destDir;
+let destJSDir = destDir + '/js';
 
 let htmlTemplatePath = srcDir + '/templates/html5_template.html';
 let metadataPath = srcDir + '/templates/metadata.yaml';
 let tocPath = srcDir + '/templates/toc.json';
 
+let fontFiles = [srcFontDir + '/**/*.ttf', srcFontDir + '/**/*.woff'];
+let imageFiles = [srcImageDir + '/**/*.png', srcImageDir + '/**/*.jpg'];
+let jsFiles = [srcJSDir + '/**/*.js'];
+let scssFiles = [srcScssDir + '/**/*.scss'];
+let markdownFiles = [srcMarkdownDir + '/**/*.md'];
+
+
 gulp.task('copy-font', (done) => {
-    gulp.src([srcFontDir + '/**/*.ttf', srcFontDir + '/**/*.woff'])
+    gulp.src(fontFiles)
         .pipe(gulp.dest(destFontDir));
     done();
 });
 
 gulp.task('copy-image', (done) => {
-    gulp.src([srcImageDir + '/**/*.png', srcImageDir + '/**/*.jpg'])
+    gulp.src(imageFiles)
         .pipe(gulp.dest(destImageDir));
     done();
 });
 
+gulp.task('copy-js', (done) => {
+    gulp.src(jsFiles)
+        .pipe(gulp.dest(destJSDir));
+    done();
+});
+
 gulp.task('compass', (done) => {
-    gulp.src(srcScssDir + '/**/*.scss')
+    gulp.src(scssFiles)
         .pipe(plumber())
         .pipe(compass({
             config_file: './config/compass.rb',
@@ -69,6 +114,7 @@ gulp.task('compass', (done) => {
 
 function includeCode(input, passCount) {
     let output = [];
+    let match = null;
 
     input.forEach((line) => {
         if ((match = /^\s*\[@include-source\s+.*]/.exec(line)) === null) {
@@ -101,6 +147,11 @@ function includeCode(input, passCount) {
             }
         }
 
+        let embedUnindent = false;
+        if ((match = /unindent="True"/.exec(line)) !== null) {
+            embedUnindent = true
+        }
+
         switch (embedExtension) {
             case '.py':
                 output.push('```python');
@@ -112,6 +163,7 @@ function includeCode(input, passCount) {
                 throw new Error(`Not supported extension. (extension: ${embedExtension})`);
         }
 
+        let outputEmbedLines = []
         if (embedPattern === 'full') {
             let embedInput = fs.readFileSync(embedFilepath, 'utf-8').split('\n');
             embedInput.forEach((embedLine) => {
@@ -121,7 +173,7 @@ function includeCode(input, passCount) {
                 if (/^\s*#\s*@include-source\s*end\s*\[.*\]/.exec(embedLine) !== null) {
                     return;
                 }
-                output.push(embedLine);
+                outputEmbedLines.push(embedLine);
             });
         } else if (embedPattern == 'partial') {
             let embedInput = fs.readFileSync(embedFilepath, 'utf-8').split('\n');
@@ -140,7 +192,7 @@ function includeCode(input, passCount) {
                     return;
                 }
                 if (inPartial === true) {
-                    output.push(embedLine);
+                    outputEmbedLines.push(embedLine);
                 }
             });
             if (inPartial === true) {
@@ -150,10 +202,39 @@ function includeCode(input, passCount) {
             throw new Error(`Not supported pattern ${embedPattern}`);
         }
 
+        let processedOutputEmbedLines = [];
+        if (outputEmbedLines.length > 0) {
+            if (embedUnindent) {
+                let minSpaces = 9999;
+                outputEmbedLines.forEach((line) => {
+                    if (line === '') { return; }
+                    if ((match = /^( *).*/.exec(line)) !== null) {
+                        minSpaces = match[1].length < minSpaces ? match[1].length : minSpaces
+                    }
+                });
+                outputEmbedLines.forEach((line) => {
+                    if (line === '') {
+                        processedOutputEmbedLines.push(line);
+                    } else {
+                        let regexp = new RegExp(`^[ ]{${minSpaces}}`);
+                        processedOutputEmbedLines.push(line.replace(regexp, ''));
+                    }
+                });
+            } else {
+                processedOutputEmbedLines = outputEmbedLines;
+            }
+        }
+
+        if (processedOutputEmbedLines.length > 0) {
+            processedOutputEmbedLines.forEach((line) => {
+                output.push(line);
+            });
+        }
+
         output.push('```');
     });
 
-    console.log(`    [Pass ${passCount}] Include Code`);
+    debugLog(`    [Pass ${passCount}] Include Code`);
 
     return output;
 }
@@ -174,9 +255,10 @@ function preProcess(filepath) {
 }
 
 
-function includeToc(input, passCount, destHtmlPath) {
+function includeToc(input, passCount, destHtmlPath, tocMetadata) {
     let output = [];
     let toc = require(tocPath);
+    let match = null;
 
     input.forEach((line) => {
         if (/<!--\s+@include-toc\s+-->/.exec(line) === null) {
@@ -187,7 +269,6 @@ function includeToc(input, passCount, destHtmlPath) {
         // @pre
         output.push('<ul>');
         if ('@pre' in toc) {
-            output.push('  <ul>');
             let chapterBody = toc['@pre'];
             for (let section in chapterBody) {
                 let sectionBody = section;
@@ -199,9 +280,9 @@ function includeToc(input, passCount, destHtmlPath) {
                 if ((match = /@[0-9]+:(.+)/.exec(section)) !== null) {
                     sectionBody = match[1];
                 }
-                output.push(`    <li><a href="${relativeUrl}">${sectionBody}</a></li>`);
+                let meta = tocMetadata[url];
+                output.push(`  <li toc-chapter="${meta['chapter']}" toc-section="${meta['section']}"><a href="${relativeUrl}">${sectionBody}</a></li>`);
             }
-            output.push('  </ul>');
         }
         output.push('</ul>');
 
@@ -217,7 +298,8 @@ function includeToc(input, passCount, destHtmlPath) {
                 if (relativeUrl !== '') {
                     relativeUrl = relativeUrl.replace(/^\.\.\//g, '').replace(/\\/g, '/');
                 }
-                output.push(`    <li><a href="${relativeUrl}">${chapter}</a></li>`);
+                let meta = tocMetadata[url];
+                output.push(`    <li toc-chapter="${meta['chapter']}" toc-section="${meta['section']}"><a href="${relativeUrl}">${chapter}</a></li>`);
             } else {
                 output.push(`    <li>${chapter}</li>`);
             }
@@ -236,7 +318,8 @@ function includeToc(input, passCount, destHtmlPath) {
                 if ((match = /@[0-9]+:(.+)/.exec(section)) !== null) {
                     sectionBody = match[1];
                 }
-                output.push(`    <li><a href="${relativeUrl}">${sectionBody}</a></li>`);
+                let meta = tocMetadata[url];
+                output.push(`    <li toc-chapter="${meta['chapter']}" toc-section="${meta['section']}"><a href="${relativeUrl}">${sectionBody}</a></li>`);
             }
             output.push('  </ul>');
         }
@@ -256,7 +339,8 @@ function includeToc(input, passCount, destHtmlPath) {
                 if ((match = /@[0-9]+:(.+)/.exec(section)) !== null) {
                     sectionBody = match[1];
                 }
-                output.push(`    <li><a href="${relativeUrl}">${sectionBody}</a></li>`);
+                let meta = tocMetadata[url];
+                output.push(`    <li toc-chapter="${meta['chapter']}" toc-section="${meta['section']}"><a href="${relativeUrl}">${sectionBody}</a></li>`);
             }
             output.push('  </ul>');
         }
@@ -264,13 +348,13 @@ function includeToc(input, passCount, destHtmlPath) {
 
     });
 
-    console.log(`    [Pass ${passCount}] Include TOC`);
+    debugLog(`    [Pass ${passCount}] Include TOC`);
 
     return output;
 }
 
 
-function replaceOwnUrl(input, passCount, destHtmlPath) {
+function replaceOwnUrl(input, passCount, destHtmlPath, tocMetadata) {
     let output = [];
     let ownUrl = destHtmlPath;
 
@@ -278,7 +362,7 @@ function replaceOwnUrl(input, passCount, destHtmlPath) {
         output.push(line.replace(/<!--\s+@replace-own-url\s+-->/g, ownUrl));
     });
 
-    console.log(`    [Pass ${passCount}] Replace Own URL`);
+    debugLog(`    [Pass ${passCount}] Replace Own URL`);
 
     return output;
 }
@@ -286,6 +370,7 @@ function replaceOwnUrl(input, passCount, destHtmlPath) {
 
 function getOrderedToc(toc) {
     let output = [];
+    let match = null;
 
     // @pre
     if ('@pre' in toc) {
@@ -338,7 +423,7 @@ function getOrderedToc(toc) {
 }
 
 
-function includePrevNextUrl(input, passCount, destHtmlPath) {
+function includePrevNextUrl(input, passCount, destHtmlPath, tocMetadata) {
     let output = [];
     let ownUrl = destHtmlPath;
     let toc = require(tocPath);
@@ -387,19 +472,61 @@ function includePrevNextUrl(input, passCount, destHtmlPath) {
         }
     });
 
-    console.log(`    [Pass ${passCount}] Include Prev Next URL`);
+    debugLog(`    [Pass ${passCount}] Include Prev Next URL`);
 
     return output;
 }
 
 
-function postProcess(input, destHtmlPath) {
+function appendTocParamsToUrl(input, passCount, destHtmlPath, tocMetadata)
+{
+    let output = [];
+    let rootdir = __dirname;
+    let dirname = path.dirname(destHtmlPath);
+    input.forEach((line) => {
+        let pattern = /<a\s+href="(?!http[s]*:\/\/)([^\s]+.html)">/;
+        let regexp = new RegExp(pattern, 'g');
+        let originals = line.match(regexp);
+        if (originals != undefined) {
+            originals = Array.from(new Set(originals));
+
+            let replacePatterns = {};
+            for (let i = 0; i < originals.length; ++i) {
+                let orig = originals[i];
+                let match;
+                regexp = new RegExp(pattern);
+                if ((match = orig.match(regexp)) != undefined) {
+                    let url = match[1];
+                    let key = path.relative(rootdir, path.resolve(dirname, url));
+                    let meta = tocMetadata[key];
+                    let replace = `<a href="${match[1]}?toc-chapter=${meta['chapter']}&toc-section=${meta['section']}">`;
+                    replacePatterns[orig] = replace;
+                }
+            }
+
+            for (let original in replacePatterns) {
+                let replace = replacePatterns[original];
+                regexp = new RegExp(original, 'g');
+                line = line.replace(regexp, replace);
+            }
+        }
+
+        output.push(line);
+    });
+
+    debugLog(`    [Pass ${passCount}] Append TOC Params to URL`);
+
+    return output;
+}
+
+
+function postProcess(input, destHtmlPath, tocMetadata) {
     let output = input;
-    let passPipeline = [includeToc, replaceOwnUrl, includePrevNextUrl];
+    let passPipeline = [includeToc, replaceOwnUrl, includePrevNextUrl, appendTocParamsToUrl];
     let passCount = 0;
 
     passPipeline.forEach((pass) => {
-        output = pass(output, passCount, destHtmlPath);
+        output = pass(output, passCount, destHtmlPath, tocMetadata);
         passCount++;
     });
 
@@ -407,8 +534,25 @@ function postProcess(input, destHtmlPath) {
 }
 
 
+function setupTocMetadata() {
+    let toc = require(tocPath);
+    
+    let metadata = {};
+    for (let chapter in toc) {
+        for (let section in toc[chapter]) {
+            metadata[toc[chapter][section]] = {
+                "chapter": chapter,
+                "section": section
+            }
+        }
+    }
+
+    return metadata;
+}
+
+
 gulp.task('pandoc', (done) => {
-    gulp.src(srcMarkdownDir + '/**/*.md')
+    gulp.src(markdownFiles)
         .pipe(through.obj((file, enc, cb) => {
             let mdFilePath = file.path.replace(/\\/g, '/');
             let mdInput = preProcess(mdFilePath).join('\n');
@@ -432,8 +576,8 @@ gulp.task('pandoc', (done) => {
             }
             fs.unlinkSync(tmpFilePath);
 
-            let htmlOutput = postProcess(result.toString().split('\n'), destHtmlPath).join('\n');
-
+            let tocMetadata = setupTocMetadata();
+            let htmlOutput = postProcess(result.toString().split('\n'), destHtmlPath, tocMetadata).join('\n');
 
             file.contents = Buffer.from(htmlOutput);
 
@@ -444,5 +588,24 @@ gulp.task('pandoc', (done) => {
     done();
 });
 
+gulp.task('watch', (done) => {
+    gulp.watch(fontFiles, gulp.series('copy-font'));
+    gulp.watch(imageFiles, gulp.series('copy-image'));
+    gulp.watch(jsFiles, gulp.series('copy-js'));
+    gulp.watch(scssFiles, gulp.series('compass'));
+    gulp.watch(markdownFiles.concat([srcMarkdownDir + '/**/*.html']), gulp.series('pandoc'));
+    done();
+});
+
+gulp.task('default', gulp.series(
+    gulp.parallel(
+        'copy-font', 'copy-image', 'copy-js', 'compass', 'pandoc'
+    ),
+    gulp.series(
+        'watch'
+    )
+));
+
 gulp.task('build', gulp.series(gulp.parallel(
-    'copy-font', 'copy-image', 'compass', 'pandoc')));
+    'copy-font', 'copy-image', 'copy-js', 'compass', 'pandoc'
+)));

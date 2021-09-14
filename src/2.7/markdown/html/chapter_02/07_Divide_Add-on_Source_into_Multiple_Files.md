@@ -133,7 +133,7 @@ from . import reduce_object
 
 この問題に対処するため、以下のようにインポート処理を書き換える必要があります。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_7/__init__.py" block="import_moudle"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_7/__init__.py" block="import_moudle", unindent="True"]
 
 上記のコードを簡単に説明します。
 最初のif文では、`bpy` モジュールが既にインポートされているかを判定します。

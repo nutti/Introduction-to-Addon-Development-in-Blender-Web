@@ -107,7 +107,7 @@ OpenGLを使った図形の描画方法を理解するため、次のような�
 
 OpenGLへアクセスするためのAPIをアドオンから利用するためには、`bgl` とよばれるモジュールをインポートする必要があります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_4.py" block="import_bgl"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_4.py" block="import_bgl", unindent="True"]
 
 
 ## アドオン内で利用するプロパティを定義する
@@ -132,7 +132,7 @@ OpenGLへアクセスするためのAPIをアドオンから利用するため�
 
 本節のサンプルでは、[3Dビュー] エリア上で図形を描画する関数を登録する処理を `__handle_add` メソッドに定義し、`invoke` メソッドの [開始] ボタンが押されたときに呼び出します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_4.py" block="handle_add"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_4.py" block="handle_add", unindent="True"]
 
 
 描画関数の登録はエリア単位で行い、例えば [3Dビュー] エリアに描画関数を登録したい場合は `bpy.types.SpaceView3D.draw_handler_add` 関数を使って登録します。
@@ -197,7 +197,7 @@ OpenGLへアクセスするためのAPIをアドオンから利用するため�
 
 図形を描画するスタティックメソッド `RenderFigure.__render` を作成します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_4.py" block="render"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_4.py" block="render", unindent="True"]
 
 OpenGLのプログラミングに慣れている方は、`RenderFigure.__render` スタティックメソッド内の図形描画処理を見て既視感を感じるのではないでしょうか？
 なぜなら、`bgl` が提供するAPIはOpenGLが提供する関数とほぼ同一で、かつ描画手順もほぼ一緒になるようにユーザへAPIを提供しているからです。
@@ -235,7 +235,7 @@ OpenGLの設定を無効化しないまま描画関数を終えてしまうと�
 このため、不要になった時（本節のサンプルでは、[終了] ボタンが押された時）に登録を解除する必要があります。
 図形描画関数を登録解除する処理を次に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_4.py" block="handle_remove"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_4.py" block="handle_remove", unindent="True"]
 
 
 描画関数の登録解除は、クラス変数 `RenderFigure.__handle` にハンドルが登録したことを確認した後に `bpy.types.SpaceView3D.draw_handler_remove` 関数を呼び出して行います。
@@ -259,7 +259,7 @@ OpenGLの設定を無効化しないまま描画関数を終えてしまうと�
 
 最後に、本アドオンのUIを構築します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_4.py" block="panel_class"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_4.py" block="panel_class", unindent="True"]
 
 
 [3-1節](01_Handle_Mouse_Click_Event.html) と同様、`bpy.types.Panel` を継承したパネルクラスの `draw` メソッドに処理を記述してUIを構築します。

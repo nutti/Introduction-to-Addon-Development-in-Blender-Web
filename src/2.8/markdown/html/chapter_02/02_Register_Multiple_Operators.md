@@ -77,9 +77,9 @@ subtitle: 2-2. 複数のオペレータを登録する
 1つのファイルに複数のオペレータの処理を定義するためには、作りたいオペレータの数だけオペレータクラスを定義します。
 本節のサンプルアドオンでは、X軸正方向へのオブジェクト並進移動と、負方向へのオブジェクト並進移動の2つのオペレータのために、2つのオペレータクラスを次のように作成しました。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-2.py" block="op_forward_object"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-2.py" block="op_forward_object", unindent="True"]
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-2.py" block="op_backward_object"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-2.py" block="op_backward_object", unindent="True"]
 
 `bl_idname` は、オペレータクラスごとに固有の文字列を指定する必要があるため、重複しないように気をつけてください。
 なお、重複しないようにするための方法をあとで紹介します。
@@ -91,7 +91,7 @@ subtitle: 2-2. 複数のオペレータを登録する
 
 ここでは、`SAMPLE22_OT_ForwardXObject` クラスの `execute` メソッド内に定義されている、オペレータメッセージを出力する処理について説明します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2-2.py" block="execute_forward_object"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2-2.py" block="execute_forward_object", unindent="True"]
 
 `execute` メソッドに渡されてくる引数については、[2-1節](01_Basic_Of_Add-on_Development.html) で説明したため、引数の詳細についての説明はここでは省略します。
 引数 `context` から、現在のコンテキスト（実行状態）を取得できます。

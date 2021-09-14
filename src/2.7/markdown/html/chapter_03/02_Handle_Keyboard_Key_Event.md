@@ -102,7 +102,7 @@ subtitle: 3-2. キーボードのキーイベントを扱う
 この処理を実現するため、キーボードのキーイベントが発生した時に呼び出される `modal` メソッドの引数 `event` のイベント情報を利用します。
 [Q] キーが押された時に、モーダルモードを終了するためのコードを次に示します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_2.py" block="exit_modal_mode"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_2.py" block="exit_modal_mode", unindent="True"]
 
 
 [3-1節](01_Handle_Mouse_Click_Event.html) でも説明しましたが、キーイベント発生時の変数 `event` には、次のようなメンバ変数が格納されています。
@@ -121,7 +121,7 @@ subtitle: 3-2. キーボードのキーイベントを扱う
 オブジェクト並進移動モードでは、利用するキーの状態を確認してオブジェクトを並進移動する必要があります。
 次に示すコードにより、キーの入力を確認してオブジェクトの移動量を設定します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_2.py" block="check_key_state"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_2.py" block="check_key_state", unindent="True"]
 
 
 基本的にはモーダルモード終了処理と同様に、イベント情報 `event` を利用します。
@@ -162,7 +162,7 @@ subtitle: 3-2. キーボードのキーイベントを扱う
 
 キー入力から求めた移動量をもとに、オブジェクトを並進移動します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_2.py" block="translate_object"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_2.py" block="translate_object", unindent="True"]
 
 オブジェクトの並進移動は、`bpy.ops.transform.translate` 関数で行います。
 引数 `value` に並進移動量を `Vector` クラスのインスタンスとして渡すことで、選択中のオブジェクトを並進移動します。

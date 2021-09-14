@@ -78,11 +78,11 @@ Blenderには、*[オブジェクトモード]* 時に *[3Dビューポート]* 
 本節のサンプルアドオンでは、次に示すコードによりクラス変数を追加します。
 パネルクラスの各クラス変数の意味は、[2-7節](../chapter_02/07_Control_Blender_UI.html) を参照してください。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="define_panel_class"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="define_panel_class", unindent="True"]
 
 続いて、UIの描画処理を定義する `draw` メソッドを作成します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="define_draw_method"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="define_draw_method", unindent="True"]
 
 `SAMPLE31_OT_RotateObjectByMouseDragging` クラスのクラスメソッド `is_running` により、オブジェクトの回転処理が実行中か否かを確認したうえで、表示するボタンを切り替えます。
 `SAMPLE31_OT_RotateObjectByMouseDragging` クラスのクラスメソッド `is_running` が `False` の場合は、*[開始]* ボタンを表示します。
@@ -97,7 +97,7 @@ Blenderには、*[オブジェクトモード]* 時に *[3Dビューポート]* 
 その代わり、`modal` メソッドと `invoke` メソッドが定義されています。
 また、オペレータクラス `SAMPLE31_OT_RotateObjectByMouseDragging` には、次に示す4つのクラス変数が定義されています。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="class_variable"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="class_variable", unindent="True"]
 
 これらのクラス変数は、`invoke` メソッドや `modal` メソッドで使用します。
 
@@ -114,7 +114,7 @@ Blenderには、*[オブジェクトモード]* 時に *[3Dビューポート]* 
 
 最初に、*[開始]* ボタンが押されたとき（`SAMPLE31_OT_RotateObjectByMouseDragging` のクラスメソッド `is_running` が `False` の状態でボタンが押されたとき）の処理について説明します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="press_start_button"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="press_start_button", unindent="True"]
 
 最初に各クラス変数に初期値を設定し、`context.window_manager.modal_handler_add` 関数を実行してオペレータクラスを登録します。
 サンプルアドオンでは、`invoke` メソッドと `modal` メソッドを同一のクラスで定義しているため、`context.window_manager.modal_handler_add` 関数の引数に自身のインスタンスである `self` を指定します。
@@ -123,7 +123,7 @@ Blenderには、*[オブジェクトモード]* 時に *[3Dビューポート]* 
 
 次に、*[終了]* ボタンが押されたとき（`SAMPLE31_OT_RotateObjectByMouseDragging` のクラスメソッド `is_running` が `True` の状態でボタンが押されたとき）の処理について説明します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="press_stop_button"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="press_stop_button", unindent="True"]
 
 オブジェクトの回転処理中ではない場合は、クラス変数 `__running` の値が `False` に設定されていなければなりません。
 このため、クラス変数 `__running` を `False` に設定し、`{'FINISHED'}` を返して処理を終えます。
@@ -134,7 +134,7 @@ Blenderには、*[オブジェクトモード]* 時に *[3Dビューポート]* 
 モーダルモード中に呼ばれる `modal` メソッドの処理について説明します。
 最初に `context.area.tag_redraw` メソッドを実行し、エリアを再描画します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="redraw_view3d"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="redraw_view3d", unindent="True"]
 
 この処理が必要なのは、Blenderの画面更新処理が常に行われているわけではなく、視点変更などのイベントが発生したときにしか画面更新されないことへの対策です。
 ここで明示的に画面を更新しない場合、`modal` メソッドの処理でオブジェクトに対して行った処理が直ちに反映されない、という現象が発生してしまいます。
@@ -144,13 +144,13 @@ Blenderには、*[オブジェクトモード]* 時に *[3Dビューポート]* 
 
 続いて、オブジェクトの回転処理が終了している状態か否かを調べ、処理が終了していた場合はモーダルモードを終了します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="exit_modal_mode"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="exit_modal_mode", unindent="True"]
 
 `SAMPLE31_OT_RotateObjectByMouseDragging` のクラスメソッド `is_running` が `False` を返した場合は、オブジェクトの回転処理が終了したことになるため、`{'FINISHED'}` を返して `modal` メソッドを終了し、モーダルモードを終了します。
 
 次に、`modal` メソッドの引数 `event` を用いて、マウスのクリックイベントを取得します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="update_click_status"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="update_click_status", unindent="True"]
 
 `event.type` には、発生したイベントの種類が識別子として保存されています。
 例えば、次のようにマウスやキーボードのイベントを取得できます。
@@ -181,7 +181,7 @@ Blenderには、*[オブジェクトモード]* 時に *[3Dビューポート]* 
 `event.mouse_region_x` には、リージョン座標におけるマウスのX座標の値が保存されているため、モーダルモード開始時のマウス座標値 `op_cls.__right_mouse_down` との差分から、回転角度を求めます。
 そして、モーダルモード開始時のオブジェクトのX軸回転角度に対して、求めた回転角度を加算させることで、マウスのドラッグでオブジェクトを回転させることができます。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="update_object_rotation"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-1.py" block="update_object_rotation", unindent="True"]
 
 サンプルアドオンにおいて `modal` メソッドは、`{'PASS_THROUGH'}` または `{'RUNNING_MODAL'}` を戻り値として返しています。
 `{'PASS_THROUGH'}` を返すことで、イベントを本モーダル処理に閉じずに、別の処理に対してもイベントを通知しつつモーダルモードを継続できます。

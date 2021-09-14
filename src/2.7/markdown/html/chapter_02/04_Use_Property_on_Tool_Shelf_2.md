@@ -115,9 +115,9 @@ location = EnumProperty(
 例えば、[3Dビュー] エリアのメニューである、[オブジェクト] > [選択オブジェクトの複製] を実行した後に、[オブジェクト] > [選択オブジェクトの複製] を再度実行した場合、最初に複製したオブジェクトを複製オブジェクトの配置先として選べる必要があります。
 このため、本節のサンプルでは以下のようにして `EnumProperty` クラスにより作られるセレクトボックスの選択項目を動的に追加する処理を記載しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_4.py" block="enum_list_fn"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_4.py" block="enum_list_fn", unindent="True"]
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_4.py" block="enum_prop"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_4.py" block="enum_prop", unindent="True"]
 
 
 `EnumProperty` クラスの `items` に項目リストを渡す代わりに、項目リストを返す `location_list_fn` 関数を渡しています。

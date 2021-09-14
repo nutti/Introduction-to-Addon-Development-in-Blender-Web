@@ -86,7 +86,7 @@ subtitle: 2-9. BlenderのUIを制御する②
 
 本節のサンプルでは、以下の処理により2種類のボタン（標準のボタンと文字列の周りの装飾が消えたボタン）を追加しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="add_button"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="add_button", unindent="True"]
 
 
 ボタンは `layout.operator` 関数で追加することができ、以下の引数を指定します。
@@ -107,7 +107,7 @@ subtitle: 2-9. BlenderのUIを制御する②
 
 本節のサンプルでは以下の処理により、メニューを追加しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="add_menu"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="add_menu", unindent="True"]
 
 
 [2-5節](05_Create_Sub-menu.html) で説明したサブメニューを追加するための関数 `layout.menu` により、メニューを追加します。
@@ -127,7 +127,7 @@ subtitle: 2-9. BlenderのUIを制御する②
 プロパティの定義は、アドオン有効化時に `register` 関数から呼び出される `init_props` 関数で行います。
 プロパティは、`bpy.types.Scene` に変数を追加することで定義できます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="init_props"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="init_props", unindent="True"]
 
 
 #### プロパティを削除する
@@ -137,7 +137,7 @@ subtitle: 2-9. BlenderのUIを制御する②
 
 本節のサンプルでは、`unregister` 関数から呼び出される `clear_props` 関数により、定義したプロパティを削除しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="clear_props"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="clear_props", unindent="True"]
 
 
 #### プロパティを変更するためのUIを構築する
@@ -154,7 +154,7 @@ subtitle: 2-9. BlenderのUIを制御する②
 本節のサンプルでは `bpy.types.Scene` にプロパティを登録したため、`context.scene` を第1引数に指定します。
 第2引数には、`bpy.types.Scene` に登録したプロパティ変数名を文字列で指定します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="add_prop"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="add_prop", unindent="True"]
 
 
 ### ボタンを一行に並べる
@@ -165,13 +165,13 @@ subtitle: 2-9. BlenderのUIを制御する②
 ボタンを横に並べるためには `layout.row` 関数を使って行成分を取得し、取得した行成分に対して `operator` 関数を使ってボタンを配置する必要があります。
 本節のサンプルでは、以下のようにして3つのボタンを一行に並べています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="arrange_column"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="arrange_column", unindent="True"]
 
 
 なお、`layout.row` 関数の引数に `align=False` を指定すると、ボタンとボタンの間に隙間が空くようにして配置されるようになります。
 一方、以下のコードのように、`align=True` を指定すると、この隙間がなくなります。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="arrange_column_align"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="arrange_column_align", unindent="True"]
 
 
 なお、`operator` の代わりに `label` 関数、`prop` 関数や `menu` 関数を使うことによって、ラベル、プロパティやメニューを一行に並べて配置することができます。
@@ -184,12 +184,12 @@ subtitle: 2-9. BlenderのUIを制御する②
 
 本節のサンプルでは、以下のように3つのボタンを一列に並べています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="arrange_row"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="arrange_row", unindent="True"]
 
 
 ボタン間の隙間を無くすために `align=True` を指定できる点は、`layout.row` 関数と同様です。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="arrange_row_align"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="arrange_row_align", unindent="True"]
 
 
 なお、`operator` 関数の代わりに `label` 関数、`prop` 関数や `menu` 関数を使うことによって、ラベル、プロパティやメニューを一列に並べて配置することができます。
@@ -201,7 +201,7 @@ subtitle: 2-9. BlenderのUIを制御する②
 
 本節のサンプルでは、以下のようにして2行2列にボタンを配置しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="arrange_row_multi"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="arrange_row_multi", unindent="True"]
 
 
 ### 領域を分割する
@@ -215,7 +215,7 @@ subtitle: 2-9. BlenderのUIを制御する②
 
 本節のサンプルでは、以下のような処理で領域を3分割しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="divide_region"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="divide_region", unindent="True"]
 
 
 分割後の各領域では、縦並びにボタンを2つ表示しています。
@@ -233,7 +233,7 @@ subtitle: 2-9. BlenderのUIを制御する②
 
 本節のサンプルでは、以下のように `row.alignment` に `EXPAND` を設定し、明示的にボタンの横幅を自動的に拡大しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="align_expand"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="align_expand", unindent="True"]
 
 
 ### ボタンを右寄せ・左寄せ配置にする
@@ -242,11 +242,11 @@ subtitle: 2-9. BlenderのUIを制御する②
 
 本節のサンプルでは、以下のように `row.alignment` に `LEFT` を設定し、ボタンを左寄せ配置しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="align_left"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="align_left", unindent="True"]
 
 また、`row.alignment` に `RIGHT` を設定することで右寄せ配置も可能です。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="align_right"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="align_right", unindent="True"]
 
 
 ### グループ化する
@@ -256,7 +256,7 @@ subtitle: 2-9. BlenderのUIを制御する②
 
 本節のサンプルでは、以下のコードにより4つのボタンをグループ化しています。グループ内のUIは、通常のUIと同様のコードで構築することができます。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="group"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="group", unindent="True"]
 
 
 ### オプションの UI をカスタマイズする
@@ -268,7 +268,7 @@ subtitle: 2-9. BlenderのUIを制御する②
 
 オプションのUIをカスタマイズする処理を以下に示します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="customize_option_UI"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="customize_option_UI", unindent="True"]
 
 
 オプションのUIの構築は、オペレータクラスの `draw` メソッドで行います。
@@ -282,7 +282,7 @@ subtitle: 2-9. BlenderのUIを制御する②
 
 最後に、以下のコードにより、[利用可能なアイコンをすべて表示] ボタンを配置します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="show_all_icons"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_9.py" block="show_all_icons", unindent="True"]
 
 
 # まとめ

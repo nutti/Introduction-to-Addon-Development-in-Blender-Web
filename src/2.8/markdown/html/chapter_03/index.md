@@ -20,4 +20,4 @@ APIを理解するために毎回調査するのは大変ですし、そもそ�
 5. [blfモジュールを使って文字列を描画する](05_Draw_Texts.html)
 6. [アドオンのUIを複数の言語に対応する](06_Support_Multiple_Languages.html)
 7. [プリファレンスを活用する](07_Use_Preference.html)
-8. [座標変換を活用する](08_Use_Coordinate_Transformation)
+8. [座標変換を活用する](08_Use_Coordinate_Transformation.html)

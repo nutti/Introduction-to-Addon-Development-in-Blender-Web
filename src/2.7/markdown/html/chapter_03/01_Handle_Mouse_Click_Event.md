@@ -84,7 +84,7 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 `bpy.types.PropertyGroup` クラスを継承し、グループ化したいプロパティクラスをクラス変数に追加して使用します。
 なお、定義したプロパティの参照方法は後述します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="define_properties"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="define_properties", unindent="True"]
 
 
 本節のサンプルにおいてグループ化したプロパティの一覧を次に示します。
@@ -99,7 +99,7 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 
 作成したプロパティグループ `DFRC_Properties` は、`register` 関数の処理内で `PointerProperty` クラスを利用して登録します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="register_properties"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="register_properties", unindent="True"]
 
 
 アドオン有効時に、`PointerProperty` の引数 `type` にプロパティをグループ化したクラス `DFRC_Properties` を指定してインスタンスを生成し、`bpy.types.Scene.dfrc_props` 変数に代入します。
@@ -108,7 +108,7 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 
 アドオン無効時には、次のコードにより、追加したプロパティのグループを削除します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="unregister_properties"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="unregister_properties", unindent="True"]
 
 
 <div class="column">
@@ -130,12 +130,12 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 本節のサンプルでは、次に示すコードでクラス変数を追加します。
 パネルクラスの各クラス変数の意味は、[2-8節](../chapter_02/08_Control_Blender_UI_1.html) を参照してください。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="define_panel_class"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="define_panel_class", unindent="True"]
 
 
 続いて、UIの構築処理を定義する `draw` メソッドを作成します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="define_draw_method"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="define_draw_method", unindent="True"]
 
 
 `draw` メソッドに渡されてくる引数 `context` には、`draw` メソッドが呼ばれた時のコンテキスト情報が含まれています。
@@ -168,7 +168,7 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 プロパティグループ `DFRC_Properties` を `invoke` メソッドの引数 `context` から取得する方法は、UIの作成で説明した方法と同様、`context.scene.dfrc_props` で取得することができます。
 ここで取得したプロパティグループ `DFRC_Properties` のクラス変数 `running` が `True` の場合と `False` の場合とで、処理を変えます。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="press_start_button"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="press_start_button", unindent="True"]
 
 
 最初に、[開始] ボタンが押されたとき（`props.running` の値が `False` の状態でボタンが押されたとき）の処理について説明します。
@@ -178,7 +178,7 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 
 本節のアドオンでは、`invoke` メソッドと `modal` メソッドを同一のクラスで定義しているため、`context.window_manager.modal_handler_add` 関数の引数に自身のインスタンスである `self` を指定します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="press_stop_button"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="press_stop_button", unindent="True"]
 
 
 次に、[終了] ボタンが押されたとき（`props.running` の値が `True` の状態でボタンが押されたとき）の処理について説明します。
@@ -193,7 +193,7 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 
 続いて、モーダルモード中に呼ばれる `modal` メソッドの処理について説明します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="redraw_view3d"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="redraw_view3d", unindent="True"]
 
 
 最初に `context.area.tag_redraw` 関数を実行し、[3Dビュー] エリアの画面を更新します。
@@ -204,12 +204,12 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 本節のサンプルでは、[開始] ボタンを押した時に呼ばれる `invoke` メソッドの処理の中でモーダルモードに移行するため、`context.area` には [3Dビュー] エリアのエリア情報が保存されています。
 このため、`context.area.tag_redraw` 関数を実行することで、[3Dビュー] エリアを更新することができます。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="exit_modal_mode"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="exit_modal_mode", unindent="True"]
 
 
 続いて面の削除処理が終了している状態であるか否かを調べ、削除処理が終了していた場合はモーダルモードを終了します。サンプルでは、`props.running` が `False` である場合は面の削除処理が終了したことになるため、`{'FINISHED'}` を返して `modal` メソッドを終了し、モーダルモードを終了します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="update_click_status"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="update_click_status", unindent="True"]
 
 
 次に、`modal` メソッドの引数 `event` を用いて、マウスのクリックイベントを取得します。
@@ -229,7 +229,7 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 |`PRESS`|ボタンやキーが押された|
 |`RELEASE`|ボタンやキーが離された|
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="delete_face"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="delete_face", unindent="True"]
 
 
 右クリックされ、面を削除できると判断する処理について、説明します。
@@ -243,7 +243,7 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 そこで、マウスを右クリックした後に1回でも面を削除した場合に `Ture` が設定される変数、`props.deleted` が `True` である場合は、削除処理を行わないようにします。
 なお `props.right_mouse_down` は、便宜的に右クリックしたことを示すための変数です。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="clear_restrict_status"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="clear_restrict_status", unindent="True"]
 
 
 ちなみに、`props.deleted` が `True` の間は面を削除することができないため、`props.right_mouse_down` が `False` に変わった時に `props.deleted` を `False` に戻すことで、再度右クリックされた時に面を削除できるような処理があることに注意してください。
@@ -258,12 +258,12 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 最近作成されているアドオンでは、`bmesh` を使ってメッシュデータにアクセスしている場合がほとんどですので、基本的に `bmesh` を使ってメッシュデータを扱うようにしましょう。
 `bmesh` を利用するためには、次のように `bmesh` モジュールをインポートする必要があります。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="import_bmesh"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="import_bmesh", unindent="True"]
 
 
 インポートした `bmesh` モジュールを使って面を削除する処理について説明します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="build_bmesh"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="build_bmesh", unindent="True"]
 
 
 メッシュデータにアクセスするためには、`bmesh` 用のメッシュデータを構築する必要があります。
@@ -282,7 +282,7 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 
 #### 1. クリック時にマウスカーソルの位置にある面を選択
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="select_clicked_face"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="select_clicked_face", unindent="True"]
 
 
 クリック時のマウスカーソルの位置は、`modal` メソッドの引数 `event` から取得できます。
@@ -297,7 +297,7 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 
 #### 2. 選択された面を取得
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="get_selected_face"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="get_selected_face", unindent="True"]
 
 
 選択された面を取得するために、`bmesh` の履歴情報を利用します。
@@ -313,7 +313,7 @@ Blenderには、オブジェクトモード時に3Dビューエリア上でSキ�
 
 クリック時にマウスの位置にある面を取得できたところで、いよいよ面を削除します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="delete_selected_face"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="delete_selected_face", unindent="True"]
 
 
 面は `bmesh.ops.delete` 関数で削除することができ、以下に示す引数を指定します。
@@ -349,7 +349,7 @@ Blender本体のソースコードを参照することで、contextに指定す
 ここまでの処理で面を削除することができました。
 しかし、ここで `modal` メソッドの処理を終了してしまうと、面の削除がメッシュに反映されないことに注意が必要です。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="update_bmesh"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="update_bmesh", unindent="True"]
 
 
 面を削除したことをメッシュに反映させるためには、`bmesh.update_edit_mesh` 関数を実行して面の削除をメッシュに反映する必要があります。
@@ -357,7 +357,7 @@ Blender本体のソースコードを参照することで、contextに指定す
 
 面の削除処理の説明はこれで終わりです。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="post_process"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3_1.py" block="post_process", unindent="True"]
 
 
 最後に、削除した面数をカウントアップします。

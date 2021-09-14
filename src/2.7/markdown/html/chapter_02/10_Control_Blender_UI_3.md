@@ -146,7 +146,7 @@ subtitle: 2-10. BlenderのUIを制御する③
 
 ポップアップメッセージを表示するためのオペレータクラスを、以下に示します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="ops_show_popup_message"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="ops_show_popup_message", unindent="True"]
 
 
 ポップアップメッセージの表示はボタンを押したときに呼ばれる `invoke` メソッドで行っています。
@@ -175,7 +175,7 @@ subtitle: 2-10. BlenderのUIを制御する③
 
 [ポップアップメッセージ] ボタンを配置する処理を以下に示します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="show_popup_message"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="show_popup_message", unindent="True"]
 
 
 ## ダイアログメニューを表示する
@@ -185,7 +185,7 @@ subtitle: 2-10. BlenderのUIを制御する③
 
 ダイアログメニューを表示するオペレータクラスを以下に示します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="ops_show_dialog_menu"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="ops_show_dialog_menu", unindent="True"]
 
 
 `ShowDialogMenu` クラスには4つのプロパティクラスの変数が宣言されていて、ダイアログメニューではこれらのプロパティを表示します。
@@ -209,7 +209,7 @@ subtitle: 2-10. BlenderのUIを制御する③
 
 [ダイアログメニュー] ボタンを配置する処理を以下に示します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="show_dialog_menu"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="show_dialog_menu", unindent="True"]
 
 
 ## ファイルブラウザを表示する
@@ -219,7 +219,7 @@ subtitle: 2-10. BlenderのUIを制御する③
 
 本節のサンプルでは、以下のコードでファイルブラウザを表示しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="ops_show_file_browser"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="ops_show_file_browser", unindent="True"]
 
 
 ファイルブラウザを表示するためには、`invoke` メソッド内で `wm.fileselect_add` 関数を呼ぶ必要があります。
@@ -234,7 +234,7 @@ subtitle: 2-10. BlenderのUIを制御する③
 
 最後に、[ファイルブラウザ] ボタンを配置する処理を以下に示します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="show_file_browser"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="show_file_browser", unindent="True"]
 
 
 ## 実行確認のポップアップを表示する
@@ -246,7 +246,7 @@ Blenderの機能の中には、実行する前に処理を実行するか中断�
 
 本節のサンプルでは、以下のコードで実行確認のポップアップを表示しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="ops_show_confirm_popup"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="ops_show_confirm_popup", unindent="True"]
 
 
 実行確認のポップアップは、`invoke` メソッド内から `wm.invoke_confirm` 関数を呼び出して表示しています。
@@ -260,7 +260,7 @@ Blenderの機能の中には、実行する前に処理を実行するか中断�
 
 [確認ポップアップ] ボタンを配置する処理を以下に示します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="show_confirm_popup"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="show_confirm_popup", unindent="True"]
 
 
 ## プロパティ付きポップアップを表示する
@@ -270,7 +270,7 @@ Blenderの機能の中には、実行する前に処理を実行するか中断�
 
 本節のサンプルでは、以下のようにしてプロパティ付きポップアップを表示しています。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="ops_show_property_popup"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="ops_show_property_popup", unindent="True"]
 
 
 プロパティ付きポップアップは、`invoke` メソッド内から `context.window_manager.invoke_props_popup` 関数を実行することで表示することができます。
@@ -287,7 +287,7 @@ Blenderの機能の中には、実行する前に処理を実行するか中断�
 
 [プロパティ付きポップアップ] ボタンを配置する処理を以下に示します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="show_property_popup"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="show_property_popup", unindent="True"]
 
 
 ## 検索ウィンドウ付きポップアップを表示する
@@ -297,7 +297,7 @@ Blenderの機能の中には、実行する前に処理を実行するか中断�
 
 本節のサンプルでは、検索ウィンドウ付きポップアップを以下のコードにより表示します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="ops_show_search_popup"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="ops_show_search_popup", unindent="True"]
 
 
 検索ウィンドウ付きのポップアップを表示するためには、`invoke` メソッド内で `context.window_manager.invoke_search_popup` 関数を使います。
@@ -312,7 +312,7 @@ Blenderの機能の中には、実行する前に処理を実行するか中断�
 
 最後に、[検索ウィンドウ付きポップアップ] ボタンを配置する処理を以下に示します。
 
-[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="show_search_popup"]
+[@include-source pattern="partial" filepath="chapter_02/sample_2_10.py" block="show_search_popup", unindent="True"]
 
 
 # まとめ

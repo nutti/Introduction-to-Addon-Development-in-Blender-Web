@@ -77,7 +77,7 @@ Sidebarを表示し、タブ *[サンプル 3-3]* にパネル *[日時を表示
 タイマイベントを発生させるためには、タイマを登録する必要があります。
 タイマの登録処理は、次に示す `__handle_add` メソッドで行います。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-3.py" block="add_timer"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-3.py" block="add_timer", unindent="True"]
 
 
 タイマは、`context.window_manager.event_timer_add` メソッドを呼び出すことで登録できます。
@@ -104,7 +104,7 @@ Sidebarを表示し、タブ *[サンプル 3-3]* にパネル *[日時を表示
 
 タイマの登録解除処理は、次に示す `__handle_remove` メソッドで行っています。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-3.py" block="remove_timer"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-3.py" block="remove_timer", unindent="True"]
 
 `context.window_manager.event_timer_remove` メソッドを呼び出すことで、タイマを登録解除できますが、引数には、 `context.window_manager.event_timer_add` メソッドの戻り値として返されたタイマのハンドラを渡す必要があります。
 本節のサンプルアドオンでは、タイマのハンドラを保存したクラス変数 `__timer` を引数に渡し、タイマを登録解除します。
@@ -120,7 +120,7 @@ Sidebarを表示し、タブ *[サンプル 3-3]* にパネル *[日時を表示
 [3-1節](01_Handle_Mouse_Event.html) や [3-2節](02_Handle_Keyboard_Event.html) で説明したように、`modal` メソッドはキーボードやマウスのイベントが発生したときにも呼ばれます。
 このため、タイマイベントが発生したとき（`event.type` が `'TIMER'` のとき）のみ、日時を更新するようにします。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-3.py" block="handle_timer_event"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-3.py" block="handle_timer_event", unindent="True"]
 
 
 ## invokeメソッド
@@ -130,7 +130,7 @@ Sidebarを表示し、タブ *[サンプル 3-3]* にパネル *[日時を表示
 作成したテキストオブジェクトは、モーダルモード終了時に削除できるように、テキストオブジェクトの名前をクラス変数 `__text_object_name` に保存しておきます。
 また、テキストオブジェクトのテキストには、空文字列を設定します。
 
-[@include-source pattern="partial" filepath="chapter_03/sample_3-3.py" block="make_text_object"]
+[@include-source pattern="partial" filepath="chapter_03/sample_3-3.py" block="make_text_object", unindent="True"]
 
 
 # まとめ
