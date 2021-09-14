@@ -1,6 +1,7 @@
 @include pc {
     .body {
         position: absolute;
+        overflow-x: hidden;
         overflow-y: auto;
         top: 0;
         bottom: 0;
@@ -246,6 +247,7 @@
 @include sp {
     .body {
         position: absolute;
+        overflow-x: hidden;
         overflow-y: auto;
         top: 0;
         bottom: 0;
