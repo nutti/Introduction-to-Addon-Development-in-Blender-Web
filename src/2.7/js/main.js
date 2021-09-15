@@ -14,12 +14,14 @@ function _close_pc_toc($) {
 
 function _open_sp_toc($) {
     $('.toc-sp').fadeIn(500);
+    $('.body').removeClass('sp-toc-closed');
     $('#toggle-sp-toc-open').fadeOut(0);
     $('.toggle-sp-toc-close').fadeIn(500);
 }
 
 function _close_sp_toc($) {
     $('.toc-sp').fadeOut(500);
+    $('.body').addClass('sp-toc-closed');
     $('#toggle-sp-toc-open').fadeIn(500);
     $('.toggle-sp-toc-close').fadeOut(500);
 }
@@ -35,6 +37,7 @@ function setupMenuVisibility()
                 _close_pc_toc($);
             }
         }
+        _close_sp_toc($);
     });
 }
 
