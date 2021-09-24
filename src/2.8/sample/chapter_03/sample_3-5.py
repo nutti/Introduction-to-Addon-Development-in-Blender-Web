@@ -15,7 +15,7 @@ bl_info = {
     "description": "現在の日時を表示するアドオン",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "3D View"
 }
@@ -91,6 +91,7 @@ class SAMPLE35_OT_ShowDatetime(bpy.types.Operator):
         #         このため表示の不自然さを避けるため、時間以下の情報を表示していない。
         if region is not None:
 # @include-source start [draw_text]
+            blf.color(0, 1.0, 1.0, 1.0, 1.0)
             blf.size(0, 30, 72)
             blf.position(0, 100.0, region.height - 120.0, 0)
             date_str = datetime.datetime.now().strftime("%Y.%m.%d")

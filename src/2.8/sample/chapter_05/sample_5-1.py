@@ -14,7 +14,7 @@ bl_info = {
     "description": "オブジェクトの並進移動、拡大・縮小、回転をキーボードから行うアドオン",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "Object"
 }

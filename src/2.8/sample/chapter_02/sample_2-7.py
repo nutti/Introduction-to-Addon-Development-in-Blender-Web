@@ -17,7 +17,7 @@ bl_info = {
     "description": "BlenderのUIを制御するアドオン",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "User Interface"
 }

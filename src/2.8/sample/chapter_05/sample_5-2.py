@@ -15,7 +15,7 @@ bl_info = {
     "description": "各オブジェクトについて、オブジェクトモードとエディットモードでの作業時間を計測するアドオン",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "User Interface"
 }
@@ -102,6 +102,8 @@ class SAMPLE52_OT_CalculateWorkingHours(bpy.types.Operator):
 
     @staticmethod
     def __draw_text(size, x, y, msg):
+        # フォントの色を指定
+        blf.color(0, 1.0, 1.0, 1.0, 1.0)
         # フォントサイズを指定
         blf.size(0, size, 72)
         # 描画位置を指定

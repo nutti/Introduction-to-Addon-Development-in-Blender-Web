@@ -11,7 +11,7 @@ bl_info = {
     "description": "アクティブなオブジェクトを並進移動するサンプルアドオン（ショートカットあり）",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "Object"
 }

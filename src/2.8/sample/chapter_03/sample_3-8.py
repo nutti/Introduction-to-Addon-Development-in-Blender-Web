@@ -17,7 +17,7 @@ bl_info = {
     "description": "マウスカーソルの位置にあるメッシュの面を選択するサンプルアドオン",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "Mesh"
 }

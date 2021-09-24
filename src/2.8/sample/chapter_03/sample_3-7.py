@@ -14,7 +14,7 @@ bl_info = {
     "description": "現在の日時を表示するアドオン（プリファレンス利用版）",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "3D View"
 }
@@ -85,6 +85,7 @@ class SAMPLE37_OT_ShowDatetime(bpy.types.Operator):
         # 描画先のリージョンへテキストを描画
         if region is not None:
 # @include-source start [refer_prefs]
+            blf.color(0, 1.0, 1.0, 1.0, 1.0)
             blf.size(0, prefs.font_size, 72)
             blf.position(0, prefs.position[0],
                          region.height - prefs.position[1], 0)

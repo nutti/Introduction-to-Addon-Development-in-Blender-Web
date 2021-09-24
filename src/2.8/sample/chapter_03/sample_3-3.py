@@ -12,7 +12,7 @@ bl_info = {
     "description": "現在の日時をテキストオブジェクトとして表示するアドオン",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "Object"
 }

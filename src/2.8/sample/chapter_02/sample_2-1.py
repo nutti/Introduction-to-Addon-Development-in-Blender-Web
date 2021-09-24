@@ -14,7 +14,7 @@ bl_info = {
     "description": "オブジェクトを生成するサンプルアドオン",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "Object"
 }

@@ -10,7 +10,7 @@ bl_info = {
     "description": "入力したキーのテキストオブジェクトを表示するアドオン",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "Object"
 }

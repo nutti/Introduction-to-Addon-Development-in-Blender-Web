@@ -7,7 +7,7 @@ bl_info = {
     "description": "アドオンの有効化と無効化を試すためのサンプル",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "Object"
 }

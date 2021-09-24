@@ -11,7 +11,7 @@ bl_info = {
     "description": "アクティブなオブジェクトを並進移動するサンプルアドオン（移動量、移動軸 任意指定版）",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "Object"
 }

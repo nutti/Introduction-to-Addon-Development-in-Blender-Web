@@ -19,7 +19,7 @@ bl_info = {
     "description": "星型の図形を描画するアドオン",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "3D View"
 }

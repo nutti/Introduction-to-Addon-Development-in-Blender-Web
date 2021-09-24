@@ -14,7 +14,7 @@ bl_info = {
     "description": "オブジェクトの位置にオブジェクト名を表示し、マウスカーソルの位置に向けて発したレイと交差するオブジェクト名を表示するアドオン",
     "warning": "",
     "support": "TESTING",
-    "wiki_url": "",
+    "doc_url": "",
     "tracker_url": "",
     "category": "3D View"
 }
@@ -85,6 +85,7 @@ class SAMPLE53_OT_ShowObjectName(bpy.types.Operator):
 
     @staticmethod
     def __draw_text(size, x, y, msg):
+        blf.color(0, 1.0, 1.0, 1.0, 1.0)
         blf.size(0, size, 72)
         blf.position(0, x, y, 0)
         blf.draw(0, msg)

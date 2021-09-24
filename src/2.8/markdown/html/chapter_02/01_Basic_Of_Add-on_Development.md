@@ -122,7 +122,7 @@ Blenderのアドオンを開発するためには、bpyモジュールと呼ば�
 |`description`|`str`|アドオンの説明文|
 |`warning`|`str`|アドオン使用時の注意点、バグ情報等|
 |`support`|`str`|アドオンのサポートレベル|
-|`wiki_url`|`str`|アドオンに関連する情報が得られるサイトのURL（ドキュメントサイト）|
+|`doc_url`|`str`|アドオンに関連する情報が得られるサイトのURL（ドキュメントサイト）。Blender 2.83より前のバージョンでは `wiki_url` を利用する|
 |`tracker_url`|`str`|アドオンのサポートサイトのURL|
 |`category`|`str`|アドオンのカテゴリ|
 
@@ -139,17 +139,17 @@ Blenderのアドオンを開発するためには、bpyモジュールと呼ば�
 * `location`
 * `description`
 * `warning`
-* `wiki_url`
+* `doc_url` (`wiki_url`)
 * `tracker_url`
 
 本節で作成したアドオンについて、上記のキーに設定した値がどのようにBlenderに反映されるかを見てみましょう。
 
 次の図では、`bl_info` 変数に指定された値と表示内容の対応関係を示しています。
-`warning`, `wiki_url`, `tracker_url` については、本節のサンプルアドオンでは未設定のため表示されていません。
+`warning`, `doc_url` (`wiki_url`), `tracker_url` については、本節のサンプルアドオンでは未設定のため表示されていません。
 
 ![](../../images/chapter_02/01_Basic_Of_Add-on_Development/bl-info_1.png "bl_info 解説1")
 
-本節で作成したサンプルアドオンは、`warning`, `wiki_url`, `tracker_url` を設定していませんが、もしこれらのキーについて値を設定した場合に *[プリファレンス]* へどのように反映されるかを確認するため、ソースコードの `bl_info` を次のように書き換えます。
+本節で作成したサンプルアドオンは、`warning`, `doc_url` (`wiki_url`), `tracker_url` を設定していませんが、もしこれらのキーについて値を設定した場合に *[プリファレンス]* へどのように反映されるかを確認するため、ソースコードの `bl_info` を次のように書き換えます。
 
 ```python
 # アドオンに関する情報を保持する、bl_info変数
@@ -162,7 +162,7 @@ bl_info = {
     "description": "オブジェクトを生成するサンプルアドオン",
     "warning": "本アドオンはサンプルです",
     "support": "TESTING",
-    "wiki_url": "https://github.com/nutti/Introduction-to-Addon-Development-in-Blender-Web/wiki",
+    "doc_url": "https://github.com/nutti/Introduction-to-Addon-Development-in-Blender-Web/wiki",
     "tracker_url": "https://github.com/nutti/Introduction-to-Addon-Development-in-Blender-Web",
     "category": "Object"
 }
@@ -172,8 +172,8 @@ bl_info = {
 
 ![](../../images/chapter_02/01_Basic_Of_Add-on_Development/bl-info_2.png "bl_info 解説2")
 
-*[ドキュメント編集]* ボタンをクリックすると、`wiki_url` に指定したURLが開きます。
-アドオンのドキュメントやアドオンの最新情報が得られるサイトのURLを、`wiki_url` に設定します。
+*[ドキュメント編集]* ボタンをクリックすると、`doc_url` (`wiki_url`) に指定したURLが開きます。
+アドオンのドキュメントやアドオンの最新情報が得られるサイトのURLを、`doc_url` (`wiki_url`) に設定します。
 本節のサンプルアドオンでは、本書を構築するファイルを保存しているGitHubプロジェクトのWikiページを設定しました。
 
 *[バグを報告]* ボタンをクリックすると、`tracker_url` に指定したURLが開きます。
@@ -297,7 +297,7 @@ Blenderのバージョンが2.80のとき、`(2, 80, 0)` を指定します。
 ![](../../images/chapter_02/01_Basic_Of_Add-on_Development/bl-info_4.png "bl_info 解説4")
 
 
-#### wiki_url
+#### `doc_url` (`wiki_url`)
 
 アドオンのチュートリアルなど、アドオンに関するドキュメントが存在するWebページのURLを指定します。
 Blender公式のWikiページにアドオンのドキュメントを公開している場合は、Blender公式のWikiページ（[https://wiki.blender.org/wiki/Extensions:2.6/Py/Scripts](https://wiki.blender.org/wiki/Extensions:2.6/Py/Scripts)）を指定できます。
