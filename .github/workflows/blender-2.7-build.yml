@@ -1,0 +1,72 @@
+name: Blender 2.7 Build
+
+on:
+  push:
+    branches:
+      - master
+      - ci_testing
+  pull_request:
+
+jobs:
+  build-test:
+    name: Build Test
+    runs-on: ubuntu-latest
+    container:
+      image: nutti/pandoc_gulp_html:v1.0
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v1
+        with:
+          lfs: true
+      - name: Install npm dependencies
+        run: npm install --dev
+      - name: Install gem dependencies
+        run: bundle install
+      - name: Create artifacts (Blender 2.7)
+        run: gulp build --blender-version=2.7 --dest-dir=build/2.7
+      - name: Compress artifacts
+        run: |
+          mkdir release
+          mv build/2.7 release
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-2.7
+          path: "release"
+  build-prod:
+    name: Build for Production
+    needs: build-test
+    runs-on: ubuntu-latest
+    container:
+      image: nutti/colorful-pico.net:v1.0
+      credentials:
+        username: ${{ secrets.dockerhub_user }}
+        password: ${{ secrets.dockerhub_pass }}
+      options: --user root
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v1
+        with:
+          lfs: true
+      - name: Setup PATH
+        run: |
+          echo "/root/.rbenv/shims" >> $GITHUB_PATH
+          echo "/root/.rbenv/bin" >> $GITHUB_PATH
+      - name: Install npm dependencies
+        run: npm install
+      - name: Install gem dependencies
+        run: |
+          . /root/.bashrc
+          bundle install
+          gem install compass
+      - name: Create artifacts (Blender 2.7)
+        run: gulp build --blender-version=2.7 --dest-dir=build/2.7
+      - name: Compress artifacts
+        run: |
+          mkdir release
+          mv build/2.7 release
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: prod-2.7
+          path: "release"
