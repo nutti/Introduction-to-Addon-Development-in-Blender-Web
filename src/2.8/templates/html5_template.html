@@ -87,9 +87,7 @@ $endfor$
     $if(title-prefix)$
     <p class="title">$title-prefix$</p>
     $endif$
-    $if(date)$
-    <p class="date">Last Update: $date$</p>
-    $endif$
+    <p class="date">Last Update: <!-- @include-date --></p>
     <!-- @include-toc -->
   </div>
   <div id="toc-sp" class="toc-sp">
@@ -98,9 +96,7 @@ $endfor$
       <p class="title">$title-prefix$</p>
       $endif$
       <!-- @include-toc -->
-      $if(date)$
-      <p class="date">Last Update: $date$</p>
-      $endif$
+      <p class="date">Last Update: <!-- @include-date --></p>
     </div>
   </div>
 </div>

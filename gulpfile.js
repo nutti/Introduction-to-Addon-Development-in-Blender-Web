@@ -10,6 +10,9 @@ let through = require('through2');
 let execSync = require('child_process').execSync;
 let fs = require('fs');
 
+let currentDate = new Date();
+
+
 function parseOptions() {
     let options = {};
 
@@ -520,9 +523,32 @@ function appendTocParamsToUrl(input, passCount, destHtmlPath, tocMetadata)
 }
 
 
+function includeDate(input, passCount) {
+    let output = [];
+
+    let year = currentDate.getFullYear();
+    let month = currentDate.getMonth() + 1;
+    let day = currentDate.getDate();
+    let replace = `${year}.${month}.${day}`;
+
+    input.forEach((line) => {
+        let pattern = /<!--\s+@include-date\s+-->/;
+        let regexp = new RegExp(pattern, 'g');
+
+        line = line.replace(regexp, replace);
+
+        output.push(line);
+    });
+
+    debugLog(`    [Pass ${passCount}] Include Date`);
+
+    return output;
+}
+
+
 function postProcess(input, destHtmlPath, tocMetadata) {
     let output = input;
-    let passPipeline = [includeToc, replaceOwnUrl, includePrevNextUrl, appendTocParamsToUrl];
+    let passPipeline = [includeToc, replaceOwnUrl, includePrevNextUrl, appendTocParamsToUrl, includeDate];
     let passCount = 0;
 
     passPipeline.forEach((pass) => {
