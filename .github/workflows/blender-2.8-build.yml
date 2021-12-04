@@ -1,6 +1,7 @@
 name: Blender 2.8 Build
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
