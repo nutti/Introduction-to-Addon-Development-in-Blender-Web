@@ -24,7 +24,9 @@ jobs:
       - name: Install gem dependencies
         run: bundle install
       - name: Create artifacts (Blender 2.7)
-        run: gulp build --blender-version=2.7 --dest-dir=build/2.7
+        run: |
+          gulp build --blender-version=2.7 --dest-dir=build/2.7
+          bash tools/embed_ad/embed_ad.sh build
       - name: Compress artifacts
         run: |
           mkdir release
@@ -61,7 +63,9 @@ jobs:
           bundle install
           gem install compass
       - name: Create artifacts (Blender 2.7)
-        run: gulp build --blender-version=2.7 --dest-dir=build/2.7
+        run: |
+          gulp build --blender-version=2.7 --dest-dir=build/2.7
+          bash tools/embed_ad/embed_ad.sh build
       - name: Compress artifacts
         run: |
           mkdir release
