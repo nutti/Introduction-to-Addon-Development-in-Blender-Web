@@ -16,7 +16,7 @@ $endif$
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@$twitter-site$" />
   <meta property="og:url" content="$og-url$" />
-  <meta property="og:title" content="$if(title-prefix)$$title-prefix$$endif$$if(pagetitle)$ | $pagetitle$$endif$" />
+  <meta property="og:title" content="$if(pagetitle)$$pagetitle$$endif$$if(title-prefix)$ | $title-prefix$$endif$" />
 $if(description)$
   <meta property="og:description" content="$description$" />
 $endif$
@@ -29,7 +29,7 @@ $endif$
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
-  <title>$if(title-prefix)$$title-prefix$$endif$$if(pagetitle)$ | $pagetitle$$endif$</title>
+  <title>$if(pagetitle)$$pagetitle$$endif$$if(title-prefix)$ | $title-prefix$$endif$</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -88,12 +88,18 @@ $endfor$
     <p class="title">$title-prefix$</p>
     $endif$
     <p class="date">Last Update: <!-- @include-date --></p>
+    $if(support-version)$
+    <p class="support-version">$support-version$</p>
+    $endif$
     <!-- @include-toc -->
   </div>
   <div id="toc-sp" class="toc-sp">
     <div class="contents">
       $if(title-prefix)$
       <p class="title">$title-prefix$</p>
+      $endif$
+      $if(support-version)$
+      <p class="support-version">$support-version$</p>
       $endif$
       <!-- @include-toc -->
       <p class="date">Last Update: <!-- @include-date --></p>
@@ -119,7 +125,7 @@ $endfor$
                 <a href="$contrib-url$">本を修正する</a>
             </div>
             <div class="share">
-                <a href="https://twitter.com/home?status=$title-prefix$%20|%20$subtitle$%20$deploy-url$/<!-- @replace-own-url -->">Twitter</a>
+                <a href="https://twitter.com/home?status=$pagetitle$%20|%20$title-prefix$%20$deploy-url$/<!-- @replace-own-url -->">Twitter</a>
             </div>
         </header>
 
