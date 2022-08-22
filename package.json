@@ -16,7 +16,6 @@
   },
   "homepage": "https://github.com/nutti/Introduction-to-Addon-Development-in-Blender-Web/blob/master/README.md",
   "devDependencies": {
-    "firebase-tools": "^6.7.0",
     "gulp": "^4.0.0",
     "gulp-compass": "^2.1.0",
     "gulp-exec": "^3.0.2",
@@ -24,7 +23,6 @@
     "gulp-rename": "^1.4.0"
   },
   "dependencies": {
-    "firebase-tools": "^7.5.0",
     "gulp": "^4.0.2",
     "gulp-compass": "^2.1.0",
     "gulp-exec": "^4.0.0",
