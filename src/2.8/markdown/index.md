@@ -2,7 +2,7 @@
 pagetitle: 目次
 ---
 
-## 宣伝: 電子書籍版『はじめてのBlenderアドオン開発 v3』
+## 電子書籍『はじめてのBlenderアドオン開発 v3』
 
 **Blenderアドオン開発 入門書の決定版！ [BOOTH](https://colorful-pico.booth.pm/items/1678181) にて販売中です！**
 
@@ -16,6 +16,19 @@ Web版では解説していない、より進んだ内容やPython APIの解説�
 Blender 2.8に対応しています。
 
 ※タイトルにv3が含まれていますが、v1やv2の続編ではありません（v1やv2は古いBlenderバージョン向けでした）
+
+## 電子書籍『BLENDER INTERNALS』
+
+**希少な情報がたくさん！Blender内部構造解説本、[BOOTH](https://colorful-pico.booth.pm/items/1815127) にて販売中です！**
+
+<a href="https://colorful-pico.booth.pm/items/1815127">
+<img src="https://s2.booth.pm/0776876a-b0d5-43e5-8ea4-2ab6342eb9fe/i/1815127/1d84d7d0-5748-414a-9160-3589dda2e863_base_resized.jpg" style="width: 15%;" />
+</a>
+
+世界でも希少な、3DCG制作ソフト「Blender」の内部構造をまとめた本です！  
+Blenderのアーキテクチャや、各コンポーネントの動作をソースコードレベルで解説します。  
+Blenderの内部構造を理解することで、より高度なアドオン開発に役立つほか、Blender自体の改造にも挑戦できます。  
+Blender 2.93.5を対象としていますが、大半の内容は3.0以降のバージョンでも役立つと考えています。
 
 ---------------------------------------
 
