@@ -19,7 +19,7 @@ Blender 2.8に対応しています。
 
 ## 電子書籍『BLENDER INTERNALS』
 
-**希少な情報がたくさん！Blender内部構造解説本、[BOOTH](https://colorful-pico.booth.pm/items/1815127) にて販売中です！**
+**希少な情報が一冊にまとまって登場！Blender内部構造解説本、[BOOTH](https://colorful-pico.booth.pm/items/1815127) にて販売中です！**
 
 <a href="https://colorful-pico.booth.pm/items/1815127">
 <img src="https://s2.booth.pm/0776876a-b0d5-43e5-8ea4-2ab6342eb9fe/i/1815127/1d84d7d0-5748-414a-9160-3589dda2e863_base_resized.jpg" style="width: 15%;" />
